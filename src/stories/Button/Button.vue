@@ -1,6 +1,7 @@
 <template>
   <button
-    type="button" class="m-0"
+    type="button" 
+    class="m-0"
     :class="classes"
     @click="onClick"
     :style="style"
@@ -10,7 +11,6 @@
 </template>
 
 <script lang="ts">
-import './button.css';
 import { reactive, computed } from 'vue';
 
 export default {
