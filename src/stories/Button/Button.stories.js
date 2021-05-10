@@ -1,8 +1,8 @@
-import MyButton from './Button.vue';
+import Button from './Button.vue';
 
 export default {
   title: 'Photon/Button',
-  component: MyButton,
+  component: Button,
   argTypes: {
     backgroundColor: { control: 'color' },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
@@ -12,7 +12,7 @@ export default {
 
 const Template = (args) => ({
   // Components used in your story `template` are defined in the `components` object
-  components: { MyButton },
+  components: { Button },
   // The story's `args` need to be mapped into the template through the `setup()` method
   setup() {
     return { args };

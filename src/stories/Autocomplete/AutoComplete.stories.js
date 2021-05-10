@@ -1,4 +1,4 @@
-import AutoComplete from '../components/AutoComplete.vue';
+import AutoComplete from './AutoComplete.vue';
 
 export default {
   title: 'Photon/AutoComplete',
