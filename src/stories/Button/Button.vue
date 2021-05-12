@@ -1,7 +1,7 @@
 <template>
   <button
     type="button" 
-    class="m-0"
+    class="m-4"
     :class="classes"
     @click="onClick"
     :style="style"
@@ -11,9 +11,16 @@
 </template>
 
 <script lang="ts">
-import { reactive, computed } from 'vue';
+import { defineComponent, reactive, computed } from 'vue';
 
-export default {
+interface Props {
+  label: string;
+  primary: boolean;
+  size: string;
+  backgroundColor: string;
+}
+
+export default defineComponent({
   name: 'button',
 
   props: {
@@ -38,9 +45,9 @@ export default {
 
   emits: ['click'],
 
-  setup(_: never, { emit }: {
-    emit: void
-  }): {
+  setup(_: Props, { emit }: {
+    emit: (a: string) => void;
+  }): () => {
     classes: unknown;
     style: unknown;
     onClick: unknown;
@@ -61,5 +68,5 @@ export default {
       },
     };
   },
-};
+});
 </script>
