@@ -5,7 +5,6 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
-    '@vue/airbnb',
     'eslint:recommended',
     '@vue/typescript/recommended',
   ],
@@ -27,4 +26,11 @@ module.exports = {
       },
     },
   ],
+  'import/resolver': {
+    alias: {
+      map: [
+        ['@', './src']
+      ]
+    }
+  }
 };
