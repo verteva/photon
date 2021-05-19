@@ -1,14 +1,12 @@
-const path = require('path');
+import { join } from 'path';
 
-module.exports = {
-  configureWebpack: {
-    output: {
-      libraryExport: 'default',
-    },
-    resolve: {
-      alias: {
-        '@': path.join(__dirname, './src'),
-      },
+export const configureWebpack = {
+  output: {
+    libraryExport: 'default',
+  },
+  resolve: {
+    alias: {
+      '@': join(__dirname, './src'),
     },
   },
 };
