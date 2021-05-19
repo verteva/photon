@@ -5,11 +5,14 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib src/main.ts",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook"
   },
+  "files": ["dist/*"],
+  "main": "./dist/photon.umd.js",
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@vue/cli-plugin-typescript": "^4.5.13",
