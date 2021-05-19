@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, computed, ref, PropType } from 'vue';
-import { theme } from '../../../tailwind.config.js'
+// import { theme } from '../../../tailwind.config.js'
 
 interface Props {
   label: string;
@@ -60,17 +60,17 @@ export default defineComponent({
   } {
     const props:Props = reactive(_);
     
-    let backgroundColor = theme.colors.brandPrimary;
-    if (props.type === ButtonSecondary) {
-      backgroundColor = theme.colors.brandSecondary;
-    }
+    // let backgroundColor = theme.colors.brandPrimary;
+    // if (props.type === ButtonSecondary) {
+    //   backgroundColor = theme.colors.brandSecondary;
+    // }
     
-    if (props.type === ButtonOutline) {
-      backgroundColor = 'none';
-    }    
+    // if (props.type === ButtonOutline) {
+    //   backgroundColor = 'none';
+    // }    
 
     const style:any = computed(() => ({
-      backgroundColor,
+      backgroundColor: 'red',
     }));
 
     const onClick:any = function():void {
