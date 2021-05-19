@@ -26,11 +26,13 @@ module.exports = {
       },
     },
   ],
-  'import/resolver': {
-    alias: {
-      map: [
-        ['@', './src']
-      ]
-    }
-  }
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', './src']
+        ],
+      },
+    },
+  },
 };
