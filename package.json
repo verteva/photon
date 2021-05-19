@@ -11,7 +11,9 @@
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook"
   },
-  "files": ["dist/*"],
+  "files": [
+    "dist/*"
+  ],
   "main": "./dist/photon.umd.js",
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
@@ -44,6 +46,7 @@
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-loader": "^8.2.2",
     "eslint": "^7.26.0",
+    "eslint-import-resolver-webpack": "^0.13.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.9.0",
     "node-sass": "^4.12.0",
