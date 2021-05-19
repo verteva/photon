@@ -1,10 +1,12 @@
 <template>
     <button
       type="button" 
-      class="m-4 photon-btn"
+      class="photon-btn"
       :class="classes"
       @click="onClick"
-      :style="style"
+      :style="{
+        ...style,
+      }"
     >
      {{ label }}
     </button>
@@ -12,6 +14,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, computed } from 'vue';
+import { theme } from '../../../tailwind.config.js'
 
 interface Props {
   label: string;
@@ -21,7 +24,7 @@ interface Props {
 }
 
 export default defineComponent({
-  name: 'PButton',
+  name: 'Button',
 
   props: {
     label: {
@@ -44,25 +47,26 @@ export default defineComponent({
 
   setup(_: Props, { emit }: {
     emit: (a: string) => void;
-  }): () => {
-    classes: any;
+  }): {
+    // classes: any;
     style: any;
-    onClick: any;
+    // onClick: any;
   } {
     const props = reactive(_);
+
+    console.log(props);
+    
+
+    const style:any = computed(() => ({
+      backgroundColor: props.primary ? theme.colors.brandPrimary : '',
+    }));
+
+    // const onClick:any = function():void {
+    //   emit('click');
+    // };
+
     return {
-      classes: computed(() => ({
-        'photon-btn': true,
-        'photon-btn--primary': props.primary,
-        'photon-btn--secondary': !props.primary,
-        [`photon-btn--${props.size || 'medium'}`]: true,
-      })),
-      style: computed(() => ({
-        backgroundColor: props.backgroundColor,
-      })),
-      onClick(): void {
-        emit('click');
-      },
+      style,
     };
   },
 });
