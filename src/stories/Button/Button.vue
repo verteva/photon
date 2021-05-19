@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, computed, ref, PropType } from 'vue';
-// import { theme } from '../../../tailwind.config.js'
+import * as tailwind from '@/../tailwind.config.js'
 
 interface Props {
   label: string;
