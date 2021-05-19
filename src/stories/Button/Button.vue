@@ -1,8 +1,7 @@
 <template>
     <button
       type="button" 
-      class="photon-btn"
-      :class="classes"
+      class="rounded border-0"
       @click="onClick"
       :style="{
         ...style,
@@ -13,15 +12,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed } from 'vue';
+import { defineComponent, reactive, computed, ref, PropType } from 'vue';
 import { theme } from '../../../tailwind.config.js'
 
 interface Props {
   label: string;
-  primary: boolean;
+  type: string;
   size: string;
-  backgroundColor: string;
 }
+
+const ButtonPrimary = 'primary';
+const ButtonSecondary = 'secondary';
+const ButtonOutline = 'outline';
+type ButtonType = typeof ButtonPrimary | typeof ButtonSecondary | typeof ButtonOutline;
+
+const ButtonSmall = 'small';
+const ButtonMedium = 'medium';
+const ButtonLarge = 'large';
+type ButtonSize = typeof ButtonSmall | typeof ButtonMedium | typeof ButtonLarge;
 
 export default defineComponent({
   name: 'Button',
@@ -31,41 +39,46 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    primary: {
-      type: Boolean,
-      default: false,
+    type: {
+      type: String as PropType<ButtonType>,
+      default: ButtonPrimary,
     },
     size: {
-      type: String,
+      type: String as PropType<ButtonSize>,
+      default: ButtonPrimary,
       validator(value: string): boolean {
-        return ['small', 'medium', 'large'].indexOf(value) !== -1;
+        return [ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
       },
     },
   },
 
   emits: ['click'],
 
-  setup(_: Props, { emit }: {
-    emit: (a: string) => void;
-  }): {
-    // classes: any;
+  setup(_: Props, { emit }): {
     style: any;
-    // onClick: any;
+    onClick: any;
   } {
-    const props = reactive(_);
-
-    console.log(props);
+    const props:Props = reactive(_);
     
+    let backgroundColor = theme.colors.brandPrimary;
+    if (props.type === ButtonSecondary) {
+      backgroundColor = theme.colors.brandSecondary;
+    }
+    
+    if (props.type === ButtonOutline) {
+      backgroundColor = 'none';
+    }    
 
     const style:any = computed(() => ({
-      backgroundColor: props.primary ? theme.colors.brandPrimary : '',
+      backgroundColor,
     }));
 
-    // const onClick:any = function():void {
-    //   emit('click');
-    // };
+    const onClick:any = function():void {
+      emit('click');
+    };
 
     return {
+      onClick,
       style,
     };
   },
@@ -82,7 +95,7 @@ export default defineComponent({
     transition: .3s;
 
     &--primary {
-      background: #333333;
+      // background: #333333;
       
        &:hover {
         &:not(:disabled) {
@@ -91,11 +104,11 @@ export default defineComponent({
        }
     }
     &--secondary {
-      background: #999999;
+      // background: #999999;
       
       &:hover {
         &:not(:disabled) {
-          background: lighten(#999999, 20%);
+          // background: lighten(#999999, 20%);
         }
       }
     }

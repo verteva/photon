@@ -23,13 +23,14 @@ const Template = (args) => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
   label: 'Button',
+  type: 'primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  type: 'secondary',
 };
 
 // export const Large = Template.bind({});
