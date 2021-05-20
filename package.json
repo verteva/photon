@@ -1,6 +1,6 @@
 {
-  "name": "photon",
-  "version": "0.1.0",
+  "name": "@chris-r/photon",
+  "version": "0.1.1",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
