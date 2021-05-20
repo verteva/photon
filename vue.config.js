@@ -1,12 +1,15 @@
-import { join } from 'path';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require('path');
 
-export const configureWebpack = {
-  output: {
-    libraryExport: 'default',
-  },
-  resolve: {
-    alias: {
-      '@': join(__dirname, './src'),
+module.exports = {
+  configureWebpack: {
+    output: {
+      libraryExport: 'default',
+    },
+    resolve: {
+      alias: {
+        '@': path.join(__dirname, './src'),
+      },
     },
   },
 };
