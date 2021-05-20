@@ -1,3 +1,3 @@
-import Button from './Button.vue';
+import PButton from './Button.vue';
 
-export default Button;
+export default PButton;
