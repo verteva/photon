@@ -1,5 +1,8 @@
-import './assets/tailwind.css';
-import 'vue-select/dist/vue-select.css';
-import PButton from './stories/Button';
+import Vue from 'vue'
+import App from './App.vue'
 
-export default PButton;
+Vue.config.productionTip = false
+
+new Vue({
+  render: h => h(App),
+}).$mount('#app')

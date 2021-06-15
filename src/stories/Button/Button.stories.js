@@ -1,46 +1,43 @@
-import Button from './Button.vue';
+import Vue from 'vue';
+import VueCompositionApi from '@vue/composition-api';
+import CTAButton from './Button.vue';
+
+Vue.use(VueCompositionApi);
 
 export default {
-  title: 'Photon/Button',
-  component: Button,
+  title: 'Photon/CTAButton',
+  component: CTAButton,
   argTypes: {
-    disabled: { control: { type: 'boolean', options: [true, false] } },
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-    onClick: {},
+    options: {
+      disabled: { control: { type: 'boolean', options: [true, false] } },
+      size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
+      onClick: {},
+    },
+  },
+  args: {
+    disabled: false,
+    type: 'primary',
+    size: 'small',
   },
 };
 
-const Template = (args) => ({
-  // Components used in your story `template` are defined in the `components` object
-  components: { Button },
-  // The story's `args` need to be mapped into the template through the `setup()` method
-  setup() {
-    return { args };
-  },
-  // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<Button v-bind="args">{{ args.label }}</Button>',
+const Template = (args, { argTypes }) => ({
+  components: { CTAButton },
+  props: Object.keys(argTypes),
+  template: '<CTAButton v-bind="$props" />',
 });
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Button',
+  disabled: false,
   type: 'primary',
+  size: 'small',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
+  disabled: false,
   label: 'Button',
   type: 'secondary',
+  size: 'small',
 };
-
-// export const Large = Template.bind({});
-// Large.args = {
-//   size: 'large',
-//   label: 'Button',
-// };
-
-// export const Small = Template.bind({});
-// Small.args = {
-//   size: 'small',
-//   label: 'Button',
-// };
