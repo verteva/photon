@@ -1,22 +1,28 @@
 <template>
     <button
       type="button" 
-      class="cta-button rounded border-0"
+      class="cta-button"
       v-bind="$attrs"
       v-on="$listeners"
-      :class="{...classList}"
+      :class="classList"
     >
      {{ label }}
     </button>
 </template>
 
 <script lang="ts">
-import '../../assets/css/main.css'
 import { defineComponent, reactive, computed, PropType } from '@vue/composition-api';
-
 // import * as tailwind from '@/../tailwind.config.js'
-console.log('defineComponent', defineComponent);
+// console.log('tailwind', tailwind);
 
+const buttonClassList: string[] = [
+  'text-white',
+  'rounded-3xl',
+  'border-0',
+  'bg-brandPrimary',
+  'py-2',
+  'px-4',
+];
 
 interface Props {
   label?: string;
@@ -60,30 +66,15 @@ export default defineComponent({
     },
   },
 
-  methods: {
-    onClick() {
-      this.$emit('click')
-    }
-  },
-
   setup(_: Props, { emit }: any): {
     classList: any;
     onClick: any;
   } {
     const props:Props = reactive(_);
     
-    // let backgroundColor = theme.colors.brandPrimary;
-    // if (props.type === ButtonSecondary) {
-    //   backgroundColor = theme.colors.brandSecondary;
-    // }
-    
-    // if (props.type === ButtonOutline) {
-    //   backgroundColor = 'none';
-    // }    
-
-    const classList:any = computed(() => ({
-      'bg-brandPrimary': !props.disabled,
-    }));
+    const classList:any = computed(() => {
+      return [...buttonClassList];
+    });
 
     const onClick:any = function():void {
       emit('click');
@@ -98,11 +89,8 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-// @import '../assets/css/main';
-// @import '../assets/scss/gradients';
-
 .cta-button {
-  position: relative;
-  @apply bg-brandPrimary;
+  // position: relative;
 }
+
 </style>

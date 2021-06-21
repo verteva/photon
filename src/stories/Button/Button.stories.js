@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
 import CTAButton from './Button.vue';
+import '../../assets/css/main.css'
 
 Vue.use(VueCompositionApi);
 
