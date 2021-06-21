@@ -1,15 +1,21 @@
-import { Component } from '@vue/runtime-core';
+// import { Component } from '@vue/runtime-core';
+import { ComponentOptions, Component } from 'vue';
 import PButton from './Button';
-import PAutocomplete from './Button.vue';
+// import PAutocomplete from './Button.vue';
 
-export interface photonComponents {
-  PButton: Component
-  PAutocomplete: Component;
+export interface PhotonComponents {
+  [key: string]: Component
 }
 
-const components: photonComponents = {
+// export type PhotonComponentKeys = {
+//   [key in keyof PhotonComponents]?: PhotonComponents[key];
+// }
+
+const components: PhotonComponents = {
   PButton,
-  PAutocomplete
+  // PAutocomplete
 };
+
+export type PhotonComponentKeys = keyof PhotonComponents
 
 export default components

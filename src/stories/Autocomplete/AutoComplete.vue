@@ -5,8 +5,7 @@
   </div>
 </template>
 <script lang='ts'>
-// import vSelect from 'vue-select';
-import { defineComponent } from 'vue';
+import { defineComponent } from '@vue/composition-api';
 
 export default defineComponent({
   name: 'AutoComplete',
