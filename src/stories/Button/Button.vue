@@ -135,7 +135,7 @@ export default defineComponent({
       return [
         ...baseClassList,
         ...buttonStyleClasslist[
-          props.buttonStyle as keyof buttonStyleClasslist
+          props.buttonStyle as keyof ButtonStylelist
         ],
         props.disabled && 'bg-gradient-to-b from-greyDark to-greyMid',
         props.disabled && 'cursor-not-allowed',
