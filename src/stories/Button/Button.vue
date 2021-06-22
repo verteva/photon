@@ -1,18 +1,55 @@
 <template>
   <button
+    ref="elRef"
     v-bind="$attrs"
     :type="type"
-    v-on="$listeners" 
     class="cta-button"
     :class="classList"
-    ref="cta-button"
+    :style="styleList"
+    :disabled="disabled"
+    v-on="$listeners"
   >
-    {{ label }}
+    <div class="flex items-center justify-center">
+      <div :class="[submitting ? 'opacity-0' : 'opacity-1']">
+        {{ label }}
+      </div>
+      <div
+        class="h-6 w-6 flex absolute"
+        :class="[submitting ? 'opacity-1' : 'opacity-0']"
+      >
+        <div class="animate-spin h-full w-full flex">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="21.904761904761905 21.904761904761905 43.80952380952381 43.80952380952381"
+            style="transform: rotate(0deg)"
+            class="h-full w-full"
+          >
+            <circle
+              fill="transparent"
+              cx="43.80952380952381"
+              cy="43.80952380952381"
+              r="20"
+              stroke="white"
+              stroke-width="3.8095238095238093"
+              stroke-dasharray="125.664"
+              stroke-dashoffset="125.66370614359172px"
+              class="progress-circular"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
   </button>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, computed, PropType } from '@vue/composition-api';
+import {
+  defineComponent,
+  reactive,
+  computed,
+  PropType,
+  ref,
+} from "@vue/composition-api";
 import {
   buttonStyleClasslist,
   Props,
@@ -27,30 +64,33 @@ import {
   TypeSubmit,
   // TypeButton,
   HTMLType,
-} from './types';
+} from "./types";
 // import * as tailwind from '@/../tailwind.config.js'
 
 const baseClassList: string[] = [
-  'text-white',
   'rounded-3xl',
   'border-0',
   'py-2',
   'px-4',
+  'flex',
+  'relative',
+  'items-center',
+  'justify-center',
 ];
 
 const buttonStyleClasslist: buttonStyleClasslist = {
-  primary: ['bg-brandPrimary'],
-  secondary: ['bg-brandSecondary'],
-  outline: ['bg-transparent'],
-}
+  primary: ["bg-brandPrimary"],
+  secondary: ["bg-brandSecondary"],
+  outline: ["bg-transparent"],
+};
 
 export default defineComponent({
-  name: 'PButton',
+  name: "PButton",
 
   props: {
     label: {
       type: String,
-      default: 'This is the default photon button'
+      default: 'Continue',
     },
     buttonStyle: {
       type: String as PropType<ButtonType>,
@@ -64,6 +104,10 @@ export default defineComponent({
       type: Boolean,
       default: true,
     },
+    submitting: {
+      type: Boolean,
+      default: false,
+    },
     size: {
       type: String as PropType<ButtonSize>,
       default: ButtonMedium,
@@ -73,27 +117,40 @@ export default defineComponent({
     },
   },
 
-  setup(_: Props, { emit }: any): {
+  setup(
+    _: Props,
+    { emit }: any
+  ): {
+    elRef: any;
     classList: any;
+    styleList: any;
     onClick: any;
   } {
-    const props:Props = reactive(_);
-    
-    const classList:any = computed(() => {
+    const props: Props = reactive(_);
+    const elRef = ref();
+    const styleList = ref([]);
+
+    const classList: any = computed(() => {
       return [
         ...baseClassList,
-        props.disabled && 'bg-gradient-to-b from-grey-dark to-grey-mid',
-        ...buttonStyleClasslist[props.buttonStyle as keyof buttonStyleClasslist]
+        ...buttonStyleClasslist[
+          props.buttonStyle as keyof buttonStyleClasslist
+        ],
+        props.disabled && 'bg-gradient-to-b from-greyDark to-greyMid',
+        props.disabled && 'cursor-not-allowed',
+        props.disabled ? 'text-greyLight' : 'text-white',
       ];
     });
 
-    const onClick:any = function():void {
-      emit('click');
+    const onClick: any = function (): void {
+      emit("click");
     };
 
     return {
+      elRef,
       onClick,
       classList,
+      styleList,
     };
   },
 });
@@ -101,7 +158,31 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .cta-button {
-  // position: relative;
-}
+  min-width: 78px;
+  height: 44px;
 
+  .progress-circular {
+    animation: circular-dash 2.2s ease-in-out infinite;
+    stroke-linecap: round;
+    stroke-dasharray: 80, 200;
+    stroke-dashoffset: 0px;
+  }
+
+  @keyframes circular-dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0px;
+    }
+
+    50% {
+      stroke-dasharray: 100, 200;
+      stroke-dashoffset: -15px;
+    }
+
+    100% {
+      stroke-dasharray: 100, 200;
+      stroke-dashoffset: -125px;
+    }
+  }
+}
 </style>
