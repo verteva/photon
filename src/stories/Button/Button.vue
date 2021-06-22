@@ -9,6 +9,11 @@
     :disabled="disabled"
     v-on="$listeners"
   >
+    <slot
+      v-for="(_, name) in $slots"
+      :slot="name"
+      :name="name"
+    />
     <div class="flex items-center justify-center">
       <div :class="[submitting ? 'opacity-0' : 'opacity-1']">
         {{ label }}
@@ -51,7 +56,7 @@ import {
   ref,
 } from "@vue/composition-api";
 import {
-  buttonStyleClasslist,
+  ButtonStylelist,
   Props,
   ButtonStylePrimary,
   // ButtonStyleSecondary,
@@ -64,6 +69,7 @@ import {
   TypeSubmit,
   // TypeButton,
   HTMLType,
+  Setup,
 } from "./types";
 // import * as tailwind from '@/../tailwind.config.js'
 
@@ -78,7 +84,7 @@ const baseClassList: string[] = [
   'justify-center',
 ];
 
-const buttonStyleClasslist: buttonStyleClasslist = {
+const buttonStyleClasslist: ButtonStylelist = {
   primary: ["bg-brandPrimary"],
   secondary: ["bg-brandSecondary"],
   outline: ["bg-transparent"],
@@ -120,12 +126,7 @@ export default defineComponent({
   setup(
     _: Props,
     { emit }: any
-  ): {
-    elRef: any;
-    classList: any;
-    styleList: any;
-    onClick: any;
-  } {
+  ): Setup  {
     const props: Props = reactive(_);
     const elRef = ref();
     const styleList = ref([]);

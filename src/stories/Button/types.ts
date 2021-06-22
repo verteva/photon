@@ -1,4 +1,4 @@
-export interface buttonStyleClasslist {
+export interface ButtonStylelist {
   primary: string[];
   secondary: string[];
   outline: string[];
@@ -25,3 +25,10 @@ export type ButtonSize = typeof ButtonSmall | typeof ButtonMedium | typeof Butto
 export const TypeSubmit = 'submit'
 export const TypeButton = 'button'
 export type HTMLType = typeof TypeSubmit | typeof TypeButton;
+
+export interface Setup {
+  elRef: any;
+  classList: any;
+  styleList: any;
+  onClick: any;
+}
