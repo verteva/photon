@@ -31,6 +31,10 @@ module.exports = {
       teal: '#3dd6c7',
       green: 'rgba(76, 176, 79)',
       greenSecondary: 'rgba(76, 176, 79, 0.1)',
+      'grey-dark': '#222222',
+      'grey-mid': '#444444',
+      'grey-light': '#f5f5f5',
+      'side-green': '#02DB32',
     },
     spacing: {
       px: '1px',

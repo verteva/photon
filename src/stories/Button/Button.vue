@@ -1,9 +1,9 @@
 <template>
     <button
-      type="button" 
-      class="cta-button"
       v-bind="$attrs"
       v-on="$listeners"
+      :type="type" 
+      class="cta-button"
       :class="classList"
     >
      {{ label }}
@@ -15,31 +15,47 @@ import { defineComponent, reactive, computed, PropType } from '@vue/composition-
 // import * as tailwind from '@/../tailwind.config.js'
 // console.log('tailwind', tailwind);
 
-const buttonClassList: string[] = [
+const baseClassList: string[] = [
   'text-white',
   'rounded-3xl',
   'border-0',
-  'bg-brandPrimary',
   'py-2',
   'px-4',
 ];
+
+type buttonStyleClasslist = {
+  primary: string[];
+  secondary: string[];
+  outline: string[];
+}
+
+const buttonStyleClasslist: buttonStyleClasslist = {
+  primary: ['bg-brandPrimary'],
+  secondary: ['bg-brandSecondary'],
+  outline: ['bg-transparent'],
+}
 
 interface Props {
   label?: string;
   type?: string;
   disabled?: boolean;
   size?: string;
+  buttonStyle: string;
 }
 
-const ButtonPrimary = 'primary';
-const ButtonSecondary = 'secondary';
-const ButtonOutline = 'outline';
-type ButtonType = typeof ButtonPrimary | typeof ButtonSecondary | typeof ButtonOutline;
+const ButtonStylePrimary = 'primary';
+const ButtonStyleSecondary = 'secondary';
+const ButtonStyleOutline = 'outline';
+type ButtonType = typeof ButtonStylePrimary | typeof ButtonStyleSecondary | typeof ButtonStyleOutline;
 
 const ButtonSmall = 'small';
 const ButtonMedium = 'medium';
 const ButtonLarge = 'large';
 type ButtonSize = typeof ButtonSmall | typeof ButtonMedium | typeof ButtonLarge;
+
+const TypeSubmit = 'submit'
+const TypeButton = 'button'
+type HTMLType = typeof TypeSubmit | typeof TypeButton;
 
 export default defineComponent({
   name: 'PButton',
@@ -49,9 +65,13 @@ export default defineComponent({
       type: String,
       default: 'This is the default photon button'
     },
-    type: {
+    buttonStyle: {
       type: String as PropType<ButtonType>,
-      default: ButtonPrimary,
+      default: ButtonStylePrimary,
+    },
+    type: {
+      type: String as PropType<HTMLType>,
+      default: TypeSubmit,
     },
     disabled: {
       type: Boolean,
@@ -59,7 +79,7 @@ export default defineComponent({
     },
     size: {
       type: String as PropType<ButtonSize>,
-      default: ButtonPrimary,
+      default: ButtonMedium,
       validator(value: string): boolean {
         return [ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
       },
@@ -73,7 +93,11 @@ export default defineComponent({
     const props:Props = reactive(_);
     
     const classList:any = computed(() => {
-      return [...buttonClassList];
+      return [
+        ...baseClassList,
+        props.disabled && 'bg-gradient-to-b from-grey-dark to-grey-mid',
+        ...buttonStyleClasslist[props.buttonStyle as keyof buttonStyleClasslist]
+      ];
     });
 
     const onClick:any = function():void {

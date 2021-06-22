@@ -9,15 +9,15 @@ export default {
   title: 'Photon/CTAButton',
   component: CTAButton,
   argTypes: {
-    options: {
-      disabled: { control: { type: 'boolean', options: [true, false] } },
-      size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-      onClick: {},
-    },
+    disabled: { control: { type: 'boolean', options: [true, false] } },
+    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
+    buttonStyle: { control: { type: 'select', options: ['primary', 'secondary', 'outline']}},
+    type: { control: { type: 'select', options: ['submit', 'button']}},
+    onClick: {},
   },
   args: {
     disabled: false,
-    type: 'primary',
+    type: 'submit',
     size: 'small',
   },
 };
@@ -31,8 +31,9 @@ const Template = (args, { argTypes }) => ({
 export const Primary = Template.bind({});
 Primary.args = {
   disabled: false,
-  type: 'primary',
+  buttonStyle: 'primary',
   size: 'small',
+  type: 'submit'
 };
 
 export const Secondary = Template.bind({});
