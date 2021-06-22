@@ -2,28 +2,43 @@
 
 ## Project setup
 ```
-yarn install
+npm install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-yarn serve
+npm run serve
 ```
 
-### Compiles and minifies for production
+### Compiles and minifies plugin for production
 ```
-yarn build
+npm run build:lib
+
 ```
 
 ### Run your unit tests
 ```
-yarn test:unit
+npm run test:unit
 ```
 
 ### Lints and fixes files
 ```
-yarn lint
+npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Publishing to npm
+### Steps for publishing
+
+1. Make sure you are logged into the nanonpm npm account.
+```
+npm login
+```
+
+2. Update the package version in the `package.json` file under the `version` field. We are using [semantic versioning](https://semver.org/).
+
+3. Update the changelog file with the changes you have made.
+
+4. Run the publish command
+```
+npm publish
+```
