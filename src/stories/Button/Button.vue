@@ -1,19 +1,34 @@
 <template>
-    <button
-      v-bind="$attrs"
-      v-on="$listeners"
-      :type="type" 
-      class="cta-button"
-      :class="classList"
-    >
-     {{ label }}
-    </button>
+  <button
+    v-bind="$attrs"
+    :type="type"
+    v-on="$listeners" 
+    class="cta-button"
+    :class="classList"
+    ref="cta-button"
+  >
+    {{ label }}
+  </button>
 </template>
 
 <script lang="ts">
 import { defineComponent, reactive, computed, PropType } from '@vue/composition-api';
+import {
+  buttonStyleClasslist,
+  Props,
+  ButtonStylePrimary,
+  // ButtonStyleSecondary,
+  // ButtonStyleOutline,
+  ButtonType,
+  ButtonSmall,
+  ButtonMedium,
+  ButtonLarge,
+  ButtonSize,
+  TypeSubmit,
+  // TypeButton,
+  HTMLType,
+} from './types';
 // import * as tailwind from '@/../tailwind.config.js'
-// console.log('tailwind', tailwind);
 
 const baseClassList: string[] = [
   'text-white',
@@ -23,39 +38,11 @@ const baseClassList: string[] = [
   'px-4',
 ];
 
-type buttonStyleClasslist = {
-  primary: string[];
-  secondary: string[];
-  outline: string[];
-}
-
 const buttonStyleClasslist: buttonStyleClasslist = {
   primary: ['bg-brandPrimary'],
   secondary: ['bg-brandSecondary'],
   outline: ['bg-transparent'],
 }
-
-interface Props {
-  label?: string;
-  type?: string;
-  disabled?: boolean;
-  size?: string;
-  buttonStyle: string;
-}
-
-const ButtonStylePrimary = 'primary';
-const ButtonStyleSecondary = 'secondary';
-const ButtonStyleOutline = 'outline';
-type ButtonType = typeof ButtonStylePrimary | typeof ButtonStyleSecondary | typeof ButtonStyleOutline;
-
-const ButtonSmall = 'small';
-const ButtonMedium = 'medium';
-const ButtonLarge = 'large';
-type ButtonSize = typeof ButtonSmall | typeof ButtonMedium | typeof ButtonLarge;
-
-const TypeSubmit = 'submit'
-const TypeButton = 'button'
-type HTMLType = typeof TypeSubmit | typeof TypeButton;
 
 export default defineComponent({
   name: 'PButton',
