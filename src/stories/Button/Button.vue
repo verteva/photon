@@ -15,12 +15,12 @@
       :name="name"
     />
     <div class="flex items-center justify-center">
-      <div :class="[submitting ? 'opacity-0' : 'opacity-1']">
+      <div :class="['transition', submitting ? 'opacity-0' : 'opacity-1']">
         {{ label }}
       </div>
       <div
         class="h-6 w-6 flex absolute"
-        :class="[submitting ? 'opacity-1' : 'opacity-0']"
+        :class="['transition', submitting ? 'opacity-1' : 'opacity-0']"
       >
         <div class="animate-spin h-full w-full flex">
           <svg
@@ -128,7 +128,7 @@ export default defineComponent({
     { emit }: any
   ): Setup  {
     const props: Props = reactive(_);
-    const elRef = ref();
+    const elRef = ref<HTMLElement>();
     const styleList = ref([]);
 
     const classList: any = computed(() => {

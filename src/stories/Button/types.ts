@@ -1,3 +1,5 @@
+import { Ref } from '@vue/composition-api';
+
 export interface ButtonStylelist {
   primary: string[];
   secondary: string[];
@@ -27,8 +29,8 @@ export const TypeButton = 'button'
 export type HTMLType = typeof TypeSubmit | typeof TypeButton;
 
 export interface Setup {
-  elRef: any;
-  classList: any;
-  styleList: any;
+  elRef: Ref<HTMLElement | undefined>;
+  classList: string[];
+  styleList: Ref<never[]>;
   onClick: any;
 }
