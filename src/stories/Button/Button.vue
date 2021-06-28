@@ -4,7 +4,7 @@
     v-bind="$attrs"
     :type="type"
     class="cta-button"
-    :class="classList"
+    :class="classList.value"
     :style="styleList"
     :disabled="disabled"
     @click="onClick"
@@ -16,13 +16,16 @@
       :name="name"
     />
     <div class="flex items-center justify-center">
-      <div :class="['transition', submitting ? 'opacity-0' : 'opacity-1']">
+      <div 
+        class="uppercase"
+        :class="['transition', submitting ? 'opacity-0' : 'opacity-1']"
+      >
         <slot name="default">
           {{ label }}
         </slot>
       </div>
       <div
-        v-if="!submitting"
+        v-if="submitting"
         class="h-6 w-6 flex absolute"
         :class="['transition', submitting ? 'opacity-1' : 'opacity-0']"
       >
@@ -81,11 +84,12 @@ const baseClassList: string[] = [
   'rounded-3xl',
   'border-0',
   'py-2',
-  'px-4',
+  'px-5',
   'flex',
   'relative',
   'items-center',
   'justify-center',
+  'transition',
 ];
 
 const buttonStyleClasslist: ButtonStylelist = {
@@ -134,7 +138,7 @@ export default defineComponent({
     const props: Props = reactive(_);
     const elRef = ref<HTMLElement>();
     const styleList = ref([]);
-    console.log('log PButton 1f', _);
+    // console.log('log PButton 1f', _);
 
     const classList: any = computed(() => {
       return [
@@ -149,7 +153,7 @@ export default defineComponent({
     });
 
     const onClick = function (): void {
-      console.log('photon button click');
+      // console.log('photon button click');
       emit("click");
     };
 
