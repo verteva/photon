@@ -1,0 +1,31 @@
+
+@font-face {
+  font-family: "RM Neue";
+  src: url("../fonts/RMNeue-Regular.woff2") format("woff2"), /* chrome firefox */
+  url("../fonts/RMNeue-Regular.woff") format("woff"), /* chrome firefox */
+}
+
+@font-face {
+  font-family: "RM Neue";
+  font-weight: 100;
+  src: url("../fonts/RMNeue-Light.woff2") format("woff2"), /* chrome firefox */
+  url("../fonts/RMNeue-Light.woff") format("woff"), /* chrome firefox */
+}
+
+@font-face {
+  font-family: "RM Neue";
+  font-weight: 700;
+  src: url("../fonts/RMNeue-Bold.woff2") format("woff2"), /* chrome firefox */
+  url("../fonts/RMNeue-Bold.woff") format("woff"), /* chrome firefox */
+}
+
+@font-face {
+  font-family: "RM Neue";
+  font-weight: 1000;
+  src: url("../fonts/RMNeue-Black.woff2") format("woff2"), /* chrome firefox */
+  url("../fonts/RMNeue-Black.woff") format("woff"), /* chrome firefox */
+}
+
+* {
+  font-family: 'RM Neue', Arial, Helvetica, sans-serif;
+}
