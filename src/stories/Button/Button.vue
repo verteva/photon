@@ -7,6 +7,7 @@
     :class="classList"
     :style="styleList"
     :disabled="disabled"
+    @click="onClick"
     v-on="$listeners"
   >
     <slot
@@ -16,9 +17,12 @@
     />
     <div class="flex items-center justify-center">
       <div :class="['transition', submitting ? 'opacity-0' : 'opacity-1']">
-        {{ label }}
+        <slot name="default">
+          {{ label }}
+        </slot>
       </div>
       <div
+        v-if="!submitting"
         class="h-6 w-6 flex absolute"
         :class="['transition', submitting ? 'opacity-1' : 'opacity-0']"
       >
@@ -130,6 +134,7 @@ export default defineComponent({
     const props: Props = reactive(_);
     const elRef = ref<HTMLElement>();
     const styleList = ref([]);
+    console.log('log PButton 1f', _);
 
     const classList: any = computed(() => {
       return [
@@ -143,7 +148,8 @@ export default defineComponent({
       ];
     });
 
-    const onClick: any = function (): void {
+    const onClick = function (): void {
+      console.log('photon button click');
       emit("click");
     };
 
