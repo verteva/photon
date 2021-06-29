@@ -24,3 +24,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix css in stories
 - Add fonts to the project.
 - Add ripple effect to button.
+- Add outlined version of PButton

@@ -24,6 +24,7 @@ module.exports = {
       greyDark: '#222222',
       greyMid: '#444444',
       greyLight: '#f5f5f5',
+      greyBorder: 'rgba(0, 0, 0, 0.12)',
       sideGreen: '#02DB32',
       sideBlue: '#029DDB',
       warning: '#da00bf',

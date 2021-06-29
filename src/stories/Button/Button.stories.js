@@ -45,3 +45,11 @@ Secondary.args = {
   buttonStyle: 'secondary',
   size: 'small',
 };
+
+export const Outline = Template.bind({});
+Outline.args = {
+  disabled: false,
+  label: 'Outlined',
+  buttonStyle: 'outline',
+  size: 'small',
+};

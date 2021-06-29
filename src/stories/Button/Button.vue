@@ -96,7 +96,7 @@ const baseClassList: string[] = [
 const buttonStyleClasslist: ButtonStylelist = {
   primary: ['bg-brandPrimary', 'hover:bg-brandPrimaryh'],
   secondary: ['bg-brandSecondary'],
-  outline: ['bg-transparent'],
+  outline: ['bg-transparent', 'text-greyDark', 'border', 'border-greyBorder', 'hover:bg-greyBorder'],
 };
 
 export default defineComponent({
@@ -143,7 +143,6 @@ export default defineComponent({
     const props: Props = reactive(_);
     const elRef = ref<HTMLElement>();
     const styleList = ref([]);
-    // console.log('log PButton 1f', _);
 
     const disabledStyles = (disabled: boolean) => {
       return disabled ?
