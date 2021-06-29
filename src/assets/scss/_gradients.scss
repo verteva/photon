@@ -1,79 +1,7 @@
-@mixin background-gradient($angle: 0, $from: $colors-brand-light, $to: $colors-brand) {
-  background: linear-gradient(#{$angle}deg, $from, $to) !important;
-};
-
-
 .app-background {
   background: transparent;
 
   @screen md {
     @apply bg-brandPrimary
   }
-  
-  // @media #{map-get($display-breakpoints, 'md-and-up')} {
-  //   @include background-gradient(180, $colors-navy, $colors-navy-light);
-  // }
 }
-
-// .sky-background {
-//   background: transparent;
-//   @include background-gradient(180, $colors-navy, $colors-navy-light);
-// }
-
-// .gradient-grey  {
-//   @include background-gradient(180, #FBFBFB, #F5F5F5);
-// }
-
-// .gradient-brand {
-//   @include background-gradient;
-    
-//   &-45 {
-//     @include background-gradient(45);
-//   }
-//   &-90 {
-//     @include background-gradient(90);
-//   }
-//   &-135 {
-//     @include background-gradient(135);
-//   }
-//   &-180 {
-//     @include background-gradient(180);
-//   }
-//   &-225 {
-//     @include background-gradient(225);
-//   }
-//   &-270 {
-//     @include background-gradient(270);
-//   }
-// }
-
-// .gradient-brand-alt {
-//   @include background-gradient(270, $colors-brand, $colors-teal);
-//   &-45 {
-//     @include background-gradient(45, $colors-brand, $colors-teal);
-//   }
-// }
-
-// .gradient-black {
-//   @include background-gradient(0, $colors-grey-dark, $colors-grey-mid);
-  
-//   &-45 {
-//     @include background-gradient(45, $colors-grey-dark, $colors-grey-mid);
-//   }
-//   &-90 {
-//     @include background-gradient(90, $colors-grey-dark, $colors-grey-mid);
-//   }
-//   &-135 {
-//     @include background-gradient(135, $colors-grey-dark, $colors-grey-mid);
-//   }
-//   &-180 {
-//     @include background-gradient(180, $colors-grey-dark, $colors-grey-mid);
-//   }
-//   &-225 {
-//     @include background-gradient(225, $colors-grey-dark, $colors-grey-mid);
-//   }
-//   &-270 {
-//     @include background-gradient(270, $colors-grey-dark, $colors-grey-mid);
-//   }
-// }
-

@@ -10,6 +10,7 @@ export interface Props {
   label?: string;
   type?: string;
   disabled?: boolean;
+  valid?: boolean;
   size?: string;
   buttonStyle: string;
 }

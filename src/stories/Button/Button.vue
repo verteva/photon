@@ -4,7 +4,7 @@
     v-bind="$attrs"
     :type="type"
     class="cta-button"
-    :class="classList.value"
+    :class="classList"
     :style="styleList"
     :disabled="disabled"
     @click="onClick"
@@ -90,16 +90,17 @@ const baseClassList: string[] = [
   'items-center',
   'justify-center',
   'transition',
+  'text-sm',
 ];
 
 const buttonStyleClasslist: ButtonStylelist = {
-  primary: ["bg-brandPrimary"],
-  secondary: ["bg-brandSecondary"],
-  outline: ["bg-transparent"],
+  primary: ['bg-brandPrimary'],
+  secondary: ['bg-brandSecondary'],
+  outline: ['bg-transparent'],
 };
 
 export default defineComponent({
-  name: "PButton",
+  name: 'PButton',
 
   props: {
     label: {
@@ -115,6 +116,10 @@ export default defineComponent({
       default: TypeSubmit,
     },
     disabled: {
+      type: Boolean,
+      default: true,
+    },
+    valid: {
       type: Boolean,
       default: true,
     },
@@ -154,7 +159,7 @@ export default defineComponent({
 
     const onClick = function (): void {
       // console.log('photon button click');
-      emit("click");
+      emit('click');
     };
 
     return {
@@ -196,4 +201,43 @@ export default defineComponent({
     }
   }
 }
+
+button{
+  position: relative;
+  overflow: hidden;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, .5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
 </style>

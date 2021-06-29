@@ -17,3 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - Vue3 compatibility.
+
+## [0.1.53] - 2021-06-29
+### Added
+- CTAButton name changed to PButton
+- Fix css in stories
+- Add fonts to the project.
+- Add ripple effect to button.
