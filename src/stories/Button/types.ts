@@ -9,7 +9,7 @@ export interface ButtonStylelist {
 export interface Props {
   label?: string;
   type?: string;
-  disabled?: boolean;
+  disabled: boolean;
   valid?: boolean;
   size?: string;
   buttonStyle: string;

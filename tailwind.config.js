@@ -16,6 +16,7 @@ module.exports = {
       white: '#ffffff',
       current: 'currentColor',
       brandPrimary: '#009EDE',
+      brandPrimaryh: '#0088BF',
       brandSecondary: 'rgba(0, 155, 222, 0.05)',
       brandlight: '#03B4FC',
       brandlightblue: '#00B3DA',

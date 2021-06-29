@@ -94,7 +94,7 @@ const baseClassList: string[] = [
 ];
 
 const buttonStyleClasslist: ButtonStylelist = {
-  primary: ['bg-brandPrimary'],
+  primary: ['bg-brandPrimary', 'hover:bg-brandPrimaryh'],
   secondary: ['bg-brandSecondary'],
   outline: ['bg-transparent'],
 };
@@ -145,15 +145,19 @@ export default defineComponent({
     const styleList = ref([]);
     // console.log('log PButton 1f', _);
 
+    const disabledStyles = (disabled: boolean) => {
+      return disabled ?
+        'bg-gradient-to-b from-greyDark to-greyMid cursor-not-allowed text-greyLight' :
+        'text-white';
+    }
+
     const classList: any = computed(() => {
       return [
         ...baseClassList,
         ...buttonStyleClasslist[
           props.buttonStyle as keyof ButtonStylelist
         ],
-        props.disabled && 'bg-gradient-to-b from-greyDark to-greyMid',
-        props.disabled && 'cursor-not-allowed',
-        props.disabled ? 'text-greyLight' : 'text-white',
+        disabledStyles(props.disabled),
       ];
     });
 
