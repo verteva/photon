@@ -3,11 +3,9 @@
     ref="elRef"
     v-bind="$attrs"
     :type="type"
-    class="cta-button"
     :class="classList"
     :style="styleList"
-    :disabled="disabled"
-    @click="onClick"
+    :disabled="isDisabled"
     v-on="$listeners"
   >
     <slot
@@ -55,51 +53,24 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import {
-  defineComponent,
-  reactive,
-  computed,
   PropType,
-  ref,
 } from "@vue/composition-api";
 import {
   ButtonStylelist,
-  Props,
   ButtonStylePrimary,
-  // ButtonStyleSecondary,
-  // ButtonStyleOutline,
   ButtonType,
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
   ButtonSize,
   TypeSubmit,
-  // TypeButton,
   HTMLType,
-  Setup,
 } from "./types";
 // import * as tailwind from '@/../tailwind.config.js'
 
-const baseClassList: string[] = [
-  'rounded-3xl',
-  'border-0',
-  'py-2',
-  'px-5',
-  'flex',
-  'relative',
-  'items-center',
-  'justify-center',
-  'transition',
-  'text-sm',
-];
-
-const buttonStyleClasslist: ButtonStylelist = {
-  primary: ['bg-brandPrimary', 'hover:bg-brandPrimaryh'],
-  secondary: ['bg-brandSecondary'],
-  outline: ['bg-transparent', 'text-greyDark', 'border', 'border-greyBorder', 'hover:bg-greyBorder'],
-};
-
-export default defineComponent({
+export default Vue.extend({
   name: 'PButton',
 
   props: {
@@ -136,42 +107,67 @@ export default defineComponent({
     },
   },
 
-  setup(
-    _: Props,
-    { emit }: any
-  ): Setup  {
-    const props: Props = reactive(_);
-    const elRef = ref<HTMLElement>();
-    const styleList = ref([]);
-
-    const disabledStyles = (disabled: boolean) => {
-      return disabled ?
-        'bg-gradient-to-b from-greyDark to-greyMid cursor-not-allowed text-greyLight' :
-        'text-white';
-    }
-
-    const classList: any = computed(() => {
-      return [
-        ...baseClassList,
-        ...buttonStyleClasslist[
-          props.buttonStyle as keyof ButtonStylelist
-        ],
-        disabledStyles(props.disabled),
-      ];
-    });
-
-    const onClick = function (): void {
-      // console.log('photon button click');
-      emit('click');
-    };
-
+  data(): any {
     return {
-      elRef,
-      onClick,
-      classList,
-      styleList,
-    };
+      baseClassList: [
+        'rounded-3xl',
+        'border-0',
+        'py-2',
+        'px-5',
+        'relative',
+        'items-center',
+        'justify-center',
+        'transition',
+        'text-sm',
+      ],
+    }
   },
+
+  computed: {
+    classList(): string[] {
+      const a: string[] = [
+        ...this.baseClassList,
+        ...this.buttonStyleClasslist[
+          this.buttonStyle as keyof ButtonStylelist
+        ],
+        ...this.disabledStyles,
+      ];
+      return a;
+    },
+    disabledStyles (): string[] {
+      return [
+        this.disabled ?
+          'bg-gradient-to-b from-greyDark to-greyMid text-greyLight' :
+          'text-white',
+        this.disabled && 'cursor-not-allowed',
+        this.submitting && 'cursor-not-allowed',
+      ];
+    },
+    styleList(): string[] {
+      return [];
+    },
+    isDisabled(): boolean {
+      return this.submitting || this.disabled;
+    },
+    buttonStyleClasslist(): ButtonStylelist {
+      return {
+        primary: [
+          'bg-brandPrimary', 
+          !this.submitting ? 'hover:bg-brandPrimaryh' : '',
+        ],
+        secondary: ['bg-brandSecondary'],
+        outline: [
+          'bg-transparent',
+          'text-greyDark',
+          'border',
+          'border-greyBorder',
+          'hover:bg-greyBorder'
+        ],
+      };
+    },
+  },
+
+  methods: {},
 });
 </script>
 
