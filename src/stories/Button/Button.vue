@@ -13,10 +13,10 @@
       :slot="name"
       :name="name"
     />
-    <div class="flex items-center justify-center">
+    <div class="ph-flex ph-items-center ph-justify-center">
       <div 
-        class="uppercase"
-        :class="['transition', submitting ? 'opacity-0' : 'opacity-1']"
+        class="ph-uppercase"
+        :class="['ph-transition', submitting ? 'ph-opacity-0' : 'ph-opacity-1']"
       >
         <slot name="default">
           {{ label }}
@@ -24,10 +24,10 @@
       </div>
       <div
         v-if="submitting"
-        class="h-6 w-6 flex absolute"
-        :class="['transition', submitting ? 'opacity-1' : 'opacity-0']"
+        class="ph-h-6 ph-w-6 ph-flex ph-absolute"
+        :class="['ph-transition', submitting ? 'ph-opacity-1' : 'ph-opacity-0']"
       >
-        <div class="animate-spin h-full w-full flex">
+        <div class="animate-spin ph-h-full ph-w-full ph-flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="21.904761904761905 21.904761904761905 43.80952380952381 43.80952380952381"
@@ -104,15 +104,15 @@ export default Vue.extend({
   data(): any {
     return {
       baseClassList: [
-        'rounded-3xl',
-        'border-0',
-        'py-2',
-        'px-5',
-        'relative',
-        'items-center',
-        'justify-center',
-        'transition',
-        'text-sm',
+        'ph-rounded-3xl',
+        'ph-border-0',
+        'ph-py-2',
+        'ph-px-5',
+        'ph-relative',
+        'ph-items-center',
+        'ph-justify-center',
+        'ph-transition',
+        'ph-text-sm',
       ],
     }
   },
@@ -131,10 +131,10 @@ export default Vue.extend({
     disabledStyles (): string[] {
       return [
         this.disabled ?
-          'bg-gradient-to-b from-greyDark to-greyMid text-greyLight' :
-          'text-white',
-        this.disabled && 'cursor-not-allowed',
-        this.submitting && 'cursor-not-allowed',
+          'ph-bg-gradient-to-b ph-from-greyDark ph-to-greyMid ph-text-greyLight' :
+          'ph-text-white',
+        this.disabled && 'ph-cursor-not-allowed',
+        this.submitting && 'ph-cursor-not-allowed',
       ];
     },
     styleList(): string[] {
@@ -146,16 +146,16 @@ export default Vue.extend({
     buttonStyleClasslist(): ButtonStylelist {
       return {
         primary: [
-          'bg-brandPrimary', 
-          !this.submitting ? 'hover:bg-brandPrimaryh' : '',
+          'ph-bg-brandPrimary', 
+          !this.submitting ? 'hover:ph-bg-brandPrimaryh' : '',
         ],
-        secondary: ['bg-brandSecondary'],
+        secondary: ['ph-bg-brandSecondary'],
         outline: [
-          'bg-transparent',
-          'text-greyDark',
-          'border',
-          'border-greyBorder',
-          'hover:bg-greyBorder'
+          'ph-bg-transparent',
+          'ph-text-greyDark',
+          'ph-border',
+          'ph-border-greyBorder',
+          'ph-hover:bg-greyBorder'
         ],
       };
     },
