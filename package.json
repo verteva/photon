@@ -15,7 +15,8 @@
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-select": "^3.11.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",

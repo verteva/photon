@@ -1,26 +1,37 @@
 <template>
   <div>
-    Autocomplete
-    <!-- <vSelect :options="options" label="country" :reduce="country => country.code" /> -->
+    <vSelect 
+      :options="options"
+      label="country"
+      :reduce="country => country.code"
+    />
   </div>
 </template>
 <script lang='ts'>
-import { defineComponent } from '@vue/composition-api';
+import Vue from 'vue';
+import vSelect from 'vue-select';
 
-export default defineComponent({
-  name: 'AutoComplete',
+Vue.component('vSelect', vSelect);
+
+export default Vue.extend({
+  name: 'PAutoComplete',
+
   components: {
-    // vSelect
+    vSelect
   },
+
   props: {
   },
+
   data() {
     return {
       options: [{}],
     };
   },
+
   computed: {
   },
+
   methods: {
   },
 });

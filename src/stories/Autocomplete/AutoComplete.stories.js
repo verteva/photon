@@ -1,8 +1,8 @@
-import AutoComplete from './AutoComplete.vue';
+import PAutoComplete from './AutoComplete.vue';
 
 export default {
   title: 'Photon/AutoComplete',
-  component: AutoComplete,
+  component: PAutoComplete,
   argTypes: {
     backgroundColor: { control: 'color' },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
@@ -10,19 +10,13 @@ export default {
   },
 };
 
-const Template = (args) => ({
-  // Components used in your story 'template' are defined in the 'components' object
-  components: { AutoComplete },
-  // The story's args need to be mapped into the template through the 'setup()' method
-  setup() {
-    return { args };
-  },
-  // And then the 'args' are bound to your component with 'v-bind="args"'
-  template: '<AutoComplete v-bind="args" />',
+const Template = (args, { argTypes }) => ({
+  components: { PAutoComplete },
+  props: Object.keys(argTypes),
+  template: '<PAutoComplete v-bind="$props" />',
 });
 
-export const Primary = Template.bind({});
-Primary.args = {
-  primary: true,
-  label: 'Button',
+export const AutocompleteMain = Template.bind({});
+AutocompleteMain.args = {
+  label: 'Autocomplete',
 };
