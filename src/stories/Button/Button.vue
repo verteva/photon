@@ -55,18 +55,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import {
-  PropType,
-} from "@vue/composition-api";
-import {
   ButtonStylelist,
   ButtonStylePrimary,
-  ButtonType,
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
-  ButtonSize,
   TypeSubmit,
-  HTMLType,
 } from "./types";
 // import * as tailwind from '@/../tailwind.config.js'
 
@@ -79,11 +73,11 @@ export default Vue.extend({
       default: 'Continue',
     },
     buttonStyle: {
-      type: String as PropType<ButtonType>,
+      type: String,
       default: ButtonStylePrimary,
     },
     type: {
-      type: String as PropType<HTMLType>,
+      type: String,
       default: TypeSubmit,
     },
     disabled: {
@@ -99,7 +93,7 @@ export default Vue.extend({
       default: false,
     },
     size: {
-      type: String as PropType<ButtonSize>,
+      type: String,
       default: ButtonMedium,
       validator(value: string): boolean {
         return [ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;

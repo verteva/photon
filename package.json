@@ -1,6 +1,6 @@
 {
   "name": "@nanonpm/photon",
-  "version": "0.1.54",
+  "version": "0.1.541",
   "private": false,
   "scripts": {
     "test:unit": "vue-cli-service test:unit",
@@ -33,7 +33,6 @@
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/composition-api": "^1.0.0-rc.12",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^7.0.0",
     "@vue/test-utils": "^1.0.3",
@@ -55,9 +54,5 @@
     "vue-cli-plugin-tailwind": "~2.0.6",
     "vue-loader": "^15.9.7",
     "vue-template-compiler": "^2.6.11"
-  },
-  "peerDependencies": {
-    "@vue/composition-api": "^1.0.0-rc.11",
-    "@typescript-eslint/eslint-plugin": "^4.18.0"
   }
 }

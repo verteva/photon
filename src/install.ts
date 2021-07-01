@@ -1,12 +1,13 @@
 // import components, { photonComponents } from './stories'
 import components, { PhotonComponentKeys } from './stories'
-// import { Component } from 'vue';
-import Vue, { Component } from 'vue';
-import { DefaultData, DefaultMethods, DefaultComputed, DefaultProps } from 'vue/types/options';
-import VueCompositionApi from '@vue/composition-api';
+import { Component } from 'vue';
+import { 
+  DefaultData,
+  DefaultMethods,
+  DefaultComputed,
+  DefaultProps
+} from 'vue/types/options';
 import './assets/scss/main.scss'
-
-Vue.use(VueCompositionApi);
 
 interface options {
   prefix?: string;
