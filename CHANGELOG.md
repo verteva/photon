@@ -25,3 +25,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add fonts to the project.
 - Add ripple effect to button.
 - Add outlined version of PButton
+
+## [0.1.54] - 2021-07-01
+### Added
+- Added options API to PButton.
+- Added computed states to PButton.
+
+### Removed
+- Removed composition API > definComponent from PButton
+  - This was causing issues when using `npm link` to develop the application inside the onboarding application.
