@@ -1,7 +1,9 @@
 <template>
   <nav 
-    class="skip-link"
+    class="skip-link ph-z-50"
+    v-bind="$attrs"
     aria-label="skip links navigation"
+    v-on="$listeners"
   >
     <a 
       :class="linkClasses"
@@ -65,6 +67,7 @@ export default Vue.extend({
         'ph-outline-none',
         'ph-shadow-lg',
         'ph-rounded-md',
+        'ph-text-base',
       ],
     };
   },

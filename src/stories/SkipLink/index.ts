@@ -1,3 +1,3 @@
-import PKeyboardNavigation from './KeyboardNavigation.vue';
+import PSkipLink from './SkipLink.vue';
 
-export default PKeyboardNavigation;
+export default PSkipLink;
