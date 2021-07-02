@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.543] - 2021-07-02
+### Added
+- Add skip links component
+
 ## [0.1.542] - 2021-07-01
 ### Added
 - Add prefix to tailwind classes
