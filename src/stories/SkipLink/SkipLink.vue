@@ -21,22 +21,22 @@
 </template>
 
 <script lang='ts'>
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
   name: 'PSkipLink',
 
   props: {
     mainMenuId: {
-      type: String,
+      type: String as PropType<string>,
       default: '#mainmenu'
     },
     contentId: {
-      type: String,
+      type: String as PropType<string>,
       default: '#content'
     },
     linkClassArr: {
-      type: Array,
+      type: Array as PropType<string[]>,
       default: () => [],
     },
   },
@@ -70,7 +70,7 @@ export default Vue.extend({
   },
 
   computed: {
-    allClasses() {
+    allClasses(): string[] {
       return [...this.linkClasses, ...this.linkClassArr]
     }
   },

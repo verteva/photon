@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import {
   ButtonStylelist,
   ButtonStylePrimary,
@@ -69,31 +69,31 @@ export default Vue.extend({
 
   props: {
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Continue',
     },
     buttonStyle: {
-      type: String,
+      type: String as PropType<string>,
       default: ButtonStylePrimary,
     },
     type: {
-      type: String,
+      type: String as PropType<string>,
       default: TypeSubmit,
     },
     disabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
     valid: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
     submitting: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     size: {
-      type: String,
+      type: String as PropType<string>,
       default: ButtonMedium,
       validator(value: string): boolean {
         return [ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
