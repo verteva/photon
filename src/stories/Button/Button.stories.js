@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import VueCompositionApi from '@vue/composition-api';
 import PButton from './Button.vue';
 import '../../assets/scss/main.scss';
 
