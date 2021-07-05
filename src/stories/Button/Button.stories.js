@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import VueCompositionApi from '@vue/composition-api';
-import CTAButton from './Button.vue';
-import '../../assets/css/main.css'
+import PButton from './Button.vue';
+import '../../assets/scss/main.scss';
 
 Vue.use(VueCompositionApi);
 
 export default {
-  title: 'Photon/CTAButton',
-  component: CTAButton,
+  title: 'Photon/PButton',
+  component: PButton,
   argTypes: {
     disabled: { options: [true, false] },
     submitting: { options: [true, false] },
@@ -24,9 +24,9 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { CTAButton },
+  components: { PButton },
   props: Object.keys(argTypes),
-  template: '<CTAButton v-bind="$props" />',
+  template: '<PButton v-bind="$props" />',
 });
 
 export const Primary = Template.bind({});
@@ -42,6 +42,14 @@ export const Secondary = Template.bind({});
 Secondary.args = {
   disabled: false,
   label: 'Button',
-  type: 'secondary',
+  buttonStyle: 'secondary',
+  size: 'small',
+};
+
+export const Outline = Template.bind({});
+Outline.args = {
+  disabled: false,
+  label: 'Outlined',
+  buttonStyle: 'outline',
   size: 'small',
 };

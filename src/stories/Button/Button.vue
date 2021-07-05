@@ -3,11 +3,9 @@
     ref="elRef"
     v-bind="$attrs"
     :type="type"
-    class="cta-button"
-    :class="classList.value"
+    :class="classList"
     :style="styleList"
-    :disabled="disabled"
-    @click="onClick"
+    :disabled="isDisabled"
     v-on="$listeners"
   >
     <slot
@@ -15,10 +13,10 @@
       :slot="name"
       :name="name"
     />
-    <div class="flex items-center justify-center">
+    <div class="ph-flex ph-items-center ph-justify-center">
       <div 
-        class="uppercase"
-        :class="['transition', submitting ? 'opacity-0' : 'opacity-1']"
+        class="ph-uppercase"
+        :class="['ph-transition', submitting ? 'ph-opacity-0' : 'ph-opacity-1']"
       >
         <slot name="default">
           {{ label }}
@@ -26,10 +24,10 @@
       </div>
       <div
         v-if="submitting"
-        class="h-6 w-6 flex absolute"
-        :class="['transition', submitting ? 'opacity-1' : 'opacity-0']"
+        class="ph-h-6 ph-w-6 ph-flex ph-absolute"
+        :class="['ph-transition', submitting ? 'ph-opacity-1' : 'ph-opacity-0']"
       >
-        <div class="animate-spin h-full w-full flex">
+        <div class="animate-spin ph-h-full ph-w-full ph-flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="21.904761904761905 21.904761904761905 43.80952380952381 43.80952380952381"
@@ -55,75 +53,47 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  reactive,
-  computed,
-  PropType,
-  ref,
-} from "@vue/composition-api";
+import Vue, { PropType } from 'vue';
 import {
   ButtonStylelist,
-  Props,
   ButtonStylePrimary,
-  // ButtonStyleSecondary,
-  // ButtonStyleOutline,
-  ButtonType,
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
-  ButtonSize,
   TypeSubmit,
-  // TypeButton,
-  HTMLType,
-  Setup,
 } from "./types";
 // import * as tailwind from '@/../tailwind.config.js'
 
-const baseClassList: string[] = [
-  'rounded-3xl',
-  'border-0',
-  'py-2',
-  'px-5',
-  'flex',
-  'relative',
-  'items-center',
-  'justify-center',
-  'transition',
-];
-
-const buttonStyleClasslist: ButtonStylelist = {
-  primary: ["bg-brandPrimary"],
-  secondary: ["bg-brandSecondary"],
-  outline: ["bg-transparent"],
-};
-
-export default defineComponent({
-  name: "PButton",
+export default Vue.extend({
+  name: 'PButton',
 
   props: {
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: 'Continue',
     },
     buttonStyle: {
-      type: String as PropType<ButtonType>,
+      type: String as PropType<string>,
       default: ButtonStylePrimary,
     },
     type: {
-      type: String as PropType<HTMLType>,
+      type: String as PropType<string>,
       default: TypeSubmit,
     },
     disabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+    valid: {
+      type: Boolean as PropType<boolean>,
       default: true,
     },
     submitting: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     size: {
-      type: String as PropType<ButtonSize>,
+      type: String as PropType<string>,
       default: ButtonMedium,
       validator(value: string): boolean {
         return [ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
@@ -131,39 +101,67 @@ export default defineComponent({
     },
   },
 
-  setup(
-    _: Props,
-    { emit }: any
-  ): Setup  {
-    const props: Props = reactive(_);
-    const elRef = ref<HTMLElement>();
-    const styleList = ref([]);
-    // console.log('log PButton 1f', _);
-
-    const classList: any = computed(() => {
-      return [
-        ...baseClassList,
-        ...buttonStyleClasslist[
-          props.buttonStyle as keyof ButtonStylelist
-        ],
-        props.disabled && 'bg-gradient-to-b from-greyDark to-greyMid',
-        props.disabled && 'cursor-not-allowed',
-        props.disabled ? 'text-greyLight' : 'text-white',
-      ];
-    });
-
-    const onClick = function (): void {
-      // console.log('photon button click');
-      emit("click");
-    };
-
+  data(): any {
     return {
-      elRef,
-      onClick,
-      classList,
-      styleList,
-    };
+      baseClassList: [
+        'ph-rounded-3xl',
+        'ph-border-0',
+        'ph-py-2',
+        'ph-px-5',
+        'ph-relative',
+        'ph-items-center',
+        'ph-justify-center',
+        'ph-transition',
+        'ph-text-sm',
+      ],
+    }
   },
+
+  computed: {
+    classList(): string[] {
+      const a: string[] = [
+        ...this.baseClassList,
+        ...this.buttonStyleClasslist[
+          this.buttonStyle as keyof ButtonStylelist
+        ],
+        ...this.disabledStyles,
+      ];
+      return a;
+    },
+    disabledStyles (): string[] {
+      return [
+        this.disabled ?
+          'ph-bg-gradient-to-b ph-from-greyDark ph-to-greyMid ph-text-greyLight' :
+          'ph-text-white',
+        this.disabled && 'ph-cursor-not-allowed',
+        this.submitting && 'ph-cursor-not-allowed',
+      ];
+    },
+    styleList(): string[] {
+      return [];
+    },
+    isDisabled(): boolean {
+      return this.submitting || this.disabled;
+    },
+    buttonStyleClasslist(): ButtonStylelist {
+      return {
+        primary: [
+          'ph-bg-brandPrimary', 
+          !this.submitting ? 'hover:ph-bg-brandPrimaryh' : '',
+        ],
+        secondary: ['ph-bg-brandSecondary'],
+        outline: [
+          'ph-bg-transparent',
+          'ph-text-greyDark',
+          'ph-border',
+          'ph-border-greyBorder',
+          'ph-hover:bg-greyBorder'
+        ],
+      };
+    },
+  },
+
+  methods: {},
 });
 </script>
 
@@ -196,4 +194,43 @@ export default defineComponent({
     }
   }
 }
+
+button{
+  position: relative;
+  overflow: hidden;
+}
+
+button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, .5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 1;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
+
+button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
 </style>
