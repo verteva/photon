@@ -199,7 +199,6 @@ export default Vue.extend({
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,
       ];
-      console.log(a);
       
       return a;
     },
