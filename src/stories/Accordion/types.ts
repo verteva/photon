@@ -17,6 +17,7 @@ export interface Props {
 }
 
 export interface AccordionData {
+  baseClassList: string[];
   renders: boolean;
   height: string;
   minHeight: number | null;

@@ -1,13 +1,7 @@
 <template>
   <div
     :id="id"
-    class="ph-overflow-hidden"
-    :class="[
-      initialRender ? 'ph-relative ph-visible' : 'ph-invisible',
-      unstyled ? '' : 'ph-border ph-rounded-xl ph-border-greyLight1' ,
-      disabled ? 'ph-opacity-50' : 'ph-opacity-100',
-      backgroundColor,
-    ]"
+    :class="classList"
     :style="{ height }"
   >
     <button
@@ -19,7 +13,7 @@
       ]"
       @click="toggleOpen"
     >
-      {{ section }} {{ backgroundColor }}
+      {{ section }}
       <ChevronRight
         v-if="openArrows"
         width="12px"
@@ -36,7 +30,7 @@
       <div
         v-if="renders"
         class="acc-content ph-w-full"
-        :class="[backgroundColor, unstyled ? '' : 'ph-p-6']"
+        :class="[unstyled ? '' : 'ph-p-6']"
       >
         <slot />
       </div>
@@ -89,12 +83,13 @@ export default Vue.extend({
   },
 
   data():AccordionData {
-    const minHeight: number[] | null = null;
-
     return {
+      baseClassList: [
+        'ph-overflow-hidden',
+      ],
       renders: true,
       height: 'auto',
-      minHeight,
+      minHeight: null,
       maxHeight: null,
       expanded: true,
       initialRender: false,
@@ -195,6 +190,18 @@ export default Vue.extend({
   computed: {
     openProp() {
       return this.open;
+    },
+    classList(): string[] {
+      const a: string[] = [
+        ...this.baseClassList,
+        this.initialRender ? 'ph-relative ph-visible' : 'ph-invisible',
+        this.unstyled ? '' : 'ph-border ph-rounded-xl ph-border-greyLight1' ,
+        this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
+        this.unstyled ? '' : this.backgroundColor,
+      ];
+      console.log(a);
+      
+      return a;
     },
   },
   
