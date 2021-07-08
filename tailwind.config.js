@@ -24,6 +24,7 @@ module.exports = {
       brandmidblue: '#0089D2',
       greyDark: '#222222',
       greyMid: '#444444',
+      greyLight1: '#EDEDED',
       greyLight: '#f5f5f5',
       greyBorder: 'rgba(0, 0, 0, 0.12)',
       sideGreen: '#02DB32',
