@@ -92,7 +92,7 @@ export default Vue.extend({
       minHeight: null,
       maxHeight: null,
       expanded: true,
-      initialRender: false,
+      initialRender: true,
       id: this.identifier || uuidv4(),
     };
   },
@@ -109,7 +109,6 @@ export default Vue.extend({
     }
 
     this.expanded = this.open;
-    this.initialRender = true;
   },
 
   methods: {
@@ -168,11 +167,11 @@ export default Vue.extend({
       if (!this.expanded) {
         this.maxHeight = totalHeight;
       }
-
+            
       // Transition open/closed    
       gsap.to(accordion, {
         height: this.getHeight(),
-        duration: 0.3,
+        duration: this.initialRender ? 0 : 0.3,
         ease: 'quad.out',
         onComplete: () => {
           // Set height to auto at the end to allow for dynamic content adjustments
@@ -182,6 +181,8 @@ export default Vue.extend({
           if (!this.expanded) {
             this.renders = false;
           }
+
+          this.initialRender = false;
         },
       });
     },
@@ -194,7 +195,6 @@ export default Vue.extend({
     classList(): string[] {
       const a: string[] = [
         ...this.baseClassList,
-        this.initialRender ? 'ph-relative ph-visible' : 'ph-invisible',
         this.unstyled ? '' : 'ph-border ph-rounded-xl ph-border-greyLight1' ,
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,

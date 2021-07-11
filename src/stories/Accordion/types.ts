@@ -26,17 +26,3 @@ export interface AccordionData {
   initialRender: boolean;
   id: string;
 }
-
-// export const ButtonStylePrimary = 'primary';
-// export const ButtonStyleSecondary = 'secondary';
-// export const ButtonStyleOutline = 'outline';
-// export type ButtonType = typeof ButtonStylePrimary | typeof ButtonStyleSecondary | typeof ButtonStyleOutline;
-
-// export const ButtonSmall = 'small';
-// export const ButtonMedium = 'medium';
-// export const ButtonLarge = 'large';
-// export type ButtonSize = typeof ButtonSmall | typeof ButtonMedium | typeof ButtonLarge;
-
-// export const TypeSubmit = 'submit'
-// export const TypeButton = 'button'
-// export type HTMLType = typeof TypeSubmit | typeof TypeButton;
