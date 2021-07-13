@@ -10,8 +10,8 @@
       </h2>
       <div class="ph-flex ph-flex-row ph-mt-2">
         <div
-          v-for="colorItem in colorRow.items"
-          :key="colorItem.subText"
+          v-for="(colorItem, i) in colorRow.items"
+          :key="`${colorItem.subText}${i}`"
           class="c-palette ph-flex ph-flex-col ph-mr-4"
         >
           <div
