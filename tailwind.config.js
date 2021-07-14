@@ -22,6 +22,7 @@ module.exports = {
       brandlight: '#03B4FC',
       brandlightblue: '#00B3DA',
       brandmidblue: '#0089D2',
+      grey3: '#7F7F7F',
       greyDark: '#222222',
       greyMid: '#444444',
       greyLight1: '#EDEDED',

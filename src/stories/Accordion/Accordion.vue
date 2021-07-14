@@ -6,14 +6,20 @@
   >
     <button
       :disabled="disabled"
-      class="acc-header ph-flex ph-items-center ph-uppercase"
+      class="acc-header ph-flex ph-items-center ph-uppercase ph-text-grey3 ph-font-normal"
       :class="[
-        unstyled ? '' : 'ph-p-6',
+        unstyled ? '' : 'ph-py-6 ph-px-8',
         ((fullWidth || !unstyled) && 'ph-w-full') || '',
       ]"
       @click="toggleOpen"
     >
       {{ section }}
+      <Checkmark
+        v-if="complete"
+        class="ph-ml-4"
+        width="14px"
+        height="10px"
+      />
       <ChevronRight
         v-if="openArrows"
         width="12px"
@@ -25,12 +31,12 @@
     <div class="ph-flex ph-relative">
       <hr
         v-if="!unstyled" 
-        class="ph-absolute ph-top-0 ph-left-0 ph-right-0 ph-mx-6" 
+        class="ph-absolute ph-top-0 ph-left-0 ph-right-0 ph-mx-8" 
       />
       <div
         v-if="renders"
         class="acc-content ph-w-full"
-        :class="[unstyled ? '' : 'ph-p-6']"
+        :class="[unstyled ? '' : 'ph-py-6 ph-px-8']"
       >
         <slot />
       </div>
@@ -40,7 +46,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import ChevronRight from '../Icon/ChevronRight';
+import ChevronRight from '../Icon/ChevronRight.vue';
+import Checkmark from '../Icon/Checkmark.vue';
 import { v4 as uuidv4 } from 'uuid';
 import { gsap } from 'gsap';
 import {
@@ -63,17 +70,16 @@ export default Vue.extend({
 
   components: {
     ChevronRight,
+    Checkmark,
   },
 
   props: {
-    singleFocus: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
+    singleFocus: isType(Boolean, false),
     openArrows: isType(Boolean, true),
     unstyled: isType(Boolean, false),
     fullWidth: isType(Boolean, false),
-    open: isType(Boolean, false),
+    complete: isType(Boolean, false),
+    open: isType(Boolean, true),
     disabled: isType(Boolean, false),
     section: isType(String, ''),
     backgroundColor: {
@@ -150,7 +156,8 @@ export default Vue.extend({
   },
 
   methods: {
-    toggleOpen():void {
+    toggleOpen(e:MouseEvent):void {
+      e.preventDefault();
       /*
         If singleFocus is true, there should be multiple
         and only one is open at a time. Opening one will
@@ -205,7 +212,7 @@ export default Vue.extend({
       // Transition open/closed    
       gsap.to(accordion, {
         height: this.getHeight(),
-        duration: this.initialRender ? 0 : 0.3,
+        duration: this.initialRender ? 0 : 0.4,
         ease: 'quad.out',
         onComplete: () => {
           // Set height to auto at the end to allow for dynamic content adjustments
