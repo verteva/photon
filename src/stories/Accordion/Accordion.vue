@@ -57,6 +57,7 @@ const isType = (_Type:any, _default:any) => {
 };
 
 
+
 export default Vue.extend({
   name: 'PAccordion',
 
@@ -65,7 +66,10 @@ export default Vue.extend({
   },
 
   props: {
-    singleFocus: isType(Boolean, false),
+    singleFocus: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     openArrows: isType(Boolean, true),
     unstyled: isType(Boolean, false),
     fullWidth: isType(Boolean, false),
@@ -97,6 +101,40 @@ export default Vue.extend({
     };
   },
 
+  computed: {
+    openProp():boolean {
+      return this.open;
+    },
+    classList():string[] {
+      const a: string[] = [
+        ...this.baseClassList,
+        this.unstyled ? '' : 'ph-border ph-rounded-xl ph-border-greyLight1' ,
+        this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
+        this.unstyled ? '' : this.backgroundColor,
+      ];
+      
+      return a;
+    },
+  },
+  
+  watch: {
+    expanded() {
+      if (this.expanded) {
+        this.renders = true;
+        this.$nextTick(() => {
+          this.switchState();
+        });
+      }
+
+      this.switchState();
+    },
+    openProp(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.expanded = newVal;
+      }
+    },
+  },
+
   mounted():void {
     const { totalHeight, headerHeight } = this.getNode();
     this.maxHeight = totalHeight;
@@ -104,7 +142,7 @@ export default Vue.extend({
 
     // If this mounts collapsed set height to 0 and turn off render of content
     if (!this.open) {
-      this.height = this.minHeight;
+      this.height = `${this.minHeight}px`;
       this.renders = false;
     }
 
@@ -134,33 +172,29 @@ export default Vue.extend({
         return `${this.maxHeight}px`;
       }
 
-      return this.minHeight;
+      return `${this.minHeight}px`;
     },
     getNode():AccordionElementHeights {
       const accordion = document.getElementById(this.id);
-      const headerHeight = accordion.querySelector('.acc-header') &&
-        Math.round(
-          accordion.querySelector('.acc-header').getBoundingClientRect().height
-        );
-      const contentHeight =
-        accordion.querySelector('.acc-content') &&
-        Math.round(
-          accordion.querySelector('.acc-content').getBoundingClientRect().height
-        );
-      const totalHeight = Math.round(accordion.getBoundingClientRect().height);
+      const header = accordion && accordion.querySelector('.acc-header');
+      const content = accordion && accordion.querySelector('.acc-content');
+
+      const headerHeight = header && Math.round(header.getBoundingClientRect().height);
+      const contentHeight = content &&  Math.round(content.getBoundingClientRect().height);
+      const totalHeight = accordion && Math.round(accordion.getBoundingClientRect().height);
 
       return {
-        accordion,
-        headerHeight,
-        contentHeight,
-        totalHeight,
+        accordion: accordion as HTMLElement,
+        headerHeight: headerHeight as number,
+        contentHeight: contentHeight as number,
+        totalHeight: totalHeight as number,
       };
     },
     switchState() {
       // Capture the height before close if its open
       const { accordion, totalHeight, contentHeight } = this.getNode();
 
-      if (this.expanded) {
+      if (this.expanded && this.minHeight) {
         this.maxHeight = contentHeight + this.minHeight;
       }
 
@@ -185,40 +219,6 @@ export default Vue.extend({
           this.initialRender = false;
         },
       });
-    },
-  },
-
-  computed: {
-    openProp() {
-      return this.open;
-    },
-    classList(): string[] {
-      const a: string[] = [
-        ...this.baseClassList,
-        this.unstyled ? '' : 'ph-border ph-rounded-xl ph-border-greyLight1' ,
-        this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
-        this.unstyled ? '' : this.backgroundColor,
-      ];
-      
-      return a;
-    },
-  },
-  
-  watch: {
-    expanded() {
-      if (this.expanded) {
-        this.renders = true;
-        this.$nextTick(() => {
-          this.switchState();
-        });
-      }
-
-      this.switchState();
-    },
-    openProp(newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.expanded = newVal;
-      }
     },
   },
 });
