@@ -1,5 +1,6 @@
 export interface AccordionElementHeights {
   accordion: HTMLElement;
+  content: HTMLElement;
   headerHeight: number;
   contentHeight: number;
   totalHeight: number;
@@ -18,7 +19,6 @@ export interface Props {
 
 export interface AccordionData {
   baseClassList: string[];
-  renders: boolean;
   height: string;
   minHeight: number | null;
   maxHeight: number | null;

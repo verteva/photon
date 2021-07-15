@@ -733,6 +733,7 @@ module.exports = {
     },
     transitionDuration: {
       DEFAULT: '150ms',
+      1: '1ms',
       75: '75ms',
       100: '100ms',
       150: '150ms',
@@ -751,12 +752,13 @@ module.exports = {
       opacity: 'opacity',
       shadow: 'box-shadow',
       transform: 'transform',
+      height: 'height',
     },
     transitionTimingFunction: {
       DEFAULT: 'cubic-bezier(0.4, 0, 0.2, 1)',
       linear: 'linear',
       in: 'cubic-bezier(0.4, 0, 1, 1)',
-      out: 'cubic-bezier(0, 0, 0.2, 1)',
+      out: 'cubic-bezier(.14, .75, .44, .94)',
       'in-out': 'cubic-bezier(0.4, 0, 0.2, 1)',
     },
     translate: (theme, { negative }) => ({
