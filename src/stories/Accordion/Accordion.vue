@@ -152,6 +152,11 @@ export default Vue.extend({
     this.expanded = this.open;
   },
 
+  destroyed() {
+    const { accordion } = this.getNode();
+    accordion.removeEventListener('transitionend', this.onTransitionEnd);
+  },
+
   methods: {
     onTransitionEnd() {
       // Set height to auto at the end to allow for dynamic content adjustments
