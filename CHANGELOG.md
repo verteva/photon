@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.546] - 2021-07-15
+### Added
+- Fixes for Accordion not rendering collapsed content
+- Switch animation to CSS transitions
+
 ## [0.1.545] - 2021-07-15
 ### Added
 - Removing Accordion component after testing integration
