@@ -53,14 +53,6 @@ import {
   AccordionData,
 } from "./types";
 
-const isType = (_Type:any, _default:any) => {
-  const _type = _Type();  
-  return {
-    type: _Type as PropType<typeof _type>,
-    default: _default,
-  }
-};
-
 export default Vue.extend({
   name: 'PAccordion',
 
@@ -70,14 +62,38 @@ export default Vue.extend({
   },
 
   props: {
-    singleFocus: isType(Boolean, false),
-    openArrows: isType(Boolean, true),
-    unstyled: isType(Boolean, false),
-    fullWidth: isType(Boolean, false),
-    complete: isType(Boolean, false),
-    open: isType(Boolean, true),
-    disabled: isType(Boolean, false),
-    section: isType(String, ''),
+    singleFocus: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    openArrows: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+    unstyled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    fullWidth: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    complete: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    open: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    section: {
+      type: String as PropType<string>,
+      default: false,
+    },
     backgroundColor: {
       type: String as PropType<string>,
       default: 'ph-bg-grey6',
@@ -152,9 +168,11 @@ export default Vue.extend({
     this.expanded = this.open;
   },
 
-  destroyed() {
+  beforeDestroy() {
     const { accordion } = this.getNode();
-    accordion.removeEventListener('transitionend', this.onTransitionEnd);
+    if (accordion) {
+      accordion.removeEventListener('transitionend', this.onTransitionEnd);
+    }
   },
 
   methods: {
