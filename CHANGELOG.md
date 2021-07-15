@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.545] - 2021-07-15
+### Added
+- Removing Accordion component after testing integration
+
+## [0.1.544] - 2021-07-15
+### Added
+- Added Accordion component to test integration
+
 ## [0.1.543] - 2021-07-02
 ### Added
 - Add skip links component
