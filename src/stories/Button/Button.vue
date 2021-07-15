@@ -131,7 +131,7 @@ export default Vue.extend({
     disabledStyles (): string[] {
       return [
         this.disabled ?
-          'ph-bg-gradient-to-b ph-from-greyDark ph-to-greyMid ph-text-greyLight' :
+          'ph-bg-grey3 ph-text-grey4' :
           'ph-text-white',
         this.disabled && 'ph-cursor-not-allowed',
         this.submitting && 'ph-cursor-not-allowed',
@@ -146,13 +146,13 @@ export default Vue.extend({
     buttonStyleClasslist(): ButtonStylelist {
       return {
         primary: [
-          'ph-bg-brandPrimary', 
-          !this.submitting ? 'hover:ph-bg-brandPrimaryh' : '',
+          'ph-bg-brand2', 
+          !this.submitting ? 'hover:ph-bg-brand2h' : '',
         ],
-        secondary: ['ph-bg-brandSecondary'],
+        secondary: ['ph-bg-brand3'],
         outline: [
           'ph-bg-transparent',
-          'ph-text-greyDark',
+          'ph-text-grey1',
           'ph-border',
           'ph-border-greyBorder',
           'ph-hover:bg-greyBorder'

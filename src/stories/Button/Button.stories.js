@@ -1,8 +1,5 @@
-import Vue from 'vue';
 import PButton from './Button.vue';
 import '../../assets/scss/main.scss';
-
-Vue.use(VueCompositionApi);
 
 export default {
   title: 'Photon/PButton',
