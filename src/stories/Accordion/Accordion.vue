@@ -34,7 +34,6 @@
         class="ph-absolute ph-top-0 ph-left-0 ph-right-0 ph-mx-8" 
       />
       <div
-        v-if="renders"
         class="acc-content ph-w-full"
         :class="[unstyled ? '' : 'ph-py-6 ph-px-8']"
       >
@@ -49,21 +48,10 @@ import Vue, { PropType } from 'vue';
 import ChevronRight from '../Icon/ChevronRight.vue';
 import Checkmark from '../Icon/Checkmark.vue';
 import { v4 as uuidv4 } from 'uuid';
-import { gsap } from 'gsap';
 import {
   AccordionElementHeights,
   AccordionData,
 } from "./types";
-
-const isType = (_Type:any, _default:any) => {
-  const _type = _Type();  
-  return {
-    type: _Type as PropType<typeof _type>,
-    default: _default,
-  }
-};
-
-
 
 export default Vue.extend({
   name: 'PAccordion',
@@ -74,17 +62,41 @@ export default Vue.extend({
   },
 
   props: {
-    singleFocus: isType(Boolean, false),
-    openArrows: isType(Boolean, true),
-    unstyled: isType(Boolean, false),
-    fullWidth: isType(Boolean, false),
-    complete: isType(Boolean, false),
-    open: isType(Boolean, true),
-    disabled: isType(Boolean, false),
-    section: isType(String, ''),
+    singleFocus: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    openArrows: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+    unstyled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    fullWidth: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    complete: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    open: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    section: {
+      type: String as PropType<string>,
+      default: false,
+    },
     backgroundColor: {
       type: String as PropType<string>,
-      default: 'ph-bg-greyLight',
+      default: 'ph-bg-grey6',
     },
     identifier: {
       type: [String, Number],
@@ -96,8 +108,9 @@ export default Vue.extend({
     return {
       baseClassList: [
         'ph-overflow-hidden',
+        'ph-ease-out',
+        'ph-transition-height',
       ],
-      renders: true,
       height: 'auto',
       minHeight: null,
       maxHeight: null,
@@ -114,9 +127,10 @@ export default Vue.extend({
     classList():string[] {
       const a: string[] = [
         ...this.baseClassList,
-        this.unstyled ? '' : 'ph-border ph-rounded-xl ph-border-greyLight1' ,
+        this.unstyled ? '' : 'ph-border ph-rounded-xl ph-border-grey5' ,
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,
+        this.initialRender ? 'ph-duration-1 ph-invisible' : 'ph-duration-300 ph-visible',
       ];
       
       return a;
@@ -126,7 +140,6 @@ export default Vue.extend({
   watch: {
     expanded() {
       if (this.expanded) {
-        this.renders = true;
         this.$nextTick(() => {
           this.switchState();
         });
@@ -142,20 +155,37 @@ export default Vue.extend({
   },
 
   mounted():void {
-    const { totalHeight, headerHeight } = this.getNode();
+    const { accordion, totalHeight, headerHeight } = this.getNode();
+    accordion.addEventListener('transitionend', this.onTransitionEnd);
+
     this.maxHeight = totalHeight;
     this.minHeight = headerHeight;
 
-    // If this mounts collapsed set height to 0 and turn off render of content
-    if (!this.open) {
-      this.height = `${this.minHeight}px`;
-      this.renders = false;
+    if (this.open) {
+      this.initialRender = false;
     }
 
     this.expanded = this.open;
   },
 
+  beforeDestroy() {
+    const { accordion } = this.getNode();
+    if (accordion) {
+      accordion.removeEventListener('transitionend', this.onTransitionEnd);
+    }
+  },
+
   methods: {
+    onTransitionEnd() {
+      // Set height to auto at the end to allow for dynamic content adjustments
+      const { accordion } = this.getNode();
+
+      if (this.expanded) {
+        accordion.style.height = 'auto';
+      }
+
+      if (this.initialRender) this.initialRender = false;
+    },
     toggleOpen(e:MouseEvent):void {
       e.preventDefault();
       /*
@@ -192,6 +222,7 @@ export default Vue.extend({
 
       return {
         accordion: accordion as HTMLElement,
+        content: content as HTMLElement,
         headerHeight: headerHeight as number,
         contentHeight: contentHeight as number,
         totalHeight: totalHeight as number,
@@ -200,32 +231,40 @@ export default Vue.extend({
     switchState() {
       // Capture the height before close if its open
       const { accordion, totalHeight, contentHeight } = this.getNode();
-
+      
       if (this.expanded && this.minHeight) {
-        this.maxHeight = contentHeight + this.minHeight;
+        this.maxHeight = contentHeight + this.minHeight;       
+        this.toggleFocusability('0');
+        accordion.style.height = `${this.maxHeight}px`;
       }
-
-      if (!this.expanded) {
+     
+      if (!this.expanded) {        
         this.maxHeight = totalHeight;
+        accordion.style.height = `${this.maxHeight}px`;
+        this.$nextTick(() => {
+          accordion.style.height = `${this.minHeight}px`;          
+        });
+        this.toggleFocusability('-1');
       }
-            
-      // Transition open/closed    
-      gsap.to(accordion, {
-        height: this.getHeight(),
-        duration: this.initialRender ? 0 : 0.4,
-        ease: 'quad.out',
-        onComplete: () => {
-          // Set height to auto at the end to allow for dynamic content adjustments
-          if (this.expanded) {
-            accordion.style.height = 'auto';
-          }
-          if (!this.expanded) {
-            this.renders = false;
-          }
+    },
+    toggleFocusability(index:string) {
+      const { content } = this.getNode();
+      const focussableElements = [
+        'a',
+        'area', 
+        'button', 
+        'input', 
+        'object', 
+        'select',
+        'textarea',
+      ];
 
-          this.initialRender = false;
-        },
-      });
+      focussableElements.forEach(type => {
+        content.querySelectorAll(type)
+          .forEach(el => {
+            el.setAttribute('tabindex', index)
+          });
+      });      
     },
   },
 });
