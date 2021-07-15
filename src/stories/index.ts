@@ -1,7 +1,7 @@
 import { Component } from 'vue';
 import PButton from './Button';
 import PSkipLink from './SkipLink';
-// import PAccordion from './Accordion';
+import PAccordion from './Accordion';
 // import PAutocomplete from './Button.vue';
 
 export interface PhotonComponents {
@@ -11,7 +11,7 @@ export interface PhotonComponents {
 const components: PhotonComponents = {
   PButton,
   PSkipLink,
-  // PAccordion,
+  PAccordion,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
