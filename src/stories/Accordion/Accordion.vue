@@ -9,7 +9,7 @@
       class="acc-header ph-flex ph-items-center ph-uppercase ph-text-grey3 ph-font-normal"
       :class="[
         unstyled ? '' : 'ph-py-6 ph-px-8',
-        ((fullWidth || !unstyled) && 'ph-w-full') || '',
+        (fullWidth && 'ph-w-full') || '',
       ]"
       @click="toggleOpen"
     >
@@ -76,7 +76,7 @@ export default Vue.extend({
     },
     fullWidth: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: true,
     },
     complete: {
       type: Boolean as PropType<boolean>,

@@ -137,7 +137,7 @@ const UnstyledTemplate = (args, { argTypes }) => ({
       <PAccordion v-bind="$props" section="Section 1" unstyled>
         Hello
       </PAccordion>
-      <PAccordion v-bind="$props" section="Section 2" unstyled>
+      <PAccordion v-bind="$props" section="Section 2" unstyled :full-width="false">
         <a href="#">Link C</a></br />
         <a href="#">Link D</a></br />
         <a href="#">Link E</a></br />
