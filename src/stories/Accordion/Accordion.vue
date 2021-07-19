@@ -118,7 +118,7 @@ export default Vue.extend({
       height: 'auto',
       minHeight: null,
       maxHeight: null,
-      expanded: this.value || this.open,
+      expanded: Boolean(this.value || this.open),
       initialRender: false,
       id: this.identifier || uuidv4(),
     };
