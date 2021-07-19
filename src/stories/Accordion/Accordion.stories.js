@@ -16,44 +16,6 @@ export default {
   },
 };
 
-
-
-const NestedTemplate = (args, { argTypes }) => ({
-  components: { PAccordion },
-  props: Object.keys(argTypes),
-  template: `
-  <PAccordion section="Level 1" :open="false">
-    <div class='ph-mb-5 ph-py-5 ph-px-10'>
-      Some static HTML content...
-    </div>
-    <PAccordion class="ph-mb-1" section="Level 2a">
-      Lorem ipsum...
-    </PAccordion>
-    <PAccordion section="Level 2b">
-      Hello world!
-    </PAccordion>
-  </PAccordion>
-  `,
-});
-
-const UnstyledTemplate = (args, { argTypes }) => ({
-  components: { PAccordion },
-  props: Object.keys(argTypes),
-  template: `
-    <div>
-      <PAccordion v-bind="$props" section="Section 1" unstyled>
-        Hello
-      </PAccordion>
-      <PAccordion v-bind="$props" section="Section 2" unstyled>
-        <a href="#">Link C</a></br />
-        <a href="#">Link D</a></br />
-        <a href="#">Link E</a></br />
-        <a href="#">Link F</a>
-      </PAccordion>
-    </div>
-  `,
-});
-
 const SimpleTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
   props: Object.keys(argTypes),
@@ -61,8 +23,9 @@ const SimpleTemplate = (args, { argTypes }) => ({
     <div>
       <button @click="addThings" class="ph-my-10">+ ADD</button> /
       <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
-      <button @click="openClose" class="ph-my-10">Toggle open</button>
-      <PAccordion v-bind="$props" section="Some heading" :open="forceOpen">
+      <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
+
+      <PAccordion v-bind="$props" section="Some heading" v-model="forceOpen">
         Some content
         <ul>
           <li v-for="thing in things" :key="thing">{{thing}}</li>
@@ -88,6 +51,31 @@ const SimpleTemplate = (args, { argTypes }) => ({
     },
   },
 });
+export const Simple = SimpleTemplate.bind({});
+
+const NestedTemplate = (args, { argTypes }) => ({
+  components: { PAccordion },
+  props: Object.keys(argTypes),
+  template: `
+  <PAccordion section="Level 1" v-model="test" :open="false">
+    <div class='ph-mb-5 ph-py-5 ph-px-10'>
+      Some static HTML content...
+    </div>
+    <PAccordion class="ph-mb-1" section="Level 2a" open>
+      Lorem ipsum...
+    </PAccordion>
+    <PAccordion section="Level 2b">
+      Hello world!
+    </PAccordion>
+  </PAccordion>
+  `,
+  data() {
+    return {
+      test: null,
+    };
+  },
+});
+export const Nested = NestedTemplate.bind({});
 
 const SingleFocusTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
@@ -139,8 +127,23 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
     }
   }
 });
-
-export const Simple = SimpleTemplate.bind({});
-export const Nested = NestedTemplate.bind({});
 export const SingleFocus = SingleFocusTemplate.bind({});
+
+const UnstyledTemplate = (args, { argTypes }) => ({
+  components: { PAccordion },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <PAccordion v-bind="$props" section="Section 1" unstyled>
+        Hello
+      </PAccordion>
+      <PAccordion v-bind="$props" section="Section 2" unstyled>
+        <a href="#">Link C</a></br />
+        <a href="#">Link D</a></br />
+        <a href="#">Link E</a></br />
+        <a href="#">Link F</a>
+      </PAccordion>
+    </div>
+  `,
+});
 export const Unstyled = UnstyledTemplate.bind({});

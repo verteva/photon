@@ -25,7 +25,7 @@
         width="12px"
         height="7px"
         class="ph-ml-auto ph-transition-all"
-        :class="(expanded && 'ph-transform ph-rotate-180') || ''"
+        :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
       />
     </button>
     <div class="ph-flex ph-relative">
@@ -82,11 +82,15 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     open: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
-    disabled: {
+    value: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
@@ -104,7 +108,7 @@ export default Vue.extend({
     },
   },
 
-  data():AccordionData {
+  data():AccordionData {   
     return {
       baseClassList: [
         'ph-overflow-hidden',
@@ -114,15 +118,17 @@ export default Vue.extend({
       height: 'auto',
       minHeight: null,
       maxHeight: null,
-      expanded: true,
-      initialRender: true,
+      expanded: this.value || this.open,
+      initialRender: false,
       id: this.identifier || uuidv4(),
     };
   },
 
   computed: {
-    openProp():boolean {
-      return this.open;
+    innerValue: {
+      get():boolean {
+        return this.expanded;
+      },
     },
     classList():string[] {
       const a: string[] = [
@@ -136,36 +142,41 @@ export default Vue.extend({
       return a;
     },
   },
-  
+
   watch: {
+    value(val) {      
+      this.expanded = val;
+    },
+    open(val) {      
+      this.expanded = val;
+    },
     expanded() {
       if (this.expanded) {
         this.$nextTick(() => {
           this.switchState();
         });
       }
-
-      this.switchState();
-    },
-    openProp(newVal, oldVal) {
-      if (newVal !== oldVal) {
-        this.expanded = newVal;
+      else {
+        this.switchState();
       }
+
+      this.$emit('input', this.expanded);
     },
   },
 
-  mounted():void {
+  mounted():void {       
     const { accordion, totalHeight, headerHeight } = this.getNode();
     accordion.addEventListener('transitionend', this.onTransitionEnd);
 
     this.maxHeight = totalHeight;
     this.minHeight = headerHeight;
 
-    if (this.open) {
+    if (this.expanded) {
       this.initialRender = false;
     }
-
-    this.expanded = this.open;
+    else {
+      this.height = `${this.minHeight}px`;
+    }
   },
 
   beforeDestroy() {
@@ -207,7 +218,7 @@ export default Vue.extend({
         } else {
           this.$emit('toggle', this.id);
         }
-      } else {
+      } else {        
         this.expanded = !this.expanded;
       }
     },
@@ -235,7 +246,7 @@ export default Vue.extend({
         totalHeight: totalHeight as number,
       };
     },
-    switchState() {
+    switchState() {     
       // Capture the height before close if its open
       const { accordion, totalHeight, contentHeight } = this.getNode();
       
