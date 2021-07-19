@@ -5,9 +5,10 @@
   "scripts": {
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "build-storybook": "build-storybook",
+    "build": "build-storybook",
     "build:lib": "vue-cli-service build --target lib src/install.ts",
-    "sb": "start-storybook -p 6006"
+    "sb": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006"
   },
   "main": "dist/photon.umd.js",
   "module": "dist/photon.umd.js",
