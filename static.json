@@ -1,4 +1,4 @@
 {
-  "root": "public",
+  "root": "storybook-static/",
   "clean_urls": true
 }
