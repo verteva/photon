@@ -35,7 +35,6 @@ const NestedTemplate = (args, { argTypes }) => ({
   </PAccordion>
   `,
 });
-export const Nested = NestedTemplate.bind({});
 
 const UnstyledTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
@@ -54,17 +53,16 @@ const UnstyledTemplate = (args, { argTypes }) => ({
     </div>
   `,
 });
-export const Unstyled = UnstyledTemplate.bind({});
-
 
 const SimpleTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
   props: Object.keys(argTypes),
   template: `
     <div>
-      <button @click="addThings" class="ph-my-10">+ ADD</button>
-      <button @click="subThings" class="ph-my-10">- REMOVE</button>
-      <PAccordion v-bind="$props" section="Some heading" open>
+      <button @click="addThings" class="ph-my-10">+ ADD</button> /
+      <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
+      <button @click="openClose" class="ph-my-10">Toggle open</button>
+      <PAccordion v-bind="$props" section="Some heading" :open="forceOpen">
         Some content
         <ul>
           <li v-for="thing in things" :key="thing">{{thing}}</li>
@@ -75,9 +73,13 @@ const SimpleTemplate = (args, { argTypes }) => ({
   data() {
     return {
       things: [],
+      forceOpen: true,
     };
   },
   methods: {
+    openClose() {
+      this.forceOpen = !this.forceOpen;
+    },
     addThings() {
       this.things.push(Math.random());
     },
@@ -86,8 +88,6 @@ const SimpleTemplate = (args, { argTypes }) => ({
     },
   },
 });
-export const Simple = SimpleTemplate.bind({});
-
 
 const SingleFocusTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
@@ -139,4 +139,8 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
     }
   }
 });
+
+export const Simple = SimpleTemplate.bind({});
+export const Nested = NestedTemplate.bind({});
 export const SingleFocus = SingleFocusTemplate.bind({});
+export const Unstyled = UnstyledTemplate.bind({});

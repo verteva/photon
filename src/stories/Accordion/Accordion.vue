@@ -176,15 +176,22 @@ export default Vue.extend({
   },
 
   methods: {
-    onTransitionEnd() {
-      // Set height to auto at the end to allow for dynamic content adjustments
-      const { accordion } = this.getNode();
+    onTransitionEnd(e:TransitionEvent) {
+      /*
+        TransitionEvent fires for each property that
+        is transitioning so check the event is fired
+        on the height, so we can set to auto to allow
+        for dynamic content adjustments.
+      */
+      if (e.propertyName === 'height') {
+        const { accordion } = this.getNode();
 
-      if (this.expanded) {
-        accordion.style.height = 'auto';
+        if (this.expanded) {
+          accordion.style.height = 'auto';         
+        }
+
+        if (this.initialRender) this.initialRender = false;
       }
-
-      if (this.initialRender) this.initialRender = false;
     },
     toggleOpen(e:MouseEvent):void {
       e.preventDefault();
