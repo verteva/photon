@@ -8,7 +8,7 @@
     "build": "build-storybook",
     "build:lib": "vue-cli-service build --target lib src/install.ts",
     "sb": "start-storybook -p 6006",
-    "start": "start-storybook -p 6006"
+    "start": "harp server --port $PORT"
   },
   "main": "dist/photon.umd.js",
   "module": "dist/photon.umd.js",
@@ -16,6 +16,7 @@
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "core-js": "^3.6.5",
+    "harp": "^0.41.0",
     "vue": "^2.6.11",
     "vue-select": "^3.11.2"
   },
