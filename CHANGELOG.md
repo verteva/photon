@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.551] - 2021-07-15
+### Added
+- Migrated Accordion to use optional v-model
+
 ## [0.1.550] - 2021-07-15
 ## [0.1.549] - 2021-07-15
 ## [0.1.548] - 2021-07-15
