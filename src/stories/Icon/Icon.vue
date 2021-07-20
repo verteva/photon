@@ -12,12 +12,15 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import icons from './index';
+import icons from './icons';
 import {
   IconData,
   IconProperty,
   IconType,
   IconTypeMedium,
+  IconSizeSmall,
+  IconSizeMedium,
+  IconSizeLarge,
 } from './types';
 
 const iconNames = Object.keys(icons);
@@ -56,21 +59,21 @@ export default Vue.extend({
     },
     size():IconProperty {
       const s:IconProperty = {
-        width: 30,
-        height: 30,
+        width: IconSizeMedium,
+        height: IconSizeMedium,
       };
       switch(this.type) {
         case 'large':
-          s.width = 50;
-          s.height = 50;
+          s.width = IconSizeLarge;
+          s.height = IconSizeLarge;
           break;
         case 'medium':
-          s.width = 30;
-          s.height = 30;
+          s.width = IconSizeMedium;
+          s.height = IconSizeMedium;
           break;
         case 'small':
-          s.width = 20;
-          s.height = 20;
+          s.width = IconSizeSmall;
+          s.height = IconSizeSmall;
           break;
       }
       

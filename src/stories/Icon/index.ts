@@ -1,7 +1,4 @@
-import Checkmark from './svg/Checkmark.svg';
-import ChevronDown from './svg/ChevronDown.svg';
+import PIcon from './Icon.vue';
 
-export default {
-  'Checkmark': Checkmark,
-  'ChevronDown': ChevronDown,
-};
+export default PIcon;
+

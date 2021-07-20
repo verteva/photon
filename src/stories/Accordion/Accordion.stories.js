@@ -87,6 +87,7 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
         v-bind="$props"
         single-focus
         :section="openId === 'a' ? 'Item 1 open' : '-'"
+        :complete="openId === 'a'"
         @toggle="handleToggle"
         identifier="a"
         :open="openId === 'a'"
@@ -98,6 +99,7 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
         v-bind="$props"
         single-focus
         :section="openId === 'b' ? 'Item 2 open' : '-'"
+        :complete="openId === 'b'"
         @toggle="handleToggle"
         identifier="b"
         :open="openId === 'b'"
@@ -108,6 +110,7 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
         v-bind="$props"
         single-focus
         :section="openId === 'c' ? 'Item 3 open' : '-'"
+        :complete="openId === 'c'"
         @toggle="handleToggle"
         identifier="c"
         :open="openId === 'c'"

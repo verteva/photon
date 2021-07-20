@@ -8,7 +8,7 @@ export interface IconProperty {
 }
 
 export type IconSize = typeof IconSizeSmall | typeof IconSizeMedium | typeof IconSizeLarge;
-export const IconSizeSmall = 15;
+export const IconSizeSmall = 12;
 export const IconSizeMedium = 30;
 export const IconSizeLarge = 45;
 
