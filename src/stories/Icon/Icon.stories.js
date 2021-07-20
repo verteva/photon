@@ -1,34 +1,52 @@
-import PIcon from './Icon.vue';
+
+import icons from './index';
+import Icon from './Icon.vue';
+import {
+  IconTypeSmall,
+  IconTypeMedium,
+  IconTypeLarge,
+} from './types';
+
 
 export default {
-  title: 'Photon/PIcon',
-  component: PIcon,
-  // argTypes: {
-  //   disabled: { options: [true, false] },
-  //   submitting: { options: [true, false] },
-  //   size: { type: 'select', options: ['small', 'medium', 'large'] },
-  //   buttonStyle: { type: 'select', options: ['primary', 'secondary', 'outline'] },
-  //   type: { type: 'select', options: ['submit', 'button'] },
-  //   onClick: {},
-  // },
-  // args: {
-  //   disabled: false,
-  //   type: 'submit',
-  //   size: 'small',
-  // },
+  title: 'Photon/Icons',
+  component: Icon,
+  argTypes: {
+    textColor: { control: 'color' },
+    type: { type: 'select', options: [IconTypeSmall, IconTypeMedium, IconTypeLarge] },
+  },
+  args: {
+    type: IconTypeSmall,
+  },
 };
 
-const Template = (args, { argTypes }) => ({
-  components: { PIcon },
+
+const AllTemplate = (args, { argTypes }) => ({
+  components: { Icon },
   props: Object.keys(argTypes),
-  template: '<PIcon v-bind="$props" />',
+  template: `
+    <div class="ph-flex ph-w-full" :style="{ color: '${args.textColor}' }">
+      <div
+        v-for="i in iconList"
+        :key="i.name"
+        class="ph-flex ph-flex-col ph-p-2 ph-m-1 ph-border ph-border-grey5 ph-items-center"
+      >
+        <Icon :name="i.name" v-bind="$props" />
+        <div class="ph-mt-1 ph-text-xs ph-text-grey3">
+          {{ i.name }}
+        </div>
+      </div>
+    </div>
+  `,
+  data() {
+    return {
+      iconList: Object.keys(icons)
+        .map(key => ({
+          name: key,
+          icon: icons[key],
+        }))
+    }
+  }
 });
 
-export const Checkmark = Template.bind({});
-Checkmark.args = {
-  type: 'Checkmark'
-};
-export const ChevronRight = Template.bind({});
-ChevronRight.args = {
-  type: 'ChevronRight'
-};
+export const All = AllTemplate.bind({});
