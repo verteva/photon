@@ -1,6 +1,4 @@
-export interface IconData {
-  icons: any;
-}
+export type IconList = any;
 
 export interface IconProperty {
   height: IconSize;

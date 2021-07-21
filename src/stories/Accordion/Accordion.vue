@@ -13,7 +13,7 @@
       ]"
       @click="toggleOpen"
     >
-      {{ section }}
+      {{ section }} 
       <p-icon
         v-if="complete"
         name="Checkmark"

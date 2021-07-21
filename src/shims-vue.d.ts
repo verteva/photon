@@ -14,3 +14,8 @@ declare module '*.vue' {
 declare module 'vue-select';
 
 declare module 'uuid';
+
+declare module "*.svg" {
+  const content: any;
+  export default content;
+}

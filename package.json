@@ -8,7 +8,8 @@
     "build": "build-storybook",
     "build:lib": "vue-cli-service build --target lib src/install.ts",
     "sb": "start-storybook -p 6006",
-    "start": "start-storybook -p 6006"
+    "start": "start-storybook -p 6006",
+    "ico": "bash scripts/ico.sh"
   },
   "main": "dist/photon.umd.js",
   "module": "dist/photon.umd.js",
@@ -56,7 +57,6 @@
     "uuid": "^3.4.0",
     "vue-cli-plugin-tailwind": "~2.0.6",
     "vue-loader": "^15.9.7",
-    "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11"
   }
 }

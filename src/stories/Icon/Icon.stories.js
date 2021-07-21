@@ -28,24 +28,20 @@ const AllTemplate = (args, { argTypes }) => ({
   template: `
     <div class="ph-flex ph-w-full" :style="{ color: '${args.textColor || ''}' }">
       <div
-        v-for="i in iconList"
-        :key="i.name"
+        v-for="i in icons"
+        :key="i"
         class="ph-flex ph-flex-col ph-p-2 ph-m-1 ph-border ph-border-grey5 ph-items-center"
       >
-        <PIcon :name="i.name" v-bind="$props" />
+        <PIcon :name="i" v-bind="$props" />
         <div class="ph-mt-1 ph-text-xs ph-text-grey3">
-          {{ i.name }}
+          {{ i }}
         </div>
       </div>
     </div>
   `,
   data() {
     return {
-      iconList: Object.keys(icons)
-        .map(key => ({
-          name: key,
-          icon: icons[key],
-        }))
+      icons,
     }
   }
 });

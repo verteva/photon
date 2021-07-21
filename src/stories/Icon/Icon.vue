@@ -6,37 +6,33 @@
       :height="size.height"
       class="picon"
       :color="color"
-    />
+    />   
   </div>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import icons from './icons';
+
 import {
-  IconData,
   IconProperty,
   IconType,
   IconTypeMedium,
   IconSizeSmall,
   IconSizeMedium,
   IconSizeLarge,
+  IconList,
 } from './types';
-
-const iconNames = Object.keys(icons);
-iconNames.push('');
 
 export default Vue.extend({
   name: 'PIcon',
-
-  components: icons,
 
   props: {
     name: {
       type: String as PropType<string>,
       default: '',
       validator(value: string): boolean {
-        return iconNames.includes(value);
+        return (icons as IconList).includes(value) ;
       },
     },
     color: {
@@ -49,13 +45,11 @@ export default Vue.extend({
     },
   },
 
-  data(): IconData {    
-    return { icons } as IconData;
-  },
 
   computed: {
-    icon():string {            
-      return this.icons[this.name];
+    icon():any {
+      /* eslint-disable @typescript-eslint/no-var-requires */
+      return require(`./icons/${this.name}.vue`).default;
     },
     size():IconProperty {
       const s:IconProperty = {
