@@ -12,5 +12,4 @@
             <polyline id="Path-13" stroke="#323232" stroke-linecap="round" stroke-linejoin="round" points="1098 423 1103 428 1108 423"></polyline>
         </g>
     </g>
-</svg>
-</template>
+</svg></template>

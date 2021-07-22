@@ -32,7 +32,7 @@ for FILE in *.svg;
   cat $FILE >> $filename.vue
 
   # Remove the 2nd line of the file (the xml tag)
-  sed -i.bak 2d $filename.vue
+  # sed -i.bak 2d $filename.vue
 
   # Append a closing template tag
   echo '</template>' >> $filename.vue

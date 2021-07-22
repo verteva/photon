@@ -15,7 +15,7 @@ export default {
     type: { type: 'select', options: [IconTypeSmall, IconTypeMedium, IconTypeLarge] },
   },
   args: {
-    type: IconTypeSmall,
+    type: IconTypeMedium,
     textColor: '#000000',
   },
 };
@@ -26,23 +26,37 @@ const AllTemplate = (args, { argTypes }) => ({
   components: { PIcon },
   props: Object.keys(argTypes),
   template: `
-    <div class="ph-flex ph-w-full" :style="{ color: '${args.textColor || ''}' }">
-      <div
-        v-for="i in icons"
-        :key="i"
-        class="ph-flex ph-flex-col ph-p-2 ph-m-1 ph-border ph-border-grey5 ph-items-center"
-      >
-        <PIcon :name="i" v-bind="$props" />
-        <div class="ph-mt-1 ph-text-xs ph-text-grey3">
-          {{ i }}
+    <div class="ph-max-w-xl">
+      <div class="ph-flex ph-flex-wrap ph-w-full" :style="{ color: '${args.textColor || ''}' }">
+        <div
+          v-for="i in icons"
+          :key="i"
+          class="ph-flex ph-flex-col ph-p-2 ph-m-1 ph-border ph-border-grey5 ph-items-center"
+          @mouseover="onOver(i)"
+          @mouseout="onOut()"
+        >
+          <PIcon :name="i" v-bind="$props" alt="dsfffsd" />
         </div>
+      </div>
+        
+      <div class="ph-mt-4 ph-text-xs">
+        Icon: {{ iconName }}
       </div>
     </div>
   `,
   data() {
     return {
       icons,
+      iconName: '',
     }
+  },
+  methods: {
+    onOver(i) {
+      this.iconName = i;
+    },
+    onOut() {
+      this.iconName = '';
+    },
   }
 });
 
