@@ -286,6 +286,8 @@ module.exports = {
     },
     fontSize: {
       h1: ['35px', { lineHeight: '1.1', letterSpacing: '-1px' }],
+      h2: ['25px', { lineHeight: '1.1' }],
+      h3: ['22px', { lineHeight: '1.3' }],
       xs: ['0.75rem', { lineHeight: '1rem' }],
       sm: ['0.875rem', { lineHeight: '1.25rem' }],
       base: ['1rem', { lineHeight: '1.5rem' }],
