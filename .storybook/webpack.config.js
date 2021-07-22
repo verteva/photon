@@ -11,5 +11,16 @@ module.exports = ({ config }) => {
     include: path.resolve(__dirname, '../'),
   });
 
+  config.module.rules.push({
+    test: /\.postcss$/,
+    loaders: ['style-loader', 'css-loader', {
+      loader: 'postcss-loader',
+      options: {
+        sourceMap: true,
+      },
+    }],
+    include: path.resolve(__dirname, '../')
+  });
+
   return config;
 };

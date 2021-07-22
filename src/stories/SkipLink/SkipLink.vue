@@ -50,7 +50,7 @@ export default Vue.extend({
       linkClasses: [
         'skip-link__link',
         'ph-absolute',
-        'ph-bg-brandPrimary',
+        'ph-bg-brand1',
         'ph-text-white',
         'ph-p-0',
         'focus:ph-p-4',
