@@ -15,6 +15,7 @@ export const parameters = {
         'About PHOTON',
         'Global',
         'Button & Tags',
+        'Forms',
         'Components',
       ], 
     },
