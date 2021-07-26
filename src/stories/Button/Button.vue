@@ -27,7 +27,7 @@
         class="ph-h-6 ph-w-6 ph-flex ph-absolute"
         :class="['ph-transition', submitting ? 'ph-opacity-1' : 'ph-opacity-0']"
       >
-        <div class="animate-spin ph-h-full ph-w-full ph-flex">
+        <div class="ph-animate-spin ph-h-full ph-w-full ph-flex">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="21.904761904761905 21.904761904761905 43.80952380952381 43.80952380952381"

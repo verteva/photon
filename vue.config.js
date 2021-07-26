@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
 module.exports = {
@@ -11,5 +11,19 @@ module.exports = {
         '@': path.join(__dirname, './src'),
       },
     },
+    module: {
+      rules: [
+        {
+          test: /\.postcss$/,
+          loaders: [{
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+            },
+          }],
+          include: path.resolve(__dirname, '../')
+        }
+      ]
+    }
   },
 };

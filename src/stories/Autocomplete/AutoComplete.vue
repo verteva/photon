@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <vSelect 
-      :options="options"
-      label="country"
-      :reduce="country => country.code"
-    />
+  <div class="ph-autocomplete">
+    <div class="ph-autocomplete__field">
+      <vSelect
+        class="ph-autocomplete__v-select"
+        :options="options"
+        label="country"
+        :reduce="country => country.code"
+      />
+    </div>
   </div>
 </template>
 <script lang='ts'>
@@ -36,3 +39,12 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="postcss">
+.vs__selected-options input {
+  @apply ph-w-full;
+  @apply ph-px-5;
+  @apply ph-py-2;
+  
+}
+</style>
