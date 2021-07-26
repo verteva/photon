@@ -1,18 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-  h1 {
-    @apply ph-text-h1;
-    @apply ph-font-bold;
-  }
-  h2 {
-    @apply ph-text-h2;
-    @apply ph-font-bold;
-  }
-  h3 {
-    @apply ph-text-h3;
-    @apply ph-font-bold;
-  }
-}
