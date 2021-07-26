@@ -1,7 +1,7 @@
 import PAutoComplete from './AutoComplete.vue';
 
 export default {
-  title: 'Photon/AutoComplete',
+  title: 'Components/AutoComplete',
   component: PAutoComplete,
   argTypes: {
     backgroundColor: { control: 'color' },

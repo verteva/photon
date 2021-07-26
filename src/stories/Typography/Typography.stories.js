@@ -10,7 +10,7 @@ import {
 } from './types'
 
 export default {
-  title: 'Photon/Typography',
+  title: 'Global/Typography',
   component: PText,
   argTypes: {
     el: { type: 'select', options: [TextElementDiv, TextElementSpan, TextElementParagraph] },

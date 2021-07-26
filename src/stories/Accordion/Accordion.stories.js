@@ -2,7 +2,7 @@ import PAccordion from './Accordion.vue';
 import '../../assets/scss/main.scss';
 
 export default {
-  title: 'Photon/Accordion',
+  title: 'Components/Accordion',
   component: PAccordion,
   parameters: {
     backgrounds: {

@@ -11,7 +11,12 @@ export const parameters = {
   },
   options: {
     storySort: {
-      // method: 'alphabetical',
+      order: [
+        'About PHOTON',
+        'Global',
+        'Button & Tags',
+        'Components',
+      ], 
     },
   },
 }

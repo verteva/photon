@@ -8,7 +8,7 @@ import {
 } from './types';
 
 export default {
-  title: 'Photon/Icons',
+  title: 'Global/Icons',
   component: PIcon,
   argTypes: {
     textColor: { control: 'color' },
