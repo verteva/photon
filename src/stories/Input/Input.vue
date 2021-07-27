@@ -99,7 +99,7 @@ export default {
         'ph-font-normal ',
         'ph-text-grey3 ',
         'ph-bg-white ',
-        'ph-rounded ',
+        'ph-rounded-lg ',
         'ph-p-2 ',
         'ph-pr-2 ',
         'ph-border ',
