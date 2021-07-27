@@ -10,7 +10,8 @@
     "lib": "vue-cli-service build --target lib src/install.ts",
     "sb": "start-storybook -p 6006",
     "start": "harp server --port $PORT",
-    "ico": "sh ./scripts/ico.sh"
+    "ico": "sh ./scripts/ico.sh",
+    "new": "sh ./scripts/new.sh"
   },
   "main": "dist/photon.umd.js",
   "module": "dist/photon.umd.js",
