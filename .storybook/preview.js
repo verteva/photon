@@ -9,4 +9,15 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  options: {
+    storySort: {
+      order: [
+        'About PHOTON',
+        'Global',
+        'Button & Tags',
+        'Forms',
+        'Components',
+      ], 
+    },
+  },
 }

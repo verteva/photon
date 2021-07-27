@@ -2,7 +2,7 @@ import PSkipLink from './SkipLink.vue';
 import '../../assets/scss/main.scss';
 
 export default {
-  title: 'Photon/SkipLink',
+  title: 'Components/SkipLink',
   component: PSkipLink,
 };
 

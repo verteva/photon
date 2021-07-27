@@ -1,13 +1,16 @@
 import PAutoComplete from './AutoComplete.vue';
 
 export default {
-  title: 'Photon/AutoComplete',
+  title: 'Components/AutoComplete',
   component: PAutoComplete,
   argTypes: {
     backgroundColor: { control: 'color' },
     size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
     onClick: {},
   },
+  args: {
+    backgroundColor: '#ffffff',
+  }
 };
 
 const Template = (args, { argTypes }) => ({

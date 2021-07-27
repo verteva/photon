@@ -13,17 +13,17 @@
       ]"
       @click="toggleOpen"
     >
-      {{ section }}
-      <Checkmark
+      {{ section }} 
+      <p-icon
         v-if="complete"
-        class="ph-ml-4"
-        width="14px"
-        height="10px"
+        name="Checkmark"
+        type="small"
+        class="ph-ml-4 ph-text-alert3"
       />
-      <ChevronRight
+      <p-icon
         v-if="openArrows"
-        width="12px"
-        height="7px"
+        name="ChevronDown"
+        type="small"
         class="ph-ml-auto ph-transition-all"
         :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
       />
@@ -45,8 +45,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import ChevronRight from '../Icon/ChevronRight.vue';
-import Checkmark from '../Icon/Checkmark.vue';
+import PIcon from '../Icon';
 import { v4 as uuidv4 } from 'uuid';
 import {
   AccordionElementHeights,
@@ -57,8 +56,7 @@ export default Vue.extend({
   name: 'PAccordion',
 
   components: {
-    ChevronRight,
-    Checkmark,
+    PIcon,
   },
 
   props: {

@@ -1,11 +1,11 @@
 import Colors from './Colors.vue';
 
 export default {
-  title: 'Photon/Colour',
+  title: 'Global/Colours',
   component: Colors,
 };
 
-export const Palette = () => ({
+export const Names = () => ({
   components: { Colors },
   template: '<Colors v-bind="$props" />',
 });

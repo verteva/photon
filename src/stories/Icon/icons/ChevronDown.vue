@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<template>
 <svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Experiments</title>
     <defs>
@@ -12,4 +12,4 @@
             <polyline id="Path-13" stroke="#323232" stroke-linecap="round" stroke-linejoin="round" points="1098 423 1103 428 1108 423"></polyline>
         </g>
     </g>
-</svg>
+</svg></template>

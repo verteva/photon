@@ -2,7 +2,7 @@ import PButton from './Button.vue';
 import '../../assets/scss/main.scss';
 
 export default {
-  title: 'Photon/PButton',
+  title: 'Button & Tags/Button',
   component: PButton,
   argTypes: {
     disabled: { options: [true, false] },

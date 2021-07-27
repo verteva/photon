@@ -1,4 +1,5 @@
 import { Component } from 'vue';
+import PIcon from './Icon';
 import PButton from './Button';
 import PSkipLink from './SkipLink';
 import PAccordion from './Accordion';
@@ -12,6 +13,7 @@ const components: PhotonComponents = {
   PButton,
   PSkipLink,
   PAccordion,
+  PIcon,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
