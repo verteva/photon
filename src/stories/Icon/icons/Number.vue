@@ -1,6 +1,6 @@
 <template>
 <svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="14.5" cy="14.93" r="11.5" stroke="#323232"/>
-<path d="M14.1319 20.43H15.7279V10.63H14.5239C14.3419 11.834 13.7959 12.156 12.2979 12.198V13.318H14.1319V20.43Z" fill="#323232"/>
+<circle cx="14.5" cy="14.93" r="11.5" stroke="currentColor"/>
+<path d="M14.1319 20.43H15.7279V10.63H14.5239C14.3419 11.834 13.7959 12.156 12.2979 12.198V13.318H14.1319V20.43Z" fill="currentColor"/>
 </svg>
 </template>
