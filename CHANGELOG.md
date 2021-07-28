@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.552] - 2027-07-15
+### Added
+- Expose Icon component for integration
+
 ## [0.1.551] - 2021-07-15
 ### Added
 - Migrated Accordion to use optional v-model
