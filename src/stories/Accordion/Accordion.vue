@@ -17,13 +17,13 @@
       <p-icon
         v-if="complete"
         name="Checkmark"
-        type="small"
+        type="xs"
         class="ph-ml-4 ph-text-alert3"
       />
       <p-icon
         v-if="openArrows"
         name="ChevronDown"
-        type="small"
+        type="xs"
         class="ph-ml-auto ph-transition-all"
         :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
       />
