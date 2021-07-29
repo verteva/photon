@@ -1,0 +1,13 @@
+<template>
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.2238 13.4231C25.2238 15.672 23.4042 17.4951 21.1585 17.4951C18.9128 17.4951 17.0931 15.672 17.0931 13.4231C17.0931 11.1742 18.9128 9.35115 21.1585 9.35115C23.4042 9.35115 25.2238 11.1742 25.2238 13.4231Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M23.5977 16.9134L26.85 20.4037" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.65387 6.5358C3.37898 6.80106 2.93938 7.95052 3.00659 9.35128C3.26948 14.8042 10.6147 18.5615 10.6115 23.7405C10.6104 25.143 9.7003 26.492 8.42541 26.7573C7.15053 27.0225 6.07673 26.0167 5.99543 24.7009C5.94773 24.0633 6.12606 23.2146 6.12606 23.2146L9.26667 22.5614" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M22.2202 19.3084C22.4988 19.9756 22.6658 20.6452 22.6132 21.2432C22.4902 22.6399 21.702 23.9947 20.4271 24.2599L8.42572 26.7572" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.5909 7.75539C15.7107 8.5279 15.9736 9.27773 16.3302 10.0118" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.8473 11.6007L7.88477 12.8415" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.4734 13.4231L9.51093 14.6639" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.8409 15.7679L11.1307 16.3315" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.6556 4.03849L4.65369 6.53577C5.55511 6.34846 6.38931 6.89876 6.80615 7.62939C7.14547 8.22448 7.16606 8.97605 7.0544 9.43153C7.04085 9.48622 7.08205 9.53566 7.13408 9.52461L18.8103 7.08491C19.1301 6.28797 19.0677 5.35199 18.6227 4.80809C18.1587 4.24209 17.4346 3.87677 16.6556 4.03849Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</template>

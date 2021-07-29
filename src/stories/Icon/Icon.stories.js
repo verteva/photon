@@ -2,9 +2,12 @@
 import icons from './icons';
 import PIcon from './Icon.vue';
 import {
-  IconTypeSmall,
-  IconTypeMedium,
-  IconTypeLarge,
+  IconSizeXs,
+  IconSizeSm,
+  IconSizeMedium,
+  IconSizeLg,
+  IconSizeXl,
+  IconSizeHuge,
 } from './types';
 
 export default {
@@ -12,10 +15,17 @@ export default {
   component: PIcon,
   argTypes: {
     textColor: { control: 'color' },
-    type: { type: 'select', options: [IconTypeSmall, IconTypeMedium, IconTypeLarge] },
+    type: { type: 'select', options: [
+      IconSizeXs,
+      IconSizeSm,
+      IconSizeMedium,
+      IconSizeLg,
+      IconSizeXl,
+      IconSizeHuge,
+    ]},
   },
   args: {
-    type: IconTypeMedium,
+    type: IconSizeMedium,
     textColor: '#000000',
   },
 };
@@ -39,7 +49,7 @@ const AllTemplate = (args, { argTypes }) => ({
         </div>
       </div>
         
-      <div class="ph-mt-4 ph-text-xs">
+      <div class="ph-fixed ph-top-5 ph-left-5 ph-mt-4 ph-text-xs">
         Icon: {{ iconName }}
       </div>
     </div>

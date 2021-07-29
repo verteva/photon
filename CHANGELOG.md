@@ -6,7 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.552] - 2027-07-15
+## [0.1.554] - 2027-07-29
+### Added
+- Update Icon size property use in Accordion
+
+## [0.1.553] - 2027-07-29
+### Added
+- Add full icon set from design
+- Add more sizes
+
+## [0.1.552] - 2021-07-27
 ### Added
 - Expose Icon component for integration
 

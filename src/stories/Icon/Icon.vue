@@ -16,12 +16,20 @@ import icons from './icons';
 
 import {
   IconProperty,
-  IconType,
-  IconTypeMedium,
-  IconSizeSmall,
-  IconSizeMedium,
-  IconSizeLarge,
+  IconSize,
   IconList,
+  IconSizeXs,
+  IconSizeSm,
+  IconSizeMedium,
+  IconSizeLg,
+  IconSizeXl,
+  IconSizeHuge,
+  IconXs,
+  IconSm,
+  IconMedium,
+  IconLg,
+  IconXl,
+  IconHuge,
 } from './types';
 
 export default Vue.extend({
@@ -40,8 +48,18 @@ export default Vue.extend({
       default: 'inherit',
     },
     type: {
-      type: String as PropType<IconType>,
-      default: IconTypeMedium,
+      type: String as PropType<IconSize>,
+      default: IconSizeMedium,
+      validator(value: string): boolean {
+        return [
+          IconSizeXs,
+          IconSizeSm,
+          IconSizeMedium,
+          IconSizeLg,
+          IconSizeXl,
+          IconSizeHuge,
+        ].includes(value) ;
+      },
     },
   },
 
@@ -53,24 +71,32 @@ export default Vue.extend({
     },
     size():IconProperty {
       const s:IconProperty = {
-        width: IconSizeMedium,
-        height: IconSizeMedium,
+        width: IconMedium,
+        height: IconMedium,
       };
       switch(this.type) {
-        case 'large':
-          s.width = IconSizeLarge;
-          s.height = IconSizeLarge;
+        case IconSizeXs:
+          s.width = IconXs;
+          s.height = IconXs;
           break;
-        case 'medium':
-          s.width = IconSizeMedium;
-          s.height = IconSizeMedium;
+        case IconSizeSm:
+          s.width = IconSm;
+          s.height = IconSm;
           break;
-        case 'small':
-          s.width = IconSizeSmall;
-          s.height = IconSizeSmall;
+        case IconSizeLg:
+          s.width = IconLg;
+          s.height = IconLg;
+          break;
+        case IconSizeXl:
+          s.width = IconXl;
+          s.height = IconXl;
+          break;
+        case IconSizeHuge:
+          s.width = IconHuge;
+          s.height = IconHuge;
           break;
       }
-      
+
       return s as IconProperty;
     }
   },
