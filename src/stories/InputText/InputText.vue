@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p-input :error="error" :fixed-errors="fixedErrors">
+    <p-input :errors="errors">
       <!-- Label -->
       <slot name="label">
         <p-label>{{ label }}</p-label>
@@ -13,18 +13,16 @@
         >
           <p-icon
             :name="iconLeft"
-            type="medium"
+            type="med"
           />
         </div>
         <input
           :id="id"
-          type="text"
           :class="baseClassList" 
-          :background-color="$attrs.bgColor || bgColor"
-          flat
-          solo
-          v-bind="$attrs"
-          v-on="$listeners"
+          :background-color="$attrs.bgColor"
+          :on="$listeners"
+          type="text"
+          tabindex="0"
         />
         <div
           v-if="iconRight"
@@ -32,7 +30,7 @@
         >
           <p-icon
             :name="iconRight"
-            type="medium"
+            type="med"
           />
         </div>
       </div>
@@ -41,14 +39,12 @@
 </template>
 
 <script lang="ts">
+import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 import PInput from '../Input';
 import PLabel from '../Label';
 
-// import { bgColor, ID_PREFIX } from '@/components/const';
-export const ID_PREFIX = 'photon-';
-
-export default {
+export default Vue.extend({
   name: 'PInputText',
   components: {
     PIcon,
@@ -57,28 +53,21 @@ export default {
   },
   props: {
     iconLeft: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
     iconRight: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
-    error: {
-      type: String,
-      default: '',
+    errors: {
+      type: Array as PropType<string[]>,
+      default: ():[] => [],
     },
-    fixedErrors: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  mounted() {
-    // this.id = ID_PREFIX + this._uid;
   },
   data():any {
     return {
@@ -108,5 +97,5 @@ export default {
       ],
     };
   },
-};
+});
 </script>

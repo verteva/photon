@@ -18,66 +18,27 @@ const Template = (args, { argTypes }) => ({
         icon-left='Dollar'
         placeholder='Add....'
         class="ph-bg-gr222ey5"
-        :error="errors ? 'Required' : ''"
-        
+        :errors="errs"
       >        
         <template v-slot:label>
         <p-label>How much is your property worth?<span class="ph-text-grey3 ph-font-normal ph-ml-1">(Ballpark is ok)</span></p-label>
         </template>        
       </PInputText>
-
-      <PInputText
-        v-bind='$props'
-        icon-right='Boat'
-        placeholder='Add....'
-        class="ph-bg-gr222ey5"
-        label="First name"
-        value='Enter your address'
-        :error="errors ? 'Please enter a valid name' : ''"
-        
-      />
-      <PInputText
-        v-bind='$props'
-        icon-right='Boat'
-        placeholder='Add....'
-        class="ph-bg-gr222ey5"
-        label="First name"
-        value='Enter your address'
-        :error="errors ? 'Please enter a valid name' : ''"
-        
-      />
-      <PInputText
-        v-bind='$props'
-        icon-right='Boat'
-        placeholder='Add....'
-        class="ph-bg-gr222ey5"
-        label="First name"
-        value='Enter your address'
-        :error="errors ? 'Please enter a valid name' : ''"
-        
-      />
-      <PInputText
-        v-bind='$props'
-        icon-right='Boat'
-        placeholder='Add....'
-        class="ph-bg-gr222ey5"
-        label="First name"
-        value='Enter your address'
-        :error="errors ? 'Please enter a valid name' : ''"
-        
-      />
-
       <button @click="showError">Show errors</button>
     </div>
   `,
   data() {
     return {
-      errors: false,
+      errs: [],
     };
   },
   methods: {
     showError() {
-      this.errors = !this.errors;
+      if (this.errs?.length) {
+        this.errs = [];
+      } else {
+        this.errs = ['Required', 'Invalid'];
+      }
     },
   }
 });

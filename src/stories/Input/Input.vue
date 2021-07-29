@@ -1,49 +1,49 @@
 <template>
   <div
-    class="ph-pb-0"
-    :class="fixedErrors && 'ph-pb-7' || 'ph-mb-4'"
+    class="ph-pb-7"
   >
     <slot />
     <div
-      v-if="error"
+      v-if="errors.length"
       :class="baseClassList"
     >
       <p-icon
         class="ph-mr-1"
         name="Error"
-        type="small"
+        type="sm"
       />
       <p-text sm>
-        {{ error }}
+        {{ errorsMessages }}
       </p-text>
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 import { PText } from '../Typography';
 
-export default {
+export default Vue.extend({
   name: 'PInput',
   components: {
     PIcon,
     PText,
   },
   props: {
-    error: {
-      type: String,
-      default: '',
-    },
-    fixedErrors: {
-      type: Boolean,
-      default: false,
+    errors: {
+      type: Array as PropType<string[]>,
+      default: ():[] => [],
     },
   },
   computed: {
+    errorsMessages():string {
+      return this.errors.join(', ');
+    },
     baseClassList():string[] {
       return [
-        this.fixedErrors && 'ph-absolute' || '',
+        'ph-absolute',
+        'ph-animate-fadeDown',
         'ph-flex',
         'ph-items-center',
         'ph-py-1',
@@ -51,5 +51,5 @@ export default {
       ];
     }
   }
-};
+});
 </script>
