@@ -1,0 +1,8 @@
+<template>
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3.42859" y="7" width="23" height="16" rx="2" stroke="currentColor"/>
+<rect x="3.42859" y="10" width="23" height="3" stroke="currentColor"/>
+<circle cx="20.4844" cy="17.7344" r="2.64062" stroke="currentColor"/>
+<path d="M22.4375 15.5L18.5312 19.4688" stroke="currentColor"/>
+</svg>
+</template>

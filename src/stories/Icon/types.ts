@@ -1,17 +1,28 @@
 export type IconList = any;
 
 export interface IconProperty {
-  height: IconSize;
-  width: IconSize;
+  height: number;
+  width: number;
 }
 
-export type IconSize = typeof IconSizeSmall | typeof IconSizeMedium | typeof IconSizeLarge;
-export const IconSizeSmall = 12;
-export const IconSizeMedium = 30;
-export const IconSizeLarge = 45;
+export type IconSize =
+  typeof IconSizeXs | 
+  typeof IconSizeSm |
+  typeof IconSizeMedium |
+  typeof IconSizeLg |
+  typeof IconSizeXl |
+  typeof IconSizeHuge;
+  
+export const IconSizeXs = 'xs';
+export const IconSizeSm = 'sm';
+export const IconSizeMedium = 'med';
+export const IconSizeLg = 'lg';
+export const IconSizeXl = 'xl';
+export const IconSizeHuge = 'huge';
 
-export type IconType = typeof IconTypeSmall | typeof IconTypeMedium | typeof IconTypeLarge;
-export const IconTypeSmall = 'small';
-export const IconTypeMedium = 'medium';
-export const IconTypeLarge = 'large';
-
+export const IconXs = 12;
+export const IconSm = 18;
+export const IconMedium = 22;
+export const IconLg = 32;
+export const IconXl = 50;
+export const IconHuge = 110;
