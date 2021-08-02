@@ -1,12 +1,12 @@
 <template>
   <p-input :errors="errors">
     <!-- DOES NOT WORK WHEN NPM LINKED INTO ONBOARDING -->
-    <slot name="label">
+    <!-- <slot name="label">
       <p-label>{{ label }}</p-label>
-    </slot> 
+    </slot>  -->
 
     <!-- WORKS WHEN NPM LINKED INTO ONBOARDING -->
-    <!-- <slot
+    <slot
       v-if="$scopedSlots.label"
       name="label"
     >
@@ -14,7 +14,7 @@
     </slot>
     <p-label v-else>
       {{ label }}
-    </p-label> -->
+    </p-label>
 
     <div class="ph-relative">
       <div
@@ -27,11 +27,13 @@
         />
       </div>
       <input
-        v-model="innerValue"
+        :id="id"
         :class="baseClassList" 
-        v-bind="$attrs"
+        tabindex="0"        
         type="text"
-        tabindex="0"
+        :placeholder="placeholder"
+        :value="value"
+        @input="updateValue($event.target.value)"
       />
       <div
         v-if="iconRight"
@@ -51,6 +53,7 @@ import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 import PInput from '../Input';
 import PLabel from '../Label';
+import { InputTextData, InputValueType } from './types';
 
 export default Vue.extend({
   name: 'PInputText',
@@ -60,8 +63,12 @@ export default Vue.extend({
     PInput,
     PLabel,
   },
-
+  
   props: {
+    placeholder: {
+      type: String as PropType<string>,
+      default: '',
+    },
     iconLeft: {
       type: String as PropType<string>,
       default: '',
@@ -79,14 +86,15 @@ export default Vue.extend({
       default: ():[] => [],
     },
     value: {
-      type: String as PropType<string>,
-      default: '',
+      type: [Number, String] as PropType<InputValueType>,
+      default: null,
     },
   },
 
-  data() {    
+
+  data():InputTextData {    
     return {
-      bgColor: '',
+      id: '',
       iconClassList: [
         'ph-absolute',
         'ph-top-0',
@@ -104,22 +112,25 @@ export default Vue.extend({
         'ph-bg-white ',
         'ph-rounded-lg ',
         'ph-py-2 ph-px-5',
-        'ph-border ',
+        'ph-border',
         'ph-border-grey5',
+        'focus:ph-border-brand2',
+        'focus:ph-outline-none',
         'ph-border-solid',
+        'ph-transition',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
       ],
-    };
+    } as InputTextData;
   },
-  computed: {
-    innerValue: {
-      get():string {
-        return this.value;
-      },
-      set(val:string) {        
-        this.$emit('input', val);
-      },
+
+  mounted() {
+    this.id = 'photon_input_' + this._uid;
+  },
+
+  methods: {
+    updateValue(value:string){
+      this.$emit('input', value)
     },
   },
 });

@@ -27,10 +27,11 @@ const Template = (args, { argTypes }) => ({
         v-model="txt"
         v-bind='$props'
         icon-left='Dollar'
+        placeholder="Enter your name..."
         label="Name"
         :errors="errs"
       />
-      {{ txt }}<br />
+      {{ txt }}
       <button @click="showError">Show errors</button>
     </div>
   `,
