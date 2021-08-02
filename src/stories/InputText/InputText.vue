@@ -1,41 +1,49 @@
 <template>
-  <div>
-    <p-input :errors="errors">
-      <!-- Label -->
-      <slot name="label">
-        <p-label>{{ label }}</p-label>
-      </slot> 
-      <!-- Field -->
-      <div class="ph-relative">
-        <div
-          v-if="iconLeft"
-          :class="[iconClassList]"
-        >
-          <p-icon
-            :name="iconLeft"
-            type="med"
-          />
-        </div>
-        <input
-          :id="id"
-          :class="baseClassList" 
-          :background-color="$attrs.bgColor"
-          :on="$listeners"
-          type="text"
-          tabindex="0"
+  <p-input :errors="errors">
+    <!-- DOES NOT WORK WHEN NPM LINKED INTO ONBOARDING -->
+    <slot name="label">
+      <p-label>{{ label }}</p-label>
+    </slot> 
+
+    <!-- WORKS WHEN NPM LINKED INTO ONBOARDING -->
+    <!-- <slot
+      v-if="$scopedSlots.label"
+      name="label"
+    >
+      <p-label>{{ label }}</p-label>
+    </slot>
+    <p-label v-else>
+      {{ label }}
+    </p-label> -->
+
+    <div class="ph-relative">
+      <div
+        v-if="iconLeft"
+        :class="[iconClassList]"
+      >
+        <p-icon
+          :name="iconLeft"
+          type="med"
         />
-        <div
-          v-if="iconRight"
-          :class="[iconClassList, 'ph-right-1']"
-        >
-          <p-icon
-            :name="iconRight"
-            type="med"
-          />
-        </div>
       </div>
-    </p-input>
-  </div>
+      <input
+        v-model="innerValue"
+        :class="baseClassList" 
+        v-bind="$attrs"
+        type="text"
+        tabindex="0"
+      />
+      <div
+        v-if="iconRight"
+        :class="[iconClassList, 'ph-right-1']"
+      >
+        <p-icon
+          :name="iconRight"
+          type="med"
+        />
+      </div>
+    </div>
+  </p-input>
 </template>
 
 <script lang="ts">
@@ -46,11 +54,13 @@ import PLabel from '../Label';
 
 export default Vue.extend({
   name: 'PInputText',
+
   components: {
     PIcon,
     PInput,
     PLabel,
   },
+
   props: {
     iconLeft: {
       type: String as PropType<string>,
@@ -68,11 +78,15 @@ export default Vue.extend({
       type: Array as PropType<string[]>,
       default: ():[] => [],
     },
+    value: {
+      type: String as PropType<string>,
+      default: '',
+    },
   },
-  data():any {
+
+  data() {    
     return {
       bgColor: '',
-      id: null,
       iconClassList: [
         'ph-absolute',
         'ph-top-0',
@@ -92,10 +106,21 @@ export default Vue.extend({
         'ph-py-2 ph-px-5',
         'ph-border ',
         'ph-border-grey5',
+        'ph-border-solid',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
       ],
     };
+  },
+  computed: {
+    innerValue: {
+      get():string {
+        return this.value;
+      },
+      set(val:string) {        
+        this.$emit('input', val);
+      },
+    },
   },
 });
 </script>

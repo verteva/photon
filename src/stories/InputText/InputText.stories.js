@@ -16,19 +16,27 @@ const Template = (args, { argTypes }) => ({
       <PInputText
         v-bind='$props'
         icon-left='Dollar'
-        placeholder='Add....'
-        class="ph-bg-gr222ey5"
         :errors="errs"
       >        
         <template v-slot:label>
-        <p-label>How much is your property worth?<span class="ph-text-grey3 ph-font-normal ph-ml-1">(Ballpark is ok)</span></p-label>
+          <p-label>How much is your property worth?<span class="ph-text-grey3 ph-font-normal ph-ml-1">(Ballpark is ok)</span></p-label>
         </template>        
       </PInputText>
+
+      <PInputText
+        v-model="txt"
+        v-bind='$props'
+        icon-left='Dollar'
+        label="Name"
+        :errors="errs"
+      />
+      {{ txt }}<br />
       <button @click="showError">Show errors</button>
     </div>
   `,
   data() {
     return {
+      txt: 'Stuff...',
       errs: [],
     };
   },
@@ -37,7 +45,7 @@ const Template = (args, { argTypes }) => ({
       if (this.errs?.length) {
         this.errs = [];
       } else {
-        this.errs = ['Required', 'Invalid'];
+        this.errs = ['Required'];
       }
     },
   }
