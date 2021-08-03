@@ -34,7 +34,7 @@ export default defineComponent({
 </script>
 ENDOFFILE
 # Storybook files
-cd ../stories
+cd ../components
 touch $componenetName.stories.js
 cat > $componenetName.stories.js << ENDOFFILE
 import $componenetName from '../components/$componenetName.vue';
