@@ -106,6 +106,8 @@ export default Vue.extend({
         'ph-flex',
         'ph-items-center',
         'ph-justify-center',
+        'ph-transition',
+        'ph-duration-200',
       ],
       baseClassList: [
         'ph-antialiased',
