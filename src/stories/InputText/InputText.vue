@@ -29,10 +29,10 @@
       <input
         :id="id"
         :class="baseClassList" 
-        tabindex="0"        
-        type="text"
         :placeholder="placeholder"
         :value="value"
+        tabindex="0"
+        :type="$attrs.type"
         @input="updateValue($event.target.value)"
         @focus="inFocus = true"
         @blur="inFocus = false"

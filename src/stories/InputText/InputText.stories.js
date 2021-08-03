@@ -1,45 +1,47 @@
 import PInputText from './InputText.vue';
 import PLabel from '../Label';
+import PButton from '../Button';
+import { PText } from '../Typography';
 
 export default {
   title: 'Forms/InputText',
   component: PInputText,
   argTypes: {
-    // Configurable component options in SB UI...
-  },};
+  },
+};
 
 const Template = (args, { argTypes }) => ({
-  components: { PInputText, PLabel },
+  components: { PInputText, PLabel, PButton, PText },
   props: Object.keys(argTypes),
   template: `
     <div>
-      <PInputText
+      <p-input-text
         v-bind='$props'
-        icon-left='Dollar'
         :errors="errs"
         currency
+        type="password"
       >        
         <template v-slot:label>
-          <p-label>How much is your property worth?<span class="ph-text-grey3 ph-font-normal ph-ml-1">(Ballpark is ok)</span></p-label>
+            <p-label>Password<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal">(min 6 characters)</span></p-label>
         </template>        
-      </PInputText>
+      </p-input-text>
 
-      <PInputText
-        v-model="txt"
+      <p-input-text
+        v-model="name"
         v-bind='$props'
         currency
-        icon-left='Dollar'
+        icon-left='Inactive'
         placeholder="Enter your name..."
         label="Name"
         :errors="errs"
       />
-      {{ txt }}
-      <button @click="showError">Show errors</button>
+      <p-text xs class="ph-mb-5">Name: {{ name }}</p-text>
+      <p-button :disabled="false" @click="showError">Show inline errors</p-button>
     </div>
   `,
   data() {
     return {
-      txt: 19999999,
+      name: null,
       errs: [],
     };
   },
@@ -48,7 +50,7 @@ const Template = (args, { argTypes }) => ({
       if (this.errs?.length) {
         this.errs = [];
       } else {
-        this.errs = ['Required'];
+        this.errs = ['Inine validation error'];
       }
     },
   }
