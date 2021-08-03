@@ -1,11 +1,5 @@
 <template>
   <p-input :errors="errors">
-    <!-- DOES NOT WORK WHEN NPM LINKED INTO ONBOARDING -->
-    <!-- <slot name="label">
-      <p-label>{{ label }}</p-label>
-    </slot>  -->
-
-    <!-- WORKS WHEN NPM LINKED INTO ONBOARDING -->
     <slot
       v-if="$scopedSlots.label"
       name="label"
