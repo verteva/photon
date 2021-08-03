@@ -17,6 +17,7 @@ const Template = (args, { argTypes }) => ({
         v-bind='$props'
         icon-left='Dollar'
         :errors="errs"
+        currency
       >        
         <template v-slot:label>
           <p-label>How much is your property worth?<span class="ph-text-grey3 ph-font-normal ph-ml-1">(Ballpark is ok)</span></p-label>
@@ -26,6 +27,7 @@ const Template = (args, { argTypes }) => ({
       <PInputText
         v-model="txt"
         v-bind='$props'
+        currency
         icon-left='Dollar'
         placeholder="Enter your name..."
         label="Name"
@@ -37,7 +39,7 @@ const Template = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      txt: 'Stuff...',
+      txt: 19999999,
       errs: [],
     };
   },

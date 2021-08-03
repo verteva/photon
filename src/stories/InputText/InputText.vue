@@ -16,14 +16,14 @@
       {{ label }}
     </p-label>
 
-    <div class="ph-relative">
+    <div :class="componentClassList">
       <div
         v-if="iconLeft"
         :class="[iconClassList]"
       >
         <p-icon
           :name="iconLeft"
-          type="med"
+          type="lg"
         />
       </div>
       <input
@@ -34,6 +34,8 @@
         :placeholder="placeholder"
         :value="value"
         @input="updateValue($event.target.value)"
+        @focus="inFocus = true"
+        @blur="inFocus = false"
       />
       <div
         v-if="iconRight"
@@ -41,7 +43,7 @@
       >
         <p-icon
           :name="iconRight"
-          type="med"
+          type="lg"
         />
       </div>
     </div>
@@ -94,6 +96,13 @@ export default Vue.extend({
 
   data():InputTextData {    
     return {
+      inFocus: false,
+      currencyOptions: {
+        currency: null,
+        precision: 0,
+        valueRange: { min: 0 },
+        allowNegative: false,
+      },
       id: '',
       iconClassList: [
         'ph-absolute',
@@ -114,6 +123,7 @@ export default Vue.extend({
         'ph-py-2 ph-px-5',
         'ph-border',
         'ph-border-grey5',
+        'focus:ph-text-brand2',
         'focus:ph-border-brand2',
         'focus:ph-outline-none',
         'ph-border-solid',
@@ -124,13 +134,23 @@ export default Vue.extend({
     } as InputTextData;
   },
 
+  computed: {
+    componentClassList():string[] {
+      return [
+        this.inFocus ? 'ph-text-brand2' : '',    
+        'ph-relative',
+      ];      
+    },
+  },
+
   mounted() {
     this.id = 'photon_input_' + this._uid;
   },
 
+
   methods: {
-    updateValue(value:string){
-      this.$emit('input', value)
+    updateValue(value:string){     
+      this.$emit('input', value);
     },
   },
 });
