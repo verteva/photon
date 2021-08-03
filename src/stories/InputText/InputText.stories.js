@@ -22,7 +22,7 @@ const Template = (args, { argTypes }) => ({
         type="password"
       >        
         <template v-slot:label>
-            <p-label>Password<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal">(min 6 characters)</span></p-label>
+          <p-label>Password<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal">(min 6 characters)</span></p-label>
         </template>        
       </p-input-text>
 
@@ -36,7 +36,7 @@ const Template = (args, { argTypes }) => ({
         :errors="errs"
       />
       <p-text xs class="ph-mb-5">Name: {{ name }}</p-text>
-      <p-button :disabled="false" @click="showError">Show inline errors</p-button>
+      <p-button :disabled="false" @click="showError">Toggle inline errors</p-button>
     </div>
   `,
   data() {
