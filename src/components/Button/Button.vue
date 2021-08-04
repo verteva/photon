@@ -80,6 +80,10 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: TypeSubmit,
     },
+    outlined: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
     disabled: {
       type: Boolean as PropType<boolean>,
       default: true,
@@ -130,9 +134,7 @@ export default Vue.extend({
     },
     disabledStyles (): string[] {
       return [
-        this.disabled ?
-          'ph-bg-grey3 ph-text-grey4' :
-          'ph-text-white',
+        this.disabled && 'ph-bg-grey3 ph-text-grey4',
         this.disabled && 'ph-cursor-not-allowed',
         this.submitting && 'ph-cursor-not-allowed',
       ];
@@ -146,10 +148,20 @@ export default Vue.extend({
     buttonStyleClasslist(): ButtonStylelist {
       return {
         primary: [
-          'ph-bg-brand2', 
+          this.outlined ? 
+            'ph-text-brand2' : 
+            'ph-text-white',
+          this.outlined ? 
+            'ph-bg-white ph-border ph-border-grey5' :
+            'ph-bg-gradient-brand2 ph-border ph-border-brand2',
           !this.submitting ? 'hover:ph-bg-brand2h' : '',
         ],
-        secondary: ['ph-bg-brand3'],
+        secondary: [
+          'ph-border',
+          'ph-text-grey1',
+          this.outlined ? 
+            'ph-bg-white ph-border ph-border-grey5' : 'ph-bg-gradient-light-grey  ph-border-titanium',
+        ],
         outline: [
           'ph-bg-transparent',
           'ph-text-grey1',
