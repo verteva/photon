@@ -11,6 +11,7 @@
     "sb": "start-storybook -p 6006",
     "start": "harp server --port $PORT",
     "ico": "sh ./scripts/ico.sh",
+    "new": "sh ./scripts/new.sh",
     "deploy": "npm run build:lib && npm publish"
   },
   "main": "dist/photon.umd.js",

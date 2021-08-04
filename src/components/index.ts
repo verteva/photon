@@ -3,7 +3,9 @@ import PIcon from './Icon';
 import PButton from './Button';
 import PSkipLink from './SkipLink';
 import PAccordion from './Accordion';
-// import PAutocomplete from './Button.vue';
+import PInput from './Input';
+import PLabel from './Label';
+import PInputText from './InputText';
 
 export interface PhotonComponents {
   [key: string]: Component
@@ -14,6 +16,9 @@ const components: PhotonComponents = {
   PSkipLink,
   PAccordion,
   PIcon,
+  PInputText,
+  PInput,
+  PLabel,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
