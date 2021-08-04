@@ -19,7 +19,7 @@ done
 
 
 
-cd ./src/stories
+cd ./src/components
 
 mkdir $componenetName
 cd $componenetName
