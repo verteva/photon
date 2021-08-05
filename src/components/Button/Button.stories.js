@@ -22,7 +22,13 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PButton },
   props: Object.keys(argTypes),
-  template: `<PButton v-bind="$props" />`,
+  template: `
+    <div>
+      <PButton v-bind="$props" />
+
+
+    </div>
+  `,
 });
 
 export const Primary = Template.bind({});

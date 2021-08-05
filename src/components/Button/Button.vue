@@ -27,7 +27,7 @@
         class="ph-h-6 ph-w-6 ph-flex ph-absolute"
         :class="['ph-transition', submitting ? 'ph-opacity-1' : 'ph-opacity-0']"
       >
-        <div class="ph-animate-spin ph-h-full ph-w-full ph-flex">
+        <div class="ph-animate-spin ph-h-full ph-w-full ph-flex ph-z-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="21.904761904761905 21.904761904761905 43.80952380952381 43.80952380952381"
@@ -39,7 +39,7 @@
               cx="43.80952380952381"
               cy="43.80952380952381"
               r="20"
-              stroke="white"
+              stroke="currentColor"
               stroke-width="3.8095238095238093"
               stroke-dasharray="125.664"
               stroke-dashoffset="125.66370614359172px"
@@ -133,11 +133,7 @@ export default Vue.extend({
       const a: string[] = [
         ...this.baseClassList,
         ...this.buttonStyles,
-        (this.disabled || this.submitting) && 'ph-cursor-not-allowed',
-        // ...this.buttonStyleClasslist[
-        //   this.buttonStyle as keyof ButtonStylelist
-        // ],
-        // ...this.disabledStyles,
+        this.isDisabled && 'ph-cursor-not-allowed',
       ];
       return a;
     },
@@ -240,19 +236,6 @@ export default Vue.extend({
     isDisabled(): boolean {
       return this.submitting || this.disabled;
     },
-    // buttonStyleClasslist(): ButtonStylelist {
-    //   return {
-    //     primary: [
-    //       'ph-border',
-    //       this.outlined ?  'ph-text-brand2 ph-bg-white ph-border-grey5' : 'ph-text-white ph-bg-gradient-brand2 ph-border-brand2',
-    //     ],
-    //     secondary: [
-    //       'ph-border',
-    //       'ph-text-grey1',
-    //       this.outlined ? 'ph-bg-white ph-border-grey4' : 'ph-bg-gradient-light-grey ph-border-titanium',
-    //     ],
-    //   };
-    // },
   },
 
   methods: {},
@@ -260,9 +243,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.cta-button {
-  min-width: 78px;
-  height: 44px;
+// .cta-button {
+//   min-width: 78px;
+//   height: 44px;
 
   .progress-circular {
     animation: circular-dash 2.2s ease-in-out infinite;
@@ -287,7 +270,7 @@ export default Vue.extend({
       stroke-dashoffset: -125px;
     }
   }
-}
+// }
 
 button{
   position: relative;
