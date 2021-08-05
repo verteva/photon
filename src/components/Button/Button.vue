@@ -15,7 +15,7 @@
     />
     <div class="ph-flex ph-items-center ph-justify-center">
       <div 
-        class="ph-uppercase"
+        class="ph-uppercase ph-z-10"
         :class="['ph-transition', submitting ? 'ph-opacity-0' : 'ph-opacity-1']"
       >
         <slot name="default">
@@ -48,6 +48,8 @@
           </svg>
         </div>
       </div>
+      <div :class="hoverBackgroundStyles" />
+      <div :class="disabledBackgroundStyles" />
     </div>
   </button>
 </template>
@@ -57,12 +59,12 @@ import Vue, { PropType } from 'vue';
 import {
   ButtonStylelist,
   ButtonStylePrimary,
+  ButtonStyleSecondary,
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
   TypeSubmit,
 } from "./types";
-// import * as tailwind from '@/../tailwind.config.js'
 
 export default Vue.extend({
   name: 'PButton',
@@ -108,15 +110,20 @@ export default Vue.extend({
   data(): any {
     return {
       baseClassList: [
+        'ph-group',
+        'ph-border',
+        'ph-relative',
         'ph-rounded-3xl',
-        'ph-border-0',
-        'ph-py-2',
+        'ph-py-3',
         'ph-px-5',
         'ph-relative',
         'ph-items-center',
         'ph-justify-center',
         'ph-transition',
         'ph-text-sm',
+        'ph-shadow-none',
+        'focus:ph-outline-none',
+        'focus:ph-shadow-brand',  
       ],
     }
   },
@@ -125,19 +132,107 @@ export default Vue.extend({
     classList(): string[] {
       const a: string[] = [
         ...this.baseClassList,
-        ...this.buttonStyleClasslist[
-          this.buttonStyle as keyof ButtonStylelist
-        ],
-        ...this.disabledStyles,
+        ...this.buttonStyles,
+        (this.disabled || this.submitting) && 'ph-cursor-not-allowed',
+        // ...this.buttonStyleClasslist[
+        //   this.buttonStyle as keyof ButtonStylelist
+        // ],
+        // ...this.disabledStyles,
       ];
       return a;
     },
-    disabledStyles (): string[] {
+    buttonStyles(): string[] {
+      switch (this.buttonStyle as keyof ButtonStylelist) {
+        case ButtonStylePrimary:
+        default:
+          return [
+            ...this.primaryButtonStyles
+          ];
+          break;
+        case ButtonStyleSecondary:
+          return this.secondaryButtonStyles;
+          break;
+      }
+    },
+    primaryButtonStyles (): string[] {
+      if (!this.outlined) {
+        return [
+          'ph-bg-gradient-brand2',
+          !this.disabled ?
+            'ph-text-white ph-border-brand2' :
+            'ph-text-grey4 ph-border-grey4',
+        ];
+      }
+
+      if (this.outlined) {
+        return [
+          'ph-bg-white',
+          'ph-border-grey5',
+          !this.disabled ? 'ph-text-brand2 hover:ph-text-grey1' : 'ph-text-grey4 ph-border-grey5',
+        ];
+      }
+      
+      if (this.disabled) {
+        return ['ph-text-grey4 ph-bg-white ph-border-grey5'];
+      }
+    
+
+      return [];
+    },
+    secondaryButtonStyles (): string[] {
+      if (!this.outlined) {
+        return [
+          'ph-bg-gradient-light-grey',
+          !this.disabled ? 'ph-text-grey hover:ph-text-brand2 ph-border-titanium hover:ph-border-brand2' : 'ph-text-grey4 ph-border-grey5',
+        ];
+      }
+
+      if (this.outlined) {
+        return [
+          'ph-bg-white',
+          !this.disabled ? 'ph-text-grey1 ph-border-grey5 hover:ph-border-grey3' : 'ph-text-grey4 ph-border-grey5',
+        ];
+      }    
+
+      return [];
+    },
+    hoverBackgroundStyles (): string[] {
       return [
-        this.disabled && 'ph-bg-grey3 ph-text-grey4',
-        this.disabled && 'ph-cursor-not-allowed',
-        this.submitting && 'ph-cursor-not-allowed',
+        'ph-absolute',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-w-full',
+        'ph-h-full',
+        'ph-transition',
+        'ph-duration-300',
+        'ph-opacity-0',
+        (this.buttonStyle === ButtonStylePrimary) && 'ph-bg-black' || '',
+        (this.buttonStyle === ButtonStyleSecondary) && 'ph-bg-white' || '',
+        (!this.disabled && this.buttonStyle === ButtonStylePrimary) ? 'group-hover:ph-opacity-20' : '',
+        (!this.disabled && this.buttonStyle === ButtonStyleSecondary) ? 'group-hover:ph-opacity-100' : '',
       ];
+    },
+    disabledBackgroundStyles (): string[] {
+      const styles:string[] = [
+        'ph-absolute',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-w-full',
+        'ph-h-full',
+        'ph-transition ph-duration-300',
+        this.disabled ? 'ph-opacity-100' : 'ph-opacity-0',
+      ];
+
+      switch (this.buttonStyle) {
+        case ButtonStylePrimary:
+          styles.push('ph-bg-grey3');
+          break;
+        case ButtonStyleSecondary:
+          styles.push('ph-bg-white');
+          break;
+      }
+
+      return styles;
     },
     styleList(): string[] {
       return [];
@@ -145,32 +240,19 @@ export default Vue.extend({
     isDisabled(): boolean {
       return this.submitting || this.disabled;
     },
-    buttonStyleClasslist(): ButtonStylelist {
-      return {
-        primary: [
-          this.outlined ? 
-            'ph-text-brand2' : 
-            'ph-text-white',
-          this.outlined ? 
-            'ph-bg-white ph-border ph-border-grey5' :
-            'ph-bg-gradient-brand2 ph-border ph-border-brand2',
-          !this.submitting ? 'hover:ph-bg-brand2h' : '',
-        ],
-        secondary: [
-          'ph-border',
-          'ph-text-grey1',
-          this.outlined ? 
-            'ph-bg-white ph-border ph-border-grey5' : 'ph-bg-gradient-light-grey  ph-border-titanium',
-        ],
-        outline: [
-          'ph-bg-transparent',
-          'ph-text-grey1',
-          'ph-border',
-          'ph-border-greyBorder',
-          'ph-hover:bg-greyBorder'
-        ],
-      };
-    },
+    // buttonStyleClasslist(): ButtonStylelist {
+    //   return {
+    //     primary: [
+    //       'ph-border',
+    //       this.outlined ?  'ph-text-brand2 ph-bg-white ph-border-grey5' : 'ph-text-white ph-bg-gradient-brand2 ph-border-brand2',
+    //     ],
+    //     secondary: [
+    //       'ph-border',
+    //       'ph-text-grey1',
+    //       this.outlined ? 'ph-bg-white ph-border-grey4' : 'ph-bg-gradient-light-grey ph-border-titanium',
+    //     ],
+    //   };
+    // },
   },
 
   methods: {},
