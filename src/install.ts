@@ -1,5 +1,5 @@
 // import components, { photonComponents } from './stories'
-import components, { PhotonComponentKeys } from './stories'
+import components, { PhotonComponentKeys } from './components'
 import { Component } from 'vue';
 import { 
   DefaultData,
