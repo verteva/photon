@@ -60,6 +60,7 @@ import {
   ButtonStylelist,
   ButtonStylePrimary,
   ButtonStyleSecondary,
+  ButtonStylePlain,
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
@@ -84,11 +85,11 @@ export default Vue.extend({
     },
     outlined: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: false,
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: false,
     },
     valid: {
       type: Boolean as PropType<boolean>,
@@ -112,10 +113,9 @@ export default Vue.extend({
       baseClassList: [
         'ph-group',
         'ph-border',
+        'ph-border-solid',
         'ph-relative',
         'ph-rounded-3xl',
-        'ph-py-3',
-        'ph-px-5',
         'ph-relative',
         'ph-items-center',
         'ph-justify-center',
@@ -138,15 +138,27 @@ export default Vue.extend({
       return a;
     },
     buttonStyles(): string[] {
+      const common = [
+        'ph-py-3',
+        'ph-px-5',
+      ];
+      
       switch (this.buttonStyle as keyof ButtonStylelist) {
         case ButtonStylePrimary:
         default:
           return [
+            ...common,
             ...this.primaryButtonStyles
           ];
           break;
         case ButtonStyleSecondary:
-          return this.secondaryButtonStyles;
+          return [
+            ...common,
+            ...this.secondaryButtonStyles,
+          ];
+          break;
+        case ButtonStylePlain:
+          return this.plainButtonStyles;
           break;
       }
     },
@@ -191,6 +203,12 @@ export default Vue.extend({
       }    
 
       return [];
+    },
+    plainButtonStyles (): string[] {
+      return [
+        'ph-p-0',
+        'ph-border-none',
+      ]
     },
     hoverBackgroundStyles (): string[] {
       return [
