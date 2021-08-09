@@ -3,7 +3,7 @@ import PH1 from './H1.vue';
 import PH2 from './H2.vue';
 import PH3 from './H3.vue';
 
-export default {
+export {
   PText,
   PH1,
   PH2,

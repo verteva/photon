@@ -5,7 +5,7 @@ green=$(tput setaf 2)
 printf "\033c"
 
 # Move into the svg folder
-cd ./src/stories/Icon/icons/svg
+cd ./src/components/Icon/icons/svg
 
 # Remove existing file and recreate it
 rm -f ../index.ts
