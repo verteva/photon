@@ -83,6 +83,7 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      fadeDown: 'fadeDown .35s cubic-bezier(.3,.28,.26,.81)',
     },
     backdropBlur: (theme) => theme('blur'),
     backdropBrightness: (theme) => theme('brightness'),
@@ -166,7 +167,7 @@ module.exports = {
       sm: '0.125rem',
       DEFAULT: '0.25rem',
       md: '0.375rem',
-      lg: '0.5rem',
+      lg: '0.625rem',
       xl: '0.75rem',
       '2xl': '1rem',
       '3xl': '1.5rem',
@@ -497,6 +498,16 @@ module.exports = {
         '50%': {
           transform: 'none',
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
+        },
+      },
+      fadeDown: {
+        '0%': {
+          opacity: 0,
+          transform: 'translateY(-10%)',
+        },
+        '100%': {
+          opacity: 1,
+          transform: 'translateY(0)',
         },
       },
     },

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.555] - 2027-08-09
+### Added
+- Add Tex Input component
+
 ## [0.1.554] - 2027-07-29
 ### Added
 - Update Icon size property use in Accordion
