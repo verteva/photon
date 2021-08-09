@@ -15,8 +15,12 @@
     />
     <div class="ph-flex ph-items-center ph-justify-center">
       <div 
-        class="ph-uppercase ph-z-10"
-        :class="['ph-transition', submitting ? 'ph-opacity-0' : 'ph-opacity-1']"
+        class="ph-z-10"
+        :class="[
+          'ph-transition',
+          submitting ? 'ph-opacity-0' : 'ph-opacity-1',
+          upperCase ? 'ph-uppercase' : ''
+        ]"
       >
         <slot name="default">
           {{ label }}
@@ -95,6 +99,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: true,
     },
+    upperCase: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
     submitting: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -137,10 +145,24 @@ export default Vue.extend({
       ];
       return a;
     },
-    buttonStyles(): string[] {
-      const common = [
+    paddingSize(): string[] {
+      switch(this.size) {
+        case ButtonSmall:
+          return [
+            'ph-py-1.5',
+            'ph-px-3.5',
+          ];
+          break;
+      }
+
+      return [
         'ph-py-3',
         'ph-px-5',
+      ];
+    },
+    buttonStyles(): string[] {
+      const common = [
+        ...this.paddingSize,
       ];
       
       switch (this.buttonStyle as keyof ButtonStylelist) {
