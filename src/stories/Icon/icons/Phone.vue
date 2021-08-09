@@ -1,12 +1,5 @@
 <template>
-<svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19.305 29.5499H10.705C9.44496 29.5499 8.42496 28.5299 8.42496 27.2699V3.58988C8.42496 2.32988 9.44496 1.30988 10.705 1.30988H19.295C20.555 1.30988 21.575 2.32988 21.575 3.58988V27.2599C21.585 28.5299 20.565 29.5499 19.305 29.5499Z" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M13.985 4.13995H17.875" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M12.135 4.13995H12.645" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M14.945 10.91L13.155 18.25" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M16.865 10.91L15.075 18.25" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18.005 13.41L12.445 13.4" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M17.565 15.76L12.005 15.74" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M15.005 27.2798C15.6291 27.2798 16.135 26.7739 16.135 26.1498C16.135 25.5258 15.6291 25.0198 15.005 25.0198C14.3809 25.0198 13.875 25.5258 13.875 26.1498C13.875 26.7739 14.3809 27.2798 15.005 27.2798Z" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.5975 12.4593L17.6775 12.0693C16.9475 11.7393 16.6075 11.4793 16.4675 11.0293C16.1075 9.8993 16.6975 8.1993 17.7775 6.5893C18.8675 4.9493 20.2375 3.7393 21.4375 3.6393C22.2775 3.5693 23.0775 3.9293 23.7175 4.6393C24.8875 5.9593 25.4875 7.8993 25.2575 11.1693C24.9875 13.5793 23.9975 15.5393 22.6675 17.5493C19.9375 21.4393 17.9975 22.6793 17.1475 23.3393C14.7375 25.2093 12.5175 26.0693 10.0275 26.2993C9.43749 26.3393 9.08749 26.3693 8.65749 26.3693C5.90749 26.3693 4.02749 25.8393 3.08749 24.7893C2.60749 24.2593 2.39749 23.6093 2.46749 22.8893C2.64749 20.7593 5.80749 17.1393 7.84749 17.1393C8.01749 17.1393 8.17749 17.1593 8.32749 17.1993C8.86749 17.3493 9.14749 17.6893 9.54749 18.4693L9.72749 18.8193C10.1675 19.6293 10.4975 19.9193 11.1575 19.9693L11.3375 19.9793C11.5875 19.9793 11.8875 19.9393 12.2075 19.8593C14.4475 19.2993 18.4575 15.4593 19.1375 12.7493C19.0575 12.6893 18.8375 12.5693 18.5975 12.4593Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 </template>
