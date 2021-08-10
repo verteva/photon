@@ -297,6 +297,7 @@ module.exports = {
       base: ['1rem', { lineHeight: '1.5' }],
       sm: ['0.875rem', { lineHeight: '1.5' }],
       xs: ['0.75rem', { lineHeight: '1.5' }],
+      xxs: ['0.625rem', { lineHeight: '1.5' }],
       '2xl': ['1.5rem', { lineHeight: '2rem' }],
       '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
       '4xl': ['2.25rem', { lineHeight: '2.5rem' }],

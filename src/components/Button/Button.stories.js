@@ -7,7 +7,7 @@ export default {
   argTypes: {
     disabled: { options: [true, false] },
     submitting: { options: [true, false] },
-    size: { type: 'select', options: ['small', 'medium', 'large'] },
+    size: { type: 'select', options: ['xs', 'small', 'medium', 'large'] },
     buttonStyle: { type: 'select', options: ['primary', 'secondary', 'plain'] },
     type: { type: 'select', options: ['submit', 'button'] },
     onClick: {},

@@ -15,7 +15,7 @@
     />
     <div class="ph-flex ph-items-center ph-justify-center">
       <div 
-        class="ph-z-10"
+        class="ph-z-10 ph-w-full"
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',
@@ -28,8 +28,12 @@
       </div>
       <div
         v-if="submitting"
-        class="ph-h-6 ph-w-6 ph-flex ph-absolute"
-        :class="['ph-transition', submitting ? 'ph-opacity-1' : 'ph-opacity-0']"
+        class="ph-flex ph-absolute"
+        :class="[
+          'ph-transition',
+          submitting ? 'ph-opacity-1' : 'ph-opacity-0',
+          size === 'xs' ? 'ph-h-4 ph-w-4' : 'ph-h-6 ph-w-6',
+        ]"
       >
         <div class="ph-animate-spin ph-h-full ph-w-full ph-flex ph-z-10">
           <svg
@@ -65,10 +69,11 @@ import {
   ButtonStylePrimary,
   ButtonStyleSecondary,
   ButtonStylePlain,
+  ButtonXSmall,
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
-  TypeSubmit,
+  TypeButton,
 } from "./types";
 
 export default Vue.extend({
@@ -85,7 +90,7 @@ export default Vue.extend({
     },
     type: {
       type: String as PropType<string>,
-      default: TypeSubmit,
+      default: TypeButton,
     },
     outlined: {
       type: Boolean as PropType<boolean>,
@@ -103,6 +108,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: true,
     },
+    block: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     submitting: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -111,7 +120,7 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: ButtonMedium,
       validator(value: string): boolean {
-        return [ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
+        return [ButtonXSmall, ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
       },
     },
   },
@@ -119,19 +128,19 @@ export default Vue.extend({
   data(): any {
     return {
       baseClassList: [
+        'ph-rounded-3xl',
         'ph-group',
         'ph-border',
         'ph-border-solid',
         'ph-relative',
-        'ph-rounded-3xl',
         'ph-relative',
         'ph-items-center',
         'ph-justify-center',
         'ph-transition',
-        'ph-text-sm',
         'ph-shadow-none',
         'focus:ph-outline-none',
-        'focus:ph-shadow-brand',  
+        'focus:ph-shadow-brand',
+        this.block && 'ph-w-full' || '',
       ],
     }
   },
@@ -145,10 +154,20 @@ export default Vue.extend({
       ];
       return a;
     },
-    paddingSize(): string[] {
+    sizing(): string[] {
+      switch(this.size) {
+        case ButtonXSmall:
+          return [
+            'ph-text-xxs',
+            'ph-py-1',
+            'ph-px-2.5',
+          ];
+          break;
+      }
       switch(this.size) {
         case ButtonSmall:
           return [
+            'ph-text-xs',
             'ph-py-1.5',
             'ph-px-3.5',
           ];
@@ -156,13 +175,16 @@ export default Vue.extend({
       }
 
       return [
-        'ph-py-3',
+        'ph-text-sm',
+        'ph-py-2.5',
         'ph-px-5',
       ];
     },
     buttonStyles(): string[] {
       const common = [
-        ...this.paddingSize,
+        'ph-rounded-3xl',
+        'ph-tracking-wider',
+        ...this.sizing,
       ];
       
       switch (this.buttonStyle as keyof ButtonStylelist) {
@@ -196,14 +218,13 @@ export default Vue.extend({
 
       if (this.outlined) {
         return [
-          'ph-bg-white',
-          'ph-border-grey5',
-          !this.disabled ? 'ph-text-brand2 hover:ph-text-grey1' : 'ph-text-grey4 ph-border-grey5',
+          'ph-border-grey4',
+          !this.disabled ? 'ph-text-brand2 hover:ph-text-grey1' : 'ph-text-grey4 ph-border-grey4',
         ];
       }
       
       if (this.disabled) {
-        return ['ph-text-grey4 ph-bg-white ph-border-grey5'];
+        return ['ph-text-grey4 ph-bg-white ph-border-grey4'];
       }
     
 
@@ -219,8 +240,7 @@ export default Vue.extend({
 
       if (this.outlined) {
         return [
-          'ph-bg-white',
-          !this.disabled ? 'ph-text-grey1 ph-border-grey5 hover:ph-border-grey3' : 'ph-text-grey4 ph-border-grey5',
+          !this.disabled ? 'ph-text-grey1 ph-border-grey4 hover:ph-border-grey3' : 'ph-text-grey4 ph-border-grey4',
         ];
       }    
 
