@@ -21,6 +21,7 @@
     "@storybook/addon-postcss": "^2.0.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "core-js": "^3.6.5",
+    "gsap": "^3.7.1",
     "harp": "^0.41.0",
     "vue": "^2.6.11",
     "vue-select": "^3.11.2"

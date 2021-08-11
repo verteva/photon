@@ -435,6 +435,7 @@ module.exports = {
       6: 'repeat(6, minmax(0, 1fr))',
     },
     height: (theme) => ({
+      '7.5': '1.875rem',
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
@@ -688,6 +689,8 @@ module.exports = {
     scale: {
       0: '0',
       50: '.5',
+      60: '.6',
+      70: '.7',
       75: '.75',
       90: '.9',
       95: '.95',
@@ -798,6 +801,7 @@ module.exports = {
       '-full': '-100%',
     }),
     width: (theme) => ({
+      '7.5': '1.875rem',
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
