@@ -1,7 +1,7 @@
 export interface ButtonStylelist {
   primary: string[];
   secondary: string[];
-  outline: string[];
+  plain: string[];
 }
 
 export interface Props {
@@ -15,13 +15,14 @@ export interface Props {
 
 export const ButtonStylePrimary = 'primary';
 export const ButtonStyleSecondary = 'secondary';
-export const ButtonStyleOutline = 'outline';
-export type ButtonType = typeof ButtonStylePrimary | typeof ButtonStyleSecondary | typeof ButtonStyleOutline;
+export const ButtonStylePlain = 'plain';
+export type ButtonType = typeof ButtonStylePrimary | typeof ButtonStyleSecondary | typeof ButtonStylePlain;
 
+export const ButtonXSmall = 'xs';
 export const ButtonSmall = 'small';
 export const ButtonMedium = 'medium';
 export const ButtonLarge = 'large';
-export type ButtonSize = typeof ButtonSmall | typeof ButtonMedium | typeof ButtonLarge;
+export type ButtonSize = typeof ButtonXSmall | typeof ButtonSmall | typeof ButtonMedium | typeof ButtonLarge;
 
 export const TypeSubmit = 'submit'
 export const TypeButton = 'button'

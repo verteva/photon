@@ -15,8 +15,12 @@
     />
     <div class="ph-flex ph-items-center ph-justify-center">
       <div 
-        class="ph-uppercase"
-        :class="['ph-transition', submitting ? 'ph-opacity-0' : 'ph-opacity-1']"
+        class="ph-z-10 ph-w-full ph-flex ph-items-center"
+        :class="[
+          'ph-transition',
+          submitting ? 'ph-opacity-0' : 'ph-opacity-1',
+          upperCase ? 'ph-uppercase' : ''
+        ]"
       >
         <slot name="default">
           {{ label }}
@@ -24,10 +28,14 @@
       </div>
       <div
         v-if="submitting"
-        class="ph-h-6 ph-w-6 ph-flex ph-absolute"
-        :class="['ph-transition', submitting ? 'ph-opacity-1' : 'ph-opacity-0']"
+        class="ph-flex ph-absolute"
+        :class="[
+          'ph-transition',
+          submitting ? 'ph-opacity-1' : 'ph-opacity-0',
+          size === 'xs' ? 'ph-h-4 ph-w-4' : 'ph-h-6 ph-w-6',
+        ]"
       >
-        <div class="ph-animate-spin ph-h-full ph-w-full ph-flex">
+        <div class="ph-animate-spin ph-h-full ph-w-full ph-flex ph-z-10">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="21.904761904761905 21.904761904761905 43.80952380952381 43.80952380952381"
@@ -39,7 +47,7 @@
               cx="43.80952380952381"
               cy="43.80952380952381"
               r="20"
-              stroke="white"
+              stroke="currentColor"
               stroke-width="3.8095238095238093"
               stroke-dasharray="125.664"
               stroke-dashoffset="125.66370614359172px"
@@ -48,6 +56,8 @@
           </svg>
         </div>
       </div>
+      <div :class="hoverBackgroundStyles" />
+      <div :class="disabledBackgroundStyles" />
     </div>
   </button>
 </template>
@@ -57,12 +67,14 @@ import Vue, { PropType } from 'vue';
 import {
   ButtonStylelist,
   ButtonStylePrimary,
+  ButtonStyleSecondary,
+  ButtonStylePlain,
+  ButtonXSmall,
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
-  TypeSubmit,
+  TypeButton,
 } from "./types";
-// import * as tailwind from '@/../tailwind.config.js'
 
 export default Vue.extend({
   name: 'PButton',
@@ -78,15 +90,31 @@ export default Vue.extend({
     },
     type: {
       type: String as PropType<string>,
-      default: TypeSubmit,
+      default: TypeButton,
+    },
+    outlined: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: false,
     },
     valid: {
       type: Boolean as PropType<boolean>,
       default: true,
+    },
+    upperCase: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+    block: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    noRadius: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
     submitting: {
       type: Boolean as PropType<boolean>,
@@ -96,7 +124,7 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: ButtonMedium,
       validator(value: string): boolean {
-        return [ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
+        return [ButtonXSmall, ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
       },
     },
   },
@@ -104,15 +132,19 @@ export default Vue.extend({
   data(): any {
     return {
       baseClassList: [
-        'ph-rounded-3xl',
-        'ph-border-0',
-        'ph-py-2',
-        'ph-px-5',
+        'ph-group',
+        'ph-border',
+        'ph-border-solid',
+        'ph-relative',
         'ph-relative',
         'ph-items-center',
         'ph-justify-center',
         'ph-transition',
-        'ph-text-sm',
+        'ph-shadow-none',
+        'focus:ph-outline-none',
+        'focus:ph-shadow-brand',
+        this.block && 'ph-w-full' || '',
+        !this.noRadius ? 'ph-rounded-3xl' : '',
       ],
     }
   },
@@ -121,43 +153,151 @@ export default Vue.extend({
     classList(): string[] {
       const a: string[] = [
         ...this.baseClassList,
-        ...this.buttonStyleClasslist[
-          this.buttonStyle as keyof ButtonStylelist
-        ],
-        ...this.disabledStyles,
+        ...this.buttonStyles,
+        this.isDisabled && 'ph-cursor-not-allowed',
       ];
       return a;
     },
-    disabledStyles (): string[] {
+    sizing(): string[] {
+      switch(this.size) {
+        case ButtonXSmall:
+          return [
+            'ph-text-xxs',
+            'ph-py-1',
+            'ph-px-2.5',
+          ];
+          break;
+        case ButtonSmall:
+          return [
+            'ph-text-xs',
+            'ph-py-1.5',
+            'ph-px-3.5',
+          ];
+          break;
+      }
+
       return [
-        this.disabled ?
-          'ph-bg-grey3 ph-text-grey4' :
-          'ph-text-white',
-        this.disabled && 'ph-cursor-not-allowed',
-        this.submitting && 'ph-cursor-not-allowed',
+        'ph-text-sm',
+        'ph-py-2.5',
+        'ph-px-5',
       ];
+    },
+    buttonStyles(): string[] {
+      const common = [
+        'ph-tracking-wider',
+        ...this.sizing,
+      ];
+      
+      switch (this.buttonStyle as keyof ButtonStylelist) {
+        case ButtonStylePrimary:
+        default:
+          return [
+            ...common,
+            ...this.primaryButtonStyles
+          ];
+          break;
+        case ButtonStyleSecondary:
+          return [
+            ...common,
+            ...this.secondaryButtonStyles,
+          ];
+          break;
+        case ButtonStylePlain:
+          return [
+            ...this.plainButtonStyles,
+          ];
+          break;
+      }
+    },
+    primaryButtonStyles (): string[] {
+      if (!this.outlined) {
+        return [
+          'ph-bg-gradient-brand2',
+          !this.disabled ?
+            'ph-text-white ph-border-brand2' :
+            'ph-text-grey4 ph-border-grey4',
+        ];
+      }
+
+      if (this.outlined) {
+        return [
+          'ph-border-grey4',
+          !this.disabled ? 'ph-text-brand2 hover:ph-text-grey1' : 'ph-text-grey4 ph-border-grey4',
+        ];
+      }
+      
+      if (this.disabled) {
+        return ['ph-text-grey4 ph-bg-white ph-border-grey4'];
+      }
+    
+
+      return [];
+    },
+    secondaryButtonStyles (): string[] {
+      if (!this.outlined) {
+        return [
+          'ph-bg-gradient-light-grey',
+          !this.disabled ? 'ph-text-grey hover:ph-text-brand2 ph-border-titanium hover:ph-border-brand2' : 'ph-text-grey4 ph-border-grey5',
+        ];
+      }
+
+      if (this.outlined) {
+        return [
+          !this.disabled ? 'ph-text-grey1 ph-border-grey4 hover:ph-border-grey3' : 'ph-text-grey4 ph-border-grey4',
+        ];
+      }    
+
+      return [];
+    },
+    plainButtonStyles (): string[] {
+      return [
+        'ph-p-0',
+        'ph-border-none',
+      ]
+    },
+    hoverBackgroundStyles (): string[] {
+      return [
+        'ph-absolute',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-w-full',
+        'ph-h-full',
+        'ph-transition',
+        'ph-duration-300',
+        'ph-opacity-0',
+        (this.buttonStyle === ButtonStylePrimary) && 'ph-bg-black' || '',
+        (this.buttonStyle === ButtonStyleSecondary) && 'ph-bg-white' || '',
+        (!this.disabled && this.buttonStyle === ButtonStylePrimary) ? 'group-hover:ph-opacity-20' : '',
+        (!this.disabled && this.buttonStyle === ButtonStyleSecondary) ? 'group-hover:ph-opacity-100' : '',
+      ];
+    },
+    disabledBackgroundStyles (): string[] {
+      const styles:string[] = [
+        'ph-absolute',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-w-full',
+        'ph-h-full',
+        'ph-transition ph-duration-300',
+        this.disabled ? 'ph-opacity-100' : 'ph-opacity-0',
+      ];
+
+      switch (this.buttonStyle) {
+        case ButtonStylePrimary:
+          styles.push('ph-bg-grey3');
+          break;
+        case ButtonStyleSecondary:
+          styles.push('ph-bg-white');
+          break;
+      }
+
+      return styles;
     },
     styleList(): string[] {
       return [];
     },
     isDisabled(): boolean {
       return this.submitting || this.disabled;
-    },
-    buttonStyleClasslist(): ButtonStylelist {
-      return {
-        primary: [
-          'ph-bg-brand2', 
-          !this.submitting ? 'hover:ph-bg-brand2h' : '',
-        ],
-        secondary: ['ph-bg-brand3'],
-        outline: [
-          'ph-bg-transparent',
-          'ph-text-grey1',
-          'ph-border',
-          'ph-border-greyBorder',
-          'ph-hover:bg-greyBorder'
-        ],
-      };
     },
   },
 
@@ -166,9 +306,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.cta-button {
-  min-width: 78px;
-  height: 44px;
+// .cta-button {
+//   min-width: 78px;
+//   height: 44px;
 
   .progress-circular {
     animation: circular-dash 2.2s ease-in-out infinite;
@@ -193,7 +333,7 @@ export default Vue.extend({
       stroke-dashoffset: -125px;
     }
   }
-}
+// }
 
 button{
   position: relative;
