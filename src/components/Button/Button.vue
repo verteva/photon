@@ -167,8 +167,6 @@ export default Vue.extend({
             'ph-px-2.5',
           ];
           break;
-      }
-      switch(this.size) {
         case ButtonSmall:
           return [
             'ph-text-xs',
