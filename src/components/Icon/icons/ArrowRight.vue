@@ -1,6 +1,22 @@
 <template>
-    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 14.9471H26" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M19.0526 8L26 14.9474L19.0526 21.8947" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 14.9471H26"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M19.0526 8L26 14.9474L19.0526 21.8947"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
 </template>
