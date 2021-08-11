@@ -15,7 +15,7 @@
     />
     <div class="ph-flex ph-items-center ph-justify-center">
       <div 
-        class="ph-z-10 ph-w-full"
+        class="ph-z-10 ph-w-full ph-flex ph-items-center"
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',
@@ -112,6 +112,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    noRadius: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     submitting: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -128,7 +132,6 @@ export default Vue.extend({
   data(): any {
     return {
       baseClassList: [
-        'ph-rounded-3xl',
         'ph-group',
         'ph-border',
         'ph-border-solid',
@@ -141,6 +144,7 @@ export default Vue.extend({
         'focus:ph-outline-none',
         'focus:ph-shadow-brand',
         this.block && 'ph-w-full' || '',
+        !this.noRadius ? 'ph-rounded-3xl' : '',
       ],
     }
   },
@@ -182,7 +186,6 @@ export default Vue.extend({
     },
     buttonStyles(): string[] {
       const common = [
-        'ph-rounded-3xl',
         'ph-tracking-wider',
         ...this.sizing,
       ];
@@ -202,7 +205,9 @@ export default Vue.extend({
           ];
           break;
         case ButtonStylePlain:
-          return this.plainButtonStyles;
+          return [
+            ...this.plainButtonStyles,
+          ];
           break;
       }
     },
