@@ -23,12 +23,16 @@ import {
   IconSizeMedium,
   IconSizeLg,
   IconSizeXl,
+  IconSizeXXl,
+  IconSizeXXXl,
   IconSizeHuge,
   IconXs,
   IconSm,
   IconMedium,
   IconLg,
   IconXl,
+  IconXXl,
+  IconXXXl,
   IconHuge,
 } from './types';
 
@@ -57,6 +61,8 @@ export default Vue.extend({
           IconSizeMedium,
           IconSizeLg,
           IconSizeXl,
+          IconSizeXXl,
+          IconSizeXXXl,
           IconSizeHuge,
         ].includes(value) ;
       },
@@ -90,6 +96,14 @@ export default Vue.extend({
         case IconSizeXl:
           s.width = IconXl;
           s.height = IconXl;
+          break;
+        case IconSizeXXl:
+          s.width = IconXXl;
+          s.height = IconXXl;
+          break;
+        case IconSizeXXXl:
+          s.width = IconXXXl;
+          s.height = IconXXXl;
           break;
         case IconSizeHuge:
           s.width = IconHuge;
