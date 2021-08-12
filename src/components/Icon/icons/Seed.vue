@@ -1,0 +1,56 @@
+<template>
+  <svg
+    width="17px"
+    height="35px"
+    viewBox="0 0 17 35"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
+    <title>Icon: Seed (month)</title>
+    <g
+      id="Nano-Onboarding"
+      stroke="none"
+      stroke-width="1"
+      fill="none"
+      fill-rule="evenodd"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <g
+        id="&lt;-04_2_Desktop-&gt;-PROPERTY---Loan-Type-(summary---InterestOnly)"
+        transform="translate(-297.000000, -627.000000)"
+        stroke="currentColor"
+        stroke-width="1.5"
+      >
+        <g
+          id="Savings-PItch"
+          transform="translate(188.000000, 348.000000)"
+        >
+          <g
+            id="Month"
+            transform="translate(30.000000, 202.000000)"
+          >
+            <g
+              id="Icon:-Seed-(month)"
+              transform="translate(80.000000, 77.000000)"
+            >
+              <path
+                id="Stroke-1"
+                d="M10.9155,15.359 C6.5645,15.076 5.4875,23.309 5.5515,26.032"
+              ></path>
+              <path
+                id="Stroke-3"
+                d="M11.8013,16.0763 C11.8013,16.0763 11.1243,15.2973 9.8263,14.8483 L9.8433,14.8473 C9.8433,14.8473 8.7003,9.1643 9.8433,5.6803 C11.1883,1.5853 14.9033,3.4013 14.9033,3.4013 C14.9033,3.4013 12.7923,-0.0187 9.2453,0.9093 C4.4403,2.1683 5.0663,9.4813 5.5493,15.0783 L5.5563,15.0773 C4.6333,15.5213 4.1523,16.0763 4.1523,16.0763 C4.1523,16.0763 -2.1757,22.2853 2.4283,30.7993 C3.1303,32.0963 4.4423,33.1563 6.1053,33.6253 C6.6603,33.7823 7.2863,33.8873 7.9763,33.8973 C8.6673,33.8873 9.2923,33.7823 9.8483,33.6253 C11.5113,33.1563 12.8233,32.0963 13.5253,30.7993 C18.1283,22.2853 11.8013,16.0763 11.8013,16.0763 Z"
+              ></path>
+              <path
+                id="Stroke-5"
+                d="M5.5488,15.0782 C5.5488,15.0782 6.2688,14.8012 6.9448,14.6952"
+              ></path>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+</template>

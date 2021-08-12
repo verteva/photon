@@ -1,10 +1,43 @@
 <template>
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M20.5883 9H10" stroke="currentColor" stroke-linecap="round"/>
-<path d="M20.5883 12H10" stroke="currentColor" stroke-linecap="round"/>
-<path d="M20.5883 15H10" stroke="currentColor" stroke-linecap="round"/>
-<path d="M20.5883 18H10" stroke="currentColor" stroke-linecap="round"/>
-<path d="M20.5883 21H10" stroke="currentColor" stroke-linecap="round"/>
-<rect x="6.5" y="4.5" width="17" height="21" rx="1.5" stroke="currentColor"/>
-</svg>
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20.5883 9H10"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+    <path
+      d="M20.5883 12H10"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+    <path
+      d="M20.5883 15H10"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+    <path
+      d="M20.5883 18H10"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+    <path
+      d="M20.5883 21H10"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+    <rect
+      x="6.5"
+      y="4.5"
+      width="17"
+      height="21"
+      rx="1.5"
+      stroke="currentColor"
+    />
+  </svg>
 </template>
