@@ -35,7 +35,7 @@ import { Draggable } from "gsap/Draggable";
 import { v4 as uuidv4 } from 'uuid';
 
 export default Vue.extend({
-  name: 'Slider',
+  name: 'PSlider',
 
   components: {
   },

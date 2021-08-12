@@ -14,15 +14,14 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div class="ph-w-100">
-      <p-slider v-bind='$props' v-model="a" />
-      <p-input-text v-model="a" icon-left="Dollar" />
-      
+      <p-slider v-bind='$props' v-model="val" />
+      <br />
+      Slider %: {{ val }}
     </div>
   `,
   data() {
     return {
-      a: 0.8,
-      b: 0.2,
+      val: 0.8,
     };
   },
 });
