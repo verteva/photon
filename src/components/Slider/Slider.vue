@@ -49,8 +49,8 @@ export default Vue.extend({
 
   data() {
     return {
+      daggable: Draggable,
       id: uuidv4(),
-      dragPct: this.value,
       pressed: false,
     };
   },
@@ -60,19 +60,26 @@ export default Vue.extend({
     gsap.registerPlugin(Draggable);
     
     document.addEventListener('mouseup', this.onRelease, false);
+    window.addEventListener('resize', this.onResize, false);
     
     const slider = this as any;
-    const a = Draggable.create(`#ph-handle-${this.id}`, {
+    this.daggable = Draggable.create(`#ph-handle-${this.id}`, {
       type:"x",
       bounds: `#ph-track-${this.id}`,
       onDrag: function() {
         const pct = (this.x - this.minX) / (this.maxX - this.minX);               
         slider.$emit("input", pct);
+        console.log(this);
+        
       },      
-    });
+    })[0];
 
-    const { minX, maxX } = a[0];      
-    TweenMax.set(`#ph-handle-${this.id}`, { x: (maxX - minX) * this.value });
+    this.setHandle();
+  },
+
+  destroyed() {
+    document.removeEventListener('mouseup', this.onRelease);
+    window.removeEventListener('resize', this.onResize);
   },
 
   computed: {
@@ -94,9 +101,9 @@ export default Vue.extend({
       return [
         'ph-absolute',
         'ph-top-0',
-        'ph--left-1',
         'ph-bottom-0',
-        'ph--right-1',
+        'ph-left-0',
+        'ph-right-0',
       ];
     },
     trackClassList():string[] {
@@ -141,6 +148,15 @@ export default Vue.extend({
   },  
 
   methods: {
+    setHandle() {
+      const { minX, maxX } = this.daggable;        
+      TweenMax.set(`#ph-handle-${this.id}`, { x: (maxX - minX) * this.innerValue });
+    },
+    onResize() {      
+      const track = document.getElementById(`ph-track-${this.id}`);
+      const { width } = track && track.getBoundingClientRect();
+      TweenMax.set(`#ph-handle-${this.id}`, { x: (width * this.innerValue) -2 });      
+    },
     onRelease() {
       this.pressed = false;
     }
