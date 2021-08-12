@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.557] - 2027-08-12
+### Added
+- Adding fix for Icon color
+- Fix for button text alignment
+
 ## [0.1.556] - 2027-08-12
 ### Added
 - Adding more icons
