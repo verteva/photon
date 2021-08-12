@@ -1,4 +1,5 @@
 import PSlider from './Slider.vue';
+import PInputText from '../InputText';
 
 export default {
   title: 'Forms/Slider',
@@ -9,21 +10,19 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { PSlider },
+  components: { PSlider, PInputText },
   props: Object.keys(argTypes),
   template: `
-    <div class="ph-w-80">
+    <div class="ph-w-100">
       <p-slider v-bind='$props' v-model="a" />
-      <br />
-      <br />
-      <p-slider v-bind='$props' v-model="b" />
+      <p-input-text v-model="a" icon-left="Dollar" />
       
     </div>
   `,
   data() {
     return {
-      a: 0.5,
-      b: 0.8,
+      a: 0.8,
+      b: 0.2,
     };
   },
 });

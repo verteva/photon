@@ -1,5 +1,9 @@
 <template>   
-  <div :id="`ph-slider-${id}`" class="ph-w-full ph-relative">
+  <div
+    :id="`ph-slider-${id}`"
+    class="ph-w-full ph-relative"
+  >
+    <div :id="`ph-track-${id}`" :class="dragAreaClassList" />
     <div
       :class="trackWrapperClassList"
     >
@@ -19,9 +23,10 @@
       @mousedown="pressed = true"
     >
       <div :class="handleDotClassList" />
-    </div>  
+    </div>
   </div>
 </template>
+
 <script lang='ts'>
 import Vue, { PropType } from 'vue';
 import { gsap } from "gsap";
@@ -56,19 +61,18 @@ export default Vue.extend({
     
     document.addEventListener('mouseup', this.onRelease, false);
     
-    const slider = this;
+    const slider = this as any;
     const a = Draggable.create(`#ph-handle-${this.id}`, {
       type:"x",
-      bounds: `#ph-slider-${this.id}`,
+      bounds: `#ph-track-${this.id}`,
       onDrag: function() {
-        const pct = (this.x - this.minX) / (this.maxX - this.minX);        
+        const pct = (this.x - this.minX) / (this.maxX - this.minX);               
         slider.$emit("input", pct);
       },      
     });
 
-    const { minX, maxX } = a[0];
+    const { minX, maxX } = a[0];      
     TweenMax.set(`#ph-handle-${this.id}`, { x: (maxX - minX) * this.value });
-
   },
 
   computed: {
@@ -86,6 +90,15 @@ export default Vue.extend({
         'ph-relative'
       ];
     },
+    dragAreaClassList():string[] {
+      return [
+        'ph-absolute',
+        'ph-top-0',
+        'ph--left-1',
+        'ph-bottom-0',
+        'ph--right-1',
+      ];
+    },
     trackClassList():string[] {
       return [
         'ph-h-full',
@@ -97,14 +110,14 @@ export default Vue.extend({
     handleClassList():string[] {
       return [
         'ph-group',
-        'ph--m-3.5',
+        'ph--mt-4',
         'ph-absolute',
-        'ph-top-1/2',
         'ph-bg-brand3',
         'ph-w-7',
         'ph-h-7',
         'ph-rounded-full',
         'ph-cursor-pointer',
+        'ph-origin-center',
       ];
     },
     handleDotClassList():string[] {
