@@ -1,42 +1,10 @@
 <template>
-  <svg
-    width="30"
-    height="30"
-    viewBox="0 0 30 30"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M16.5516 12.4484H9.55157"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M16.5516 15.4484H9.55157"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M16.5516 18.4484H9.55157"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M16.5516 21.4484H9.55157"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <rect
-      x="5.05157"
-      y="7.94838"
-      width="16"
-      height="19"
-      rx="0.5"
-      stroke="currentColor"
-    />
-    <path
-      d="M20.5516 23.4484H23.5516C24.1039 23.4484 24.5516 23.0007 24.5516 22.4484V5.44838C24.5516 4.89609 24.1039 4.44838 23.5516 4.44838H9.55157C8.99929 4.44838 8.55157 4.8961 8.55157 5.44838V7.77338"
-      stroke="currentColor"
-    />
-  </svg>
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.5516 12.4484H9.55157" stroke="currentColor" stroke-linecap="round"/>
+<path d="M16.5516 15.4484H9.55157" stroke="currentColor" stroke-linecap="round"/>
+<path d="M16.5516 18.4484H9.55157" stroke="currentColor" stroke-linecap="round"/>
+<path d="M16.5516 21.4484H9.55157" stroke="currentColor" stroke-linecap="round"/>
+<rect x="5.05157" y="7.94838" width="16" height="19" rx="0.5" stroke="currentColor"/>
+<path d="M20.5516 23.4484H23.5516C24.1039 23.4484 24.5516 23.0007 24.5516 22.4484V5.44838C24.5516 4.89609 24.1039 4.44838 23.5516 4.44838H9.55157C8.99929 4.44838 8.55157 4.8961 8.55157 5.44838V7.77338" stroke="currentColor"/>
+</svg>
 </template>

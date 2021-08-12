@@ -1,41 +1,9 @@
 <template>
-  <svg
-    width="30"
-    height="31"
-    viewBox="0 0 30 31"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M14.3705 3.92999H18.3705M12.3705 3.92999H12.8705"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <rect
-      x="8.5"
-      y="1.92999"
-      width="13.7411"
-      height="26.4911"
-      rx="1.5"
-      stroke="currentColor"
-    />
-    <circle
-      cx="15.3706"
-      cy="11.6244"
-      r="1.8751"
-      stroke="currentColor"
-    />
-    <path
-      d="M19.3866 18.4364V18.3279C19.3866 16.1099 17.5886 14.3118 15.3706 14.3118V14.3118C13.1525 14.3118 11.3545 16.1099 11.3545 18.3279V18.4364"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <circle
-      cx="15.3705"
-      cy="25.7581"
-      r="1.26562"
-      fill="currentColor"
-    />
-  </svg>
+<svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.3705 3.92999H18.3705M12.3705 3.92999H12.8705" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="8.5" y="1.92999" width="13.7411" height="26.4911" rx="1.5" stroke="currentColor"/>
+<circle cx="15.3706" cy="11.6244" r="1.8751" stroke="currentColor"/>
+<path d="M19.3866 18.4364V18.3279C19.3866 16.1099 17.5886 14.3118 15.3706 14.3118V14.3118C13.1525 14.3118 11.3545 16.1099 11.3545 18.3279V18.4364" stroke="currentColor" stroke-linecap="round"/>
+<circle cx="15.3705" cy="25.7581" r="1.26562" fill="currentColor"/>
+</svg>
 </template>

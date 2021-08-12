@@ -13,9 +13,9 @@
       :slot="name"
       :name="name"
     />
-    <div class="ph-flex ph-items-center ph-justify-center">
+    <div class="ph-flex ">
       <div 
-        class="ph-z-10 ph-w-full ph-flex ph-items-center"
+        class="ph-z-10 ph-w-full ph-flex ph-items-center ph-justify-center"
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',

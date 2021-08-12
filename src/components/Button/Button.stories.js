@@ -29,6 +29,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   disabled: false,
   submitting: false,
+  block: false,
   buttonStyle: 'primary',
   size: 'small',
   type: 'submit'
