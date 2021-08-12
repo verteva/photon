@@ -3,7 +3,10 @@
     :id="`ph-slider-${id}`"
     class="ph-w-full ph-relative"
   >
-    <div :id="`ph-track-${id}`" :class="dragAreaClassList" />
+    <div
+      :id="`ph-track-${id}`"
+      :class="dragAreaClassList"
+    />
     <div
       :class="trackWrapperClassList"
     >
