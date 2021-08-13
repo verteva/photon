@@ -32,10 +32,14 @@
 
 <script lang='ts'>
 import Vue, { PropType } from 'vue';
-import { gsap } from "gsap";
-import TweenMax from "gsap";
+import { gsap, Expo } from "gsap";
+import TweenLite from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { v4 as uuidv4 } from 'uuid';
+
+import {
+  SliderData,
+} from './types';
 
 export default Vue.extend({
   name: 'PSlider',
@@ -45,44 +49,17 @@ export default Vue.extend({
 
   props: {
     value: {
-      type: Number,
+      type: Number as PropType<number>,
       default: 1,
     },
   },
 
-  data() {
+  data():SliderData {
     return {
-      daggable: Draggable,
+      draggable: null,
       id: uuidv4(),
       pressed: false,
     };
-  },
-
-  mounted() {
-    // Put this inside of your mounted function
-    gsap.registerPlugin(Draggable);
-    
-    document.addEventListener('mouseup', this.onRelease, false);
-    window.addEventListener('resize', this.onResize, false);
-    
-    const slider = this as any;
-    this.daggable = Draggable.create(`#ph-handle-${this.id}`, {
-      type:"x",
-      bounds: `#ph-track-${this.id}`,
-      onDrag: function() {
-        const pct = (this.x - this.minX) / (this.maxX - this.minX);               
-        slider.$emit("input", pct);
-        console.log(this);
-        
-      },      
-    })[0];
-
-    this.setHandle();
-  },
-
-  destroyed() {
-    document.removeEventListener('mouseup', this.onRelease);
-    window.removeEventListener('resize', this.onResize);
   },
 
   computed: {
@@ -115,12 +92,15 @@ export default Vue.extend({
         'ph-absolute',
         'ph-top-0',
         'ph-left-0',
+        // 'ph-transition',
+        // 'ph-duration-100',
+        // 'ph-ease-linear',
       ];
     },
     handleClassList():string[] {
       return [
-        'ph-group',
         'ph--mt-4',
+        'ph-group',
         'ph-absolute',
         'ph-bg-brand3',
         'ph-w-7',
@@ -142,23 +122,57 @@ export default Vue.extend({
         'ph-transform',
         'ph-origin-center',
         'ph-transition',
-        'ph-duration-300',
+        'ph-duration-100',
         'ph-scale-50',
         'ph-ease-out',
         this.pressed && 'ph-scale-60' || '',
       ];
     },
   },  
-
-  methods: {
-    setHandle() {
-      const { minX, maxX } = this.daggable;        
-      TweenMax.set(`#ph-handle-${this.id}`, { x: (maxX - minX) * this.innerValue });
+  
+  watch: {
+    value() {
+      this.setHandle();
     },
-    onResize() {      
+  },
+
+  mounted() {
+    // Put this inside of your mounted function
+    gsap.registerPlugin(Draggable);
+  
+    this.draggable = Draggable.create(`#ph-handle-${this.id}`, {
+      type:"x",
+      bounds: `#ph-track-${this.id}`,
+      onDrag: this.onDrag,  
+    })[0];
+
+    this.setHandle();
+    document.addEventListener('mouseup', this.onRelease, false);
+    window.addEventListener('resize', this.onResize, false);
+  },
+
+  destroyed() {
+    document.removeEventListener('mouseup', this.onRelease);
+    window.removeEventListener('resize', this.onResize);
+  },
+  
+  methods: {
+    onDrag() {
+      const { x, minX, maxX } = this.draggable;
+      const pct = (x - minX) / (maxX - minX);               
+      this.$emit("input", pct);     
+    },
+    setHandle() {
+      const { minX, maxX } = this.draggable;
+      const x = Math.floor((maxX - minX) * this.innerValue);      
+      TweenLite.to(`#ph-handle-${this.id}`, 0.1, { ease: Expo.easeOut, x });
+    },
+    onResize() {
       const track = document.getElementById(`ph-track-${this.id}`);
       const { width } = track && track.getBoundingClientRect();
-      TweenMax.set(`#ph-handle-${this.id}`, { x: (width * this.innerValue) -2 });      
+      const { width: handleWidth } = this.draggable.target.getBoundingClientRect();
+      
+      TweenLite.to(`#ph-handle-${this.id}`, 0.1, { x: (width * this.innerValue) - (handleWidth * this.innerValue) + 1 });      
     },
     onRelease() {
       this.pressed = false;

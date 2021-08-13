@@ -1,5 +1,8 @@
 <template>
-  <p-input :errors="errors" hide-errors>
+  <p-input
+    :errors="errors"
+    hide-errors
+  >
     <slot
       v-if="$scopedSlots.label"
       name="label"
@@ -12,10 +15,11 @@
     <div class="ph-flex ph-items-baseline">
       <p-slider v-model="sliderPct" />
       <p-input-text
-        v-model="innerValue"
-        class="ph-ml-4"
+        :value="innerValue"
+        class="ph-ml-10"
         :icon-left="currency ? 'Dollar' : ''"
         :errors="errors"
+        @input="onManualChange"
       />
     </div>
   </p-input>
@@ -27,10 +31,10 @@ import PSlider from '../Slider';
 import PInputText from '../InputText';
 import PInput from '../Input';
 import PLabel from '../Label';
-
-// TODO: Make this a global utility
-export const addCommaSeparators = str =>
-  str.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+import {
+  addCommaSeparators,
+  removeCommaSeparators,
+} from '../../utils';
 
 export default Vue.extend({
   name: 'InputSlider',
@@ -44,15 +48,15 @@ export default Vue.extend({
 
   props: {
     currency: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     min: {
-      type: Number,
+      type: Number as PropType<number>,
       default: 0,
     },
     max: {
-      type: Number,
+      type: Number as PropType<number>,
       default: 100,
     },
     label: {
@@ -64,24 +68,21 @@ export default Vue.extend({
       default: ():[] => [],
     },
     value: {
-      type: Number,
+      type: Number as PropType<number>,
       default: 0,
     },
   },
 
   data() {
     return {
-      sliderPct: 0.8,
+      sliderPct: 1,
     };
-  },
-
-  mounted() {
-    this.emitValue();
   },
 
   computed: {
     innerValue: {
-      get():number {
+      get():string {
+        // return Math.round(this.value);
         return addCommaSeparators(Math.round(this.value));
       },
     },
@@ -93,10 +94,21 @@ export default Vue.extend({
     },
   },
 
+  mounted() {
+    this.emitValue();
+  },
+
   methods: {
     emitValue() {
       this.$emit('input', (this.max - this.min) * this.sliderPct + this.min);
-    }
+    },
+    onManualChange(val) {
+      const manualValue:any = removeCommaSeparators(val);
+      if (manualValue <= this.max) {
+        this.sliderPct = manualValue / this.max;
+        this.$emit('input', Number(manualValue));
+      }
+    },
   },
 });
 </script>
