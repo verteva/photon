@@ -1,7 +1,29 @@
 <template>
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="15.5" cy="14.5" r="13.0263" stroke="currentColor" stroke-width="0.947368"/>
-<circle cx="22.9851" cy="9.95544" r="0.668317" fill="currentColor"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M22.2943 11.324C22.0093 11.1717 21.7792 10.9301 21.6414 10.6366L14.2046 18.2337L9.28899 13.2122C9.10599 13.0253 8.80608 13.0221 8.61914 13.2051C8.43219 13.3881 8.42899 13.688 8.61199 13.8749L13.8661 19.2423L14.2046 19.588L14.5431 19.2423L22.2943 11.324Z" fill="currentColor"/>
-</svg>
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="15.5"
+      cy="14.5"
+      r="13.0263"
+      stroke="currentColor"
+      stroke-width="0.947368"
+    />
+    <circle
+      cx="22.9851"
+      cy="9.95544"
+      r="0.668317"
+      fill="currentColor"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M22.2943 11.324C22.0093 11.1717 21.7792 10.9301 21.6414 10.6366L14.2046 18.2337L9.28899 13.2122C9.10599 13.0253 8.80608 13.0221 8.61914 13.2051C8.43219 13.3881 8.42899 13.688 8.61199 13.8749L13.8661 19.2423L14.2046 19.588L14.5431 19.2423L22.2943 11.324Z"
+      fill="currentColor"
+    />
+  </svg>
 </template>

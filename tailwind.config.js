@@ -39,6 +39,7 @@ module.exports = {
       'alert-light1': '#FFF9F5',
       'alert-light2': '#FEF8F9',
       'alert-light3': '#EDF7EE',
+      'hover-brand2': '#00719E',
     },
     spacing: {
       px: '1px',
