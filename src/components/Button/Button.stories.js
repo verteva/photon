@@ -24,22 +24,26 @@ const TypesTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div class="ph-flex">
-      <div class="ph-flex ph-flex-col ph-mr-10">
-        <PButton v-bind="$props" buttonStyle="primary" size="medium"/>
-        <br />
-        <PButton v-bind="$props" buttonStyle="primary" size="small"/>
-        <br />
-        <PButton v-bind="$props" buttonStyle="primary" size="xs" />
-        </div>
-      <div class="ph-flex ph-flex-col">
-        <PButton v-bind="$props" buttonStyle="secondary" size="medium"/>
-        <br />
-        <PButton v-bind="$props" buttonStyle="secondary" size="small"/>
-        <br />
-        <PButton v-bind="$props" buttonStyle="secondary" size="xs" />
+      <div v-for="btn in buttons" :key="btn.type" class="ph-flex ph-flex-col ph-mr-10 ph-items-center">
+        <div class="ph-text-xs ph-mb-2">{{ btn.type.toUpperCase() }}</div>
+        <PButton v-for="size in btn.sizes" :key="size" v-bind="$props" :buttonStyle="btn.type" :size="size" class="ph-my-2" />
       </div>
     </div>
   `,
+  data() {
+    return {
+      buttons: [
+        {
+          type: 'primary',
+          sizes: ['medium', 'small', 'xs'],
+        },
+        {
+          type: 'secondary',
+          sizes: ['medium', 'small', 'xs'],
+        },
+      ],
+    }
+  },
 });
 
 export const Types = TypesTemplate.bind({});
