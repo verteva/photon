@@ -1,28 +1,7 @@
 <template>
-  <svg
-    width="30"
-    height="30"
-    viewBox="0 0 30 30"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <rect
-      x="3.9375"
-      y="8.0625"
-      width="22.25"
-      height="17.0625"
-      rx="2"
-      stroke="currentColor"
-    />
-    <path
-      d="M16.9375 11.5625H13.1875V14.8906H9.85938V18.6406H13.1875V21.9688H16.9375V19.0938V18.6406H20.2656V14.8906L16.9375 14.8906V14.5781V11.5625Z"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M9.3125 6.8125C9.3125 5.70793 10.2079 4.8125 11.3125 4.8125H18.8125C19.9171 4.8125 20.8125 5.70793 20.8125 6.8125V8.0625H9.3125V6.8125Z"
-      stroke="currentColor"
-    />
-  </svg>
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3.9375" y="8.0625" width="22.25" height="17.0625" rx="2" stroke="currentColor"/>
+<path d="M16.9375 11.5625H13.1875V14.8906H9.85938V18.6406H13.1875V21.9688H16.9375V19.0938V18.6406H20.2656V14.8906L16.9375 14.8906V14.5781V11.5625Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.3125 6.8125C9.3125 5.70793 10.2079 4.8125 11.3125 4.8125H18.8125C19.9171 4.8125 20.8125 5.70793 20.8125 6.8125V8.0625H9.3125V6.8125Z" stroke="currentColor"/>
+</svg>
 </template>

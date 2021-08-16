@@ -1,52 +1,12 @@
 <template>
-  <svg
-    width="30"
-    height="30"
-    viewBox="0 0 30 30"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M15.9655 9.36212H8.96552"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M20.142 12.3621H8.9655"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M20.142 15.3621H8.96552"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M16.9655 18.3621H8.96553"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M15.9655 21.3621H8.96552"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M23.9655 9.36212H17.9655V3.36212M23.9655 9.36212L17.9655 3.36212M23.9655 9.36212V18.1434M17.9655 3.36212H6.96552C5.86095 3.36212 4.96552 4.25755 4.96552 5.36212V24.3621C4.96552 25.4667 5.86095 26.3621 6.96552 26.3621H16.4655H18.9655"
-      stroke="currentColor"
-    />
-    <circle
-      cx="22.9655"
-      cy="23.3621"
-      r="5"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M20.4655 23.3621H25.9655M25.9655 23.3621L23.4655 25.8621M25.9655 23.3621L23.4655 20.8621"
-      stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
+<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.9655 9.36212H8.96552" stroke="currentColor" stroke-linecap="round"/>
+<path d="M20.142 12.3621H8.9655" stroke="currentColor" stroke-linecap="round"/>
+<path d="M20.142 15.3621H8.96552" stroke="currentColor" stroke-linecap="round"/>
+<path d="M16.9655 18.3621H8.96553" stroke="currentColor" stroke-linecap="round"/>
+<path d="M15.9655 21.3621H8.96552" stroke="currentColor" stroke-linecap="round"/>
+<path d="M23.9655 9.36212H17.9655V3.36212M23.9655 9.36212L17.9655 3.36212M23.9655 9.36212V18.1434M17.9655 3.36212H6.96552C5.86095 3.36212 4.96552 4.25755 4.96552 5.36212V24.3621C4.96552 25.4667 5.86095 26.3621 6.96552 26.3621H16.4655H18.9655" stroke="currentColor"/>
+<circle cx="22.9655" cy="23.3621" r="5" stroke="currentColor" stroke-linecap="round"/>
+<path d="M20.4655 23.3621H25.9655M25.9655 23.3621L23.4655 25.8621M25.9655 23.3621L23.4655 20.8621" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 </template>

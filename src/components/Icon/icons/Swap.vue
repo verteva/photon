@@ -1,38 +1,8 @@
 <template>
-  <svg
-    width="31"
-    height="30"
-    viewBox="0 0 31 30"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M10.3898 23.16V3.2386"
-      stroke="currentColor"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M15.7523 8.76137L10.3898 3.2386L5.01494 8.76137"
-      stroke="currentColor"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M20.8252 3.2386L20.8252 23.16"
-      stroke="currentColor"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M15.4627 17.6372L20.8252 23.16L26.2 17.6372"
-      stroke="currentColor"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
+<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.3898 23.16V3.2386" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.7523 8.76137L10.3898 3.2386L5.01494 8.76137" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.8252 3.2386L20.8252 23.16" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.4627 17.6372L20.8252 23.16L26.2 17.6372" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 </template>

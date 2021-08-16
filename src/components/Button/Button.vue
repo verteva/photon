@@ -13,9 +13,9 @@
       :slot="name"
       :name="name"
     />
-    <div class="ph-flex ph-items-center ph-justify-center">
+    <div class="ph-flex ">
       <div 
-        class="ph-z-10 ph-w-full ph-flex ph-items-center"
+        class="ph-z-10 ph-w-full ph-flex ph-items-center ph-justify-center"
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',
@@ -32,7 +32,7 @@
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-1' : 'ph-opacity-0',
-          size === 'xs' ? 'ph-h-4 ph-w-4' : 'ph-h-6 ph-w-6',
+          loaderClassList,
         ]"
       >
         <div class="ph-animate-spin ph-h-full ph-w-full ph-flex ph-z-10">
@@ -82,7 +82,7 @@ export default Vue.extend({
   props: {
     label: {
       type: String as PropType<string>,
-      default: 'Continue',
+      default: 'Button',
     },
     buttonStyle: {
       type: String as PropType<string>,
@@ -150,6 +150,15 @@ export default Vue.extend({
   },
 
   computed: {
+    loaderClassList(): string[] {
+      const classes = [
+        'ph-left-1/2 ph-top-1/2',
+        this.size === 'medium' && 'ph-h-6 ph-w-6 ph--ml-3 ph--mt-3' || '',
+        this.size === 'small' && 'ph-h-5 ph-w-5 ph--ml-2.5 ph--mt-2.5' || '',
+        this.size === 'xs' && 'ph-h-4 ph-w-4 ph--ml-2 ph--mt-2' || '',
+      ];  
+      return classes;
+    },  
     classList(): string[] {
       const a: string[] = [
         ...this.baseClassList,

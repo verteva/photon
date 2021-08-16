@@ -1,26 +1,6 @@
 <template>
-  <svg
-    width="31"
-    height="31"
-    viewBox="0 0 31 31"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M15.4961 16.7203C18.3377 16.7203 20.6412 14.4167 20.6412 11.5751C20.6412 8.73355 18.3377 6.42999 15.4961 6.42999C12.6545 6.42999 10.351 8.73355 10.351 11.5751C10.351 14.4167 12.6545 16.7203 15.4961 16.7203Z"
-      stroke="currentColor"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M19.1464 17.7429H19.115C18.934 17.7429 18.761 17.798 18.6115 17.8845C17.7461 18.388 16.6604 18.6948 15.4803 18.6948C14.3003 18.6948 13.2225 18.388 12.3571 17.8845C12.1997 17.798 12.0345 17.7429 11.8536 17.7429C9.43836 17.7429 7.47943 19.7018 7.47943 22.117V24.43H23.5206V22.1249C23.5206 19.7018 21.5617 17.7429 19.1464 17.7429Z"
-      stroke="currentColor"
-      stroke-miterlimit="10"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
+<svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.4961 16.7203C18.3377 16.7203 20.6412 14.4167 20.6412 11.5751C20.6412 8.73355 18.3377 6.42999 15.4961 6.42999C12.6545 6.42999 10.351 8.73355 10.351 11.5751C10.351 14.4167 12.6545 16.7203 15.4961 16.7203Z" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.1464 17.7429H19.115C18.934 17.7429 18.761 17.798 18.6115 17.8845C17.7461 18.388 16.6604 18.6948 15.4803 18.6948C14.3003 18.6948 13.2225 18.388 12.3571 17.8845C12.1997 17.798 12.0345 17.7429 11.8536 17.7429C9.43836 17.7429 7.47943 19.7018 7.47943 22.117V24.43H23.5206V22.1249C23.5206 19.7018 21.5617 17.7429 19.1464 17.7429Z" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 </template>
