@@ -27,6 +27,7 @@
         :value="value"
         tabindex="0"
         :type="$attrs.type"
+        @keydown="validatePress"
         @input="updateValue($event.target.value)"
         @focus="inFocus = true"
         @blur="inFocus = false"
@@ -50,6 +51,7 @@ import PIcon from '../Icon';
 import PInput from '../Input';
 import PLabel from '../Label';
 import { InputTextData, InputValueType } from './types';
+import { isNumber } from '../../utils';
 
 export default Vue.extend({
   name: 'PInputText',
@@ -61,6 +63,10 @@ export default Vue.extend({
   },
   
   props: {
+    number: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     placeholder: {
       type: String as PropType<string>,
       default: '',
@@ -145,6 +151,16 @@ export default Vue.extend({
 
 
   methods: {
+    validatePress(event:KeyboardEvent) {
+      /* 
+        TODO: As an enhacement, add keycode checks
+        to allow for a user select all (cmd + a)
+        in the text input
+      */
+      if (this.number && !isNumber(event)) {
+          return event.preventDefault();
+      }
+    },
     updateValue(value:string){     
       this.$emit('input', value);
     },

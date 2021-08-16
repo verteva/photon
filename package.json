@@ -20,6 +20,7 @@
   "dependencies": {
     "@storybook/addon-postcss": "^2.0.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@types/greensock": "^1.15.32",
     "core-js": "^3.6.5",
     "gsap": "^3.7.1",
     "harp": "^0.41.0",
