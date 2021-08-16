@@ -29,7 +29,7 @@ export default Vue.extend({
   props: {
     label: {
       type: String as PropType<string>,
-      default: 'This is a link',
+      default: '',
     },
     link: {
       type: String as PropType<string>,
