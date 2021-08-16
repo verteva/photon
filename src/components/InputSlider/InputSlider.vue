@@ -15,6 +15,7 @@
     <div class="ph-flex ph-items-baseline">
       <p-slider v-model="sliderPct" />
       <p-input-text
+        number
         :value="innerValue"
         class="ph-ml-10"
         :icon-left="currency ? 'Dollar' : ''"
