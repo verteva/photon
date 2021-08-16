@@ -83,7 +83,6 @@ export default Vue.extend({
   computed: {
     innerValue: {
       get():string {
-        // return Math.round(this.value);
         return addCommaSeparators(Math.round(this.value));
       },
     },

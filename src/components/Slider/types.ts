@@ -3,3 +3,7 @@ export interface SliderData {
   pressed:boolean;
   draggable: any;
 }
+
+export interface SliderTrackRef {
+  getBoundingClientRect():any;
+}

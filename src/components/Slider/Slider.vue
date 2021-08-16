@@ -5,6 +5,7 @@
   >
     <div
       :id="`ph-track-${id}`"
+      :ref="`ph-track-${id}`"
       :class="dragAreaClassList"
     />
     <div
@@ -39,6 +40,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import {
   SliderData,
+  SliderTrackRef,
 } from './types';
 
 export default Vue.extend({
@@ -160,7 +162,7 @@ export default Vue.extend({
     onDrag() {
       const { x, minX, maxX } = this.draggable;
       const pct = (x - minX) / (maxX - minX);               
-      this.$emit("input", pct);     
+      this.$emit('input', pct);     
     },
     setHandle() {
       const { minX, maxX } = this.draggable;
@@ -168,8 +170,8 @@ export default Vue.extend({
       TweenLite.to(`#ph-handle-${this.id}`, 0.1, { ease: Expo.easeOut, x });
     },
     onResize() {
-      const track = document.getElementById(`ph-track-${this.id}`);
-      const { width } = track && track.getBoundingClientRect();
+      const ref = this.$refs[`ph-track-${this.id}`] as SliderTrackRef;
+      const { width }  = ref.getBoundingClientRect();      
       const { width: handleWidth } = this.draggable.target.getBoundingClientRect();
       
       TweenLite.to(`#ph-handle-${this.id}`, 0.1, { x: (width * this.innerValue) - (handleWidth * this.innerValue) + 1 });      
