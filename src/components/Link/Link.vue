@@ -1,10 +1,11 @@
 <template>
-  <nav
+  <a
     ref="elRef"
     v-bind="$attrs"
     :type="type"
     :class="classList"
     :style="styleList"
+    :href="link"
     v-on="$listeners"
   >
     <slot
@@ -12,20 +13,11 @@
       :slot="name"
       :name="name"
     />
-    <div class="">
-      <a
-        :href="link"
-        class=""
-        :class="[
-          'ph-transition',
-        ]"
-      >
-        <slot name="default">
-          {{ label }}
-        </slot>
-      </a>
-    </div>
-  </nav>
+    
+    <slot name="default">
+      {{ label }}
+    </slot>
+  </a>
 </template>
 
 <script lang="ts">
@@ -55,13 +47,11 @@ export default Vue.extend({
         'ph-text-brand2',
         'ph-group',
         'ph-relative',
-        'ph-items-center',
-        'ph-justify-center',
         'ph-transition',
-        'ph-shadow-none',
         'focus:ph-outline-none',
-        'focus:ph-shadow-brand',
-        'hover:ph-text-hover-brand2'
+        'focus:ph-underline',
+        'focus:ph-text-brandh2',
+        'hover:ph-text-brandh2',
       ],
     }
   },
