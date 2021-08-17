@@ -11,7 +11,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PLink },
   props: Object.keys(argTypes),
-  template: "<p>This is a paragraph and this is <PLink v-bind='$props'>the ilnk component</Plink>. It is designed to be used inline.</p>",
+  template: "<p>This is a paragraph and this is <PLink v-bind='$props'>the link component</Plink>. It is designed to be used inline</p>",
 });
 
 export const Link = Template.bind({});
