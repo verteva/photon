@@ -12,18 +12,20 @@
         @search="onSearch"
       >
         <template #search="{ attributes, events }">
-          <p-icon
-            v-if="allowIcon"
-            class="ph--autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-brand2"
-            :name="defaultIcon"
-            type="sm"
-          ></p-icon>
-          <input
-            class="vs__search"
-            :style="{ '--inputIndent': allowIcon ? '0px' : '12px' }"
-            v-bind="attributes"
-            v-on="events"
-          />
+          <div class="ph-flex ph-w-full">
+            <p-icon
+              v-if="allowIcon"
+              class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
+              :name="defaultIcon"
+              type="sm"
+            ></p-icon>
+            <input
+              class="vs__search ph-flex-1"
+              :style="{ '--inputIndent': allowIcon ? '0px' : '12px' }"
+              v-bind="attributes"
+              v-on="events"
+            />
+          </div>
         </template>
         <template #selected-option-container="{ option }">
           <div class="ph-autocomplete__selected ph-flex">
@@ -206,9 +208,13 @@ export default Vue.extend({
   border-color: var(--borderColor);
   background-color: var(--bgColor);
 }
-
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within{
   border-color: var(--borderFocusColor);
+}
+
+.ph-autocomplete__v-select .vs__dropdown-toggle:focus-within svg{
+  @apply ph-transition;
+  @apply ph-text-brand2;
 }
 
 .vs__dropdown-option--highlight{
@@ -227,6 +233,10 @@ export default Vue.extend({
 
 .ph-autocomplete__selected + .ph--autocomplete-prefix-icon{
   display: none;
+
+  & input{
+    color: red;
+  }
 }
 
 .ph-autocomplete__option--footer a{
