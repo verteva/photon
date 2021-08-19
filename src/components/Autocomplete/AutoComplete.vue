@@ -39,10 +39,10 @@
               v-else
               class="ph-w-4"
             ></span>
-            <p
+            <label
               class="ph-h-11 ph-pt-3"
               v-html="option.label"
-            ></p>
+            ></label>
           </div>
         </template>
         <template #open-indicator="{ attributes }">
@@ -64,7 +64,7 @@
               :name="prefixIcon(option)"
               type="xs"
             ></p-icon>
-            <p v-html="option.label"></p>
+            <label v-html="option.label"></label>
           </div>
         </template>
         <template #list-footer>
@@ -72,7 +72,7 @@
             v-if="showFooter"
             class="ph-autocomplete__option--footer ph-flex ph-mx-4 ph-my-2 ph-text-sm"
           >
-            <p v-html="footer"></p>
+            <label v-html="footer"></label>
           </div>
         </template>
       </v-select>
