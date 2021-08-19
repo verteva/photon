@@ -3,13 +3,13 @@
     <div class="ph-autocomplete__field">
       <v-select
         class="ph-autocomplete__v-select"
-        :options="options"
+        :options="optionItems"
         label="label"
         :reduce="content => content.code"
         :placeholder="placeHolder"
         :class="classList"
         :style="{ '--bgColor': backgroundColor, '--textColor': textColor, '--borderColor': borderColor, '--highlightBgColor': highlightBackgroundColor, '--borderFocusColor': borderFocusColor}"
-        @search="onSearch"
+        v-on="$listeners"
       >
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
@@ -96,9 +96,9 @@ export default Vue.extend({
   },
 
   props: {
-    options: {
+    optionItems: {
       type: Array,
-      default: null,
+      default: () => [],
     },
     placeHolder: {
       type: String as PropType<string>,
@@ -182,10 +182,6 @@ export default Vue.extend({
       ];
       return a;
     },
-    onSearch (search: string, loading: (arg0: boolean) => void) {
-      this.manualInput = search;
-      loading(false);
-    }
   },
 });
 </script>

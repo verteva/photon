@@ -23,7 +23,7 @@ const Template = (args, { argTypes }) => ({
 export const AutocompleteMain = Template.bind({});
 AutocompleteMain.args = {
   label: 'Autocomplete',
-  options: [
+  optionItems: [
     {code: '001', label: '<span class="af_hl">highlight</span> test1', icon: 'Checkmark'},
     {code: '002', label: '<span class="af_hl">highlight</span> test2', icon: 'Checkmark'},
   ]
@@ -37,7 +37,7 @@ AutocompleteAddress.args = {
   placeHolder: 'Search for your property',
   defaultIcon: 'LocationSimple',
   footer: `Can't find your address? Click <a href='#'>here</a>`,
-  options: [
+  optionItems: [
     {code: '001', label: '<span class="af_hl">1</span> <span class="af_hl">An</span>bar Mews, HALLAM VIC 3803', icon: 'LocationSimple'},
     {code: '002', label: '<span class="af_hl">3</span> <span class="af_hl">An</span>bar Mews, HALLAM VIC 3803', icon: 'LocationSimple'},
     {code: '003', label: '<span class="af_hl">5</span> <span class="af_hl">An</span>bar Mews, HALLAM VIC 3803', icon: 'LocationSimple'},
