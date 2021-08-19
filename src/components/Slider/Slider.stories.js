@@ -31,6 +31,9 @@ const SliderPlayground = (args, { argTypes }) => ({
       <p-slider v-bind='$props' v-model="val" />
       <br />
       Slider %: {{ val }}
+      <div v-if="val > 0.5" class="ph-animate-fadeIn">
+        HElloooo
+      </div>
     </div>
   `,
   data() {

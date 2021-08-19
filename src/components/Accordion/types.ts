@@ -23,6 +23,7 @@ export interface AccordionData {
   minHeight: number | null;
   maxHeight: number | null;
   expanded: boolean;
+  focussed: boolean;
   initialRender: boolean;
   id: string;
 }
