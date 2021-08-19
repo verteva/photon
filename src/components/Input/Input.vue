@@ -1,6 +1,6 @@
 <template>
   <div
-    class="ph-pb-7"
+    class=""
   >
     <slot />
     <div
@@ -54,7 +54,7 @@ export default Vue.extend({
         'ph-py-1',
         'ph-px-1 ph-text-alert2',
       ];
-    }
+    },
   }
 });
 </script>

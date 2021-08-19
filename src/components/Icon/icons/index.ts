@@ -128,7 +128,7 @@ export default [
   'PersonalCare',
   'Pets',
   'Plus',
-  'PlusCIrcle',
+  'PlusCircle',
   'Privacy',
   'Professional',
   'ProfileInactive',

@@ -1,3 +1,3 @@
-import PAutocomplete from './Button.vue';
+import PAutocomplete from './AutoComplete.vue';
 
 export default PAutocomplete;
