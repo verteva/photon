@@ -12,7 +12,7 @@
         @search="onSearch"
       >
         <template #search="{ attributes, events }">
-          <div class="ph-flex ph-w-full">
+          <div class="ph-autocomplete-search ph-flex ph-flex-1">
             <p-icon
               v-if="allowIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
@@ -231,12 +231,8 @@ export default Vue.extend({
   @apply ph-text-grey1;
 }
 
-.ph-autocomplete__selected + .ph--autocomplete-prefix-icon{
+.ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
   display: none;
-
-  & input{
-    color: red;
-  }
 }
 
 .ph-autocomplete__option--footer a{
