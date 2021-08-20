@@ -12,7 +12,10 @@
       @focus="focussed = true"
       @blur="focussed = false"
     >
-      <slot name="heading">
+      <slot
+        name="heading"
+        :expanded="expanded"
+      >
         {{ section }}
       </slot>
       <p-icon
