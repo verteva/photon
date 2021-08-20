@@ -4,16 +4,20 @@
     :class="classList"
     :style="{ height }"
   >
-    <button
+    <component
+      :is="headerComponent"
       :disabled="disabled"
-      class="acc-header ph-flex ph-items-center ph-uppercase ph-text-grey3 ph-font-normal"
-      :class="[
-        unstyled ? '' : 'ph-py-6 ph-px-8',
-        (fullWidth && 'ph-w-full') || '',
-      ]"
+      :class="headerClassList"
       @click="toggleOpen"
+      @focus="focussed = true"
+      @blur="focussed = false"
     >
-      {{ section }} 
+      <slot
+        name="heading"
+        :expanded="expanded"
+      >
+        {{ section }}
+      </slot>
       <p-icon
         v-if="complete"
         name="Checkmark"
@@ -27,17 +31,20 @@
         class="ph-ml-auto ph-transition-all"
         :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
       />
-    </button>
+    </component>
     <div class="ph-flex ph-relative">
       <hr
-        v-if="!unstyled" 
+        v-if="!unstyled && !noHeadingRule" 
         class="ph-absolute ph-top-0 ph-left-0 ph-right-0 ph-mx-8" 
       />
       <div
         class="acc-content ph-w-full"
-        :class="[unstyled ? '' : 'ph-py-6 ph-px-8']"
+        :class="[
+          unstyled ? '' : 'ph-pb-6 ph-px-8',
+          noHeadingRule ? 'ph-pt-2' : 'ph-pt-6',
+        ]"
       >
-        <slot />
+        <slot name="default" />
       </div>
     </div>
   </div> 
@@ -88,13 +95,29 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    stayOpen: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    border: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
+    shadow: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    noHeadingRule: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     value: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
     section: {
       type: String as PropType<string>,
-      default: false,
+      default: '',
     },
     backgroundColor: {
       type: String as PropType<string>,
@@ -111,30 +134,56 @@ export default Vue.extend({
       baseClassList: [
         'ph-overflow-hidden',
         'ph-ease-out',
-        'ph-transition-height',
+        'ph-transition-all',
       ],
       height: 'auto',
       minHeight: null,
       maxHeight: null,
-      expanded: Boolean(this.value || this.open),
+      expanded: Boolean(this.value || this.open || this.stayOpen),
       initialRender: false,
+      focussed: false,
       id: this.identifier || uuidv4(),
     };
   },
 
   computed: {
+    headerComponent():string {
+      return this.stayOpen ? 'div' : 'button';
+    },
     innerValue: {
       get():boolean {
         return this.expanded;
       },
     },
-    classList():string[] {
+    headerClassList():string[] {
+      const classes = [
+        'acc-header',
+        'ph-flex',
+        'ph-items-center',
+        'ph-uppercase',
+        'ph-text-grey3',
+        'ph-font-normal',
+        'focus:ph-outline-none',
+        this.unstyled ? '' : 'ph-py-6 ph-px-8',
+        (this.fullWidth && 'ph-w-full') || '',
+      ];
+
+      return classes;
+    },
+    classList():string[] {  
+      let shadow = this.shadow ? 'ph-shadow' : '';
+      if (this.focussed) {
+        shadow = 'ph-shadow-brand';
+      }
+
       const a: string[] = [
         ...this.baseClassList,
-        this.unstyled ? '' : 'ph-border ph-rounded-xl ph-border-grey5' ,
+        this.unstyled ? '' : 'ph-border-0 ph-rounded-xl ph-border-grey5' ,
+        (!this.border || this.unstyled) ? 'ph-border-0' : 'ph-border' ,
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,
         this.initialRender ? 'ph-duration-1 ph-invisible' : 'ph-duration-300 ph-visible',
+        shadow,
       ];
       
       return a;
@@ -204,20 +253,22 @@ export default Vue.extend({
     },
     toggleOpen(e:MouseEvent):void {
       e.preventDefault();
-      /*
-        If singleFocus is true, there should be multiple
-        and only one is open at a time. Opening one will
-        close the others. But this requires parent component
-        to track which identifier is the open one.
-      */
-      if (this.singleFocus) {
-        if (this.open) {
-          this.$emit('toggle', null);
-        } else {
-          this.$emit('toggle', this.id);
+      if (!this.stayOpen) {
+        /*
+          If singleFocus is true, there should be multiple
+          and only one is open at a time. Opening one will
+          close the others. But this requires parent component
+          to track which identifier is the open one.
+        */
+        if (this.singleFocus) {
+          if (this.open) {
+            this.$emit('toggle', null);
+          } else {
+            this.$emit('toggle', this.id);
+          }
+        } else {        
+          this.expanded = !this.expanded;
         }
-      } else {        
-        this.expanded = !this.expanded;
       }
     },
     getHeight():string {
@@ -291,5 +342,15 @@ hr {
   border: none !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
   border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.acc-header button:focus-visible {
+  outline: 4px dashed black;
+}
+  
+/* Focusing the button with a mouse, touch, or stylus will show a subtle drop shadow. */
+.acc-header button:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: 1px 1px 5px rgba(1, 1, 0, .7);
 }
 </style>
