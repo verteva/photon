@@ -4,12 +4,20 @@
       <v-select
         v-model="selected"
         class="ph-autocomplete__v-select"
+        :dropdown-should-open="() => showMenu"
         :options="optionItems"
         label="label"
         :reduce="content => content.label"
         :placeholder="placeHolder"
         :class="classList"
-        :style="{ '--bgColor': backgroundColor, '--textColor': textColor, '--borderColor': borderColor, '--highlightBgColor': highlightBackgroundColor, '--borderFocusColor': borderFocusColor}"
+        :style="{ 
+          '--bgColor': backgroundColor, 
+          '--textColor': textColor, 
+          '--borderColor': borderColor, 
+          '--highlightBgColor': highlightBackgroundColor, 
+          '--borderFocusColor': borderFocusColor, 
+          '--maxHeight': maxHeight
+        }"
         v-on="$listeners"
         @input="onInput"
         @search="onSearch"
@@ -70,10 +78,14 @@
             <label v-html="option.custom_label"></label>
           </div>
         </template>
+        <template #no-options>
+          <label class="ph-pl-1 ph-" v-html="noOptionsText"></label>
+        </template>
         <template #list-footer>
           <div
             v-if="showFooter"
-            class="ph-autocomplete__option--footer ph-flex ph-mx-4 ph-my-2 ph-text-sm"
+            class="ph-opacity-0 ph-transition ph-autocomplete__option--footer ph-flex ph-m-0 ph-px-5 ph-py-2 ph-text-sm ph-sticky ph-bottom-0 ph-z-1 ph-bg-white"
+            :class="addFooter? 'ph-opacity-100': ''"
           >
             <label v-html="footer"></label>
           </div>
@@ -104,6 +116,10 @@ export default Vue.extend({
       default: () => [],
     },
     placeHolder: {
+      type: String as PropType<string>,
+      default: '',
+    },
+    noOptionsText: {
       type: String as PropType<string>,
       default: '',
     },
@@ -158,6 +174,10 @@ export default Vue.extend({
     value: {
       type: String as PropType<string>,
       default: null,
+    },
+    maxHeight: {
+      type: String as PropType<string>,
+      default: '',
     }
   },
   data() {
@@ -174,12 +194,18 @@ export default Vue.extend({
         'hover:ph-text-brandh2',
       ],
       selected: '',
+      searchText: '',
       manualInput: '',
     };
   },
 
   computed: {
-    
+    addFooter () {
+      return this.$data.searchText !== '';
+    },
+    showMenu () {
+      return this.$data.searchText !== '';
+    }
   },
   methods: {
     prefixIcon (option: { icon: string; }) {
@@ -187,18 +213,20 @@ export default Vue.extend({
     },
     classList(): string[] {
       const a: string[] = [
-        ...this.baseClassList,
+        ...this.$data.baseClassList,
         ...this.autoCompleteStyle,
       ];
       return a;
     },
-    onSearch (search: string, loading: (boolean) => void) {
+    onSearch (search: string ) {
+      this.$data.searchText = search;
       this.$emit('update:searchInput', search);
       //loading(true);
     },
     onInput (val: string) {
       this.$emit('update:value', val);
-    }
+    },
+    
   },
 });
 </script>
@@ -226,6 +254,8 @@ export default Vue.extend({
 }
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within{
   border-color: var(--borderFocusColor);
+  @apply ph-rounded-bl-xl;
+  @apply ph-rounded-br-xl;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within svg{
@@ -247,17 +277,27 @@ export default Vue.extend({
   @apply ph-text-grey1;
 }
 
+.vs__no-options{
+  @apply ph-text-left;
+  @apply ph-pl-4;
+}
+
 .vs__dropdown-menu{
   padding-left:0px!important;
   @apply ph-mt-0.5;
+  @apply ph-p-0;
+  @apply ph-pt-3;
+  box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
+  max-height: var(--maxHeight);
 }
-
+.vs__actions{
+  @apply ph-text-brand2;
+}
+.vs__clear{
+  @apply ph-fill-current;
+}
 .ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
   display: none;
-}
-
-.ph-autocomplete__option--footer a{
-  @apply ph-text-brand2;
 }
 
 </style>
