@@ -33,7 +33,7 @@ export const AutocompleteAddress = Template.bind({});
 AutocompleteAddress.args = {
   label: 'Autocomplete Address',
   allowIcon: true,
-  showOpenIndicator: false,
+  hideOpenIndicator: true,
   placeHolder: 'Search for your property',
   defaultIcon: 'LocationSimple',
   footer: `Can't find your address? Click <a href='#'>here</a>`,

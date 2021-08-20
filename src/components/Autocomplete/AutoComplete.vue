@@ -2,14 +2,17 @@
   <div class="ph-autocomplete">
     <div class="ph-autocomplete__field">
       <v-select
+        v-model="selected"
         class="ph-autocomplete__v-select"
         :options="optionItems"
         label="label"
-        :reduce="content => content.code"
+        :reduce="content => content.label"
         :placeholder="placeHolder"
         :class="classList"
         :style="{ '--bgColor': backgroundColor, '--textColor': textColor, '--borderColor': borderColor, '--highlightBgColor': highlightBackgroundColor, '--borderFocusColor': borderFocusColor}"
         v-on="$listeners"
+        @input="onInput"
+        @search="onSearch"
       >
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
@@ -41,14 +44,14 @@
             ></span>
             <label
               class="ph-h-11 ph-pt-3"
-              v-html="option.label"
+              v-html="option.custom_label"
             ></label>
           </div>
         </template>
         <template #open-indicator="{ attributes }">
           <span v-bind="attributes">
             <p-icon
-              v-if="showOpenIndicator"
+              v-if="!hideOpenIndicator"
               name="ChevronDown"
               type="sm"
             />
@@ -64,7 +67,7 @@
               :name="prefixIcon(option)"
               type="xs"
             ></p-icon>
-            <label v-html="option.label"></label>
+            <label v-html="option.custom_label"></label>
           </div>
         </template>
         <template #list-footer>
@@ -112,9 +115,9 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    showOpenIndicator: {
+    hideOpenIndicator: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: false
     },
     backgroundColor: {
       type: String as PropType<string>,
@@ -148,8 +151,15 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '#009EDE',
     },
+    searchInput: {
+      type: String as PropType<string>,
+      default: null,
+    },
+    value: {
+      type: String as PropType<string>,
+      default: null,
+    }
   },
-
   data() {
     return {
       baseClassList: [
@@ -163,6 +173,7 @@ export default Vue.extend({
         'focus:ph-text-brandh2',
         'hover:ph-text-brandh2',
       ],
+      selected: '',
       manualInput: '',
     };
   },
@@ -170,7 +181,6 @@ export default Vue.extend({
   computed: {
     
   },
-
   methods: {
     prefixIcon (option: { icon: string; }) {
       return option.icon? option.icon : this.defaultIcon;
@@ -182,6 +192,13 @@ export default Vue.extend({
       ];
       return a;
     },
+    onSearch (search: string, loading: (boolean) => void) {
+      this.$emit('update:searchInput', search);
+      //loading(true);
+    },
+    onInput (val: string) {
+      this.$emit('update:value', val);
+    }
   },
 });
 </script>
@@ -193,6 +210,9 @@ export default Vue.extend({
 .vs__selected-options input {
   @apply ph-px-5;
   padding-left: var(--inputIndent)!important;
+}
+.vs__dropdown-option {
+  @apply ph-py-1;
 }
 
 .vs__search{
@@ -225,6 +245,11 @@ export default Vue.extend({
   @apply ph-rounded-xl;
   @apply ph-bg-grey5;
   @apply ph-text-grey1;
+}
+
+.vs__dropdown-menu{
+  padding-left:0px!important;
+  @apply ph-mt-0.5;
 }
 
 .ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
