@@ -33,7 +33,6 @@ const SimpleTemplate = (args, { argTypes }) => ({
         <ul>
           <li v-for="thing in things" :key="thing">{{thing}}</li>
         </ul>
-        
       </PAccordion>
     </div>
   `,

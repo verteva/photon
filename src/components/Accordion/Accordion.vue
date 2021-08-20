@@ -135,7 +135,6 @@ export default Vue.extend({
         'ph-overflow-hidden',
         'ph-ease-out',
         'ph-transition-all',
-        // 'ph-transition-shadow',
       ],
       height: 'auto',
       minHeight: null,
