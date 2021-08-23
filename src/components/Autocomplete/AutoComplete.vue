@@ -3,11 +3,11 @@
     <div class="ph-autocomplete__field">
       <v-select
         v-model="selected"
+        v-bind="conditionalProps"
         class="ph-autocomplete__v-select"
-        :dropdown-should-open="() => showMenu"
         :options="optionItems"
-        label="label"
-        :reduce="content => content.label"
+        :label="labelVar"
+        :reduce="!returnObj?content => content[labelVar]:content => content"
         :placeholder="placeHolder"
         :class="classList"
         :style="{ 
@@ -16,7 +16,9 @@
           '--borderColor': borderColor, 
           '--highlightBgColor': highlightBackgroundColor, 
           '--borderFocusColor': borderFocusColor, 
-          '--maxHeight': maxHeight
+          '--maxHeight': maxHeight,
+          '--placeHolderColor': placeHolderColor,
+          '--fixedMode': stickyTopOnMobile? 'fixed':'relative',
         }"
         v-on="$listeners"
         @input="onInput"
@@ -25,14 +27,14 @@
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
             <p-icon
-              v-if="allowIcon"
+              v-if="prefixIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
-              :name="defaultIcon"
+              :name="prefixIcon"
               type="sm"
             ></p-icon>
             <input
               class="vs__search ph-flex-1"
-              :style="{ '--inputIndent': allowIcon ? '0px' : '12px' }"
+              :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
               v-bind="attributes"
               v-on="events"
             />
@@ -41,9 +43,9 @@
         <template #selected-option-container="{ option }">
           <div class="ph-autocomplete__selected ph-flex">
             <p-icon
-              v-if="allowIcon && prefixIcon(option)"
+              v-if="allowOptionIcon && validatreIcon(option)"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
-              :name="prefixIcon(option)"
+              :name="validatreIcon(option)"
               type="sm"
             ></p-icon>
             <span
@@ -52,7 +54,7 @@
             ></span>
             <label
               class="ph-h-11 ph-pt-3"
-              v-html="option.custom_label"
+              v-html="option[customLabelVar]"
             ></label>
           </div>
         </template>
@@ -70,16 +72,20 @@
             class="ph-autocomplete__option ph-flex"
           >
             <p-icon
-              v-if="allowIcon && prefixIcon(option)"
+              v-if="allowOptionIcon && validatreIcon(option)"
               class="ph-my-auto ph-mr-4"
-              :name="prefixIcon(option)"
+              :style="{color: option.iconColor}"
+              :name="validatreIcon(option)"
               type="xs"
             ></p-icon>
-            <label v-html="option.custom_label"></label>
+            <label v-html="option[customLabelVar]"></label>
           </div>
         </template>
         <template #no-options>
-          <label class="ph-pl-1 ph-" v-html="noOptionsText"></label>
+          <label
+            class="ph-pl-1 ph-"
+            v-html="noOptionsText"
+          ></label>
         </template>
         <template #list-footer>
           <div
@@ -115,19 +121,27 @@ export default Vue.extend({
       type: Array,
       default: () => [],
     },
+    label: {
+      type: String as PropType<string>,
+      default: '',
+    },
     placeHolder: {
       type: String as PropType<string>,
       default: '',
+    },
+    placeHolderColor: {
+      type: String as PropType<string>,
+      default: 'currentColor',
     },
     noOptionsText: {
       type: String as PropType<string>,
       default: '',
     },
-    allowIcon: {
+    allowOptionIcon: {
       type: Boolean as PropType<boolean>,
       default: false
     },
-    defaultIcon: {
+    prefixIcon: {
       type: String as PropType<string>,
       default: '',
     },
@@ -178,6 +192,30 @@ export default Vue.extend({
     maxHeight: {
       type: String as PropType<string>,
       default: '',
+    },
+    returnObj: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
+    codeVar: {
+      type: String as PropType<string>,
+      default: 'code',
+    },
+    labelVar: {
+      type: String as PropType<string>,
+      default: 'label',
+    },
+    customLabelVar: {
+      type: String as PropType<string>,
+      default: 'custom_label',
+    },
+    noDropOnStart: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
+    stickyTopOnMobile: {
+      type: Boolean as PropType<boolean>,
+      default: false
     }
   },
   data() {
@@ -203,13 +241,17 @@ export default Vue.extend({
     addFooter () {
       return this.$data.searchText !== '';
     },
-    showMenu () {
-      return this.$data.searchText !== '';
+    conditionalProps() {
+      let props = {};
+      if(this.noDropOnStart){
+        props['dropdown-should-open'] = () => this.$data.searchText !== '';
+      }
+      return props;
     }
   },
   methods: {
-    prefixIcon (option: { icon: string; }) {
-      return option.icon? option.icon : this.defaultIcon;
+    validatreIcon (option: { icon: string; }) {
+      return option.icon? option.icon : this.prefixIcon;
     },
     classList(): string[] {
       const a: string[] = [
@@ -224,6 +266,7 @@ export default Vue.extend({
       //loading(true);
     },
     onInput (val: string) {
+      this.$emit('update:selected', this.$data.selected);
       this.$emit('update:value', val);
     },
     
@@ -238,6 +281,10 @@ export default Vue.extend({
 .vs__selected-options input {
   @apply ph-px-5;
   padding-left: var(--inputIndent)!important;
+}
+
+.vs__selected-options input::placeholder {
+  color: var(--placeHolderColor);
 }
 .vs__dropdown-option {
   @apply ph-py-1;
@@ -299,5 +346,21 @@ export default Vue.extend({
 .ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
   display: none;
 }
-
+@media only screen and (max-width: 640px) {
+  .ph-autocomplete{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+  }
+  .ph-autocomplete::before{
+    content: "";
+    width:100vw;
+    height:100vh;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+}
 </style>

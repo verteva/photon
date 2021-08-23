@@ -32,12 +32,14 @@ AutocompleteMain.args = {
 export const AutocompleteAddress = Template.bind({});
 AutocompleteAddress.args = {
   label: 'Autocomplete Address',
-  allowIcon: true,
+  allowOptionIcon: true,
   hideOpenIndicator: true,
+  noDropOnStart: true,
+  stickyTopOnMobile: true,
   maxHeight: '200px',
   placeHolder: 'Search for your property',
   noOptionsText: 'Search for your <b>property</b>',
-  defaultIcon: 'LocationSimple',
+  prefixIcon: 'LocationSimple',
   footer: `Can't find your address? <a href='#'>Enter it manually</a>`,
   optionItems: [
     {code: '001', label: '1 An bar Mews, HALLAM VIC 3803', custom_label: '<span class="af_hl">1</span> <span class="af_hl">An</span>bar Mews, HALLAM VIC 3803', icon: 'LocationSimple'},
