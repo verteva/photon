@@ -35,7 +35,6 @@ AutocompleteAddress.args = {
   allowOptionIcon: true,
   hideOpenIndicator: true,
   noDropOnStart: true,
-  stickyTopOnMobile: true,
   maxHeight: '200px',
   placeHolder: 'Search for your property',
   noOptionsText: 'Search for your <b>property</b>',

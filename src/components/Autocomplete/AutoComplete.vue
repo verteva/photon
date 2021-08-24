@@ -1,5 +1,8 @@
 <template>
-  <div class="ph-autocomplete">
+  <div
+    class="ph-autocomplete"
+    @focus="onFocus"
+  >
     <div class="ph-autocomplete__field">
       <v-select
         v-model="selected"
@@ -37,6 +40,7 @@
               :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
               v-bind="attributes"
               v-on="events"
+              @focus="onFocus"
             />
           </div>
         </template>
@@ -213,9 +217,9 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false
     },
-    stickyTopOnMobile: {
-      type: Boolean as PropType<boolean>,
-      default: false
+    mobileOnFocus:{
+      type: Function as PropType<()=>Record<string, unknown>>,
+      default: () => ({})
     }
   },
   data() {
@@ -269,7 +273,9 @@ export default Vue.extend({
       this.$emit('update:selected', this.$data.selected);
       this.$emit('update:value', val);
     },
-    
+    onFocus () {
+      this.$emit("onFocus");
+    }
   },
 });
 </script>
@@ -345,22 +351,5 @@ export default Vue.extend({
 }
 .ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
   display: none;
-}
-@media only screen and (max-width: 640px) {
-  .ph-autocomplete{
-    position: absolute;
-    top: 0px;
-    left: 0;
-    width: 100%;
-  }
-  .ph-autocomplete::before{
-    content: "";
-    width:100vw;
-    height:100vh;
-    background: rgba(0,0,0,0.5);
-    position: fixed;
-    left: 0;
-    top: 0;
-  }
 }
 </style>
