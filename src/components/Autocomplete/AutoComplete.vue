@@ -13,12 +13,15 @@
         :reduce="!returnObj?content => content[labelVar]:content => content"
         :placeholder="placeHolder"
         :class="classList"
+        :clearable="!hideClearBtn"
         :style="{ 
           '--bgColor': backgroundColor, 
           '--textColor': textColor, 
           '--borderColor': borderColor, 
           '--highlightBgColor': highlightBackgroundColor, 
           '--borderFocusColor': borderFocusColor, 
+          '--openIndicatorColor': openIndicatorColor,
+          '--openIndicatorIndent': openIndicatorIndent,
           '--maxHeight': maxHeight,
           '--placeHolderColor': placeHolderColor,
           '--fixedMode': stickyTopOnMobile? 'fixed':'relative',
@@ -47,9 +50,9 @@
         <template #selected-option-container="{ option }">
           <div class="ph-autocomplete__selected ph-flex">
             <p-icon
-              v-if="allowOptionIcon && validatreIcon(option)"
+              v-if="allowOptionIcon && validateIcon(option) && showSelectedIcon"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
-              :name="validatreIcon(option)"
+              :name="validateIcon(option)"
               type="sm"
             ></p-icon>
             <span
@@ -67,7 +70,7 @@
             <p-icon
               v-if="!hideOpenIndicator"
               name="ChevronDown"
-              type="sm"
+              type="xs"
             />
           </span>
         </template>
@@ -76,13 +79,13 @@
             class="ph-autocomplete__option ph-flex"
           >
             <p-icon
-              v-if="allowOptionIcon && validatreIcon(option)"
+              v-if="allowOptionIcon && validateIcon(option)"
               class="ph-my-auto ph-mr-4"
               :style="{color: option.iconColor}"
-              :name="validatreIcon(option)"
-              type="xs"
+              :name="validateIcon(option)"
+              :type="optionIconSize"
             ></p-icon>
-            <label v-html="option[customLabelVar]"></label>
+            <label v-html="option[customLabelVar]?option[customLabelVar]:option[labelVar]"></label>
           </div>
         </template>
         <template #no-options>
@@ -108,6 +111,12 @@
 import Vue, { PropType } from 'vue';
 import vSelect from 'vue-select';
 import PIcon from '../Icon';
+import {
+  IconXSmall,
+  IconSmall,
+  IconMedium,
+  IconLarge,
+} from "./types";
 import 'vue-select/dist/vue-select.css';
 
 Vue.component('vSelect', vSelect);
@@ -142,6 +151,17 @@ export default Vue.extend({
       default: '',
     },
     allowOptionIcon: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
+    optionIconSize: {
+      type: String as PropType<string>,
+      default: IconSmall,
+      validator(value: string): boolean {
+        return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
+      },
+    },
+    showSelectedIcon:{
       type: Boolean as PropType<boolean>,
       default: false
     },
@@ -185,6 +205,14 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '#009EDE',
     },
+    openIndicatorColor: {
+      type: String as PropType<string>,
+      default: '#009EDE',
+    },
+    openIndicatorIndent:{
+      type: String as PropType<string>,
+      default: '10px',
+    },
     searchInput: {
       type: String as PropType<string>,
       default: null,
@@ -217,10 +245,11 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false
     },
-    mobileOnFocus:{
-      type: Function as PropType<()=>Record<string, unknown>>,
-      default: () => ({})
+    hideClearBtn: {
+      type: Boolean as PropType<boolean>,
+      default: false
     }
+
   },
   data() {
     return {
@@ -254,7 +283,7 @@ export default Vue.extend({
     }
   },
   methods: {
-    validatreIcon (option: { icon: string; }) {
+    validateIcon (option: { icon: string; }) {
       return option.icon? option.icon : this.prefixIcon;
     },
     classList(): string[] {
@@ -319,6 +348,14 @@ export default Vue.extend({
 .vs__dropdown-option--highlight{
   background-color: var(--highlightBgColor);
   color: var(--textColor);
+}
+
+.vs__open-indicator{
+  color: var(--openIndicatorColor);
+}
+
+.vs__actions{
+  padding-right: var(--openIndicatorIndent);
 }
 
 .ph-autocomplete__option .af_hl{

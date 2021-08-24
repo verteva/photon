@@ -36,6 +36,7 @@ export default [
   'ChevronRight',
   'ChevronUp',
   'Childcare',
+  'Circle',
   'Clothing',
   'Coffee',
   'Communications',
