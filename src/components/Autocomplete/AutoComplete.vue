@@ -12,7 +12,7 @@
         :label="labelVar"
         :reduce="!returnObj?content => content[labelVar]:content => content"
         :placeholder="placeHolder"
-        :class="classList"
+        :class="['ph-autocomplete-drop'+dropType]"
         :clearable="!hideClearBtn"
         :style="{ 
           '--bgColor': backgroundColor, 
@@ -24,11 +24,13 @@
           '--openIndicatorIndent': openIndicatorIndent,
           '--maxHeight': maxHeight,
           '--placeHolderColor': placeHolderColor,
-          '--fixedMode': stickyTopOnMobile? 'fixed':'relative',
         }"
+        :append-to-body="needAppendToBody"
+        :calculate-position="withPopper"
         v-on="$listeners"
         @input="onInput"
         @search="onSearch"
+        @search:blur="alert(1);$emit('blur')"
       >
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
@@ -57,7 +59,7 @@
             ></p-icon>
             <span
               v-else
-              class="ph-w-4"
+              class="ph-w-3"
             ></span>
             <label
               class="ph-h-11 ph-pt-3"
@@ -69,8 +71,8 @@
           <span v-bind="attributes">
             <p-icon
               v-if="!hideOpenIndicator"
-              name="ChevronDown"
-              type="xs"
+              :name="openIndicatorIcon"
+              :type="openIndicatorIconSize"
             />
           </span>
         </template>
@@ -85,12 +87,16 @@
               :name="validateIcon(option)"
               :type="optionIconSize"
             ></p-icon>
-            <label v-html="option[customLabelVar]?option[customLabelVar]:option[labelVar]"></label>
+            <label
+             
+              style="line-height:3;"
+              v-html="option[customLabelVar]?option[customLabelVar]:option[labelVar]"
+            ></label>
           </div>
         </template>
         <template #no-options>
           <label
-            class="ph-pl-1 ph-"
+            class="ph-pl-1"
             v-html="noOptionsText"
           ></label>
         </template>
@@ -104,6 +110,9 @@
           </div>
         </template>
       </v-select>
+      <div class="invalid-feedback">
+        {{ errors[0] }}
+      </div>
     </div>
   </div>
 </template>
@@ -116,8 +125,20 @@ import {
   IconSmall,
   IconMedium,
   IconLarge,
+  FontXSmall,
+  FontSmall,
+  FontBase,
+  FontLarge,
+  LeadingTight,
+  LeadingSnug,
+  LeadingNormal,
+  LeadingLoose,
+  LeadingMax,
+  DropDown,
+  DropUp,
 } from "./types";
 import 'vue-select/dist/vue-select.css';
+import { createPopper } from '@popperjs/core'
 
 Vue.component('vSelect', vSelect);
 
@@ -157,9 +178,9 @@ export default Vue.extend({
     optionIconSize: {
       type: String as PropType<string>,
       default: IconSmall,
-      validator(value: string): boolean {
-        return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
-      },
+      // validator(value: string): boolean {
+      //   return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
+      // },
     },
     showSelectedIcon:{
       type: Boolean as PropType<boolean>,
@@ -172,6 +193,20 @@ export default Vue.extend({
     hideOpenIndicator: {
       type: Boolean as PropType<boolean>,
       default: false
+    },
+    optionFontSize:{
+      type: String as PropType<string>,
+      default: FontBase,
+      // validator(value: string): boolean {
+      //   return [FontXSmall, FontSmall, FontBase, FontLarge].indexOf(value) !== -1;
+      // },
+    },
+    optionLeading:{
+      type: String as PropType<string>,
+      default: LeadingNormal,
+      // validator(value: string): boolean {
+      //   return [LeadingTight, LeadingSnug, LeadingNormal, LeadingLoose, LeadingMax].indexOf(value) !== -1;
+      // },
     },
     backgroundColor: {
       type: String as PropType<string>,
@@ -205,6 +240,17 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '#009EDE',
     },
+    openIndicatorIcon:{
+      type: String as PropType<string>,
+      default: 'ChevronDown',
+    },
+    openIndicatorIconSize:{
+      type: String as PropType<string>,
+      default: IconXSmall,
+      // validator(value: string): boolean {
+      //   return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
+      // },
+    },
     openIndicatorColor: {
       type: String as PropType<string>,
       default: '#009EDE',
@@ -223,7 +269,7 @@ export default Vue.extend({
     },
     maxHeight: {
       type: String as PropType<string>,
-      default: '',
+      default: '304px',
     },
     returnObj: {
       type: Boolean as PropType<boolean>,
@@ -248,8 +294,18 @@ export default Vue.extend({
     hideClearBtn: {
       type: Boolean as PropType<boolean>,
       default: false
+    },
+    dropType: {
+      type: String as PropType<string>,
+      default: DropDown,
+      // validator(value: string): boolean {
+      //   return [DropUp, DropDown].indexOf(value) !== -1;
+      // },
+    },
+    errors: {
+      type: Array as PropType<string[]>,
+      default: []
     }
-
   },
   data() {
     return {
@@ -267,10 +323,14 @@ export default Vue.extend({
       selected: '',
       searchText: '',
       manualInput: '',
+      placement: 'top',
     };
   },
 
   computed: {
+    needAppendToBody () {
+      return this.dropType === DropUp;
+    },
     addFooter () {
       return this.$data.searchText !== '';
     },
@@ -287,9 +347,11 @@ export default Vue.extend({
       return option.icon? option.icon : this.prefixIcon;
     },
     classList(): string[] {
+      console.log("dropTypeL:", this.dropType)
       const a: string[] = [
         ...this.$data.baseClassList,
         ...this.autoCompleteStyle,
+        ...'ph-autocomplete-drop'+this.dropType
       ];
       return a;
     },
@@ -299,19 +361,71 @@ export default Vue.extend({
       //loading(true);
     },
     onInput (val: string) {
+      this.$emit('blur');
       this.$emit('update:selected', this.$data.selected);
       this.$emit('update:value', val);
     },
     onFocus () {
       this.$emit("onFocus");
-    }
+    },
+    withPopper(dropdownList, component, { width }) {
+      /**
+       * We need to explicitly define the dropdown width since
+       * it is usually inherited from the parent with CSS.
+       */
+      dropdownList.style.width = width
+
+      /**
+       * Here we position the dropdownList relative to the $refs.toggle Element.
+       *
+       * The 'offset' modifier aligns the dropdown so that the $refs.toggle and
+       * the dropdownList overlap by 1 pixel.
+       *
+       * The 'toggleClass' modifier adds a 'drop-up' class to the Vue Select
+       * wrapper so that we can set some styles for when the dropdown is placed
+       * above.
+       */
+      const popper = createPopper(component.$refs.toggle, dropdownList, {
+        placement: this.$data.placement,
+        modifiers: [
+          {
+            name: 'offset',
+            options: {
+              offset: [0, -1],
+            },
+          },
+          {
+            name: 'toggleClass',
+            enabled: true,
+            phase: 'write',
+            fn({ state }) {
+              component.$el.classList.toggle(
+                'drop-up',
+                state.placement === 'top'
+              )
+            },
+          },
+        ],
+      })
+
+      /**
+       * To prevent memory leaks Popper needs to be destroyed.
+       * If you return function, it will be called just before dropdown is removed from DOM.
+       */
+      return () => popper.destroy()
+    },
   },
 });
 </script>
 
 <style lang="postcss">
+.ph-autocomplete__v-select {
+  --maxHeight: 304px;
+}
+
 .vs__dropdown-toggle{
   @apply ph-rounded-xl;
+  @apply ph-pb-0;
 }
 .vs__selected-options input {
   @apply ph-px-5;
@@ -378,7 +492,12 @@ export default Vue.extend({
   @apply ph-p-0;
   @apply ph-pt-3;
   box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
-  max-height: var(--maxHeight);
+  max-height: var(--maxHeight, 304px);
+}
+
+.ph-autocomplete-dropup .vs__dropdown-menu{
+  top: auto;
+  bottom: calc(100% - 1px);
 }
 .vs__actions{
   @apply ph-text-brand2;

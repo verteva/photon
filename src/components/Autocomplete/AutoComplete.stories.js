@@ -23,6 +23,9 @@ const Template = (args, { argTypes }) => ({
 export const AutocompleteMain = Template.bind({});
 AutocompleteMain.args = {
   label: 'Autocomplete',
+  dropType: 'up',
+  openIndicatorIcon: 'MenuDown',
+  openIndicatorIconSize: 'med',
   optionItems: [
     {code: '001', label: '<span class="af_hl">highlight</span> test1', icon: 'Checkmark'},
     {code: '002', label: '<span class="af_hl">highlight</span> test2', icon: 'Checkmark'},

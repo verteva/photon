@@ -109,6 +109,7 @@ export default [
   'LostCard',
   'Medical',
   'Medicare',
+  'MenuDown',
   'Minus',
   'MoneyList',
   'Moneybag',
