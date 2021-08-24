@@ -297,19 +297,20 @@ export default Vue.extend({
     },
     switchState() {     
       // Capture the height before close if its open
-      const { accordion, totalHeight, contentHeight } = this.getNode();
+      const { accordion, totalHeight, contentHeight, headerHeight } = this.getNode();
       
-      if (this.expanded && this.minHeight) {
-        this.maxHeight = contentHeight + this.minHeight;       
+      if (this.expanded && headerHeight) {
+        this.maxHeight = contentHeight + headerHeight;       
         this.toggleFocusability('0');
         accordion.style.height = `${this.maxHeight}px`;
       }
      
-      if (!this.expanded) {        
+      if (!this.expanded) {
         this.maxHeight = totalHeight;
         accordion.style.height = `${this.maxHeight}px`;
         this.$nextTick(() => {
-          accordion.style.height = `${this.minHeight}px`;          
+          const { headerHeight: updatedHeight } = this.getNode();
+          accordion.style.height = `${updatedHeight}px`;          
         });
         this.toggleFocusability('-1');
       }
