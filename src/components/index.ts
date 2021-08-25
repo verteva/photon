@@ -7,6 +7,7 @@ import PInput from './Input';
 import PLabel from './Label';
 import PInputText from './InputText';
 import PAutoComplete from './Autocomplete';
+import PDialog from './Dialog';
 
 export interface PhotonComponents {
   [key: string]: Component
@@ -21,6 +22,7 @@ const components: PhotonComponents = {
   PInputText,
   PInput,
   PLabel,
+  PDialog,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents

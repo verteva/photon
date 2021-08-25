@@ -84,6 +84,8 @@ module.exports = {
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
       fadeDown: 'fadeDown .35s cubic-bezier(.3,.28,.26,.81)',
+      fadeIn: 'fadeIn .35s cubic-bezier(.3,.28,.26,.81)',
+      fadeOut: 'fadeOut .35s cubic-bezier(.3,.28,.26,.81)',
     },
     backdropBlur: (theme) => theme('blur'),
     backdropBrightness: (theme) => theme('brightness'),
@@ -183,7 +185,7 @@ module.exports = {
     boxShadow: {
       brand: '0px 0px 0px 6px rgba(0, 158, 222, 0.4)',
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-      DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      DEFAULT: '0 2.76px 2.21px 0 rgba(0, 0, 0, 0.02), 0 6.65px 5.32px 0 rgba(0, 0, 0, 0.03)',
       md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -512,6 +514,22 @@ module.exports = {
           transform: 'translateY(0)',
         },
       },
+      fadeIn: {
+        '0%': {
+          opacity: 0,
+        },
+        '100%': {
+          opacity: 1,
+        },
+      },
+      fadeOut: {
+        '0%': {
+          opacity: 1,
+        },
+        '100%': {
+          opacity: 0,
+        },
+      },
     },
     letterSpacing: {
       tighter: '-0.05em',
@@ -803,6 +821,7 @@ module.exports = {
     }),
     width: (theme) => ({
       '7.5': '1.875rem',
+      '100': '30rem', 
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
@@ -839,6 +858,7 @@ module.exports = {
     zIndex: {
       auto: 'auto',
       0: '0',
+      5: '5',
       10: '10',
       20: '20',
       30: '30',
