@@ -8,7 +8,6 @@
         v-model="selected"
         v-bind="conditionalProps"
         class="ph-autocomplete__v-select"
-        clear-search-on-select
         :options="optionItems"
         :label="labelVar"
         :reduce="!returnObj?content => content[labelVar]:content => content"
@@ -112,6 +111,20 @@
           </div>
         </template>
       </v-select>
+      <div
+        ref="progressBar"
+        class="ph-autocomplete-progress"
+        :class="{'ph-progress-loading':loading}"
+      >
+        <div
+          class="ph-progress-bar-short-ltr"
+        >
+        </div>
+        <div
+          class="ph-progress-bar-long-ltr"
+        >
+        </div>
+      </div>
       <div class="invalid-feedback">
         {{ errors[0] }}
       </div>
@@ -308,6 +321,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false
     },
+    loading: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
     errors: {
       type: Array as PropType<string[]>,
       default: () => []
@@ -347,6 +364,9 @@ export default Vue.extend({
       return props;
     }
   },
+  created(){
+    console.log("is loading:", this.loading)
+  },
   methods: {
     validateIcon (option: { icon: string; }) {
       return option.icon? option.icon : this.prefixIcon;
@@ -369,10 +389,7 @@ export default Vue.extend({
       this.$emit('update:selected', this.$data.selected);
       this.$emit('update:value', val);
     },
-    onFocus (event) {
-      if(this.lazyFocus){
-
-      }
+    onFocus () {
       this.$emit("onFocus");
     },
     onLazyFocus () {
@@ -504,13 +521,14 @@ export default Vue.extend({
   @apply ph-mt-0.5;
   @apply ph-p-0;
   @apply ph-pt-3;
+  margin-top: 2px!important;
   box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
   max-height: var(--maxHeight, 304px);
 }
 
 .ph-autocomplete-dropup .vs__dropdown-menu{
   top: auto;
-  bottom: calc(100% - 1px);
+  bottom: calc(100% + 10px);
 }
 .vs__actions{
   @apply ph-text-brand2;
@@ -520,5 +538,84 @@ export default Vue.extend({
 }
 .ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
   display: none;
+}
+
+.ph-autocomplete-progress{
+  @apply ph-w-full;
+  @apply ph-overflow-hidden;
+  @apply ph-relative;
+}
+
+.ph-progress-loading{
+  @apply ph-h-px;
+}
+
+.ph-autocomplete-progress-load-bar{
+
+}
+
+.ph-progress-bar-long-ltr{
+  background-color: inherit;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: auto;
+  top: 0;
+  width: auto;
+  will-change: left, right;
+  @apply ph-h-0.5;
+  @apply ph-bg-brand2;
+  animation-name: progress-linear-long-ltr;
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+}
+
+.ph-progress-bar-short-ltr{
+  background-color: inherit;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: auto;
+  top: 0;
+  width: 50%;
+  will-change: left, right;
+  @apply ph-h-0.5;
+  @apply ph-bg-brand2;
+  animation-name: progress-linear-short-ltr;
+  animation-duration: 2.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes progress-linear-short-ltr{
+  0%{
+    eft: -200%;
+    right: 100%;
+  }
+  60%{
+    left: 107%;
+    right: -8%;
+  }
+  100%{
+    left: 107%;
+    right: -8%;
+  }
+}
+
+@keyframes progress-linear-long-ltr{
+  0%{
+    left: -90%;
+    right: 100%;
+  }
+    
+  60%{
+    left: -90%;
+    right: 100%;
+  }
+    
+  100%{
+    left: 100%;
+    right: -35%;
+  }
+    
 }
 </style>

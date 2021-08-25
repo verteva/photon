@@ -35,6 +35,7 @@ AutocompleteMain.args = {
 export const AutocompleteAddress = Template.bind({});
 AutocompleteAddress.args = {
   label: 'Autocomplete Address',
+  loading:true,
   allowOptionIcon: true,
   hideOpenIndicator: true,
   hideClearBtn: false,
