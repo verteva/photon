@@ -1,10 +1,10 @@
 <template>
   <div
     class="ph-autocomplete"
-    @focus="onFocus"
   >
     <div class="ph-autocomplete__field">
       <v-select
+        ref="autocomplete"
         v-model="selected"
         v-bind="conditionalProps"
         class="ph-autocomplete__v-select"
@@ -25,12 +25,12 @@
           '--maxHeight': maxHeight,
           '--placeHolderColor': placeHolderColor,
         }"
-        :append-to-body="needAppendToBody"
-        :calculate-position="withPopper"
+        :append-to-body="!lazyFocus"
+        :calculate-position="lazyFocus?null:withPopper"
         v-on="$listeners"
         @input="onInput"
         @search="onSearch"
-        @search:blur="alert(1);$emit('blur')"
+        @search:blur="$emit('blur')"
       >
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
@@ -46,6 +46,7 @@
               v-bind="attributes"
               v-on="events"
               @focus="onFocus"
+              @blur="onBlur"
             />
           </div>
         </template>
@@ -302,10 +303,14 @@ export default Vue.extend({
       //   return [DropUp, DropDown].indexOf(value) !== -1;
       // },
     },
+    lazyFocus: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
     errors: {
       type: Array as PropType<string[]>,
-      default: []
-    }
+      default: () => []
+    },
   },
   data() {
     return {
@@ -323,10 +328,9 @@ export default Vue.extend({
       selected: '',
       searchText: '',
       manualInput: '',
-      placement: 'top',
+      placement: this.dropType === DropDown? 'bottom' :'top',
     };
   },
-
   computed: {
     needAppendToBody () {
       return this.dropType === DropUp;
@@ -347,7 +351,6 @@ export default Vue.extend({
       return option.icon? option.icon : this.prefixIcon;
     },
     classList(): string[] {
-      console.log("dropTypeL:", this.dropType)
       const a: string[] = [
         ...this.$data.baseClassList,
         ...this.autoCompleteStyle,
@@ -365,8 +368,17 @@ export default Vue.extend({
       this.$emit('update:selected', this.$data.selected);
       this.$emit('update:value', val);
     },
-    onFocus () {
+    onFocus (event) {
+      if(this.lazyFocus){
+
+      }
       this.$emit("onFocus");
+    },
+    onLazyFocus () {
+      console.log("start lazy focus", this.$refs.autocomplete);
+    },
+    onBlur () {
+      this.$emit("onBlur");
     },
     withPopper(dropdownList, component, { width }) {
       /**
