@@ -8,6 +8,7 @@
         v-model="selected"
         v-bind="conditionalProps"
         class="ph-autocomplete__v-select"
+        clear-search-on-select
         :options="optionItems"
         :label="labelVar"
         :reduce="!returnObj?content => content[labelVar]:content => content"
