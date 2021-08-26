@@ -8,11 +8,12 @@
         v-model="selected"
         v-bind="conditionalProps"
         class="ph-autocomplete__v-select"
+        :value="initInput"
         :options="optionItems"
         :label="labelVar"
         :reduce="!returnObj?content => content[labelVar]:content => content"
         :placeholder="placeHolder"
-        :class="['ph-autocomplete-drop'+dropType]"
+        :class="['ph-autocomplete-drop'+dropType, {'ph-autocomplete-open':toggleMenu}]"
         :clearable="!hideClearBtn"
         :style="{ 
           '--bgColor': backgroundColor, 
@@ -31,6 +32,8 @@
         @input="onInput"
         @search="onSearch"
         @search:blur="$emit('blur')"
+        @open="onOpen"
+        @close="onClose"
       >
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
@@ -41,6 +44,7 @@
               type="sm"
             ></p-icon>
             <input
+              v-show="!selected"
               class="vs__search ph-flex-1"
               :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
               v-bind="attributes"
@@ -50,20 +54,24 @@
             />
           </div>
         </template>
-        <template #selected-option-container="{ option }">
+        <template #selected-option-container="{ option, deselect, multiple, disabled }">
           <div class="ph-autocomplete__selected ph-flex">
             <p-icon
-              v-if="allowOptionIcon && validateIcon(option) && showSelectedIcon"
+              v-if="allowOptionIcon && showSelectedIcon"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
-              :name="validateIcon(option)"
+              :name="validateIcon(option)?validateIcon(option):prefixIcon"
               type="sm"
+              :data-deselect="deselect"
+              :data-multiple="multiple"
+              :data-disabled="disabled"
             ></p-icon>
             <span
               v-else
               class="ph-w-3"
             ></span>
             <label
-              class="ph-h-11 ph-pt-3"
+              class="ph-h-11 ph-overflow-hidden ph-whitespace-normal"
+              style="line-height: 44px;"
               v-html="option[customLabelVar]"
             ></label>
           </div>
@@ -89,8 +97,8 @@
               :type="optionIconSize"
             ></p-icon>
             <label
-             
-              style="line-height:3;"
+              class="ph-whitespace-normal"
+              :class="'ph-option-leading-'+optionLeading"
               v-html="option[customLabelVar]?option[customLabelVar]:option[labelVar]"
             ></label>
           </div>
@@ -325,6 +333,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false
     },
+    initInput: {
+      type: String as PropType<string>,
+      default: '',
+    },
     errors: {
       type: Array as PropType<string[]>,
       default: () => []
@@ -343,9 +355,11 @@ export default Vue.extend({
         'focus:ph-text-brandh2',
         'hover:ph-text-brandh2',
       ],
+      focused: false,
       selected: '',
       searchText: '',
       manualInput: '',
+      toggleMenu: true,
       placement: this.dropType === DropDown? 'bottom' :'top',
     };
   },
@@ -354,22 +368,19 @@ export default Vue.extend({
       return this.dropType === DropUp;
     },
     addFooter () {
-      return this.$data.searchText !== '';
+      return this.optionItems.length > 0;
     },
     conditionalProps() {
       let props = {};
       if(this.noDropOnStart){
-        props['dropdown-should-open'] = () => this.$data.searchText !== '';
+        props['dropdown-should-open'] = () => (this.optionItems.length > 0) && this.$data.toggleMenu
       }
       return props;
     }
   },
-  created(){
-    console.log("is loading:", this.loading)
-  },
   methods: {
     validateIcon (option: { icon: string; }) {
-      return option.icon? option.icon : this.prefixIcon;
+      return option?.icon? option.icon : null;
     },
     classList(): string[] {
       const a: string[] = [
@@ -386,16 +397,27 @@ export default Vue.extend({
     },
     onInput (val: string) {
       this.$emit('blur');
+      this.$data.toggleMenu = false;
       this.$emit('update:selected', this.$data.selected);
       this.$emit('update:value', val);
     },
     onFocus () {
+      this.$data.focused = true;
       this.$emit("onFocus");
     },
-    onLazyFocus () {
-      console.log("start lazy focus", this.$refs.autocomplete);
+    onOpen () {
+      this.$data.focused = true;
+      this.$data.toggleMenu = true;
+      this.$emit("onFocus");
     },
     onBlur () {
+      this.$data.focused = false;
+      this.$emit("onBlur");
+    },
+    onClose() {
+      this.$data.focused = false;
+      this.$data.toggleMenu = false;
+      console.log("onClose")
       this.$emit("onBlur");
     },
     withPopper(dropdownList, component, { width }) {
@@ -457,6 +479,10 @@ export default Vue.extend({
   @apply ph-rounded-xl;
   @apply ph-pb-0;
 }
+
+.vs__selected-options{
+  @apply ph-flex-nowrap;
+}
 .vs__selected-options input {
   @apply ph-px-5;
   padding-left: var(--inputIndent)!important;
@@ -464,9 +490,6 @@ export default Vue.extend({
 
 .vs__selected-options input::placeholder {
   color: var(--placeHolderColor);
-}
-.vs__dropdown-option {
-  @apply ph-py-1;
 }
 
 .vs__search{
@@ -478,6 +501,13 @@ export default Vue.extend({
   border-color: var(--borderColor);
   background-color: var(--bgColor);
 }
+
+.ph-autocomplete-open .vs__dropdown-toggle{
+  border-color: var(--borderFocusColor);
+  @apply ph-rounded-bl-xl;
+  @apply ph-rounded-br-xl;
+}
+
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within{
   border-color: var(--borderFocusColor);
   @apply ph-rounded-bl-xl;
@@ -490,7 +520,7 @@ export default Vue.extend({
 }
 
 .vs__dropdown-option--highlight{
-  background-color: var(--highlightBgColor);
+  background-color: var(--highlightBgColor, #eeeeee);
   color: var(--textColor);
 }
 
@@ -538,6 +568,10 @@ export default Vue.extend({
 }
 .ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
   display: none;
+}
+
+.ph-option-leading-max{
+  line-height: 3;
 }
 
 .ph-autocomplete-progress{
