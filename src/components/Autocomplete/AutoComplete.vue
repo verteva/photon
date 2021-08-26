@@ -25,6 +25,7 @@
           '--openIndicatorIndent': openIndicatorIndent,
           '--maxHeight': maxHeight,
           '--placeHolderColor': placeHolderColor,
+          '--clearPadding': hideOpenIndicator ? '0px' : '8px',
         }"
         :append-to-body="!lazyFocus"
         :calculate-position="lazyFocus?null:withPopper"
@@ -380,7 +381,7 @@ export default Vue.extend({
   },
   methods: {
     validateIcon (option: { icon: string; }) {
-      return option?.icon? option.icon : null;
+      return option.icon? option.icon : null;
     },
     classList(): string[] {
       const a: string[] = [
@@ -569,9 +570,32 @@ export default Vue.extend({
 .ph-autocomplete__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon{
   display: none;
 }
-
+.ph-option-leading-loose{
+  @apply ph-py-2;
+}
 .ph-option-leading-max{
-  line-height: 3;
+  @apply ph-py-3;
+}
+
+.vs__clear{
+  position: relative;
+  width: 24px;
+  height: 24px;
+  @apply ph-text-brand2;
+  margin-right: var(--clearPadding, 8px);
+}
+
+.vs__clear::after{
+  content:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" id="footer-sample-full" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41z" fill="#009EDE"></path></svg>');
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.vs__clear svg{
+  visibility: hidden;
 }
 
 .ph-autocomplete-progress{
