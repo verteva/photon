@@ -29,8 +29,8 @@
         tabindex="0"
         @keydown="validatePress"
         @input="updateValue($event.target.value)"
-        @focus="inFocus = true"
-        @blur="inFocus = false"
+        @focus="onFocus"
+        @blur="onBlur"        
       />
       <div
         v-if="iconRight"
@@ -161,8 +161,19 @@ export default Vue.extend({
           return event.preventDefault();
       }
     },
+
     updateValue(value:string){     
       this.$emit('input', value);
+    },
+
+    onFocus(e:InputEvent) {
+      this.inFocus = true;
+      this.$emit('focus', e);
+    },
+    
+    onBlur(e:InputEvent) {
+      this.inFocus = false;
+      this.$emit('blur', e);
     },
   },
 });

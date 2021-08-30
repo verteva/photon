@@ -7,6 +7,15 @@ import PInput from './Input';
 import PLabel from './Label';
 import PInputText from './InputText';
 import PDialog from './Dialog';
+import PInputSlider from './InputSlider';
+import PCard from './Card';
+import {
+  PText,
+  PH1,
+  PH2,
+  PH3,
+} from './Typography';
+
 
 export interface PhotonComponents {
   [key: string]: Component
@@ -21,6 +30,12 @@ const components: PhotonComponents = {
   PInput,
   PLabel,
   PDialog,
+  PText,
+  PH1,
+  PH2,
+  PH3,
+  PInputSlider,
+  PCard,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
