@@ -32,6 +32,8 @@ module.exports = {
       grey5: '#E2E2E2',
       grey6: '#F5F5F5',
       grey7: '#222222',
+      grey8: '#EEEEEE',
+      grey9: '#E0E0E0',
       white: '#FFFFFF',
       titanium: '#f1f1f1',
       transparent: 'transparent',

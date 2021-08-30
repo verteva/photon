@@ -202,10 +202,10 @@ export default Vue.extend({
     },
     optionIconSize: {
       type: String as PropType<string>,
-      default: IconSmall,
-      // validator(value: string): boolean {
-      //   return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
-      // },
+      default: 'sm',
+      validator(value: string): boolean {
+        return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
+      },
     },
     showSelectedIcon:{
       type: Boolean as PropType<boolean>,
@@ -221,17 +221,17 @@ export default Vue.extend({
     },
     optionFontSize:{
       type: String as PropType<string>,
-      default: FontBase,
-      // validator(value: string): boolean {
-      //   return [FontXSmall, FontSmall, FontBase, FontLarge].indexOf(value) !== -1;
-      // },
+      default: 'base',
+      validator(value: string): boolean {
+        return [FontXSmall, FontSmall, FontBase, FontLarge].indexOf(value) !== -1;
+      },
     },
     optionLeading:{
       type: String as PropType<string>,
-      default: LeadingNormal,
-      // validator(value: string): boolean {
-      //   return [LeadingTight, LeadingSnug, LeadingNormal, LeadingLoose, LeadingMax].indexOf(value) !== -1;
-      // },
+      default: 'normal',
+      validator(value: string): boolean {
+        return [LeadingTight, LeadingSnug, LeadingNormal, LeadingLoose, LeadingMax].indexOf(value) !== -1;
+      },
     },
     backgroundColor: {
       type: String as PropType<string>,
@@ -267,14 +267,14 @@ export default Vue.extend({
     },
     openIndicatorIconSize:{
       type: String as PropType<string>,
-      default: IconXSmall,
-      // validator(value: string): boolean {
-      //   return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
-      // },
+      default: 'xs',
+      validator(value: string): boolean {
+        return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
+      },
     },
     openIndicatorColor: {
       type: String as PropType<string>,
-      default: '#009EDE',
+      default: fullConfig.theme.colors.brand2,
     },
     openIndicatorIndent:{
       type: String as PropType<string>,
@@ -296,10 +296,6 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false
     },
-    codeVar: {
-      type: String as PropType<string>,
-      default: 'code',
-    },
     labelVar: {
       type: String as PropType<string>,
       default: 'label',
@@ -318,10 +314,10 @@ export default Vue.extend({
     },
     dropType: {
       type: String as PropType<string>,
-      default: DropDown,
-      // validator(value: string): boolean {
-      //   return [DropUp, DropDown].indexOf(value) !== -1;
-      // },
+      default: 'down',
+      validator(value: string): boolean {
+        return [DropUp, DropDown].indexOf(value) !== -1;
+      },
     },
     lazyFocus: {
       type: Boolean as PropType<boolean>,
@@ -336,8 +332,8 @@ export default Vue.extend({
       default: '',
     },
     errors: {
-      type: Array as PropType<string[]>,
-      default: () => []
+      type: Array,
+      default: () => [],
     },
   },
   data() {
@@ -500,13 +496,13 @@ export default Vue.extend({
 }
 
 .ph-autocomplete-open .vs__dropdown-toggle{
-  border-color: var(--borderFocusColor);
+  border-color: var(--borderFocusColor, #009EDE);
   @apply ph-rounded-bl-xl;
   @apply ph-rounded-br-xl;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within{
-  border-color: var(--borderFocusColor);
+  border-color: var(--borderFocusColor, #009EDE);
   @apply ph-rounded-bl-xl;
   @apply ph-rounded-br-xl;
 }

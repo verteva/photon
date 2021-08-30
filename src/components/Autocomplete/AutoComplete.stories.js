@@ -5,12 +5,10 @@ export default {
   component: PAutoComplete,
   argTypes: {
     backgroundColor: { control: 'color' },
-    size: { control: { type: 'select', options: ['small', 'medium', 'large'] } },
-    onClick: {},
     placeHolder: '',
   },
   args: {
-    backgroundColor: '#ffffff',
+    
   }
 };
 

@@ -1,6 +1,8 @@
 
 export interface Props {
-  size?: string;
+  optionIconSize?: string;
+  openIndicatorIconSize?: string;
+  fontSize?: string;
 }
 export const DropUp = 'up';
 export const DropDown = 'down';
