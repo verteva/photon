@@ -25,7 +25,7 @@ const SimpleTemplate = (args, { argTypes }) => ({
       <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
-      <PAccordion v-bind="$props" v-model="forceOpen" no-heading-rule shadow>
+      <PAccordion v-bind="$props" v-model="forceOpen" no-heading-rule shadow :open-arrows="false" :open-close-icons="['Edit', 'MinusBordered']" >
         <template v-slot:heading>
           Heading
         </template>

@@ -24,13 +24,32 @@
         type="xs"
         class="ph-ml-4 ph-text-alert3"
       />
-      <p-icon
+      <div
         v-if="openArrows"
-        name="ChevronDown"
-        type="xs"
-        class="ph-ml-auto ph-transition-all"
-        :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
-      />
+        class="ph-ml-auto"
+      >
+        <p-icon
+          name="ChevronDown"
+          type="xs"
+          class="ph-transition-all"
+          :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
+        />
+      </div>
+      <div
+        v-if="!openArrows && openCloseIcons.length === 2"
+        class="ph-ml-auto"
+      >
+        <p-icon
+          v-if="!innerValue"
+          :name="openCloseIcons[0]"
+          type="sm"
+        />
+        <p-icon
+          v-else
+          :name="openCloseIcons[1]"
+          type="sm"
+        />
+      </div>
     </component>
     <div class="ph-flex ph-relative">
       <hr
@@ -74,6 +93,10 @@ export default Vue.extend({
     openArrows: {
       type: Boolean as PropType<boolean>,
       default: true,
+    },
+    openCloseIcons: {
+      type: Array as PropType<Array<string>>,
+      default: () => [],
     },
     unstyled: {
       type: Boolean as PropType<boolean>,

@@ -30,7 +30,7 @@
         @keydown="validatePress"
         @input="updateValue($event.target.value)"
         @focus="onFocus"
-        @blur="onBlur"        
+        @blur="onBlur"
       />
       <div
         v-if="iconRight"
@@ -66,6 +66,10 @@ export default Vue.extend({
     number: {
       type: Boolean as PropType<boolean>,
       default: false,
+    },
+    darkMode: {
+      type: Boolean as PropType<boolean>,
+      default: true,
     },
     placeholder: {
       type: String as PropType<string>,
@@ -119,8 +123,7 @@ export default Vue.extend({
         'ph-antialiased',
         'ph-w-full ',
         'ph-font-normal ',
-        'ph-text-grey3 ',
-        'ph-bg-white ',
+        'ph-text-grey1 ',
         'ph-rounded-lg ',
         'ph-py-2 ph-px-5',
         'ph-border',
@@ -130,6 +133,7 @@ export default Vue.extend({
         'focus:ph-outline-none',
         'ph-border-solid',
         'ph-transition',
+        this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
       ],
