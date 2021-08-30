@@ -32,7 +32,7 @@
           name="ChevronDown"
           type="xs"
           class="ph-transition-all"
-          :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
+          :class="(innerValue && 'ph-transform ph-rotate-0') || 'ph-transform ph--rotate-90'"
         />
       </div>
       <div
@@ -40,13 +40,7 @@
         class="ph-ml-auto"
       >
         <p-icon
-          v-if="!innerValue"
-          :name="openCloseIcons[0]"
-          type="sm"
-        />
-        <p-icon
-          v-else
-          :name="openCloseIcons[1]"
+          :name="!innerValue ? openCloseIcons[0] : openCloseIcons[1]"
           type="sm"
         />
       </div>
@@ -222,6 +216,10 @@ export default Vue.extend({
     },
     expanded() {
       if (this.expanded) {
+        // Allow for elements to be focussable again
+        const { content} = this.getNode();
+        content.style.display = 'initial';
+        
         this.$nextTick(() => {
           this.switchState();
         });
@@ -265,10 +263,13 @@ export default Vue.extend({
         for dynamic content adjustments.
       */
       if (e.propertyName === 'height') {
-        const { accordion } = this.getNode();
+        const { accordion, content} = this.getNode();
 
         if (this.expanded) {
           accordion.style.height = 'auto';         
+        } else {
+          // Elements in a hidden panel should not be focussale
+          content.style.display = 'none';         
         }
 
         if (this.initialRender) this.initialRender = false;
@@ -324,7 +325,6 @@ export default Vue.extend({
       
       if (this.expanded && headerHeight) {
         this.maxHeight = contentHeight + headerHeight;       
-        this.toggleFocusability('0');
         accordion.style.height = `${this.maxHeight}px`;
       }
      
@@ -335,27 +335,7 @@ export default Vue.extend({
           const { headerHeight: updatedHeight } = this.getNode();
           accordion.style.height = `${updatedHeight}px`;          
         });
-        this.toggleFocusability('-1');
       }
-    },
-    toggleFocusability(index:string) {
-      const { content } = this.getNode();
-      const focussableElements = [
-        'a',
-        'area', 
-        'button', 
-        'input', 
-        'object', 
-        'select',
-        'textarea',
-      ];
-
-      focussableElements.forEach(type => {
-        content.querySelectorAll(type)
-          .forEach(el => {
-            el.setAttribute('tabindex', index)
-          });
-      });      
     },
   },
 });
