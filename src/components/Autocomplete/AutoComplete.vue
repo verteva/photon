@@ -116,7 +116,8 @@
             class="ph-opacity-0 ph-transition ph-autocomplete__option--footer ph-flex ph-m-0 ph-px-5 ph-py-2 ph-text-sm ph-sticky ph-bottom-0 ph-z-1 ph-bg-white"
             :class="addFooter? 'ph-opacity-100': ''"
           >
-            <label v-html="footer"></label>
+            <slot name="list-footer">
+            </slot>
           </div>
         </template>
       </v-select>
@@ -243,10 +244,6 @@ export default Vue.extend({
     showFooter: {
       type: Boolean as PropType<boolean>,
       default: true
-    },
-    footer: {
-      type: String as PropType<string>,
-      default: ``,
     },
     textColor: {
       type: String as PropType<string>,
@@ -418,7 +415,6 @@ export default Vue.extend({
     onClose() {
       this.$data.focused = false;
       this.$data.toggleMenu = false;
-      console.log("onClose")
       this.$emit("onBlur");
     },
     withPopper(dropdownList, component, { width }) {
