@@ -69,7 +69,7 @@ export default Vue.extend({
     },
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: false,
     },
     placeholder: {
       type: String as PropType<string>,
