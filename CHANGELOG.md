@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+ ## [0.1.559] - 2027-08-13
+### Added
+- Add Autocomplete Component
+
 ## [0.1.558] - 2027-08-13
 ### Added
 - Bugfix for button loader alignment
