@@ -274,7 +274,7 @@ export default Vue.extend({
     },
     openIndicatorColor: {
       type: String as PropType<string>,
-      default: fullConfig.theme.colors.brand2,
+      default: '#009EDE',
     },
     openIndicatorIndent:{
       type: String as PropType<string>,
