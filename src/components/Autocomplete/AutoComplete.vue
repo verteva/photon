@@ -202,7 +202,7 @@ export default Vue.extend({
     },
     optionIconSize: {
       type: String as PropType<string>,
-      default: IconXSmall,
+      default: 'xs',
       validator(value: string): boolean {
         return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
       },

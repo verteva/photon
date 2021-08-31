@@ -157,7 +157,6 @@ export default Vue.extend({
   data():AccordionData {   
     return {
       baseClassList: [
-        'ph-overflow-hidden',
         'ph-ease-out',
         'ph-transition-all',
       ],
@@ -211,6 +210,7 @@ export default Vue.extend({
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,
         this.initialRender ? 'ph-duration-1 ph-invisible' : 'ph-duration-300 ph-visible',
+        this.expanded ? '' : 'ph-overflow-hidden',
         shadow,
       ];
       
@@ -287,7 +287,7 @@ export default Vue.extend({
         const { accordion, content} = this.getNode();
 
         if (this.expanded) {
-          accordion.style.height = 'auto';         
+          accordion.style.height = 'auto';     
         } else {
           // Elements in a hidden panel should not be focussale
           content.style.display = 'none';         
