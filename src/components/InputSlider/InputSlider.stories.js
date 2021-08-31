@@ -20,7 +20,7 @@ const Template = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      val: 250000,
+      val: 40,
       errs: [],
     };
   },

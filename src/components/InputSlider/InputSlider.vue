@@ -15,12 +15,13 @@
     <div class="ph-flex ph-items-baseline">
       <p-slider v-model="sliderPct" />
       <p-input-text
+        ref="inputField"
         number
         :value="innerValue"
         class="ph-ml-10"
         :icon-left="currency ? 'Dollar' : ''"
         :errors="errors"
-        @input="onManualChange"
+        @blur="onManualChange"
       />
     </div>
   </p-input>
@@ -32,6 +33,7 @@ import PSlider from '../Slider';
 import PInputText from '../InputText';
 import PInput from '../Input';
 import PLabel from '../Label';
+import { InputElement, RefElement } from './types';
 import {
   addCommaSeparators,
   removeCommaSeparators,
@@ -74,9 +76,9 @@ export default Vue.extend({
     },
   },
 
-  data() {
+  data() {    
     return {
-      sliderPct: 1,
+      sliderPct: 0
     };
   },
 
@@ -86,6 +88,9 @@ export default Vue.extend({
         return addCommaSeparators(Math.round(this.value));
       },
     },
+    sliderPercent():number {
+      return (this.max - this.min) * this.sliderPct + this.min;
+    }
   },
 
   watch: {
@@ -95,19 +100,32 @@ export default Vue.extend({
   },
 
   mounted() {
+    this.sliderPct =  this.getPercentage(this.value);
     this.emitValue();
   },
 
   methods: {
-    emitValue() {
-      this.$emit('input', (this.max - this.min) * this.sliderPct + this.min);
+    getPercentage(value):number {
+      return (value - this.min) / (this.max - this.min);
     },
-    onManualChange(val) {
-      const manualValue:any = removeCommaSeparators(val);
-      if (manualValue <= this.max) {
-        this.sliderPct = manualValue / this.max;
-        this.$emit('input', Number(manualValue));
-      }
+
+    emitValue() {
+      this.$emit('input', this.sliderPercent);
+    },
+
+    onManualChange() {
+      if (this.$refs.inputField) {
+        const ref = this.$refs['inputField'] as RefElement;
+        if (ref) {
+          const value = (ref.$el as InputElement).querySelector('input').value;
+          const manualValue:any = removeCommaSeparators(value);
+          
+          if (manualValue <= this.max && manualValue >= this.min) {
+            this.sliderPct = this.getPercentage(manualValue);                     
+            this.$emit('input', Number(manualValue));
+          }
+        }
+      }      
     },
   },
 });

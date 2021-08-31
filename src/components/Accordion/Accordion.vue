@@ -24,13 +24,26 @@
         type="xs"
         class="ph-ml-4 ph-text-alert3"
       />
-      <p-icon
+      <div
         v-if="openArrows"
-        name="ChevronDown"
-        type="xs"
-        class="ph-ml-auto ph-transition-all"
-        :class="(innerValue && 'ph-transform ph-rotate-180') || ''"
-      />
+        class="ph-ml-auto"
+      >
+        <p-icon
+          name="ChevronDown"
+          type="xs"
+          class="ph-transition-all"
+          :class="(innerValue && 'ph-transform ph-rotate-0') || 'ph-transform ph--rotate-90'"
+        />
+      </div>
+      <div
+        v-if="!openArrows && openCloseIcons.length === 2"
+        class="ph-ml-auto"
+      >
+        <p-icon
+          :name="!innerValue ? openCloseIcons[0] : openCloseIcons[1]"
+          type="sm"
+        />
+      </div>
     </component>
     <div class="ph-flex ph-relative">
       <hr
@@ -40,7 +53,7 @@
       <div
         class="acc-content ph-w-full"
         :class="[
-          unstyled ? '' : 'ph-pb-6 ph-px-8',
+          unstyled ? '' : `ph-pb-6 ${componentPadding}`,
           noHeadingRule ? 'ph-pt-2' : 'ph-pt-6',
         ]"
       >
@@ -74,6 +87,10 @@ export default Vue.extend({
     openArrows: {
       type: Boolean as PropType<boolean>,
       default: true,
+    },
+    openCloseIcons: {
+      type: Array as PropType<Array<string>>,
+      default: () => [],
     },
     unstyled: {
       type: Boolean as PropType<boolean>,
@@ -115,6 +132,14 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    /*
+      Determines if an accordion instance loses its
+      horizontal padding in smaller screen dimensions
+    */
+    mobileNoPadding: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     section: {
       type: String as PropType<string>,
       default: '',
@@ -132,7 +157,6 @@ export default Vue.extend({
   data():AccordionData {   
     return {
       baseClassList: [
-        'ph-overflow-hidden',
         'ph-ease-out',
         'ph-transition-all',
       ],
@@ -147,14 +171,16 @@ export default Vue.extend({
   },
 
   computed: {
-    headerComponent():string {
-      return this.stayOpen ? 'div' : 'button';
-    },
     innerValue: {
       get():boolean {
         return this.expanded;
       },
     },
+
+    headerComponent():string {
+      return this.stayOpen ? 'div' : 'button';
+    },
+    
     headerClassList():string[] {
       const classes = [
         'acc-header',
@@ -164,12 +190,13 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
-        this.unstyled ? '' : 'ph-py-6 ph-px-8',
+        this.unstyled ? '' : 'ph-py-6 ph-px-4 sm:ph-px-8',
         (this.fullWidth && 'ph-w-full') || '',
       ];
 
       return classes;
     },
+    
     classList():string[] {  
       let shadow = this.shadow ? 'ph-shadow' : '';
       if (this.focussed) {
@@ -178,15 +205,26 @@ export default Vue.extend({
 
       const a: string[] = [
         ...this.baseClassList,
-        this.unstyled ? '' : 'ph-border-0 ph-rounded-xl ph-border-grey5' ,
+        this.unstyled ? '' : `ph-border-0 ph-border-grey5 ${this.componentRadius}`,
         (!this.border || this.unstyled) ? 'ph-border-0' : 'ph-border' ,
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,
         this.initialRender ? 'ph-duration-1 ph-invisible' : 'ph-duration-300 ph-visible',
+        this.expanded ? '' : 'ph-overflow-hidden',
         shadow,
       ];
       
       return a;
+    },
+
+    componentPadding():string {
+      return this.mobileNoPadding
+        ? 'ph-px-0 sm:ph-px-8'
+        : 'ph-px-4 sm:ph-px-8';
+    },
+
+    componentRadius():string {
+      return 'sm:ph-rounded-xl';
     },
   },
 
@@ -199,6 +237,10 @@ export default Vue.extend({
     },
     expanded() {
       if (this.expanded) {
+        // Allow for elements to be focussable again
+        const { content} = this.getNode();
+        content.style.display = 'initial';
+        
         this.$nextTick(() => {
           this.switchState();
         });
@@ -242,10 +284,13 @@ export default Vue.extend({
         for dynamic content adjustments.
       */
       if (e.propertyName === 'height') {
-        const { accordion } = this.getNode();
+        const { accordion, content} = this.getNode();
 
         if (this.expanded) {
-          accordion.style.height = 'auto';         
+          accordion.style.height = 'auto';     
+        } else {
+          // Elements in a hidden panel should not be focussale
+          content.style.display = 'none';         
         }
 
         if (this.initialRender) this.initialRender = false;
@@ -297,41 +342,21 @@ export default Vue.extend({
     },
     switchState() {     
       // Capture the height before close if its open
-      const { accordion, totalHeight, contentHeight } = this.getNode();
+      const { accordion, totalHeight, contentHeight, headerHeight } = this.getNode();
       
-      if (this.expanded && this.minHeight) {
-        this.maxHeight = contentHeight + this.minHeight;       
-        this.toggleFocusability('0');
+      if (this.expanded && headerHeight) {
+        this.maxHeight = contentHeight + headerHeight;       
         accordion.style.height = `${this.maxHeight}px`;
       }
      
-      if (!this.expanded) {        
+      if (!this.expanded) {
         this.maxHeight = totalHeight;
         accordion.style.height = `${this.maxHeight}px`;
         this.$nextTick(() => {
-          accordion.style.height = `${this.minHeight}px`;          
+          const { headerHeight: updatedHeight } = this.getNode();
+          accordion.style.height = `${updatedHeight}px`;          
         });
-        this.toggleFocusability('-1');
       }
-    },
-    toggleFocusability(index:string) {
-      const { content } = this.getNode();
-      const focussableElements = [
-        'a',
-        'area', 
-        'button', 
-        'input', 
-        'object', 
-        'select',
-        'textarea',
-      ];
-
-      focussableElements.forEach(type => {
-        content.querySelectorAll(type)
-          .forEach(el => {
-            el.setAttribute('tabindex', index)
-          });
-      });      
     },
   },
 });
