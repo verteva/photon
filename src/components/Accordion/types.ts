@@ -25,5 +25,6 @@ export interface AccordionData {
   expanded: boolean;
   focussed: boolean;
   initialRender: boolean;
+  expandComplete: boolean;
   id: string;
 }

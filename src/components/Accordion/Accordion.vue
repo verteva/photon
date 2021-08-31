@@ -166,6 +166,7 @@ export default Vue.extend({
       expanded: Boolean(this.value || this.open || this.stayOpen),
       initialRender: false,
       focussed: false,
+      expandComplete: Boolean(this.value || this.open || this.stayOpen),
       id: this.identifier || uuidv4(),
     };
   },
@@ -210,7 +211,7 @@ export default Vue.extend({
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,
         this.initialRender ? 'ph-duration-1 ph-invisible' : 'ph-duration-300 ph-visible',
-        this.expanded ? '' : 'ph-overflow-hidden',
+        this.expandComplete ? '' : 'ph-overflow-hidden',
         shadow,
       ];
       
@@ -246,6 +247,7 @@ export default Vue.extend({
         });
       }
       else {
+        this.expandComplete = false;
         this.switchState();
       }
 
@@ -287,7 +289,8 @@ export default Vue.extend({
         const { accordion, content} = this.getNode();
 
         if (this.expanded) {
-          accordion.style.height = 'auto';     
+          accordion.style.height = 'auto';
+          this.expandComplete = true;  
         } else {
           // Elements in a hidden panel should not be focussale
           content.style.display = 'none';         
