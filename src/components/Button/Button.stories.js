@@ -34,7 +34,7 @@ export default {
   },
 };
 
-const TypesTemplate = (args, { argTypes }) => ({
+const DocsTemplate = (args, { argTypes }) => ({
   components: { PButton },
   props: Object.keys(argTypes),
   template: `
@@ -65,8 +65,8 @@ const TypesTemplate = (args, { argTypes }) => ({
   },
 });
 
-export const Types = TypesTemplate.bind({});
-Types.argTypes = {
+export const Docs = DocsTemplate.bind({});
+Docs.argTypes = {
 };
 
 
