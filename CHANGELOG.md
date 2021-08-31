@@ -6,32 +6,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
- ## [0.1.559] - 2027-08-13
+ ## [0.1.560] - 2021-08-31
+### Added
+- Added Dialog component
+- Added Card component
+- Added Slider component
+- Misc enhancements addes to Accordion, AutoComplete, InputText
+
+ ## [0.1.559] - 2021-08-13
 ### Added
 - Add Autocomplete Component
 
-## [0.1.558] - 2027-08-13
+## [0.1.558] - 2021-08-13
 ### Added
 - Bugfix for button loader alignment
 
-## [0.1.557] - 2027-08-12
+## [0.1.557] - 2021-08-12
 ### Added
 - Adding fix for Icon color
 - Fix for button text alignment
 
-## [0.1.556] - 2027-08-12
+## [0.1.556] - 2021-08-12
 ### Added
 - Adding more icons
 
-## [0.1.555] - 2027-08-09
+## [0.1.555] - 2021-08-09
 ### Added
 - Add Text Input component
 
-## [0.1.554] - 2027-07-29
+## [0.1.554] - 2021-07-29
 ### Added
 - Update Icon size property use in Accordion
 
-## [0.1.553] - 2027-07-29
+## [0.1.553] - 2021-07-29
 ### Added
 - Add full icon set from design
 - Add more sizes
