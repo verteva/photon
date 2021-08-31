@@ -25,7 +25,7 @@ const SimpleTemplate = (args, { argTypes }) => ({
       <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
-      <PAccordion v-bind="$props" v-model="forceOpen" no-heading-rule shadow :open-arrows="false" :open-close-icons="['Edit', 'MinusBordered']" >
+      <PAccordion v-bind="$props" v-model="forceOpen" >
         <template v-slot:heading>
           Heading
         </template>
@@ -55,13 +55,22 @@ const SimpleTemplate = (args, { argTypes }) => ({
   },
 });
 export const Simple = SimpleTemplate.bind({});
+Simple.args = {
+  shadow: true,
+  noHeadingRule: true,
+  openArrows: false,
+  openCloseIcons: ['Edit', 'MinusBordered'],
+  shadow: true,
+  responsivePadding: true,
+};
+
 
 const NestedTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
   props: Object.keys(argTypes),
   template: `
-  <PAccordion section="Level 1" v-model="test" stay-open>
-    <div class='ph-mb-5 ph-py-5 ph-px-10'>
+  <PAccordion v-bind="$props" section="Level 1" v-model="test" stay-open>
+    <div class='ph-my-10 ph-py-5 ph-px-10'>
       Some static HTML content...
     </div>
     <PAccordion class="ph-mb-1" section="Level 2a" open background-color="ph-bg-white" :border="false" shadow>
@@ -79,6 +88,12 @@ const NestedTemplate = (args, { argTypes }) => ({
   },
 });
 export const Nested = NestedTemplate.bind({});
+Nested.args = {
+  mobileNoPadding: true,
+  border: false,
+  openCloseIcons: ['Plus', 'MinusBordered'],
+};
+
 
 const SingleFocusTemplate = (args, { argTypes }) => ({
   components: { PAccordion },

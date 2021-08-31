@@ -53,7 +53,7 @@
       <div
         class="acc-content ph-w-full"
         :class="[
-          unstyled ? '' : 'ph-pb-6 ph-px-8',
+          unstyled ? '' : `ph-pb-6 ${componentPadding}`,
           noHeadingRule ? 'ph-pt-2' : 'ph-pt-6',
         ]"
       >
@@ -132,6 +132,14 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    /*
+      Determines if an accordion instance loses its
+      horizontal padding in smaller screen dimensions
+    */
+    mobileNoPadding: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     section: {
       type: String as PropType<string>,
       default: '',
@@ -164,14 +172,16 @@ export default Vue.extend({
   },
 
   computed: {
-    headerComponent():string {
-      return this.stayOpen ? 'div' : 'button';
-    },
     innerValue: {
       get():boolean {
         return this.expanded;
       },
     },
+
+    headerComponent():string {
+      return this.stayOpen ? 'div' : 'button';
+    },
+    
     headerClassList():string[] {
       const classes = [
         'acc-header',
@@ -181,12 +191,13 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
-        this.unstyled ? '' : 'ph-py-6 ph-px-8',
+        this.unstyled ? '' : 'ph-py-6 ph-px-4 sm:ph-px-8',
         (this.fullWidth && 'ph-w-full') || '',
       ];
 
       return classes;
     },
+    
     classList():string[] {  
       let shadow = this.shadow ? 'ph-shadow' : '';
       if (this.focussed) {
@@ -195,7 +206,7 @@ export default Vue.extend({
 
       const a: string[] = [
         ...this.baseClassList,
-        this.unstyled ? '' : 'ph-border-0 ph-rounded-xl ph-border-grey5' ,
+        this.unstyled ? '' : `ph-border-0 ph-border-grey5 ${this.componentRadius}`,
         (!this.border || this.unstyled) ? 'ph-border-0' : 'ph-border' ,
         this.disabled ? 'ph-opacity-50' : 'ph-opacity-100',
         this.unstyled ? '' : this.backgroundColor,
@@ -204,6 +215,16 @@ export default Vue.extend({
       ];
       
       return a;
+    },
+
+    componentPadding():string {
+      return this.mobileNoPadding
+        ? 'ph-px-0 sm:ph-px-8'
+        : 'ph-px-4 sm:ph-px-8';
+    },
+
+    componentRadius():string {
+      return 'sm:ph-rounded-xl';
     },
   },
 
