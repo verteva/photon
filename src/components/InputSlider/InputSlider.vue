@@ -13,7 +13,15 @@
       {{ label }}
     </p-label>
     <div class="ph-flex ph-items-baseline">
-      <p-slider v-model="sliderPct" />
+      <p-slider
+        v-model="sliderVal"
+        :steps="true"
+        :step-data="{
+          min,
+          max,
+          increment,
+        }"
+      />
       <p-input-text
         ref="inputField"
         number
@@ -62,6 +70,10 @@ export default Vue.extend({
       type: Number as PropType<number>,
       default: 100,
     },
+    increment: {
+      type: Number as PropType<number>,
+      default: 1,
+    },
     label: {
       type: String as PropType<string>,
       default: '',
@@ -78,29 +90,26 @@ export default Vue.extend({
 
   data() {    
     return {
-      sliderPct: 0
+      sliderVal: this.value,
     };
   },
 
   computed: {
     innerValue: {
       get():string {
-        return addCommaSeparators(Math.round(this.value));
+        return addCommaSeparators(this.value);
       },
     },
-    sliderPercent():number {
-      return (this.max - this.min) * this.sliderPct + this.min;
-    }
   },
 
   watch: {
-    sliderPct() {
+    sliderVal() {
       this.emitValue();
     },
   },
 
   mounted() {
-    this.sliderPct =  this.getPercentage(this.value);
+    this.sliderVal =  this.value;
     this.emitValue();
   },
 
@@ -110,7 +119,7 @@ export default Vue.extend({
     },
 
     emitValue() {
-      this.$emit('input', this.sliderPercent);
+      this.$emit('input', this.sliderVal);
     },
 
     onManualChange() {
@@ -118,12 +127,8 @@ export default Vue.extend({
         const ref = this.$refs['inputField'] as RefElement;
         if (ref) {
           const value = (ref.$el as InputElement).querySelector('input').value;
-          const manualValue:any = removeCommaSeparators(value);
-          
-          if (manualValue <= this.max && manualValue >= this.min) {
-            this.sliderPct = this.getPercentage(manualValue);                     
-            this.$emit('input', Number(manualValue));
-          }
+          this.sliderVal = removeCommaSeparators(value);
+          this.$emit('input', Number(value));
         }
       }      
     },

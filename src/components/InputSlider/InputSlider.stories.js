@@ -20,7 +20,7 @@ const Template = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      val: 40,
+      val: 500000,
       errs: [],
     };
   },
@@ -38,8 +38,9 @@ const Template = (args, { argTypes }) => ({
 export const InputSlider = Template.bind({});
 InputSlider.args = {
   currency: true,
-  min: 0,
-  max: 100,
+  min: 250000,
+  max: 750000,
+  increment: 10000,
   label: "How much do you want to borrow?",
   errors: [],
 };
