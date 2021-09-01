@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
- ## [0.1.561] - 2021-09-01
+ ## [0.1.562] - 2021-09-01
+### Added
+- Fix for regression of missing padding around input
+
+## [0.1.561] - 2021-09-01
 ### Added
 - Fix for Accordion overflow being visible at start of expanding as oppose to the end
 
