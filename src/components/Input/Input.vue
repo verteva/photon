@@ -1,6 +1,6 @@
 <template>
   <div
-    class=""
+    class="ph-pb-7"
   >
     <slot />
     <div
