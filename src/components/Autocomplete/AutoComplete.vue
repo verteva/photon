@@ -353,7 +353,7 @@ export default Vue.extend({
       selected: '',
       searchText: '',
       manualInput: '',
-      toggleMenu: true,
+      toggleMenu: false,
       placement: this.dropType === DropDown? 'bottom' :'top',
     };
   },
@@ -479,10 +479,15 @@ export default Vue.extend({
 .vs__selected-options input {
   @apply ph-px-5;
   padding-left: var(--inputIndent)!important;
+  cursor: text;
 }
 
 .vs__selected-options input::placeholder {
   color: var(--placeHolderColor);
+}
+
+.vs__selected-options input {
+  color: currentColor;
 }
 
 .vs__search{
