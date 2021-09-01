@@ -78,14 +78,16 @@ export default Vue.extend({
 
   computed: {
     innerValue: {
-      get():number {        
+      get():number {             
         return this.value;
       },
     },
+
     barScale():number {      
       if (this.steps) return (this.innerValue - this.stepData.min) / (this.stepData.max - this.stepData.min);
       return this.innerValue;
     },
+    
     trackWrapperClassList():string[] {
       return [
         'ph-w-full',
@@ -95,6 +97,7 @@ export default Vue.extend({
         'ph-relative'
       ];
     },
+    
     dragAreaClassList():string[] {
       return [
         'ph-absolute',
@@ -104,6 +107,7 @@ export default Vue.extend({
         'ph-right-0',
       ];
     },
+    
     trackClassList():string[] {
       return [
         'ph-h-full',
@@ -112,6 +116,7 @@ export default Vue.extend({
         'ph-left-0',
       ];
     },
+    
     handleClassList():string[] {
       return [
         'ph--mt-4',
@@ -125,6 +130,7 @@ export default Vue.extend({
         'ph-origin-center',
       ];
     },
+    
     handleDotClassList():string[] {
       return [
         'ph-absolute',
@@ -163,9 +169,8 @@ export default Vue.extend({
         onDrag: this.onDrag,
       })[0];
       
-      this.setHandle();
     }   
-    
+    this.setHandle();    
     window.addEventListener('resize', this.onResize, false);   
     document.addEventListener('mouseup', this.onRelease, false);
   },
@@ -176,6 +181,23 @@ export default Vue.extend({
   },
   
   methods: {
+    dragDimensions() {
+      const { increment, min, max } = this.stepData;
+      const dragRange = this.draggable.maxX - this.draggable.minX;
+      const valueRange = max - min;
+      const steps = valueRange / increment;
+      const stepXvalue = dragRange / steps;
+
+      return {
+        stepXvalue,
+        dragRange,
+        valueRange,
+        steps,
+        min,
+        max,
+      };
+    },
+  
     initStepSlider() {
       const snapPoints:number[] = [];
       this.draggable = Draggable.create(`#ph-handle-${this.id}`, {
@@ -185,20 +207,22 @@ export default Vue.extend({
         liveSnap: snapPoints,
       })[0];
 
-      const { increment, min, max } = this.stepData;
-      const dragRange = this.draggable.maxX - this.draggable.minX;
-      const valueRange = max - min;
-      const steps = valueRange / increment;
-      const stepXvalue = dragRange / steps;
-
+      const {
+        steps,
+        stepXvalue,
+        dragRange,
+        min,
+        valueRange,
+      } = this.dragDimensions();
+      
       for (let i = 0; i < steps; i++) {
         snapPoints.push(Math.round(i * stepXvalue));
       }
       
       snapPoints.push(dragRange);
-           
-      TweenLite.set(`#ph-handle-${this.id}`, { x: (this.value - min) / valueRange * dragRange });
+      this.setHandle();
     },
+
     onDrag() {        
       const { x, minX, maxX } = this.draggable;     
       
@@ -210,13 +234,22 @@ export default Vue.extend({
         this.$emit('input', pct);
       }      
     },
+    
     setHandle() {
       if (!this.steps) {
         const { minX, maxX } = this.draggable;
         const x = Math.floor((maxX - minX) * this.innerValue);      
-        TweenLite.to(`#ph-handle-${this.id}`, 0.1, { ease: Expo.easeOut, x });
+        TweenLite.set(`#ph-handle-${this.id}`, { x });
+      } else {
+        const {
+          dragRange,
+          min,
+          valueRange,
+        } = this.dragDimensions();
+        TweenLite.set(`#ph-handle-${this.id}`, { x: (this.value - min) / valueRange * dragRange });
       }
     },
+    
     onResize() {
       if (!this.steps) {
         const ref = this.$refs[`ph-track-${this.id}`] as SliderTrackRef;
@@ -227,6 +260,7 @@ export default Vue.extend({
         this.initStepSlider();
       }
     },
+    
     onRelease() {
       this.pressed = false;
     }

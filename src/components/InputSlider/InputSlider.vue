@@ -100,10 +100,6 @@ export default Vue.extend({
         return addCommaSeparators(this.value);
       },
     },
-    sliderPercent():number {
-      return this.sliderVal;
-      // return (this.max - this.min) * this.sliderVal + this.min;
-    }
   },
 
   watch: {
@@ -114,7 +110,6 @@ export default Vue.extend({
 
   mounted() {
     this.sliderVal =  this.value;
-    // this.sliderVal =  this.getPercentage(this.value);
     this.emitValue();
   },
 
@@ -124,7 +119,7 @@ export default Vue.extend({
     },
 
     emitValue() {
-      this.$emit('input', this.sliderPercent);
+      this.$emit('input', this.sliderVal);
     },
 
     onManualChange() {
@@ -132,12 +127,8 @@ export default Vue.extend({
         const ref = this.$refs['inputField'] as RefElement;
         if (ref) {
           const value = (ref.$el as InputElement).querySelector('input').value;
-          const manualValue:any = removeCommaSeparators(value);
-          
-          if (manualValue <= this.max && manualValue >= this.min) {
-            this.sliderVal = this.getPercentage(manualValue);                     
-            this.$emit('input', Number(manualValue));
-          }
+          this.sliderVal = removeCommaSeparators(value);
+          this.$emit('input', Number(value));
         }
       }      
     },
