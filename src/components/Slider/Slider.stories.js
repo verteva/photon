@@ -9,7 +9,7 @@ export default {
   },
 };
 
-const SliderTypes = (args, { argTypes }) => ({
+const SliderDocs = (args, { argTypes }) => ({
   components: { PSlider, PInputText },
   props: Object.keys(argTypes),
   template: `<p-slider v-bind='$props' v-model="val" />`,
@@ -20,9 +20,10 @@ const SliderTypes = (args, { argTypes }) => ({
   },
 });
 
-export const Types = SliderTypes.bind({});
-Types.args = {
-};
+export const Docs = SliderDocs.bind({});
+Docs.args = {};
+
+
 const SliderPlayground = (args, { argTypes }) => ({
   components: { PSlider, PInputText },
   props: Object.keys(argTypes),
