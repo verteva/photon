@@ -1,6 +1,12 @@
+export interface StepDataType {
+  increment: number;
+  min: number;
+  max: number;
+}
+
 export interface SliderData {
-  id:string;
-  pressed:boolean;
+  id: string;
+  pressed: boolean;
   draggable: any;
 }
 

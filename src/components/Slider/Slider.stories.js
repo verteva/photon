@@ -27,7 +27,11 @@ const SliderPlayground = (args, { argTypes }) => ({
   components: { PSlider, PInputText },
   props: Object.keys(argTypes),
   template: `
-    <div class="ph-w-100">
+    <div class="ph-w-full">
+      <p-slider v-bind='$props' v-model="pct" :steps="false" />
+      <br />
+      Slider %: {{ pct }}
+      <br /><br /><br />
       <p-slider v-bind='$props' v-model="val" />
       <br />
       Slider %: {{ val }}
@@ -35,11 +39,18 @@ const SliderPlayground = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      val: 0.5,
+      pct: 0.5,
+      val: 150,
     };
   },
 });
 
 export const Playground = SliderPlayground.bind({});
 Playground.args = {
+  steps: true,
+  stepData: {
+    increment: 5,
+    min: 100,
+    max: 200,
+  },
 };

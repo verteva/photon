@@ -17,7 +17,7 @@
       />
       <div
         :class="trackClassList"
-        :style="{ transform: `scaleX(${innerValue})` }"
+        :style="{ transform: `scaleX(${barScale})` }"
         class="ph-bg-gradient-brand1h ph-w-full ph-origin-left"
       />
     </div>
@@ -41,18 +41,30 @@ import { v4 as uuidv4 } from 'uuid';
 import {
   SliderData,
   SliderTrackRef,
+  StepDataType,
 } from './types';
 
 export default Vue.extend({
   name: 'PSlider',
 
-  components: {
-  },
-
   props: {
     value: {
       type: Number as PropType<number>,
       default: 1,
+    },
+
+    steps: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    
+    stepData: {
+      type: Object as PropType<StepDataType>,
+      default: () => ({
+        increment: 1,
+        min: 0,
+        max: 10,
+      }),
     },
   },
 
@@ -66,9 +78,13 @@ export default Vue.extend({
 
   computed: {
     innerValue: {
-      get():number {
+      get():number {        
         return this.value;
       },
+    },
+    barScale():number {      
+      if (this.steps) return (this.innerValue - this.stepData.min) / (this.stepData.max - this.stepData.min);
+      return this.innerValue;
     },
     trackWrapperClassList():string[] {
       return [
@@ -94,9 +110,6 @@ export default Vue.extend({
         'ph-absolute',
         'ph-top-0',
         'ph-left-0',
-        // 'ph-transition',
-        // 'ph-duration-100',
-        // 'ph-ease-linear',
       ];
     },
     handleClassList():string[] {
@@ -139,18 +152,22 @@ export default Vue.extend({
   },
 
   mounted() {
-    // Put this inside of your mounted function
     gsap.registerPlugin(Draggable);
-  
-    this.draggable = Draggable.create(`#ph-handle-${this.id}`, {
-      type:"x",
-      bounds: `#ph-track-${this.id}`,
-      onDrag: this.onDrag,  
-    })[0];
-
-    this.setHandle();
+    
+    if (this.steps) {      
+      this.initStepSlider();
+    } else {      
+      this.draggable = Draggable.create(`#ph-handle-${this.id}`, {
+        type:"x",
+        bounds: `#ph-track-${this.id}`,
+        onDrag: this.onDrag,
+      })[0];
+      
+      this.setHandle();
+    }   
+    
+    window.addEventListener('resize', this.onResize, false);   
     document.addEventListener('mouseup', this.onRelease, false);
-    window.addEventListener('resize', this.onResize, false);
   },
 
   destroyed() {
@@ -159,22 +176,56 @@ export default Vue.extend({
   },
   
   methods: {
-    onDrag() {
-      const { x, minX, maxX } = this.draggable;
-      const pct = (x - minX) / (maxX - minX);               
-      this.$emit('input', pct);     
+    initStepSlider() {
+      const snapPoints:number[] = [];
+      this.draggable = Draggable.create(`#ph-handle-${this.id}`, {
+        type:"x",
+        bounds: `#ph-track-${this.id}`,
+        onDrag: this.onDrag,
+        liveSnap: snapPoints,
+      })[0];
+
+      const { increment, min, max } = this.stepData;
+      const dragRange = this.draggable.maxX - this.draggable.minX;
+      const valueRange = max - min;
+      const steps = valueRange / increment;
+      const stepXvalue = dragRange / steps;
+
+      for (let i = 0; i < steps; i++) {
+        snapPoints.push(Math.round(i * stepXvalue));
+      }
+      
+      snapPoints.push(dragRange);
+           
+      TweenLite.set(`#ph-handle-${this.id}`, { x: (this.value - min) / valueRange * dragRange });
+    },
+    onDrag() {        
+      const { x, minX, maxX } = this.draggable;     
+      
+      if (this.steps) {
+        const stepIndex = this.draggable.vars.liveSnap.indexOf(x);        
+        this.$emit('input', stepIndex * this.stepData.increment + this.stepData.min);
+      } else {
+        const pct = (x - minX) / (maxX - minX);               
+        this.$emit('input', pct);
+      }      
     },
     setHandle() {
-      const { minX, maxX } = this.draggable;
-      const x = Math.floor((maxX - minX) * this.innerValue);      
-      TweenLite.to(`#ph-handle-${this.id}`, 0.1, { ease: Expo.easeOut, x });
+      if (!this.steps) {
+        const { minX, maxX } = this.draggable;
+        const x = Math.floor((maxX - minX) * this.innerValue);      
+        TweenLite.to(`#ph-handle-${this.id}`, 0.1, { ease: Expo.easeOut, x });
+      }
     },
     onResize() {
-      const ref = this.$refs[`ph-track-${this.id}`] as SliderTrackRef;
-      const { width }  = ref.getBoundingClientRect();      
-      const { width: handleWidth } = this.draggable.target.getBoundingClientRect();
-      
-      TweenLite.to(`#ph-handle-${this.id}`, 0.1, { x: (width * this.innerValue) - (handleWidth * this.innerValue) + 1 });      
+      if (!this.steps) {
+        const ref = this.$refs[`ph-track-${this.id}`] as SliderTrackRef;
+        const { width }  = ref.getBoundingClientRect();      
+        const { width: handleWidth } = this.draggable.target.getBoundingClientRect();
+        TweenLite.to(`#ph-handle-${this.id}`, 0.1, { x: (width * this.innerValue) - (handleWidth * this.innerValue) + 1 });
+      } else {
+        this.initStepSlider();
+      }
     },
     onRelease() {
       this.pressed = false;
