@@ -60,6 +60,9 @@
         <slot name="default" />
       </div>
     </div>
+    <div class="ph-rounded-b-xl">
+      <slot name="footer" />
+    </div>
   </div> 
 </template>
 
