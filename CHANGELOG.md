@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.564] - 2021-09-03
+### Added
+- Adding error handler for text input
+
 ## [0.1.563] - 2021-09-01
 ### Added
 - Adding stepped dragging functionality to the Slider
