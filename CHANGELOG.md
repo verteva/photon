@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.565] - 2021-09-05
+### Added
+- Fix for relative position of Button text
+
 ## [0.1.564] - 2021-09-03
 ### Added
 - Adding error handler for text input
