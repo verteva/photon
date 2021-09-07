@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.565] - 2021-09-07
+### Added
+- Added fix for Accordion heading only displaying sccoped slot
+
 ## [0.1.564] - 2021-09-03
 ### Added
 - Adding error handler for text input
