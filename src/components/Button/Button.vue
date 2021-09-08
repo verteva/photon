@@ -15,7 +15,7 @@
     />
     <div class="ph-flex ">
       <div 
-        class="ph-z-5 ph-w-full ph-flex ph-items-center ph-justify-center"
+        class="ph-relative ph-z-5 ph-w-full ph-flex ph-items-center ph-justify-center"
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',
