@@ -263,7 +263,7 @@ export default Vue.extend({
     }
     else {
       this.height = `${this.minHeight}px`;
-      content.style.display
+      content.style.display = 'none';
     }
   },
 
@@ -290,7 +290,7 @@ export default Vue.extend({
           this.expandComplete = true;  
         } else {
           // Elements in a hidden panel should not be focussale
-          content.style.display = 'none';         
+          content.style.display = 'none';
         }
 
         if (this.initialRender) this.initialRender = false;

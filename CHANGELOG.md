@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.567] - 2021-09-07
+## [0.1.566] - 2021-09-07
+### Added
+- Hotfix for Accordion initialised collapsed still having content tab-able
+
 ## [0.1.565] - 2021-09-07
 ### Added
 - Added fix for Accordion heading only displaying sccoped slot
