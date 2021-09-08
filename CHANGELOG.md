@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.569] - 2021-09-08
+### Added
+- Give Accordion a footer slot
+
 ## [0.1.568] - 2021-09-08
 ### Added
 - Hotfix for Button text with relative position
