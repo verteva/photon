@@ -6,9 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.566] - 2021-09-08
+## [0.1.568] - 2021-09-08
 ### Added
-- Fix for relative position of Button text
+- Hotfix for Button text with relative position
+
+## [0.1.567] - 2021-09-07
+## [0.1.566] - 2021-09-07
+### Added
+- Hotfix for Accordion initialised collapsed still having content tab-able
 
 ## [0.1.565] - 2021-09-07
 ### Added

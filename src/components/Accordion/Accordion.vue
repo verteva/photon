@@ -252,7 +252,7 @@ export default Vue.extend({
   },
 
   mounted():void {       
-    const { accordion, totalHeight, headerHeight } = this.getNode();
+    const { accordion, totalHeight, headerHeight, content } = this.getNode();
     accordion.addEventListener('transitionend', this.onTransitionEnd);
 
     this.maxHeight = totalHeight;
@@ -263,6 +263,7 @@ export default Vue.extend({
     }
     else {
       this.height = `${this.minHeight}px`;
+      content.style.display = 'none';
     }
   },
 
@@ -289,7 +290,7 @@ export default Vue.extend({
           this.expandComplete = true;  
         } else {
           // Elements in a hidden panel should not be focussale
-          content.style.display = 'none';         
+          content.style.display = 'none';
         }
 
         if (this.initialRender) this.initialRender = false;
