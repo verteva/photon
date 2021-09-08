@@ -12,12 +12,8 @@
       @focus="focussed = true"
       @blur="focussed = false"
     >
-      <slot
-        name="heading"
-        :expanded="expanded"
-      >
-        {{ section }}
-      </slot>
+      {{ section }}
+      <slot name="heading" :expanded="expanded" />
       <p-icon
         v-if="complete"
         name="Checkmark"
@@ -259,7 +255,7 @@ export default Vue.extend({
   },
 
   mounted():void {       
-    const { accordion, totalHeight, headerHeight } = this.getNode();
+    const { accordion, totalHeight, headerHeight, content } = this.getNode();
     accordion.addEventListener('transitionend', this.onTransitionEnd);
 
     this.maxHeight = totalHeight;
@@ -270,6 +266,7 @@ export default Vue.extend({
     }
     else {
       this.height = `${this.minHeight}px`;
+      content.style.display = 'none';
     }
   },
 
@@ -296,7 +293,7 @@ export default Vue.extend({
           this.expandComplete = true;  
         } else {
           // Elements in a hidden panel should not be focussale
-          content.style.display = 'none';         
+          content.style.display = 'none';
         }
 
         if (this.initialRender) this.initialRender = false;

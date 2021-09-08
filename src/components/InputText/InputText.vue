@@ -1,5 +1,8 @@
 <template>
-  <p-input :errors="errors">
+  <p-input
+    :class="{'ph-input-error-content':errors.length}"
+    :errors="errors"
+  >
     <slot
       v-if="$scopedSlots.label"
       name="label"
@@ -182,3 +185,8 @@ export default Vue.extend({
   },
 });
 </script>
+<style lang="postcss">
+.ph-input-error-content input, .ph-input-error-content svg{
+  @apply ph-text-alert2;
+}
+</style>
