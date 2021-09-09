@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.570] - 2021-09-09
+### Added
+- Fixing AddressAutocomplete filtered options and searching opacity
+
 ## [0.1.569] - 2021-09-08
 ### Added
 - Give Accordion a footer slot
