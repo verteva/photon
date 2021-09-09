@@ -29,6 +29,7 @@
         }"
         :append-to-body="!lazyFocus"
         :calculate-position="lazyFocus?null:withPopper"
+        :filter="onFilter"
         v-on="$listeners"
         @input="onInput"
         @search="onSearch"
@@ -353,7 +354,7 @@ export default Vue.extend({
       selected: '',
       searchText: '',
       manualInput: '',
-      toggleMenu: true,
+      toggleMenu: false,
       placement: this.dropType === DropDown? 'bottom' :'top',
     };
   },
@@ -412,6 +413,9 @@ export default Vue.extend({
       this.$data.focused = false;
       this.$data.toggleMenu = false;
       this.$emit("onBlur");
+    },
+    onFilter(options) {
+      return options
     },
     withPopper(dropdownList, component, { width }) {
       /**
@@ -519,6 +523,10 @@ export default Vue.extend({
 
 .vs__open-indicator{
   color: var(--openIndicatorColor);
+}
+
+.vs__search{
+  opacity: 1!important;
 }
 
 .vs__actions{
