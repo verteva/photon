@@ -29,6 +29,7 @@
         }"
         :append-to-body="!lazyFocus"
         :calculate-position="lazyFocus?null:withPopper"
+        :filter="onFilter"
         v-on="$listeners"
         @input="onInput"
         @search="onSearch"
@@ -413,6 +414,9 @@ export default Vue.extend({
       this.$data.toggleMenu = false;
       this.$emit("onBlur");
     },
+    onFilter(options) {
+      return options
+    },
     withPopper(dropdownList, component, { width }) {
       /**
        * We need to explicitly define the dropdown width since
@@ -528,6 +532,10 @@ export default Vue.extend({
 
 .vs__open-indicator{
   color: var(--openIndicatorColor);
+}
+
+.vs__search{
+  opacity: 1!important;
 }
 
 .vs__actions{
