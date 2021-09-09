@@ -18,7 +18,7 @@
           />
         </p-button>
       </div>
-      <h1 class="ph-text-h1 ph-mt-0 ph-mb-4">
+      <h1 class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
         {{ heading }}
       </h1>
       <div class="ph-flex ph-flex-col sm:ph-flex-row">
@@ -106,10 +106,10 @@ export default {
       return [
         (this as any).eventType === '' ? 'ph-animate-fadeIn' : 'ph-animate-fadeOut',
         'ph-rounded',
-        'ph-p-12',
+        'ph-p-6 sm:ph-p-12',
         'ph-bg-white',
         'ph-relative',
-        'ph-w-100',
+        'ph-w-10/12 sm:ph-w-100',
         'ph-flex',
         'ph-flex-col',
         'ph-m-auto',

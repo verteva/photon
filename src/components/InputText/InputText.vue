@@ -1,5 +1,8 @@
 <template>
-  <p-input :errors="errors">
+  <p-input
+    :class="{'ph-input-error-content':errors.length}"
+    :errors="errors"
+  >
     <slot
       v-if="$scopedSlots.label"
       name="label"
@@ -29,8 +32,8 @@
         tabindex="0"
         @keydown="validatePress"
         @input="updateValue($event.target.value)"
-        @focus="inFocus = true"
-        @blur="inFocus = false"
+        @focus="onFocus"
+        @blur="onBlur"
       />
       <div
         v-if="iconRight"
@@ -64,6 +67,10 @@ export default Vue.extend({
   
   props: {
     number: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    darkMode: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
@@ -119,8 +126,7 @@ export default Vue.extend({
         'ph-antialiased',
         'ph-w-full ',
         'ph-font-normal ',
-        'ph-text-grey3 ',
-        'ph-bg-white ',
+        'ph-text-grey1 ',
         'ph-rounded-lg ',
         'ph-py-2 ph-px-5',
         'ph-border',
@@ -130,6 +136,7 @@ export default Vue.extend({
         'focus:ph-outline-none',
         'ph-border-solid',
         'ph-transition',
+        this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
       ],
@@ -161,9 +168,25 @@ export default Vue.extend({
           return event.preventDefault();
       }
     },
+
     updateValue(value:string){     
       this.$emit('input', value);
+    },
+
+    onFocus(e:InputEvent) {
+      this.inFocus = true;
+      this.$emit('focus', e);
+    },
+    
+    onBlur(e:InputEvent) {
+      this.inFocus = false;
+      this.$emit('blur', e);
     },
   },
 });
 </script>
+<style lang="postcss">
+.ph-input-error-content input, .ph-input-error-content svg{
+  @apply ph-text-alert2;
+}
+</style>

@@ -43,7 +43,7 @@
               v-if="prefixIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
               :name="prefixIcon"
-              type="sm"
+              type="med"
             ></p-icon>
             <input
               v-show="!selected"
@@ -62,7 +62,7 @@
               v-if="allowOptionIcon && showSelectedIcon"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
               :name="validateIcon(option)?validateIcon(option):prefixIcon"
-              type="sm"
+              type="med"
               :data-deselect="deselect"
               :data-multiple="multiple"
               :data-disabled="disabled"
@@ -203,7 +203,7 @@ export default Vue.extend({
     },
     optionIconSize: {
       type: String as PropType<string>,
-      default: 'sm',
+      default: 'xs',
       validator(value: string): boolean {
         return [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1;
       },
@@ -483,15 +483,24 @@ export default Vue.extend({
 .vs__selected-options input {
   @apply ph-px-5;
   padding-left: var(--inputIndent)!important;
+  cursor: text;
 }
 
 .vs__selected-options input::placeholder {
   color: var(--placeHolderColor);
 }
 
+.vs__selected-options input {
+  color: currentColor;
+}
+
 .vs__search{
   @apply ph-h-10;
   padding-left: 0px!important;
+}
+
+.vs__search, .vs__search:focus {
+  margin: 2px 0;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle{

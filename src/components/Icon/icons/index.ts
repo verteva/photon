@@ -111,6 +111,7 @@ export default [
   'Medicare',
   'MenuDown',
   'Minus',
+  'MinusBordered',
   'MoneyList',
   'Moneybag',
   'Newloan',

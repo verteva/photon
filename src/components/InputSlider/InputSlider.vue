@@ -13,14 +13,23 @@
       {{ label }}
     </p-label>
     <div class="ph-flex ph-items-baseline">
-      <p-slider v-model="sliderPct" />
+      <p-slider
+        v-model="sliderVal"
+        :steps="true"
+        :step-data="{
+          min,
+          max,
+          increment,
+        }"
+      />
       <p-input-text
+        ref="inputField"
         number
         :value="innerValue"
         class="ph-ml-10"
         :icon-left="currency ? 'Dollar' : ''"
         :errors="errors"
-        @input="onManualChange"
+        @blur="onManualChange"
       />
     </div>
   </p-input>
@@ -32,6 +41,7 @@ import PSlider from '../Slider';
 import PInputText from '../InputText';
 import PInput from '../Input';
 import PLabel from '../Label';
+import { InputElement, RefElement } from './types';
 import {
   addCommaSeparators,
   removeCommaSeparators,
@@ -60,6 +70,10 @@ export default Vue.extend({
       type: Number as PropType<number>,
       default: 100,
     },
+    increment: {
+      type: Number as PropType<number>,
+      default: 1,
+    },
     label: {
       type: String as PropType<string>,
       default: '',
@@ -74,40 +88,49 @@ export default Vue.extend({
     },
   },
 
-  data() {
+  data() {    
     return {
-      sliderPct: 1,
+      sliderVal: this.value,
     };
   },
 
   computed: {
     innerValue: {
       get():string {
-        return addCommaSeparators(Math.round(this.value));
+        return addCommaSeparators(this.value);
       },
     },
   },
 
   watch: {
-    sliderPct() {
+    sliderVal() {
       this.emitValue();
     },
   },
 
   mounted() {
+    this.sliderVal =  this.value;
     this.emitValue();
   },
 
   methods: {
-    emitValue() {
-      this.$emit('input', (this.max - this.min) * this.sliderPct + this.min);
+    getPercentage(value):number {
+      return (value - this.min) / (this.max - this.min);
     },
-    onManualChange(val) {
-      const manualValue:any = removeCommaSeparators(val);
-      if (manualValue <= this.max) {
-        this.sliderPct = manualValue / this.max;
-        this.$emit('input', Number(manualValue));
-      }
+
+    emitValue() {
+      this.$emit('input', this.sliderVal);
+    },
+
+    onManualChange() {
+      if (this.$refs.inputField) {
+        const ref = this.$refs['inputField'] as RefElement;
+        if (ref) {
+          const value = (ref.$el as InputElement).querySelector('input').value;
+          this.sliderVal = removeCommaSeparators(value);
+          this.$emit('input', Number(value));
+        }
+      }      
     },
   },
 });
