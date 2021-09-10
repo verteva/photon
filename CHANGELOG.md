@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.572] - 2021-09-10
+### Added
+- Hofix for label slot & prop in text input not displaying correctly
+
 ## [0.1.571] - 2021-09-10
 ### Added
 - Add Autocomplte Filter control for different components
