@@ -3,14 +3,9 @@
     :class="{'ph-input-error-content':errors.length}"
     :errors="errors"
   >
-    <slot
-      v-if="$scopedSlots.label"
-      name="label"
-    >
-      <p-label>{{ label }}</p-label>
-    </slot>
-    <p-label v-else>
+    <p-label>
       {{ label }}
+      <slot v-if="!label" name="label" />
     </p-label>
 
     <div :class="componentClassList">
