@@ -29,7 +29,6 @@
         }"
         :append-to-body="!lazyFocus"
         :calculate-position="lazyFocus?null:withPopper"
-        :filter="onFilter"
         v-on="$listeners"
         @input="onInput"
         @search="onSearch"
@@ -46,7 +45,7 @@
               type="med"
             ></p-icon>
             <input
-              v-show="!selected"
+              v-show="!selected ? true: !hideInputOnSelected"
               class="vs__search ph-flex-1"
               :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
               v-bind="attributes"
@@ -56,8 +55,33 @@
             />
           </div>
         </template>
-        <template #selected-option-container="{ option, deselect, multiple, disabled }">
+        <template
+          v-if="!disableFilter"
+          #selected-option="option"
+        >
           <div class="ph-autocomplete__selected ph-flex">
+            <p-icon
+              v-if="allowOptionIcon && showSelectedIcon"
+              class="ph-my-auto ph-mx-4 ph-text-brand2"
+              :name="validateIcon(option)?validateIcon(option):prefixIcon"
+              type="med"
+            ></p-icon>
+            <span
+              v-else
+              class="ph-w-3"
+            ></span>
+            <label
+              class="ph-h-10 ph-overflow-hidden ph-whitespace-normal"
+              style="line-height: 40px;"
+              v-html="option[customLabelVar]"
+            ></label>
+          </div>
+        </template>
+        <template
+          v-else
+          #selected-option-container="{ option, deselect, multiple, disabled }"
+        >
+          <div class="ph-autocomplete__selected ph-flex ph-py-0.5">
             <p-icon
               v-if="allowOptionIcon && showSelectedIcon"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
@@ -72,8 +96,8 @@
               class="ph-w-3"
             ></span>
             <label
-              class="ph-h-11 ph-overflow-hidden ph-whitespace-normal"
-              style="line-height: 44px;"
+              class="ph-h-10 ph-overflow-hidden ph-whitespace-normal ph-pt-0.5"
+              style="line-height: 40px;"
               v-html="option[customLabelVar]"
             ></label>
           </div>
@@ -100,7 +124,7 @@
             ></p-icon>
             <label
               class="ph-whitespace-normal"
-              :class="'ph-option-leading-'+optionLeading"
+              :class="['ph-option-leading-'+optionLeading, 'ph-text-'+optionFontSize]"
               v-html="option[customLabelVar]?option[customLabelVar]:option[labelVar]"
             ></label>
           </div>
@@ -336,6 +360,20 @@ export default Vue.extend({
       type: Array,
       default: () => [],
     },
+    hideInputOnSelected: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
+    disableFilter: {
+      type: Boolean as PropType<boolean>,
+      default: false
+    },
+    defaultFilter: {
+      type: Function,
+      default: (options) => {
+        return options
+      },
+    }
   },
   data() {
     return {
@@ -366,13 +404,17 @@ export default Vue.extend({
       return this.optionItems.length > 0;
     },
     conditionalProps() {
-      let props = {};
+      let props = {};      
       if(this.noDropOnStart){
         props['dropdown-should-open'] = () => (this.optionItems.length > 0) && this.$data.toggleMenu
+      }
+      if(this.disableFilter){
+        props['filter'] = () => this.defaultFilter(this.optionItems)
       }
       return props;
     }
   },
+  
   methods: {
     validateIcon (option: { icon: string; }) {
       return option.icon? option.icon : null;
@@ -413,9 +455,6 @@ export default Vue.extend({
       this.$data.focused = false;
       this.$data.toggleMenu = false;
       this.$emit("onBlur");
-    },
-    onFilter(options) {
-      return options
     },
     withPopper(dropdownList, component, { width }) {
       /**
@@ -500,6 +539,7 @@ export default Vue.extend({
 }
 
 .vs__search, .vs__search:focus {
+  @apply ph-pt-1;
   margin: 2px 0;
 }
 
