@@ -2,6 +2,7 @@ import PText from './Text.vue';
 import PH1 from './H1.vue';
 import PH2 from './H2.vue';
 import PH3 from './H3.vue';
+import PBlockquote from './Blockquote.vue';
 
 import {
   TextElementDiv,
@@ -67,8 +68,15 @@ H3.args = {
   copy: 'Heading 3',
 };
 
+const BlockquoteTemplate = (args, { argTypes }) => ({
+  components: { PBlockquote },
+  props: Object.keys(argTypes),
+  template: `<p-blockquote>Lorem ipsum dolor<br />Hello world!</p-blockquote>`,
+});
+export const Blockquote = BlockquoteTemplate.bind({});
+
 const AllTemplate = () => ({
-  components: { PText, PH1, PH2, PH3 },
+  components: { PText, PH1, PH2, PH3, PBlockquote },
   template: `
     <div>
       <p-h1 class="ph-my-10">This an H1 heading<br /> with a second line</p-h1>
@@ -77,8 +85,12 @@ const AllTemplate = () => ({
       <p-text xl class="ph-my-10">This is Body XLarge<br />and another line</p-text>
       <p-text lg class="ph-my-10">This is Body Large<br />and another line</p-text>
       <p-text class="ph-my-10">This is Body <br />and another line</p-text>
-      <p-text sm class="ph-my-10">This is Body Small<br />and another line</p-text>
+       class="ph-my-10">This is Body Small<br />and another line</p-text>
       <p-text xs class="ph-my-10">This is Body XSmall<br />and another line</p-text>
+      <p-blockquote class="ph-my-10">
+        <p-h3>This is a Blockquote</p-h3>
+        <p-text sm>Add whatever you like in me!</p-text>
+      </p-blockquote>
     </div>
   `,
 });

@@ -15,6 +15,7 @@ import {
   PH1,
   PH2,
   PH3,
+  PBlockquote,
 } from './Typography';
 
 
@@ -36,6 +37,7 @@ const components: PhotonComponents = {
   PH1,
   PH2,
   PH3,
+  PBlockquote,
   PInputSlider,
   PCard,
 };
