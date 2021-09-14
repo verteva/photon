@@ -85,7 +85,7 @@ const AllTemplate = () => ({
       <p-text xl class="ph-my-10">This is Body XLarge<br />and another line</p-text>
       <p-text lg class="ph-my-10">This is Body Large<br />and another line</p-text>
       <p-text class="ph-my-10">This is Body <br />and another line</p-text>
-       class="ph-my-10">This is Body Small<br />and another line</p-text>
+      <p-text class="ph-my-10">This is Body Small<br />and another line</p-text>
       <p-text xs class="ph-my-10">This is Body XSmall<br />and another line</p-text>
       <p-blockquote class="ph-my-10">
         <p-h3>This is a Blockquote</p-h3>

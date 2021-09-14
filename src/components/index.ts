@@ -10,6 +10,7 @@ import PAutoComplete from './Autocomplete';
 import PDialog from './Dialog';
 import PInputSlider from './InputSlider';
 import PCard from './Card';
+import PRate from './Rate';
 import {
   PText,
   PH1,
@@ -40,6 +41,7 @@ const components: PhotonComponents = {
   PBlockquote,
   PInputSlider,
   PCard,
+  PRate,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
