@@ -389,7 +389,7 @@ export default Vue.extend({
         'hover:ph-text-brandh2',
       ],
       focused: false,
-      selected: '',
+      selected: this.initInput || '',
       searchText: '',
       manualInput: '',
       toggleMenu: false,
@@ -432,7 +432,7 @@ export default Vue.extend({
       this.$emit('update:searchInput', search);
       //loading(true);
     },
-    onInput (val: string) {
+    onInput (val: string) {     
       this.$emit('blur');
       this.$data.toggleMenu = false;
       this.$emit('update:selected', this.$data.selected);
