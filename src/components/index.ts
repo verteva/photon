@@ -11,6 +11,8 @@ import PDialog from './Dialog';
 import PInputSlider from './InputSlider';
 import PCard from './Card';
 import PRate from './Rate';
+import PDateInput from './DateInput';
+import PCheckbox from './Checkbox';
 import {
   PText,
   PH1,
@@ -42,6 +44,8 @@ const components: PhotonComponents = {
   PInputSlider,
   PCard,
   PRate,
+  PDateInput,
+  PCheckbox,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents

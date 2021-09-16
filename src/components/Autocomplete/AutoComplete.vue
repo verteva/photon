@@ -512,7 +512,7 @@ export default Vue.extend({
 }
 
 .vs__dropdown-toggle{
-  @apply ph-rounded-xl;
+  @apply ph-rounded-lg;
   @apply ph-pb-0;
 }
 
@@ -550,14 +550,14 @@ export default Vue.extend({
 
 .ph-autocomplete-open .vs__dropdown-toggle{
   border-color: var(--borderFocusColor, #009EDE);
-  @apply ph-rounded-bl-xl;
-  @apply ph-rounded-br-xl;
+  @apply ph-rounded-bl-lg;
+  @apply ph-rounded-br-lg;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within{
   border-color: var(--borderFocusColor, #009EDE);
-  @apply ph-rounded-bl-xl;
-  @apply ph-rounded-br-xl;
+  @apply ph-rounded-bl-lg;
+  @apply ph-rounded-br-lg;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within svg{
@@ -586,7 +586,7 @@ export default Vue.extend({
   @apply ph-inline-block;
   @apply ph-m-0;
   @apply ph-p-px;
-  @apply ph-rounded-xl;
+  @apply ph-rounded-lg;
   @apply ph-bg-grey5;
   @apply ph-text-grey1;
 }

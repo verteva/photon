@@ -37,6 +37,9 @@ const Template = (args, { argTypes }) => ({
       />
       <p-text xs class="ph-mb-5">Name: {{ name }}</p-text>
       <p-button :disabled="false" @click="showError">Toggle inline errors</p-button>
+
+      <p-text xs class="ph-mt-10">Simple text field</p-text>
+      <p-input-text simple class="ph-mt-2"/>
     </div>
   `,
   data() {
