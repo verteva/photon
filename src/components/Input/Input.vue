@@ -47,6 +47,7 @@ export default Vue.extend({
     baseClassList():string[] {
       return [
         'photon-input-error',
+        'ph-absolute',
         'ph-animate-fadeDown',
         'ph-flex',
         'ph-items-center',

@@ -10,11 +10,15 @@ import PAutoComplete from './Autocomplete';
 import PDialog from './Dialog';
 import PInputSlider from './InputSlider';
 import PCard from './Card';
+import PRate from './Rate';
+import PDateInput from './DateInput';
+import PCheckbox from './Checkbox';
 import {
   PText,
   PH1,
   PH2,
   PH3,
+  PBlockquote,
 } from './Typography';
 
 
@@ -36,8 +40,12 @@ const components: PhotonComponents = {
   PH1,
   PH2,
   PH3,
+  PBlockquote,
   PInputSlider,
   PCard,
+  PRate,
+  PDateInput,
+  PCheckbox,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents

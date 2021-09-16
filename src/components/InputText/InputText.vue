@@ -1,5 +1,6 @@
 <template>
   <p-input
+    v-if="!simple"
     :class="{'ph-input-error-content':errors.length}"
     :errors="errors"
   >
@@ -41,6 +42,21 @@
       </div>
     </div>
   </p-input>
+  
+  <!-- Simple text field -->
+  <div :class="componentClassList" v-else>
+    <input
+      :id="id"
+      :class="baseClassList" 
+      :placeholder="placeholder"
+      :value="value"
+      :type="$attrs.type"
+      v-bind="$attrs"
+      v-on="$listeners"
+      @keydown="validatePress"
+      tabindex="0"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -61,6 +77,14 @@ export default Vue.extend({
   },
   
   props: {
+    centered: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    simple: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     number: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -134,6 +158,7 @@ export default Vue.extend({
         this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
+        this.centered ? 'ph-text-center' : '',
       ],
     } as InputTextData;
   },
@@ -158,7 +183,7 @@ export default Vue.extend({
         TODO: As an enhacement, add keycode checks
         to allow for a user select all (cmd + a)
         in the text input
-      */
+      */    
       if (this.number && !isNumber(event)) {
           return event.preventDefault();
       }
@@ -183,5 +208,11 @@ export default Vue.extend({
 <style lang="postcss">
 .ph-input-error-content input, .ph-input-error-content svg{
   @apply ph-text-alert2;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>
