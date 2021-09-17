@@ -2,6 +2,7 @@
   <div class="ph-flex ph-items-center ph-w-80">    
     <p-input-text
       placeholder="DD"
+      :dark-mode="darkMode"
       :value="day"
       simple
       centered
@@ -14,6 +15,7 @@
     
     <p-input-text
       placeholder="MM"
+      :dark-mode="darkMode"
       :value="month"
       simple
       centered
@@ -26,6 +28,7 @@
     
     <p-input-text
       placeholder="YYYY"
+      :dark-mode="darkMode"
       :value="year"
       simple
       centered
@@ -50,6 +53,11 @@ export default Vue.extend({
     value: {
       type: [Number, String] as PropType<number | string>,
       default: null,
+    },
+    
+    darkMode: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
   },
 
