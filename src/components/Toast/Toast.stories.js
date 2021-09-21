@@ -30,7 +30,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Toast = Template.bind({});
 Toast.args = {
-  title: 'itle',
+  title: 'Title',
   description: 'Some description...',
   callToAction: 'Next...',
 };
