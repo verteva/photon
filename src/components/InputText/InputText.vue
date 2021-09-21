@@ -150,7 +150,6 @@ export default Vue.extend({
         'ph-py-2 ph-px-5',
         'ph-border',
         'ph-border-grey5',
-        'focus:ph-text-brand2',
         'focus:ph-border-brand2',
         'focus:ph-outline-none',
         'ph-border-solid',
