@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.576] - 2021-09-21
+### Fix
+- remove input text color on focus
+
 ## [0.1.575] - 2021-09-21
 ### Fix
 - Update cross.svg to use currentColor
