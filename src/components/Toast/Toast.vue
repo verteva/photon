@@ -2,7 +2,7 @@
   <div :class="classList">
       <p-icon :name="typeStyle.icon" type="lg" :class="iconClassList" />
       <div class="ph-flex ph-flex-col ph-flex-1">
-        <div class="ph-font-bold ph-pt-1">
+        <div class="ph-font-bold ph-pt-1 ph-leading-5">
           {{ title }}
         </div>
         <div
