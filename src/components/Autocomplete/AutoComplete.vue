@@ -45,6 +45,7 @@
               type="med"
             ></p-icon>
             <input
+              ref="input"
               v-show="!selected ? true: !hideInputOnSelected"
               class="vs__search ph-flex-1"
               :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
@@ -187,7 +188,6 @@ import {
   DropDown,
   DropUp,
 } from "./types";
-import 'vue-select/dist/vue-select.css';
 import { createPopper } from '@popperjs/core'
 
 Vue.component('vSelect', vSelect);
@@ -507,6 +507,8 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss">
+@import 'vue-select/dist/vue-select.css';
+
 .ph-autocomplete__v-select {
   --maxHeight: 304px;
 }
