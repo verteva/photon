@@ -34,16 +34,16 @@ import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 import PButton from '../Button';
 import {
-  ToastStyleType,
-  ToastSuccess,
-  ToastInfo,
-  ToastError,
-  ToastAlert,
-  ToastType,
+  MessageStyleType,
+  MessageSuccess,
+  MessageInfo,
+  MessageError,
+  MessageWarning,
+  MessageType,
 } from './types';
 
 export default Vue.extend({
-  name: 'Toast',
+  name: 'Message',
   
   components: {
     PIcon,
@@ -52,10 +52,10 @@ export default Vue.extend({
 
   props: {
     type: {
-      type: String as PropType<ToastType>,
+      type: String as PropType<MessageType>,
       default: 'success',
       validator(value: string): boolean {       
-        return [ToastSuccess, ToastInfo, ToastError, ToastAlert].indexOf(value) !== -1;
+        return [MessageSuccess, MessageInfo, MessageError, MessageWarning].indexOf(value) !== -1;
       },
     },
 
@@ -81,9 +81,9 @@ export default Vue.extend({
   },
   
   computed: {
-    typeStyle():ToastStyleType {
+    typeStyle():MessageStyleType {
       switch(this.type) {
-        case ToastSuccess: 
+        case MessageSuccess: 
         default:
           return {
             icon: 'Success',
@@ -93,7 +93,7 @@ export default Vue.extend({
             ],
           }
          
-        case ToastInfo: 
+        case MessageInfo: 
           return {
             icon: 'Info',
             classes: [
@@ -102,7 +102,7 @@ export default Vue.extend({
             ],
           }
         
-        case ToastError: 
+        case MessageError: 
           return {
             icon: 'Error',
             classes: [
@@ -111,7 +111,7 @@ export default Vue.extend({
             ],
           }
         
-        case ToastAlert: 
+        case MessageWarning: 
           return {
             icon: 'Alert',
             classes: [
@@ -125,19 +125,19 @@ export default Vue.extend({
     iconClassList():string[] {
       let iconColor = 'inherit';
       
-      if (this.type === ToastSuccess) {
+      if (this.type === MessageSuccess) {
         iconColor = 'ph-text-alert3';
       }
       
-      if (this.type === ToastInfo) {
+      if (this.type === MessageInfo) {
         iconColor = 'ph-text-brand2';
       }
       
-      if (this.type === ToastError) {
+      if (this.type === MessageError) {
         iconColor = 'ph-text-alert2';
       }
       
-      if (this.type === ToastAlert) {
+      if (this.type === MessageWarning) {
         iconColor = 'ph-text-alert1';
       }
        
@@ -160,11 +160,6 @@ export default Vue.extend({
         ...this.typeStyle.classes,
       ];
     }
-  },
-  watch: {
-
-  },
-  methods: {
   },
 });
 </script>
