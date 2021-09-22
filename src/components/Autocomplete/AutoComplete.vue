@@ -39,6 +39,7 @@
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
             <p-icon
+              ref="prefixIcon"
               v-if="prefixIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
               :name="prefixIcon"
@@ -106,6 +107,7 @@
         <template #open-indicator="{ attributes }">
           <span v-bind="attributes">
             <p-icon
+              class="openIndicator"
               v-if="!hideOpenIndicator"
               :name="openIndicatorIcon"
               :type="openIndicatorIconSize"
@@ -132,7 +134,7 @@
         </template>
         <template #no-options>
           <label
-            class="ph-pl-1"
+            class="ph-pl-1 noOptionnsText"
             v-html="noOptionsText"
           ></label>
         </template>
