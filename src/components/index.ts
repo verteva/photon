@@ -13,6 +13,7 @@ import PCard from './Card';
 import PRate from './Rate';
 import PDateInput from './DateInput';
 import PCheckbox from './Checkbox';
+import PMessage from './Message';
 import {
   PText,
   PH1,
@@ -46,6 +47,7 @@ const components: PhotonComponents = {
   PRate,
   PDateInput,
   PCheckbox,
+  PMessage,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
