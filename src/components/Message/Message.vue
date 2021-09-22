@@ -119,7 +119,7 @@ export default Vue.extend({
               'ph-bg-alert-light1',
             ],
           }         
-      };
+      }
     },
 
     iconClassList():string[] {
