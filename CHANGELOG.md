@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.577] - 2021-09-22
+### Added
+- Added the Message component
+
 ## [0.1.576] - 2021-09-21
 ### Fix
 - remove input text color on focus
