@@ -206,8 +206,15 @@ describe('AutoComplete.vue', () => {
     })
 
     const input = wrapper.findComponent({ ref: 'input' });
+    
+    expect(wrapper.vm.focused).toBe(false)
+
     await input.trigger('focus')
 
     expect(wrapper.vm.focused).toBe(true)
+
+    await input.trigger('blur')
+
+    expect(wrapper.vm.focused).toBe(false)
   })
 });
