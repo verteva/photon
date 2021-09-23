@@ -39,12 +39,14 @@
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
             <p-icon
+              ref="prefixIcon"
               v-if="prefixIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
               :name="prefixIcon"
               type="med"
             ></p-icon>
             <input
+              ref="input"
               v-show="!selected ? true: !hideInputOnSelected"
               class="vs__search ph-flex-1"
               :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
@@ -105,6 +107,7 @@
         <template #open-indicator="{ attributes }">
           <span v-bind="attributes">
             <p-icon
+              class="openIndicator"
               v-if="!hideOpenIndicator"
               :name="openIndicatorIcon"
               :type="openIndicatorIconSize"
@@ -131,7 +134,7 @@
         </template>
         <template #no-options>
           <label
-            class="ph-pl-1"
+            class="ph-pl-1 noOptionnsText"
             v-html="noOptionsText"
           ></label>
         </template>
@@ -187,7 +190,6 @@ import {
   DropDown,
   DropUp,
 } from "./types";
-import 'vue-select/dist/vue-select.css';
 import { createPopper } from '@popperjs/core'
 
 Vue.component('vSelect', vSelect);
@@ -507,6 +509,8 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss">
+@import 'vue-select/dist/vue-select.css';
+
 .ph-autocomplete__v-select {
   --maxHeight: 304px;
 }
