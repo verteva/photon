@@ -16,6 +16,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div>
+      TODO: Workout how to get Vuex working with this
       <p-toast />
       <br />
       <p-button @click="newToast" size='xs'>Add</p-button>
