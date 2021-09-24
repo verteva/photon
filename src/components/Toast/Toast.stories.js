@@ -1,6 +1,6 @@
 import PToast from './Toast.vue';
 import PButton from '../Button';
-import { v4 as uuidv4 } from 'uuid';
+import store from '../store';
 
 export default {
   title: 'Components/Toast',
@@ -10,18 +10,21 @@ export default {
   },
 };
 
+
 const Template = (args, { argTypes }) => ({
   components: { PToast, PButton },
   props: Object.keys(argTypes),
   template: `
     <div>
-      <p-toast :store="messages" /><br />
+      <p-toast />
+      <br />
       <p-button @click="newToast" size='xs'>Add</p-button>
     </div>
   `,
 
   data() {
     return {
+      store,
       messages: {
         queue: [],
       },
@@ -35,11 +38,11 @@ const Template = (args, { argTypes }) => ({
       else if (rollTheDice < 0.5) type = 'info';
       else if (rollTheDice < 0.75) type = 'error';
       else if (rollTheDice < 1) type = 'warning';
-
-      this.messages.queue.unshift({
-        title: 'Toast message',
-        type,
-        id: uuidv4(),
+      
+      this.store.dispatch('toast/popToast', {
+        type: 'success',
+        title: `Message`,
+        autoclose: true,
       });
     },
   },

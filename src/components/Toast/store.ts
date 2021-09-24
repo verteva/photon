@@ -19,10 +19,13 @@ export const actions = {
   },
   
   removeToast: ({ commit, state }, id) => {    
-    const setflaggedToast = state.queue.map(t => ({
-      ...t,
-      remove: t.id === id,
-    }))
+    const setflaggedToast = state.queue.map(t => {
+      const toastData = { ...t };
+      if (typeof t.remove === 'undefined' && t.id === id) {
+        toastData.remove = true;
+      }
+      return toastData;
+    });
     return commit('SET', setflaggedToast);
   },
 };

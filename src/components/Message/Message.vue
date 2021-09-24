@@ -21,7 +21,7 @@
         </p-button>
       </div>
     </div>
-    <div @click="$emit('close')">
+    <div @click="$emit('close')" v-if="!hideClose">
       <p-icon 
         name="Cross" 
         type="lg" 
@@ -74,6 +74,11 @@ export default Vue.extend({
     callToAction: {
       type: String as PropType<string>,
       default: '',
+    },
+   
+    hideClose: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
   },
 
