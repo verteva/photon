@@ -43,11 +43,6 @@ export default Vue.extend({
     },
   },
 
-  mounted() {
-    console.log((this as any).$store);
-    
-  },
-
   watch: {
     messageList() {
       console.log(this.messageList);
