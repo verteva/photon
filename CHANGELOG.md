@@ -6,10 +6,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.580] - 2021-09-27
-### Added
-- Removing brand color when focus on checkbox
-
 ## [0.1.579] - 2021-09-24
 ## [0.1.578] - 2021-09-24
 ### Added

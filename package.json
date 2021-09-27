@@ -1,6 +1,6 @@
 {
   "name": "@nanonpm/photon",
-  "version": "0.1.580",
+  "version": "0.1.579",
   "private": false,
   "scripts": {
     "test:unit": "vue-cli-service test:unit",
