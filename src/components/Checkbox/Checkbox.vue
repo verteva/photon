@@ -8,7 +8,7 @@
       class="ph-checkbox ph-absolute ph-opacity-0"
       @change="onChange"
     />
-    <label :for="id" class="ph-text-sm ph-pl-2 ph-transition ph-duration-500">
+    <label :for="id" class="ph-text-sm ph-pl-2 ph-transition ph-duration-500 ph-cursor-pointer">
       <div
         class="ph-w-6 ph-h-6 ph-rounded-md ph-border ph-absolute ph-left-0 ph-flex ph-items-center ph-justify-center ph-transition"
         :class="value ? 'ph-bg-brand2 ph-border-brand2' : 'ph-bg-grey6 ph-border-grey5'"
@@ -85,9 +85,5 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss" scoped>
-
-.ph-checkbox:focus + label {
-  @apply ph-text-brand2;
-}
 
 </style>
