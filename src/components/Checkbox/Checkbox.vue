@@ -86,8 +86,4 @@ export default Vue.extend({
 
 <style lang="postcss" scoped>
 
-.ph-checkbox:focus + label {
-  @apply ph-text-brand2;
-}
-
 </style>
