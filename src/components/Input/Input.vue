@@ -4,7 +4,7 @@
   >
     <slot />
     <div
-      v-if="errors.length"
+      v-if="errors.length && !hideErrors"
       :class="baseClassList"
     >
       <p-icon
@@ -31,6 +31,10 @@ export default Vue.extend({
     PText,
   },
   props: {
+    hideErrors: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     errors: {
       type: Array as PropType<string[]>,
       default: ():[] => [],
@@ -50,7 +54,7 @@ export default Vue.extend({
         'ph-py-1',
         'ph-px-1 ph-text-alert2',
       ];
-    }
+    },
   }
 });
 </script>

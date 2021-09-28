@@ -9,6 +9,8 @@ import {
 } from 'vue/types/options';
 import './assets/scss/main.scss'
 
+import * as toast from './components/Toast/store';
+
 interface options {
   prefix?: string;
 }
@@ -24,5 +26,8 @@ export default {
       const _key: PhotonComponentKeys = key
       Vue.component(key, components[_key]);
     }
-  }
+  },
+  photonStores: {
+    toast,
+  },
 }

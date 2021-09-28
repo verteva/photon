@@ -135,11 +135,6 @@ export default {
               subText: '#F5F5F5',
             },
             {
-              bgColor: 'ph-bg-grey7',
-              name: 'Grey 7',
-              subText: '#222222',
-            },
-            {
               bgColor: 'ph-bg-white',
               name: 'White',
               subText: '#FFFFFF',

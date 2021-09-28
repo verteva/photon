@@ -32,6 +32,8 @@ module.exports = {
       grey5: '#E2E2E2',
       grey6: '#F5F5F5',
       grey7: '#222222',
+      grey8: '#EEEEEE',
+      grey9: '#E0E0E0',
       white: '#FFFFFF',
       titanium: '#f1f1f1',
       transparent: 'transparent',
@@ -84,6 +86,9 @@ module.exports = {
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
       fadeDown: 'fadeDown .35s cubic-bezier(.3,.28,.26,.81)',
+      fadeIn: 'fadeIn .35s cubic-bezier(.3,.28,.26,.81)',
+      fadeInSlow: 'fadeIn 2s cubic-bezier(.3,.28,.26,.81)',
+      fadeOut: 'fadeOut .35s cubic-bezier(.3,.28,.26,.81)',
     },
     backdropBlur: (theme) => theme('blur'),
     backdropBrightness: (theme) => theme('brightness'),
@@ -183,7 +188,7 @@ module.exports = {
     boxShadow: {
       brand: '0px 0px 0px 6px rgba(0, 158, 222, 0.4)',
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-      DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      DEFAULT: '0 2.76px 2.21px 0 rgba(0, 0, 0, 0.02), 0 6.65px 5.32px 0 rgba(0, 0, 0, 0.03)',
       md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       lg: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       xl: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
@@ -300,6 +305,7 @@ module.exports = {
       xxs: ['0.625rem', { lineHeight: '1.5' }],
       '2xl': ['1.5rem', { lineHeight: '2rem' }],
       '3xl': ['1.875rem', { lineHeight: '2.25rem' }],
+      '3.5xl': ['2.125rem', { lineHeight: '2.25rem' }],
       '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
       '5xl': ['3rem', { lineHeight: '1' }],
       '6xl': ['3.75rem', { lineHeight: '1' }],
@@ -512,6 +518,22 @@ module.exports = {
           transform: 'translateY(0)',
         },
       },
+      fadeIn: {
+        '0%': {
+          opacity: 0,
+        },
+        '100%': {
+          opacity: 1,
+        },
+      },
+      fadeOut: {
+        '0%': {
+          opacity: 1,
+        },
+        '100%': {
+          opacity: 0,
+        },
+      },
     },
     letterSpacing: {
       tighter: '-0.05em',
@@ -528,6 +550,7 @@ module.exports = {
       normal: '1.5',
       relaxed: '1.625',
       loose: '2',
+      max: '3',
       3: '.75rem',
       4: '1rem',
       5: '1.25rem',
@@ -582,6 +605,7 @@ module.exports = {
       full: '100%',
       min: 'min-content',
       max: 'max-content',
+      72: '18rem',
     },
     objectPosition: {
       bottom: 'bottom',
@@ -802,6 +826,7 @@ module.exports = {
     }),
     width: (theme) => ({
       '7.5': '1.875rem',
+      '100': '30rem', 
       auto: 'auto',
       ...theme('spacing'),
       '1/2': '50%',
@@ -838,6 +863,7 @@ module.exports = {
     zIndex: {
       auto: 'auto',
       0: '0',
+      5: '5',
       10: '10',
       20: '20',
       30: '30',

@@ -1,6 +1,6 @@
 {
   "name": "@nanonpm/photon",
-  "version": "0.1.557",
+  "version": "0.1.580",
   "private": false,
   "scripts": {
     "test:unit": "vue-cli-service test:unit",
@@ -20,11 +20,13 @@
   "dependencies": {
     "@storybook/addon-postcss": "^2.0.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@types/greensock": "^1.15.32",
     "core-js": "^3.6.5",
     "gsap": "^3.7.1",
     "harp": "^0.41.0",
     "vue": "^2.6.11",
-    "vue-select": "^3.11.2"
+    "vue-select": "^3.12.2",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
