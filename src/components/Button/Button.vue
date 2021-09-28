@@ -13,13 +13,13 @@
       :slot="name"
       :name="name"
     />
-    <div class="ph-flex ">
-      <div 
+    <div class="ph-flex">
+      <div
         class="ph-relative ph-z-5 ph-w-full ph-flex ph-items-center ph-justify-center"
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',
-          upperCase ? 'ph-uppercase' : ''
+          upperCase ? 'ph-uppercase' : '',
         ]"
       >
         <slot name="default">
@@ -63,7 +63,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue, { PropType } from "vue";
 import {
   ButtonStylelist,
   ButtonStylePrimary,
@@ -77,12 +77,12 @@ import {
 } from "./types";
 
 export default Vue.extend({
-  name: 'PButton',
+  name: "PButton",
 
   props: {
     label: {
       type: String as PropType<string>,
-      default: 'Button',
+      default: "Button",
     },
     buttonStyle: {
       type: String as PropType<string>,
@@ -124,7 +124,11 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: ButtonMedium,
       validator(value: string): boolean {
-        return [ButtonXSmall, ButtonSmall, ButtonMedium, ButtonLarge].indexOf(value) !== -1;
+        return (
+          [ButtonXSmall, ButtonSmall, ButtonMedium, ButtonLarge].indexOf(
+            value
+          ) !== -1
+        );
       },
     },
   },
@@ -132,171 +136,154 @@ export default Vue.extend({
   data(): any {
     return {
       baseClassList: [
-        'ph-group',
-        'ph-border',
-        'ph-border-solid',
-        'ph-relative',
-        'ph-relative',
-        'ph-items-center',
-        'ph-justify-center',
-        'ph-transition',
-        'ph-shadow-none',
-        'focus:ph-outline-none',
-        'focus:ph-shadow-brand',
-        this.block && 'ph-w-full' || '',
-        !this.noRadius ? 'ph-rounded-3xl' : '',
+        "ph-group",
+        "ph-border",
+        "ph-border-solid",
+        "ph-relative",
+        "ph-relative",
+        "ph-items-center",
+        "ph-justify-center",
+        "ph-transition",
+        "ph-shadow-none",
+        "focus:ph-outline-none",
+        "focus:ph-shadow-brand",
+        (this.block && "ph-w-full") || "",
+        !this.noRadius ? "ph-rounded-3xl" : "",
       ],
-    }
+    };
   },
 
   computed: {
     loaderClassList(): string[] {
       const classes = [
-        'ph-left-1/2 ph-top-1/2',
-        this.size === 'medium' && 'ph-h-6 ph-w-6 ph--ml-3 ph--mt-3' || '',
-        this.size === 'small' && 'ph-h-5 ph-w-5 ph--ml-2.5 ph--mt-2.5' || '',
-        this.size === 'xs' && 'ph-h-4 ph-w-4 ph--ml-2 ph--mt-2' || '',
-      ];  
+        "ph-left-1/2 ph-top-1/2",
+        (this.size === "medium" && "ph-h-6 ph-w-6 ph--ml-3 ph--mt-3") || "",
+        (this.size === "small" && "ph-h-5 ph-w-5 ph--ml-2.5 ph--mt-2.5") || "",
+        (this.size === "xs" && "ph-h-4 ph-w-4 ph--ml-2 ph--mt-2") || "",
+      ];
       return classes;
-    },  
+    },
     classList(): string[] {
       const a: string[] = [
         ...this.baseClassList,
         ...this.buttonStyles,
-        this.isDisabled && 'ph-cursor-not-allowed',
+        this.isDisabled && "ph-cursor-not-allowed",
       ];
       return a;
     },
     sizing(): string[] {
-      switch(this.size) {
+      switch (this.size) {
         case ButtonXSmall:
-          return [
-            'ph-text-xxs',
-            'ph-py-1',
-            'ph-px-2.5',
-          ];
+          return ["ph-text-xxs", "ph-py-1", "ph-px-2.5"];
           break;
         case ButtonSmall:
-          return [
-            'ph-text-xs',
-            'ph-py-1.5',
-            'ph-px-3.5',
-          ];
+          return ["ph-text-xs", "ph-py-1.5", "ph-px-3.5"];
           break;
       }
 
-      return [
-        'ph-text-sm',
-        'ph-py-2.5',
-        'ph-px-5',
-      ];
+      return ["ph-text-sm", "ph-py-2.5", "ph-px-5"];
     },
     buttonStyles(): string[] {
-      const common = [
-        'ph-tracking-wider',
-        ...this.sizing,
-      ];
-      
+      const common = ["ph-tracking-wider", ...this.sizing];
+
       switch (this.buttonStyle as keyof ButtonStylelist) {
         case ButtonStylePrimary:
         default:
-          return [
-            ...common,
-            ...this.primaryButtonStyles
-          ];
+          return [...common, ...this.primaryButtonStyles];
           break;
         case ButtonStyleSecondary:
-          return [
-            ...common,
-            ...this.secondaryButtonStyles,
-          ];
+          return [...common, ...this.secondaryButtonStyles];
           break;
         case ButtonStylePlain:
-          return [
-            ...this.plainButtonStyles,
-          ];
+          return [...this.plainButtonStyles];
           break;
       }
     },
-    primaryButtonStyles (): string[] {
+    primaryButtonStyles(): string[] {
       if (!this.outlined) {
         return [
-          'ph-bg-gradient-brand2',
-          !this.disabled ?
-            'ph-text-white ph-border-brand2' :
-            'ph-text-grey4 ph-border-grey4',
+          "ph-bg-gradient-brand2",
+          !this.disabled
+            ? "ph-text-white ph-border-brand2"
+            : "ph-text-grey4 ph-border-grey4",
         ];
       }
 
       if (this.outlined) {
         return [
-          'ph-border-grey4',
-          !this.disabled ? 'ph-text-brand2 hover:ph-text-grey1' : 'ph-text-grey4 ph-border-grey4',
+          "ph-border-grey4",
+          !this.disabled
+            ? "ph-text-brand2 hover:ph-text-grey1"
+            : "ph-text-grey4 ph-border-grey4",
         ];
       }
-      
+
       if (this.disabled) {
-        return ['ph-text-grey4 ph-bg-white ph-border-grey4'];
+        return ["ph-text-grey4 ph-bg-white ph-border-grey4"];
       }
-    
 
       return [];
     },
-    secondaryButtonStyles (): string[] {
+    secondaryButtonStyles(): string[] {
       if (!this.outlined) {
         return [
-          'ph-bg-gradient-light-grey',
-          !this.disabled ? 'ph-text-grey hover:ph-text-brand2 ph-border-titanium hover:ph-border-brand2' : 'ph-text-grey4 ph-border-grey5',
+          "ph-bg-gradient-light-grey",
+          !this.disabled
+            ? "ph-text-grey hover:ph-text-brand2 ph-border-titanium hover:ph-border-brand2"
+            : "ph-text-grey4 ph-border-grey5",
         ];
       }
 
       if (this.outlined) {
         return [
-          !this.disabled ? 'ph-text-grey1 ph-border-grey4 hover:ph-border-grey3' : 'ph-text-grey4 ph-border-grey4',
+          !this.disabled
+            ? "ph-text-grey1 ph-border-grey4 hover:ph-border-grey3"
+            : "ph-text-grey4 ph-border-grey4",
         ];
-      }    
+      }
 
       return [];
     },
-    plainButtonStyles (): string[] {
-      return [
-        'ph-p-0',
-        'ph-border-none',
-      ]
+    plainButtonStyles(): string[] {
+      return ["ph-p-0", "ph-border-none"];
     },
-    hoverBackgroundStyles (): string[] {
+    hoverBackgroundStyles(): string[] {
       return [
-        'ph-absolute',
-        'ph-top-0',
-        'ph-left-0',
-        'ph-w-full',
-        'ph-h-full',
-        'ph-transition',
-        'ph-duration-300',
-        'ph-opacity-0',
-        (this.buttonStyle === ButtonStylePrimary) && 'ph-bg-black' || '',
-        (this.buttonStyle === ButtonStyleSecondary) && 'ph-bg-white' || '',
-        (!this.disabled && this.buttonStyle === ButtonStylePrimary) ? 'group-hover:ph-opacity-20' : '',
-        (!this.disabled && this.buttonStyle === ButtonStyleSecondary) ? 'group-hover:ph-opacity-100' : '',
+        "ph-absolute",
+        "ph-top-0",
+        "ph-left-0",
+        "ph-w-full",
+        "ph-h-full",
+        "ph-transition",
+        "ph-duration-300",
+        "ph-opacity-0",
+        (this.buttonStyle === ButtonStylePrimary && "ph-bg-black") || "",
+        (this.buttonStyle === ButtonStyleSecondary && "ph-bg-white") || "",
+        !this.disabled && this.buttonStyle === ButtonStylePrimary
+          ? "group-hover:ph-opacity-20"
+          : "",
+        !this.disabled && this.buttonStyle === ButtonStyleSecondary
+          ? "group-hover:ph-opacity-100"
+          : "",
       ];
     },
-    disabledBackgroundStyles (): string[] {
-      const styles:string[] = [
-        'ph-absolute',
-        'ph-top-0',
-        'ph-left-0',
-        'ph-w-full',
-        'ph-h-full',
-        'ph-transition ph-duration-300',
-        this.disabled ? 'ph-opacity-100' : 'ph-opacity-0',
+    disabledBackgroundStyles(): string[] {
+      const styles: string[] = [
+        "ph-absolute",
+        "ph-top-0",
+        "ph-left-0",
+        "ph-w-full",
+        "ph-h-full",
+        "ph-transition ph-duration-300",
+        this.disabled ? "ph-opacity-100" : "ph-opacity-0",
       ];
 
       switch (this.buttonStyle) {
         case ButtonStylePrimary:
-          styles.push('ph-bg-grey3');
+          styles.push("ph-bg-grey3");
           break;
         case ButtonStyleSecondary:
-          styles.push('ph-bg-white');
+          styles.push("ph-bg-white");
           break;
       }
 
@@ -319,44 +306,44 @@ export default Vue.extend({
 //   min-width: 78px;
 //   height: 44px;
 
-  .progress-circular {
-    animation: circular-dash 2.2s ease-in-out infinite;
-    stroke-linecap: round;
-    stroke-dasharray: 80, 200;
+.progress-circular {
+  animation: circular-dash 2.2s ease-in-out infinite;
+  stroke-linecap: round;
+  stroke-dasharray: 80, 200;
+  stroke-dashoffset: 0px;
+}
+
+@keyframes circular-dash {
+  0% {
+    stroke-dasharray: 1, 200;
     stroke-dashoffset: 0px;
   }
 
-  @keyframes circular-dash {
-    0% {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0px;
-    }
-
-    50% {
-      stroke-dasharray: 100, 200;
-      stroke-dashoffset: -15px;
-    }
-
-    100% {
-      stroke-dasharray: 100, 200;
-      stroke-dashoffset: -125px;
-    }
+  50% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -15px;
   }
+
+  100% {
+    stroke-dasharray: 100, 200;
+    stroke-dashoffset: -125px;
+  }
+}
 // }
 
-button{
+button {
   position: relative;
   overflow: hidden;
 }
 
 button:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   width: 5px;
   height: 5px;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, 0.5);
   opacity: 0;
   border-radius: 100%;
   transform: scale(1, 1) translate(-50%);
@@ -381,5 +368,4 @@ button:after {
 button:focus:not(:active)::after {
   animation: ripple 1s ease-out;
 }
-
 </style>
