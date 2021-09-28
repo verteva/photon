@@ -265,6 +265,7 @@ export default Vue.extend({
         !this.disabled && this.buttonStyle === ButtonStyleSecondary
           ? "group-hover:ph-opacity-100"
           : "",
+        !this.noRadius ? "ph-rounded-3xl" : "",
       ];
     },
     disabledBackgroundStyles(): string[] {
@@ -276,6 +277,7 @@ export default Vue.extend({
         "ph-h-full",
         "ph-transition ph-duration-300",
         this.disabled ? "ph-opacity-100" : "ph-opacity-0",
+        !this.noRadius ? "ph-rounded-3xl" : "",
       ];
 
       switch (this.buttonStyle) {
