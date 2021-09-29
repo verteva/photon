@@ -3,7 +3,6 @@
     :is="type"
     :bind="$attrs"
     :class="classList"
-    class="AAAAAAAAAA"
   >
     <slot />
   </component>
