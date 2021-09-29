@@ -8,11 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.581] - 2021-09-29
 ### Added
-- change input error display
+- Button component Safari enhancement
+- Change input error display
+- Added List/List item component
 
 ## [0.1.580] - 2021-09-27
 ### Added
-- remove Checkbox focus color, add cursor
+- Remove Checkbox focus color, add cursor
 
 ## [0.1.579] - 2021-09-24
 ## [0.1.578] - 2021-09-24
