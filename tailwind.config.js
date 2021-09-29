@@ -564,6 +564,7 @@ module.exports = {
       none: 'none',
       disc: 'disc',
       decimal: 'decimal',
+      circle: 'circle',
     },
     margin: (theme, { negative }) => ({
       auto: 'auto',

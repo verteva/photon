@@ -15,6 +15,8 @@ import PDateInput from './DateInput';
 import PCheckbox from './Checkbox';
 import PMessage from './Message';
 import PToast from './Toast';
+import PList from './List';
+import PLi from './ListItem';
 import {
   PText,
   PH1,
@@ -50,6 +52,8 @@ const components: PhotonComponents = {
   PCheckbox,
   PMessage,
   PToast,
+  PList,
+  PLi,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
