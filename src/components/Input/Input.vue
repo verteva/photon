@@ -1,18 +1,15 @@
 <template>
-  <div
-    class="ph-pb-7"
-  >
+  <div>
     <slot />
     <div
-      v-if="errors.length && !hideErrors"
-      :class="baseClassList"
+      :class="[baseClassList, {'photon-errors-show': errors.length && !hideErrors}]"
     >
       <p-icon
         class="ph-mr-1"
         name="Error"
         type="sm"
       />
-      <p-text sm>
+      <p-text sm class="ph-min-h-1.5em">
         {{ errorsMessages }}
       </p-text>
     </div>
@@ -47,10 +44,11 @@ export default Vue.extend({
     baseClassList():string[] {
       return [
         'photon-input-error',
-        'ph-absolute',
+        'ph-opacity-0',
+        'ph-text-sm',
+        'ph-min-h-1.5em',
         'ph-animate-fadeDown',
         'ph-flex',
-        'ph-items-center',
         'ph-py-1',
         'ph-px-1 ph-text-alert2',
       ];
@@ -58,3 +56,8 @@ export default Vue.extend({
   }
 });
 </script>
+<style lang="postcss" scoped>
+.photon-errors-show{
+  opacity: 1!important;
+}
+</style>
