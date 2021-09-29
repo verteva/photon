@@ -2,7 +2,7 @@
   <div>
     <slot />
     <div
-      :class="[baseClassList, {'photon-errors-show': errors.length && !hideErrors}]"
+      :class="baseClassList"
     >
       <p-icon
         class="ph-mr-1"
@@ -44,20 +44,15 @@ export default Vue.extend({
     baseClassList():string[] {
       return [
         'photon-input-error',
-        'ph-opacity-0',
         'ph-text-sm',
         'ph-min-h-1.5em',
         'ph-animate-fadeDown',
         'ph-flex',
         'ph-py-1',
         'ph-px-1 ph-text-alert2',
+        (this.errors.length && !this.hideErrors) ? 'ph-opacity-1' : 'ph-opacity-0',
       ];
     },
   }
 });
 </script>
-<style lang="postcss" scoped>
-.photon-errors-show{
-  opacity: 1!important;
-}
-</style>
