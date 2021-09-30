@@ -5,8 +5,10 @@
     :errors="errors"
   >
     <p-label>
-      {{ label }}
-      <slot v-if="!label" name="label" />
+      <slot
+        v-if="!label"
+        name="label"
+      />
     </p-label>
 
     <div :class="componentClassList">
@@ -19,22 +21,21 @@
           type="lg"
         />
       </div>
-      <div :id="id" class="ph-flex ph-flex-row">
-        <input
-          v-for="index in length"
-          :key="index"
-          :class="baseClassList" 
-          :placeholder="placeholder"
-          :value="value"
-          :type="$attrs.type"
-          tabindex="0"
-          size="1"
-          @keydown="validatePress"
-          @input="updateValue($event.target.value)"
-          @focus="onFocus"
-          @blur="onBlur"
-        />
-      </div>
+      <VuePhoneNumberInput 
+        v-model="value" 
+        :style="{
+          '--countriesHeight': countries.length * 30,
+        }
+        "
+        border-radius="12"
+        default-country-code="AU"
+        :only-countries="countries"
+        :translations="translations"
+        no-example
+        show-code-on-list
+        v-bind="$attrs"
+        v-on="$listeners"
+      />
       <div
         v-if="iconRight"
         :class="[iconClassList, 'ph-right-1']"
@@ -46,21 +47,6 @@
       </div>
     </div>
   </p-input>
-  
-  <!-- Simple text field -->
-  <div :class="componentClassList" v-else>
-    <input
-      :id="id"
-      :class="baseClassList" 
-      :placeholder="placeholder"
-      :value="value"
-      :type="$attrs.type"
-      v-bind="$attrs"
-      v-on="$listeners"
-      @keydown="validatePress"
-      tabindex="0"
-    />
-  </div>
 </template>
 
 <script lang="ts">
@@ -68,8 +54,9 @@ import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 import PInput from '../Input';
 import PLabel from '../Label';
-import { InputTextData, InputValueType } from './types';
-import { isNumber } from '../../utils';
+import { InputTextData, InputValueType } from './types'
+import VuePhoneNumberInput from 'vue-phone-number-input';
+import 'vue-phone-number-input/dist/vue-phone-number-input.css';
 
 export default Vue.extend({
   name: 'PInputPhone',
@@ -78,6 +65,7 @@ export default Vue.extend({
     PIcon,
     PInput,
     PLabel,
+    VuePhoneNumberInput,
   },
   
   props: {
@@ -121,9 +109,9 @@ export default Vue.extend({
       type: [Number, String] as PropType<InputValueType>,
       default: null,
     },
-    length: {
+    countriesRows: {
       type: Number as PropType<number>,
-      default: 6,
+      default: 10,
     }
   },
 
@@ -151,6 +139,7 @@ export default Vue.extend({
       ],
       baseClassList: [
         'ph-antialiased',
+        'ph-w-full ',
         'ph-font-normal ',
         'ph-text-grey1 ',
         'ph-rounded-lg ',
@@ -176,6 +165,18 @@ export default Vue.extend({
         'ph-relative',
       ];      
     },
+    countries(): string[] {
+      return [
+        'AU'
+      ]
+    },
+    translations (): Record<string, unknown> {
+      return {
+        'countrySelectorLabel' : '',
+        'phoneNumberLabel' : this.placeholder,
+      }
+    }
+
   },
 
   mounted() {
@@ -184,21 +185,6 @@ export default Vue.extend({
 
 
   methods: {
-    validatePress(event:KeyboardEvent) {
-      /* 
-        TODO: As an enhacement, add keycode checks
-        to allow for a user select all (cmd + a)
-        in the text input
-      */    
-      if (this.number && !isNumber(event)) {
-          return event.preventDefault();
-      }
-    },
-
-    updateValue(value:string){     
-      this.$emit('input', value);
-    },
-
     onFocus(e:InputEvent) {
       this.inFocus = true;
       this.$emit('focus', e);
@@ -220,5 +206,50 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+.country-selector__country-flag{
+  top: 16px!important;
+}
+.country-selector__input{
+  padding-top: 0!important;
+}
+.input-tel__input{
+  border-left-width: 0px!important;
+}
+.select-country-container{
+  flex: 0 0 60px!important;
+  width: 60px!important;
+  min-width: auto!important;
+}
+.country-selector__input{
+  width: 0px!important;
+}
+.country-selector__input{
+  border-right-width: 0px!important;
+}
+.input-tel__input{
+  padding-top: 0px!important;
+}
+.vue-phone-number-input{
+  border-radius: 12px;
+}
+.vue-phone-number-input:focus-within{
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+}
+.country-selector__input, .input-tel__input{
+  box-shadow: none!important;
+  border-color: #e0e0e0 !important;
+}
+
+.country-selector__list.has-calling-code{
+  border-radius: 0px!important;
+  height: var(--countriesHeight)!important;
+  min-height: var(--countriesHeight)!important;
+}
+.resize-observer{
+  height: 0px!important;
+}
+.input-tel__label{
+  display: none;
 }
 </style>
