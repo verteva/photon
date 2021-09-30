@@ -27,6 +27,7 @@ const Template = (args, { argTypes }) => ({
         <p-li class="ph-ml-2">Inception</p-li>
         <p-li class="ph-ml-2">Platoon</p-li>
       </p-list>
+
     </div>
   `,
 });
