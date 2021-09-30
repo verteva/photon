@@ -41,6 +41,8 @@ module.exports = {
       'alert-light1': '#FFF9F5',
       'alert-light2': '#FEF8F9',
       'alert-light3': '#EDF7EE',
+      // Colours with opacity
+      grey5_o15: '#E2E2E226',
     },
     spacing: {
       px: '1px',

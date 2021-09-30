@@ -37,6 +37,14 @@ export default Vue.extend({
         return ['brand1', 'brand2', 'alert2', 'none'].includes(value) ;
       },
     },
+    
+    spacing: {
+      type: String as PropType<string>,
+      default: 'normal',
+      validator(value: string): boolean {
+        return ['tight', 'normal'].includes(value) ;
+      },
+    },
   },
 
   computed: {
@@ -44,6 +52,7 @@ export default Vue.extend({
       return [
         `ph-list-type-${this.listType}`,
         `ph-list-color-${this.listColor}`,
+        `ph-list-item-${this.spacing}`,
       ]
     },
   },
@@ -56,9 +65,18 @@ ul, ol {
   padding-left: 0.6rem
 }
 
+.ph-list-item-tight li {
+  margin: 0;
+}
+
+.ph-list-item-normal li {
+  margin: 0.4rem 0;
+}
+
 .ph-list-type-circle {
   @apply ph-list-circle;  
 }
+
 .ph-list-type-decimal {
   @apply ph-list-decimal;
 }
