@@ -12,15 +12,21 @@ const Template = (args, { argTypes }) => ({
   components: { PInfoCard },
   props: Object.keys(argTypes),
   template: `
-    <p-info-card v-bind='$props'>
-      Some content...
-    </p-info-card>
+    <div>
+      <p-info-card v-bind='$props' brand-bar>
+        Some content...
+      </p-info-card>
+      <br /><br />
+      <p-info-card v-bind='$props' >
+        Some content...
+      </p-info-card>
+    </div>
   `,
 });
 
 export const InfoCard = Template.bind({});
 InfoCard.args = {
-  heading: 'Some heading',
+  heading: 'Some headline',
   icon: 'Medical',
   iconBg: 'brand2',
   contentBg: 'grey6',
