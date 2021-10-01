@@ -65,6 +65,7 @@ export default Vue.extend({
           IconSizeXl,
           IconSizeXXl,
           IconSizeXXXl,
+          IconSizeXXXXl,
           IconSizeHuge,
         ].includes(value) ;
       },
