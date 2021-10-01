@@ -13,6 +13,7 @@ export type IconSize =
   typeof IconSizeXl |
   typeof IconSizeXXl |
   typeof IconSizeXXXl |
+  typeof IconSizeXXXXl |
   typeof IconSizeHuge;
   
 export const IconSizeXs = 'xs';
@@ -22,6 +23,7 @@ export const IconSizeLg = 'lg';
 export const IconSizeXl = 'xl';
 export const IconSizeXXl = 'xxl';
 export const IconSizeXXXl = 'xxxl';
+export const IconSizeXXXXl = 'xxxxl';
 export const IconSizeHuge = 'huge';
 
 export const IconXs = 12;
@@ -31,4 +33,5 @@ export const IconLg = 32;
 export const IconXl = 50;
 export const IconXXl = 60;
 export const IconXXXl = 80;
+export const IconXXXXl = 90;
 export const IconHuge = 110;
