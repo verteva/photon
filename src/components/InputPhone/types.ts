@@ -1,10 +1,9 @@
-export interface InputTextData {
+export interface InputPhoneData {
   id: string;
   inFocus: boolean;
+  innerValue: string;
   _uid: string;
-  iconClassList: string[];
   baseClassList: string[];
-  currencyOptions: any;
 }
 
 export type InputValueType = string | number;

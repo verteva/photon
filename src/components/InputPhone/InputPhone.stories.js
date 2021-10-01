@@ -20,15 +20,9 @@ const Template = (args, { argTypes }) => ({
         :errors="errs"
       >        
         <template v-slot:label>
-          <p-label>Password<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal">(min 6 characters)</span></p-label>
+          <p-label>Input Phone<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal"></span></p-label>
         </template>        
       </p-input-phone>
-
-      <p-text xs class="ph-mb-5">Name: {{ name }}</p-text>
-      <p-button :disabled="false" @click="showError">Toggle inline errors</p-button>
-
-      <p-text xs class="ph-mt-10">Simple text field</p-text>
-      <p-input-text simple class="ph-mt-2"/>
     </div>
   `,
   data() {
