@@ -41,6 +41,8 @@ module.exports = {
       'alert-light1': '#FFF9F5',
       'alert-light2': '#FEF8F9',
       'alert-light3': '#EDF7EE',
+      // Colours with opacity
+      grey5_o15: '#E2E2E226',
     },
     spacing: {
       px: '1px',
@@ -564,6 +566,7 @@ module.exports = {
       none: 'none',
       disc: 'disc',
       decimal: 'decimal',
+      circle: 'circle',
     },
     margin: (theme, { negative }) => ({
       auto: 'auto',
@@ -599,6 +602,7 @@ module.exports = {
       0: '0px',
       full: '100%',
       screen: '100vh',
+      '1.5em': '1.5em',
     },
     minWidth: {
       0: '0px',
