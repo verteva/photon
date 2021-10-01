@@ -51,18 +51,6 @@ export default Vue.extend({
   },
   
   props: {
-    centered: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    simple: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    number: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
     darkMode: {
       type: Boolean as PropType<boolean>,
       default: false,
