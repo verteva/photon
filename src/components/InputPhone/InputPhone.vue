@@ -17,6 +17,7 @@
         :style="{
           '--countriesHeight': onlyCountries.length * 30,
           '--countriesMaxHeight': onlyCountries,
+          '--borderRadius': borderRadius+'px',
         }
         "
         :border-radius="borderRadius"
@@ -180,7 +181,7 @@ input::-webkit-inner-spin-button {
   padding-top: 0px!important;
 }
 .vue-phone-number-input{
-  border-radius: 12px;
+  border-radius: var(--borderRadius, 12px);
 }
 .vue-phone-number-input:focus-within{
   box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
@@ -201,6 +202,6 @@ input::-webkit-inner-spin-button {
   height: 0px!important;
 }
 .input-tel__label{
-  display: none;
+  @apply ph-hidden;
 }
 </style>
