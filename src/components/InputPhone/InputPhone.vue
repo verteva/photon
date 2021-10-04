@@ -135,7 +135,6 @@ export default Vue.extend({
   methods: {
     onFocus(e:InputEvent) {
       (this as any).inFocus = true;
-      console.log("inFocus",  (this as any).inFocus);
       (this as any).$emit('focus', e);
     },
     onBlur(e:InputEvent) {
