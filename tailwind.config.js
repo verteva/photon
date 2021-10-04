@@ -34,6 +34,7 @@ module.exports = {
       grey7: '#222222',
       grey8: '#EEEEEE',
       grey9: '#E0E0E0',
+      grey10: '#FBFBFB',
       white: '#FFFFFF',
       titanium: '#f1f1f1',
       transparent: 'transparent',
@@ -41,8 +42,6 @@ module.exports = {
       'alert-light1': '#FFF9F5',
       'alert-light2': '#FEF8F9',
       'alert-light3': '#EDF7EE',
-      // Colours with opacity
-      grey5_o15: '#E2E2E226',
     },
     spacing: {
       px: '1px',
