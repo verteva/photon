@@ -6,12 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.587] - 2021-10-05
+- Fix InfoCard's colour and gradients
+
+
 ## [0.1.586] - 2021-10-01
 ## [0.1.585] - 2021-10-01
 ### Added
 - New SVG for gradient backgrounds
-
-
 
 ## [0.1.583] - 2021-09-30
 ### Added
