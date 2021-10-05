@@ -1,7 +1,8 @@
 <template>
   <div :class="classList">
+    <div :class="brandBarClassList" v-if="brandBar" />
     <div class="ph-bg-white">
-      <div v-if="heading" class="ph-bg-grey5_o15 ph-w-full ph-relative">
+      <div v-if="heading" class="ph-bg-grey10 ph-w-full ph-relative">
         <div class="ph-p-5" :class="!brandBar ? 'ph-pl-9' : ''">
           <PBrandGradientText>
             <span class="ph-text-2xl ph-font-bold">
@@ -76,13 +77,24 @@ export default Vue.extend({
   computed: {
     classList():string[] {
       return [
-        'ph-bg-gradient-to-t',
-        'ph-from-brand2',
-        'ph-to-brand1',
+        'ph-relative',
         'ph-rounded-lg',
         this.brandBar ? 'ph-pl-4' : '',
         'ph-overflow-hidden',
         this.shadow ? 'ph-shadow' : '',
+      ]
+    },
+    
+    brandBarClassList():string[] {
+      return [
+        'ph-bg-gradient-to-t',
+        'ph-from-brand2',
+        'ph-to-brand1',
+        'ph-w-4',
+        'ph-h-full',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-absolute',
       ]
     },
     
