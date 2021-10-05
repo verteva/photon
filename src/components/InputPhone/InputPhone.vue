@@ -186,7 +186,6 @@ input::-webkit-inner-spin-button {
   @apply ph-border-transparent;
 }
 .vue-phone-number-input:focus-within{
-  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
   @apply ph-border-brand2;
 }
 .country-selector__input, .input-tel__input{
