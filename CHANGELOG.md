@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.588] - 2021-10-05
+- Add Input Phone Component
+
 ## [0.1.587] - 2021-10-05
 - Fix InfoCard's colour and gradients
 
