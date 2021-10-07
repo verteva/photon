@@ -6,6 +6,7 @@ import PAccordion from './Accordion';
 import PForm from './Form';
 import PInput from './Input';
 import PLabel from './Label';
+import PInputPhone from './InputPhone';
 import PInputText from './InputText';
 import PAutoComplete from './Autocomplete';
 import PDialog from './Dialog';
@@ -39,6 +40,7 @@ const components: PhotonComponents = {
   PAccordion,
   PAutoComplete,
   PIcon,
+  PInputPhone,
   PInputText,
   PInput,
   PLabel,
