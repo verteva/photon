@@ -4,7 +4,8 @@
       <div
         v-for="item in items"
         :key="`${item.label}-${id}`"
-        class="ph-relative ph-col-span-12 sm:ph-col-span-6"
+        class="ph-relative"
+        :class="`sm:ph-col-span-${colLg} ph-col-span-${colSm}`"
       >
         <PInputRadio
           :id="`${item.label}-${id}`"
@@ -39,6 +40,14 @@ export default Vue.extend({
     name: {
       type: String as PropType<string>,
       default: "groupName",
+    },
+    colLg: {
+      type: Number as PropType<number>,
+      default: 6,
+    },
+    colSm: {
+      type: Number as PropType<number>,
+      default: 12,
     },
   },
   data() {
