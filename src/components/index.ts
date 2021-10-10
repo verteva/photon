@@ -14,6 +14,8 @@ import PCard from './Card';
 import PRate from './Rate';
 import PDateInput from './DateInput';
 import PCheckbox from './Checkbox';
+import PInputRadio from './InputRadio';
+import PRadioGroup from './RadioGroup';
 import PMessage from './Message';
 import PToast from './Toast';
 import PList from './List';
@@ -60,6 +62,8 @@ const components: PhotonComponents = {
   PLi,
   PInfoCard,
   PBrandGradientText,
+  PInputRadio,
+  PRadioGroup
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
