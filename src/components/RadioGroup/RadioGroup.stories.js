@@ -24,6 +24,20 @@ const Template = (args, { argTypes }) => ({
           value: 2,
           label: 'With a plus one',
         },
+        {
+          value: 4,
+          label: 'With 4 people',
+        },
+        {
+          value: 7,
+          label: 'With dsaa plus one',
+        },
+        {
+          value: 99,
+          label: 'With 9 people',
+        },
+
+ 
       ]">
       </PRadioGroup>
     </div>

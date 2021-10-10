@@ -1,56 +1,53 @@
 <template>
-  <p-input :errors="errors">
-    <div class="ph-relative">
-      <input
-        :id="id"
-        v-model="innerValue"
-        type="radio"
-        class="focus:ph-outline-none ph-opacity-0 ph-w-0 ph-h-0 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2"
-        :value="radioValue"
-        :name="name"
-      />
-      <label
-        :for="id"
-        class="ph-border-brand2"
-        :class="[
-          ...radioClassList,
-          innerValue === value && innerValue !== null && value !== null
-            ? 'ph-bg-brand2_05 ph-border-brand2'
-            : [unselectedBackgroundColor, 'ph-border-grey4'],
-        ]"
-        @click="$emit('input', radioValue)"
-      >
-        {{ label }}
-      </label>
+  <div
+    class="ph-relative radio-item"
+    :style="rows"
+  >
+    <input
+      :id="id"
+      v-model="innerValue"
+      type="radio"
+      class="focus:ph-outline-none ph-opacity-0 ph-w-0 ph-h-0 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2"
+      :value="radioValue"
+      :name="name"
+      @focus="$emit('input', radioValue)"
+    />
+    <label
+      :for="id"
+      class="ph-border-brand2"
+      :class="[
+        ...radioClassList,
+        innerValue === value && innerValue !== null && value !== null
+          ? 'ph-bg-brand2_05 ph-border-brand2'
+          : [unselectedBackgroundColor, 'ph-border-grey4'],
+      ]"
+    >
+      {{ label }}
+    </label>
+    <div
+      class="ph-pointer-events-none ph-w-4 ph-h-4 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2 ph-rounded-full ph-border ph-transition ph-duration-300"
+      :class="
+        innerValue === value && innerValue !== null && value !== null
+          ? 'ph-bg-brand2 ph-border-brand2'
+          : 'ph-border-grey4'
+      "
+    >
       <div
-        class="ph-pointer-events-none ph-w-4 ph-h-4 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2 ph-rounded-full ph-border ph-transition ph-duration-300"
-        :class="
+        class="ph-w-2 ph-h-2 ph-absolute ph-inset-1/2 ph--mt-1 ph--ml-1 ph-rounded-full ph-transition ph-duration-300 ph-transform"
+        :class="[
           innerValue === value && innerValue !== null && value !== null
-            ? 'ph-bg-brand2 ph-border-brand2'
-            : 'ph-border-grey4'
-        "
-      >
-        <div
-          class="ph-w-2 ph-h-2 ph-absolute ph-inset-1/2 ph--mt-1 ph--ml-1 ph-rounded-full ph-transition ph-duration-300 ph-transform"
-          :class="[
-            innerValue === value && innerValue !== null && value !== null
-              ? 'ph-opacity-1 ph-scale-75'
-              : 'ph-scale-150',
-            darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
-          ]"
-        />
-      </div>
+            ? 'ph-opacity-1 ph-scale-75'
+            : 'ph-scale-150',
+          darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
+        ]"
+      />
     </div>
-  </p-input>
+  </div>
 </template>
 <script lang="ts">
 import Vue, { PropType } from "vue";
-import PInput from "../Input";
 export default Vue.extend({
   name: "InputRadio",
-  components: {
-    PInput,
-  },
   props: {
     errors: {
       type: Array,
@@ -81,6 +78,10 @@ export default Vue.extend({
       default: "",
     },
     id: {
+      type: String as PropType<string>,
+      default: "",
+    },
+    rows: {
       type: String as PropType<string>,
       default: "",
     },
@@ -119,9 +120,14 @@ export default Vue.extend({
   @apply ph-text-grey1;
 }
 .ph-radio-group input:focus + label {
-  /* @apply ph-bg-brand2_05; */
+  @apply ph-bg-brand2_05;
   @apply ph-border-solid;
   @apply ph-text-brand2;
   @apply ph-border-brand2;
+}
+@media (max-width: theme("screens.sm")) {
+  .radio-item {
+    width: 100% !important;
+  }
 }
 </style>
