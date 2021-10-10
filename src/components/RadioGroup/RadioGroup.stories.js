@@ -30,7 +30,7 @@ const Template = (args, { argTypes }) => ({
         },
         {
           value: 7,
-          label: 'With dsaa plus one',
+          label: 'With your plus one',
         },
         {
           value: 99,
