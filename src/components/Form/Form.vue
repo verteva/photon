@@ -1,8 +1,8 @@
 <template>
   <form
     ref="pform"
-    v-bind="$attrs"
     :novalidate="novalidate"
+    v-bind="$attrs"
     v-on="$listeners"
   > 
     <slot />
