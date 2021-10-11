@@ -1,7 +1,10 @@
 <template>
   <p-input
     v-if="!simple"
-    :class="{'ph-input-error-content':errors.length}"
+    :class="[
+      errors.length ? 'ph-input-error-content' : '',
+      darkMode ? 'ph-inputPhone-dark' : '',
+    ]"
     :errors="errors"
   >
     <p-label>
@@ -192,6 +195,11 @@ input::-webkit-inner-spin-button {
   box-shadow: none!important;
   border-color: #e0e0e0 !important;
   @apply ph-text-grey1;
+}
+
+.ph-inputPhone-dark .country-selector__input,
+.ph-inputPhone-dark .input-tel__input{
+  @apply ph-bg-grey6;
 }
 
 .country-selector__list.has-calling-code{

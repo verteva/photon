@@ -44,9 +44,7 @@ export default Vue.extend({
   },
 
   watch: {
-    messageList() {
-      console.log(this.messageList);
-      
+    messageList() {      
       this.messageList.forEach(msg => {     
         if (msg.autoclose && typeof msg.remove === 'undefined') {
           const { id } = msg;

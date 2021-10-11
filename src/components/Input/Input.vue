@@ -49,6 +49,7 @@ export default Vue.extend({
         'ph-min-h-1.5em',
         'ph-animate-fadeDown',
         'ph-flex',
+        'ph-items-center',
         'ph-py-1',
         'ph-px-1 ph-text-alert2',
         (this.errors.length && !this.hideErrors) ? 'ph-opacity-1' : 'ph-opacity-0',
