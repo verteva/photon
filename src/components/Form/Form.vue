@@ -61,7 +61,7 @@ export default Vue.extend({
       });
     },
     onSubmit(){
-      this.$emit("submit");
+      this.$emit("submit.prevent");
     }
   },
 });

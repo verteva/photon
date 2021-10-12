@@ -27,7 +27,7 @@ const Template = (args, { argTypes }) => ({
     },
   },
   template: `
-      <p-form v-bind="$props" @submit="onSubmit()">
+      <p-form v-bind="$props" @submit.prevent="onSubmit">
         <p-input-text v-model="value"/>
         <p-button type="submit" label="Submit"/>
         <p-text xs class="ph-mt-5" :class="showValue?'ph-block':'ph-hidden'">Result: {{ result }}</p-text>
