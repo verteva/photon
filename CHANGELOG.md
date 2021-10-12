@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.1.592] - 2021-10-12
 - Add Form component
+- Add enhancements to the radio button comp
 
 ## [0.1.591] - 2021-10-11
 - Add radio buttons and fix for alignment in errors

@@ -66,15 +66,15 @@ export default Vue.extend({
       default: "",
     },
     value: {
-      type: [String, Number] as PropType<string | number>,
-      default: null,
+      type: [String, Number, Boolean] as PropType<string | number | boolean>,
+      default: "",
     },
     darkMode: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
     radioValue: {
-      type: [String, Number] as PropType<string | number>,
+      type: [String, Number, Boolean] as PropType<string | number | boolean>,
       default: "",
     },
     id: {
@@ -124,10 +124,5 @@ export default Vue.extend({
   @apply ph-border-solid;
   @apply ph-text-brand2;
   @apply ph-border-brand2;
-}
-@media (max-width: theme("screens.sm")) {
-  .radio-item {
-    width: 100% !important;
-  }
 }
 </style>
