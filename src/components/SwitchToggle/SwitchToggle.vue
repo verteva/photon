@@ -5,7 +5,7 @@
   >
     Toggle
     <label
-      class="switch ph-relative ph-flex"
+      class="switch-label ph-relative ph-flex"
       :for="id"
     >
       <input
@@ -13,7 +13,7 @@
         v-model="innerValue"
         :name="name"
         type="checkbox"
-        class="ph-checkbox ph-absolute ph-opacity-0"
+        class="switch-input ph-checkbox ph-absolute ph-opacity-0"
         @change="onChange"
       />
       <span
@@ -75,7 +75,7 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss" scoped>
-.switch {
+.switch-label {
   width: 51px;
   height: 31px;
 }
