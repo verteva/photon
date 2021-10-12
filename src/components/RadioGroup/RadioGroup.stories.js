@@ -1,5 +1,5 @@
 import PRadioGroup from "./RadioGroup.vue";
-
+import PButton from "../Button";
 export default {
   title: "Forms/RadioGroup",
   component: PRadioGroup,
@@ -9,12 +9,12 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { PRadioGroup },
+  components: { PRadioGroup, PButton },
   props: Object.keys(argTypes),
   template: `
     <div>
       <PRadioGroup
-      v-bind='$props' v-model="value" :errors="errors"
+      v-bind='$props' v-model="value" :errors="errs"
       :items="[
         {
           value: 1,
@@ -36,20 +36,29 @@ const Template = (args, { argTypes }) => ({
           value: 99,
           label: 'With 9 people',
         },
-
- 
       ]">
       </PRadioGroup>
+      <p-button :disabled="false" @click="showError">Toggle inline errors</p-button>
     </div>
   `,
   data() {
     return {
       value: null,
+      errs: [],
     };
+  },
+  methods: {
+    showError() {
+      if (this.errs?.length) {
+        this.errs = [];
+      } else {
+        this.errs = ["Inine validation error"];
+      }
+    },
   },
 });
 
 export const RadioGroup = Template.bind({});
 RadioGroup.args = {
-  // Props to be passed....
+  defaultValue: "",
 };

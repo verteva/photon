@@ -67,7 +67,7 @@ export default Vue.extend({
     },
     value: {
       type: [String, Number, Boolean] as PropType<string | number | boolean>,
-      default: "",
+      default: null,
     },
     darkMode: {
       type: Boolean as PropType<boolean>,
@@ -84,6 +84,10 @@ export default Vue.extend({
     rows: {
       type: String as PropType<string>,
       default: "",
+    },
+    defaultValue: {
+      type: [Boolean, String, Number] as PropType<boolean | string | number>,
+      default: null,
     },
   },
   data() {
@@ -109,6 +113,11 @@ export default Vue.extend({
     unselectedBackgroundColor() {
       return this.darkMode ? "ph-bg-grey6" : "ph-bg-white";
     },
+  },
+  mounted() {
+    if ((this as any).radioValue === (this as any).value) {
+      (this as any).innerValue = (this as any).radioValue;
+    }
   },
 });
 </script>

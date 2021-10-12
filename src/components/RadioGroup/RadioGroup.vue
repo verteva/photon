@@ -14,6 +14,7 @@
         :name="name"
         :rows="numRows"
         :dark-mode="darkMode"
+        :default-value="defaultValue"
       ></PInputRadio>
     </div>
   </p-input>
@@ -50,11 +51,15 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    defaultValue: {
+      type: [Boolean, String, Number] as PropType<boolean | string | number>,
+      default: "",
+    },
   },
   data() {
     return {
       id: uuidv4(),
-      value: null,
+      value: this.defaultValue,
     };
   },
   computed: {
