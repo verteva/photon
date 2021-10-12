@@ -3,6 +3,7 @@ import PIcon from './Icon';
 import PButton from './Button';
 import PSkipLink from './SkipLink';
 import PAccordion from './Accordion';
+import PForm from './Form';
 import PInput from './Input';
 import PLabel from './Label';
 import PInputPhone from './InputPhone';
@@ -62,6 +63,7 @@ const components: PhotonComponents = {
   PLi,
   PInfoCard,
   PBrandGradientText,
+  PForm,
   PInputRadio,
   PRadioGroup
 };
