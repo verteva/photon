@@ -4,6 +4,7 @@
     :novalidate="novalidate"
     v-bind="$attrs"
     v-on="$listeners"
+    @submit.prevent="onSubmit"
   > 
     <slot />
   </form>
@@ -39,6 +40,11 @@ export default Vue.extend({
   watch:{
     disabledAll:{
       handler: 'disableAll',
+    },
+    disabled:{
+      handler(){
+        this.disabledAll = this.disabled;
+      }
     }
   },
   mounted(){
@@ -53,6 +59,9 @@ export default Vue.extend({
           item.removeAttribute('disabled');
         }
       });
+    },
+    onSubmit(){
+      this.$emit("submit");
     }
   },
 });
