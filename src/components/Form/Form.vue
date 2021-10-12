@@ -15,12 +15,7 @@ import Vue, { PropType } from 'vue';
 import { FormData } from './types';
 
 export default Vue.extend({
-  name: 'PForm',
-
-  components: {
-
-  },
-  
+  name: 'PForm',  
   props: {
     novalidate: {
       type: Boolean as PropType<boolean>,
@@ -37,35 +32,32 @@ export default Vue.extend({
       disabledAll: false,
     } as FormData;
   },
-  watch:{
-    disabledAll:{
+  watch: {
+    disabledAll: {
       handler: 'disableAll',
     },
-    disabled:{
-      handler(){
+    disabled: {
+      handler() {
         this.disabledAll = this.disabled;
       }
     }
   },
-  mounted(){
+  mounted() {
     this.disabledAll = this.disabled;
   },
   methods: {
     disableAll(val: boolean) {
       ((this.$refs.pform as HTMLElement).getElementsByTagName('input') as any as Array<HTMLElement>).forEach((item)=>{
         if(val){
-          item.setAttribute('disabled', "");
+          item.setAttribute('disabled','');
         }else{
           item.removeAttribute('disabled');
         }
       });
     },
-    onSubmit(){
-      this.$emit("submit.prevent");
+    onSubmit() {
+      this.$emit('submit.prevent');
     }
   },
 });
 </script>
-<style lang="postcss">
-
-</style>

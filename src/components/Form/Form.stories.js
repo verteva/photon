@@ -5,9 +5,6 @@ import { PText } from '../Typography';
 
 export default {
   title: 'Forms/Form',
-  argTypes: {
-   
-  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -38,5 +35,4 @@ const Template = (args, { argTypes }) => ({
 export const Inputs = Template.bind({});
 Inputs.args = {
   disabled: false,
-
 };
