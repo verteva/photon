@@ -120,7 +120,7 @@ export default Vue.extend({
   @apply ph-text-grey1;
 }
 .ph-radio-group input:focus + label {
-  @apply ph-bg-brand2_05;
+  /* @apply ph-bg-brand2_05; */
   @apply ph-border-solid;
   @apply ph-text-brand2;
   @apply ph-border-brand2;
