@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.592] - 2021-10-13
+### Fix
+- Publish new version as p-from did not build previously
+
 ## [0.1.592] - 2021-10-12
 - Add Form component
 - Add enhancements to the radio button comp
