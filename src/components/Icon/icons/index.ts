@@ -87,6 +87,7 @@ export default [
   'ID',
   'IdApproved',
   'IdCard',
+  'IdCardGradient',
   'Identity',
   'InProgress',
   'Inactive',

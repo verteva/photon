@@ -6,6 +6,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.592] - 2021-10-13
+### Fix
+- Publish new version as p-from did not build previously
+
+## [0.1.592] - 2021-10-12
+- Add Form component
+- Add enhancements to the radio button comp
+
+## [0.1.591] - 2021-10-11
+- Add radio buttons and fix for alignment in errors
+
+## [0.1.590] - 2021-10-05
+- Make phont input show a dark bg
+
+## [0.1.589] - 2021-10-05
+- Remove log
+
+## [0.1.588] - 2021-10-05
+- Add Input Phone Component
+
+## [0.1.587] - 2021-10-05
+- Fix InfoCard's colour and gradients
+
+
+## [0.1.586] - 2021-10-01
+## [0.1.585] - 2021-10-01
+### Added
+- New SVG for gradient backgrounds
+
 ## [0.1.583] - 2021-09-30
 ### Added
 - Resolve Checkbox dark border and font size
