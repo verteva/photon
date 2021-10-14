@@ -8,16 +8,15 @@
       v-model="innerValue"
       type="radio"
       class="focus:ph-outline-none ph-opacity-0 ph-w-0 ph-h-0 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2"
-      :value="radioValue"
       :name="name"
-      @focus="$emit('input', radioValue)"
+      @focus="$emit('input', valueRadio)"
     />
     <label
       :for="id"
       class="ph-border-brand2"
       :class="[
         ...radioClassList,
-        innerValue === value && innerValue !== null && value !== null
+        value === valueRadio
           ? 'ph-bg-brand2_05 ph-border-brand2'
           : [unselectedBackgroundColor, 'ph-border-grey4'],
       ]"
@@ -27,7 +26,7 @@
     <div
       class="ph-pointer-events-none ph-w-4 ph-h-4 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2 ph-rounded-full ph-border ph-transition ph-duration-300"
       :class="
-        innerValue === value && innerValue !== null && value !== null
+        value === valueRadio
           ? 'ph-bg-brand2 ph-border-brand2'
           : 'ph-border-grey4'
       "
@@ -35,9 +34,7 @@
       <div
         class="ph-w-2 ph-h-2 ph-absolute ph-inset-1/2 ph--mt-1 ph--ml-1 ph-rounded-full ph-transition ph-duration-300 ph-transform"
         :class="[
-          innerValue === value && innerValue !== null && value !== null
-            ? 'ph-opacity-1 ph-scale-75'
-            : 'ph-scale-150',
+          value === valueRadio ? 'ph-opacity-1 ph-scale-75' : 'ph-scale-150',
           darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
         ]"
       />
@@ -73,7 +70,7 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
-    radioValue: {
+    valueRadio: {
       type: [String, Number, Boolean] as PropType<string | number | boolean>,
       default: "",
     },
@@ -85,14 +82,10 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: "",
     },
-    defaultValue: {
-      type: [Boolean, String, Number] as PropType<boolean | string | number>,
-      default: null,
-    },
   },
   data() {
     return {
-      innerValue: null,
+      innerValue: this.valueRadio || null,
       radioClassList: [
         "ph-flex",
         "ph-rounded-xl ph-h-full ph-py-2 ph-px-5",
@@ -114,11 +107,11 @@ export default Vue.extend({
       return this.darkMode ? "ph-bg-grey6" : "ph-bg-white";
     },
   },
-  mounted() {
-    if ((this as any).radioValue === (this as any).value) {
-      (this as any).innerValue = (this as any).radioValue;
-    }
-  },
+  // mounted() {
+  //   if ((this as any).radioValue === (this as any).value) {
+  //     (this as any).innerValue = (this as any).radioValue;
+  //   }
+  // },
 });
 </script>
 

@@ -14,7 +14,7 @@ const Template = (args, { argTypes }) => ({
   template: `
     <div>
       <PRadioGroup
-      v-bind='$props' v-model="value" :errors="errs"
+      v-bind='$props' v-model="innerValue" :errors="errs"
       :items="[
         {
           value: 1,
@@ -43,7 +43,7 @@ const Template = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      value: null,
+      innerValue: null,
       errs: [],
     };
   },
