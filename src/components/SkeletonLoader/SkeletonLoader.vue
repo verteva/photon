@@ -13,23 +13,79 @@
         '--listMargin': listMargin,
         '--alignment': alignment,
         '--listPadding': listPadding,
+        '--colWidth': colWidth,
+        '--colRadius': colRadius,
+        '--dividerHeight': dividerHeight,
+        '--tablePadding': tablePadding,
       }"
       v-bind="$attrs"
       v-on="$listeners"
     >
-      <div
-        class="photon-skeleton-loader-main"
-      >
-      </div>
-      <div
-        class="photon-skeleton-loader-lists"
-      >
+      <div v-if="type === 'card'">
         <div
-          v-for="i in listSize"
-          :key="i"
-          class="photon-skeleton-loader-list"
+          class="photon-skeleton-loader-main"
         >
-          <div class="photon-skeleton-loader-list-item"></div>
+        </div>
+        <div
+          class="photon-skeleton-loader-lists"
+        >
+          <div
+            v-for="i in listSize"
+            :key="i"
+            class="photon-skeleton-loader-list"
+          >
+            <div class="photon-skeleton-loader-list-item"></div>
+          </div>
+        </div>
+      </div>
+      <div v-if="type === 'card'">
+        <div
+          class="photon-skeleton-loader-main"
+        >
+        </div>
+        <div
+          class="photon-skeleton-loader-lists"
+        >
+          <div
+            v-for="i in listSize"
+            :key="i"
+            class="photon-skeleton-loader-list"
+          >
+            <div class="photon-skeleton-loader-list-item"></div>
+          </div>
+        </div>
+      </div>
+      <div v-else-if="type === 'lists'">
+        <div
+          class="photon-skeleton-loader-lists"
+        >
+          <div
+            v-for="i in listSize"
+            :key="i"
+            class="photon-skeleton-loader-list"
+          >
+            <div class="photon-skeleton-loader-list-item"></div>
+          </div>
+        </div>
+      </div>
+      <div v-else-if="type === 'table'">
+        <div class="photon-skeleton-loader-table-body">
+          <div
+            v-for="row in rows"
+            :key="row"
+            class="photon-skeleton-loader-table-row"
+          >
+            <div class="photon-skeleton-loader-table-row-divider">
+              <div
+                v-for="col in cols"
+                :key="row+'|'+col"
+                class="photon-skeleton-loader-table-col"
+              >
+              </div>
+            </div>
+            <div class="photon-skeleton-loader-table-divider">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -84,7 +140,7 @@ export default Vue.extend({
     },
     type: {
       type: String as PropType<string>,
-      default: 'rect',
+      default: 'table',
     },
     rounded: {
       type: Boolean as PropType<boolean>,
@@ -93,6 +149,34 @@ export default Vue.extend({
     borderRadius: {
       type: Number as PropType<number>,
       default: 12,
+    },
+    rows: {
+      type: Number as PropType<number>,
+      default: 5,
+    },
+    cols: {
+      type: Number as PropType<number>,
+      default: 6,
+    },
+    tablePadding: {
+      type: String as PropType<string>,
+      default: '16px 16px 0px 16px',
+    },
+    colWidth: {
+      type: Number as PropType<number>,
+      default: '88px',
+    },
+    colRadius: {
+      type: Number as PropType<number>,
+      default: '6px',
+    },
+    dividerHeight: {
+      type: Number as PropType<number>,
+      default: '2px',
+    },
+    dividerRadius: {
+      type: Number as PropType<number>,
+      default: '1px',
     }
   },
   computed: {
@@ -146,6 +230,54 @@ export default Vue.extend({
 }
 
 .photon-skeleton-loader-list-item::after {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  -webkit-animation: loading 1.5s infinite;
+  animation: loading 1.5s infinite;
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.photon-skeleton-loader-table-body{
+  padding: var(--tablePadding, 0px);
+}
+
+.photon-skeleton-loader-table-row {
+  width: var(--width, 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.photon-skeleton-loader-table-row-divider {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.photon-skeleton-loader-table-col {
+  align-items: center;
+  width: var(--colWidth, 88px);
+  height: var(--listHeight, 12px);
+  border-radius: var(--colRadius, 6px);
+  background-color: var(--bgColor, rgba(0, 0, 0, 0.12));
+  position: relative;
+  margin: var(--listMargin, '18px 0px');
+  padding: var(--listPadding, '18px 0px');
+}
+.photon-skeleton-loader-table-divider {
+  width: var(--width, 100%);
+  height: var(--dividerHeight, 2px);
+  border-radius: var(--dividerRadius, 1px);
+  background-color: var(--bgColor, rgba(0, 0, 0, 0.12));
+  position: relative;
+}
+
+.photon-skeleton-loader-table-divider::after, .photon-skeleton-loader-table-col::after {
   background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
   -webkit-animation: loading 1.5s infinite;
   animation: loading 1.5s infinite;

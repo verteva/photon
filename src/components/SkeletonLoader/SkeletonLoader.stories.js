@@ -22,5 +22,6 @@ const Template = (args, { argTypes }) => ({
 export const SkeletonLoader = Template.bind({});
 SkeletonLoader.args = {
   width: '100%',
+  type: "lists",
   // Props to be passed....
 };
