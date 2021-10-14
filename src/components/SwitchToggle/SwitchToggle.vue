@@ -3,7 +3,6 @@
     :errors="errors"
     class="ph-relative"
   >
-    Toggle
     <label
       class="switch-label ph-relative ph-flex"
       :for="id"

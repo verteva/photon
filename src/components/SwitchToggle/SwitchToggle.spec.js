@@ -11,20 +11,16 @@ describe("SwitchToggle.vue", () => {
       },
     });
   };
-  it("check init value should be false", async () => {
+  it("init value is unchecked", async () => {
     const wrapper = createWrapper();
-    const input = wrapper.findComponent(SwitchToggle);
-    // console.log(input.props().value);
-    expect(input.props().value).toBe(false);
-    const inputElement = input.get(".switch-input");
-    await inputElement.setChecked();
-    await expect(input.props().value).toBe(true);
+    const input = wrapper.find("input");
+    expect(input.element.checked).toBeFalsy();
   });
 
-  it("init should be false", () => {
+  it("checkbox value checked", async () => {
     const wrapper = createWrapper();
-    const input = wrapper.findComponent(SwitchToggle);
-    // console.log(input.vm);
-    expect(input.exists()).toBe(true);
+    const input = wrapper.find("input");
+    await input.setChecked();
+    expect(input.element.checked).toBeTruthy();
   });
 });
