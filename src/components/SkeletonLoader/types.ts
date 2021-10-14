@@ -6,4 +6,4 @@ export interface InputPhoneData {
   baseClassList: string[];
 }
 
-export type InputValueType = string | number;
+export type skeletonType = string;

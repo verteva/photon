@@ -1,3 +1,3 @@
-import PSkeletonLoader from './PSkeletonLoaderPSkeletonLoader.vue';
+import PSkeletonLoader from './SkeletonLoader.vue';
 
 export default PSkeletonLoader;

@@ -13,13 +13,14 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div>
-      <p-skeleton-loader>   
+      <p-skeleton-loader v-bind="$props">   
       </p-skeleton-loader>
     </div>
   `,
 });
 
-export const InputPhone = Template.bind({});
-InputPhone.args = {
+export const SkeletonLoader = Template.bind({});
+SkeletonLoader.args = {
+  width: '100%',
   // Props to be passed....
 };
