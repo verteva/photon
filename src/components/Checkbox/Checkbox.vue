@@ -1,5 +1,5 @@
 <template>
-  <p-input :errors="errors" class="ph-relative ph-pl-7">
+  <p-input :errors="errors" class="ph-relative ph-pl-7 ph-flex ph-flex-col">
     <input
       v-model="innerValue"
       :id="id"
