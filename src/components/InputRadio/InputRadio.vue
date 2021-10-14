@@ -17,7 +17,7 @@
       :class="[
         ...radioClassList,
         value === valueRadio
-          ? 'ph-bg-brand2_05 ph-border-brand2'
+          ? 'ph-bg-brand-light2 ph-border-brand2'
           : [unselectedBackgroundColor, 'ph-border-grey4'],
       ]"
     >
@@ -107,11 +107,6 @@ export default Vue.extend({
       return this.darkMode ? "ph-bg-grey6" : "ph-bg-white";
     },
   },
-  // mounted() {
-  //   if ((this as any).radioValue === (this as any).value) {
-  //     (this as any).innerValue = (this as any).radioValue;
-  //   }
-  // },
 });
 </script>
 
@@ -122,7 +117,7 @@ export default Vue.extend({
   @apply ph-text-grey1;
 }
 .ph-radio-group input:focus + label {
-  @apply ph-bg-brand2_05;
+  @apply ph-bg-brand-light2;
   @apply ph-border-solid;
   @apply ph-text-brand2;
   @apply ph-border-brand2;
