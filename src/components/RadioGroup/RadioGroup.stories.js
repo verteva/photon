@@ -59,6 +59,4 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const RadioGroup = Template.bind({});
-RadioGroup.args = {
-  defaultValue: "",
-};
+RadioGroup.args = {};
