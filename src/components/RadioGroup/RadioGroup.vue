@@ -8,8 +8,8 @@
         v-for="item in items"
         :id="`${item.label}-${id}`"
         :key="`${item.label}-${id}`"
-        v-model="value"
-        :radio-value="item.value"
+        v-model="innerValue"
+        :value-radio="item.value"
         :label="item.label"
         :name="name"
         :rows="numRows"
@@ -50,21 +50,27 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    value: {
+      type: [Boolean, String, Number] as PropType<boolean | string | number>,
+      default: null,
+    },
   },
   data() {
     return {
       id: uuidv4(),
-      value: null,
     };
   },
   computed: {
     numRows(): string {
       return `grid-template-rows: repeat(${this.rows}, auto);`;
     },
-  },
-  watch: {
-    value() {
-      this.$emit("input", this.value);
+    innerValue: {
+      get() {
+        return (this as any).value;
+      },
+      set(val) {
+        (this as any).$emit("input", val);
+      },
     },
   },
 });

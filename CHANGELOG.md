@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.595] - 2021-10-14
+### Fix
+- Radio button reactivity fix
+
 ## [0.1.594] - 2021-10-14
 ### Fix
 - Fix checkbox vertical aligment on firefox broweser

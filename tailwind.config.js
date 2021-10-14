@@ -15,7 +15,6 @@ module.exports = {
     },
     colors: {
       current: "currentColor",
-      brand2_05: "rgba(0, 155, 222, 0.05)",
       brand1: "#3DD6C7",
       brand2: "#009EDE",
       brand3: "#004DBD",
