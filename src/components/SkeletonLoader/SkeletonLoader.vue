@@ -142,7 +142,7 @@ export default Vue.extend({
     },
     listPadding:{
       type: String as PropType<string>,
-      default: '0px 16px',
+      default: '0px 0px',
     },
     listMargin:{
       type: String as PropType<string>,
@@ -226,7 +226,7 @@ export default Vue.extend({
   @apply ph-relative;
   @apply ph-flex;
   height: var(--listHeight, 48px);
-  padding: var(--listPadding, '18px 0px');
+  padding: var(--listPadding, '0px 0px');
 }
 .photon-skeleton-loader-list-item {
   @apply ph-m-auto;
