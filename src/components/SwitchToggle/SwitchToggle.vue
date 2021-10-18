@@ -16,9 +16,9 @@
         @change="onChange"
       />
       <span
-        class="slider round ph-absolute ph-top-0 ph-right-0 ph-left-0 ph-bottom-0 ph-transition ph-cursor-pointer ph-bg-grey4"
-        :class="value && 'ph-bg-gradient-brand2'"
-      ></span>
+        class="slider round ph-absolute ph-top-0 ph-right-0 ph-left-0 ph-bottom-0 ph-transition ph-cursor-pointer ph-bg-grey4 ph-bg-gradient-brand2"
+      >
+      </span>
     </label>
   </p-input>
 </template>
@@ -37,10 +37,6 @@ export default Vue.extend({
     value: {
       type: Boolean as PropType<boolean>,
       default: false,
-    },
-    label: {
-      type: String as PropType<string>,
-      default: "",
     },
     name: {
       type: String as PropType<string>,
@@ -78,8 +74,22 @@ export default Vue.extend({
   width: 51px;
   height: 31px;
 }
+.slider.round {
+  border-radius: 31px;
+}
+input:checked + .slider:after {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+  @apply ph-bg-white;
+}
+input:checked + .slider:before {
+  @apply ph-bg-grey4;
+  opacity: 0;
+}
 
-.slider:before {
+.slider.round:after {
+  @apply ph-rounded-full;
   position: absolute;
   content: "";
   height: 27px;
@@ -90,22 +100,14 @@ export default Vue.extend({
   @apply ph-bg-white;
   @apply ph-transition;
 }
-
-input:focus + .slider {
-  /* box-shadow: 0 0 1px #2196f3; */
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(20px);
-  -ms-transform: translateX(20px);
-  transform: translateX(20px);
-  @apply ph-bg-white;
-}
-.slider.round {
-  border-radius: 31px;
-}
-
 .slider.round:before {
   @apply ph-rounded-full;
+  position: absolute;
+  content: "";
+  width: 51px;
+  height: 31px;
+  @apply ph-bg-grey4;
+  opacity: 1;
+  @apply ph-transition;
 }
 </style>
