@@ -22,6 +22,12 @@
       v-bind="$attrs"
       v-on="$listeners"
     >
+      <div v-if="type === 'image'">
+        <div
+          class="photon-skeleton-loader-rect"
+        >
+        </div>
+      </div>
       <div v-if="type === 'card'">
         <div
           class="photon-skeleton-loader-rect"
@@ -57,11 +63,27 @@
           <div
             v-for="row in rows"
             :key="row"
-            class="photon-skeleton-loader-table-row"
+            class="photon-skeleton-loader-table-row ph-hidden sm:ph-flex"
           >
             <div class="photon-skeleton-loader-table-row-divider">
               <div
                 v-for="col in cols"
+                :key="row+'|'+col"
+                class="photon-skeleton-loader-table-col"
+              >
+              </div>
+            </div>
+            <div class="photon-skeleton-loader-table-divider">
+            </div>
+          </div>
+          <div
+            v-for="row in mobileRows"
+            :key="row"
+            class="photon-skeleton-loader-table-row ph-flex sm:ph-hidden"
+          >
+            <div class="photon-skeleton-loader-table-row-divider">
+              <div
+                v-for="col in mobileCols"
                 :key="row+'|'+col"
                 class="photon-skeleton-loader-table-col"
               >
@@ -137,6 +159,14 @@ export default Vue.extend({
     borderRadius: {
       type: Number as PropType<number>,
       default: 12,
+    },
+    mobileRows: {
+      type: Number as PropType<number>,
+      default: 3,
+    },
+    mobileCols: {
+      type: Number as PropType<number>,
+      default: 3,
     },
     rows: {
       type: Number as PropType<number>,
@@ -225,6 +255,7 @@ export default Vue.extend({
 .photon-skeleton-loader-table-col {
   @apply ph-items-center;
   @apply ph-relative;
+  max-width: 30%;
   width: var(--colWidth, 88px);
   height: var(--listItemHeight, 12px);
   line-height: 0px;
