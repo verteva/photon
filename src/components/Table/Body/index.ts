@@ -1,3 +1,3 @@
-import PTable from './Body/Table.vue';
+import PTable from './Table.vue';
 
 export default PTable;

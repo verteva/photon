@@ -17,5 +17,6 @@ const Template = (args, { argTypes }) => ({
 });
 export const Header = Template.bind({});
 Header.args = {
+  titles: ["hello world", "cash/credit", "value"],
   // Props to be passed....
 };

@@ -1,13 +1,13 @@
 <template>
   <div
-    class="ph-flex rounded ph-p-6 ph-font-bold ph-text-white table-header ph-bg-brand2"
+    class="ph-flex rounded ph-font-bold ph-text-white table-header ph-bg-brand2"
   >
     <div
-      v-for="item in items"
-      :key="item"
-      class="ph-flex-grow"
+      v-for="title in titles"
+      :key="title"
+      class="ph-w-full ph-p-5"
     >
-      {{ item }}
+      {{ title }}
     </div>
   </div>
 </template>
@@ -17,11 +17,11 @@ import Vue, { PropType } from "vue";
 export default Vue.extend({
   name: "Header",
   components: {},
-  props: {},
-  data() {
-    return {
-      items: ["Bank / Account Name", "Balance / Credit Limit", "value"],
-    };
+  props: {
+    titles: {
+      type: Array as PropType<string[]>,
+      default: (): [] => [],
+    },
   },
   computed: {},
   watch: {},

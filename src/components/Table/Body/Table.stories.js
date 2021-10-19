@@ -16,5 +16,5 @@ const Template = (args, { argTypes }) => ({
 
 export const Table = Template.bind({});
 Table.args = {
-  // Props to be passed....
+  titles: ["hello world", "cash/credit", "value"],
 };
