@@ -15,4 +15,6 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const TableRow = Template.bind({});
-TableRow.args = {};
+TableRow.args = {
+  colWidths: [25, 50, 25],
+};

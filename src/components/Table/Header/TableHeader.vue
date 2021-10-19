@@ -1,11 +1,12 @@
 <template>
-  <div
-    class="ph-flex rounded ph-font-bold ph-text-white table-header ph-bg-brand2"
-  >
+  <!-- class="ph-grid table-wrapper ph-font-bold ph-text-white table-header ph-bg-brand2"
+    :class="rounded && 'rounded-photon'" -->
+  <div :class="baseClassList">
     <div
       v-for="title in titles"
       :key="title"
       class="ph-w-full ph-p-5"
+      :class="border && 'heading-title'"
     >
       {{ title }}
     </div>
@@ -22,6 +23,27 @@ export default Vue.extend({
       type: Array as PropType<string[]>,
       default: (): [] => [],
     },
+    rounded: {
+      type: Boolean,
+      default: false,
+    },
+    border: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      baseClassList: [
+        "ph-grid",
+        "table-wrapper",
+        "ph-font-bold",
+        "ph-text-white",
+        "table-header",
+        "ph-bg-brand2",
+        (this as any).rounded && "rounded-photon",
+      ],
+    };
   },
   computed: {},
   watch: {},
@@ -30,7 +52,11 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss" scoped>
-.rounded {
+.rounded-photon {
   border-radius: 16px 50px 0 0;
+}
+.heading-title:not(:first-child) {
+  border-left: 1px solid;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 </style>
