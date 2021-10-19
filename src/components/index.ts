@@ -23,6 +23,7 @@ import PList from './List';
 import PLi from './ListItem';
 import PInfoCard from './InfoCard';
 import PBrandGradientText from './BrandGradientText';
+import PSkeletonLoader from './SkeletonLoader';
 import {
   PText,
   PH1,
@@ -65,7 +66,8 @@ const components: PhotonComponents = {
   PBrandGradientText,
   PForm,
   PInputRadio,
-  PRadioGroup
+  PRadioGroup,
+  PSkeletonLoader
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
