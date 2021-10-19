@@ -33,15 +33,15 @@ export default Vue.extend({
       default: (): [] => [],
     },
     rounded: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
     border: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: true,
     },
     darkMode: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
   },

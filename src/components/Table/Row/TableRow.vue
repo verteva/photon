@@ -13,7 +13,7 @@ export default Vue.extend({
   components: {},
   props: {
     cols: {
-      type: Number,
+      type: Number as PropType<number>,
       default: 0,
     },
     colWidths: {
@@ -21,7 +21,7 @@ export default Vue.extend({
       default: (): [] => [],
     },
     darkMode: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
   },

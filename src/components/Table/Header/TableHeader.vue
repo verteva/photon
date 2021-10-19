@@ -22,11 +22,11 @@ export default Vue.extend({
       default: (): [] => [],
     },
     rounded: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     border: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
   },

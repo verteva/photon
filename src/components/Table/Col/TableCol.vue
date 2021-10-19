@@ -9,7 +9,7 @@ export default Vue.extend({
   name: "TableCol",
   props: {
     leftAlign: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
   },
