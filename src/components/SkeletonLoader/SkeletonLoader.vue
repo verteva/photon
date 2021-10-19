@@ -78,13 +78,13 @@
           </div>
           <div
             v-for="row in mobileRows"
-            :key="row"
+            :key="`mobile-row-${row}`"
             class="photon-skeleton-loader-table-row ph-flex sm:ph-hidden"
           >
             <div class="photon-skeleton-loader-table-row-divider">
               <div
                 v-for="col in mobileCols"
-                :key="row+'|'+col"
+                :key="`mobile-col-${col}`"
                 class="photon-skeleton-loader-table-col"
               >
               </div>

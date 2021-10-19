@@ -45,12 +45,7 @@ describe('SkeletonLoader.vue', () => {
   it('check if skeleton loader with card type has props:animation setup correctly', () => {
     const wrapper = createWrapper({type:'card'});
     expect(wrapper.vm.animation).toBe('loading');
-  });  
-
-  it('check if skeleton loader with card type has props:animation setup correctly', () => {
-    const wrapper = createWrapper({type:'card'});
-    expect(wrapper.vm.animation).toBe('loading');
-  });  
+  });
 
   it('check if skeleton loader with card type has props:bgColor setup correctly', () => {
     const wrapper = createWrapper({type:'card'});
@@ -70,13 +65,13 @@ describe('SkeletonLoader.vue', () => {
   });
 
   it('check border radius variable is setup', () => {
-    const borderRadius = '12px';
+    const borderRadius = 12;
     const wrapper = createWrapper({ borderRadius: borderRadius });
     assertStyleVarSetup(wrapper, 'borderRadius', borderRadius);
   });
 
   it('check border radius variable is setup correctly when rounded is off', () => {
-    const borderRadius = '12px';
+    const borderRadius = 12;
     const rounded = false;
     const wrapper = createWrapper({ rounded: rounded, borderRadius: borderRadius });
     assertStyleVarSetup(wrapper, 'borderRadius', '0px');
