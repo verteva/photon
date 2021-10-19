@@ -1,7 +1,7 @@
 import PTableCol from "./TableCol.vue";
 
 export default {
-  title: "Components/Table/Col",
+  title: "Components/Table/Elements",
   component: PTableCol,
   argTypes: {
     // Configurable component options in SB UI...

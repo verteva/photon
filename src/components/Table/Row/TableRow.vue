@@ -1,26 +1,18 @@
 <template>
-  <!-- class="ph-grid ph-w-full ph-items-center photon-table-row ph-border-grey5 ph-border-b"
-    :class="` tw-col-span-${rows} tw-grid-cols-${rows}`" -->
   <div
     :class="baseClassList"
     :style="gridColWidths"
   >
     <slot />
-    <!-- <Col></Col>
-    <Col></Col>
-    <Col></Col> -->
   </div>
 </template>
 <script lang="ts">
 import Vue, { PropType } from "vue";
-// import Col from "../Col";
 export default Vue.extend({
   name: "TableRow",
-  components: {
-    // Col,
-  },
+  components: {},
   props: {
-    rows: {
+    cols: {
       type: Number,
       default: 0,
     },
@@ -42,10 +34,10 @@ export default Vue.extend({
         "photon-table-row",
         "ph-border-grey5",
         "ph-border-b",
-        `ph-grid-cols-${(this as any).rows}`,
-        `ph-col-span-${(this as any).rows}`,
-        `tw-grid-cols-${(this as any).rows}`,
-        `tw-col-span-${(this as any).rows}`,
+        `ph-grid-cols-${(this as any).cols}`,
+        `ph-col-span-${(this as any).cols}`,
+        `tw-grid-cols-${(this as any).cols}`,
+        `tw-col-span-${(this as any).cols}`,
       ],
     };
   },
@@ -56,7 +48,6 @@ export default Vue.extend({
         return `grid-template-columns: ${widths.join(" ")} !important`;
       }
       return "";
-      // return this.colWidths.length ? `grid-template-columns: 42fr 33fr 25fr`
     },
   },
   watch: {},

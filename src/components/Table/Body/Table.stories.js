@@ -1,7 +1,8 @@
 import PTable from "./Table.vue";
-import Row from "../Row";
+import PTableRow from "../Row";
+import PTableCol from "../Col";
 export default {
-  title: "Components/Table/Body",
+  title: "Components/Table",
   component: PTable,
   argTypes: {
     // Configurable component options in SB UI...
@@ -9,14 +10,39 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { PTable, Row },
+  components: { PTable, PTableRow, PTableCol },
   props: Object.keys(argTypes),
-  template: `<PTable v-bind='$props'></PTable>`,
+  template: `<PTable v-bind='$props'>
+   <PTableRow
+    :cols="cols"
+    >
+    <PTableCol>Hello world</PTableCol>
+    <PTableCol>today</PTableCol>
+    <PTableCol>monday</PTableCol>
+  </PTableRow>
+  <PTableRow
+    :cols="cols"
+  >
+    <PTableCol>Tuesday</PTableCol>
+    <PTableCol>$40000000</PTableCol>
+    <PTableCol>xxxxxxxxxxxxx</PTableCol>
+  </PTableRow>
+  <PTableRow
+    :cols="cols"
+  >
+    <PTableCol>Example.com</PTableCol>
+    <PTableCol>welcome</PTableCol>
+    <PTableCol>$9999999</PTableCol>
+  </PTableRow> 
+</PTable>`,
 });
 
 export const Table = Template.bind({});
 Table.args = {
-  rows: 3,
+  cols: 3,
   titles: ["hello world", "cash/credit", "value"],
-  colWidths: [25, 50, 25],
+  // colWidths: [25, 50, 25],
+  darkMode: false,
+  // leftAlign: true,
+  rounded: true,
 };

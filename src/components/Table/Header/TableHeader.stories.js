@@ -1,7 +1,7 @@
 import PHeader from "./TableHeader.vue";
 
 export default {
-  title: "Components/Table/Header",
+  title: "Components/Table/Elements",
   component: PHeader,
   argTypes: {
     // Configurable component options in SB UI...
