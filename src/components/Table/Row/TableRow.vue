@@ -31,25 +31,30 @@ export default Vue.extend({
   },
   mounted() {
     const cols = (this as any).gridColNum;
+    if (
+      (this as any).$slots.default &&
+      (this as any).$slots.default.length > 0
+    ) {
+      const options = (this as any).$slots.default.filter((node) => node.tag);
+      options.forEach((element, index) => {
+        index % cols === 0 &&
+          element.componentInstance.$el.classList.add("table-col-shift");
+      });
 
-    const options = (this as any).$slots.default.filter((node) => node.tag);
-    options.forEach((element, index) => {
-      index % cols === 0 &&
-        element.componentInstance.$el.classList.add("table-col-shift");
-    });
-
-    const lastRow = options.slice(-cols);
-    lastRow.forEach((element) => {
-      element.componentInstance.$el.classList.remove("ph-border-b");
-    });
+      const lastRow = options.slice(-cols);
+      lastRow.forEach((element) => {
+        element.componentInstance.$el.classList.remove("ph-border-b");
+      });
+    }
   },
 
   render(createElement) {
     let local = this as any;
     var perChunk = local.gridColNum; // items per chunk
-    console.log(local);
+    // console.log(local);
     function renderChildren(inputArray): any {
-      console.log(inputArray);
+      // console.log(inputArray);
+      if (!inputArray) return [];
       var result = inputArray.reduce((resultArray, item, index) => {
         const chunkIndex = Math.floor(index / perChunk);
 
@@ -61,7 +66,7 @@ export default Vue.extend({
       }, []);
 
       return result.map((node, index) => {
-        console.log("innerValue ", node);
+        // console.log("innerValue ", node);
         return createElement(
           "div",
           {
@@ -79,7 +84,13 @@ export default Vue.extend({
       {
         class: "parent",
       },
-      [renderChildren((this as any).$slots.default.filter((node) => node.tag))]
+      [
+        renderChildren(
+          (this as any).$slots.default &&
+            (this as any).$slots.default.length > 0 &&
+            (this as any).$slots.default.filter((node) => node.tag)
+        ),
+      ]
     );
   },
 });

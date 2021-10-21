@@ -8,10 +8,11 @@ export default {
     // Configurable component options in SB UI...
   },
 };
+
 const Template = (args, { argTypes }) => ({
   components: { PTable, PTableRow, PTableCol },
   props: Object.keys(argTypes),
-  template: `<PTable v-bind='$props'>
+  template: `<PTable v-bind='$props' ref="photonTable">
         <template #default>
         <PTableCol>Tuesday</PTableCol>
         <PTableCol>$40000000</PTableCol>
