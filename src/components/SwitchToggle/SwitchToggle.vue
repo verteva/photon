@@ -113,9 +113,8 @@ input:checked + .slider:before {
   box-shadow: 0;
   transition: box-shadow 0.25s;
 }
-
 .switch-label:hover .slider.round:before,
-.switch-label:focus .slider.round:before {
+.switch-label:focus-within .slider.round:before {
   @apply ph-border;
   border-color: rgba(0, 158, 222, 0.4);
   box-shadow: 0px 0px 0px 2px rgba(0, 158, 222, 0.4);
