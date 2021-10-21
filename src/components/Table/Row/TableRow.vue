@@ -51,9 +51,7 @@ export default Vue.extend({
   render(createElement) {
     let local = this as any;
     var perChunk = local.gridColNum; // items per chunk
-    // console.log(local);
     function renderChildren(inputArray): any {
-      // console.log(inputArray);
       if (!inputArray) return [];
       var result = inputArray.reduce((resultArray, item, index) => {
         const chunkIndex = Math.floor(index / perChunk);
@@ -66,7 +64,6 @@ export default Vue.extend({
       }, []);
 
       return result.map((node, index) => {
-        // console.log("innerValue ", node);
         return createElement(
           "div",
           {
