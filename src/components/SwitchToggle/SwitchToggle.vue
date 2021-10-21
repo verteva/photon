@@ -109,5 +109,15 @@ input:checked + .slider:before {
   @apply ph-bg-grey4;
   opacity: 1;
   @apply ph-transition;
+  @apply ph-border-transparent;
+  box-shadow: 0;
+  transition: box-shadow 0.25s;
+}
+
+.switch-label:hover .slider.round:before,
+.switch-label:focus .slider.round:before {
+  @apply ph-border;
+  border-color: rgba(0, 158, 222, 0.4);
+  box-shadow: 0px 0px 0px 2px rgba(0, 158, 222, 0.4);
 }
 </style>
