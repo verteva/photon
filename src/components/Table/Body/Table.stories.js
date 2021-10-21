@@ -8,35 +8,30 @@ export default {
     // Configurable component options in SB UI...
   },
 };
-
 const Template = (args, { argTypes }) => ({
   components: { PTable, PTableRow, PTableCol },
   props: Object.keys(argTypes),
   template: `<PTable v-bind='$props'>
-        <template v-slot:TableRow="colWidths">
+        <template #default>
         <PTableCol>Tuesday</PTableCol>
         <PTableCol>$40000000</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
-        <PTableCol>xxxxxxxxxxxxx</PTableCol>
+        <PTableCol>2xxxxxxxxxxxxx</PTableCol>
+        <PTableCol>3xxxxxxxxxxxxx</PTableCol>
+        <PTableCol>4xxxxxxxxxxxxx</PTableCol>
+        <PTableCol>5xxxxxxxxxxxxx</PTableCol>
+        <PTableCol>Wednesday</PTableCol>
+        <PTableCol>Wednesday</PTableCol>
         </template>
       </PTable>`,
 });
 
 export const Table = Template.bind({});
 Table.args = {
-  cols: 3,
-  titles: ["hello world", "cash/credit", "value"],
-  colWidths: [25, 50, 25],
+  cols: 4,
+  titles: ["hello world", "cash/credit", "value", "funds"],
+  // colWidths: [15, 25, 25, 35],
   darkMode: false,
-  // leftAlign: true,
+  leftAlign: true,
   rounded: true,
-  border: false,
+  border: true,
 };

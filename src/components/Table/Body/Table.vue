@@ -12,17 +12,12 @@
     >
     </PHeader>
     <PTableRow
-      :col-widths="colWidths"
       :class="headerClassList"
       :grid-col-num="gridColNum"
-      :style="gridColWidths"
+      :grid-col-widths="gridColWidths"
+      :left-align="leftAlign"
     >
-      <template v-slot:TableRow="colWidths">
-        <slot
-          name="TableRow"
-          :colWidths="colWidths"
-        ></slot>
-      </template>
+      <slot name="default"></slot>
     </PTableRow>
   </div>
 </template>
@@ -39,7 +34,7 @@ export default Vue.extend({
   props: {
     titles: {
       type: Array as PropType<string[]>,
-      default: (): [] => [],
+      default: () => [],
     },
     cols: {
       type: Number as PropType<number>,
@@ -47,7 +42,7 @@ export default Vue.extend({
     },
     colWidths: {
       type: Array,
-      default: (): [] => [],
+      default: () => [],
     },
     rounded: {
       type: Boolean as PropType<boolean>,
@@ -61,9 +56,14 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    leftAlign: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
   data() {
     return {
+      items: [1, 1, 1],
       numCols: (this as any).gridColNum,
       baseClassList: [
         "ph-grid",
@@ -75,12 +75,6 @@ export default Vue.extend({
         (this as any).darkMode ? "ph-bg-grey6" : "ph-bg-white",
         (this as any).rounded && "rounded-photon",
       ],
-      headerClassList: [
-        `ph-col-span-${(this as any).cols}`,
-        `tw-col-span-${(this as any).cols}`,
-        `ph-grid-cols-${(this as any).cols}`,
-        `tw-grid-cols-${(this as any).cols}`,
-      ],
     };
   },
   computed: {
@@ -91,6 +85,14 @@ export default Vue.extend({
         return (this as any).cols;
       }
     },
+    headerClassList() {
+      return [
+        `ph-col-span-${(this as any).gridColNum}`,
+        `tw-col-span-${(this as any).gridColNum}`,
+        `ph-grid-cols-${(this as any).gridColNum}`,
+        `tw-grid-cols-${(this as any).gridColNum}`,
+      ];
+    },
     gridColWidths(): any {
       if ((this as any).colWidths.length > 0) {
         const widths = (this as any).colWidths.map((item) => `${item}fr`);
@@ -98,9 +100,6 @@ export default Vue.extend({
       }
       return "";
     },
-  },
-  mounted() {
-    console.log((this as any).$slots.default);
   },
 });
 </script>

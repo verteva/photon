@@ -10,10 +10,6 @@ import Vue, { PropType } from "vue";
 export default Vue.extend({
   name: "TableCol",
   props: {
-    leftAlign: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
     colWidths: {
       type: Array,
       default: (): [] => [],
@@ -25,10 +21,8 @@ export default Vue.extend({
         "table-col",
         "ph-flex",
         "ph-w-full",
-        "ph-border-grey5",
-        "ph-border-b",
         "ph-h-full",
-        !(this as any).leftAlign && "ph-justify-end",
+        "ph-justify-end",
         "ph-p-5",
       ],
     };

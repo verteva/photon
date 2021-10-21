@@ -3,8 +3,8 @@
     <div
       v-for="title in titles"
       :key="title"
-      class="ph-w-full ph-p-5"
       :class="border && 'heading-title'"
+      class="ph-w-full ph-p-5"
     >
       {{ title }}
     </div>
@@ -27,7 +27,7 @@ export default Vue.extend({
     },
     border: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: true,
     },
   },
   data() {

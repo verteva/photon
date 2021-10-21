@@ -1,45 +1,32 @@
-<template>
-  <div :class="baseClassList">
-    <slot name="default"></slot>
-  </div>
-</template>
 <script lang="ts">
 import Vue, { PropType } from "vue";
 export default Vue.extend({
   name: "TableRow",
   components: {},
+
   props: {
-    cols: {
-      type: Number as PropType<number>,
-      default: 0,
-    },
-    colWidths: {
-      type: Array,
-      default: (): [] => [],
-    },
-    darkMode: {
-      type: Boolean as PropType<boolean>,
-      default: false,
+    gridColWidths: {
+      type: String,
+      default: "",
     },
     gridColNum: {
       type: Number as PropType<number>,
       default: 0,
     },
+    leftAlign: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
   data() {
     return {
-      baseClassList: [
-        "ph-grid",
-        "ph-w-full",
-        "ph-items-center",
-        "photon-table-row",
-        "ph-border-grey5",
-        "ph-border-b",
-        `ph-grid-cols-${(this as any).cols}`,
-        `ph-col-span-${(this as any).cols}`,
-        `tw-grid-cols-${(this as any).cols}`,
-        `tw-col-span-${(this as any).cols}`,
-      ],
+      baseClassList: `ph-grid ph-w-full ph-items-center photon-table-row ph-border-grey5 ph-border-b ph-grid-cols-${
+        (this as any).gridColNum
+      } ph-col-span-${(this as any).gridColNum} tw-grid-cols-${
+        (this as any).gridColNum
+      } tw-col-span-${(this as any).gridColNum} ${
+        (this as any).leftAlign ? "ph-parent-justify-start" : ""
+      }`,
     };
   },
   mounted() {
@@ -56,6 +43,45 @@ export default Vue.extend({
       element.componentInstance.$el.classList.remove("ph-border-b");
     });
   },
+
+  render(createElement) {
+    let local = this as any;
+    var perChunk = local.gridColNum; // items per chunk
+    console.log(local);
+    function renderChildren(inputArray): any {
+      console.log(inputArray);
+      var result = inputArray.reduce((resultArray, item, index) => {
+        const chunkIndex = Math.floor(index / perChunk);
+
+        if (!resultArray[chunkIndex]) {
+          resultArray[chunkIndex] = [];
+        }
+        resultArray[chunkIndex].push(item);
+        return resultArray;
+      }, []);
+
+      return result.map((node, index) => {
+        console.log("innerValue ", node);
+        return createElement(
+          "div",
+          {
+            attrs: {
+              class: local.baseClassList,
+              style: local.gridColWidths,
+            },
+          },
+          node
+        );
+      });
+    }
+    return createElement(
+      "div",
+      {
+        class: "parent",
+      },
+      [renderChildren((this as any).$slots.default.filter((node) => node.tag))]
+    );
+  },
 });
 </script>
 
@@ -65,5 +91,8 @@ export default Vue.extend({
 }
 .photon-table-row:last-child {
   border: none !important;
+}
+.ph-parent-justify-start .table-col {
+  justify-content: flex-start !important;
 }
 </style>
