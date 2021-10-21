@@ -1,9 +1,6 @@
 <template>
-  <div
-    :class="baseClassList"
-    :style="gridColWidths"
-  >
-    <slot />
+  <div :class="baseClassList">
+    <slot name="default"></slot>
   </div>
 </template>
 <script lang="ts">
@@ -24,6 +21,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    gridColNum: {
+      type: Number as PropType<number>,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -41,22 +42,25 @@ export default Vue.extend({
       ],
     };
   },
-  computed: {
-    gridColWidths(): any {
-      if ((this as any).colWidths.length > 0) {
-        const widths = (this as any).colWidths.map((item) => `${item}fr`);
-        return `grid-template-columns: ${widths.join(" ")} !important`;
-      }
-      return "";
-    },
+  mounted() {
+    const cols = (this as any).gridColNum;
+
+    const options = (this as any).$slots.default.filter((node) => node.tag);
+    options.forEach((element, index) => {
+      index % cols === 0 &&
+        element.componentInstance.$el.classList.add("table-col-shift");
+    });
+
+    const lastRow = options.slice(-cols);
+    lastRow.forEach((element) => {
+      element.componentInstance.$el.classList.remove("ph-border-b");
+    });
   },
-  watch: {},
-  methods: {},
 });
 </script>
 
 <style lang="postcss" scoped>
-.table-col:first-child {
+.table-col-shift {
   justify-content: flex-start !important;
 }
 .photon-table-row:last-child {

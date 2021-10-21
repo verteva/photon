@@ -1,5 +1,8 @@
 <template>
-  <div :class="baseClassList">
+  <div
+    :class="[baseClassList, headerClassList]"
+    :style="gridColWidths"
+  >
     <PHeader
       :titles="titles"
       :class="headerClassList"
@@ -8,16 +11,30 @@
       :border="border"
     >
     </PHeader>
-    <slot />
+    <PTableRow
+      :col-widths="colWidths"
+      :class="headerClassList"
+      :grid-col-num="gridColNum"
+      :style="gridColWidths"
+    >
+      <template v-slot:TableRow="colWidths">
+        <slot
+          name="TableRow"
+          :colWidths="colWidths"
+        ></slot>
+      </template>
+    </PTableRow>
   </div>
 </template>
 <script lang="ts">
 import Vue, { PropType } from "vue";
 import PHeader from "../Header";
+import PTableRow from "../Row";
 export default Vue.extend({
   name: "Table",
   components: {
     PHeader,
+    PTableRow,
   },
   props: {
     titles: {
@@ -47,6 +64,7 @@ export default Vue.extend({
   },
   data() {
     return {
+      numCols: (this as any).gridColNum,
       baseClassList: [
         "ph-grid",
         "table-wrapper",
@@ -66,6 +84,13 @@ export default Vue.extend({
     };
   },
   computed: {
+    gridColNum(): any {
+      if ((this as any).colWidths.length > 0) {
+        return (this as any).colWidths.length;
+      } else {
+        return (this as any).cols;
+      }
+    },
     gridColWidths(): any {
       if ((this as any).colWidths.length > 0) {
         const widths = (this as any).colWidths.map((item) => `${item}fr`);
@@ -74,8 +99,9 @@ export default Vue.extend({
       return "";
     },
   },
-  watch: {},
-  methods: {},
+  mounted() {
+    console.log((this as any).$slots.default);
+  },
 });
 </script>
 

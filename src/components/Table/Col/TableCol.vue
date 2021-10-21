@@ -1,6 +1,8 @@
 <template>
   <div :class="baseClassList">
-    <slot />
+    <div class="tw-self-center">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -12,6 +14,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    colWidths: {
+      type: Array,
+      default: (): [] => [],
+    },
   },
   data() {
     return {
@@ -19,6 +25,9 @@ export default Vue.extend({
         "table-col",
         "ph-flex",
         "ph-w-full",
+        "ph-border-grey5",
+        "ph-border-b",
+        "ph-h-full",
         !(this as any).leftAlign && "ph-justify-end",
         "ph-p-5",
       ],
