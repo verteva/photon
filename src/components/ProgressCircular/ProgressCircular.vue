@@ -2,7 +2,7 @@
   <div
     ref="circular"
     class="p-progress-circular"
-    :class="baseClassList"
+    :class="[baseClassList, svgColor]"
     :style="{
       '--width': size+'px',
       '--height': size+'px',
@@ -77,11 +77,15 @@ export default Vue.extend({
         "ph-transition",
         "ph-shadow-none",
         "ph-outline-none",
-        "ph-text-"+this.color,
         this.indeterminate ? "p-progress-circular--indeterminate" : null,
       ],
     };
   },
+  computed:{
+    svgColor(){
+      return "ph-text-"+this.color;
+    }
+  }
 });
 </script>
 
