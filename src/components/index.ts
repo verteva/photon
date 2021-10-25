@@ -24,6 +24,7 @@ import PLi from './ListItem';
 import PInfoCard from './InfoCard';
 import PBrandGradientText from './BrandGradientText';
 import PSkeletonLoader from './SkeletonLoader';
+import PBadge from './Badge';
 import {
   PText,
   PH1,
@@ -67,7 +68,8 @@ const components: PhotonComponents = {
   PForm,
   PInputRadio,
   PRadioGroup,
-  PSkeletonLoader
+  PSkeletonLoader,
+  PBadge,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
