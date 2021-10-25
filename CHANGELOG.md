@@ -6,9 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.597] - 2021-10-55
+## [0.1.597] - 2021-10-21
 ### Add
-- Add Content Card 
+- Add Progress Circular
 
 ## [0.1.596] - 2021-10-15
 ### Add
