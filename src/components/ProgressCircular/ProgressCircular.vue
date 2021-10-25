@@ -4,8 +4,8 @@
     class="p-progress-circular"
     :class="[baseClassList, svgColor]"
     :style="{
-      '--width': size+'px',
-      '--height': size+'px',
+      '--width': size,
+      '--height': size,
     }"
     v-bind="$attrs"
     v-on="$listeners"
@@ -53,8 +53,8 @@ export default Vue.extend({
       default: false,
     },
     size: {
-      type: Number as PropType<number>,
-      default: 20,
+      type: String as PropType<string>,
+      default: '20px',
     },
     color: {
       type: String as PropType<string>,
@@ -74,6 +74,10 @@ export default Vue.extend({
     return {
       baseClassList: [
         "ph-relative",
+        "ph-inline-flex",
+        "ph-justify-center",
+        "ph-align-middle",
+        "ph-items-center",
         "ph-transition",
         "ph-shadow-none",
         "ph-outline-none",
@@ -95,45 +99,29 @@ export default Vue.extend({
   height: var(--height, 20px);
 }
 
-.p-progress-circular {
-  position: relative;
-  display: inline-flex;
-  vertical-align: middle;
-  justify-content: center;
-  align-items: center;
-}
-
 .p-progress-circular > svg {
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 0;
+  @apply ph-w-full;
+  @apply ph-h-full;
+  @apply ph-m-auto;
+  @apply ph-absolute;
+  @apply ph-top-0;
+  @apply ph-bottom-0;
+  @apply ph-left-0;
+  @apply ph-right-0;
+  @apply ph-z-0;
 }
 
 .p-progress-circular--indeterminate > svg {
-  -webkit-animation: progress-circular-rotate 1.4s linear infinite;
-          animation: progress-circular-rotate 1.4s linear infinite;
+  @apply ph-animate-progressCircularRotate;
   transform-origin: center center;
   transition: all 0.2s ease-in-out;
 }
 
 .p-progress-circular--indeterminate .p-progress-circular__overlay {
-  -webkit-animation: progress-circular-dash 1.4s ease-in-out infinite;
-          animation: progress-circular-dash 1.4s ease-in-out infinite;
+  @apply ph-animate-progressCircularDash;
   stroke-linecap: round;
   stroke-dasharray: 80, 200;
   stroke-dashoffset: 0px;
-}
-
-.p-progress-circular__info {
-  align-items: center;
-  display: flex;
-  justify-content: center;
 }
 
 .p-progress-circular__underlay {
@@ -145,51 +133,5 @@ export default Vue.extend({
   stroke: currentColor;
   z-index: 2;
   transition: all 0.6s ease-in-out;
-}
-
-@-webkit-keyframes progress-circular-dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0px;
-  }
-
-  50% {
-    stroke-dasharray: 100, 200;
-    stroke-dashoffset: -15px;
-  }
-
-  100% {
-    stroke-dasharray: 100, 200;
-    stroke-dashoffset: -125px;
-  }
-}
-
-@keyframes progress-circular-dash {
-  0% {
-    stroke-dasharray: 1, 200;
-    stroke-dashoffset: 0px;
-  }
-
-  50% {
-    stroke-dasharray: 100, 200;
-    stroke-dashoffset: -15px;
-  }
-
-  100% {
-    stroke-dasharray: 100, 200;
-    stroke-dashoffset: -125px;
-  }
-}
-
-@-webkit-keyframes progress-circular-rotate {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes progress-circular-rotate {
-  100% {
-    transform: rotate(360deg);
-  }
 }
 </style>

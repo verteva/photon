@@ -35,14 +35,14 @@ export const ProgressCircular = Template.bind({});
 
 ProgressCircular.args={
   indeterminate: true,
-  size: 20,
+  size: '20px',
 }
 
 export const ProgressCircularValue = Template.bind({});
 
 ProgressCircularValue.args={
   indeterminate: true,
-  size: 48,
+  size: '48px',
   value: 0,
   underlay: true,
 }

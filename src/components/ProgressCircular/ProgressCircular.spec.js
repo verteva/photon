@@ -25,20 +25,20 @@ describe('SkeletonLoader.vue', () => {
   });  
 
   it('check if prop:size is setup correctly', () => {
-    const size = 25;
-    const wrapper = createWrapper({ size: size});
+    const size = '25px';
+    const wrapper = createWrapper({ size });
     expect(wrapper.vm.size).toBe(size);
   });  
 
   it('check if width variable is setup', () => {
-    const size = 20;
-    const wrapper = createWrapper({ size: size });
-    assertStyleVarSetup(wrapper, 'width', size+"px");
+    const size = '20px';
+    const wrapper = createWrapper({ size });
+    assertStyleVarSetup(wrapper, 'width', size);
   });
 
   it('check if height variable is setup', () => {
-    const size = 20;
-    const wrapper = createWrapper({ size: size });
-    assertStyleVarSetup(wrapper, 'width', size+"px");
+    const size = '20px';
+    const wrapper = createWrapper({ size });
+    assertStyleVarSetup(wrapper, 'width', size);
   });
 });
