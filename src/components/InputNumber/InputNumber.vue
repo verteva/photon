@@ -9,8 +9,9 @@
     </p-label>
     <div class="ph-flex">
       <div
+        ref="decrease"
         class="ph-text-4xl ph-cursor-pointer ph-mr-4 ph-text-grey3"
-        @click="numberVal > minVal && numberVal--"
+        @click="innerValue > minVal && innerValue--"
       >
         -
       </div>
@@ -21,8 +22,9 @@
         @change="onChange"
       />
       <div
+        ref="increase"
         class="ph-text-4xl ph-cursor-pointer ph-ml-4 ph-text-grey3"
-        @click="numberVal < maxVal && numberVal++"
+        @click="innerValue < maxVal && innerValue++"
       >
         +
       </div>
@@ -39,7 +41,7 @@ export default Vue.extend({
   props: {
     errors: {
       type: Array,
-      default: (): [] => [],
+      default: () => [],
     },
     value: {
       type: Number as PropType<number>,

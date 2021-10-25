@@ -44,12 +44,22 @@ describe('InputText.vue', () => {
     expect(Number(inputElementValue)).toBeGreaterThanOrEqual(maxVal);
   });
 
-  it("input errors prop", async () => {
-    await wrapper.setProps({ errors: ["required"] });
-    expect(wrapper.vm.errors).toContain("required");
-    await wrapper.find(".photon-input-error");
-    const errorLabel = wrapper.find(".photon-input-error");
+  it('check change input value', async () => {
+    const inputIncrease = await wrapper.find({ref: 'increase'});
+    await inputIncrease.trigger('click');
+    expect(wrapper.emitted('input')[0]).toEqual([1])
+
+    const inputDecrease = await wrapper.find({ref: 'decrease'});
+    await inputDecrease.trigger('click');
+    expect(wrapper.emitted('input')[0]).toEqual([1])
+  });
+
+  it('input errors prop', async () => {
+    await wrapper.setProps({ errors: ['required'] });
+    expect(wrapper.vm.errors).toContain('required');
+    await wrapper.find('.photon-input-error');
+    const errorLabel = wrapper.find('.photon-input-error');
     expect(errorLabel.isVisible()).toBe(true);
-    expect(errorLabel.text()).toBe("required");
+    expect(errorLabel.text()).toBe('required');
   });
 });
