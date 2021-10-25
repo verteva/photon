@@ -1,9 +1,9 @@
-import PCard from './ContentCard.vue';
+import PContentCard from './ContentCard.vue';
 import PIcon from '../Icon'; 
 
 export default {
   title: 'Components/ContentCard',
-  component: PCard,
+  component: PContentCard,
   argTypes: {
     // Configurable component options in SB UI...
   },
