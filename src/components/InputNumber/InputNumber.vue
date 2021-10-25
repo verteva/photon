@@ -30,11 +30,11 @@
   </p-input>
 </template>
 <script lang="ts">
-import Vue, { PropType } from "vue";
-import PInput from "../Input";
-import PLabel from "../Label";
+import Vue, { PropType } from 'vue';
+import PInput from '../Input';
+import PLabel from '../Label';
 export default Vue.extend({
-  name: "InputNumber",
+  name: 'InputNumber',
   components: { PInput, PLabel },
   props: {
     errors: {
@@ -55,7 +55,7 @@ export default Vue.extend({
     },
     label: {
       type: String as PropType<string>,
-      default: "",
+      default: '',
     },
   },
   data() {
@@ -70,14 +70,14 @@ export default Vue.extend({
         return (this as any).value;
       },
       set(val) {
-        (this as any).$emit("input", val);
+        (this as any).$emit('input', val);
       },
     },
   },
 
   methods: {
     onChange(event) {
-      (this as any).$emit("change", event);
+      (this as any).$emit('change', event);
     },
   },
 });
