@@ -1,13 +1,12 @@
-import PInputPhone from './InputPhone.vue';
-import PLabel from '../Label';
-import PButton from '../Button';
-import { PText } from '../Typography';
+import PInputPhone from "./InputPhone.vue";
+import PLabel from "../Label";
+import PButton from "../Button";
+import { PText } from "../Typography";
 
 export default {
-  title: 'Forms/InputPhone',
+  title: "Forms/InputPhone",
   component: PInputPhone,
-  argTypes: {
-  },
+  argTypes: {},
 };
 
 const Template = (args, { argTypes }) => ({
@@ -36,10 +35,10 @@ const Template = (args, { argTypes }) => ({
       if (this.errs?.length) {
         this.errs = [];
       } else {
-        this.errs = ['Inine validation error'];
+        this.errs = ["Inine validation error"];
       }
     },
-  }
+  },
 });
 
 export const InputPhone = Template.bind({});

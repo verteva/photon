@@ -12,7 +12,7 @@ const Template = (args, { argTypes }) => ({
   components: { PSwitchToggle },
   props: Object.keys(argTypes),
   template:
-    "<div><PSwitchToggle v-model='toggleVal' v-bind='$props' /> Toggle value: <b>{{toggleVal}}</b></div>",
+    "<div><PSwitchToggle v-model='toggleVal' v-bind='$props'> Toggle value: <b>{{toggleVal}}</b></div>",
   data() {
     return {
       toggleVal: false,
@@ -21,6 +21,4 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const SwitchToggle = Template.bind({});
-SwitchToggle.args = {
-  // Props to be passed....
-};
+SwitchToggle.args = {};
