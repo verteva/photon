@@ -77,7 +77,7 @@ export default Vue.extend({
         'ph-transition',
         'ph-shadow-none',
         'ph-outline-none',
-        this.indeterminate ? 'p-progress-circular--indeterminate' : null,
+        this.indeterminate && 'p-progress-circular--indeterminate',
       ],
     };
   },
