@@ -28,9 +28,9 @@
     </div>
   </div>
 </template>
-<script lang="ts">
+<script lang='ts'>
 export default {
-  name: "Card",
+  name: 'Card',
   props: {
     active: {
       type: Boolean,
@@ -50,7 +50,7 @@ export default {
     },
     padding: {
       type: String,
-      default: "ph-p-7",
+      default: 'ph-p-7', 
     },
     allowOverflow: {
       type: Boolean,
@@ -63,7 +63,7 @@ export default {
   },
   data(): any {
     return {
-      hover: false,
+      hover: false, 
     };
   },
   computed: {
