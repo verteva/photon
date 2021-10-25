@@ -25,6 +25,7 @@ import PInfoCard from './InfoCard';
 import PBrandGradientText from './BrandGradientText';
 import PSwitchToggle from './SwitchToggle';
 import PSkeletonLoader from './SkeletonLoader';
+import PProgressCircular from './ProgressCircular';
 import {
   PText,
   PH1,
@@ -69,7 +70,8 @@ const components: PhotonComponents = {
   PInputRadio,
   PRadioGroup,
   PSwitchToggle,
-  PSkeletonLoader
+  PSkeletonLoader,
+  PProgressCircular,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents
