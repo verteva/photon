@@ -66,7 +66,6 @@ export default Vue.extend({
   computed: {
     innerValue: {
       get() {
-        console.log((this as any).value);
         return (this as any).value;
       },
       set(val) {
