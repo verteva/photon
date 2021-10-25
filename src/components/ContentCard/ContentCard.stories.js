@@ -1,8 +1,8 @@
-import PCard from './Card.vue';
+import PCard from './ContentCard.vue';
 import PIcon from '../Icon'; 
 
 export default {
-  title: 'Components/Card',
+  title: 'Components/ContentCard',
   component: PCard,
   argTypes: {
     // Configurable component options in SB UI...
@@ -10,9 +10,9 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { PCard, PIcon },
+  components: { PContentCard, PIcon },
   props: Object.keys(argTypes),
-  template: `<PCard v-bind='$props' 
+  template: `<PContentCard v-bind='$props' 
   >      
     <div class="ph-flex ph-items-center">
       <div class="ph-font-bold ph-mt-1 ph-leading-5 ph-mr-auto ">
@@ -24,10 +24,10 @@ const Template = (args, { argTypes }) => ({
         class="ph-text-brand2"
       />
     </div>
-  </PCard>`,
+  </PContentCard>`,
 });
 
-export const Card = Template.bind({});
-Card.args = {
+export const ContentCard = Template.bind({});
+ContentCard.args = {
   // Props to be passed....
 };

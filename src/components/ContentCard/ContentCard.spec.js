@@ -1,9 +1,9 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import Card from '@/components/Card/Card.vue';
+import ContentCard from '@/components/contentCard/ContentCard.vue';
 
 const createWrapper = (propsOverrides = {}) => {
   const localVue = createLocalVue();
-  return mount(Card, {
+  return mount(ContentCard, {
     localVue,
     propsData: {
       ...propsOverrides,
@@ -13,29 +13,29 @@ const createWrapper = (propsOverrides = {}) => {
     },
   });
 };
-describe('Card.vue', () => {
+describe('ContentCard.vue', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = createWrapper();
   });
 
   it('check slot content', () => {
-    const cardSlotContent = wrapper.html();
-    expect(cardSlotContent).toContain('Slot Content');
+    const contentCardSlotContent = wrapper.html();
+    expect(contentCardSlotContent).toContain('Slot Content');
   });
 
   it('check props: active displaying class', async () => {
-    const cardFindClass = await wrapper.getComponent({ ref: 'card' });
-    expect(cardFindClass.classes()).toContain('ph-border-grey9');
+    const contentCardFindClass = await wrapper.getComponent({ ref: 'contentCard' });
+    expect(contentCardFindClass.classes()).toContain('ph-border-grey9');
     await wrapper.setProps({ active: true });
-    expect(cardFindClass.classes()).toContain('ph-border-brand2');
+    expect(contentCardFindClass.classes()).toContain('ph-border-brand2');
     expect(wrapper.vm.active).toEqual(true);
   });
 
   it('check data: hover data change', async () => {
-    const cardHoverTrigger = await wrapper.getComponent({ ref: 'card' });
+    const contentCardHoverTrigger = await wrapper.getComponent({ ref: 'contentCard' });
     await expect(wrapper.vm.hover).toEqual(false);
-    await cardHoverTrigger.trigger('mouseover');
+    await contentCardHoverTrigger.trigger('mouseover');
     await expect(wrapper.vm.hover).toEqual(true);
   });
 
@@ -64,15 +64,15 @@ describe('Card.vue', () => {
   it('check props: padding displaying adding default ph-p-7', async () => {
     await expect(wrapper.vm.padding).toEqual('ph-p-7');
     await wrapper.setProps({ padding: 'ph-p-99' });
-    const cardPaddingClass = await wrapper.getComponent({ ref: 'card' });
-    expect(cardPaddingClass.html()).toContain('ph-p-99');
+    const contentCardPaddingClass = await wrapper.getComponent({ ref: 'contentCard' });
+    expect(contentCardPaddingClass.html()).toContain('ph-p-99');
   });
 
   it('check props: interactive click event', async () => {
     await wrapper.setProps({ isInteractive: true });
     await wrapper.setProps({ disabled: false });
-    const cardClickedState = await wrapper.getComponent({ ref: 'card' });
-    await cardClickedState.trigger('click');
-    expect(cardClickedState.classes()).toContain('ph-cursor-pointer');
+    const contentCardClickedState = await wrapper.getComponent({ ref: 'contentCard' });
+    await contentCardClickedState.trigger('click');
+    expect(contentCardClickedState.classes()).toContain('ph-cursor-pointer');
   });
 });

@@ -1,7 +1,7 @@
 <template>
   <div
+    ref="contentCard"
     v-bind="$attrs"
-    ref="card"
     class="ph-bg-gradient-light-grey2 ph-rounded-lg ph-transition-opacity ph-duration-300 ph-relative ph-border"
     :class="[
       active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
@@ -30,7 +30,7 @@
 </template>
 <script lang='ts'>
 export default {
-  name: 'Card',
+  name: 'ContentCard',
   props: {
     active: {
       type: Boolean,
