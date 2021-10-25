@@ -24,7 +24,7 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <div>
-      <p-progress-circular v-bind="$props">  
+      <p-progress-circular class="ph-text-brand2" v-bind="$props">  
         {{ value }}
       </p-progress-circular>
     </div>

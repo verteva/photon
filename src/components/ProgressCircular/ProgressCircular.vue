@@ -2,7 +2,7 @@
   <div
     ref="circular"
     class="p-progress-circular"
-    :class="[baseClassList, svgColor]"
+    :class="baseClassList"
     :style="{
       '--width': size,
       '--height': size,
@@ -56,10 +56,6 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '20px',
     },
-    color: {
-      type: String as PropType<string>,
-      default: 'grey2',
-    },
     value: {
       type: String as PropType<string>,
       default: '',
@@ -73,23 +69,18 @@ export default Vue.extend({
   data(): any {
     return {
       baseClassList: [
-        "ph-relative",
-        "ph-inline-flex",
-        "ph-justify-center",
-        "ph-align-middle",
-        "ph-items-center",
-        "ph-transition",
-        "ph-shadow-none",
-        "ph-outline-none",
-        this.indeterminate ? "p-progress-circular--indeterminate" : null,
+        'ph-relative',
+        'ph-inline-flex',
+        'ph-justify-center',
+        'ph-align-middle',
+        'ph-items-center',
+        'ph-transition',
+        'ph-shadow-none',
+        'ph-outline-none',
+        this.indeterminate ? 'p-progress-circular--indeterminate' : null,
       ],
     };
   },
-  computed:{
-    svgColor(){
-      return "ph-text-"+this.color;
-    }
-  }
 });
 </script>
 
