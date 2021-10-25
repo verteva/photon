@@ -1,6 +1,7 @@
 <template>
   <div
     v-bind="$attrs"
+    ref="card"
     class="ph-bg-gradient-light-grey2 ph-rounded-lg ph-transition-opacity ph-duration-300 ph-relative ph-border"
     :class="[
       active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
@@ -12,7 +13,6 @@
     @mouseover="hover = true"
     @mouseout="hover = false"
   >
-    {{ hover }}
     <div
       class="ph-absolute ph-top-0 ph-left-0 ph-right-0 ph-bottom-0 ph-opacity-0 ph-transition-opacity ph-duration-300 ph-bg-brand2"
       :class="[
