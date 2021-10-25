@@ -8,7 +8,7 @@
         class="ph-mr-1"
         :class="(this.errors.length && !this.hideErrors) ? 'ph-opacity-1' : 'ph-opacity-0'"
         name="Error"
-        type="sm"
+        type="lg"
       />
       <p-text sm class="ph-min-h-1.5em">
         {{ errorsMessages }}

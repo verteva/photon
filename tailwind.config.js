@@ -90,6 +90,8 @@ module.exports = {
       fadeIn: "fadeIn .35s cubic-bezier(.3,.28,.26,.81)",
       fadeInSlow: "fadeIn 2s cubic-bezier(.3,.28,.26,.81)",
       fadeOut: "fadeOut .35s cubic-bezier(.3,.28,.26,.81)",
+      progressCircularDash: "progressCircularDash 1.4s linear infinite",
+      progressCircularRotate: "progressCircularRotate 1.4s linear infinite",
     },
     backdropBlur: (theme) => theme("blur"),
     backdropBrightness: (theme) => theme("brightness"),
@@ -558,6 +560,25 @@ module.exports = {
           opacity: 0,
         },
       },
+      progressCircularDash: {
+        "0%": {
+          strokeDasharray: "1, 200",
+          strokeDashoffset: "0px",
+        },
+        "50%": {
+          strokeDasharray: "100, 200",
+          strokeDashoffset: "-15px",
+        },
+        "100%": {
+          strokeDasharray: "100, 200",
+          strokeDashoffset: "-125px",
+        }
+      },
+      progressCircularRotate: {
+        "100%": {
+          transform: "rotate(360deg)",
+        }
+      }
     },
     letterSpacing: {
       tighter: "-0.05em",
