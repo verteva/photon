@@ -2,7 +2,7 @@
   <div
     ref="contentCard"
     v-bind="$attrs"
-    class="ph-bg-gradient-light-grey2 ph-rounded-lg ph-transition-opacity ph-duration-300 ph-relative ph-border"
+    class="content-card ph-bg-gradient-light-grey2 ph-rounded-lg ph-transition-opacity ph-duration-300 ph-relative ph-border"
     :class="[
       active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
       interactive && !disabled && 'ph-cursor-pointer',
@@ -79,3 +79,29 @@ export default {
   },
 };
 </script>
+
+<style lang="postcss" scoped>
+.content-card.bar-bottom-brand:after {
+    -webkit-animation: grow-out 0.4s cubic-bezier(0.06, 0.66, 0.39, 0.99);
+    animation: grow-out 0.4s cubic-bezier(0.06, 0.66, 0.39, 0.99);
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    transform-origin: 50% 100%;
+    content: "";
+    @apply ph-bg-brand2;
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+@keyframes grow-out {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(100%);
+  }
+}
+</style>
