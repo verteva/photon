@@ -27,14 +27,8 @@
           width="1440"
           height="1395"
         ></rect>
-            
-        <rect
-          id="Rectangle"
-          x="771"
-          y="107"
-          width="14"
-          height="10"
-        ></rect>
+
+        <rect id="Rectangle" x="771" y="107" width="14" height="10"></rect>
         <polyline
           id="Path-14"
           stroke="currentColor"

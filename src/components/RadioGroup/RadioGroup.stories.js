@@ -1,11 +1,11 @@
-import PRadioGroup from "./RadioGroup.vue";
-import PButton from "../Button";
+import PRadioGroup from './RadioGroup.vue';
+import PButton from '../Button';
 export default {
-  title: "Forms/RadioGroup",
+  title: 'Forms/RadioGroup',
   component: PRadioGroup,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -44,7 +44,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       innerValue: null,
-      errs: [],
+      errs: []
     };
   },
   methods: {
@@ -52,10 +52,10 @@ const Template = (args, { argTypes }) => ({
       if (this.errs?.length) {
         this.errs = [];
       } else {
-        this.errs = ["Inine validation error"];
+        this.errs = ['Inine validation error'];
       }
-    },
-  },
+    }
+  }
 });
 
 export const RadioGroup = Template.bind({});

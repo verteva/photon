@@ -41,13 +41,7 @@
       />
     </mask>
     <g mask="url(#mask0)">
-      <rect
-        x="3"
-        y="3"
-        width="24"
-        height="24"
-        fill=""
-      />
+      <rect x="3" y="3" width="24" height="24" fill="" />
     </g>
   </svg>
 </template>

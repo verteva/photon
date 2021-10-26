@@ -1,28 +1,24 @@
 <template>
-  <nav 
+  <nav
     class="skip-link ph-z-50"
     v-bind="$attrs"
     aria-label="skip links navigation"
     v-on="$listeners"
   >
-    <a 
+    <a
       :class="linkClasses"
       :href="mainMenuId"
       aria-label="skip to navigation link"
     >
       Skip to navigation
     </a>
-    <a 
-      :class="linkClasses"
-      :href="contentId"
-      aria-label="skip to content link"
-    >
+    <a :class="linkClasses" :href="contentId" aria-label="skip to content link">
       Skip to content
     </a>
   </nav>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
@@ -39,8 +35,8 @@ export default Vue.extend({
     },
     linkClassArr: {
       type: Array as PropType<string[]>,
-      default: () => [],
-    },
+      default: () => []
+    }
   },
 
   data(): {
@@ -67,18 +63,17 @@ export default Vue.extend({
         'ph-outline-none',
         'ph-shadow-lg',
         'ph-rounded-md',
-        'ph-text-base',
-      ],
+        'ph-text-base'
+      ]
     };
   },
 
   computed: {
     allClasses(): string[] {
-      return [...this.linkClasses, ...this.linkClassArr]
+      return [...this.linkClasses, ...this.linkClassArr];
     }
   },
 
-  methods: {
-  },
+  methods: {}
 });
 </script>

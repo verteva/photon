@@ -30,11 +30,6 @@
       rx="1.5"
       stroke="currentColor"
     />
-    <circle
-      cx="15.7706"
-      cy="25.3281"
-      r="1.26562"
-      fill="currentColor"
-    />
+    <circle cx="15.7706" cy="25.3281" r="1.26562" fill="currentColor" />
   </svg>
 </template>

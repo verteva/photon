@@ -13,12 +13,7 @@
       stroke="currentColor"
       stroke-width="0.947368"
     />
-    <circle
-      cx="22.9851"
-      cy="9.95544"
-      r="0.668317"
-      fill="currentColor"
-    />
+    <circle cx="22.9851" cy="9.95544" r="0.668317" fill="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"

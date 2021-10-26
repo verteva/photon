@@ -11,16 +11,8 @@
       stroke="currentColor"
       stroke-linecap="round"
     />
-    <path
-      d="M9.47339 12V14"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M20.2001 12V14"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
+    <path d="M9.47339 12V14" stroke="currentColor" stroke-linecap="round" />
+    <path d="M20.2001 12V14" stroke="currentColor" stroke-linecap="round" />
     <path
       d="M14.9734 11.7949V15.2949C14.9734 16.2949 14.4734 17.2949 12.9734 16.7949"
       stroke="currentColor"

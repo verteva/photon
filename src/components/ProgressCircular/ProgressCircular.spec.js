@@ -7,28 +7,32 @@ describe('SkeletonLoader.vue', () => {
     return mount(ProgressCircular, {
       localVue,
       propsData: {
-        ...propsOverrides,
-      },
+        ...propsOverrides
+      }
     });
   };
 
   const assertStyleVarSetup = (wrapper, styleName, style) => {
     const circular = wrapper.findComponent({ ref: 'circular' });
-    return expect(circular.attributes('style')).toContain('--'+styleName+': '+style);
-  }
+    return expect(circular.attributes('style')).toContain(
+      '--' + styleName + ': ' + style
+    );
+  };
 
   it('check if prop:indeterminate is setup correctly', () => {
-    const indeterminate = true
-    const wrapper = createWrapper({ indeterminate: indeterminate});
+    const indeterminate = true;
+    const wrapper = createWrapper({ indeterminate: indeterminate });
     const circular = wrapper.findComponent({ ref: 'circular' });
-    expect(circular.attributes('class')).toContain('p-progress-circular--indeterminate');
-  });  
+    expect(circular.attributes('class')).toContain(
+      'p-progress-circular--indeterminate'
+    );
+  });
 
   it('check if prop:size is setup correctly', () => {
     const size = '25px';
     const wrapper = createWrapper({ size });
     expect(wrapper.vm.size).toBe(size);
-  });  
+  });
 
   it('check if width variable is setup', () => {
     const size = '20px';

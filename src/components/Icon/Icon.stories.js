@@ -1,4 +1,3 @@
-
 import icons from './icons';
 import PIcon from './Icon.vue';
 import {
@@ -7,7 +6,7 @@ import {
   IconSizeMedium,
   IconSizeLg,
   IconSizeXl,
-  IconSizeHuge,
+  IconSizeHuge
 } from './types';
 
 export default {
@@ -15,29 +14,31 @@ export default {
   component: PIcon,
   argTypes: {
     textColor: { control: 'color' },
-    type: { type: 'select', options: [
-      IconSizeXs,
-      IconSizeSm,
-      IconSizeMedium,
-      IconSizeLg,
-      IconSizeXl,
-      IconSizeHuge,
-    ]},
+    type: {
+      type: 'select',
+      options: [
+        IconSizeXs,
+        IconSizeSm,
+        IconSizeMedium,
+        IconSizeLg,
+        IconSizeXl,
+        IconSizeHuge
+      ]
+    }
   },
   args: {
     type: IconSizeMedium,
-    textColor: '#000000',
-  },
+    textColor: '#000000'
+  }
 };
-
-
 
 const AllTemplate = (args, { argTypes }) => ({
   components: { PIcon },
   props: Object.keys(argTypes),
   template: `
     <div class="ph-max-w-xl ph-pt-16">
-      <div class="ph-flex ph-flex-wrap ph-w-full" :style="{ color: '${args.textColor || ''}' }">
+      <div class="ph-flex ph-flex-wrap ph-w-full" :style="{ color: '${args.textColor ||
+        ''}' }">
         <div
           v-for="i in icons"
           :key="i"
@@ -57,8 +58,8 @@ const AllTemplate = (args, { argTypes }) => ({
   data() {
     return {
       icons,
-      iconName: '',
-    }
+      iconName: ''
+    };
   },
   methods: {
     onOver(i) {
@@ -66,7 +67,7 @@ const AllTemplate = (args, { argTypes }) => ({
     },
     onOut() {
       this.iconName = '';
-    },
+    }
   }
 });
 

@@ -6,11 +6,6 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      cx="15.5"
-      cy="15.5"
-      r="11.5"
-      fill="currentColor"
-    />
+    <circle cx="15.5" cy="15.5" r="11.5" fill="currentColor" />
   </svg>
 </template>

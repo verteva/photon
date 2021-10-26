@@ -5,10 +5,7 @@
     height="66"
     viewBox="0 0 43 66"
   >
-    <g
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g fill="none" fill-rule="evenodd">
       <g fill="currentColor">
         <g>
           <path

@@ -22,14 +22,8 @@
         stroke="currentColor"
         stroke-width="1.5"
       >
-        <g
-          id="Savings-PItch"
-          transform="translate(188.000000, 348.000000)"
-        >
-          <g
-            id="Year"
-            transform="translate(227.000000, 202.000000)"
-          >
+        <g id="Savings-PItch" transform="translate(188.000000, 348.000000)">
+          <g id="Year" transform="translate(227.000000, 202.000000)">
             <g
               id="Icon:-Seed-growing-(life)"
               transform="translate(70.500000, 54.000000)"

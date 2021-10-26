@@ -35,7 +35,7 @@ import {
   IconXXl,
   IconXXXl,
   IconXXXXl,
-  IconHuge,
+  IconHuge
 } from './types';
 
 export default Vue.extend({
@@ -46,12 +46,12 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
       validator(value: string): boolean {
-        return (icons as IconList).includes(value) ;
-      },
+        return (icons as IconList).includes(value);
+      }
     },
     color: {
       type: String as PropType<string>,
-      default: 'inherit',
+      default: 'inherit'
     },
     type: {
       type: String as PropType<IconSize>,
@@ -66,23 +66,23 @@ export default Vue.extend({
           IconSizeXXl,
           IconSizeXXXl,
           IconSizeXXXXl,
-          IconSizeHuge,
-        ].includes(value) ;
-      },
-    },
+          IconSizeHuge
+        ].includes(value);
+      }
+    }
   },
 
   computed: {
-    icon():any {
+    icon(): any {
       /* eslint-disable @typescript-eslint/no-var-requires */
       return require(`./icons/${this.name}.vue`).default;
     },
-    size():IconProperty {
-      const s:IconProperty = {
+    size(): IconProperty {
+      const s: IconProperty = {
         width: IconMedium,
-        height: IconMedium,
+        height: IconMedium
       };
-      switch(this.type) {
+      switch (this.type) {
         case IconSizeXs:
           s.width = IconXs;
           s.height = IconXs;
@@ -119,6 +119,6 @@ export default Vue.extend({
 
       return s as IconProperty;
     }
-  },
+  }
 });
 </script>

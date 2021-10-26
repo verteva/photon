@@ -22,14 +22,8 @@
         stroke="currentColor"
         stroke-width="1.5"
       >
-        <g
-          id="Savings-PItch"
-          transform="translate(188.000000, 348.000000)"
-        >
-          <g
-            id="Month"
-            transform="translate(30.000000, 202.000000)"
-          >
+        <g id="Savings-PItch" transform="translate(188.000000, 348.000000)">
+          <g id="Month" transform="translate(30.000000, 202.000000)">
             <g
               id="Icon:-Seed-(month)"
               transform="translate(80.000000, 77.000000)"

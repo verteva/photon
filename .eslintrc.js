@@ -3,9 +3,10 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
+  extends: [
     'plugin:vue/recommended',
-    '@vue/typescript/recommended'
+    '@vue/typescript/recommended',
+    '@vue/prettier'
   ],
   parserOptions: {
     ecmaVersion: 2020
@@ -16,6 +17,8 @@ module.exports = {
     'vue/html-self-closing': 0,
     'vue/no-v-html': 0,
     '@typescript-eslint/no-explicit-any': 0,
+    'prettier/prettier': ['error', { singleQuote: true }],
+    quotes: ['error', 'single', { avoidEscape: true }]
   },
   overrides: [
     {
@@ -28,4 +31,4 @@ module.exports = {
       }
     }
   ]
-}
+};

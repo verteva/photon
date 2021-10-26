@@ -23,35 +23,11 @@
       stroke="currentColor"
       stroke-linejoin="round"
     />
-    <path
-      d="M8 11H12.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M8 13.5H12.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M8 16.5H12.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M17 11H21.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M17 13.5H21.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M17 16.5H21.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
+    <path d="M8 11H12.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M8 13.5H12.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M8 16.5H12.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M17 11H21.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M17 13.5H21.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M17 16.5H21.5" stroke="currentColor" stroke-linejoin="round" />
   </svg>
 </template>

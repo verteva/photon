@@ -7,22 +7,10 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <linearGradient
-      id="brandGradient"
-      gradientTransform="rotate(0)"
-    >
-      <stop
-        offset="0%"
-        stop-color="#3DD6C7"
-      />
-      <stop
-        offset="50%"
-        stop-color="#009EDE"
-      />
-      <stop
-        offset="100%"
-        stop-color="#004DBD"
-      />
+    <linearGradient id="brandGradient" gradientTransform="rotate(0)">
+      <stop offset="0%" stop-color="#3DD6C7" />
+      <stop offset="50%" stop-color="#009EDE" />
+      <stop offset="100%" stop-color="#004DBD" />
     </linearGradient>
     <g
       id="Experiments"

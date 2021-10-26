@@ -1,8 +1,5 @@
 <template>
-  <component
-    :is="el"
-    :class="classList"
-  >
+  <component :is="el" :class="classList">
     <slot />
   </component>
 </template>
@@ -14,7 +11,7 @@ import {
   TextElementType,
   TextElementDiv,
   TextElementSpan,
-  TextElementParagraph,
+  TextElementParagraph
 } from './types';
 
 export default Vue.extend({
@@ -23,33 +20,35 @@ export default Vue.extend({
   props: {
     xl: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     lg: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     sm: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     xs: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     el: {
       type: String as PropType<TextElementType>,
       default: TextElementDiv,
       validator(value: string): boolean {
-        return [TextElementDiv, TextElementSpan, TextElementParagraph].includes(value);
-      },
-    },
+        return [TextElementDiv, TextElementSpan, TextElementParagraph].includes(
+          value
+        );
+      }
+    }
   },
 
   computed: {
     classList() {
       this.validateProps();
-      
+
       if (this.xl) {
         return 'ph-text-xl';
       }
@@ -64,7 +63,7 @@ export default Vue.extend({
       }
 
       return '';
-    },
+    }
   },
   methods: {
     validateProps() {
@@ -72,12 +71,9 @@ export default Vue.extend({
         Throw error is component is passes conflicting size props.
         Can only pass one (or none) size prop max
       */
-      const sizeProps = [
-        'xl',
-        'lg',
-        'sm',
-        'xs',
-      ].filter(size =>  (this as any)[size]);
+      const sizeProps = ['xl', 'lg', 'sm', 'xs'].filter(
+        size => (this as any)[size]
+      );
 
       if (sizeProps.length > 1) {
         console.warn(`WARNING! You have passed more than 1 size prop to <PText>.
@@ -86,7 +82,7 @@ export default Vue.extend({
           xl, lg, sm, xs.
         `);
       }
-    },
-  },
+    }
+  }
 });
 </script>

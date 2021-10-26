@@ -6,7 +6,7 @@ export default {
   component: PDialog,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -31,9 +31,9 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       confirmDelete: false,
-      answer: null,
+      answer: null
     };
-  },
+  }
 });
 
 export const Dialog = Template.bind({});

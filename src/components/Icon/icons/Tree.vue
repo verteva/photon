@@ -23,18 +23,9 @@
         stroke="currentColor"
         stroke-width="1.5"
       >
-        <g
-          id="Savings-PItch"
-          transform="translate(188.000000, 348.000000)"
-        >
-          <g
-            id="Life"
-            transform="translate(424.000000, 202.000000)"
-          >
-            <g
-              id="Icon:-Tree"
-              transform="translate(61.000000, 49.000000)"
-            >
+        <g id="Savings-PItch" transform="translate(188.000000, 348.000000)">
+          <g id="Life" transform="translate(424.000000, 202.000000)">
+            <g id="Icon:-Tree" transform="translate(61.000000, 49.000000)">
               <path
                 id="Stroke-1"
                 d="M28.2732968,57.2185935 C30.5141032,39.5614645 25.5002323,30.6046258 25.8462,11.7414"
