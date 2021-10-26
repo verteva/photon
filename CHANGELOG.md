@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.598] - 2021-10-21
+### Add
+- Add Play and Triangle icons
+
 ## [0.1.597] - 2021-10-21
 ### Add
 - Add Progress Circular

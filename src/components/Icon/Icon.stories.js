@@ -36,7 +36,7 @@ const AllTemplate = (args, { argTypes }) => ({
   components: { PIcon },
   props: Object.keys(argTypes),
   template: `
-    <div class="ph-max-w-xl">
+    <div class="ph-max-w-xl ph-pt-16">
       <div class="ph-flex ph-flex-wrap ph-w-full" :style="{ color: '${args.textColor || ''}' }">
         <div
           v-for="i in icons"
@@ -49,7 +49,7 @@ const AllTemplate = (args, { argTypes }) => ({
         </div>
       </div>
         
-      <div class="ph-fixed ph-top-5 ph-left-5 ph-mt-4 ph-text-xs">
+      <div class="ph-fixed ph-top-5 ph-left-5 ph-mt-4 ph-text-xs ph-bg-grey6 ph-p-2">
         Icon: {{ iconName }}
       </div>
     </div>
