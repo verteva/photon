@@ -6,7 +6,7 @@
       :height="size.height"
       class="picon"
       :color="color"
-    />   
+    />
   </div>
 </template>
 
@@ -25,6 +25,7 @@ import {
   IconSizeXl,
   IconSizeXXl,
   IconSizeXXXl,
+  IconSizeXXXXl,
   IconSizeHuge,
   IconXs,
   IconSm,
@@ -33,6 +34,7 @@ import {
   IconXl,
   IconXXl,
   IconXXXl,
+  IconXXXXl,
   IconHuge,
 } from './types';
 
@@ -63,12 +65,12 @@ export default Vue.extend({
           IconSizeXl,
           IconSizeXXl,
           IconSizeXXXl,
+          IconSizeXXXXl,
           IconSizeHuge,
         ].includes(value) ;
       },
     },
   },
-
 
   computed: {
     icon():any {
@@ -104,6 +106,10 @@ export default Vue.extend({
         case IconSizeXXXl:
           s.width = IconXXXl;
           s.height = IconXXXl;
+          break;
+        case IconSizeXXXXl:
+          s.width = IconXXXXl;
+          s.height = IconXXXXl;
           break;
         case IconSizeHuge:
           s.width = IconHuge;

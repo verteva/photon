@@ -13,7 +13,10 @@
       @blur="focussed = false"
     >
       {{ section }}
-      <slot name="heading" :expanded="expanded" />
+      <slot
+        name="heading"
+        :expanded="expanded"
+      />
       <p-icon
         v-if="complete"
         name="Checkmark"

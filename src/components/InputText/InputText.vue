@@ -1,16 +1,15 @@
 <template>
   <p-input
+    v-if="!simple"
     :class="{'ph-input-error-content':errors.length}"
     :errors="errors"
   >
-    <slot
-      v-if="$scopedSlots.label"
-      name="label"
-    >
-      <p-label>{{ label }}</p-label>
-    </slot>
-    <p-label v-else>
+    <p-label>
       {{ label }}
+      <slot
+        v-if="!label"
+        name="label"
+      />
     </p-label>
 
     <div :class="componentClassList">
@@ -46,6 +45,24 @@
       </div>
     </div>
   </p-input>
+  
+  <!-- Simple text field -->
+  <div
+    v-else
+    :class="componentClassList"
+  >
+    <input
+      :id="id"
+      :class="baseClassList" 
+      :placeholder="placeholder"
+      :value="value"
+      :type="$attrs.type"
+      v-bind="$attrs"
+      tabindex="0"
+      v-on="$listeners"
+      @keydown="validatePress"
+    />
+  </div>
 </template>
 
 <script lang="ts">
@@ -66,6 +83,14 @@ export default Vue.extend({
   },
   
   props: {
+    centered: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    simple: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     number: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -131,7 +156,6 @@ export default Vue.extend({
         'ph-py-2 ph-px-5',
         'ph-border',
         'ph-border-grey5',
-        'focus:ph-text-brand2',
         'focus:ph-border-brand2',
         'focus:ph-outline-none',
         'ph-border-solid',
@@ -139,6 +163,7 @@ export default Vue.extend({
         this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
+        this.centered ? 'ph-text-center' : '',
       ],
     } as InputTextData;
   },
@@ -163,7 +188,7 @@ export default Vue.extend({
         TODO: As an enhacement, add keycode checks
         to allow for a user select all (cmd + a)
         in the text input
-      */
+      */    
       if (this.number && !isNumber(event)) {
           return event.preventDefault();
       }
@@ -188,5 +213,11 @@ export default Vue.extend({
 <style lang="postcss">
 .ph-input-error-content input, .ph-input-error-content svg{
   @apply ph-text-alert2;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 </style>

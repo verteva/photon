@@ -6,6 +6,102 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.598] - 2021-10-21
+### Add
+- Add Play and Triangle icons
+
+## [0.1.597] - 2021-10-21
+### Add
+- Add Progress Circular
+
+## [0.1.596] - 2021-10-15
+### Add
+- Add Skeleton Loader
+
+## [0.1.595] - 2021-10-14
+### Fix
+- Radio button reactivity fix
+
+## [0.1.594] - 2021-10-14
+### Fix
+- Fix checkbox vertical aligment on firefox broweser
+
+## [0.1.593] - 2021-10-13
+### Fix
+- Publish new version as p-from did not build previously
+
+## [0.1.592] - 2021-10-12
+- Add Form component
+- Add enhancements to the radio button comp
+
+## [0.1.591] - 2021-10-11
+- Add radio buttons and fix for alignment in errors
+
+## [0.1.590] - 2021-10-05
+- Make phont input show a dark bg
+
+## [0.1.589] - 2021-10-05
+- Remove log
+
+## [0.1.588] - 2021-10-05
+- Add Input Phone Component
+
+## [0.1.587] - 2021-10-05
+- Fix InfoCard's colour and gradients
+
+
+## [0.1.586] - 2021-10-01
+## [0.1.585] - 2021-10-01
+### Added
+- New SVG for gradient backgrounds
+
+## [0.1.583] - 2021-09-30
+### Added
+- Resolve Checkbox dark border and font size
+
+## [0.1.582] - 2021-09-30
+### Added
+- Added BrandGradientText and InfoCard
+
+## [0.1.581] - 2021-09-29
+### Added
+- Button component Safari enhancement
+- Change input error display
+- Added List/List item component
+
+## [0.1.580] - 2021-09-27
+### Added
+- Remove Checkbox focus color, add cursor
+
+## [0.1.579] - 2021-09-24
+## [0.1.578] - 2021-09-24
+### Added
+- Added the Toast component
+
+## [0.1.577] - 2021-09-22
+### Added
+- Added the Message component
+
+## [0.1.576] - 2021-09-21
+### Fix
+- remove input text color on focus
+
+## [0.1.575] - 2021-09-21
+### Fix
+- Update cross.svg to use currentColor
+
+## [0.1.574] - 2021-09-17
+### Added
+- Allow Date input to support dark mode
+
+## [0.1.573] - 2021-09-16
+### Added
+- Add Checkbox, Date input, updates to Autocomplete and InpuTtext
+
+## [0.1.572] - 2021-09-10
+### Added
+- Hofix for label slot & prop in text input not displaying correctly
+
 ## [0.1.571] - 2021-09-10
 ### Added
 - Add Autocomplte Filter control for different components

@@ -40,12 +40,14 @@
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
             <p-icon
               v-if="prefixIcon"
+              ref="prefixIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
               :name="prefixIcon"
               type="med"
             ></p-icon>
             <input
               v-show="!selected ? true: !hideInputOnSelected"
+              ref="input"
               class="vs__search ph-flex-1"
               :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
               v-bind="attributes"
@@ -106,6 +108,7 @@
           <span v-bind="attributes">
             <p-icon
               v-if="!hideOpenIndicator"
+              class="openIndicator"
               :name="openIndicatorIcon"
               :type="openIndicatorIconSize"
             />
@@ -131,7 +134,7 @@
         </template>
         <template #no-options>
           <label
-            class="ph-pl-1"
+            class="ph-pl-1 noOptionnsText"
             v-html="noOptionsText"
           ></label>
         </template>
@@ -187,7 +190,6 @@ import {
   DropDown,
   DropUp,
 } from "./types";
-import 'vue-select/dist/vue-select.css';
 import { createPopper } from '@popperjs/core'
 
 Vue.component('vSelect', vSelect);
@@ -389,7 +391,7 @@ export default Vue.extend({
         'hover:ph-text-brandh2',
       ],
       focused: false,
-      selected: '',
+      selected: this.initInput || '',
       searchText: '',
       manualInput: '',
       toggleMenu: false,
@@ -432,7 +434,7 @@ export default Vue.extend({
       this.$emit('update:searchInput', search);
       //loading(true);
     },
-    onInput (val: string) {
+    onInput (val: string) {     
       this.$emit('blur');
       this.$data.toggleMenu = false;
       this.$emit('update:selected', this.$data.selected);
@@ -507,12 +509,14 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss">
+@import '~vue-select/dist/vue-select.css';
+
 .ph-autocomplete__v-select {
   --maxHeight: 304px;
 }
 
 .vs__dropdown-toggle{
-  @apply ph-rounded-xl;
+  @apply ph-rounded-lg;
   @apply ph-pb-0;
 }
 
@@ -550,14 +554,14 @@ export default Vue.extend({
 
 .ph-autocomplete-open .vs__dropdown-toggle{
   border-color: var(--borderFocusColor, #009EDE);
-  @apply ph-rounded-bl-xl;
-  @apply ph-rounded-br-xl;
+  @apply ph-rounded-bl-lg;
+  @apply ph-rounded-br-lg;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within{
   border-color: var(--borderFocusColor, #009EDE);
-  @apply ph-rounded-bl-xl;
-  @apply ph-rounded-br-xl;
+  @apply ph-rounded-bl-lg;
+  @apply ph-rounded-br-lg;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within svg{
@@ -586,7 +590,7 @@ export default Vue.extend({
   @apply ph-inline-block;
   @apply ph-m-0;
   @apply ph-p-px;
-  @apply ph-rounded-xl;
+  @apply ph-rounded-lg;
   @apply ph-bg-grey5;
   @apply ph-text-grey1;
 }
