@@ -539,8 +539,8 @@ export default Vue.extend({
 }
 
 .vs__search, .vs__search:focus {
-  @apply ph-pt-1;
-  margin: 2px 0;
+  @apply ph-py-0.5;
+  margin: 0;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle{
