@@ -5,13 +5,12 @@
     height="79"
     viewBox="0 0 46 79"
   >
-    <g
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g fill="none" fill-rule="evenodd">
       <g>
         <g>
-          <g transform="translate(-1023 -441) translate(512 137) translate(512 305)">
+          <g
+            transform="translate(-1023 -441) translate(512 137) translate(512 305)"
+          >
             <path
               stroke="currentColor"
               stroke-linecap="round"
@@ -52,12 +51,7 @@
                 transform="translate(8 28)"
               />
             </g>
-            <circle
-              cx="21.95"
-              cy="39.75"
-              r="6.25"
-              stroke="currentColor"
-            />
+            <circle cx="21.95" cy="39.75" r="6.25" stroke="currentColor" />
           </g>
         </g>
       </g>

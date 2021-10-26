@@ -1,68 +1,64 @@
 <template>
-  <component
-    :is="type"
-    :bind="$attrs"
-    :class="classList"
-  >
+  <component :is="type" :bind="$attrs" :class="classList">
     <slot />
   </component>
 </template>
-<script lang='ts'>
+<script lang="ts">
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
   name: 'PList',
-  
+
   props: {
     type: {
       type: String as PropType<string>,
       default: 'ul',
       validator(value: string): boolean {
-        return ['ul', 'ol'].includes(value) ;
-      },
+        return ['ul', 'ol'].includes(value);
+      }
     },
-    
+
     listType: {
       type: String as PropType<string>,
       default: 'circle',
       validator(value: string): boolean {
-        return ['circle', 'decimal'].includes(value) ;
-      },
+        return ['circle', 'decimal'].includes(value);
+      }
     },
 
     listColor: {
       type: String as PropType<string>,
       default: 'brand2',
       validator(value: string): boolean {
-        return ['brand1', 'brand2', 'alert2', 'none'].includes(value) ;
-      },
+        return ['brand1', 'brand2', 'alert2', 'none'].includes(value);
+      }
     },
-    
+
     spacing: {
       type: String as PropType<string>,
       default: 'normal',
       validator(value: string): boolean {
-        return ['tight', 'normal'].includes(value) ;
-      },
-    },
+        return ['tight', 'normal'].includes(value);
+      }
+    }
   },
 
   computed: {
-    classList():string[] {      
+    classList(): string[] {
       return [
         `ph-list-type-${this.listType}`,
         `ph-list-color-${this.listColor}`,
-        `ph-list-item-${this.spacing}`,
-      ]
-    },
-  },
+        `ph-list-item-${this.spacing}`
+      ];
+    }
+  }
 });
 </script>
 
-
 <style lang="postcss">
-ul, ol {
-  padding-left: 0.6rem
+ul,
+ol {
+  padding-left: 0.6rem;
 }
 
 .ph-list-item-tight li {
@@ -74,7 +70,7 @@ ul, ol {
 }
 
 .ph-list-type-circle {
-  @apply ph-list-circle;  
+  @apply ph-list-circle;
 }
 
 .ph-list-type-decimal {

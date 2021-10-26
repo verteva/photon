@@ -131,6 +131,7 @@ export default [
   'PercentagePencil',
   'PersonalCare',
   'Pets',
+  'Play',
   'Plus',
   'PlusCircle',
   'Privacy',
@@ -166,7 +167,7 @@ export default [
   'Swap',
   'TakeSelfie',
   'Tea',
-  'Telecommunications',
+  'Telecommunications,',
   'Terms',
   'ThumbsUp',
   'Time',
@@ -178,9 +179,10 @@ export default [
   'Transport',
   'Travel',
   'Tree',
+  'Triangle',
   'Unlocked',
   'Upload',
   'Utilities',
   'Wireless',
-  'iWatch',
+  'iWatch'
 ];

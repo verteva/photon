@@ -11,5 +11,5 @@ export interface SliderData {
 }
 
 export interface SliderTrackRef {
-  getBoundingClientRect():any;
+  getBoundingClientRect(): any;
 }

@@ -1,5 +1,5 @@
 export interface RefElement {
- $el: Vue | Element;
+  $el: Vue | Element;
 }
 export interface InputElement {
   querySelector(target): any;

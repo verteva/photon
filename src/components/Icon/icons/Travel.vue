@@ -1,8 +1,32 @@
 <template>
-<svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="4.125" y="9.61749" width="21.6875" height="13.625" rx="2" stroke="currentColor"/>
-<path d="M10.875 7.42999C10.875 6.87771 11.3227 6.42999 11.875 6.42999H18.0625C18.6148 6.42999 19.0625 6.87771 19.0625 7.42999V9.61749H10.875V7.42999Z" stroke="currentColor"/>
-<rect x="9.578" y="16.2581" width="5.35854" height="4.41955" rx="1" transform="rotate(-45 9.578 16.2581)" stroke="currentColor"/>
-<path d="M13.1562 9.64874V13.0862" stroke="currentColor"/>
-</svg>
+  <svg
+    width="30"
+    height="31"
+    viewBox="0 0 30 31"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      x="4.125"
+      y="9.61749"
+      width="21.6875"
+      height="13.625"
+      rx="2"
+      stroke="currentColor"
+    />
+    <path
+      d="M10.875 7.42999C10.875 6.87771 11.3227 6.42999 11.875 6.42999H18.0625C18.6148 6.42999 19.0625 6.87771 19.0625 7.42999V9.61749H10.875V7.42999Z"
+      stroke="currentColor"
+    />
+    <rect
+      x="9.578"
+      y="16.2581"
+      width="5.35854"
+      height="4.41955"
+      rx="1"
+      transform="rotate(-45 9.578 16.2581)"
+      stroke="currentColor"
+    />
+    <path d="M13.1562 9.64874V13.0862" stroke="currentColor" />
+  </svg>
 </template>

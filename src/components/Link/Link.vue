@@ -8,12 +8,8 @@
     :href="link"
     v-on="$listeners"
   >
-    <slot
-      v-for="(_, name) in $slots"
-      :slot="name"
-      :name="name"
-    />
-    
+    <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
+
     <slot name="default">
       {{ label }}
     </slot>
@@ -29,16 +25,16 @@ export default Vue.extend({
   props: {
     label: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     link: {
       type: String as PropType<string>,
-      default: '#',
+      default: '#'
     },
     linkStyle: {
       type: String as PropType<string>,
-      default: '',
-    },
+      default: ''
+    }
   },
 
   data(): any {
@@ -51,39 +47,29 @@ export default Vue.extend({
         'focus:ph-outline-none',
         'focus:ph-underline',
         'focus:ph-text-brandh2',
-        'hover:ph-text-brandh2',
-      ],
-    }
+        'hover:ph-text-brandh2'
+      ]
+    };
   },
 
   computed: {
     classList(): string[] {
-      const a: string[] = [
-        ...this.baseClassList,
-        ...this.linkStyles,
-      ];
+      const a: string[] = [...this.baseClassList, ...this.linkStyles];
       return a;
     },
     linkStyles(): string[] {
-      return [
-        ...this.plainLinkStyles,
-      ];
+      return [...this.plainLinkStyles];
     },
-    plainLinkStyles (): string[] {
-      return [
-        'ph-p-0',
-        'ph-border-none',
-      ]
+    plainLinkStyles(): string[] {
+      return ['ph-p-0', 'ph-border-none'];
     },
     styleList(): string[] {
       return [];
-    },
+    }
   },
 
-  methods: {},
+  methods: {}
 });
 </script>
 
-<style lang="scss" scoped>
-  
-</style>
+<style lang="scss" scoped></style>

@@ -6,7 +6,7 @@ export default {
   component: PList,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -29,7 +29,7 @@ const Template = (args, { argTypes }) => ({
       </p-list>
 
     </div>
-  `,
+  `
 });
 
 export const List = Template.bind({});

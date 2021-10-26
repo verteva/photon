@@ -4,21 +4,24 @@ export const namespaced = true;
 export const state = { queue: [] };
 export const mutations = {
   SET: (state, toastList) => (state.queue = toastList),
-  ADD: (state, toast) => (state.queue.unshift(toast)),
+  ADD: (state, toast) => state.queue.unshift(toast)
 };
 export const actions = {
   popToast: ({ commit }, toast) => {
     return commit('ADD', {
       id: uuidv4(),
-      ...toast,
-    })
+      ...toast
+    });
   },
-  
-  destroyToast: ({ commit, state }, id) => {    
-    return commit('SET', state.queue.filter(t => t.id !== id));
+
+  destroyToast: ({ commit, state }, id) => {
+    return commit(
+      'SET',
+      state.queue.filter(t => t.id !== id)
+    );
   },
-  
-  removeToast: ({ commit, state }, id) => {    
+
+  removeToast: ({ commit, state }, id) => {
     const setflaggedToast = state.queue.map(t => {
       const toastData = { ...t };
       if (typeof t.remove === 'undefined' && t.id === id) {
@@ -27,5 +30,5 @@ export const actions = {
       return toastData;
     });
     return commit('SET', setflaggedToast);
-  },
+  }
 };

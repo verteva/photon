@@ -5,10 +5,10 @@
     </div>
   </li>
 </template>
-<script lang='ts'>
+<script lang="ts">
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
-  name: 'PLi',
+  name: 'PLi'
 });
 </script>
