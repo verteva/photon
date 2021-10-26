@@ -2,13 +2,13 @@
   <div :class="classList">
     <div :class="messagesClassList">
       <p-message
-        :key="msg.if"
         v-for="msg in messageList"
+        :key="msg.if"
         v-bind="msg"
-        v-on="$listeners"
         class="ph-mb-2"
         :hide-close="msg.hideClose"
         :class="getTransitionClass(msg)"
+        v-on="$listeners"
         @close="remove(msg.id)"
         @transitionedOut="removeComplete(msg.id)"
       />
@@ -40,22 +40,6 @@ export default Vue.extend({
     xPos: {
       type: String as PropType<string>,
       default: 'center',
-    },
-  },
-
-  watch: {
-    messageList() {      
-      this.messageList.forEach(msg => {     
-        if (msg.autoclose && typeof msg.remove === 'undefined') {
-          const { id } = msg;
-          setTimeout(() => {
-            const store = (this as any).$store;
-            if (store) {              
-              store.dispatch('toast/removeToast', id);
-            }
-          }, 4000);
-        }
-      })
     },
   },
   
@@ -94,6 +78,22 @@ export default Vue.extend({
         return store.state.toast.queue;
       }
       return [];
+    },
+  },
+
+  watch: {
+    messageList() {      
+      this.messageList.forEach(msg => {     
+        if (msg.autoclose && typeof msg.remove === 'undefined') {
+          const { id } = msg;
+          setTimeout(() => {
+            const store = (this as any).$store;
+            if (store) {              
+              store.dispatch('toast/removeToast', id);
+            }
+          }, 4000);
+        }
+      })
     },
   },
   

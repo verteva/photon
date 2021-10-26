@@ -6,7 +6,10 @@
   >
     <p-label>
       {{ label }}
-      <slot v-if="!label" name="label" />
+      <slot
+        v-if="!label"
+        name="label"
+      />
     </p-label>
 
     <div :class="componentClassList">
@@ -44,7 +47,10 @@
   </p-input>
   
   <!-- Simple text field -->
-  <div :class="componentClassList" v-else>
+  <div
+    v-else
+    :class="componentClassList"
+  >
     <input
       :id="id"
       :class="baseClassList" 
@@ -52,9 +58,9 @@
       :value="value"
       :type="$attrs.type"
       v-bind="$attrs"
+      tabindex="0"
       v-on="$listeners"
       @keydown="validatePress"
-      tabindex="0"
     />
   </div>
 </template>

@@ -1,9 +1,18 @@
 <template>
   <div :class="classList">
-    <div :class="brandBarClassList" v-if="brandBar" />
+    <div
+      v-if="brandBar"
+      :class="brandBarClassList"
+    />
     <div class="ph-bg-white">
-      <div v-if="heading" class="ph-bg-grey10 ph-w-full ph-relative">
-        <div class="ph-p-5" :class="!brandBar ? 'ph-pl-9' : ''">
+      <div
+        v-if="heading"
+        class="ph-bg-grey10 ph-w-full ph-relative"
+      >
+        <div
+          class="ph-p-5"
+          :class="!brandBar ? 'ph-pl-9' : ''"
+        >
           <PBrandGradientText>
             <span class="ph-text-2xl ph-font-bold">
               {{ heading }}
@@ -12,8 +21,14 @@
         </div>
         <hr class="ph-bg-alert2 ph-border-t-1 ph-border-grey5" />
 
-        <div v-if="icon" :class="iconClassList">
-          <p-icon :name="icon" type="xl" />
+        <div
+          v-if="icon"
+          :class="iconClassList"
+        >
+          <p-icon
+            :name="icon"
+            type="xl"
+          />
         </div>
       </div>
 

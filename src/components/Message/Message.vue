@@ -1,6 +1,13 @@
 <template>
-  <div :class="classList" ref="ph-message">
-    <p-icon :name="typeStyle.icon" type="lg" :class="iconClassList" />
+  <div
+    ref="ph-message"
+    :class="classList"
+  >
+    <p-icon
+      :name="typeStyle.icon"
+      type="lg"
+      :class="iconClassList"
+    />
     <div class="ph-flex ph-flex-col ph-flex-1">
       <div class="ph-font-bold ph-pt-1 ph-leading-5">
         {{ title }}
@@ -14,14 +21,17 @@
         </div>
         <p-button
           v-if="$listeners.click && callToAction"
-          @click="$emit('click')"
           class="ph-mt-4"
+          @click="$emit('click')"
         >
           {{ callToAction }}
         </p-button>
       </div>
     </div>
-    <div @click="$emit('close')" v-if="!hideClose">
+    <div
+      v-if="!hideClose"
+      @click="$emit('close')"
+    >
       <p-icon 
         name="Cross" 
         type="lg" 
@@ -81,31 +91,10 @@ export default Vue.extend({
       default: false,
     },
   },
-
-  mounted() {
-    const node = (this as any).$refs['ph-message'];
-    if (node){
-      node.addEventListener('animationend', (this as any).onAnimationEnd, false);
-    }
-  },
   
   data() {
     return {
     };
-  },
-
-  methods: {
-    onAnimationEnd(e:AnimationEvent):void {
-      /*
-        TransitionEvent fires for each property that
-        is transitioning so check the event is fired
-        on the height, so we can set to auto to allow
-        for dynamic content adjustments.
-      */      
-      if (e.animationName === 'ph-fadeOut') {
-        (this as any).$emit('transitionedOut');
-      }
-    },
   },
   
   computed: {
@@ -188,6 +177,27 @@ export default Vue.extend({
         ...this.typeStyle.classes,
       ];
     }
+  },
+
+  mounted() {
+    const node = (this as any).$refs['ph-message'];
+    if (node){
+      node.addEventListener('animationend', (this as any).onAnimationEnd, false);
+    }
+  },
+
+  methods: {
+    onAnimationEnd(e:AnimationEvent):void {
+      /*
+        TransitionEvent fires for each property that
+        is transitioning so check the event is fired
+        on the height, so we can set to auto to allow
+        for dynamic content adjustments.
+      */      
+      if (e.animationName === 'ph-fadeOut') {
+        (this as any).$emit('transitionedOut');
+      }
+    },
   },
 });
 </script>

@@ -11,7 +11,9 @@
       @input="updateDay"
     />
 
-    <div class="ph-mx-1 ph-text-grey3">/</div>
+    <div class="ph-mx-1 ph-text-grey3">
+      /
+    </div>
     
     <p-input-text
       placeholder="MM"
@@ -24,7 +26,9 @@
       @input="updateMonth"
     />
     
-    <div class="ph-mx-1 ph-text-grey3">/</div>
+    <div class="ph-mx-1 ph-text-grey3">
+      /
+    </div>
     
     <p-input-text
       placeholder="YYYY"

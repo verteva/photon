@@ -1,19 +1,30 @@
 <template>
-  <p-input :errors="errors" class="ph-relative ph-pl-7 ph-flex ph-flex-col">
+  <p-input
+    :errors="errors"
+    class="ph-relative ph-pl-7 ph-flex ph-flex-col"
+  >
     <input
-      v-model="innerValue"
       :id="id"
+      v-model="innerValue"
       :name="name"
       type="checkbox"
       class="ph-checkbox ph-absolute ph-opacity-0"
       @change="onChange"
     />
-    <label :for="id" class="ph-pl-2 ph-transition ph-duration-500 ph-cursor-pointer">
+    <label
+      :for="id"
+      class="ph-pl-2 ph-transition ph-duration-500 ph-cursor-pointer"
+    >
       <div
         class="ph-checkbox-toggle ph-w-6 ph-h-6 ph-rounded-md ph-border ph-absolute ph-left-0 ph-flex ph-items-center ph-justify-center ph-transition"
         :class="value ? 'ph-bg-brand2 ph-border-brand2' : 'ph-bg-grey6 '+ darkBorder ? 'ph-border-grey4' : 'ph-border-grey5'"
       >
-        <p-icon name="Checkmark" type="xs" class="ph-text-white ph-transition ph-duration-300 ph-transform" :class="value ? 'ph-opacity-1 ph-scale-100' : 'ph-opacity-0 ph-scale-0'"/>
+        <p-icon
+          name="Checkmark"
+          type="xs"
+          class="ph-text-white ph-transition ph-duration-300 ph-transform"
+          :class="value ? 'ph-opacity-1 ph-scale-100' : 'ph-opacity-0 ph-scale-0'"
+        />
       </div>
       
       {{ label }}

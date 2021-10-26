@@ -39,15 +39,15 @@
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
             <p-icon
-              ref="prefixIcon"
               v-if="prefixIcon"
+              ref="prefixIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
               :name="prefixIcon"
               type="med"
             ></p-icon>
             <input
-              ref="input"
               v-show="!selected ? true: !hideInputOnSelected"
+              ref="input"
               class="vs__search ph-flex-1"
               :style="{ '--inputIndent': prefixIcon ? '8px' : '12px' }"
               v-bind="attributes"
@@ -107,8 +107,8 @@
         <template #open-indicator="{ attributes }">
           <span v-bind="attributes">
             <p-icon
-              class="openIndicator"
               v-if="!hideOpenIndicator"
+              class="openIndicator"
               :name="openIndicatorIcon"
               :type="openIndicatorIconSize"
             />

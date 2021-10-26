@@ -1,5 +1,8 @@
 <template>
-   <blockquote class="ph-pl-6 ph-relative" :class="`ph-bloquote-${color}`">
+  <blockquote
+    class="ph-pl-6 ph-relative"
+    :class="`ph-bloquote-${color}`"
+  >
     <slot />
   </blockquote>
 </template>

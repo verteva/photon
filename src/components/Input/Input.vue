@@ -10,7 +10,10 @@
         name="Error"
         type="lg"
       />
-      <p-text sm class="ph-min-h-1.5em">
+      <p-text
+        sm
+        class="ph-min-h-1.5em"
+      >
         {{ errorsMessages }}
       </p-text>
     </div>
