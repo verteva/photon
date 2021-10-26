@@ -17,6 +17,7 @@
       />
       <span
         class="slider round ph-absolute ph-top-0 ph-right-0 ph-left-0 ph-bottom-0 ph-transition ph-cursor-pointer ph-bg-grey4 ph-bg-gradient-brand2"
+        :class="innerValue && 'input-checked'"
       >
       </span>
     </label>
@@ -114,7 +115,9 @@ input:checked + .slider:before {
   transition: box-shadow 0.25s;
 }
 .switch-label:hover .slider.round:before,
-.switch-label:focus-within .slider.round:before {
+.switch-label:focus-within .slider.round:before, 
+.switch-label:focus-within .input-checked, 
+.switch-label:hover .input-checked {
   @apply ph-border;
   border-color: rgba(0, 158, 222, 0.4);
   box-shadow: 0px 0px 0px 2px rgba(0, 158, 222, 0.4);
