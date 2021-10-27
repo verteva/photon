@@ -1,12 +1,12 @@
 import PContentCard from './ContentCard.vue';
-import PIcon from '../Icon'; 
+import PIcon from '../Icon';
 
 export default {
   title: 'Components/ContentCard',
   component: PContentCard,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -15,16 +15,16 @@ const Template = (args, { argTypes }) => ({
   template: `<PContentCard v-bind='$props' 
   >      
     <div class="ph-flex ph-items-center">
-      <div class="ph-font-bold ph-mt-1 ph-leading-5 ph-mr-auto ">
+      <div class="ph-font-bold ph-mt-1 ph-leading-5 ph-mr-auto">
         I want a better <br />variable rate
       </div>
-      <p-icon
+      <PIcon
         name="Percentage"
         type="xl"
         class="ph-text-brand2"
       />
     </div>
-  </PContentCard>`,
+  </PContentCard>`
 });
 
 export const ContentCard = Template.bind({});

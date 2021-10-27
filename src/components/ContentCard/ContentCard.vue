@@ -7,19 +7,13 @@
       active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
       interactive && !disabled && 'ph-cursor-pointer',
       !flex && 'ph-h-height',
-      allowOverflow ? 'ph-overflow-visible' : 'ph-overflow-hidden',
+      allowOverflow ? 'ph-overflow-visible' : 'ph-overflow-hidden'
     ]"
     v-on="$listeners"
-    @mouseover="hover = true"
-    @mouseout="hover = false"
+    @mouseover="mouseOver"
+    @mouseout="mouseOver"
   >
-    <div
-      class="ph-absolute ph-top-0 ph-left-0 ph-right-0 ph-bottom-0 ph-opacity-0 ph-transition-opacity ph-duration-300 ph-bg-brand2"
-      :class="[
-        interactive && !disabled && hover && breakpoint && 'ph-opacity-5',
-        interactive && !disabled && active && 'ph-opacity-10',
-      ]"
-    />
+    <div :class="(conditionChildClass, defaultChildClass)" />
     <div
       class="ph-relative ph-z-1 ph-transition-color ph-w-full"
       :class="[active && 'ph-text-brand2', padding]"
@@ -28,42 +22,42 @@
     </div>
   </div>
 </template>
-<script lang='ts'>
+<script lang="ts">
 export default {
   name: 'ContentCard',
   props: {
     active: {
       type: Boolean,
-      default: false,
+      default: false
     },
     flex: {
       type: Boolean,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     isInteractive: {
       type: Boolean,
-      default: false,
+      default: false
     },
     padding: {
       type: String,
-      default: 'ph-p-7', 
+      default: 'ph-p-7'
     },
     allowOverflow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     breakpoint: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   data(): any {
     return {
-      hover: false, 
+      hover: false
     };
   },
   computed: {
@@ -76,32 +70,49 @@ export default {
           !(this as any).disabled
         );
     },
+    conditionChildClass(): any {
+      return [
+        this.interactive &&
+          !this.disabled &&
+          this.hover &&
+          this.breakpoint &&
+          'ph-opacity-5',
+        this.interactive && !this.disabled && this.active && 'ph-opacity-10'
+      ];
+    },
+    defaultChildClass(): string[] {
+      return [
+        'ph-absolute',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-right-0',
+        'ph-bottom-0',
+        'ph-opacity-0',
+        'ph-transition-opacity',
+        'ph-duration-300',
+        'ph-bg-brand2'
+      ];
+    }
   },
+  methods: {
+    mouseOver(): void {
+      this.hover = !this.hover;
+    }
+  }
 };
 </script>
 
 <style lang="postcss" scoped>
 .content-card.bar-bottom-brand:after {
-    -webkit-animation: grow-out 0.4s cubic-bezier(0.06, 0.66, 0.39, 0.99);
-    animation: grow-out 0.4s cubic-bezier(0.06, 0.66, 0.39, 0.99);
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    transform-origin: 50% 100%;
-    content: "";
-    @apply ph-bg-brand2;
-    width: 100%;
-    height: 6px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-@keyframes grow-out {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(100%);
-  }
+  @apply ph-bg-brand2;
+  @apply ph-absolute;
+  animation-fill-mode: both;
+  transform-origin: 50% 100%;
+  content: '';
+  width: 100%;
+  height: 6px;
+  bottom: 0;
+  left: 0;
+  @apply ph-animate-growOut;
 }
 </style>
