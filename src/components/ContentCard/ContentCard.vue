@@ -3,12 +3,7 @@
     ref="contentCard"
     v-bind="$attrs"
     class="content-card ph-bg-gradient-light-grey2 ph-rounded-lg ph-transition-opacity ph-duration-300 ph-relative ph-border"
-    :class="[
-      active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
-      interactive && !disabled && 'ph-cursor-pointer',
-      !flex && 'ph-h-height',
-      allowOverflow ? 'ph-overflow-visible' : 'ph-overflow-hidden'
-    ]"
+    :class="(defaultParentClass, conditionParentClass)"
     v-on="$listeners"
     @mouseover="mouseOver"
     @mouseout="mouseOver"
@@ -69,6 +64,24 @@ export default {
           (this as any).$listeners.click &&
           !(this as any).disabled
         );
+    },
+    conditionParentClass(): any {
+      return [
+        this.active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
+        this.interactive && !this.disabled && 'ph-cursor-pointer',
+        !this.flex && 'ph-h-height',
+        this.allowOverflow ? 'ph-overflow-visible' : 'ph-overflow-hidden'
+      ];
+    },
+    defaultParentClass(): any {
+      return [
+        'content-card',
+        'ph-bg-gradient-light-grey2',
+        'ph-rounded-lg',
+        'ph-transition-opacity',
+        'ph-duration-300',
+        'ph-relative ph-border'
+      ];
     },
     conditionChildClass(): any {
       return [
