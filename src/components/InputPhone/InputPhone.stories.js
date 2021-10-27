@@ -6,8 +6,7 @@ import { PText } from '../Typography';
 export default {
   title: 'Forms/InputPhone',
   component: PInputPhone,
-  argTypes: {
-  },
+  argTypes: {}
 };
 
 const Template = (args, { argTypes }) => ({
@@ -28,7 +27,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       name: null,
-      errs: [],
+      errs: []
     };
   },
   methods: {
@@ -38,7 +37,7 @@ const Template = (args, { argTypes }) => ({
       } else {
         this.errs = ['Inine validation error'];
       }
-    },
+    }
   }
 });
 

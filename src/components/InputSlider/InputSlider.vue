@@ -1,12 +1,6 @@
 <template>
-  <p-input
-    :errors="errors"
-    hide-errors
-  >
-    <slot
-      v-if="$scopedSlots.label"
-      name="label"
-    >
+  <p-input :errors="errors" hide-errors>
+    <slot v-if="$scopedSlots.label" name="label">
       <p-label>{{ label }}</p-label>
     </slot>
     <p-label v-else>
@@ -19,7 +13,7 @@
         :step-data="{
           min,
           max,
-          increment,
+          increment
         }"
       />
       <p-input-text
@@ -35,17 +29,14 @@
   </p-input>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import Vue, { PropType } from 'vue';
 import PSlider from '../Slider';
 import PInputText from '../InputText';
 import PInput from '../Input';
 import PLabel from '../Label';
 import { InputElement, RefElement } from './types';
-import {
-  addCommaSeparators,
-  removeCommaSeparators,
-} from '../../utils';
+import { addCommaSeparators, removeCommaSeparators } from '../../utils';
 
 export default Vue.extend({
   name: 'InputSlider',
@@ -54,67 +45,67 @@ export default Vue.extend({
     PSlider,
     PInputText,
     PInput,
-    PLabel,
+    PLabel
   },
 
   props: {
     currency: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     min: {
       type: Number as PropType<number>,
-      default: 0,
+      default: 0
     },
     max: {
       type: Number as PropType<number>,
-      default: 100,
+      default: 100
     },
     increment: {
       type: Number as PropType<number>,
-      default: 1,
+      default: 1
     },
     label: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     errors: {
       type: Array as PropType<string[]>,
-      default: ():[] => [],
+      default: (): [] => []
     },
     value: {
       type: Number as PropType<number>,
-      default: 0,
-    },
+      default: 0
+    }
   },
 
-  data() {    
+  data() {
     return {
-      sliderVal: this.value,
+      sliderVal: this.value
     };
   },
 
   computed: {
     innerValue: {
-      get():string {
+      get(): string {
         return addCommaSeparators(this.value);
-      },
-    },
+      }
+    }
   },
 
   watch: {
     sliderVal() {
       this.emitValue();
-    },
+    }
   },
 
   mounted() {
-    this.sliderVal =  this.value;
+    this.sliderVal = this.value;
     this.emitValue();
   },
 
   methods: {
-    getPercentage(value):number {
+    getPercentage(value): number {
       return (value - this.min) / (this.max - this.min);
     },
 
@@ -130,8 +121,8 @@ export default Vue.extend({
           this.sliderVal = removeCommaSeparators(value);
           this.$emit('input', Number(value));
         }
-      }      
-    },
-  },
+      }
+    }
+  }
 });
 </script>

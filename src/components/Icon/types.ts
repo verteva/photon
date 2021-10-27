@@ -6,16 +6,16 @@ export interface IconProperty {
 }
 
 export type IconSize =
-  typeof IconSizeXs | 
-  typeof IconSizeSm |
-  typeof IconSizeMedium |
-  typeof IconSizeLg |
-  typeof IconSizeXl |
-  typeof IconSizeXXl |
-  typeof IconSizeXXXl |
-  typeof IconSizeXXXXl |
-  typeof IconSizeHuge;
-  
+  | typeof IconSizeXs
+  | typeof IconSizeSm
+  | typeof IconSizeMedium
+  | typeof IconSizeLg
+  | typeof IconSizeXl
+  | typeof IconSizeXXl
+  | typeof IconSizeXXXl
+  | typeof IconSizeXXXXl
+  | typeof IconSizeHuge;
+
 export const IconSizeXs = 'xs';
 export const IconSizeSm = 'sm';
 export const IconSizeMedium = 'med';

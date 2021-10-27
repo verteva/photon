@@ -5,13 +5,13 @@ export default {
   component: PLabel,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
   components: { PLabel },
   props: Object.keys(argTypes),
-  template: "<PLabel>A field label</PLabel>",
+  template: '<PLabel>A field label</PLabel>'
 });
 
 export const Label = Template.bind({});

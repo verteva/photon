@@ -1,5 +1,17 @@
 <template>
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15.505 3.875L3.375 16.225H6.735V26.125H12.855V20.425C12.855 20.275 13.035 20.155 13.265 20.155H17.735C17.965 20.155 18.145 20.275 18.145 20.425V26.125H24.205V16.225H27.625L15.505 3.875Z" fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15.505 3.875L3.375 16.225H6.735V26.125H12.855V20.425C12.855 20.275 13.035 20.155 13.265 20.155H17.735C17.965 20.155 18.145 20.275 18.145 20.425V26.125H24.205V16.225H27.625L15.505 3.875Z"
+      fill="currentColor"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
 </template>

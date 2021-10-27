@@ -19,45 +19,45 @@
   </p-input>
 </template>
 <script lang="ts">
-import Vue, { PropType } from "vue";
-import { v4 as uuidv4 } from "uuid";
-import PInputRadio from "../InputRadio";
-import PInput from "../Input";
+import Vue, { PropType } from 'vue';
+import { v4 as uuidv4 } from 'uuid';
+import PInputRadio from '../InputRadio';
+import PInput from '../Input';
 export default Vue.extend({
-  name: "PRadioGroup",
+  name: 'PRadioGroup',
   components: {
     PInputRadio,
-    PInput,
+    PInput
   },
   props: {
     errors: {
       type: Array,
-      default: (): [] => [],
+      default: (): [] => []
     },
     items: {
       type: Array as PropType<Array<string>>,
-      default: () => [],
+      default: () => []
     },
     name: {
       type: String as PropType<string>,
-      default: "groupName",
+      default: 'groupName'
     },
     rows: {
       type: Number as PropType<number>,
-      default: 3,
+      default: 3
     },
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     value: {
       type: [Boolean, String, Number] as PropType<boolean | string | number>,
-      default: null,
-    },
+      default: null
+    }
   },
   data() {
     return {
-      id: uuidv4(),
+      id: uuidv4()
     };
   },
   computed: {
@@ -69,9 +69,9 @@ export default Vue.extend({
         return (this as any).value;
       },
       set(val) {
-        (this as any).$emit("input", val);
-      },
-    },
-  },
+        (this as any).$emit('input', val);
+      }
+    }
+  }
 });
 </script>

@@ -1,12 +1,14 @@
 <template>
   <div>
     <slot />
-    <div
-      :class="baseClassList"
-    >
+    <div :class="baseClassList">
       <p-icon
         class="ph-mr-1"
-        :class="(this.errors.length && !this.hideErrors) ? 'ph-opacity-1' : 'ph-opacity-0'"
+        :class="
+          this.errors.length && !this.hideErrors
+            ? 'ph-opacity-1'
+            : 'ph-opacity-0'
+        "
         name="Error"
         type="lg"
       />
@@ -26,23 +28,23 @@ export default Vue.extend({
   name: 'PInput',
   components: {
     PIcon,
-    PText,
+    PText
   },
   props: {
     hideErrors: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     errors: {
       type: Array as PropType<string[]>,
-      default: ():[] => [],
-    },
+      default: (): [] => []
+    }
   },
   computed: {
-    errorsMessages():string {
+    errorsMessages(): string {
       return this.errors.join(', ');
     },
-    baseClassList():string[] {
+    baseClassList(): string[] {
       return [
         'photon-input-error',
         'ph-text-sm',
@@ -52,9 +54,9 @@ export default Vue.extend({
         'ph-items-center',
         'ph-py-1',
         'ph-px-1 ph-text-alert2',
-        (this.errors.length && !this.hideErrors) ? 'ph-opacity-1' : 'ph-opacity-0',
+        this.errors.length && !this.hideErrors ? 'ph-opacity-1' : 'ph-opacity-0'
       ];
-    },
+    }
   }
 });
 </script>
