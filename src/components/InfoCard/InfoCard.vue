@@ -1,6 +1,6 @@
 <template>
   <div :class="classList">
-    <div :class="brandBarClassList" v-if="brandBar" />
+    <div v-if="brandBar" :class="brandBarClassList" />
     <div class="ph-bg-white">
       <div v-if="heading" class="ph-bg-grey10 ph-w-full ph-relative">
         <div class="ph-p-5" :class="!brandBar ? 'ph-pl-9' : ''">
@@ -19,17 +19,14 @@
 
       <div
         class="ph-w-full ph-p-5 ph-pr-10"
-        :class="[
-          `ph-bg-${contentBg}`,
-          !brandBar ? 'ph-pl-9' : '',
-        ]"
+        :class="[`ph-bg-${contentBg}`, !brandBar ? 'ph-pl-9' : '']"
       >
         <slot />
       </div>
-    </div>  
-  </div>  
+    </div>
+  </div>
 </template>
-<script lang='ts'>
+<script lang="ts">
 import Vue, { PropType } from 'vue';
 import PBrandGradientText from '../BrandGradientText';
 import PIcon from '../Icon';
@@ -39,53 +36,53 @@ export default Vue.extend({
 
   components: {
     PBrandGradientText,
-    PIcon,
+    PIcon
   },
-  
+
   props: {
     heading: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
-    
+
     icon: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
-    
+
     contentBg: {
       type: String as PropType<string>,
-      default: 'white',
+      default: 'white'
     },
-    
+
     iconBg: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
-    
+
     shadow: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: true
     },
-    
+
     brandBar: {
       type: Boolean as PropType<boolean>,
-      default: false,
-    },
+      default: false
+    }
   },
 
   computed: {
-    classList():string[] {
+    classList(): string[] {
       return [
         'ph-relative',
         'ph-rounded-lg',
         this.brandBar ? 'ph-pl-4' : '',
         'ph-overflow-hidden',
-        this.shadow ? 'ph-shadow' : '',
-      ]
+        this.shadow ? 'ph-shadow' : ''
+      ];
     },
-    
-    brandBarClassList():string[] {
+
+    brandBarClassList(): string[] {
       return [
         'ph-bg-gradient-to-t',
         'ph-from-brand2',
@@ -94,11 +91,11 @@ export default Vue.extend({
         'ph-h-full',
         'ph-top-0',
         'ph-left-0',
-        'ph-absolute',
-      ]
+        'ph-absolute'
+      ];
     },
-    
-    iconClassList():string[] {
+
+    iconClassList(): string[] {
       return [
         `ph-bg-${this.iconBg}`,
         'ph-absolute',
@@ -111,10 +108,9 @@ export default Vue.extend({
         'ph-text-white',
         'ph-flex',
         'ph-items-center',
-        'ph-justify-center',
-      ]
-    },
-  },
-
+        'ph-justify-center'
+      ];
+    }
+  }
 });
 </script>

@@ -1,5 +1,19 @@
 <template>
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M26.505 15C23.815 11.45 19.675 9.16998 14.995 9.16998C10.315 9.16998 6.175 11.45 3.495 15C6.175 18.55 10.325 20.83 14.995 20.83C19.675 20.84 23.815 18.55 26.505 15ZM17.915 15C17.915 13.38 16.615 12.08 14.995 12.08C13.375 12.08 12.075 13.38 12.075 15C12.075 16.62 13.375 17.92 14.995 17.92C16.615 17.92 17.915 16.62 17.915 15Z" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+  <svg
+    width="30"
+    height="30"
+    viewBox="0 0 30 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M26.505 15C23.815 11.45 19.675 9.16998 14.995 9.16998C10.315 9.16998 6.175 11.45 3.495 15C6.175 18.55 10.325 20.83 14.995 20.83C19.675 20.84 23.815 18.55 26.505 15ZM17.915 15C17.915 13.38 16.615 12.08 14.995 12.08C13.375 12.08 12.075 13.38 12.075 15C12.075 16.62 13.375 17.92 14.995 17.92C16.615 17.92 17.915 16.62 17.915 15Z"
+      stroke="currentColor"
+      stroke-miterlimit="10"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
 </template>

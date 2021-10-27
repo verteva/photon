@@ -5,7 +5,7 @@ export default {
   component: PMessage,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -25,12 +25,12 @@ const Template = (args, { argTypes }) => ({
       <PMessage title="Simple one line warning message"  type="warning" /><br />
       <PMessage v-bind='$props' type="warning" @click='()=>{}' /><br />
     </div>
-  `,
+  `
 });
 
 export const Message = Template.bind({});
 Message.args = {
   title: 'Title',
   description: 'Some description...',
-  callToAction: 'Next...',
+  callToAction: 'Next...'
 };

@@ -26,17 +26,10 @@ import PBrandGradientText from './BrandGradientText';
 import PSkeletonLoader from './SkeletonLoader';
 import PInputNumber from './InputNumber';
 import PProgressCircular from './ProgressCircular';
-import {
-  PText,
-  PH1,
-  PH2,
-  PH3,
-  PBlockquote,
-} from './Typography';
-
+import { PText, PH1, PH2, PH3, PBlockquote } from './Typography';
 
 export interface PhotonComponents {
-  [key: string]: Component
+  [key: string]: Component;
 }
 
 const components: PhotonComponents = {
@@ -71,9 +64,9 @@ const components: PhotonComponents = {
   PRadioGroup,
   PSkeletonLoader,
   PInputNumber,
-  PProgressCircular,
+  PProgressCircular
 };
 
-export type PhotonComponentKeys = keyof PhotonComponents
+export type PhotonComponentKeys = keyof PhotonComponents;
 
-export default components
+export default components;

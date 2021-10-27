@@ -7,19 +7,21 @@ describe('AutoComplete.vue', () => {
     return mount(AutoComplete, {
       localVue,
       propsData: {
-        ...propsOverrides,
-      },
+        ...propsOverrides
+      }
     });
   };
 
   const assertStyleVarSetup = (wrapper, styleName, style) => {
     const autocomplete = wrapper.findComponent({ ref: 'autocomplete' });
-    return expect(autocomplete.attributes('style')).toContain('--'+styleName+': '+style);
-  }
+    return expect(autocomplete.attributes('style')).toContain(
+      '--' + styleName + ': ' + style
+    );
+  };
 
   const assertPropsVarSetup = (component, propsName, propsVal) => {
     return expect(component.props(propsName)).toBe(propsVal);
-  }
+  };
 
   it('check init input should be empty', () => {
     const wrapper = createWrapper();
@@ -29,7 +31,7 @@ describe('AutoComplete.vue', () => {
 
   it('check placeholder is correct when input value is empty', () => {
     const placeHolder = 'Please select';
-    const wrapper = createWrapper({ placeHolder: placeHolder})
+    const wrapper = createWrapper({ placeHolder: placeHolder });
     const input = wrapper.findComponent({ ref: 'input' }).element;
     expect(input.placeholder).toBe(placeHolder);
   });
@@ -87,10 +89,11 @@ describe('AutoComplete.vue', () => {
     assertStyleVarSetup(wrapper, 'textColor', textColor);
   });
 
-  
   it('check props:highlightBackgroundColor is setup correctly', () => {
     const highlightBackgroundColor = '#eeeeee';
-    const wrapper = createWrapper({ highlightBackgroundColor: highlightBackgroundColor });
+    const wrapper = createWrapper({
+      highlightBackgroundColor: highlightBackgroundColor
+    });
     assertStyleVarSetup(wrapper, 'highlightBgColor', highlightBackgroundColor);
   });
 
@@ -115,7 +118,9 @@ describe('AutoComplete.vue', () => {
 
   it('check props:openIndicatorIconSize is setup correctly', () => {
     const openIndicatorIconSize = 'xs';
-    const wrapper = createWrapper({ openIndicatorIconSize: openIndicatorIconSize });
+    const wrapper = createWrapper({
+      openIndicatorIconSize: openIndicatorIconSize
+    });
     const openIndicator = wrapper.find('.openIndicator');
     assertPropsVarSetup(openIndicator, 'type', openIndicatorIconSize);
   });
@@ -136,23 +141,23 @@ describe('AutoComplete.vue', () => {
     const labelVar = 'label';
     const wrapper = createWrapper({ labelVar: labelVar });
     const autocomplete = wrapper.findComponent({ ref: 'autocomplete' });
-    assertPropsVarSetup(autocomplete, 'label', labelVar)
+    assertPropsVarSetup(autocomplete, 'label', labelVar);
   });
 
   test('focus handler test', async () => {
     const focusHandler = AutoComplete.onFocus;
-    const wrapper = createWrapper({ focusHandler })
+    const wrapper = createWrapper({ focusHandler });
 
     const input = wrapper.findComponent({ ref: 'input' });
 
-    expect(wrapper.vm.focused).toBe(false)
+    expect(wrapper.vm.focused).toBe(false);
 
-    await input.trigger('focus')
+    await input.trigger('focus');
 
-    expect(wrapper.vm.focused).toBe(true)
+    expect(wrapper.vm.focused).toBe(true);
 
-    await input.trigger('blur')
+    await input.trigger('blur');
 
-    expect(wrapper.vm.focused).toBe(false)
-  })
+    expect(wrapper.vm.focused).toBe(false);
+  });
 });

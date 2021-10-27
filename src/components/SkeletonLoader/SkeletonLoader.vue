@@ -1,12 +1,12 @@
 <template>
   <div class="photon-skeleton-loader-container">
-    <div 
+    <div
       ref="skeleton"
       class="photon-skeleton-loader"
       :style="{
         '--width': width,
         '--height': height,
-        '--borderRadius': (rounded? borderRadius+'px': '0px'),
+        '--borderRadius': rounded ? borderRadius + 'px' : '0px',
         '--bgColor': bgColor,
         '--animation': animation,
         '--listHeight': listHeight,
@@ -17,25 +17,17 @@
         '--colWidth': colWidth,
         '--colRadius': colRadius,
         '--dividerHeight': dividerHeight,
-        '--tablePadding': tablePadding,
+        '--tablePadding': tablePadding
       }"
       v-bind="$attrs"
       v-on="$listeners"
     >
       <div v-if="type === 'image'">
-        <div
-          class="photon-skeleton-loader-rect"
-        >
-        </div>
+        <div class="photon-skeleton-loader-rect"></div>
       </div>
       <div v-if="type === 'card'">
-        <div
-          class="photon-skeleton-loader-rect"
-        >
-        </div>
-        <div
-          class="photon-skeleton-loader-lists"
-        >
+        <div class="photon-skeleton-loader-rect"></div>
+        <div class="photon-skeleton-loader-lists">
           <div
             v-for="i in listSize"
             :key="i"
@@ -46,9 +38,7 @@
         </div>
       </div>
       <div v-else-if="type === 'lists'">
-        <div
-          class="photon-skeleton-loader-lists"
-        >
+        <div class="photon-skeleton-loader-lists">
           <div
             v-for="i in listSize"
             :key="i"
@@ -68,13 +58,11 @@
             <div class="photon-skeleton-loader-table-row-divider">
               <div
                 v-for="col in cols"
-                :key="row+'|'+col"
+                :key="row + '|' + col"
                 class="photon-skeleton-loader-table-col"
-              >
-              </div>
+              ></div>
             </div>
-            <div class="photon-skeleton-loader-table-divider">
-            </div>
+            <div class="photon-skeleton-loader-table-divider"></div>
           </div>
           <div
             v-for="row in mobileRows"
@@ -86,11 +74,9 @@
                 v-for="col in mobileCols"
                 :key="`mobile-col-${col}`"
                 class="photon-skeleton-loader-table-col"
-              >
-              </div>
+              ></div>
             </div>
-            <div class="photon-skeleton-loader-table-divider">
-            </div>
+            <div class="photon-skeleton-loader-table-divider"></div>
           </div>
         </div>
       </div>
@@ -104,110 +90,107 @@ import Vue, { PropType } from 'vue';
 export default Vue.extend({
   name: 'PSkeletonLoader',
 
-  components: {
-  },
-  
+  components: {},
+
   props: {
     bgColor: {
       type: String as PropType<string>,
-      default: 'rgba(0, 0, 0, 0.12)',
+      default: 'rgba(0, 0, 0, 0.12)'
     },
     listSize: {
       type: Number as PropType<number>,
-      default: 1,
+      default: 1
     },
     animation: {
       type: String as PropType<string>,
-      default: 'loading',
+      default: 'loading'
     },
     alignment: {
       type: String as PropType<string>,
-      default: 'center',
+      default: 'center'
     },
     width: {
       type: String as PropType<string>,
-      default: '200px',
+      default: '200px'
     },
     height: {
       type: String as PropType<string>,
-      default: '200px',
+      default: '200px'
     },
-    listHeight:{
+    listHeight: {
       type: String as PropType<string>,
-      default: '48px',
+      default: '48px'
     },
-    listItemHeight:{
+    listItemHeight: {
       type: String as PropType<string>,
-      default: '12px',
+      default: '12px'
     },
-    listPadding:{
+    listPadding: {
       type: String as PropType<string>,
-      default: '0px 0px',
+      default: '0px 0px'
     },
-    listMargin:{
+    listMargin: {
       type: String as PropType<string>,
-      default: '18px 0px',
+      default: '18px 0px'
     },
     type: {
       type: String as PropType<string>,
-      default: 'table',
+      default: 'table'
     },
     rounded: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: true
     },
     borderRadius: {
       type: Number as PropType<number>,
-      default: 12,
+      default: 12
     },
     mobileRows: {
       type: Number as PropType<number>,
-      default: 3,
+      default: 3
     },
     mobileCols: {
       type: Number as PropType<number>,
-      default: 3,
+      default: 3
     },
     rows: {
       type: Number as PropType<number>,
-      default: 5,
+      default: 5
     },
     cols: {
       type: Number as PropType<number>,
-      default: 6,
+      default: 6
     },
     tablePadding: {
       type: String as PropType<string>,
-      default: '16px 16px 0px 16px',
+      default: '16px 16px 0px 16px'
     },
     colWidth: {
       type: String as PropType<string>,
-      default: '88px',
+      default: '88px'
     },
     colRadius: {
       type: String as PropType<string>,
-      default: '6px',
+      default: '6px'
     },
     dividerHeight: {
       type: String as PropType<string>,
-      default: '2px',
+      default: '2px'
     },
     dividerRadius: {
       type: String as PropType<string>,
-      default: '1px',
+      default: '1px'
     }
   },
   computed: {
     typeList() {
-      return this.type.split(",");
+      return this.type.split(',');
     }
   },
   mounted() {
     (this as any).id = 'skeleton_loader_' + (this as any)._uid;
   },
-  methods: {
-   
-  },
+  methods: {}
 });
 </script>
 <style lang="postcss" scoped>
@@ -236,7 +219,7 @@ export default Vue.extend({
   background-color: var(--bgColor, rgba(0, 0, 0, 0.12));
 }
 
-.photon-skeleton-loader-table-body{
+.photon-skeleton-loader-table-body {
   padding: var(--tablePadding, 0px);
 }
 
@@ -272,11 +255,19 @@ export default Vue.extend({
   background-color: var(--bgColor, rgba(0, 0, 0, 0.12));
 }
 
-.photon-skeleton-loader-rect::after, .photon-skeleton-loader-table-divider::after, .photon-skeleton-loader-table-col::after, .photon-skeleton-loader-list-item::after {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+.photon-skeleton-loader-rect::after,
+.photon-skeleton-loader-table-divider::after,
+.photon-skeleton-loader-table-col::after,
+.photon-skeleton-loader-list-item::after {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
   -webkit-animation: loading 1.5s infinite;
   animation: loading 1.5s infinite;
-  content: "";
+  content: '';
   height: 100%;
   left: 0;
   position: absolute;

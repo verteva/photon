@@ -1,5 +1,5 @@
 <template>
-  <div class="ph-flex ph-items-center ph-w-80">    
+  <div class="ph-flex ph-items-center ph-w-80">
     <p-input-text
       placeholder="DD"
       :dark-mode="darkMode"
@@ -11,8 +11,10 @@
       @input="updateDay"
     />
 
-    <div class="ph-mx-1 ph-text-grey3">/</div>
-    
+    <div class="ph-mx-1 ph-text-grey3">
+      /
+    </div>
+
     <p-input-text
       placeholder="MM"
       :dark-mode="darkMode"
@@ -23,9 +25,11 @@
       maxlength="2"
       @input="updateMonth"
     />
-    
-    <div class="ph-mx-1 ph-text-grey3">/</div>
-    
+
+    <div class="ph-mx-1 ph-text-grey3">
+      /
+    </div>
+
     <p-input-text
       placeholder="YYYY"
       :dark-mode="darkMode"
@@ -38,7 +42,7 @@
     />
   </div>
 </template>
-<script lang='ts'>
+<script lang="ts">
 import Vue, { PropType } from 'vue';
 import PInputText from '../InputText';
 
@@ -46,19 +50,19 @@ export default Vue.extend({
   name: 'PDateInput',
 
   components: {
-    PInputText,
+    PInputText
   },
 
   props: {
     value: {
       type: [Number, String] as PropType<number | string>,
-      default: null,
+      default: null
     },
-    
+
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: false,
-    },
+      default: false
+    }
   },
 
   data() {
@@ -66,19 +70,19 @@ export default Vue.extend({
     return {
       day,
       month,
-      year,
+      year
     };
   },
 
   computed: {
     innerValue: {
-      get():any {
+      get(): any {
         return (this as any).value;
       },
-      set(date) {        
-        (this as any).$emit('input', date)
-      },
-    },
+      set(date) {
+        (this as any).$emit('input', date);
+      }
+    }
   },
 
   watch: {
@@ -90,14 +94,16 @@ export default Vue.extend({
     },
     year() {
       (this as any).setDate();
-    },
+    }
   },
 
   methods: {
     setDate() {
-      (this as any).innerValue = `${(this as any).year}-${(this as any).month}-${(this as any).day}`;
+      (this as any).innerValue = `${(this as any).year}-${
+        (this as any).month
+      }-${(this as any).day}`;
     },
-    updateDay(e) {    
+    updateDay(e) {
       (this as any).day = e.target.value;
     },
     updateMonth(e) {
@@ -105,7 +111,7 @@ export default Vue.extend({
     },
     updateYear(e) {
       (this as any).year = e.target.value;
-    },
+    }
   }
 });
 </script>
