@@ -17,7 +17,7 @@ const Template = (args, { argTypes }) => ({
         <p-label>Input Phone<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal"></span></p-label>
     </template>   
     </PInputNumber>  
-    <p-button :disabled="false" @click="showError">Toggle inline errors</p-button>
+    <PButton :disabled="false" @click="showError">Toggle inline errors</PButton>
     </div>`,
   data() {
     return {
@@ -30,7 +30,7 @@ const Template = (args, { argTypes }) => ({
       if (this.errs?.length) {
         this.errs = [];
       } else {
-        this.errs = ['Inine validation error'];
+        this.errs = ['Inline validation error'];
       }
     }
   }

@@ -7,8 +7,9 @@
     <div class="ph-flex">
       <div
         ref="decrease"
-        class="ph-text-4xl ph-cursor-pointer ph-mr-4 ph-text-grey3"
-        @click="innerValue > minVal && innerValue--"
+        class="ph-text-4xl ph-cursor-pointer ph-mr-4"
+        :class="innerValue === minVal ? 'ph-text-grey4' : 'ph-text-grey7'"
+        @click="changeNumber('minus')"
       >
         -
       </div>
@@ -20,8 +21,9 @@
       />
       <div
         ref="increase"
-        class="ph-text-4xl ph-cursor-pointer ph-ml-4 ph-text-grey3"
-        @click="innerValue < maxVal && innerValue++"
+        class="ph-text-4xl ph-cursor-pointer ph-ml-4"
+        :class="innerValue === maxVal ? 'ph-text-grey4' : 'ph-text-grey7'"
+        @click="changeNumber('add')"
       >
         +
       </div>
@@ -76,6 +78,15 @@ export default Vue.extend({
   methods: {
     onChange(event) {
       (this as any).$emit('change', event);
+    },
+    changeNumber(change) {
+      if (change === 'add') {
+        (this as any).innerValue < (this as any).maxVal &&
+          (this as any).innerValue++;
+      } else {
+        (this as any).innerValue > (this as any).minVal &&
+          (this as any).innerValue--;
+      }
     }
   }
 });
