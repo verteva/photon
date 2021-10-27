@@ -6,9 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.598] - 2021-10-22
+## [0.1.599] - 2021-10-22
 ### Add
 - Add switch toggle component
+
+## [0.1.598] - 2021-10-21
+### Add
+- Add Play and Triangle icons
+- Add eslint and prettier config
+
 ## [0.1.597] - 2021-10-21
 ### Add
 - Add Progress Circular

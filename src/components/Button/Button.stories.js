@@ -1,23 +1,23 @@
-import PButton from "./Button.vue";
-import "../../assets/scss/main.scss";
+import PButton from './Button.vue';
+import '../../assets/scss/main.scss';
 
 const notContolled = {
-  control: { disable: true },
+  control: { disable: true }
 };
 
 const notDisplayed = {
   control: { disable: true },
-  table: { disable: true },
+  table: { disable: true }
 };
 
 const bool = { options: [true, false] };
 
 export default {
-  title: "Button & Tags/Button",
+  title: 'Button & Tags/Button',
   component: PButton,
   // Set the order of the props
   argTypes: {
-    label: "",
+    label: '',
     submitting: bool,
     disabled: bool,
     noRadius: bool,
@@ -27,10 +27,10 @@ export default {
     block: bool,
     buttonStyle: notContolled,
     type: notContolled,
-    size: notContolled,
+    size: notContolled
   },
   // Set the initial values of the props
-  args: {},
+  args: {}
 };
 
 const DocsTemplate = (args, { argTypes }) => ({
@@ -48,20 +48,20 @@ const DocsTemplate = (args, { argTypes }) => ({
     return {
       buttons: [
         {
-          type: "primary",
-          sizes: ["medium", "small", "xs"],
+          type: 'primary',
+          sizes: ['medium', 'small', 'xs']
         },
         {
-          type: "secondary",
-          sizes: ["medium", "small", "xs"],
+          type: 'secondary',
+          sizes: ['medium', 'small', 'xs']
         },
         {
-          type: "plain",
-          sizes: ["medium"],
-        },
-      ],
+          type: 'plain',
+          sizes: ['medium']
+        }
+      ]
     };
-  },
+  }
 });
 
 export const Docs = DocsTemplate.bind({});
@@ -70,7 +70,7 @@ Docs.argTypes = {};
 const PlaygroundTemplate = (args, { argTypes }) => ({
   components: { PButton },
   props: Object.keys(argTypes),
-  template: `<p-button>Hello</p-button>`,
+  template: '<p-button>Hello</p-button>'
 });
 export const Playground = PlaygroundTemplate.bind({});
 Playground.argTypes = {
@@ -84,5 +84,5 @@ Playground.argTypes = {
   outlined: notDisplayed,
   upperCase: notDisplayed,
   valid: notDisplayed,
-  block: notDisplayed,
+  block: notDisplayed
 };

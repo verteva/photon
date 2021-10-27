@@ -1,10 +1,10 @@
 <template>
-   <blockquote class="ph-pl-6 ph-relative" :class="`ph-bloquote-${color}`">
+  <blockquote class="ph-pl-6 ph-relative" :class="`ph-bloquote-${color}`">
     <slot />
   </blockquote>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
@@ -14,8 +14,8 @@ export default Vue.extend({
     color: {
       type: String as PropType<string>,
       default: 'brand2'
-    },
-  },
+    }
+  }
 });
 </script>
 
@@ -33,5 +33,4 @@ blockquote::before {
 .ph-bloquote-brand2::before {
   @apply ph-bg-brand2;
 }
-
 </style>

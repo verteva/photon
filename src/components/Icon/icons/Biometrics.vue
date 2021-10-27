@@ -1,9 +1,27 @@
 <template>
-<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12.2001 4H9.70007H9.20007C6.43865 4 4.20007 6.23858 4.20007 9V9.5V12.5M4.20007 18V20.5V21C4.20007 23.7614 6.43865 26 9.20007 26H9.70007H12.2001M17.7001 26H20.7001H21.2001C23.9615 26 26.2001 23.7614 26.2001 21V20.5V18M26.2001 12.5V9.5V9C26.2001 6.23858 23.9615 4 21.2001 4H20.7001H18.2001" stroke="currentColor" stroke-linecap="round"/>
-<path d="M9.47339 12V14" stroke="currentColor" stroke-linecap="round"/>
-<path d="M20.2001 12V14" stroke="currentColor" stroke-linecap="round"/>
-<path d="M14.9734 11.7949V15.2949C14.9734 16.2949 14.4734 17.2949 12.9734 16.7949" stroke="currentColor" stroke-linecap="round"/>
-<path d="M10.2001 20C11.6118 21.5092 15.3883 23.6222 19.2001 20" stroke="currentColor" stroke-linecap="round"/>
-</svg>
+  <svg
+    width="31"
+    height="30"
+    viewBox="0 0 31 30"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.2001 4H9.70007H9.20007C6.43865 4 4.20007 6.23858 4.20007 9V9.5V12.5M4.20007 18V20.5V21C4.20007 23.7614 6.43865 26 9.20007 26H9.70007H12.2001M17.7001 26H20.7001H21.2001C23.9615 26 26.2001 23.7614 26.2001 21V20.5V18M26.2001 12.5V9.5V9C26.2001 6.23858 23.9615 4 21.2001 4H20.7001H18.2001"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+    <path d="M9.47339 12V14" stroke="currentColor" stroke-linecap="round" />
+    <path d="M20.2001 12V14" stroke="currentColor" stroke-linecap="round" />
+    <path
+      d="M14.9734 11.7949V15.2949C14.9734 16.2949 14.4734 17.2949 12.9734 16.7949"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+    <path
+      d="M10.2001 20C11.6118 21.5092 15.3883 23.6222 19.2001 20"
+      stroke="currentColor"
+      stroke-linecap="round"
+    />
+  </svg>
 </template>

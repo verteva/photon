@@ -9,10 +9,10 @@ describe('Form.vue', () => {
     return mount(Form, {
       localVue,
       propsData: {
-        ...propsOverrides,
+        ...propsOverrides
       },
       slots: {
-        default: PInput,
+        default: PInput
       }
     });
   };
@@ -22,7 +22,6 @@ describe('Form.vue', () => {
     expect(wrapper.vm.disabled).toBe(false);
   });
 
-  
   it('check init text input should be empty', () => {
     const wrapper = createWrapper();
     const input = wrapper.find('input').element;

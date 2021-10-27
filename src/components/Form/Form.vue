@@ -5,7 +5,7 @@
     v-bind="$attrs"
     v-on="$listeners"
     @submit.prevent="onSubmit"
-  > 
+  >
     <slot />
   </form>
 </template>
@@ -15,26 +15,26 @@ import Vue, { PropType } from 'vue';
 import { FormData } from './types';
 
 export default Vue.extend({
-  name: 'PForm',  
+  name: 'PForm',
   props: {
     novalidate: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: true
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     }
   },
-  data():FormData {    
+  data(): FormData {
     return {
       id: '',
-      disabledAll: false,
+      disabledAll: false
     } as FormData;
   },
   watch: {
     disabledAll: {
-      handler: 'disableAll',
+      handler: 'disableAll'
     },
     disabled: {
       handler() {
@@ -47,10 +47,12 @@ export default Vue.extend({
   },
   methods: {
     disableAll(val: boolean) {
-      ((this.$refs.pform as HTMLElement).getElementsByTagName('input') as any as Array<HTMLElement>).forEach((item)=>{
-        if(val){
-          item.setAttribute('disabled','');
-        }else{
+      (((this.$refs.pform as HTMLElement).getElementsByTagName(
+        'input'
+      ) as any) as Array<HTMLElement>).forEach(item => {
+        if (val) {
+          item.setAttribute('disabled', '');
+        } else {
           item.removeAttribute('disabled');
         }
       });
@@ -58,6 +60,6 @@ export default Vue.extend({
     onSubmit() {
       this.$emit('submit.prevent');
     }
-  },
+  }
 });
 </script>
