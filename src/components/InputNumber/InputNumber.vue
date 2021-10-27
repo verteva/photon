@@ -2,10 +2,7 @@
   <p-input :errors="errors">
     <p-label>
       {{ label }}
-      <slot
-        v-if="!label"
-        name="label"
-      />
+      <slot v-if="!label" name="label" />
     </p-label>
     <div class="ph-flex">
       <div
@@ -41,28 +38,28 @@ export default Vue.extend({
   props: {
     errors: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     value: {
       type: Number as PropType<number>,
-      default: 0,
+      default: 0
     },
     minVal: {
       type: Number as PropType<number>,
-      default: 0,
+      default: 0
     },
     maxVal: {
       type: Number as PropType<number>,
-      default: 999999999,
+      default: 999999999
     },
     label: {
       type: String as PropType<string>,
-      default: '',
-    },
+      default: ''
+    }
   },
   data() {
     return {
-      numberVal: (this as any).value,
+      numberVal: (this as any).value
     };
   },
   computed: {
@@ -72,14 +69,14 @@ export default Vue.extend({
       },
       set(val) {
         (this as any).$emit('input', val);
-      },
-    },
+      }
+    }
   },
 
   methods: {
     onChange(event) {
       (this as any).$emit('change', event);
-    },
-  },
+    }
+  }
 });
 </script>

@@ -6,24 +6,22 @@ const createWrapper = (propsOverrides = {}) => {
   return mount(InputNumber, {
     localVue,
     propsData: {
-      ...propsOverrides,
-    },
+      ...propsOverrides
+    }
   });
 };
 
 describe('InputText.vue', () => {
-
   let wrapper;
   beforeEach(() => {
     wrapper = createWrapper();
   });
 
-
   it('check init value should be 0', async () => {
     const input = wrapper.findComponent(InputNumber);
     expect(input.props().value).toBe(0);
   });
-  
+
   it('check init input should be greater than min value', async () => {
     const minVal = 0;
     await wrapper.setProps({ minVal: minVal });
@@ -45,13 +43,13 @@ describe('InputText.vue', () => {
   });
 
   it('check change input value', async () => {
-    const inputIncrease = await wrapper.find({ref: 'increase'});
+    const inputIncrease = await wrapper.find({ ref: 'increase' });
     await inputIncrease.trigger('click');
-    expect(wrapper.emitted('input')[0]).toEqual([1])
+    expect(wrapper.emitted('input')[0]).toEqual([1]);
 
-    const inputDecrease = await wrapper.find({ref: 'decrease'});
+    const inputDecrease = await wrapper.find({ ref: 'decrease' });
     await inputDecrease.trigger('click');
-    expect(wrapper.emitted('input')[0]).toEqual([1])
+    expect(wrapper.emitted('input')[0]).toEqual([1]);
   });
 
   it('input errors prop', async () => {
