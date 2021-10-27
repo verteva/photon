@@ -1,13 +1,6 @@
 <template>
   <p-input :errors="errors" class="ph-relative">
-    <label
-      class="switch-label ph-relative ph-flex"
-      :for="id"
-      :style="{
-        '--width': width,
-        '--height': height
-      }"
-    >
+    <label class="switch-label ph-relative ph-flex" :for="id">
       <input
         :id="id"
         v-model="innerValue"
@@ -19,11 +12,9 @@
       <span
         class="slider round ph-absolute ph-top-0 ph-right-0 ph-left-0 ph-bottom-0 ph-transition ph-cursor-pointer ph-bg-grey4 ph-bg-gradient-brand2"
         :class="innerValue && 'input-checked'"
-        :style="scaleHeight"
       >
       </span>
     </label>
-    -----{{ scaleHeight }}-----
   </p-input>
 </template>
 <script lang="ts">
@@ -69,14 +60,6 @@ export default Vue.extend({
       set(val) {
         (this as any).$emit('input', val);
       }
-    },
-    scaleHeight() {
-      const heightValue = +this.height.replace('px', '');
-      return {
-        '--height-after': Math.round(heightValue / 1.15) + 'px',
-        '--width': this.width,
-        '--height': this.height
-      };
     }
   },
 
@@ -89,20 +72,15 @@ export default Vue.extend({
 </script>
 
 <style lang="postcss" scoped>
-.test-child {
-  width: var(--width);
-  transform: scale(0.8888);
-  height: var(--height);
-}
 .switch-label {
-  width: var(--width, 51px);
-  height: var(--height, 31px);
+  width: 51px;
+  height: 31px;
 }
 .slider.round {
   border-radius: 31px;
   border-color: rgba(0, 158, 222, 0.4);
-  width: var(--width, 51px);
-  height: var(--height, 31px);
+  width: 51px;
+  height: 31px;
 }
 input:checked + .slider:after {
   transform: translateX(20px);
@@ -119,8 +97,8 @@ input:checked + .slider:before {
   @apply ph-bg-white;
   @apply ph-transition;
   content: '';
-  height: var(--height-after, 27px);
-  width: var(--height-after, 27px);
+  height: 27px;
+  width: 27px;
   left: 2px;
   bottom: 2px;
 }
@@ -132,8 +110,8 @@ input:checked + .slider:before {
   @apply ph-bg-grey4;
   @apply ph-opacity-100;
   content: '';
-  width: var(--width, 51px);
-  height: var(--height, 31px);
+  width: 51px;
+  height: 31px;
   box-shadow: 0;
   transition: box-shadow 0.25s;
 }
