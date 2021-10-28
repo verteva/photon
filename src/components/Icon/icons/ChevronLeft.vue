@@ -8,9 +8,7 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
     <title>Experiments</title>
-    <defs>
-        
-    </defs>
+    <defs></defs>
     <g
       id="Experiments"
       transform="rotate(90, 6, 3)"
@@ -31,14 +29,8 @@
           width="1440"
           height="1395"
         ></rect>
-            
-        <rect
-          id="Rectangle"
-          x="1097"
-          y="422"
-          width="12"
-          height="7"
-        ></rect>
+
+        <rect id="Rectangle" x="1097" y="422" width="12" height="7"></rect>
         <polyline
           id="Path-13"
           stroke="currentColor"

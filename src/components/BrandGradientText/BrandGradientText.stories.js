@@ -5,13 +5,13 @@ export default {
   component: PBrandGradientText,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
   components: { PBrandGradientText },
   props: Object.keys(argTypes),
-  template: "<PBrandGradientText v-bind='$props' />",
+  template: "<PBrandGradientText v-bind='$props' />"
 });
 
 export const BrandGradientText = Template.bind({});

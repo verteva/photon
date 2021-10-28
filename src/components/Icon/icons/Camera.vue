@@ -7,12 +7,7 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <g
-      stroke="none"
-      stroke-width="1"
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g transform="translate(-538.000000, -602.000000)">
         <g
           transform="translate(538.000000, 602.000000)"

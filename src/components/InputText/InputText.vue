@@ -1,30 +1,21 @@
 <template>
   <p-input
     v-if="!simple"
-    :class="{'ph-input-error-content':errors.length}"
+    :class="{ 'ph-input-error-content': errors.length }"
     :errors="errors"
   >
     <p-label>
       {{ label }}
-      <slot
-        v-if="!label"
-        name="label"
-      />
+      <slot v-if="!label" name="label" />
     </p-label>
 
     <div :class="componentClassList">
-      <div
-        v-if="iconLeft"
-        :class="[iconClassList]"
-      >
-        <p-icon
-          :name="iconLeft"
-          type="lg"
-        />
+      <div v-if="iconLeft" :class="[iconClassList]">
+        <p-icon :name="iconLeft" type="lg" />
       </div>
       <input
         :id="id"
-        :class="baseClassList" 
+        :class="baseClassList"
         :placeholder="placeholder"
         :value="value"
         :type="$attrs.type"
@@ -34,26 +25,17 @@
         @focus="onFocus"
         @blur="onBlur"
       />
-      <div
-        v-if="iconRight"
-        :class="[iconClassList, 'ph-right-1']"
-      >
-        <p-icon
-          :name="iconRight"
-          type="lg"
-        />
+      <div v-if="iconRight" :class="[iconClassList, 'ph-right-1']">
+        <p-icon :name="iconRight" type="lg" />
       </div>
     </div>
   </p-input>
-  
+
   <!-- Simple text field -->
-  <div
-    v-else
-    :class="componentClassList"
-  >
+  <div v-else :class="componentClassList">
     <input
       :id="id"
-      :class="baseClassList" 
+      :class="baseClassList"
       :placeholder="placeholder"
       :value="value"
       :type="$attrs.type"
@@ -79,61 +61,60 @@ export default Vue.extend({
   components: {
     PIcon,
     PInput,
-    PLabel,
+    PLabel
   },
-  
+
   props: {
     centered: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     simple: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     number: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     placeholder: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     iconLeft: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     iconRight: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     label: {
       type: String as PropType<string>,
-      default: '',
+      default: ''
     },
     errors: {
       type: Array as PropType<string[]>,
-      default: ():[] => [],
+      default: (): [] => []
     },
     value: {
       type: [Number, String] as PropType<InputValueType>,
-      default: null,
-    },
+      default: null
+    }
   },
 
-
-  data():InputTextData {    
+  data(): InputTextData {
     return {
       inFocus: false,
       currencyOptions: {
         currency: null,
         precision: 0,
         valueRange: { min: 0 },
-        allowNegative: false,
+        allowNegative: false
       },
       id: '',
       iconClassList: [
@@ -145,7 +126,7 @@ export default Vue.extend({
         'ph-items-center',
         'ph-justify-center',
         'ph-transition',
-        'ph-duration-200',
+        'ph-duration-200'
       ],
       baseClassList: [
         'ph-antialiased',
@@ -163,55 +144,53 @@ export default Vue.extend({
         this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
-        this.centered ? 'ph-text-center' : '',
-      ],
+        this.centered ? 'ph-text-center' : ''
+      ]
     } as InputTextData;
   },
 
   computed: {
-    componentClassList():string[] {
-      return [
-        this.inFocus ? 'ph-text-brand2' : '',    
-        'ph-relative',
-      ];      
-    },
+    componentClassList(): string[] {
+      return [this.inFocus ? 'ph-text-brand2' : '', 'ph-relative'];
+    }
   },
 
   mounted() {
     this.id = 'photon_input_' + this._uid;
   },
 
-
   methods: {
-    validatePress(event:KeyboardEvent) {
+    validatePress(event: KeyboardEvent) {
       /* 
         TODO: As an enhacement, add keycode checks
         to allow for a user select all (cmd + a)
         in the text input
-      */    
+      */
+
       if (this.number && !isNumber(event)) {
-          return event.preventDefault();
+        return event.preventDefault();
       }
     },
 
-    updateValue(value:string){     
+    updateValue(value: string) {
       this.$emit('input', value);
     },
 
-    onFocus(e:InputEvent) {
+    onFocus(e: InputEvent) {
       this.inFocus = true;
       this.$emit('focus', e);
     },
-    
-    onBlur(e:InputEvent) {
+
+    onBlur(e: InputEvent) {
       this.inFocus = false;
       this.$emit('blur', e);
-    },
-  },
+    }
+  }
 });
 </script>
 <style lang="postcss">
-.ph-input-error-content input, .ph-input-error-content svg{
+.ph-input-error-content input,
+.ph-input-error-content svg {
   @apply ph-text-alert2;
 }
 

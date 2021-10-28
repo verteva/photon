@@ -8,18 +8,14 @@
     :disabled="isDisabled"
     v-on="$listeners"
   >
-    <slot
-      v-for="(_, name) in $slots"
-      :slot="name"
-      :name="name"
-    />
+    <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
     <div class="ph-flex">
       <div
         class="ph-relative ph-z-5 ph-w-full ph-flex ph-items-center ph-justify-center"
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',
-          upperCase ? 'ph-uppercase' : '',
+          upperCase ? 'ph-uppercase' : ''
         ]"
       >
         <slot name="default">
@@ -32,7 +28,7 @@
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-1' : 'ph-opacity-0',
-          loaderClassList,
+          loaderClassList
         ]"
       >
         <div class="ph-animate-spin ph-h-full ph-w-full ph-flex ph-z-10">
@@ -63,7 +59,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from "vue";
+import Vue, { PropType } from 'vue';
 import {
   ButtonStylelist,
   ButtonStylePrimary,
@@ -73,52 +69,52 @@ import {
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
-  TypeButton,
-} from "./types";
+  TypeButton
+} from './types';
 
 export default Vue.extend({
-  name: "PButton",
+  name: 'PButton',
 
   props: {
     label: {
       type: String as PropType<string>,
-      default: "Button",
+      default: 'Button'
     },
     buttonStyle: {
       type: String as PropType<string>,
-      default: ButtonStylePrimary,
+      default: ButtonStylePrimary
     },
     type: {
       type: String as PropType<string>,
-      default: TypeButton,
+      default: TypeButton
     },
     outlined: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     valid: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: true
     },
     upperCase: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: true
     },
     block: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     noRadius: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     submitting: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     size: {
       type: String as PropType<string>,
@@ -129,37 +125,37 @@ export default Vue.extend({
             value
           ) !== -1
         );
-      },
-    },
+      }
+    }
   },
 
   data(): any {
     return {
       baseClassList: [
-        "ph-group",
-        "ph-border",
-        "ph-border-solid",
-        "ph-relative",
-        "ph-relative",
-        "ph-items-center",
-        "ph-justify-center",
-        "ph-transition",
-        "ph-shadow-none",
-        "focus:ph-outline-none",
-        "focus:ph-shadow-brand",
-        (this.block && "ph-w-full") || "",
-        !this.noRadius ? "ph-rounded-3xl" : "",
-      ],
+        'ph-group',
+        'ph-border',
+        'ph-border-solid',
+        'ph-relative',
+        'ph-relative',
+        'ph-items-center',
+        'ph-justify-center',
+        'ph-transition',
+        'ph-shadow-none',
+        'focus:ph-outline-none',
+        'focus:ph-shadow-brand',
+        (this.block && 'ph-w-full') || '',
+        !this.noRadius ? 'ph-rounded-3xl' : ''
+      ]
     };
   },
 
   computed: {
     loaderClassList(): string[] {
       const classes = [
-        "ph-left-1/2 ph-top-1/2",
-        (this.size === "medium" && "ph-h-6 ph-w-6 ph--ml-3 ph--mt-3") || "",
-        (this.size === "small" && "ph-h-5 ph-w-5 ph--ml-2.5 ph--mt-2.5") || "",
-        (this.size === "xs" && "ph-h-4 ph-w-4 ph--ml-2 ph--mt-2") || "",
+        'ph-left-1/2 ph-top-1/2',
+        (this.size === 'medium' && 'ph-h-6 ph-w-6 ph--ml-3 ph--mt-3') || '',
+        (this.size === 'small' && 'ph-h-5 ph-w-5 ph--ml-2.5 ph--mt-2.5') || '',
+        (this.size === 'xs' && 'ph-h-4 ph-w-4 ph--ml-2 ph--mt-2') || ''
       ];
       return classes;
     },
@@ -167,24 +163,24 @@ export default Vue.extend({
       const a: string[] = [
         ...this.baseClassList,
         ...this.buttonStyles,
-        this.isDisabled && "ph-cursor-not-allowed",
+        this.isDisabled && 'ph-cursor-not-allowed'
       ];
       return a;
     },
     sizing(): string[] {
       switch (this.size) {
         case ButtonXSmall:
-          return ["ph-text-xxs", "ph-py-1", "ph-px-2.5"];
+          return ['ph-text-xxs', 'ph-py-1', 'ph-px-2.5'];
           break;
         case ButtonSmall:
-          return ["ph-text-xs", "ph-py-1.5", "ph-px-3.5"];
+          return ['ph-text-xs', 'ph-py-1.5', 'ph-px-3.5'];
           break;
       }
 
-      return ["ph-text-sm", "ph-py-2.5", "ph-px-5"];
+      return ['ph-text-sm', 'ph-py-2.5', 'ph-px-5'];
     },
     buttonStyles(): string[] {
-      const common = ["ph-tracking-wider", ...this.sizing];
+      const common = ['ph-tracking-wider', ...this.sizing];
 
       switch (this.buttonStyle as keyof ButtonStylelist) {
         case ButtonStylePrimary:
@@ -202,24 +198,24 @@ export default Vue.extend({
     primaryButtonStyles(): string[] {
       if (!this.outlined) {
         return [
-          "ph-bg-gradient-brand2",
+          'ph-bg-gradient-brand2',
           !this.disabled
-            ? "ph-text-white ph-border-brand2"
-            : "ph-text-grey4 ph-border-grey4",
+            ? 'ph-text-white ph-border-brand2'
+            : 'ph-text-grey4 ph-border-grey4'
         ];
       }
 
       if (this.outlined) {
         return [
-          "ph-border-grey4",
+          'ph-border-grey4',
           !this.disabled
-            ? "ph-text-brand2 hover:ph-text-grey1"
-            : "ph-text-grey4 ph-border-grey4",
+            ? 'ph-text-brand2 hover:ph-text-grey1'
+            : 'ph-text-grey4 ph-border-grey4'
         ];
       }
 
       if (this.disabled) {
-        return ["ph-text-grey4 ph-bg-white ph-border-grey4"];
+        return ['ph-text-grey4 ph-bg-white ph-border-grey4'];
       }
 
       return [];
@@ -227,65 +223,65 @@ export default Vue.extend({
     secondaryButtonStyles(): string[] {
       if (!this.outlined) {
         return [
-          "ph-bg-gradient-light-grey",
+          'ph-bg-gradient-light-grey',
           !this.disabled
-            ? "ph-text-grey hover:ph-text-brand2 ph-border-titanium hover:ph-border-brand2"
-            : "ph-text-grey4 ph-border-grey5",
+            ? 'ph-text-grey hover:ph-text-brand2 ph-border-titanium hover:ph-border-brand2'
+            : 'ph-text-grey4 ph-border-grey5'
         ];
       }
 
       if (this.outlined) {
         return [
           !this.disabled
-            ? "ph-text-grey1 ph-border-grey4 hover:ph-border-grey3"
-            : "ph-text-grey4 ph-border-grey4",
+            ? 'ph-text-grey1 ph-border-grey4 hover:ph-border-grey3'
+            : 'ph-text-grey4 ph-border-grey4'
         ];
       }
 
       return [];
     },
     plainButtonStyles(): string[] {
-      return ["ph-p-0", "ph-border-none"];
+      return ['ph-p-0', 'ph-border-none'];
     },
     hoverBackgroundStyles(): string[] {
       return [
-        "ph-absolute",
-        "ph-top-0",
-        "ph-left-0",
-        "ph-w-full",
-        "ph-h-full",
-        "ph-transition",
-        "ph-duration-300",
-        "ph-opacity-0",
-        (this.buttonStyle === ButtonStylePrimary && "ph-bg-black") || "",
-        (this.buttonStyle === ButtonStyleSecondary && "ph-bg-white") || "",
+        'ph-absolute',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-w-full',
+        'ph-h-full',
+        'ph-transition',
+        'ph-duration-300',
+        'ph-opacity-0',
+        (this.buttonStyle === ButtonStylePrimary && 'ph-bg-black') || '',
+        (this.buttonStyle === ButtonStyleSecondary && 'ph-bg-white') || '',
         !this.disabled && this.buttonStyle === ButtonStylePrimary
-          ? "group-hover:ph-opacity-20"
-          : "",
+          ? 'group-hover:ph-opacity-20'
+          : '',
         !this.disabled && this.buttonStyle === ButtonStyleSecondary
-          ? "group-hover:ph-opacity-100"
-          : "",
-        !this.noRadius ? "ph-rounded-3xl" : "",
+          ? 'group-hover:ph-opacity-100'
+          : '',
+        !this.noRadius ? 'ph-rounded-3xl' : ''
       ];
     },
     disabledBackgroundStyles(): string[] {
       const styles: string[] = [
-        "ph-absolute",
-        "ph-top-0",
-        "ph-left-0",
-        "ph-w-full",
-        "ph-h-full",
-        "ph-transition ph-duration-300",
-        this.disabled ? "ph-opacity-100" : "ph-opacity-0",
-        !this.noRadius ? "ph-rounded-3xl" : "",
+        'ph-absolute',
+        'ph-top-0',
+        'ph-left-0',
+        'ph-w-full',
+        'ph-h-full',
+        'ph-transition ph-duration-300',
+        this.disabled ? 'ph-opacity-100' : 'ph-opacity-0',
+        !this.noRadius ? 'ph-rounded-3xl' : ''
       ];
 
       switch (this.buttonStyle) {
         case ButtonStylePrimary:
-          styles.push("ph-bg-grey3");
+          styles.push('ph-bg-grey3');
           break;
         case ButtonStyleSecondary:
-          styles.push("ph-bg-white");
+          styles.push('ph-bg-white');
           break;
       }
 
@@ -296,10 +292,10 @@ export default Vue.extend({
     },
     isDisabled(): boolean {
       return this.submitting || this.disabled;
-    },
+    }
   },
 
-  methods: {},
+  methods: {}
 });
 </script>
 
@@ -339,7 +335,7 @@ button {
 }
 
 button:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;

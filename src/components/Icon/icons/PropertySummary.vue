@@ -14,25 +14,9 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M11 15H19"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M11 17H19"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M11 19H19"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M11 21H19"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
+    <path d="M11 15H19" stroke="currentColor" stroke-linecap="round" />
+    <path d="M11 17H19" stroke="currentColor" stroke-linecap="round" />
+    <path d="M11 19H19" stroke="currentColor" stroke-linecap="round" />
+    <path d="M11 21H19" stroke="currentColor" stroke-linecap="round" />
   </svg>
 </template>

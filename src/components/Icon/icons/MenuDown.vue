@@ -9,12 +9,8 @@
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     viewBox="0 0 24 24"
-class="iconify iconify--mdi"
+    class="iconify iconify--mdi"
   >
-    <path
-      d="M7 10l5 5l5-5H7z"
-      fill="currentColor"
-    >
-    </path>
+    <path d="M7 10l5 5l5-5H7z" fill="currentColor"></path>
   </svg>
 </template>

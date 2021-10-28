@@ -6,11 +6,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <rect
-      width="30"
-      height="30"
-      fill="none"
-    />
+    <rect width="30" height="30" fill="none" />
     <path
       d="M21.25 2.375L8.625 15L21.25 27.875"
       stroke="currentColor"

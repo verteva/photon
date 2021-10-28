@@ -27,9 +27,6 @@
       transform="rotate(-45 9.578 16.2581)"
       stroke="currentColor"
     />
-    <path
-      d="M13.1562 9.64874V13.0862"
-      stroke="currentColor"
-    />
+    <path d="M13.1562 9.64874V13.0862" stroke="currentColor" />
   </svg>
 </template>

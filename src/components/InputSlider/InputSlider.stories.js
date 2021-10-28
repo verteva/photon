@@ -6,7 +6,7 @@ export default {
   component: PInputSlider,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -21,7 +21,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       val: 500000,
-      errs: [],
+      errs: []
     };
   },
   methods: {
@@ -31,7 +31,7 @@ const Template = (args, { argTypes }) => ({
       } else {
         this.errs = ['Inine validation error'];
       }
-    },
+    }
   }
 });
 
@@ -41,6 +41,6 @@ InputSlider.args = {
   min: 250000,
   max: 750000,
   increment: 10000,
-  label: "How much do you want to borrow?",
-  errors: [],
+  label: 'How much do you want to borrow?',
+  errors: []
 };

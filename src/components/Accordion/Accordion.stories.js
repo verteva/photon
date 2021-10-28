@@ -10,10 +10,10 @@ export default {
       values: [
         { name: 'white', value: '#ffffff' },
         { name: 'light', value: '#efefef' },
-        { name: 'dark', value: '#444444' },
-      ],
-    },
-  },
+        { name: 'dark', value: '#444444' }
+      ]
+    }
+  }
 };
 
 const SimpleTemplate = (args, { argTypes }) => ({
@@ -39,7 +39,7 @@ const SimpleTemplate = (args, { argTypes }) => ({
   data() {
     return {
       things: [],
-      forceOpen: true,
+      forceOpen: true
     };
   },
   methods: {
@@ -51,8 +51,8 @@ const SimpleTemplate = (args, { argTypes }) => ({
     },
     subThings() {
       this.things = this.things.slice(1, this.things.length);
-    },
-  },
+    }
+  }
 });
 export const Simple = SimpleTemplate.bind({});
 Simple.args = {
@@ -61,9 +61,8 @@ Simple.args = {
   openArrows: false,
   openCloseIcons: ['Edit', 'MinusBordered'],
   shadow: true,
-  responsivePadding: true,
+  responsivePadding: true
 };
-
 
 const NestedTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
@@ -83,21 +82,20 @@ const NestedTemplate = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      test: null,
+      test: null
     };
-  },
+  }
 });
 export const Nested = NestedTemplate.bind({});
 Nested.args = {
   mobileNoPadding: true,
   border: false,
-  openCloseIcons: ['Plus', 'MinusBordered'],
+  openCloseIcons: ['Plus', 'MinusBordered']
 };
-
 
 const SingleFocusTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
-  props: Object.keys(argTypes), 
+  props: Object.keys(argTypes),
   template: `
     <div>
       <PAccordion
@@ -139,7 +137,7 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      openId: null,
+      openId: null
     };
   },
   methods: {
@@ -165,6 +163,6 @@ const UnstyledTemplate = (args, { argTypes }) => ({
         <a href="#">Link F</a>
       </PAccordion>
     </div>
-  `,
+  `
 });
 export const Unstyled = UnstyledTemplate.bind({});

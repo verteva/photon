@@ -14,65 +14,15 @@
       rx="2.5"
       stroke="currentColor"
     />
-    <circle
-      cx="11.5375"
-      cy="8.125"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="11.5375"
-      cy="12.375"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="11.5375"
-      cy="16.625"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="15.6"
-      cy="8.125"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="15.6"
-      cy="12.375"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="15.6"
-      cy="16.625"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="15.6"
-      cy="20.875"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="19.6625"
-      cy="8.125"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="19.6625"
-      cy="12.375"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="19.6625"
-      cy="16.625"
-      r="1.21094"
-      stroke="currentColor"
-    />
+    <circle cx="11.5375" cy="8.125" r="1.21094" stroke="currentColor" />
+    <circle cx="11.5375" cy="12.375" r="1.21094" stroke="currentColor" />
+    <circle cx="11.5375" cy="16.625" r="1.21094" stroke="currentColor" />
+    <circle cx="15.6" cy="8.125" r="1.21094" stroke="currentColor" />
+    <circle cx="15.6" cy="12.375" r="1.21094" stroke="currentColor" />
+    <circle cx="15.6" cy="16.625" r="1.21094" stroke="currentColor" />
+    <circle cx="15.6" cy="20.875" r="1.21094" stroke="currentColor" />
+    <circle cx="19.6625" cy="8.125" r="1.21094" stroke="currentColor" />
+    <circle cx="19.6625" cy="12.375" r="1.21094" stroke="currentColor" />
+    <circle cx="19.6625" cy="16.625" r="1.21094" stroke="currentColor" />
   </svg>
 </template>

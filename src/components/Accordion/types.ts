@@ -5,7 +5,7 @@ export interface AccordionElementHeights {
   contentHeight: number;
   totalHeight: number;
 }
-export interface Props {  
+export interface Props {
   singleFocus: boolean;
   openArrows: boolean;
   unstyled: boolean;

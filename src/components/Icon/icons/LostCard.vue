@@ -14,22 +14,8 @@
       rx="2"
       stroke="currentColor"
     />
-    <rect
-      x="3.42859"
-      y="10"
-      width="23"
-      height="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="20.4844"
-      cy="17.7344"
-      r="2.64062"
-      stroke="currentColor"
-    />
-    <path
-      d="M22.4375 15.5L18.5312 19.4688"
-      stroke="currentColor"
-    />
+    <rect x="3.42859" y="10" width="23" height="3" stroke="currentColor" />
+    <circle cx="20.4844" cy="17.7344" r="2.64062" stroke="currentColor" />
+    <path d="M22.4375 15.5L18.5312 19.4688" stroke="currentColor" />
   </svg>
 </template>

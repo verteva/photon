@@ -18,10 +18,7 @@
         id="&lt;-01_6_Desktop-&gt;-PROPERTY---Checkpoint"
         transform="translate(-1103.000000, -447.000000)"
       >
-        <g
-          id="Group-6"
-          transform="translate(536.000000, 130.000000)"
-        >
+        <g id="Group-6" transform="translate(536.000000, 130.000000)">
           <g
             id="Shadow-Box/Large/Inactive"
             transform="translate(326.000000, 293.000000)"

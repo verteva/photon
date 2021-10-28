@@ -20,22 +20,12 @@
       rx="1.5"
       stroke="currentColor"
     />
-    <circle
-      cx="15.3706"
-      cy="11.6244"
-      r="1.8751"
-      stroke="currentColor"
-    />
+    <circle cx="15.3706" cy="11.6244" r="1.8751" stroke="currentColor" />
     <path
       d="M19.3866 18.4364V18.3279C19.3866 16.1099 17.5886 14.3118 15.3706 14.3118V14.3118C13.1525 14.3118 11.3545 16.1099 11.3545 18.3279V18.4364"
       stroke="currentColor"
       stroke-linecap="round"
     />
-    <circle
-      cx="15.3705"
-      cy="25.7581"
-      r="1.26562"
-      fill="currentColor"
-    />
+    <circle cx="15.3705" cy="25.7581" r="1.26562" fill="currentColor" />
   </svg>
 </template>

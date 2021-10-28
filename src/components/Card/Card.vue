@@ -11,26 +11,26 @@ export default {
   props: {
     light: {
       type: Boolean,
-      default: false,
+      default: false
     },
 
     shadow: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
- 
+
   computed: {
-    classList():string[] {
-      return [      
+    classList(): string[] {
+      return [
         (this as any).light ? 'ph-bg-white' : 'ph-bg-grey6',
         (this as any).shadow ? 'ph-shadow' : 'ph-shadow-none',
         'ph-rounded-lg',
         'ph-relative',
         'ph-overflow-hidden',
-        'ph-p-9',
-      ]
-    },
-  },
+        'ph-p-9'
+      ];
+    }
+  }
 };
 </script>

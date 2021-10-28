@@ -22,12 +22,6 @@
       rx="0.5"
       stroke="currentColor"
     />
-    <rect
-      x="3.70013"
-      y="10"
-      width="23"
-      height="3"
-      stroke="currentColor"
-    />
+    <rect x="3.70013" y="10" width="23" height="3" stroke="currentColor" />
   </svg>
 </template>

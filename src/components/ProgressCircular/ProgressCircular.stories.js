@@ -1,9 +1,8 @@
 import PProgressCircular from './ProgressCircular.vue';
-import resolveConfig from 'tailwindcss/resolveConfig'
-import tailwindConfig from '/tailwind.config.js'
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '/tailwind.config.js';
 
-const fullConfig = resolveConfig(tailwindConfig)
-
+const fullConfig = resolveConfig(tailwindConfig);
 
 export default {
   title: 'Components/ProgressCircular',
@@ -20,7 +19,7 @@ const Template = (args, { argTypes }) => ({
   components: { PProgressCircular },
   props: Object.keys(argTypes),
   data: {
-    progress: 0,
+    progress: 0
   },
   template: `
     <div>
@@ -28,21 +27,21 @@ const Template = (args, { argTypes }) => ({
         {{ value }}
       </p-progress-circular>
     </div>
-  `,
+  `
 });
 
 export const ProgressCircular = Template.bind({});
 
-ProgressCircular.args={
+ProgressCircular.args = {
   indeterminate: true,
-  size: '20px',
-}
+  size: '20px'
+};
 
 export const ProgressCircularValue = Template.bind({});
 
-ProgressCircularValue.args={
+ProgressCircularValue.args = {
   indeterminate: true,
   size: '48px',
   value: 0,
-  underlay: true,
-}
+  underlay: true
+};

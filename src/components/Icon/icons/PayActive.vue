@@ -6,12 +6,7 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      cx="14.5"
-      cy="14.5"
-      r="11"
-      stroke="currentColor"
-    />
+    <circle cx="14.5" cy="14.5" r="11" stroke="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"

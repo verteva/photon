@@ -6,18 +6,8 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      cx="11"
-      cy="23.43"
-      r="1.8125"
-      stroke="currentColor"
-    />
-    <circle
-      cx="19.9688"
-      cy="23.43"
-      r="1.8125"
-      stroke="currentColor"
-    />
+    <circle cx="11" cy="23.43" r="1.8125" stroke="currentColor" />
+    <circle cx="19.9688" cy="23.43" r="1.8125" stroke="currentColor" />
     <path
       d="M6.57812 7.36749H25.25L23.25 16.43H8.5L7.18416 10.2252L6.57812 7.36749Z"
       stroke="currentColor"

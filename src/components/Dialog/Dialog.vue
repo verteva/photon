@@ -3,19 +3,10 @@
     <div :class="backDropWrapperClassList">
       <div :class="backDropClassList" />
     </div>
-    <div
-      id="photon-dialog"
-      :class="viewboxClassList"
-    >
+    <div id="photon-dialog" :class="viewboxClassList">
       <div class="ph-absolute ph-top-1 ph-right-2 ph-z-1">
-        <p-button
-          button-style="plain"
-          @click="eventType = cancel"
-        >
-          <p-icon
-            name="Cross"
-            type="lg"
-          />
+        <p-button button-style="plain" @click="eventType = cancel">
+          <p-icon name="Cross" type="lg" />
         </p-button>
       </div>
       <h1 class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
@@ -28,11 +19,7 @@
         >
           {{ confirmLabel }}
         </p-button>
-        <p-button
-          button-style="secondary"
-          outlined
-          @click="eventType = cancel"
-        >
+        <p-button button-style="secondary" outlined @click="eventType = cancel">
           {{ cancelLabel }}
         </p-button>
       </div>
@@ -44,36 +31,34 @@
 import PIcon from '../Icon';
 import PButton from '../Button';
 
-import {
-  DialogData,
-} from './types';
+import { DialogData } from './types';
 
 export default {
   name: 'Dialog',
 
   components: {
     PIcon,
-    PButton,
+    PButton
   },
 
   props: {
     heading: {
       type: String,
-      default: '',
+      default: ''
     },
 
     confirmLabel: {
       type: String,
-      default: 'Yes',
+      default: 'Yes'
     },
 
     cancelLabel: {
       type: String,
-      default: 'Cancel',
-    },
+      default: 'Cancel'
+    }
   },
 
-  data():DialogData {
+  data(): DialogData {
     return {
       cancel: 'cancel',
       confirm: 'confirm',
@@ -83,28 +68,27 @@ export default {
         'ph-inset-0',
         'ph-z-10',
         'ph-flex',
-        'ph-flex-col',
-      ],
+        'ph-flex-col'
+      ]
     };
   },
 
   computed: {
-    backDropWrapperClassList():string[] {
+    backDropWrapperClassList(): string[] {
       return [
-        (this as any).eventType === '' ? 'ph-animate-fadeIn' : 'ph-animate-fadeOut',
+        (this as any).eventType === ''
+          ? 'ph-animate-fadeIn'
+          : 'ph-animate-fadeOut'
       ];
     },
-    backDropClassList():string[] {
-      return [
-        'ph-absolute',
-        'ph-inset-0',
-        'ph-bg-black',
-        'ph-opacity-60'
-      ];
+    backDropClassList(): string[] {
+      return ['ph-absolute', 'ph-inset-0', 'ph-bg-black', 'ph-opacity-60'];
     },
-    viewboxClassList():string[] {
+    viewboxClassList(): string[] {
       return [
-        (this as any).eventType === '' ? 'ph-animate-fadeIn' : 'ph-animate-fadeOut',
+        (this as any).eventType === ''
+          ? 'ph-animate-fadeIn'
+          : 'ph-animate-fadeOut',
         'ph-rounded',
         'ph-p-6 sm:ph-p-12',
         'ph-bg-white',
@@ -112,36 +96,39 @@ export default {
         'ph-w-10/12 sm:ph-w-100',
         'ph-flex',
         'ph-flex-col',
-        'ph-m-auto',
+        'ph-m-auto'
       ];
-    },
+    }
   },
 
   watch: {
-    eventType(val:string, prevVal:string):void {
+    eventType(val: string, prevVal: string): void {
       if (!Boolean(prevVal)) {
         (this as any).$emit(val);
       }
-    },
-  },
-
-
-  mounted():void {
-    const node = document.getElementById('photon-dialog');
-    if (node){
-      node.addEventListener('animationend', (this as any).onAnimationEnd, false);
     }
   },
-  
-  destroyed():void {
+
+  mounted(): void {
     const node = document.getElementById('photon-dialog');
-    if (node){
+    if (node) {
+      node.addEventListener(
+        'animationend',
+        (this as any).onAnimationEnd,
+        false
+      );
+    }
+  },
+
+  destroyed(): void {
+    const node = document.getElementById('photon-dialog');
+    if (node) {
       node.removeEventListener('animationend', (this as any).onAnimationEnd);
     }
   },
 
   methods: {
-    onAnimationEnd(e:AnimationEvent):void {
+    onAnimationEnd(e: AnimationEvent): void {
       /*
         TransitionEvent fires for each property that
         is transitioning so check the event is fired
@@ -149,12 +136,12 @@ export default {
         for dynamic content adjustments.
       */
       // if (e.propertyName === 'opacity') {
-        
+
       // }
       if (e.animationName === 'ph-fadeOut') {
         (this as any).$emit('transitionedOut');
       }
-    },
-  },
+    }
+  }
 };
 </script>

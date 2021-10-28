@@ -5,14 +5,8 @@
     height="91"
     viewBox="0 0 68 91"
   >
-    <g
-      fill="none"
-      fill-rule="evenodd"
-    >
-      <g
-        stroke="currentColor"
-        stroke-width="2.2"
-      >
+    <g fill="none" fill-rule="evenodd">
+      <g stroke="currentColor" stroke-width="2.2">
         <g>
           <path
             stroke-linecap="round"

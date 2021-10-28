@@ -5,10 +5,7 @@
     height="41"
     viewBox="0 0 69 41"
   >
-    <g
-      fill="none"
-      fill-rule="evenodd"
-    >
+    <g fill="none" fill-rule="evenodd">
       <g>
         <g transform="translate(-577 -747) translate(577 747)">
           <path

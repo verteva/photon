@@ -6,18 +6,8 @@
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle
-      cx="382.704"
-      cy="113.644"
-      r="9.35565"
-      stroke="currentColor"
-    />
-    <circle
-      cx="382.704"
-      cy="113.644"
-      r="5.60111"
-      stroke="currentColor"
-    />
+    <circle cx="382.704" cy="113.644" r="9.35565" stroke="currentColor" />
+    <circle cx="382.704" cy="113.644" r="5.60111" stroke="currentColor" />
     <path
       d="M369.563 111.298L368.624 122.561H371.91L370.971 111.298"
       stroke="currentColor"
@@ -46,14 +36,8 @@
       d="M423.052 117.637L423.022 115.833C423.02 115.745 423.054 115.66 423.117 115.598L430.485 108.229C430.612 108.103 430.817 108.103 430.944 108.229L432.779 110.064C432.905 110.191 432.905 110.396 432.779 110.523L425.41 117.892C425.348 117.954 425.263 117.988 425.175 117.986L423.371 117.956C423.196 117.953 423.055 117.812 423.052 117.637Z"
       stroke="currentColor"
     />
-    <path
-      d="M429.797 108.917L432.093 111.211"
-      stroke="currentColor"
-    />
-    <path
-      d="M424.293 114.421L426.589 116.715"
-      stroke="currentColor"
-    />
+    <path d="M429.797 108.917L432.093 111.211" stroke="currentColor" />
+    <path d="M424.293 114.421L426.589 116.715" stroke="currentColor" />
     <path
       d="M436.456 105.485C441.142 110.172 441.142 117.77 436.456 122.456C431.77 127.142 424.172 127.142 419.485 122.456C414.799 117.77 414.799 110.172 419.485 105.485C424.172 100.799 431.77 100.799 436.456 105.485Z"
       stroke="currentColor"
@@ -79,36 +63,12 @@
       stroke="currentColor"
       stroke-linejoin="round"
     />
-    <path
-      d="M510 109H514.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M510 111.5H514.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M510 114.5H514.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M519 109H523.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M519 111.5H523.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M519 114.5H523.5"
-      stroke="currentColor"
-      stroke-linejoin="round"
-    />
+    <path d="M510 109H514.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M510 111.5H514.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M510 114.5H514.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M519 109H523.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M519 111.5H523.5" stroke="currentColor" stroke-linejoin="round" />
+    <path d="M519 114.5H523.5" stroke="currentColor" stroke-linejoin="round" />
     <path
       d="M561.75 103.5L548.25 108.5L561.75 113L575.75 108.5L561.75 103.5Z"
       stroke="currentColor"
@@ -362,11 +322,7 @@
       stroke="currentColor"
       stroke-miterlimit="10"
     />
-    <path
-      d="M967 101.58V124.24"
-      stroke="currentColor"
-      stroke-miterlimit="10"
-    />
+    <path d="M967 101.58V124.24" stroke="currentColor" stroke-miterlimit="10" />
     <path
       d="M21.9996 30.6863C22.6013 30.6863 23.0891 30.1985 23.0891 29.5968C23.0891 28.995 22.6013 28.5072 21.9996 28.5072C21.3978 28.5072 20.91 28.995 20.91 29.5968C20.91 30.1985 21.3978 30.6863 21.9996 30.6863Z"
       fill="currentColor"
@@ -497,36 +453,12 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M749.2 154H737.2"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M749.2 156H737.2"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M749.2 158H737.2"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M749.2 160H737.2"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M752.2 167H734.2"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M745.2 149H742.2"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
+    <path d="M749.2 154H737.2" stroke="currentColor" stroke-linecap="round" />
+    <path d="M749.2 156H737.2" stroke="currentColor" stroke-linecap="round" />
+    <path d="M749.2 158H737.2" stroke="currentColor" stroke-linecap="round" />
+    <path d="M749.2 160H737.2" stroke="currentColor" stroke-linecap="round" />
+    <path d="M752.2 167H734.2" stroke="currentColor" stroke-linecap="round" />
+    <path d="M745.2 149H742.2" stroke="currentColor" stroke-linecap="round" />
     <rect
       x="733.7"
       y="146.5"
@@ -535,12 +467,7 @@
       rx="1.5"
       stroke="currentColor"
     />
-    <circle
-      cx="743.2"
-      cy="169"
-      r="1"
-      fill="currentColor"
-    />
+    <circle cx="743.2" cy="169" r="1" fill="currentColor" />
     <rect
       x="643.429"
       y="152"
@@ -549,23 +476,9 @@
       rx="2"
       stroke="currentColor"
     />
-    <rect
-      x="643.429"
-      y="155"
-      width="23"
-      height="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="660.484"
-      cy="162.734"
-      r="2.64062"
-      stroke="currentColor"
-    />
-    <path
-      d="M662.438 160.5L658.531 164.469"
-      stroke="currentColor"
-    />
+    <rect x="643.429" y="155" width="23" height="3" stroke="currentColor" />
+    <circle cx="660.484" cy="162.734" r="2.64062" stroke="currentColor" />
+    <path d="M662.438 160.5L658.531 164.469" stroke="currentColor" />
     <path
       d="M782.158 161.224C782.965 160.821 785.158 162.724 785.158 164.724V163.724V156.224C785.158 155.724 785.158 153.724 786.658 153.724C788.158 153.724 788.158 155.724 788.158 156.224V160.224C789.159 159.224 790.159 159.724 790.658 160.724C791.659 159.724 793.159 160.224 793.158 161.724C794.159 160.724 795.658 161.443 795.658 162.224C795.658 164.557 795.959 168.224 794.159 171.224C792.659 173.724 786.98 173.501 785.158 171.224C783.442 169.079 783.158 168.224 782.159 164.224C781.661 162.232 781.352 161.627 782.158 161.224Z"
       stroke="currentColor"
@@ -590,12 +503,7 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <circle
-      cx="869.255"
-      cy="164"
-      r="2.39885"
-      fill="currentColor"
-    />
+    <circle cx="869.255" cy="164" r="2.39885" fill="currentColor" />
     <path
       d="M885.03 159.769H868.57C866.233 159.769 864.338 161.663 864.338 164C864.338 166.337 866.233 168.231 868.57 168.231H885.03C887.367 168.231 889.261 166.337 889.261 164C889.261 161.663 887.367 159.769 885.03 159.769Z"
       stroke="currentColor"
@@ -604,12 +512,7 @@
       d="M885.03 149.769H868.57C866.233 149.769 864.338 151.663 864.338 154C864.338 156.337 866.233 158.231 868.57 158.231H885.03C887.367 158.231 889.261 156.337 889.261 154C889.261 151.663 887.367 149.769 885.03 149.769Z"
       stroke="currentColor"
     />
-    <circle
-      cx="884.737"
-      cy="153.846"
-      r="2.39885"
-      fill="currentColor"
-    />
+    <circle cx="884.737" cy="153.846" r="2.39885" fill="currentColor" />
     <path
       d="M923.552 156.448H916.552"
       stroke="currentColor"
@@ -699,18 +602,8 @@
       d="M331.312 103.812C331.312 102.708 332.208 101.812 333.313 101.812H340.812C341.917 101.812 342.812 102.708 342.812 103.813V105.062H331.312V103.812Z"
       stroke="currentColor"
     />
-    <circle
-      cx="693"
-      cy="169"
-      r="1.8125"
-      stroke="currentColor"
-    />
-    <circle
-      cx="701.969"
-      cy="169"
-      r="1.8125"
-      stroke="currentColor"
-    />
+    <circle cx="693" cy="169" r="1.8125" stroke="currentColor" />
+    <circle cx="701.969" cy="169" r="1.8125" stroke="currentColor" />
     <path
       d="M688.578 152.938H707.25L705.25 162H690.5L689.184 155.795L688.578 152.938Z"
       stroke="currentColor"
@@ -770,31 +663,11 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M479.588 198H469"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M479.588 201H469"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M479.588 204H469"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M479.588 207H469"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M479.588 210H469"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
+    <path d="M479.588 198H469" stroke="currentColor" stroke-linecap="round" />
+    <path d="M479.588 201H469" stroke="currentColor" stroke-linecap="round" />
+    <path d="M479.588 204H469" stroke="currentColor" stroke-linecap="round" />
+    <path d="M479.588 207H469" stroke="currentColor" stroke-linecap="round" />
+    <path d="M479.588 210H469" stroke="currentColor" stroke-linecap="round" />
     <rect
       x="465.5"
       y="193.5"
@@ -1443,12 +1316,7 @@
       stroke="currentColor"
       stroke-width="0.947368"
     />
-    <circle
-      cx="1109.99"
-      cy="152.955"
-      r="0.668317"
-      fill="currentColor"
-    />
+    <circle cx="1109.99" cy="152.955" r="0.668317" fill="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -1605,23 +1473,13 @@
       rx="1.5"
       stroke="currentColor"
     />
-    <circle
-      cx="112.371"
-      cy="19.6244"
-      r="1.8751"
-      stroke="currentColor"
-    />
+    <circle cx="112.371" cy="19.6244" r="1.8751" stroke="currentColor" />
     <path
       d="M116.387 26.4364V26.3279C116.387 24.1099 114.589 22.3118 112.371 22.3118V22.3118C110.153 22.3118 108.354 24.1099 108.354 26.3279V26.4364"
       stroke="currentColor"
       stroke-linecap="round"
     />
-    <circle
-      cx="112.371"
-      cy="33.7581"
-      r="1.26562"
-      fill="currentColor"
-    />
+    <circle cx="112.371" cy="33.7581" r="1.26562" fill="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -1888,18 +1746,8 @@
       d="M336.094 24.93C336.094 25.2061 336.318 25.43 336.594 25.43C336.87 25.43 337.094 25.2061 337.094 24.93H336.094ZM337.094 16.93C337.094 16.6539 336.87 16.43 336.594 16.43C336.318 16.43 336.094 16.6539 336.094 16.93H337.094ZM337.094 24.93V16.93H336.094V24.93H337.094Z"
       fill="currentColor"
     />
-    <circle
-      cx="336.594"
-      cy="27.93"
-      r="1.09375"
-      fill="currentColor"
-    />
-    <circle
-      cx="381.5"
-      cy="22.93"
-      r="11.5"
-      stroke="currentColor"
-    />
+    <circle cx="336.594" cy="27.93" r="1.09375" fill="currentColor" />
+    <circle cx="381.5" cy="22.93" r="11.5" stroke="currentColor" />
     <path
       d="M381.132 28.43H382.728V18.63H381.524C381.342 19.834 380.796 20.156 379.298 20.198V21.318H381.132V28.43Z"
       fill="currentColor"
@@ -1908,60 +1756,15 @@
       d="M420.253 31.4921C420.091 31.7151 420.139 32.0279 420.362 32.1908C420.585 32.3538 420.898 32.3051 421.061 32.0821L420.253 31.4921ZM433.275 15.3679C433.438 15.1449 433.389 14.8321 433.166 14.6691C432.943 14.5062 432.631 14.5549 432.468 14.7778L433.275 15.3679ZM421.061 32.0821L433.275 15.3679L432.468 14.7778L420.253 31.4921L421.061 32.0821Z"
       fill="currentColor"
     />
-    <circle
-      cx="421.3"
-      cy="18.93"
-      r="4"
-      stroke="currentColor"
-    />
-    <circle
-      cx="432.1"
-      cy="27.93"
-      r="4"
-      stroke="currentColor"
-    />
-    <circle
-      cx="463.844"
-      cy="15.305"
-      r="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="463.844"
-      cy="23.4299"
-      r="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="472"
-      cy="15.305"
-      r="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="472"
-      cy="23.4299"
-      r="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="472"
-      cy="31.555"
-      r="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="480.156"
-      cy="15.305"
-      r="3"
-      stroke="currentColor"
-    />
-    <circle
-      cx="480.156"
-      cy="23.4299"
-      r="3"
-      stroke="currentColor"
-    />
+    <circle cx="421.3" cy="18.93" r="4" stroke="currentColor" />
+    <circle cx="432.1" cy="27.93" r="4" stroke="currentColor" />
+    <circle cx="463.844" cy="15.305" r="3" stroke="currentColor" />
+    <circle cx="463.844" cy="23.4299" r="3" stroke="currentColor" />
+    <circle cx="472" cy="15.305" r="3" stroke="currentColor" />
+    <circle cx="472" cy="23.4299" r="3" stroke="currentColor" />
+    <circle cx="472" cy="31.555" r="3" stroke="currentColor" />
+    <circle cx="480.156" cy="15.305" r="3" stroke="currentColor" />
+    <circle cx="480.156" cy="23.4299" r="3" stroke="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -2171,26 +1974,10 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <path
-      d="M1189 24H1197"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M1189 26H1197"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M1189 28H1197"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M1189 30H1197"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
+    <path d="M1189 24H1197" stroke="currentColor" stroke-linecap="round" />
+    <path d="M1189 26H1197" stroke="currentColor" stroke-linecap="round" />
+    <path d="M1189 28H1197" stroke="currentColor" stroke-linecap="round" />
+    <path d="M1189 30H1197" stroke="currentColor" stroke-linecap="round" />
     <g clip-path="url(#clip1)">
       <path
         d="M640.27 23.1488C640.326 25.8727 641.373 28.5863 643.413 30.7028C647.71 35.1589 654.815 35.2956 659.278 30.9922C660.624 29.6943 661.579 28.1346 662.14 26.4687"
@@ -2378,25 +2165,10 @@
       rx="1.5"
       stroke="currentColor"
     />
-    <path
-      d="M924 16.43V35.43"
-      stroke="currentColor"
-    />
-    <path
-      d="M926 16.43V35.43"
-      stroke="currentColor"
-    />
-    <mask
-      id="path-374-inside-1"
-      fill="white"
-    >
-      <rect
-        x="917"
-        y="28.43"
-        width="3"
-        height="4"
-        rx="0.5"
-      />
+    <path d="M924 16.43V35.43" stroke="currentColor" />
+    <path d="M926 16.43V35.43" stroke="currentColor" />
+    <mask id="path-374-inside-1" fill="white">
+      <rect x="917" y="28.43" width="3" height="4" rx="0.5" />
     </mask>
     <rect
       x="917"
@@ -2416,14 +2188,8 @@
       d="M927 16.93H917C916.172 16.93 915.5 17.6016 915.5 18.43V33.43C915.5 34.2584 916.172 34.93 917 34.93H927C927.828 34.93 928.5 34.2584 928.5 33.43V18.43C928.5 17.6016 927.828 16.93 927 16.93Z"
       stroke="currentColor"
     />
-    <path
-      d="M924 16.43V34.43"
-      stroke="currentColor"
-    />
-    <path
-      d="M926 16.43V34.43"
-      stroke="currentColor"
-    />
+    <path d="M924 16.43V34.43" stroke="currentColor" />
+    <path d="M926 16.43V34.43" stroke="currentColor" />
     <path
       d="M960.565 13.6584H957.805C956.7 13.6584 955.805 14.5538 955.805 15.6584V32.43C955.805 33.5346 956.7 34.43 957.805 34.43H976.197C977.301 34.43 978.197 33.5346 978.197 32.43V15.6584C978.197 14.5538 977.301 13.6584 976.197 13.6584H973.215M964.041 13.6584H962.185H965.949M971.803 13.6584H969.948H968.092"
       stroke="currentColor"
@@ -2523,11 +2289,10 @@
       d="M1016.86 19.6873H1016.36V17.0372C1016.36 14.5773 1014.36 12.5837 1011.9 12.5815H1011.75C1009.29 12.5837 1007.3 14.5773 1007.29 17.0372V19.6873H1006.79C1004.99 19.6873 1003.54 21.142 1003.53 22.9379V31.0278C1003.54 32.8237 1004.99 34.2784 1006.79 34.2784H1016.86C1018.66 34.2784 1020.12 32.8237 1020.12 31.0278V22.9379C1020.12 21.142 1018.66 19.6873 1016.86 19.6873Z"
       stroke="currentColor"
     />
-    <mask
-      id="path-394-inside-2"
-      fill="white"
-    >
-      <path d="M1011.83 22.8447C1010.73 22.846 1009.76 23.5403 1009.41 24.5737C1009.05 25.6071 1009.39 26.7518 1010.25 27.4243V29.1523C1010.25 29.7143 1010.55 30.2335 1011.04 30.5145C1011.53 30.7955 1012.13 30.7955 1012.61 30.5145C1013.1 30.2335 1013.4 29.7143 1013.4 29.1523V27.4243C1014.26 26.7518 1014.6 25.6071 1014.25 24.5737C1013.89 23.5403 1012.92 22.846 1011.83 22.8447V22.8447Z" />
+    <mask id="path-394-inside-2" fill="white">
+      <path
+        d="M1011.83 22.8447C1010.73 22.846 1009.76 23.5403 1009.41 24.5737C1009.05 25.6071 1009.39 26.7518 1010.25 27.4243V29.1523C1010.25 29.7143 1010.55 30.2335 1011.04 30.5145C1011.53 30.7955 1012.13 30.7955 1012.61 30.5145C1013.1 30.2335 1013.4 29.7143 1013.4 29.1523V27.4243C1014.26 26.7518 1014.6 25.6071 1014.25 24.5737C1013.89 23.5403 1012.92 22.846 1011.83 22.8447V22.8447Z"
+      />
     </mask>
     <path
       d="M1010.25 27.4243H1011.25V26.9363L1010.87 26.6361L1010.25 27.4243ZM1010.25 29.1523L1011.25 29.1523V29.1523H1010.25ZM1013.4 29.1523L1012.4 29.1523V29.1523L1013.4 29.1523ZM1013.4 27.4243L1012.78 26.6361L1012.4 26.9363V27.4243H1013.4ZM1011.83 21.8447C1010.31 21.8465 1008.96 22.812 1008.46 24.2489L1010.35 24.8986C1010.57 24.2687 1011.16 23.8455 1011.83 23.8447L1011.83 21.8447ZM1008.46 24.2489C1007.97 25.6857 1008.44 27.2775 1009.64 28.2125L1010.87 26.6361C1010.34 26.2262 1010.14 25.5284 1010.35 24.8986L1008.46 24.2489ZM1009.25 27.4243V29.1523H1011.25V27.4243H1009.25ZM1009.25 29.1523C1009.25 30.0715 1009.74 30.9209 1010.54 31.3806L1011.54 29.6485C1011.36 29.5462 1011.25 29.357 1011.25 29.1523L1009.25 29.1523ZM1010.54 31.3806C1011.34 31.8402 1012.32 31.8402 1013.11 31.3806L1012.11 29.6485C1011.94 29.7509 1011.72 29.7509 1011.54 29.6485L1010.54 31.3806ZM1013.11 31.3806C1013.91 30.9209 1014.4 30.0715 1014.4 29.1523L1012.4 29.1523C1012.4 29.357 1012.29 29.5462 1012.11 29.6485L1013.11 31.3806ZM1014.4 29.1523V27.4243H1012.4V29.1523H1014.4ZM1014.02 28.2125C1015.21 27.2775 1015.69 25.6857 1015.19 24.2489L1013.3 24.8986C1013.52 25.5284 1013.31 26.2262 1012.78 26.6361L1014.02 28.2125ZM1015.19 24.2489C1014.7 22.812 1013.35 21.8465 1011.83 21.8447L1011.83 23.8447C1012.49 23.8455 1013.08 24.2687 1013.3 24.8986L1015.19 24.2489Z"
@@ -2869,10 +2634,7 @@
       transform="rotate(-45 289.578 159.258)"
       stroke="currentColor"
     />
-    <path
-      d="M293.156 152.649V156.086"
-      stroke="currentColor"
-    />
+    <path d="M293.156 152.649V156.086" stroke="currentColor" />
     <path
       d="M334.41 167.18C334.55 164.92 335.63 162.91 337.72 161.18L343.25 156.67C345.46 154.89 346.75 152.45 346.9 149.9"
       stroke="currentColor"
@@ -2897,18 +2659,8 @@
       stroke-linecap="round"
       stroke-linejoin="round"
     />
-    <circle
-      cx="382"
-      cy="166.43"
-      r="1.8125"
-      stroke="currentColor"
-    />
-    <circle
-      cx="390.969"
-      cy="166.43"
-      r="1.8125"
-      stroke="currentColor"
-    />
+    <circle cx="382" cy="166.43" r="1.8125" stroke="currentColor" />
+    <circle cx="390.969" cy="166.43" r="1.8125" stroke="currentColor" />
     <path
       d="M377.578 150.367H396.25L394.25 159.43H379.5L378.184 153.225L377.578 150.367Z"
       stroke="currentColor"
@@ -3114,25 +2866,18 @@
       d="M793.263 65.9904L790.401 60.1895L787.538 65.9904L781.137 66.9205L785.769 71.4355L784.676 77.8105L790.401 74.8007L796.125 77.8105L795.033 71.4355L799.664 66.9205L793.263 65.9904Z"
       stroke="currentColor"
     />
-    <mask
-      id="path-489-inside-3"
-      fill="white"
-    >
-      <path d="M932.9 57.5H911.9C910.795 57.5 909.9 58.3954 909.9 59.5V72.5C909.9 73.6046 910.795 74.5 911.9 74.5H915.9V80.5L920.9 74.5H932.9C934.005 74.5 934.9 73.6046 934.9 72.5V59.5C934.9 58.3954 934.005 57.5 932.9 57.5Z" />
+    <mask id="path-489-inside-3" fill="white">
+      <path
+        d="M932.9 57.5H911.9C910.795 57.5 909.9 58.3954 909.9 59.5V72.5C909.9 73.6046 910.795 74.5 911.9 74.5H915.9V80.5L920.9 74.5H932.9C934.005 74.5 934.9 73.6046 934.9 72.5V59.5C934.9 58.3954 934.005 57.5 932.9 57.5Z"
+      />
     </mask>
     <path
       d="M920.9 74.5V73.5H920.432L920.132 73.8598L920.9 74.5ZM915.9 74.5H916.9V73.5H915.9V74.5ZM915.9 80.5H914.9V83.262L916.668 81.1402L915.9 80.5ZM911.9 58.5H932.9V56.5H911.9V58.5ZM933.9 59.5V72.5H935.9V59.5H933.9ZM910.9 72.5V59.5H908.9V72.5H910.9ZM932.9 73.5H920.9V75.5H932.9V73.5ZM915.9 73.5H911.9V75.5H915.9V73.5ZM914.9 74.5V80.5H916.9V74.5H914.9ZM916.668 81.1402L921.668 75.1402L920.132 73.8598L915.132 79.8598L916.668 81.1402ZM908.9 72.5C908.9 74.1569 910.243 75.5 911.9 75.5V73.5C911.348 73.5 910.9 73.0523 910.9 72.5H908.9ZM933.9 72.5C933.9 73.0523 933.452 73.5 932.9 73.5V75.5C934.557 75.5 935.9 74.1569 935.9 72.5H933.9ZM932.9 58.5C933.452 58.5 933.9 58.9477 933.9 59.5H935.9C935.9 57.8431 934.557 56.5 932.9 56.5V58.5ZM911.9 56.5C910.243 56.5 908.9 57.8431 908.9 59.5H910.9C910.9 58.9477 911.348 58.5 911.9 58.5V56.5Z"
       fill="currentColor"
       mask="url(#path-489-inside-3)"
     />
-    <path
-      d="M914.9 64.5L928.9 64.5"
-      stroke="currentColor"
-    />
-    <path
-      d="M914.9 68.5H923.9"
-      stroke="currentColor"
-    />
+    <path d="M914.9 64.5L928.9 64.5" stroke="currentColor" />
+    <path d="M914.9 68.5H923.9" stroke="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -3177,24 +2922,14 @@
       d="M58.5938 199.406C58.5938 198.302 59.4892 197.406 60.5938 197.406H78.5938C79.6983 197.406 80.5938 198.302 80.5938 199.406V210.679C80.5938 211.784 79.6983 212.679 78.5938 212.679H60.5937C59.4892 212.679 58.5938 211.784 58.5938 210.679V199.406ZM61.2187 208.97C61.2187 208.694 61.4426 208.47 61.7187 208.47L67.8437 208.47C68.1199 208.47 68.3437 208.694 68.3438 208.97C68.3438 209.246 68.1199 209.47 67.8438 209.47L61.7188 209.47C61.4426 209.47 61.2188 209.246 61.2187 208.97ZM61.7188 205.876C61.4426 205.876 61.2188 206.1 61.2188 206.376C61.2188 206.652 61.4426 206.876 61.7188 206.876L72.6563 206.876C72.9324 206.876 73.1563 206.652 73.1563 206.376C73.1563 206.1 72.9324 205.876 72.6563 205.876L61.7188 205.876Z"
       fill="currentColor"
     />
-    <circle
-      cx="111.5"
-      cy="202.5"
-      r="11"
-      stroke="currentColor"
-    />
+    <circle cx="111.5" cy="202.5" r="11" stroke="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
       d="M112.119 197.554C112.119 197.41 112.06 197.269 111.959 197.153C111.747 196.949 111.375 196.949 111.17 197.153C111.061 197.252 111.004 197.397 111.003 197.554H111V198.669C109.78 198.886 109 199.735 109 200.923C109 202.326 109.865 202.754 111.063 203.341L111.718 203.664C112.95 204.272 113.149 204.417 113.149 205.07C113.149 206.15 111.993 206.234 111.638 206.234C111.283 206.234 110.127 206.15 110.127 205.07C110.127 204.759 109.874 204.507 109.564 204.507C109.254 204.507 109 204.759 109 205.07C109 206.247 109.782 207.091 111 207.307V208.349C110.995 208.378 110.992 208.407 110.992 208.436C110.992 208.583 111.061 208.729 111.149 208.831C111.252 208.943 111.407 209 111.567 209C111.712 209 111.849 208.943 111.959 208.841C112.057 208.73 112.124 208.585 112.125 208.44H112.127V207.33C113.43 207.158 114.275 206.294 114.272 205.07C114.272 203.666 113.411 203.241 112.214 202.653L111.56 202.33C110.326 201.72 110.127 201.577 110.127 200.923C110.127 199.826 111.284 199.742 111.638 199.742C111.986 199.742 113.118 199.825 113.118 200.923C113.118 201.232 113.373 201.486 113.682 201.486C113.993 201.486 114.245 201.232 114.245 200.923C114.245 199.69 113.413 198.821 112.127 198.647V197.554H112.119Z"
       fill="currentColor"
     />
-    <circle
-      cx="156.5"
-      cy="202.5"
-      r="11"
-      stroke="currentColor"
-    />
+    <circle cx="156.5" cy="202.5" r="11" stroke="currentColor" />
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -3371,12 +3106,7 @@
       rx="1.5"
       stroke="currentColor"
     />
-    <circle
-      cx="338.771"
-      cy="79.3281"
-      r="1.26562"
-      fill="currentColor"
-    />
+    <circle cx="338.771" cy="79.3281" r="1.26562" fill="currentColor" />
     <rect
       x="375.1"
       y="54.5"
@@ -3385,66 +3115,16 @@
       rx="2.5"
       stroke="currentColor"
     />
-    <circle
-      cx="379.538"
-      cy="62.125"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="379.538"
-      cy="66.375"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="379.538"
-      cy="70.625"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="383.6"
-      cy="62.125"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="383.6"
-      cy="66.375"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="383.6"
-      cy="70.625"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="383.6"
-      cy="74.875"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="387.663"
-      cy="62.125"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="387.663"
-      cy="66.375"
-      r="1.21094"
-      stroke="currentColor"
-    />
-    <circle
-      cx="387.663"
-      cy="70.625"
-      r="1.21094"
-      stroke="currentColor"
-    />
+    <circle cx="379.538" cy="62.125" r="1.21094" stroke="currentColor" />
+    <circle cx="379.538" cy="66.375" r="1.21094" stroke="currentColor" />
+    <circle cx="379.538" cy="70.625" r="1.21094" stroke="currentColor" />
+    <circle cx="383.6" cy="62.125" r="1.21094" stroke="currentColor" />
+    <circle cx="383.6" cy="66.375" r="1.21094" stroke="currentColor" />
+    <circle cx="383.6" cy="70.625" r="1.21094" stroke="currentColor" />
+    <circle cx="383.6" cy="74.875" r="1.21094" stroke="currentColor" />
+    <circle cx="387.663" cy="62.125" r="1.21094" stroke="currentColor" />
+    <circle cx="387.663" cy="66.375" r="1.21094" stroke="currentColor" />
+    <circle cx="387.663" cy="70.625" r="1.21094" stroke="currentColor" />
     <path
       d="M438.902 59.287H419.203C417.472 59.287 416.069 60.6901 416.069 62.4209V74.9566C416.069 76.6875 417.472 78.0906 419.203 78.0906H438.902C440.633 78.0906 442.036 76.6875 442.036 74.9566V62.4209C442.036 60.6901 440.633 59.287 438.902 59.287Z"
       stroke="currentColor"
@@ -3488,16 +3168,8 @@
       stroke="currentColor"
       stroke-linecap="round"
     />
-    <path
-      d="M513.473 66V68"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M524.2 66V68"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
+    <path d="M513.473 66V68" stroke="currentColor" stroke-linecap="round" />
+    <path d="M524.2 66V68" stroke="currentColor" stroke-linecap="round" />
     <path
       d="M518.973 65.7949V69.2949C518.973 70.2949 518.473 71.2949 516.973 70.7949"
       stroke="currentColor"
@@ -3566,29 +3238,13 @@
       rx="0.5"
       stroke="currentColor"
     />
-    <rect
-      x="733.7"
-      y="64"
-      width="23"
-      height="3"
-      stroke="currentColor"
-    />
+    <rect x="733.7" y="64" width="23" height="3" stroke="currentColor" />
     <path
       d="M1282.15 25.4453C1281.99 25.6682 1282.04 25.981 1282.26 26.144C1282.49 26.3069 1282.8 26.2582 1282.96 26.0353L1282.15 25.4453ZM1287.9 19.282C1288.06 19.0591 1288.01 18.7462 1287.79 18.5833C1287.57 18.4204 1287.25 18.469 1287.09 18.692L1287.9 19.282ZM1282.96 26.0353L1287.9 19.282L1287.09 18.692L1282.15 25.4453L1282.96 26.0353Z"
       fill="currentColor"
     />
-    <circle
-      cx="1282.82"
-      cy="20.5454"
-      r="1.31819"
-      stroke="currentColor"
-    />
-    <circle
-      cx="1287.18"
-      cy="24.1818"
-      r="1.31819"
-      stroke="currentColor"
-    />
+    <circle cx="1282.82" cy="20.5454" r="1.31819" stroke="currentColor" />
+    <circle cx="1287.18" cy="24.1818" r="1.31819" stroke="currentColor" />
     <rect
       x="1276.5"
       y="15.5"
@@ -3597,21 +3253,9 @@
       rx="2.5"
       stroke="currentColor"
     />
-    <path
-      d="M1281 28H1289"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M1281 30H1289"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
-    <path
-      d="M1281 32H1289"
-      stroke="currentColor"
-      stroke-linecap="round"
-    />
+    <path d="M1281 28H1289" stroke="currentColor" stroke-linecap="round" />
+    <path d="M1281 30H1289" stroke="currentColor" stroke-linecap="round" />
+    <path d="M1281 32H1289" stroke="currentColor" stroke-linecap="round" />
     <path
       d="M1106.84 207.029L1108.73 203.726"
       stroke="currentColor"

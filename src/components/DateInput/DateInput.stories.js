@@ -5,7 +5,7 @@ export default {
   component: PDateInput,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
 
 const Template = (args, { argTypes }) => ({
@@ -19,9 +19,9 @@ const Template = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      date: '1978-06-14',
+      date: '1978-06-14'
     };
-  },
+  }
 });
 
 export const DateInput = Template.bind({});

@@ -26,18 +26,12 @@
           width="1440"
           height="1091"
         ></rect>
-        <g
-          id="Group-6"
-          transform="translate(536.000000, 130.000000)"
-        >
+        <g id="Group-6" transform="translate(536.000000, 130.000000)">
           <g
             id="Shadow-Box/Large/Active"
             transform="translate(326.000000, 179.000000)"
           >
-            <mask
-              id="mask-3"
-              fill="white"
-            >
+            <mask id="mask-3" fill="white">
               <use xlink:href="#path-2"></use>
             </mask>
             <path

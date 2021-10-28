@@ -7,9 +7,8 @@ export default {
   component: PToast,
   argTypes: {
     // Configurable component options in SB UI...
-  },
+  }
 };
-
 
 const Template = (args, { argTypes }) => ({
   components: { PToast, PButton },
@@ -27,8 +26,8 @@ const Template = (args, { argTypes }) => ({
     return {
       store,
       messages: {
-        queue: [],
-      },
+        queue: []
+      }
     };
   },
   methods: {
@@ -39,14 +38,14 @@ const Template = (args, { argTypes }) => ({
       else if (rollTheDice < 0.5) type = 'info';
       else if (rollTheDice < 0.75) type = 'error';
       else if (rollTheDice < 1) type = 'warning';
-      
+
       this.store.dispatch('toast/popToast', {
         type: 'success',
-        title: `Message`,
-        autoclose: true,
+        title: 'Message',
+        autoclose: true
       });
-    },
-  },
+    }
+  }
 });
 
 export const Toast = Template.bind({});

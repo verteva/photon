@@ -5,29 +5,13 @@
     height="79"
     viewBox="0 0 61 79"
   >
-    <g
-      fill="none"
-      fill-rule="evenodd"
-    >
-      <g transform="translate(-1022 -278) translate(512 137) translate(1 112) translate(510 30)">
-        <circle
-          cx="37.5"
-          cy="37.5"
-          r="2.5"
-          fill="currentColor"
-        />
-        <circle
-          cx="44.5"
-          cy="37.5"
-          r="2.5"
-          fill="currentColor"
-        />
-        <circle
-          cx="51.5"
-          cy="37.5"
-          r="2.5"
-          fill="currentColor"
-        />
+    <g fill="none" fill-rule="evenodd">
+      <g
+        transform="translate(-1022 -278) translate(512 137) translate(1 112) translate(510 30)"
+      >
+        <circle cx="37.5" cy="37.5" r="2.5" fill="currentColor" />
+        <circle cx="44.5" cy="37.5" r="2.5" fill="currentColor" />
+        <circle cx="51.5" cy="37.5" r="2.5" fill="currentColor" />
         <path
           stroke="currentColor"
           stroke-linecap="round"
@@ -43,13 +27,7 @@
           stroke-width="2"
           rx="2"
         />
-        <circle
-          cx="22"
-          cy="70"
-          r="2"
-          stroke="currentColor"
-          stroke-width="2"
-        />
+        <circle cx="22" cy="70" r="2" stroke="currentColor" stroke-width="2" />
         <path
           stroke="currentColor"
           stroke-width="2"
