@@ -67,10 +67,10 @@ export default {
     },
     conditionParentClass(): any {
       return [
-        this.active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
-        this.interactive && !this.disabled && 'ph-cursor-pointer',
-        !this.flex && 'ph-h-height',
-        this.allowOverflow ? 'ph-overflow-visible' : 'ph-overflow-hidden'
+        (this as any).active ? 'ph-border-brand2 bar-bottom-brand' : 'ph-border-grey9',
+        (this as any).interactive && !(this as any).disabled && 'ph-cursor-pointer',
+        !(this as any).flex && 'ph-h-height',
+        (this as any).allowOverflow ? 'ph-overflow-visible' : 'ph-overflow-hidden'
       ];
     },
     defaultParentClass(): any {
@@ -85,12 +85,12 @@ export default {
     },
     conditionChildClass(): any {
       return [
-        this.interactive &&
-          !this.disabled &&
-          this.hover &&
-          this.breakpoint &&
+        (this as any).interactive &&
+          !(this as any).disabled &&
+          (this as any).hover &&
+          (this as any).breakpoint &&
           'ph-opacity-5',
-        this.interactive && !this.disabled && this.active && 'ph-opacity-10'
+        (this as any).interactive && !(this as any).disabled && (this as any).active && 'ph-opacity-10'
       ];
     },
     defaultChildClass(): string[] {
@@ -109,7 +109,7 @@ export default {
   },
   methods: {
     mouseOver(): void {
-      this.hover = !this.hover;
+      (this as any).hover = !(this as any).hover;
     }
   }
 };
