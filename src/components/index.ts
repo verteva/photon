@@ -23,6 +23,7 @@ import PList from './List';
 import PLi from './ListItem';
 import PInfoCard from './InfoCard';
 import PBrandGradientText from './BrandGradientText';
+import PSwitchToggle from './SwitchToggle';
 import PSkeletonLoader from './SkeletonLoader';
 import PContentCard from './ContentCard';
 import PProgressCircular from './ProgressCircular';
@@ -62,6 +63,7 @@ const components: PhotonComponents = {
   PForm,
   PInputRadio,
   PRadioGroup,
+  PSwitchToggle,
   PSkeletonLoader,
   PContentCard,
   PProgressCircular
