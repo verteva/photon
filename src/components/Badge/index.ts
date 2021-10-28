@@ -1,3 +1,3 @@
-import PInputText from './InputText.vue';
+import PBadge from './Badge.vue';
 
-export default PInputText;
+export default PBadge;
