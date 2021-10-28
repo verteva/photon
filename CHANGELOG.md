@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.600] - 2021-10-28
+### Add
+- Add switch toggle component
+
+## [0.1.599] - 2021-10-26
+### Add
+- Fix Autocomplete magins
+
 ## [0.1.598] - 2021-10-21
 ### Add
 - Add Play and Triangle icons
