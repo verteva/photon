@@ -93,7 +93,6 @@ input:checked + .slider:before {
 .switch-label .slider.round:after {
   @apply ph-rounded-full;
   @apply ph-absolute;
-  @apply ph-shadow;
   @apply ph-bg-white;
   @apply ph-transition;
   content: '';
@@ -117,7 +116,7 @@ input:checked + .slider:before {
 }
 .switch-label:hover .slider.round:before,
 .switch-label:focus-within .slider.round:before,
-.switch-label:focus-within .input-checked {
+.switch-label:focus-within .input-checked:before {
   @apply ph-border;
   border-color: rgba(0, 158, 222, 0.4);
   box-shadow: 0px 0px 0px 2px rgba(0, 158, 222, 0.4);
