@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.600] - 2021-10-28
 ### Add
 - Add switch toggle component
+- Add ContentCard component
+- Add Badge component
+- Add Input number component
 
 ## [0.1.599] - 2021-10-26
 ### Add
