@@ -26,6 +26,7 @@ import PBrandGradientText from './BrandGradientText';
 import PSwitchToggle from './SwitchToggle';
 import PSkeletonLoader from './SkeletonLoader';
 import PProgressCircular from './ProgressCircular';
+import PBadge from './Badge';
 import { PText, PH1, PH2, PH3, PBlockquote } from './Typography';
 
 export interface PhotonComponents {
@@ -64,6 +65,7 @@ const components: PhotonComponents = {
   PRadioGroup,
   PSwitchToggle,
   PSkeletonLoader,
+  PBadge,
   PProgressCircular
 };
 
