@@ -27,6 +27,7 @@ import PSwitchToggle from './SwitchToggle';
 import PSkeletonLoader from './SkeletonLoader';
 import PContentCard from './ContentCard';
 import PProgressCircular from './ProgressCircular';
+import PBadge from './Badge';
 import { PText, PH1, PH2, PH3, PBlockquote } from './Typography';
 
 export interface PhotonComponents {
@@ -66,6 +67,7 @@ const components: PhotonComponents = {
   PSwitchToggle,
   PSkeletonLoader,
   PContentCard,
+  PBadge,
   PProgressCircular
 };
 
