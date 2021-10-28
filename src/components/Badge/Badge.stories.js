@@ -5,17 +5,16 @@ import PButton from '../Button';
 export default {
   title: 'Components/Badge',
   component: PBadge,
-  argTypes: {
-  },
+  argTypes: {}
 };
 
 const Template = (args, { argTypes }) => ({
-  components: {PBadge, PIcon, PButton},
+  components: { PBadge, PIcon, PButton },
   props: Object.keys(argTypes),
   data() {
     return {
       value: 0
-    }
+    };
   },
   template: `
     <div class="ph-mt-4">
@@ -40,7 +39,7 @@ const Template = (args, { argTypes }) => ({
       </div>
     </div>
   `,
-  computed:{
+  computed: {
     showBadge() {
       return this.value !== 0;
     }

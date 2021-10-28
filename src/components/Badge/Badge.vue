@@ -1,30 +1,21 @@
 <template>
-  <span
-    class="photon-badge"
-    :class="classList"
-  >
+  <span class="photon-badge" :class="classList">
     <span>
-      <slot>
-      </slot>
+      <slot> </slot>
     </span>
     <span
       ref="badgeWrapper"
       class="photon-badge__wrapper"
       :style="{
-        '--position': inline ? 'relative':'absolute',
+        '--position': inline ? 'relative' : 'absolute',
         '--width': width,
         '--height': height,
-        '--radius': tile? '0px': borderRadius,
-        '--inset': inset,
+        '--radius': tile ? '0px' : borderRadius,
+        '--inset': inset
       }"
     >
-      <span
-        ref="badge"
-        class="photon-badge__badge"
-        :class="badgeClassList"
-      >
-        <slot name="badge">
-        </slot>
+      <span ref="badge" class="photon-badge__badge" :class="badgeClassList">
+        <slot name="badge"> </slot>
       </span>
     </span>
   </span>
@@ -38,47 +29,47 @@ export default Vue.extend({
   props: {
     bottom: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     left: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     overlap: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     inline: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     tile: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     },
     width: {
       type: String as PropType<string>,
-      default: '20px',
+      default: '20px'
     },
     height: {
       type: String as PropType<string>,
-      default: '20px',
+      default: '20px'
     },
     borderRadius: {
       type: String as PropType<string>,
-      default: '100%',
+      default: '100%'
     },
     bgColorClass: {
       type: String as PropType<string>,
-      default: 'ph-bg-brand2',
+      default: 'ph-bg-brand2'
     },
     badgeTextSize: {
       type: String as PropType<string>,
-      default: 'xs',
+      default: 'xs'
     },
     show: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: false
     }
   },
 
@@ -98,27 +89,31 @@ export default Vue.extend({
         'ph-ease-out',
         'ph-duration-300',
         this.bgColorClass as string,
-        'ph-text-'+this.badgeTextSize,
+        'ph-text-' + this.badgeTextSize,
         'ph-leading-none',
         'ph-transform',
-        this.show ? 'photon-badge--show':'photon-badge--hide',
+        this.show ? 'photon-badge--show' : 'photon-badge--hide'
       ];
     },
     classList(): string[] {
       const a: string[] = [
-        ...this.baseClassList as string,
-        this.inline && "photon-badge--inline",
+        ...(this.baseClassList as string),
+        this.inline && 'photon-badge--inline'
       ];
       return a;
     },
     baseClassList(): string[] {
-      return [
-        'ph-items-center',
-      ];
+      return ['ph-items-center'];
     },
-    inset() { 
-      const calc = this.overlap? ' calc(100% - 12px)' : ' calc(100% - 4px)';
-      return !this.inline && (this.bottom ? calc : ' auto') + (this.left ? calc : ' auto') + (this.bottom ? ' auto' : calc) + (this.left ? ' auto' : calc);
+    inset() {
+      const calc = this.overlap ? ' calc(100% - 12px)' : ' calc(100% - 4px)';
+      return (
+        !this.inline &&
+        (this.bottom ? calc : ' auto') +
+          (this.left ? calc : ' auto') +
+          (this.bottom ? ' auto' : calc) +
+          (this.left ? ' auto' : calc)
+      );
     }
   }
 });
@@ -138,7 +133,7 @@ export default Vue.extend({
   @apply ph-flex-grow-0;
   position: var(--position, absolute);
 }
-.photon-badge__badge {  
+.photon-badge__badge {
   position: var(--position, absolute);
   min-width: 20px;
   width: var(--width, 20px);
@@ -149,16 +144,16 @@ export default Vue.extend({
 .photon-badge--inline {
   @apply ph-inline-flex;
   @apply ph-items-center;
-  @apply ph-justify-center; 
+  @apply ph-justify-center;
 }
 .photon-badge--hide {
   @apply ph-opacity-0;
-  --tw-scale-x: 0!important;
-  --tw-scale-y: 0!important;
+  --tw-scale-x: 0 !important;
+  --tw-scale-y: 0 !important;
 }
 .photon-badge--show {
   @apply ph-opacity-100;
-  --tw-scale-x: 1!important;
-  --tw-scale-y: 1!important;
+  --tw-scale-x: 1 !important;
+  --tw-scale-y: 1 !important;
 }
 </style>

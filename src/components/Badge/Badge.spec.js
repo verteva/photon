@@ -7,15 +7,17 @@ describe('Badge.vue', () => {
     return mount(Badge, {
       localVue,
       propsData: {
-        ...propsOverrides,
-      },
+        ...propsOverrides
+      }
     });
   };
 
   const assertStyleVarSetup = (wrapper, styleName, style) => {
     const badge = wrapper.findComponent({ ref: 'badgeWrapper' });
-    return expect(badge.attributes('style')).toContain('--'+styleName+': '+style);
-  }
+    return expect(badge.attributes('style')).toContain(
+      '--' + styleName + ': ' + style
+    );
+  };
 
   it('check init prop:show should be false', () => {
     const wrapper = createWrapper();
@@ -59,24 +61,40 @@ describe('Badge.vue', () => {
   it('check badge inset when bottom is false should be auto auto calc(100% - 4px) calc(100% - 4px)', () => {
     const bottom = false;
     const wrapper = createWrapper({ bottom });
-    assertStyleVarSetup(wrapper, 'inset', ' auto auto calc(100% - 4px) calc(100% - 4px)');
+    assertStyleVarSetup(
+      wrapper,
+      'inset',
+      ' auto auto calc(100% - 4px) calc(100% - 4px)'
+    );
   });
 
   it('check badge inset when bottom is true should be calc(100% - 4px) auto auto calc(100% - 4px)', () => {
     const bottom = true;
     const wrapper = createWrapper({ bottom });
-    assertStyleVarSetup(wrapper, 'inset', ' calc(100% - 4px) auto auto calc(100% - 4px)');
+    assertStyleVarSetup(
+      wrapper,
+      'inset',
+      ' calc(100% - 4px) auto auto calc(100% - 4px)'
+    );
   });
 
   it('check badge inset when left is false should be auto auto calc(100% - 4px) calc(100% - 4px)', () => {
     const left = false;
     const wrapper = createWrapper({ left });
-    assertStyleVarSetup(wrapper, 'inset', ' auto auto calc(100% - 4px) calc(100% - 4px)');
+    assertStyleVarSetup(
+      wrapper,
+      'inset',
+      ' auto auto calc(100% - 4px) calc(100% - 4px)'
+    );
   });
 
   it('check badge inset when left is true should be calc(100% - 4px) auto auto calc(100% - 4px)', () => {
     const left = true;
     const wrapper = createWrapper({ left });
-    assertStyleVarSetup(wrapper, 'inset', ' auto calc(100% - 4px) calc(100% - 4px) auto');
+    assertStyleVarSetup(
+      wrapper,
+      'inset',
+      ' auto calc(100% - 4px) calc(100% - 4px) auto'
+    );
   });
 });
