@@ -86,7 +86,7 @@ export default Vue.extend({
     badgeClassList(): string[] {
       return [
         'ph-items-center',
-        'ph-inline-block',
+        'ph-inline-flex',
         'ph-bg-current',
         'ph-text-white',
         'ph-items-center',
@@ -94,6 +94,9 @@ export default Vue.extend({
         'ph-text-center',
         'ph-p-1',
         'ph-origin-center',
+        'ph-transition-all',
+        'ph-ease-out',
+        'ph-duration-300',
         this.bgColorClass as string,
         'ph-text-'+this.badgeTextSize,
         'ph-leading-none',
@@ -142,11 +145,6 @@ export default Vue.extend({
   height: var(--height, 20px);
   border-radius: var(--radius, 100%);
   inset: var(--inset, 'auto auto calc(100% - 4px) calc(100% - 4px)');
-  transition: .3s cubic-bezier(.25,.8,.5,1);
-    transition-property: all;
-    transition-duration: 0.3s;
-    transition-timing-function: cubic-bezier(0.25, 0.8, 0.5, 1);
-    transition-delay: 0s;
 }
 .photon-badge--inline {
   @apply ph-inline-flex;
