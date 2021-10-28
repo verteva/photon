@@ -91,7 +91,8 @@ module.exports = {
       fadeInSlow: 'fadeIn 2s cubic-bezier(.3,.28,.26,.81)',
       fadeOut: 'fadeOut .35s cubic-bezier(.3,.28,.26,.81)',
       progressCircularDash: 'progressCircularDash 1.4s linear infinite',
-      progressCircularRotate: 'progressCircularRotate 1.4s linear infinite'
+      progressCircularRotate: 'progressCircularRotate 1.4s linear infinite',
+      growOut: 'growOut .35s cubic-bezier(.3,.28,.26,.81)'
     },
     backdropBlur: theme => theme('blur'),
     backdropBrightness: theme => theme('brightness'),
@@ -558,6 +559,14 @@ module.exports = {
         },
         '100%': {
           opacity: 0
+        }
+      },
+      growOut: {
+        '0%': {
+          transform: 'scale(0)'
+        },
+        '100%': {
+          transform: 'scale(100%)'
         }
       },
       progressCircularDash: {

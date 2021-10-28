@@ -522,7 +522,11 @@ export default Vue.extend({
   @apply ph-pb-0;
 }
 
-.vs__selected-options {
+.vs__selected {
+  margin: 0px 2px 0;
+  border-width: 0px;
+}
+.vs__selected-options{
   @apply ph-flex-nowrap;
 }
 .vs__selected-options input {
@@ -544,10 +548,10 @@ export default Vue.extend({
   padding-left: 0px !important;
 }
 
-.vs__search,
-.vs__search:focus {
-  @apply ph-pt-1;
-  margin: 2px 0;
+.vs__search, .vs__search:focus {
+  @apply ph-py-0.5;
+  margin: 0;
+  border-width: 0px;
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle {

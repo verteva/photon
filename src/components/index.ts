@@ -23,9 +23,12 @@ import PList from './List';
 import PLi from './ListItem';
 import PInfoCard from './InfoCard';
 import PBrandGradientText from './BrandGradientText';
+import PSwitchToggle from './SwitchToggle';
 import PSkeletonLoader from './SkeletonLoader';
 import PInputNumber from './InputNumber';
+import PContentCard from './ContentCard';
 import PProgressCircular from './ProgressCircular';
+import PBadge from './Badge';
 import { PText, PH1, PH2, PH3, PBlockquote } from './Typography';
 
 export interface PhotonComponents {
@@ -62,8 +65,11 @@ const components: PhotonComponents = {
   PForm,
   PInputRadio,
   PRadioGroup,
+  PSwitchToggle,
   PSkeletonLoader,
   PInputNumber,
+  PContentCard,
+  PBadge,
   PProgressCircular
 };
 
