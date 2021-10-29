@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5991] - 2021-10-29
+### Add
+- New Icons for nav status
+
 ## [0.1.599] - 2021-10-26
 ### Add
 - Fix Autocomplete magins
