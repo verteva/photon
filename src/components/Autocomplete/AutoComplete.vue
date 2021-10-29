@@ -550,6 +550,7 @@ export default Vue.extend({
   border-width: 0px;
   padding-left: 0px !important;
 }
+
 .vs__search:focus {
   @apply ph-py-0.5;
   margin: 0;

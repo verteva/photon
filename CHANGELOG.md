@@ -6,9 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.5991] - 2021-10-29
+## [0.1.602] - 2021-10-29
 ### Add
-- New Icons for nav status
+- Added Nav status icons
+
+## [0.1.601] - 2021-10-29
+### Add
+- Added Approval icon
+
+## [0.1.600] - 2021-10-28
+### Add
+- Add switch toggle component
+- Add ContentCard component
+- Add Badge component
+- Add Input number component
 
 ## [0.1.599] - 2021-10-26
 ### Add
