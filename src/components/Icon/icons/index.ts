@@ -7,6 +7,7 @@ export default [
   'Apartment',
   'AppPIN',
   'ApplePay',
+  'Approval',
   'ArrowIndented',
   'ArrowLeft',
   'ArrowRight',
