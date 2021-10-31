@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.604] - 2021-11-01
 ## [0.1.603] - 2021-11-01
 - Added InProgressGradient icon
 
