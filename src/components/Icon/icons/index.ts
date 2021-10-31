@@ -91,6 +91,7 @@ export default [
   'IdCardGradient',
   'Identity',
   'InProgress',
+  'InProgressGradient',
   'Inactive',
   'Income',
   'Info',
@@ -185,5 +186,5 @@ export default [
   'Upload',
   'Utilities',
   'Wireless',
-  'iWatch'
+  'iWatch',
 ];
