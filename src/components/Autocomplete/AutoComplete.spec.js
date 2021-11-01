@@ -7,8 +7,8 @@ describe('AutoComplete.vue', () => {
     return mount(AutoComplete, {
       localVue,
       propsData: {
-        ...propsOverrides
-      }
+        ...propsOverrides,
+      },
     });
   };
 
@@ -92,7 +92,7 @@ describe('AutoComplete.vue', () => {
   it('check props:highlightBackgroundColor is setup correctly', () => {
     const highlightBackgroundColor = '#eeeeee';
     const wrapper = createWrapper({
-      highlightBackgroundColor: highlightBackgroundColor
+      highlightBackgroundColor: highlightBackgroundColor,
     });
     assertStyleVarSetup(wrapper, 'highlightBgColor', highlightBackgroundColor);
   });
@@ -119,7 +119,7 @@ describe('AutoComplete.vue', () => {
   it('check props:openIndicatorIconSize is setup correctly', () => {
     const openIndicatorIconSize = 'xs';
     const wrapper = createWrapper({
-      openIndicatorIconSize: openIndicatorIconSize
+      openIndicatorIconSize: openIndicatorIconSize,
     });
     const openIndicator = wrapper.find('.openIndicator');
     assertPropsVarSetup(openIndicator, 'type', openIndicatorIconSize);

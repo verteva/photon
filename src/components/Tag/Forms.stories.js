@@ -1,12 +1,12 @@
 export default {
   title: 'Button & Tags/Tag',
-  argTypes: {}
+  argTypes: {},
 };
 
 const Template = (args, { argTypes }) => ({
   components: {},
   props: Object.keys(argTypes),
-  template: '<div>TBA</div>'
+  template: '<div>TBA</div>',
 });
 
 export const Tag = Template.bind({});

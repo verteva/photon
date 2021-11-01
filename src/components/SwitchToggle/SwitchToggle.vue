@@ -27,28 +27,28 @@ export default Vue.extend({
   props: {
     errors: {
       type: Array,
-      default: (): [] => []
+      default: (): [] => [],
     },
     value: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     name: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     width: {
       type: String as PropType<string>,
-      default: '51px'
+      default: '51px',
     },
     height: {
       type: String as PropType<string>,
-      default: '31px'
-    }
+      default: '31px',
+    },
   },
   data() {
     return {
-      id: uuidv4()
+      id: uuidv4(),
     };
   },
 
@@ -59,15 +59,15 @@ export default Vue.extend({
       },
       set(val) {
         (this as any).$emit('input', val);
-      }
-    }
+      },
+    },
   },
 
   methods: {
     onChange(event) {
       (this as any).$emit('change', event);
-    }
-  }
+    },
+  },
 });
 </script>
 

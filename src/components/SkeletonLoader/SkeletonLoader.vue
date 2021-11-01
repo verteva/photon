@@ -17,7 +17,7 @@
         '--colWidth': colWidth,
         '--colRadius': colRadius,
         '--dividerHeight': dividerHeight,
-        '--tablePadding': tablePadding
+        '--tablePadding': tablePadding,
       }"
       v-bind="$attrs"
       v-on="$listeners"
@@ -95,102 +95,102 @@ export default Vue.extend({
   props: {
     bgColor: {
       type: String as PropType<string>,
-      default: 'rgba(0, 0, 0, 0.12)'
+      default: 'rgba(0, 0, 0, 0.12)',
     },
     listSize: {
       type: Number as PropType<number>,
-      default: 1
+      default: 1,
     },
     animation: {
       type: String as PropType<string>,
-      default: 'loading'
+      default: 'loading',
     },
     alignment: {
       type: String as PropType<string>,
-      default: 'center'
+      default: 'center',
     },
     width: {
       type: String as PropType<string>,
-      default: '200px'
+      default: '200px',
     },
     height: {
       type: String as PropType<string>,
-      default: '200px'
+      default: '200px',
     },
     listHeight: {
       type: String as PropType<string>,
-      default: '48px'
+      default: '48px',
     },
     listItemHeight: {
       type: String as PropType<string>,
-      default: '12px'
+      default: '12px',
     },
     listPadding: {
       type: String as PropType<string>,
-      default: '0px 0px'
+      default: '0px 0px',
     },
     listMargin: {
       type: String as PropType<string>,
-      default: '18px 0px'
+      default: '18px 0px',
     },
     type: {
       type: String as PropType<string>,
-      default: 'table'
+      default: 'table',
     },
     rounded: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     borderRadius: {
       type: Number as PropType<number>,
-      default: 12
+      default: 12,
     },
     mobileRows: {
       type: Number as PropType<number>,
-      default: 3
+      default: 3,
     },
     mobileCols: {
       type: Number as PropType<number>,
-      default: 3
+      default: 3,
     },
     rows: {
       type: Number as PropType<number>,
-      default: 5
+      default: 5,
     },
     cols: {
       type: Number as PropType<number>,
-      default: 6
+      default: 6,
     },
     tablePadding: {
       type: String as PropType<string>,
-      default: '16px 16px 0px 16px'
+      default: '16px 16px 0px 16px',
     },
     colWidth: {
       type: String as PropType<string>,
-      default: '88px'
+      default: '88px',
     },
     colRadius: {
       type: String as PropType<string>,
-      default: '6px'
+      default: '6px',
     },
     dividerHeight: {
       type: String as PropType<string>,
-      default: '2px'
+      default: '2px',
     },
     dividerRadius: {
       type: String as PropType<string>,
-      default: '1px'
-    }
+      default: '1px',
+    },
   },
   computed: {
     typeList() {
       return this.type.split(',');
-    }
+    },
   },
   mounted() {
     (this as any).id = 'skeleton_loader_' + (this as any)._uid;
   },
-  methods: {}
+  methods: {},
 });
 </script>
 <style lang="postcss" scoped>

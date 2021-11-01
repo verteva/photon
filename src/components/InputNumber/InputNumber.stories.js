@@ -5,7 +5,7 @@ export default {
   component: PInputNumber,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -22,7 +22,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       innerValue: 0,
-      errs: []
+      errs: [],
     };
   },
   methods: {
@@ -32,11 +32,11 @@ const Template = (args, { argTypes }) => ({
       } else {
         this.errs = ['Inline validation error'];
       }
-    }
-  }
+    },
+  },
 });
 
 export const InputNumber = Template.bind({});
 InputNumber.args = {
-  label: 'Photon label'
+  label: 'Photon label',
 };

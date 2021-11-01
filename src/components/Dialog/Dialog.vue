@@ -38,24 +38,24 @@ export default {
 
   components: {
     PIcon,
-    PButton
+    PButton,
   },
 
   props: {
     heading: {
       type: String,
-      default: ''
+      default: '',
     },
 
     confirmLabel: {
       type: String,
-      default: 'Yes'
+      default: 'Yes',
     },
 
     cancelLabel: {
       type: String,
-      default: 'Cancel'
-    }
+      default: 'Cancel',
+    },
   },
 
   data(): DialogData {
@@ -68,8 +68,8 @@ export default {
         'ph-inset-0',
         'ph-z-10',
         'ph-flex',
-        'ph-flex-col'
-      ]
+        'ph-flex-col',
+      ],
     };
   },
 
@@ -78,7 +78,7 @@ export default {
       return [
         (this as any).eventType === ''
           ? 'ph-animate-fadeIn'
-          : 'ph-animate-fadeOut'
+          : 'ph-animate-fadeOut',
       ];
     },
     backDropClassList(): string[] {
@@ -96,9 +96,9 @@ export default {
         'ph-w-10/12 sm:ph-w-100',
         'ph-flex',
         'ph-flex-col',
-        'ph-m-auto'
+        'ph-m-auto',
       ];
-    }
+    },
   },
 
   watch: {
@@ -106,7 +106,7 @@ export default {
       if (!Boolean(prevVal)) {
         (this as any).$emit(val);
       }
-    }
+    },
   },
 
   mounted(): void {
@@ -141,7 +141,7 @@ export default {
       if (e.animationName === 'ph-fadeOut') {
         (this as any).$emit('transitionedOut');
       }
-    }
-  }
+    },
+  },
 };
 </script>

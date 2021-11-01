@@ -9,6 +9,6 @@
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
-  name: 'BrandGradientText'
+  name: 'BrandGradientText',
 });
 </script>

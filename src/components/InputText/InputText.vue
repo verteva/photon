@@ -61,50 +61,50 @@ export default Vue.extend({
   components: {
     PIcon,
     PInput,
-    PLabel
+    PLabel,
   },
 
   props: {
     centered: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     simple: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     number: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     placeholder: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     iconLeft: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     iconRight: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     label: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     errors: {
       type: Array as PropType<string[]>,
-      default: (): [] => []
+      default: (): [] => [],
     },
     value: {
       type: [Number, String] as PropType<InputValueType>,
-      default: null
-    }
+      default: null,
+    },
   },
 
   data(): InputTextData {
@@ -114,7 +114,7 @@ export default Vue.extend({
         currency: null,
         precision: 0,
         valueRange: { min: 0 },
-        allowNegative: false
+        allowNegative: false,
       },
       id: '',
       iconClassList: [
@@ -126,7 +126,7 @@ export default Vue.extend({
         'ph-items-center',
         'ph-justify-center',
         'ph-transition',
-        'ph-duration-200'
+        'ph-duration-200',
       ],
       baseClassList: [
         'ph-antialiased',
@@ -144,15 +144,15 @@ export default Vue.extend({
         this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
         this.iconLeft ? 'ph-pl-10 ph-left-1' : '',
         this.iconRight ? 'ph-pr-10' : '',
-        this.centered ? 'ph-text-center' : ''
-      ]
+        this.centered ? 'ph-text-center' : '',
+      ],
     } as InputTextData;
   },
 
   computed: {
     componentClassList(): string[] {
       return [this.inFocus ? 'ph-text-brand2' : '', 'ph-relative'];
-    }
+    },
   },
 
   mounted() {
@@ -184,8 +184,8 @@ export default Vue.extend({
     onBlur(e: InputEvent) {
       this.inFocus = false;
       this.$emit('blur', e);
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="postcss">

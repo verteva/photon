@@ -27,16 +27,16 @@ export default Vue.extend({
   props: {
     mainMenuId: {
       type: String as PropType<string>,
-      default: '#mainmenu'
+      default: '#mainmenu',
     },
     contentId: {
       type: String as PropType<string>,
-      default: '#content'
+      default: '#content',
     },
     linkClassArr: {
       type: Array as PropType<string[]>,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
 
   data(): {
@@ -63,17 +63,17 @@ export default Vue.extend({
         'ph-outline-none',
         'ph-shadow-lg',
         'ph-rounded-md',
-        'ph-text-base'
-      ]
+        'ph-text-base',
+      ],
     };
   },
 
   computed: {
     allClasses(): string[] {
       return [...this.linkClasses, ...this.linkClassArr];
-    }
+    },
   },
 
-  methods: {}
+  methods: {},
 });
 </script>

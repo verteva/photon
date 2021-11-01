@@ -23,36 +23,36 @@ export default {
   props: {
     active: {
       type: Boolean,
-      default: false
+      default: false,
     },
     flex: {
       type: Boolean,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     isInteractive: {
       type: Boolean,
-      default: false
+      default: false,
     },
     padding: {
       type: String,
-      default: 'ph-p-7'
+      default: 'ph-p-7',
     },
     allowOverflow: {
       type: Boolean,
-      default: false
+      default: false,
     },
     breakpoint: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data(): any {
     return {
-      hover: false
+      hover: false,
     };
   },
   computed: {
@@ -76,7 +76,7 @@ export default {
         !(this as any).flex && 'ph-h-height',
         (this as any).allowOverflow
           ? 'ph-overflow-visible'
-          : 'ph-overflow-hidden'
+          : 'ph-overflow-hidden',
       ];
     },
     defaultParentClass(): any {
@@ -86,7 +86,7 @@ export default {
         'ph-rounded-lg',
         'ph-transition-opacity',
         'ph-duration-300',
-        'ph-relative ph-border'
+        'ph-relative ph-border',
       ];
     },
     conditionChildClass(): any {
@@ -99,7 +99,7 @@ export default {
         (this as any).interactive &&
           !(this as any).disabled &&
           (this as any).active &&
-          'ph-opacity-10'
+          'ph-opacity-10',
       ];
     },
     defaultChildClass(): string[] {
@@ -112,15 +112,15 @@ export default {
         'ph-opacity-0',
         'ph-transition-opacity',
         'ph-duration-300',
-        'ph-bg-brand2'
+        'ph-bg-brand2',
       ];
-    }
+    },
   },
   methods: {
     mouseOver(): void {
       (this as any).hover = !(this as any).hover;
-    }
-  }
+    },
+  },
 };
 </script>
 

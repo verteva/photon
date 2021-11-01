@@ -1,12 +1,12 @@
 export default {
   title: 'Forms/Input',
-  argTypes: {}
+  argTypes: {},
 };
 
 const Template = (args, { argTypes }) => ({
   components: {},
   props: Object.keys(argTypes),
-  template: '<div>TBA</div>'
+  template: '<div>TBA</div>',
 });
 
 export const Input = Template.bind({});
