@@ -1,14 +1,5 @@
 <template>
   <div class="ph-relative radio-item" :style="rows">
-    <input
-      :id="id"
-      v-model="innerValue"
-      type="radio"
-      class="focus:ph-outline-none ph-opacity-0 ph-w-0 ph-h-0 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2"
-      :name="name"
-      @focus="$emit('input', valueRadio)"
-      @click="$emit('input', valueRadio)"
-    />
     <label
       :for="id"
       class="ph-border-brand2"
@@ -19,6 +10,15 @@
           : [unselectedBackgroundColor, 'ph-border-grey4']
       ]"
     >
+      <input
+        :id="id"
+        v-model="innerValue"
+        type="radio"
+        class="focus:ph-outline-none ph-opacity-0 ph-w-0 ph-h-0 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2"
+        :name="name"
+        @change="$emit('input', valueRadio)"
+      />
+
       {{ label }}
     </label>
     <div
