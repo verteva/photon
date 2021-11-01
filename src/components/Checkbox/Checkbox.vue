@@ -48,38 +48,38 @@ export default Vue.extend({
 
   components: {
     PIcon,
-    PInput
+    PInput,
   },
 
   props: {
     errors: {
       type: Array,
-      default: (): [] => []
+      default: (): [] => [],
     },
 
     value: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
 
     label: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     name: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     darkBorder: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
     return {
-      id: uuidv4()
+      id: uuidv4(),
     };
   },
 
@@ -90,19 +90,19 @@ export default Vue.extend({
       },
       set(val) {
         (this as any).$emit('input', val);
-      }
-    }
+      },
+    },
   },
 
   methods: {
     onChange(event) {
       (this as any).$emit('change', event);
-    }
-  }
+    },
+  },
 });
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss">
 .ph-checkbox:focus + label .ph-checkbox-toggle {
   border: 2px solid #3dd6c7 !important;
 }
