@@ -1,5 +1,9 @@
 <template>
-  <p-input :errors="errors" class="ph-relative">
+  <p-input
+    :errors="errors"
+    class="ph-relative"
+    :class="hideWarning && 'hide-input-error'"
+  >
     <label class="switch-label ph-relative ph-flex" :for="id">
       <input
         :id="id"
@@ -7,6 +11,7 @@
         :name="name"
         type="checkbox"
         class="switch-input ph-checkbox ph-absolute ph-opacity-0"
+        :disabled="disabled"
         @change="onChange"
       />
       <span
@@ -27,47 +32,66 @@ export default Vue.extend({
   props: {
     errors: {
       type: Array,
-      default: (): [] => []
+      default: (): [] => [],
     },
     value: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     name: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     width: {
       type: String as PropType<string>,
-      default: '51px'
+      default: '51px',
     },
     height: {
       type: String as PropType<string>,
-      default: '31px'
-    }
+      default: '31px',
+    },
+    reverseVal: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    hideWarning: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
   },
   data() {
     return {
-      id: uuidv4()
+      id: uuidv4(),
     };
   },
 
   computed: {
     innerValue: {
       get() {
-        return (this as any).value;
+        return (this as any).reverseVal
+          ? !(this as any).value
+          : (this as any).value;
       },
       set(val) {
-        (this as any).$emit('input', val);
-      }
-    }
+        if (!(this as any).disabled) {
+          val = (this as any).reverseVal ? !val : val;
+          (this as any).$emit('input', val);
+        }
+      },
+    },
   },
 
   methods: {
     onChange(event) {
-      (this as any).$emit('change', event);
-    }
-  }
+      if (!(this as any).disabled) {
+        (this as any).$emit('change', event);
+      }
+    },
+  },
 });
 </script>
 
@@ -76,6 +100,7 @@ export default Vue.extend({
   width: 51px;
   height: 31px;
 }
+
 .slider.round {
   border-radius: 31px;
   border-color: rgba(0, 158, 222, 0.4);

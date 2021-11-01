@@ -43,7 +43,7 @@
         class="acc-content ph-w-full"
         :class="[
           unstyled ? '' : `ph-pb-6 ${componentPadding}`,
-          noHeadingRule ? 'ph-pt-2' : 'ph-pt-6'
+          noHeadingRule ? 'ph-pt-2' : 'ph-pt-6',
         ]"
       >
         <slot name="default" />
@@ -65,61 +65,61 @@ export default Vue.extend({
   name: 'PAccordion',
 
   components: {
-    PIcon
+    PIcon,
   },
 
   props: {
     singleFocus: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     openArrows: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     openCloseIcons: {
       type: Array as PropType<Array<string>>,
-      default: () => []
+      default: () => [],
     },
     unstyled: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     fullWidth: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     complete: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     open: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     stayOpen: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     border: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     shadow: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     noHeadingRule: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     value: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     /*
       Determines if an accordion instance loses its
@@ -127,20 +127,20 @@ export default Vue.extend({
     */
     mobileNoPadding: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     section: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     backgroundColor: {
       type: String as PropType<string>,
-      default: 'ph-bg-grey6'
+      default: 'ph-bg-grey6',
     },
     identifier: {
       type: [String, Number],
-      default: null
-    }
+      default: null,
+    },
   },
 
   data(): AccordionData {
@@ -153,7 +153,7 @@ export default Vue.extend({
       initialRender: false,
       focussed: false,
       expandComplete: Boolean(this.value || this.open || this.stayOpen),
-      id: this.identifier || uuidv4()
+      id: this.identifier || uuidv4(),
     };
   },
 
@@ -161,7 +161,7 @@ export default Vue.extend({
     innerValue: {
       get(): boolean {
         return this.expanded;
-      }
+      },
     },
 
     headerComponent(): string {
@@ -178,7 +178,7 @@ export default Vue.extend({
         'ph-font-normal',
         'focus:ph-outline-none',
         this.unstyled ? '' : 'ph-py-6 ph-px-4 sm:ph-px-8',
-        (this.fullWidth && 'ph-w-full') || ''
+        (this.fullWidth && 'ph-w-full') || '',
       ];
 
       return classes;
@@ -202,7 +202,7 @@ export default Vue.extend({
           ? 'ph-duration-1 ph-invisible'
           : 'ph-duration-300 ph-visible',
         this.expandComplete ? '' : 'ph-overflow-hidden',
-        shadow
+        shadow,
       ];
 
       return a;
@@ -214,7 +214,7 @@ export default Vue.extend({
 
     componentRadius(): string {
       return 'sm:ph-rounded-xl';
-    }
+    },
   },
 
   watch: {
@@ -239,7 +239,7 @@ export default Vue.extend({
       }
 
       this.$emit('input', this.expanded);
-    }
+    },
   },
 
   mounted(): void {
@@ -330,7 +330,7 @@ export default Vue.extend({
         content: content as HTMLElement,
         headerHeight: headerHeight as number,
         contentHeight: contentHeight as number,
-        totalHeight: totalHeight as number
+        totalHeight: totalHeight as number,
       };
     },
     switchState() {
@@ -339,7 +339,7 @@ export default Vue.extend({
         accordion,
         totalHeight,
         contentHeight,
-        headerHeight
+        headerHeight,
       } = this.getNode();
 
       if (this.expanded && headerHeight) {
@@ -355,8 +355,8 @@ export default Vue.extend({
           accordion.style.height = `${updatedHeight}px`;
         });
       }
-    }
-  }
+    },
+  },
 });
 </script>
 

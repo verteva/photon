@@ -11,7 +11,7 @@
         '--width': width,
         '--height': height,
         '--radius': tile ? '0px' : borderRadius,
-        '--inset': inset
+        '--inset': inset,
       }"
     >
       <span ref="badge" class="photon-badge__badge" :class="badgeClassList">
@@ -29,48 +29,48 @@ export default Vue.extend({
   props: {
     bottom: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     left: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     overlap: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     inline: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     tile: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     width: {
       type: String as PropType<string>,
-      default: '20px'
+      default: '20px',
     },
     height: {
       type: String as PropType<string>,
-      default: '20px'
+      default: '20px',
     },
     borderRadius: {
       type: String as PropType<string>,
-      default: '100%'
+      default: '100%',
     },
     bgColorClass: {
       type: String as PropType<string>,
-      default: 'ph-bg-brand2'
+      default: 'ph-bg-brand2',
     },
     badgeTextSize: {
       type: String as PropType<string>,
-      default: 'xs'
+      default: 'xs',
     },
     show: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
 
   computed: {
@@ -92,13 +92,13 @@ export default Vue.extend({
         'ph-text-' + this.badgeTextSize,
         'ph-leading-none',
         'ph-transform',
-        this.show ? 'photon-badge--show' : 'photon-badge--hide'
+        this.show ? 'photon-badge--show' : 'photon-badge--hide',
       ];
     },
     classList(): string[] {
       const a: string[] = [
         ...(this.baseClassList as string),
-        this.inline && 'photon-badge--inline'
+        this.inline && 'photon-badge--inline',
       ];
       return a;
     },
@@ -114,8 +114,8 @@ export default Vue.extend({
           (this.bottom ? ' auto' : calc) +
           (this.left ? ' auto' : calc)
       );
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="postcss" scoped>

@@ -5,7 +5,7 @@
     :class="baseClassList"
     :style="{
       '--width': size,
-      '--height': size
+      '--height': size,
     }"
     v-bind="$attrs"
     v-on="$listeners"
@@ -49,20 +49,20 @@ export default Vue.extend({
   props: {
     indeterminate: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     size: {
       type: String as PropType<string>,
-      default: '20px'
+      default: '20px',
     },
     value: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     underlay: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data(): any {
@@ -76,10 +76,10 @@ export default Vue.extend({
         'ph-transition',
         'ph-shadow-none',
         'ph-outline-none',
-        this.indeterminate && 'p-progress-circular--indeterminate'
-      ]
+        this.indeterminate && 'p-progress-circular--indeterminate',
+      ],
     };
-  }
+  },
 });
 </script>
 

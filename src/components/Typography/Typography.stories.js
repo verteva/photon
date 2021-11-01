@@ -12,19 +12,19 @@ export default {
   argTypes: {
     el: {
       type: 'select',
-      options: [TextElementDiv, TextElementSpan, TextElementParagraph]
+      options: [TextElementDiv, TextElementSpan, TextElementParagraph],
     },
     xl: { options: [true, false] },
     lg: { options: [true, false] },
     sm: { options: [true, false] },
-    xs: { options: [true, false] }
-  }
+    xs: { options: [true, false] },
+  },
 };
 
 const TextTemplate = (args, { argTypes }) => ({
   components: { PText },
   props: Object.keys(argTypes),
-  template: `<p-text v-bind="$props">${args.copy}</p-text>`
+  template: `<p-text v-bind="$props">${args.copy}</p-text>`,
 });
 
 export const Text = TextTemplate.bind({});
@@ -33,43 +33,43 @@ Text.args = {
   xl: false,
   lg: false,
   sm: false,
-  xs: false
+  xs: false,
 };
 
 const H1Template = (args, { argTypes }) => ({
   components: { PH1 },
   props: Object.keys(argTypes),
-  template: `<p-h1>${args.copy}</p-h1>`
+  template: `<p-h1>${args.copy}</p-h1>`,
 });
 export const H1 = H1Template.bind({});
 H1.args = {
-  copy: 'Heading 1'
+  copy: 'Heading 1',
 };
 
 const H2Template = (args, { argTypes }) => ({
   components: { PH2 },
   props: Object.keys(argTypes),
-  template: `<p-h2>${args.copy}</p-h2>`
+  template: `<p-h2>${args.copy}</p-h2>`,
 });
 export const H2 = H2Template.bind({});
 H2.args = {
-  copy: 'Heading 2'
+  copy: 'Heading 2',
 };
 
 const H3Template = (args, { argTypes }) => ({
   components: { PH3 },
   props: Object.keys(argTypes),
-  template: `<p-h3>${args.copy}</p-h3>`
+  template: `<p-h3>${args.copy}</p-h3>`,
 });
 export const H3 = H3Template.bind({});
 H3.args = {
-  copy: 'Heading 3'
+  copy: 'Heading 3',
 };
 
 const BlockquoteTemplate = (args, { argTypes }) => ({
   components: { PBlockquote },
   props: Object.keys(argTypes),
-  template: '<p-blockquote>Lorem ipsum dolor<br />Hello world!</p-blockquote>'
+  template: '<p-blockquote>Lorem ipsum dolor<br />Hello world!</p-blockquote>',
 });
 export const Blockquote = BlockquoteTemplate.bind({});
 
@@ -90,6 +90,6 @@ const AllTemplate = () => ({
         <p-text sm>Add whatever you like in me!</p-text>
       </p-blockquote>
     </div>
-  `
+  `,
 });
 export const All = AllTemplate.bind({});

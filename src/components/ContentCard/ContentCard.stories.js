@@ -6,7 +6,7 @@ export default {
   component: PContentCard,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -24,7 +24,7 @@ const Template = (args, { argTypes }) => ({
         class="ph-text-brand2"
       />
     </div>
-  </PContentCard>`
+  </PContentCard>`,
 });
 
 export const ContentCard = Template.bind({});

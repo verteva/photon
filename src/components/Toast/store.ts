@@ -4,13 +4,13 @@ export const namespaced = true;
 export const state = { queue: [] };
 export const mutations = {
   SET: (state, toastList) => (state.queue = toastList),
-  ADD: (state, toast) => state.queue.unshift(toast)
+  ADD: (state, toast) => state.queue.unshift(toast),
 };
 export const actions = {
   popToast: ({ commit }, toast) => {
     return commit('ADD', {
       id: uuidv4(),
-      ...toast
+      ...toast,
     });
   },
 
@@ -30,5 +30,5 @@ export const actions = {
       return toastData;
     });
     return commit('SET', setflaggedToast);
-  }
+  },
 };

@@ -6,11 +6,11 @@ const createWrapper = (propsOverrides = {}) => {
   return mount(ContentCard, {
     localVue,
     propsData: {
-      ...propsOverrides
+      ...propsOverrides,
     },
     slots: {
-      default: 'Slot Content'
-    }
+      default: 'Slot Content',
+    },
   });
 };
 describe('ContentCard.vue', () => {
@@ -26,7 +26,7 @@ describe('ContentCard.vue', () => {
 
   it('check props: active displaying class', async () => {
     const contentCardFindClass = await wrapper.getComponent({
-      ref: 'contentCard'
+      ref: 'contentCard',
     });
     expect(contentCardFindClass.classes()).toContain('ph-border-grey9');
     await wrapper.setProps({ active: true });
@@ -36,7 +36,7 @@ describe('ContentCard.vue', () => {
 
   it('check data: hover data change', async () => {
     const contentCardHoverTrigger = await wrapper.getComponent({
-      ref: 'contentCard'
+      ref: 'contentCard',
     });
     await expect(wrapper.vm.hover).toEqual(false);
     await contentCardHoverTrigger.trigger('mouseover');
@@ -55,7 +55,7 @@ describe('ContentCard.vue', () => {
       isInteractive,
       flex,
       allowOverflow,
-      breakpoint
+      breakpoint,
     });
 
     expect(wrapper.vm.disabled).toEqual(false);
@@ -69,7 +69,7 @@ describe('ContentCard.vue', () => {
     expect(wrapper.vm.padding).toEqual('ph-p-7');
     wrapper.setProps({ padding: 'ph-p-99' });
     const contentCardPaddingClass = await wrapper.getComponent({
-      ref: 'contentCard'
+      ref: 'contentCard',
     });
     expect(contentCardPaddingClass.html()).toContain('ph-p-99');
   });
@@ -78,7 +78,7 @@ describe('ContentCard.vue', () => {
     await wrapper.setProps({ isInteractive: true });
     await wrapper.setProps({ disabled: false });
     const contentCardClickedState = await wrapper.getComponent({
-      ref: 'contentCard'
+      ref: 'contentCard',
     });
     await contentCardClickedState.trigger('click');
     expect(contentCardClickedState.classes()).toContain('ph-cursor-pointer');

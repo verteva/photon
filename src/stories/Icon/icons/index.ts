@@ -163,5 +163,5 @@ export default [
   'Upload',
   'Utilities',
   'Wireless',
-  'iWatch'
+  'iWatch',
 ];

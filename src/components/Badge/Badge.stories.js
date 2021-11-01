@@ -5,7 +5,7 @@ import PButton from '../Button';
 export default {
   title: 'Components/Badge',
   component: PBadge,
-  argTypes: {}
+  argTypes: {},
 };
 
 const Template = (args, { argTypes }) => ({
@@ -13,7 +13,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   data() {
     return {
-      value: 0
+      value: 0,
     };
   },
   template: `
@@ -42,7 +42,7 @@ const Template = (args, { argTypes }) => ({
   computed: {
     showBadge() {
       return this.value !== 0;
-    }
+    },
   },
   methods: {
     sendNotification() {
@@ -50,8 +50,8 @@ const Template = (args, { argTypes }) => ({
     },
     clearNotification() {
       this.value = 0;
-    }
-  }
+    },
+  },
 });
 
 export const Badge = Template.bind({});

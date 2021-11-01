@@ -13,7 +13,7 @@
         :placeholder="placeHolder"
         :class="[
           'ph-autocomplete-drop' + dropType,
-          { 'ph-autocomplete-open': toggleMenu }
+          { 'ph-autocomplete-open': toggleMenu },
         ]"
         :clearable="!hideClearBtn"
         :style="{
@@ -26,7 +26,7 @@
           '--openIndicatorIndent': openIndicatorIndent,
           '--maxHeight': maxHeight,
           '--placeHolderColor': placeHolderColor,
-          '--clearPadding': hideOpenIndicator ? '0px' : '8px'
+          '--clearPadding': hideOpenIndicator ? '0px' : '8px',
         }"
         :append-to-body="!lazyFocus"
         :calculate-position="lazyFocus ? null : withPopper"
@@ -119,7 +119,7 @@
               class="ph-whitespace-normal"
               :class="[
                 'ph-option-leading-' + optionLeading,
-                'ph-text-' + optionFontSize
+                'ph-text-' + optionFontSize,
               ]"
               v-html="
                 option[customLabelVar]
@@ -175,7 +175,7 @@ import {
   LeadingLoose,
   LeadingMax,
   DropDown,
-  DropUp
+  DropUp,
 } from './types';
 import { createPopper } from '@popperjs/core';
 
@@ -186,33 +186,33 @@ export default Vue.extend({
 
   components: {
     vSelect,
-    PIcon
+    PIcon,
   },
 
   props: {
     optionItems: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     label: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     placeHolder: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     placeHolderColor: {
       type: String as PropType<string>,
-      default: 'currentColor'
+      default: 'currentColor',
     },
     noOptionsText: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     allowOptionIcon: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     optionIconSize: {
       type: String as PropType<string>,
@@ -221,19 +221,19 @@ export default Vue.extend({
         return (
           [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1
         );
-      }
+      },
     },
     showSelectedIcon: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     prefixIcon: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     hideOpenIndicator: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     optionFontSize: {
       type: String as PropType<string>,
@@ -242,7 +242,7 @@ export default Vue.extend({
         return (
           [FontXSmall, FontSmall, FontBase, FontLarge].indexOf(value) !== -1
         );
-      }
+      },
     },
     optionLeading: {
       type: String as PropType<string>,
@@ -254,42 +254,42 @@ export default Vue.extend({
             LeadingSnug,
             LeadingNormal,
             LeadingLoose,
-            LeadingMax
+            LeadingMax,
           ].indexOf(value) !== -1
         );
-      }
+      },
     },
     backgroundColor: {
       type: String as PropType<string>,
-      default: '#FFFFFF'
+      default: '#FFFFFF',
     },
     autoCompleteStyle: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     showFooter: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     textColor: {
       type: String as PropType<string>,
-      default: '#323232'
+      default: '#323232',
     },
     highlightBackgroundColor: {
       type: String as PropType<string>,
-      default: '#eeeeee'
+      default: '#eeeeee',
     },
     borderColor: {
       type: String as PropType<string>,
-      default: '#e0e0e0'
+      default: '#e0e0e0',
     },
     borderFocusColor: {
       type: String as PropType<string>,
-      default: '#009EDE'
+      default: '#009EDE',
     },
     openIndicatorIcon: {
       type: String as PropType<string>,
-      default: 'ChevronDown'
+      default: 'ChevronDown',
     },
     openIndicatorIconSize: {
       type: String as PropType<string>,
@@ -298,85 +298,85 @@ export default Vue.extend({
         return (
           [IconXSmall, IconSmall, IconMedium, IconLarge].indexOf(value) !== -1
         );
-      }
+      },
     },
     openIndicatorColor: {
       type: String as PropType<string>,
-      default: '#009EDE'
+      default: '#009EDE',
     },
     openIndicatorIndent: {
       type: String as PropType<string>,
-      default: '10px'
+      default: '10px',
     },
     searchInput: {
       type: String as PropType<string>,
-      default: null
+      default: null,
     },
     value: {
       type: String as PropType<string>,
-      default: null
+      default: null,
     },
     maxHeight: {
       type: String as PropType<string>,
-      default: '304px'
+      default: '304px',
     },
     returnObj: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     labelVar: {
       type: String as PropType<string>,
-      default: 'label'
+      default: 'label',
     },
     customLabelVar: {
       type: String as PropType<string>,
-      default: 'custom_label'
+      default: 'custom_label',
     },
     noDropOnStart: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     hideClearBtn: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     dropType: {
       type: String as PropType<string>,
       default: 'down',
       validator(value: string): boolean {
         return [DropUp, DropDown].indexOf(value) !== -1;
-      }
+      },
     },
     lazyFocus: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     loading: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     initInput: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     errors: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     hideInputOnSelected: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     disableFilter: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     defaultFilter: {
       type: Function,
       default: options => {
         return options;
-      }
-    }
+      },
+    },
   },
   data() {
     return {
@@ -389,14 +389,14 @@ export default Vue.extend({
         'focus:ph-outline-none',
         'focus:ph-underline',
         'focus:ph-text-brandh2',
-        'hover:ph-text-brandh2'
+        'hover:ph-text-brandh2',
       ],
       focused: false,
       selected: this.initInput || '',
       searchText: '',
       manualInput: '',
       toggleMenu: false,
-      placement: this.dropType === DropDown ? 'bottom' : 'top'
+      placement: this.dropType === DropDown ? 'bottom' : 'top',
     };
   },
   computed: {
@@ -416,7 +416,7 @@ export default Vue.extend({
         props['filter'] = () => this.defaultFilter(this.optionItems);
       }
       return props;
-    }
+    },
   },
 
   methods: {
@@ -427,7 +427,7 @@ export default Vue.extend({
       const a: string[] = [
         ...this.$data.baseClassList,
         ...this.autoCompleteStyle,
-        ...('ph-autocomplete-drop' + this.dropType)
+        ...('ph-autocomplete-drop' + this.dropType),
       ];
       return a;
     },
@@ -483,8 +483,8 @@ export default Vue.extend({
           {
             name: 'offset',
             options: {
-              offset: [0, -1]
-            }
+              offset: [0, -1],
+            },
           },
           {
             name: 'toggleClass',
@@ -495,9 +495,9 @@ export default Vue.extend({
                 'drop-up',
                 state.placement === 'top'
               );
-            }
-          }
-        ]
+            },
+          },
+        ],
       });
 
       /**
@@ -505,8 +505,8 @@ export default Vue.extend({
        * If you return function, it will be called just before dropdown is removed from DOM.
        */
       return () => popper.destroy();
-    }
-  }
+    },
+  },
 });
 </script>
 

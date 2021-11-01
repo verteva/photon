@@ -7,7 +7,7 @@ export default {
   component: PToast,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -26,8 +26,8 @@ const Template = (args, { argTypes }) => ({
     return {
       store,
       messages: {
-        queue: []
-      }
+        queue: [],
+      },
     };
   },
   methods: {
@@ -42,10 +42,10 @@ const Template = (args, { argTypes }) => ({
       this.store.dispatch('toast/popToast', {
         type: 'success',
         title: 'Message',
-        autoclose: true
+        autoclose: true,
       });
-    }
-  }
+    },
+  },
 });
 
 export const Toast = Template.bind({});

@@ -15,7 +15,7 @@ export default Vue.extend({
       default: 'ul',
       validator(value: string): boolean {
         return ['ul', 'ol'].includes(value);
-      }
+      },
     },
 
     listType: {
@@ -23,7 +23,7 @@ export default Vue.extend({
       default: 'circle',
       validator(value: string): boolean {
         return ['circle', 'decimal'].includes(value);
-      }
+      },
     },
 
     listColor: {
@@ -31,7 +31,7 @@ export default Vue.extend({
       default: 'brand2',
       validator(value: string): boolean {
         return ['brand1', 'brand2', 'alert2', 'none'].includes(value);
-      }
+      },
     },
 
     spacing: {
@@ -39,8 +39,8 @@ export default Vue.extend({
       default: 'normal',
       validator(value: string): boolean {
         return ['tight', 'normal'].includes(value);
-      }
-    }
+      },
+    },
   },
 
   computed: {
@@ -48,10 +48,10 @@ export default Vue.extend({
       return [
         `ph-list-type-${this.listType}`,
         `ph-list-color-${this.listColor}`,
-        `ph-list-item-${this.spacing}`
+        `ph-list-item-${this.spacing}`,
       ];
-    }
-  }
+    },
+  },
 });
 </script>
 

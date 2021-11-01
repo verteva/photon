@@ -6,8 +6,8 @@ const createWrapper = (propsOverrides = {}) => {
   return mount(SwitchToggle, {
     localVue,
     propsData: {
-      ...propsOverrides
-    }
+      ...propsOverrides,
+    },
   });
 };
 describe('SwitchToggle.vue', () => {

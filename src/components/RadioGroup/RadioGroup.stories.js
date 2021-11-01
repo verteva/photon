@@ -5,7 +5,7 @@ export default {
   component: PRadioGroup,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -44,7 +44,7 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       innerValue: null,
-      errs: []
+      errs: [],
     };
   },
   methods: {
@@ -54,8 +54,8 @@ const Template = (args, { argTypes }) => ({
       } else {
         this.errs = ['Inine validation error'];
       }
-    }
-  }
+    },
+  },
 });
 
 export const RadioGroup = Template.bind({});

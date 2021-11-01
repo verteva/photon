@@ -13,7 +13,7 @@
         :step-data="{
           min,
           max,
-          increment
+          increment,
         }"
       />
       <p-input-text
@@ -45,43 +45,43 @@ export default Vue.extend({
     PSlider,
     PInputText,
     PInput,
-    PLabel
+    PLabel,
   },
 
   props: {
     currency: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     min: {
       type: Number as PropType<number>,
-      default: 0
+      default: 0,
     },
     max: {
       type: Number as PropType<number>,
-      default: 100
+      default: 100,
     },
     increment: {
       type: Number as PropType<number>,
-      default: 1
+      default: 1,
     },
     label: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     errors: {
       type: Array as PropType<string[]>,
-      default: (): [] => []
+      default: (): [] => [],
     },
     value: {
       type: Number as PropType<number>,
-      default: 0
-    }
+      default: 0,
+    },
   },
 
   data() {
     return {
-      sliderVal: this.value
+      sliderVal: this.value,
     };
   },
 
@@ -89,14 +89,14 @@ export default Vue.extend({
     innerValue: {
       get(): string {
         return addCommaSeparators(this.value);
-      }
-    }
+      },
+    },
   },
 
   watch: {
     sliderVal() {
       this.emitValue();
-    }
+    },
   },
 
   mounted() {
@@ -122,7 +122,7 @@ export default Vue.extend({
           this.$emit('input', Number(value));
         }
       }
-    }
-  }
+    },
+  },
 });
 </script>

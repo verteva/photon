@@ -3,7 +3,7 @@
     v-if="!simple"
     :class="[
       errors.length ? 'ph-input-error-content' : '',
-      darkMode ? 'ph-inputPhone-dark' : ''
+      darkMode ? 'ph-inputPhone-dark' : '',
     ]"
     :errors="errors"
   >
@@ -17,7 +17,7 @@
         :style="{
           '--countriesHeight': onlyCountries.length * 30,
           '--countriesMaxHeight': onlyCountries,
-          '--borderRadius': borderRadius + 'px'
+          '--borderRadius': borderRadius + 'px',
         }"
         :border-radius="borderRadius"
         default-country-code="AU"
@@ -47,42 +47,42 @@ export default Vue.extend({
   components: {
     PInput,
     PLabel,
-    VuePhoneNumberInput
+    VuePhoneNumberInput,
   },
 
   props: {
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     placeholder: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     label: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     errors: {
       type: Array as PropType<string[]>,
-      default: (): [] => []
+      default: (): [] => [],
     },
     value: {
       type: [Number, String] as PropType<InputValueType>,
-      default: null
+      default: null,
     },
     countries: {
       type: Array,
-      default: () => ['AU']
+      default: () => ['AU'],
     },
     countriesMaxHeight: {
       type: String as PropType<string>,
-      default: '300px'
+      default: '300px',
     },
     borderRadius: {
       type: Number as PropType<number>,
-      default: 12
-    }
+      default: 12,
+    },
   },
 
   data(): InputPhoneData {
@@ -103,8 +103,8 @@ export default Vue.extend({
         'ph-border-solid',
         'ph-transition',
         (this as any).darkMode ? 'ph-bg-grey6' : 'ph-bg-white',
-        (this as any).centered ? 'ph-text-center' : ''
-      ]
+        (this as any).centered ? 'ph-text-center' : '',
+      ],
     } as InputPhoneData;
   },
 
@@ -115,12 +115,12 @@ export default Vue.extend({
     translations(): Record<string, unknown> {
       return {
         countrySelectorLabel: '',
-        phoneNumberLabel: this.placeholder
+        phoneNumberLabel: this.placeholder,
       };
     },
     onlyCountries(): string[] {
       return (this as any).countries;
-    }
+    },
   },
 
   mounted() {
@@ -135,8 +135,8 @@ export default Vue.extend({
     onBlur(e: InputEvent) {
       (this as any).inFocus = false;
       (this as any).$emit('blur', e);
-    }
-  }
+    },
+  },
 });
 </script>
 <style lang="postcss">

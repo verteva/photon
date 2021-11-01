@@ -6,7 +6,7 @@ import {
   IconSizeMedium,
   IconSizeLg,
   IconSizeXl,
-  IconSizeHuge
+  IconSizeHuge,
 } from './types';
 
 export default {
@@ -22,14 +22,14 @@ export default {
         IconSizeMedium,
         IconSizeLg,
         IconSizeXl,
-        IconSizeHuge
-      ]
-    }
+        IconSizeHuge,
+      ],
+    },
   },
   args: {
     type: IconSizeMedium,
-    textColor: '#000000'
-  }
+    textColor: '#000000',
+  },
 };
 
 const AllTemplate = (args, { argTypes }) => ({
@@ -58,7 +58,7 @@ const AllTemplate = (args, { argTypes }) => ({
   data() {
     return {
       icons,
-      iconName: ''
+      iconName: '',
     };
   },
   methods: {
@@ -67,8 +67,8 @@ const AllTemplate = (args, { argTypes }) => ({
     },
     onOut() {
       this.iconName = '';
-    }
-  }
+    },
+  },
 });
 
 export const All = AllTemplate.bind({});

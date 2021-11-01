@@ -23,24 +23,24 @@ export default Vue.extend({
   name: 'Toast',
 
   components: {
-    PMessage
+    PMessage,
   },
 
   props: {
     limit: {
       type: Number as PropType<number>,
-      default: 3
+      default: 3,
     },
 
     yPos: {
       type: String as PropType<string>,
-      default: 'top'
+      default: 'top',
     },
 
     xPos: {
       type: String as PropType<string>,
-      default: 'center'
-    }
+      default: 'center',
+    },
   },
 
   computed: {
@@ -53,7 +53,7 @@ export default Vue.extend({
         ((this as any).yPos === 'bottom' && 'ph-bottom-10') || '',
         ((this as any).xPos === 'center' && 'ph-inset-x-1/2') || '',
         ((this as any).xPos === 'left' && 'ph-left-10') || '',
-        ((this as any).xPos === 'right' && 'ph-right-10') || ''
+        ((this as any).xPos === 'right' && 'ph-right-10') || '',
       ];
     },
 
@@ -61,7 +61,7 @@ export default Vue.extend({
       return [
         'ph-transform',
         'ph-min-w-72',
-        ((this as any).xPos === 'center' && 'ph--translate-x-1/2') || ''
+        ((this as any).xPos === 'center' && 'ph--translate-x-1/2') || '',
       ];
     },
 
@@ -78,7 +78,7 @@ export default Vue.extend({
         return store.state.toast.queue;
       }
       return [];
-    }
+    },
   },
 
   watch: {
@@ -94,7 +94,7 @@ export default Vue.extend({
           }, 4000);
         }
       });
-    }
+    },
   },
 
   methods: {
@@ -121,7 +121,7 @@ export default Vue.extend({
       if (store) {
         store.dispatch('toast/destroyToast', id);
       }
-    }
-  }
+    },
+  },
 });
 </script>
