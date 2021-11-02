@@ -102,8 +102,8 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .ph-checkbox:focus + label .ph-checkbox-toggle {
-  border: 2px solid #3dd6c7 !important;
+  border: 2px solid var(--focus-border-color, #3dd6c7) !important;
 }
 </style>
