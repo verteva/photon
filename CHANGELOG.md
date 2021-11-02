@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.607] - 2021-11-02
+### Fix
+- Switch toggle add further props
+
 ## [0.1.606] - 2021-11-01
 ### Fix
 - Radio buttons not working in Safari
