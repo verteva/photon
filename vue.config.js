@@ -4,12 +4,12 @@ const path = require('path');
 module.exports = {
   configureWebpack: {
     output: {
-      libraryExport: 'default'
+      libraryExport: 'default',
     },
     resolve: {
       alias: {
-        '@': path.join(__dirname, './src')
-      }
+        '@': path.join(__dirname, './src'),
+      },
     },
     module: {
       rules: [
@@ -19,13 +19,13 @@ module.exports = {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true
-              }
-            }
+                sourceMap: true,
+              },
+            },
           ],
-          include: path.resolve(__dirname, '../')
-        }
-      ]
-    }
-  }
+          include: path.resolve(__dirname, '../'),
+        },
+      ],
+    },
+  },
 };

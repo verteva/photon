@@ -40,28 +40,28 @@ export default Vue.extend({
   props: {
     errors: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     value: {
       type: Number as PropType<number>,
-      default: 0
+      default: 0,
     },
     minVal: {
       type: Number as PropType<number>,
-      default: 0
+      default: 0,
     },
     maxVal: {
       type: Number as PropType<number>,
-      default: 999999999
+      default: 999999999,
     },
     label: {
       type: String as PropType<string>,
-      default: ''
-    }
+      default: '',
+    },
   },
   data() {
     return {
-      numberVal: (this as any).value
+      numberVal: (this as any).value,
     };
   },
   computed: {
@@ -71,8 +71,8 @@ export default Vue.extend({
       },
       set(val) {
         (this as any).$emit('input', val);
-      }
-    }
+      },
+    },
   },
 
   methods: {
@@ -87,7 +87,7 @@ export default Vue.extend({
         (this as any).innerValue > (this as any).minVal &&
           (this as any).innerValue--;
       }
-    }
-  }
+    },
+  },
 });
 </script>

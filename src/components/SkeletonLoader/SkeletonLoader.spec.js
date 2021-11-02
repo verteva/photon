@@ -7,8 +7,8 @@ describe('SkeletonLoader.vue', () => {
     return mount(SkeletonLoader, {
       localVue,
       propsData: {
-        ...propsOverrides
-      }
+        ...propsOverrides,
+      },
     });
   };
 
@@ -77,7 +77,7 @@ describe('SkeletonLoader.vue', () => {
     const rounded = false;
     const wrapper = createWrapper({
       rounded: rounded,
-      borderRadius: borderRadius
+      borderRadius: borderRadius,
     });
     assertStyleVarSetup(wrapper, 'borderRadius', '0px');
   });

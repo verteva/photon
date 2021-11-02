@@ -11,13 +11,13 @@ export default {
   props: {
     light: {
       type: Boolean,
-      default: false
+      default: false,
     },
 
     shadow: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
   computed: {
@@ -28,9 +28,9 @@ export default {
         'ph-rounded-lg',
         'ph-relative',
         'ph-overflow-hidden',
-        'ph-p-9'
+        'ph-p-9',
       ];
-    }
-  }
+    },
+  },
 };
 </script>

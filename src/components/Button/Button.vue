@@ -15,7 +15,7 @@
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-0' : 'ph-opacity-1',
-          upperCase ? 'ph-uppercase' : ''
+          upperCase ? 'ph-uppercase' : '',
         ]"
       >
         <slot name="default">
@@ -28,7 +28,7 @@
         :class="[
           'ph-transition',
           submitting ? 'ph-opacity-1' : 'ph-opacity-0',
-          loaderClassList
+          loaderClassList,
         ]"
       >
         <div class="ph-animate-spin ph-h-full ph-w-full ph-flex ph-z-10">
@@ -69,7 +69,7 @@ import {
   ButtonSmall,
   ButtonMedium,
   ButtonLarge,
-  TypeButton
+  TypeButton,
 } from './types';
 
 export default Vue.extend({
@@ -78,43 +78,43 @@ export default Vue.extend({
   props: {
     label: {
       type: String as PropType<string>,
-      default: 'Button'
+      default: 'Button',
     },
     buttonStyle: {
       type: String as PropType<string>,
-      default: ButtonStylePrimary
+      default: ButtonStylePrimary,
     },
     type: {
       type: String as PropType<string>,
-      default: TypeButton
+      default: TypeButton,
     },
     outlined: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     valid: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     upperCase: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     block: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     noRadius: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     submitting: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     size: {
       type: String as PropType<string>,
@@ -125,8 +125,8 @@ export default Vue.extend({
             value
           ) !== -1
         );
-      }
-    }
+      },
+    },
   },
 
   data(): any {
@@ -144,8 +144,8 @@ export default Vue.extend({
         'focus:ph-outline-none',
         'focus:ph-shadow-brand',
         (this.block && 'ph-w-full') || '',
-        !this.noRadius ? 'ph-rounded-3xl' : ''
-      ]
+        !this.noRadius ? 'ph-rounded-3xl' : '',
+      ],
     };
   },
 
@@ -155,7 +155,7 @@ export default Vue.extend({
         'ph-left-1/2 ph-top-1/2',
         (this.size === 'medium' && 'ph-h-6 ph-w-6 ph--ml-3 ph--mt-3') || '',
         (this.size === 'small' && 'ph-h-5 ph-w-5 ph--ml-2.5 ph--mt-2.5') || '',
-        (this.size === 'xs' && 'ph-h-4 ph-w-4 ph--ml-2 ph--mt-2') || ''
+        (this.size === 'xs' && 'ph-h-4 ph-w-4 ph--ml-2 ph--mt-2') || '',
       ];
       return classes;
     },
@@ -163,7 +163,7 @@ export default Vue.extend({
       const a: string[] = [
         ...this.baseClassList,
         ...this.buttonStyles,
-        this.isDisabled && 'ph-cursor-not-allowed'
+        this.isDisabled && 'ph-cursor-not-allowed',
       ];
       return a;
     },
@@ -201,7 +201,7 @@ export default Vue.extend({
           'ph-bg-gradient-brand2',
           !this.disabled
             ? 'ph-text-white ph-border-brand2'
-            : 'ph-text-grey4 ph-border-grey4'
+            : 'ph-text-grey4 ph-border-grey4',
         ];
       }
 
@@ -210,7 +210,7 @@ export default Vue.extend({
           'ph-border-grey4',
           !this.disabled
             ? 'ph-text-brand2 hover:ph-text-grey1'
-            : 'ph-text-grey4 ph-border-grey4'
+            : 'ph-text-grey4 ph-border-grey4',
         ];
       }
 
@@ -226,7 +226,7 @@ export default Vue.extend({
           'ph-bg-gradient-light-grey',
           !this.disabled
             ? 'ph-text-grey hover:ph-text-brand2 ph-border-titanium hover:ph-border-brand2'
-            : 'ph-text-grey4 ph-border-grey5'
+            : 'ph-text-grey4 ph-border-grey5',
         ];
       }
 
@@ -234,7 +234,7 @@ export default Vue.extend({
         return [
           !this.disabled
             ? 'ph-text-grey1 ph-border-grey4 hover:ph-border-grey3'
-            : 'ph-text-grey4 ph-border-grey4'
+            : 'ph-text-grey4 ph-border-grey4',
         ];
       }
 
@@ -261,7 +261,7 @@ export default Vue.extend({
         !this.disabled && this.buttonStyle === ButtonStyleSecondary
           ? 'group-hover:ph-opacity-100'
           : '',
-        !this.noRadius ? 'ph-rounded-3xl' : ''
+        !this.noRadius ? 'ph-rounded-3xl' : '',
       ];
     },
     disabledBackgroundStyles(): string[] {
@@ -273,7 +273,7 @@ export default Vue.extend({
         'ph-h-full',
         'ph-transition ph-duration-300',
         this.disabled ? 'ph-opacity-100' : 'ph-opacity-0',
-        !this.noRadius ? 'ph-rounded-3xl' : ''
+        !this.noRadius ? 'ph-rounded-3xl' : '',
       ];
 
       switch (this.buttonStyle) {
@@ -292,10 +292,10 @@ export default Vue.extend({
     },
     isDisabled(): boolean {
       return this.submitting || this.disabled;
-    }
+    },
   },
 
-  methods: {}
+  methods: {},
 });
 </script>
 

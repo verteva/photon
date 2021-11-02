@@ -4,7 +4,7 @@ import PButton from '../Button';
 import { PText } from '../Typography';
 
 export default {
-  title: 'Forms/Form'
+  title: 'Forms/Form',
 };
 
 const Template = (args, { argTypes }) => ({
@@ -14,14 +14,14 @@ const Template = (args, { argTypes }) => ({
     return {
       result: null,
       value: null,
-      showValue: false
+      showValue: false,
     };
   },
   methods: {
     onSubmit() {
       this.showValue = true;
       this.result = this.value;
-    }
+    },
   },
   template: `
       <p-form v-bind="$props" @submit.prevent="onSubmit">
@@ -29,10 +29,10 @@ const Template = (args, { argTypes }) => ({
         <p-button type="submit" label="Submit"/>
         <p-text xs class="ph-mt-5" :class="showValue?'ph-block':'ph-hidden'">Result: {{ result }}</p-text>
       </p-form>
-      `
+      `,
 });
 
 export const Inputs = Template.bind({});
 Inputs.args = {
-  disabled: false
+  disabled: false,
 };

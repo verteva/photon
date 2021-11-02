@@ -38,12 +38,12 @@ export default Vue.extend({
   props: {
     value: {
       type: Number as PropType<number>,
-      default: 1
+      default: 1,
     },
 
     steps: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
 
     stepData: {
@@ -51,16 +51,16 @@ export default Vue.extend({
       default: () => ({
         increment: 1,
         min: 0,
-        max: 10
-      })
-    }
+        max: 10,
+      }),
+    },
   },
 
   data(): SliderData {
     return {
       draggable: null,
       id: uuidv4(),
-      pressed: false
+      pressed: false,
     };
   },
 
@@ -68,7 +68,7 @@ export default Vue.extend({
     innerValue: {
       get(): number {
         return this.value;
-      }
+      },
     },
 
     barScale(): number {
@@ -86,7 +86,7 @@ export default Vue.extend({
         'ph-h-1.5',
         'ph-rounded',
         'ph-overflow-hidden',
-        'ph-relative'
+        'ph-relative',
       ];
     },
 
@@ -96,7 +96,7 @@ export default Vue.extend({
         'ph-top-0',
         'ph-bottom-0',
         'ph-left-0',
-        'ph-right-0'
+        'ph-right-0',
       ];
     },
 
@@ -114,7 +114,7 @@ export default Vue.extend({
         'ph-h-7',
         'ph-rounded-full',
         'ph-cursor-pointer',
-        'ph-origin-center'
+        'ph-origin-center',
       ];
     },
 
@@ -133,15 +133,15 @@ export default Vue.extend({
         'ph-duration-100',
         'ph-scale-50',
         'ph-ease-out',
-        (this.pressed && 'ph-scale-60') || ''
+        (this.pressed && 'ph-scale-60') || '',
       ];
-    }
+    },
   },
 
   watch: {
     value() {
       this.setHandle();
-    }
+    },
   },
 
   mounted() {
@@ -153,7 +153,7 @@ export default Vue.extend({
       this.draggable = Draggable.create(`#ph-handle-${this.id}`, {
         type: 'x',
         bounds: `#ph-track-${this.id}`,
-        onDrag: this.onDrag
+        onDrag: this.onDrag,
       })[0];
     }
     this.setHandle();
@@ -180,7 +180,7 @@ export default Vue.extend({
         valueRange,
         steps,
         min,
-        max
+        max,
       };
     },
 
@@ -190,7 +190,7 @@ export default Vue.extend({
         type: 'x',
         bounds: `#ph-track-${this.id}`,
         onDrag: this.onDrag,
-        liveSnap: snapPoints
+        liveSnap: snapPoints,
       })[0];
 
       const {
@@ -198,7 +198,7 @@ export default Vue.extend({
         stepXvalue,
         dragRange,
         min,
-        valueRange
+        valueRange,
       } = this.dragDimensions();
 
       for (let i = 0; i < steps; i++) {
@@ -232,7 +232,7 @@ export default Vue.extend({
       } else {
         const { dragRange, min, valueRange } = this.dragDimensions();
         TweenLite.set(`#ph-handle-${this.id}`, {
-          x: ((this.value - min) / valueRange) * dragRange
+          x: ((this.value - min) / valueRange) * dragRange,
         });
       }
     },
@@ -242,10 +242,10 @@ export default Vue.extend({
         const ref = this.$refs[`ph-track-${this.id}`] as SliderTrackRef;
         const { width } = ref.getBoundingClientRect();
         const {
-          width: handleWidth
+          width: handleWidth,
         } = this.draggable.target.getBoundingClientRect();
         TweenLite.to(`#ph-handle-${this.id}`, 0.1, {
-          x: width * this.innerValue - handleWidth * this.innerValue + 1
+          x: width * this.innerValue - handleWidth * this.innerValue + 1,
         });
       } else {
         this.initStepSlider();
@@ -254,7 +254,7 @@ export default Vue.extend({
 
     onRelease() {
       this.pressed = false;
-    }
-  }
+    },
+  },
 });
 </script>

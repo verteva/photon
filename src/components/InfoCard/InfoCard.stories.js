@@ -5,7 +5,7 @@ export default {
   component: PInfoCard,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -21,7 +21,7 @@ const Template = (args, { argTypes }) => ({
         Some content...
       </p-info-card>
     </div>
-  `
+  `,
 });
 
 export const InfoCard = Template.bind({});
@@ -29,5 +29,5 @@ InfoCard.args = {
   heading: 'Some headline',
   icon: 'Medical',
   iconBg: 'brand2',
-  contentBg: 'grey6'
+  contentBg: 'grey6',
 };

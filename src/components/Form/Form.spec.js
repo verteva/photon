@@ -9,11 +9,11 @@ describe('Form.vue', () => {
     return mount(Form, {
       localVue,
       propsData: {
-        ...propsOverrides
+        ...propsOverrides,
       },
       slots: {
-        default: PInput
-      }
+        default: PInput,
+      },
     });
   };
 

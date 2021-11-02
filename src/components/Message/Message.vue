@@ -34,7 +34,7 @@ import {
   MessageInfo,
   MessageError,
   MessageWarning,
-  MessageType
+  MessageType,
 } from './types';
 
 export default Vue.extend({
@@ -42,7 +42,7 @@ export default Vue.extend({
 
   components: {
     PIcon,
-    PButton
+    PButton,
   },
 
   props: {
@@ -55,28 +55,28 @@ export default Vue.extend({
             value
           ) !== -1
         );
-      }
+      },
     },
 
     title: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     description: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     callToAction: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     hideClose: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -90,25 +90,25 @@ export default Vue.extend({
         default:
           return {
             icon: 'Success',
-            classes: ['ph-border-alert3', 'ph-bg-alert-light3']
+            classes: ['ph-border-alert3', 'ph-bg-alert-light3'],
           };
 
         case MessageInfo:
           return {
             icon: 'Info',
-            classes: ['ph-border-brand2', 'ph-bg-brand-light2']
+            classes: ['ph-border-brand2', 'ph-bg-brand-light2'],
           };
 
         case MessageError:
           return {
             icon: 'Error',
-            classes: ['ph-border-alert2', 'ph-bg-alert-light2']
+            classes: ['ph-border-alert2', 'ph-bg-alert-light2'],
           };
 
         case MessageWarning:
           return {
             icon: 'Alert',
-            classes: ['ph-border-alert1', 'ph-bg-alert-light1']
+            classes: ['ph-border-alert1', 'ph-bg-alert-light1'],
           };
       }
     },
@@ -144,9 +144,9 @@ export default Vue.extend({
         'ph-p-4',
         'ph-rounded-lg',
         'ph-border',
-        ...this.typeStyle.classes
+        ...this.typeStyle.classes,
       ];
-    }
+    },
   },
 
   mounted() {
@@ -172,7 +172,7 @@ export default Vue.extend({
       if (e.animationName === 'ph-fadeOut') {
         (this as any).$emit('transitionedOut');
       }
-    }
-  }
+    },
+  },
 });
 </script>

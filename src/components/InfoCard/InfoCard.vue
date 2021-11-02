@@ -36,39 +36,39 @@ export default Vue.extend({
 
   components: {
     PBrandGradientText,
-    PIcon
+    PIcon,
   },
 
   props: {
     heading: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     icon: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     contentBg: {
       type: String as PropType<string>,
-      default: 'white'
+      default: 'white',
     },
 
     iconBg: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     shadow: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
 
     brandBar: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
 
   computed: {
@@ -78,7 +78,7 @@ export default Vue.extend({
         'ph-rounded-lg',
         this.brandBar ? 'ph-pl-4' : '',
         'ph-overflow-hidden',
-        this.shadow ? 'ph-shadow' : ''
+        this.shadow ? 'ph-shadow' : '',
       ];
     },
 
@@ -91,7 +91,7 @@ export default Vue.extend({
         'ph-h-full',
         'ph-top-0',
         'ph-left-0',
-        'ph-absolute'
+        'ph-absolute',
       ];
     },
 
@@ -108,9 +108,9 @@ export default Vue.extend({
         'ph-text-white',
         'ph-flex',
         'ph-items-center',
-        'ph-justify-center'
+        'ph-justify-center',
       ];
-    }
-  }
+    },
+  },
 });
 </script>

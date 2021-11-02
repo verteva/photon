@@ -13,9 +13,9 @@ export default Vue.extend({
   props: {
     color: {
       type: String as PropType<string>,
-      default: 'brand2'
-    }
-  }
+      default: 'brand2',
+    },
+  },
 });
 </script>
 

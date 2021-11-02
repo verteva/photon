@@ -50,19 +50,19 @@ export default Vue.extend({
   name: 'PDateInput',
 
   components: {
-    PInputText
+    PInputText,
   },
 
   props: {
     value: {
       type: [Number, String] as PropType<number | string>,
-      default: null
+      default: null,
     },
 
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -70,7 +70,7 @@ export default Vue.extend({
     return {
       day,
       month,
-      year
+      year,
     };
   },
 
@@ -81,8 +81,8 @@ export default Vue.extend({
       },
       set(date) {
         (this as any).$emit('input', date);
-      }
-    }
+      },
+    },
   },
 
   watch: {
@@ -94,7 +94,7 @@ export default Vue.extend({
     },
     year() {
       (this as any).setDate();
-    }
+    },
   },
 
   methods: {
@@ -111,7 +111,7 @@ export default Vue.extend({
     },
     updateYear(e) {
       (this as any).year = e.target.value;
-    }
-  }
+    },
+  },
 });
 </script>

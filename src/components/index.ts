@@ -70,7 +70,7 @@ const components: PhotonComponents = {
   PInputNumber,
   PContentCard,
   PBadge,
-  PProgressCircular
+  PProgressCircular,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;

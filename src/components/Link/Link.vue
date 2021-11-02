@@ -25,16 +25,16 @@ export default Vue.extend({
   props: {
     label: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
     link: {
       type: String as PropType<string>,
-      default: '#'
+      default: '#',
     },
     linkStyle: {
       type: String as PropType<string>,
-      default: ''
-    }
+      default: '',
+    },
   },
 
   data(): any {
@@ -47,8 +47,8 @@ export default Vue.extend({
         'focus:ph-outline-none',
         'focus:ph-underline',
         'focus:ph-text-brandh2',
-        'hover:ph-text-brandh2'
-      ]
+        'hover:ph-text-brandh2',
+      ],
     };
   },
 
@@ -65,10 +65,10 @@ export default Vue.extend({
     },
     styleList(): string[] {
       return [];
-    }
+    },
   },
 
-  methods: {}
+  methods: {},
 });
 </script>
 

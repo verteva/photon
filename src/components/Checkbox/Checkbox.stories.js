@@ -5,7 +5,7 @@ export default {
   component: PCheckbox,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -15,12 +15,12 @@ const Template = (args, { argTypes }) => ({
     "<PCheckbox v-bind='$props' v-model='optIn' :errors='optIn === false && [`Required`] || []' /><div>some texts</div>",
   data() {
     return {
-      optIn: false
+      optIn: false,
     };
-  }
+  },
 });
 
 export const Checkbox = Template.bind({});
 Checkbox.args = {
-  label: 'Photon is awesome'
+  label: 'Photon is awesome',
 };

@@ -5,7 +5,7 @@ export default {
   component: PCard,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -15,11 +15,11 @@ const Template = (args, { argTypes }) => ({
     <p-card v-bind='$props'>
       Hello
     </p-card>
-  `
+  `,
 });
 
 export const Card = Template.bind({});
 Card.args = {
   light: true,
-  shadow: true
+  shadow: true,
 };
