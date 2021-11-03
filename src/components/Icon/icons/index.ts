@@ -178,6 +178,7 @@ export default [
   'Time',
   'Timeout-1',
   'Timeout',
+  'TimeoutGradient',
   'TopUpLoan',
   'TransactionList',
   'Transfer',
