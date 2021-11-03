@@ -19,28 +19,28 @@ export default Vue.extend({
   props: {
     novalidate: {
       type: Boolean as PropType<boolean>,
-      default: true
+      default: true,
     },
     disabled: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
   data(): FormData {
     return {
       id: '',
-      disabledAll: false
+      disabledAll: false,
     } as FormData;
   },
   watch: {
     disabledAll: {
-      handler: 'disableAll'
+      handler: 'disableAll',
     },
     disabled: {
       handler() {
         this.disabledAll = this.disabled;
-      }
-    }
+      },
+    },
   },
   mounted() {
     this.disabledAll = this.disabled;
@@ -59,7 +59,7 @@ export default Vue.extend({
     },
     onSubmit() {
       this.$emit('submit.prevent');
-    }
-  }
+    },
+  },
 });
 </script>

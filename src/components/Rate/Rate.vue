@@ -9,7 +9,7 @@
         (currency && 'ph-items-baseline') || '',
         (!loading && 'ph-animate-fadeInSlow') || '',
         (loading && currency && 'ph-text-white') || '',
-        (loading && !currency && 'ph-text-brandh2') || ''
+        (loading && !currency && 'ph-text-brandh2') || '',
       ]"
     >
       <div class="ph-text-3.5xl ph-mr-2">
@@ -42,28 +42,28 @@ export default Vue.extend({
   props: {
     name: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     rate: {
       type: String as PropType<string>,
-      default: ''
+      default: '',
     },
 
     loading: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
 
     currency: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
 
     darkMode: {
       type: Boolean as PropType<boolean>,
-      default: false
-    }
+      default: false,
+    },
   },
 
   data() {
@@ -71,7 +71,7 @@ export default Vue.extend({
     const calculation = '0.00';
     return {
       calculation,
-      calcInterval
+      calcInterval,
     };
   },
 
@@ -83,7 +83,7 @@ export default Vue.extend({
       if (!isLoading && wasLoading) {
         this.stopCalculating();
       }
-    }
+    },
   },
 
   methods: {
@@ -109,7 +109,7 @@ export default Vue.extend({
 
     getRandomNum(from, to) {
       return Math.floor(Math.random() * to) + from;
-    }
-  }
+    },
+  },
 });
 </script>

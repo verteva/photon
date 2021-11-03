@@ -7,8 +7,8 @@ describe('Badge.vue', () => {
     return mount(Badge, {
       localVue,
       propsData: {
-        ...propsOverrides
-      }
+        ...propsOverrides,
+      },
     });
   };
 

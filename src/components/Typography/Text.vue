@@ -11,7 +11,7 @@ import {
   TextElementType,
   TextElementDiv,
   TextElementSpan,
-  TextElementParagraph
+  TextElementParagraph,
 } from './types';
 
 export default Vue.extend({
@@ -20,19 +20,19 @@ export default Vue.extend({
   props: {
     xl: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     lg: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     sm: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     xs: {
       type: Boolean as PropType<boolean>,
-      default: false
+      default: false,
     },
     el: {
       type: String as PropType<TextElementType>,
@@ -41,8 +41,8 @@ export default Vue.extend({
         return [TextElementDiv, TextElementSpan, TextElementParagraph].includes(
           value
         );
-      }
-    }
+      },
+    },
   },
 
   computed: {
@@ -63,7 +63,7 @@ export default Vue.extend({
       }
 
       return '';
-    }
+    },
   },
   methods: {
     validateProps() {
@@ -82,7 +82,7 @@ export default Vue.extend({
           xl, lg, sm, xs.
         `);
       }
-    }
-  }
+    },
+  },
 });
 </script>

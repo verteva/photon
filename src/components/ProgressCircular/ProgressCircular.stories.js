@@ -10,16 +10,16 @@ export default {
   argTypes: {
     color: {
       options: Object.keys(fullConfig.theme.colors),
-      control: { type: 'select' }
-    }
-  }
+      control: { type: 'select' },
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
   components: { PProgressCircular },
   props: Object.keys(argTypes),
   data: {
-    progress: 0
+    progress: 0,
   },
   template: `
     <div>
@@ -27,14 +27,14 @@ const Template = (args, { argTypes }) => ({
         {{ value }}
       </p-progress-circular>
     </div>
-  `
+  `,
 });
 
 export const ProgressCircular = Template.bind({});
 
 ProgressCircular.args = {
   indeterminate: true,
-  size: '20px'
+  size: '20px',
 };
 
 export const ProgressCircularValue = Template.bind({});
@@ -43,5 +43,5 @@ ProgressCircularValue.args = {
   indeterminate: true,
   size: '48px',
   value: 0,
-  underlay: true
+  underlay: true,
 };

@@ -7,8 +7,8 @@ describe('SkeletonLoader.vue', () => {
     return mount(ProgressCircular, {
       localVue,
       propsData: {
-        ...propsOverrides
-      }
+        ...propsOverrides,
+      },
     });
   };
 

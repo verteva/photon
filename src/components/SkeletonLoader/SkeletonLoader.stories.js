@@ -3,7 +3,7 @@ import PSkeletonLoader from './SkeletonLoader.vue';
 export default {
   title: 'Components/SkeletonLoader',
   component: PSkeletonLoader,
-  argTypes: {}
+  argTypes: {},
 };
 
 const Template = (args, { argTypes }) => ({
@@ -14,20 +14,20 @@ const Template = (args, { argTypes }) => ({
       <p-skeleton-loader v-bind="$props">   
       </p-skeleton-loader>
     </div>
-  `
+  `,
 });
 
 export const SkeletonLoaderCard = Template.bind({});
 SkeletonLoaderCard.args = {
   width: '100%',
-  type: 'card'
+  type: 'card',
   // Props to be passed....
 };
 
 export const SkeletonLoaderTable = Template.bind({});
 SkeletonLoaderTable.args = {
   width: '100%',
-  type: 'table'
+  type: 'table',
   // Props to be passed....
 };
 
@@ -35,6 +35,6 @@ export const SkeletonLoaderLists = Template.bind({});
 SkeletonLoaderLists.args = {
   width: '100%',
   type: 'lists',
-  listSize: 3
+  listSize: 3,
   // Props to be passed....
 };

@@ -7,8 +7,8 @@ describe('InputPhone.vue', () => {
     return mount(InputPhone, {
       localVue,
       propsData: {
-        ...propsOverrides
-      }
+        ...propsOverrides,
+      },
     });
   };
 

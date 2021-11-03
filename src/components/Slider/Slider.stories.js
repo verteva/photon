@@ -6,7 +6,7 @@ export default {
   component: PSlider,
   argTypes: {
     // Configurable component options in SB UI...
-  }
+  },
 };
 
 const SliderDocs = (args, { argTypes }) => ({
@@ -15,9 +15,9 @@ const SliderDocs = (args, { argTypes }) => ({
   template: '<p-slider v-bind=\'$props\' v-model="val" />',
   data() {
     return {
-      val: 0.5
+      val: 0.5,
     };
-  }
+  },
 });
 
 export const Docs = SliderDocs.bind({});
@@ -40,9 +40,9 @@ const SliderPlayground = (args, { argTypes }) => ({
   data() {
     return {
       pct: 0.5,
-      val: 150
+      val: 150,
     };
-  }
+  },
 });
 
 export const Playground = SliderPlayground.bind({});
@@ -51,6 +51,6 @@ Playground.args = {
   stepData: {
     increment: 5,
     min: 100,
-    max: 200
-  }
+    max: 200,
+  },
 };

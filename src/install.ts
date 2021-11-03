@@ -5,7 +5,7 @@ import {
   DefaultData,
   DefaultMethods,
   DefaultComputed,
-  DefaultProps
+  DefaultProps,
 } from 'vue/types/options';
 import './assets/scss/main.scss';
 
@@ -36,6 +36,6 @@ export default {
     }
   },
   photonStores: {
-    toast
-  }
+    toast,
+  },
 };

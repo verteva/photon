@@ -6,8 +6,8 @@ const createWrapper = (propsOverrides = {}) => {
   return mount(InputNumber, {
     localVue,
     propsData: {
-      ...propsOverrides
-    }
+      ...propsOverrides,
+    },
   });
 };
 
