@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.608] - 2021-11-03
+### Add
+- Add TimeoutGradient icon
+
 ## [0.1.607] - 2021-11-02
 ### Fix
 - Added optional focus border style for Checkbox
