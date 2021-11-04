@@ -33,6 +33,7 @@
       </div>
 
       {{ label }}
+      <slot />
     </label>
   </p-input>
 </template>
@@ -92,6 +93,15 @@ export default Vue.extend({
         (this as any).$emit('input', val);
       },
     },
+  },
+
+  created() {
+    const $this = this as any;
+    if (!!$this.label && $this.$slots.default) {
+      console.warn(
+        'Checkbox label and Checkbox slot(default) are both defined and will be rendered together. This is probably not intended.'
+      );
+    }
   },
 
   methods: {
