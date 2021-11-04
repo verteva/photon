@@ -12,7 +12,17 @@ const Template = (args, { argTypes }) => ({
   components: { PCheckbox },
   props: Object.keys(argTypes),
   template:
-    "<PCheckbox v-bind='$props' v-model='optIn' :errors='optIn === false && [`Required`] || []' /><div>some texts</div>",
+    `
+    <div>
+      <PCheckbox
+        v-bind='$props'
+        v-model='optIn'
+        :errors="optIn === false && ['Required'] || []"
+      >
+        <div>Photon is awesome</div>
+      </PCheckbox>
+      </div>
+    `,
   data() {
     return {
       optIn: false,
@@ -22,5 +32,5 @@ const Template = (args, { argTypes }) => ({
 
 export const Checkbox = Template.bind({});
 Checkbox.args = {
-  label: 'Photon is awesome',
+  // label: 'Photon is awesome',
 };
