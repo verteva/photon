@@ -69,7 +69,7 @@ export default Vue.extend({
     },
     valueRadio: {
       type: [String, Number, Boolean] as PropType<string | number | boolean>,
-      default: '',
+      default: null,
     },
     id: {
       type: String as PropType<string>,
@@ -82,7 +82,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      innerValue: this.valueRadio || null,
+      innerValue: this.valueRadio,
       radioClassList: [
         'ph-flex',
         'ph-rounded-xl ph-h-full ph-py-2 ph-px-5',
