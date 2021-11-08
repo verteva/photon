@@ -147,3 +147,8 @@ input:checked + .slider:before {
   box-shadow: 0px 0px 0px 2px rgba(0, 158, 222, 0.4);
 }
 </style>
+<style>
+.hide-input-error .photon-input-error {
+  display: none !important;
+}
+</style>
