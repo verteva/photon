@@ -33,6 +33,7 @@
       </div>
 
       {{ label }}
+      <slot />
     </label>
   </p-input>
 </template>
@@ -94,6 +95,15 @@ export default Vue.extend({
     },
   },
 
+  created() {
+    const $this = this as any;
+    if (!!$this.label && $this.$slots.default) {
+      console.warn(
+        'Checkbox label and Checkbox slot(default) are both defined and will be rendered together. This is probably not intended.'
+      );
+    }
+  },
+
   methods: {
     onChange(event) {
       (this as any).$emit('change', event);
@@ -102,8 +112,8 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .ph-checkbox:focus + label .ph-checkbox-toggle {
-  border: 2px solid #3dd6c7 !important;
+  border: 2px solid var(--focus-border-color, #3dd6c7) !important;
 }
 </style>

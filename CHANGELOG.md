@@ -6,9 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.610] - 2021-11-08
+### Fix
+- Radio button not working when selecting false value on init
+
+## [0.1.609] - 2021-11-04
+### Add
+- Add support for rich content on Checkbox label
+
+## [0.1.608] - 2021-11-03
+### Add
+- Add TimeoutGradient icon
+
 ## [0.1.607] - 2021-11-02
 ### Fix
-- Switch toggle add further props
+- Added optional focus border style for Checkbox
 
 ## [0.1.606] - 2021-11-01
 ### Fix
