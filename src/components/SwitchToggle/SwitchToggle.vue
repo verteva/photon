@@ -26,6 +26,7 @@
 import Vue, { PropType } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import PInput from '../Input';
+
 export default Vue.extend({
   name: 'Toggle',
   components: { PInput },
@@ -72,24 +73,22 @@ export default Vue.extend({
   computed: {
     innerValue: {
       get() {
-        return (this as any).reverseVal
-          ? !(this as any).value
-          : (this as any).value;
+        const $this = this as any;
+        return $this.reverseVal ? !$this.value : $this.value;
       },
       set(val) {
-        if (!(this as any).disabled) {
-          val = (this as any).reverseVal ? !val : val;
-          (this as any).$emit('input', val);
-        }
+        const $this = this as any;
+        if ($this.disabled) return;
+        const value = $this.reverseVal ? !val : val;
+        $this.$emit('input', value);
       },
     },
   },
 
   methods: {
     onChange(event) {
-      if (!(this as any).disabled) {
-        (this as any).$emit('change', event);
-      }
+      const $this = this as any;
+      if (!$this.disabled) $this.$emit('change', event);
     },
   },
 });
@@ -147,6 +146,7 @@ input:checked + .slider:before {
   box-shadow: 0px 0px 0px 2px rgba(0, 158, 222, 0.4);
 }
 </style>
+// TODO: Look to fix this on a component level
 <style>
 .hide-input-error .photon-input-error {
   display: none !important;
