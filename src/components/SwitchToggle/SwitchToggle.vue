@@ -43,14 +43,6 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    width: {
-      type: String as PropType<string>,
-      default: '51px',
-    },
-    height: {
-      type: String as PropType<string>,
-      default: '31px',
-    },
     reverseVal: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -61,7 +53,7 @@ export default Vue.extend({
     },
     hideWarning: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: false,
     },
   },
   data() {
