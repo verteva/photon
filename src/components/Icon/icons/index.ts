@@ -172,7 +172,7 @@ export default [
   'Swap',
   'TakeSelfie',
   'Tea',
-  'Telecommunications,',
+  'Telecommunications',
   'Terms',
   'ThumbsUp',
   'Time',
