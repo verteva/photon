@@ -1,5 +1,9 @@
 <template>
-  <p-input :errors="errors" class="ph-relative">
+  <p-input
+    :errors="errors"
+    class="ph-relative"
+    :class="hideWarning && 'hide-input-error'"
+  >
     <label class="switch-label ph-relative ph-flex" :for="id">
       <input
         :id="id"
@@ -7,6 +11,7 @@
         :name="name"
         type="checkbox"
         class="switch-input ph-checkbox ph-absolute ph-opacity-0"
+        :disabled="disabled"
         @change="onChange"
       />
       <span
@@ -21,6 +26,7 @@
 import Vue, { PropType } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import PInput from '../Input';
+
 export default Vue.extend({
   name: 'Toggle',
   components: { PInput },
@@ -37,13 +43,17 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    width: {
-      type: String as PropType<string>,
-      default: '51px',
+    reverseVal: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
-    height: {
-      type: String as PropType<string>,
-      default: '31px',
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    hideWarning: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
   },
   data() {
@@ -55,17 +65,22 @@ export default Vue.extend({
   computed: {
     innerValue: {
       get() {
-        return (this as any).value;
+        const $this = this as any;
+        return $this.reverseVal ? !$this.value : $this.value;
       },
       set(val) {
-        (this as any).$emit('input', val);
+        const $this = this as any;
+        if ($this.disabled) return;
+        const value = $this.reverseVal ? !val : val;
+        $this.$emit('input', value);
       },
     },
   },
 
   methods: {
     onChange(event) {
-      (this as any).$emit('change', event);
+      const $this = this as any;
+      if (!$this.disabled) $this.$emit('change', event);
     },
   },
 });
@@ -76,6 +91,7 @@ export default Vue.extend({
   width: 51px;
   height: 31px;
 }
+
 .slider.round {
   border-radius: 31px;
   border-color: rgba(0, 158, 222, 0.4);
@@ -120,5 +136,11 @@ input:checked + .slider:before {
   @apply ph-border;
   border-color: rgba(0, 158, 222, 0.4);
   box-shadow: 0px 0px 0px 2px rgba(0, 158, 222, 0.4);
+}
+</style>
+// TODO: Look to fix this on a component level
+<style>
+.hide-input-error .photon-input-error {
+  display: none !important;
 }
 </style>
