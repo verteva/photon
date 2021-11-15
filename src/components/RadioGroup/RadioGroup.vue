@@ -1,5 +1,9 @@
 <template>
   <p-input :errors="errors">
+    <p-label>
+      {{ label }}
+      <slot v-if="!label" name="label" />
+    </p-label>
     <div
       class="radio-wrapper ph-grid sm:ph-grid-flow-col ph-radio-group ph-gap-5"
       :style="numRows"
@@ -23,6 +27,7 @@ import Vue, { PropType } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import PInputRadio from '../InputRadio';
 import PInput from '../Input';
+
 export default Vue.extend({
   name: 'PRadioGroup',
   components: {
