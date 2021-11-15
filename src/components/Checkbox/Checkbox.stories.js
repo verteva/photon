@@ -11,8 +11,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PCheckbox },
   props: Object.keys(argTypes),
-  template:
-    `
+  template: `
     <div>
       <PCheckbox
         v-bind='$props'
@@ -31,6 +30,4 @@ const Template = (args, { argTypes }) => ({
 });
 
 export const Checkbox = Template.bind({});
-Checkbox.args = {
-  // label: 'Photon is awesome',
-};
+Checkbox.args = {};

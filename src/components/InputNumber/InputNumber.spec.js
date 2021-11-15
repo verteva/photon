@@ -43,11 +43,11 @@ describe('InputText.vue', () => {
   });
 
   it('check change input value', async () => {
-    const inputIncrease = wrapper.find({ ref: 'increase' });
+    const inputIncrease = wrapper.findComponent({ ref: 'increase' });
     await inputIncrease.trigger('click');
     expect(wrapper.emitted('input')[0]).toEqual([1]);
 
-    const inputDecrease = wrapper.find({ ref: 'decrease' });
+    const inputDecrease = wrapper.findComponent({ ref: 'decrease' });
     await inputDecrease.trigger('click');
     expect(wrapper.emitted('input')[0]).toEqual([1]);
   });
