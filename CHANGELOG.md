@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.613] - 2021-11-16
+### Fix
+- Reduce input error icon size
+
 ## [0.1.612] - 2021-11-09
 ### Fix
 - Remove comma from icon index
