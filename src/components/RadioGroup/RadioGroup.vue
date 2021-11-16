@@ -26,6 +26,7 @@
 import Vue, { PropType } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import PInputRadio from '../InputRadio';
+import PLabel from '../Label';
 import PInput from '../Input';
 
 export default Vue.extend({
@@ -33,6 +34,7 @@ export default Vue.extend({
   components: {
     PInputRadio,
     PInput,
+    PLabel,
   },
   props: {
     errors: {
@@ -46,6 +48,10 @@ export default Vue.extend({
     name: {
       type: String as PropType<string>,
       default: 'groupName',
+    },
+    label: {
+      type: String as PropType<string>,
+      default: '',
     },
     rows: {
       type: Number as PropType<number>,
