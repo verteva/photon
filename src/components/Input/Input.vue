@@ -10,7 +10,7 @@
             : 'ph-opacity-0'
         "
         name="Error"
-        type="lg"
+        type="sm"
       />
       <p-text sm class="ph-min-h-1.5em">
         {{ errorsMessages }}
