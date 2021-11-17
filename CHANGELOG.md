@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.614] - 2021-11-17
+### Add
+- Add support for rich content on Radio label
+
 ## [0.1.613] - 2021-11-16
 ### Fix
 - Reduce input error icon size
