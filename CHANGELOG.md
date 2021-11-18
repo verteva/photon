@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.615] - 2021-11-18
+### Add
+- Add slot to the Dialog component for supplemental text
+
 ## [0.1.614] - 2021-11-17
 ### Add
 - Add support for rich content on Radio label
