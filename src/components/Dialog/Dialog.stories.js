@@ -21,6 +21,7 @@ const Template = (args, { argTypes }) => ({
         @cancel="answer = false" 
         @transitionedOut="confirmDelete = false"
         heading="Are you sure you’d like to delete that thing?"
+        text="hello world"
       />
       <p-button @click="confirmDelete = true">Delete something</p-button>
       

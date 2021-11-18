@@ -12,6 +12,9 @@
       <h1 class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
         {{ heading }}
       </h1>
+      <p v-if="text" class="ph-mb-4">
+        {{ text }}
+      </p>
       <div class="ph-flex ph-flex-col sm:ph-flex-row">
         <p-button
           class="ph-mr-0 ph-mb-4 sm:ph-mb-0 sm:ph-mr-4"
@@ -19,7 +22,12 @@
         >
           {{ confirmLabel }}
         </p-button>
-        <p-button button-style="secondary" outlined @click="eventType = cancel">
+        <p-button
+          v-if="!singleButton"
+          button-style="secondary"
+          outlined
+          @click="eventType = cancel"
+        >
           {{ cancelLabel }}
         </p-button>
       </div>
@@ -46,7 +54,10 @@ export default {
       type: String,
       default: '',
     },
-
+    text: {
+      type: String,
+      default: '',
+    },
     confirmLabel: {
       type: String,
       default: 'Yes',
@@ -55,6 +66,10 @@ export default {
     cancelLabel: {
       type: String,
       default: 'Cancel',
+    },
+    singleButton: {
+      type: Boolean,
+      default: false,
     },
   },
 
