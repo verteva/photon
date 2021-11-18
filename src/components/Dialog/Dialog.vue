@@ -12,10 +12,8 @@
       <h1 class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
         {{ heading }}
       </h1>
-      <p v-if="text" class="ph-mb-4">
-        {{ text }}
-      </p>
-      <div class="ph-flex ph-flex-col sm:ph-flex-row">
+      <slot />
+      <div class="ph-flex ph-flex-col sm:ph-flex-row ph-mt-2">
         <p-button
           class="ph-mr-0 ph-mb-4 sm:ph-mb-0 sm:ph-mr-4"
           @click="eventType = confirm"
@@ -51,10 +49,6 @@ export default {
 
   props: {
     heading: {
-      type: String,
-      default: '',
-    },
-    text: {
       type: String,
       default: '',
     },

@@ -21,8 +21,9 @@ const Template = (args, { argTypes }) => ({
         @cancel="answer = false" 
         @transitionedOut="confirmDelete = false"
         heading="Are you sure you’d like to delete that thing?"
-        text="hello world"
-      />
+      >
+        Hello slot!
+      </p-dialog>
       <p-button @click="confirmDelete = true">Delete something</p-button>
       
       <div class="ph-mt-5" v-if="answer">Deleted</div>
