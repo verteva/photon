@@ -208,6 +208,6 @@ input::-webkit-inner-spin-button {
   @apply ph-hidden;
 }
 .vue-phone-number-input input {
-  font-family: 'RM Neue', Arial, Helvetica, sans-serif;
+  @apply ph-font-sans;
 }
 </style>
