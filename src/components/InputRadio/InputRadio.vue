@@ -142,13 +142,13 @@ export default Vue.extend({
 .bar-bottom-brand:after {
   @apply ph-bg-brand2;
   @apply ph-absolute;
+  @apply ph-animate-growOut;
+  @apply ph-w-full;
   animation-fill-mode: both;
   transform-origin: 50% 100%;
   content: '';
-  width: 100%;
   height: 6px;
   bottom: 0;
   left: 0;
-  @apply ph-animate-growOut;
 }
 </style>
