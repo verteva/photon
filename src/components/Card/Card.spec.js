@@ -20,9 +20,11 @@ describe('Card.vue', () => {
   });
 
   it('check Card content', () => {
-    const cardSlotContent = wrapper.getComponent({
-      ref: 'card',
-    }).html();
+    const cardSlotContent = wrapper
+      .getComponent({
+        ref: 'card',
+      })
+      .html();
     expect(cardSlotContent).toContain('Slot Content');
   });
 
