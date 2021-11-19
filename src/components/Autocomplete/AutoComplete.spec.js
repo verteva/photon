@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import AutoComplete from '@/components/Autocomplete/AutoComplete.vue';
-import { assertStyleVarSetup, assertPropsVarSetup } from '@utils/unitTest.ts';
+import { assertStyleVarSetup, assertPropsVarSetup } from '@/utils/unitTest';
 
 describe('AutoComplete.vue', () => {
   const createWrapper = (propsOverrides = {}) => {
