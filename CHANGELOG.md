@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.617] - 2021-11-18
+### Add
+- Radio buttons with icons 
+
+## [0.1.616] - 2021-11-19
+### fix
+- font-family for inputPhone component
+
 ## [0.1.615] - 2021-11-18
 ### Add
 - Add slot to the Dialog component for supplemental text

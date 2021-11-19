@@ -207,4 +207,7 @@ input::-webkit-inner-spin-button {
 .input-tel__label {
   @apply ph-hidden;
 }
+.vue-phone-number-input input {
+  @apply ph-font-sans;
+}
 </style>
