@@ -58,7 +58,6 @@ export default Vue.extend({
   components: {
     PIcon,
   },
-
   props: {
     errors: {
       type: Array,
