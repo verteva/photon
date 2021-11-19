@@ -1,22 +1,14 @@
-import { mount, createLocalVue } from '@vue/test-utils';
 import Card from '@/components/Card/Card.vue';
+import { createWrapper } from '@/utils/unitTest';
 
-const createWrapper = (propsOverrides = {}) => {
-  const localVue = createLocalVue();
-  return mount(Card, {
-    localVue,
-    propsData: {
-      ...propsOverrides,
-    },
-    slots: {
-      default: 'Slot Content',
-    },
-  });
-};
 describe('Card.vue', () => {
   let wrapper;
+  let cardFindClass;
   beforeEach(() => {
-    wrapper = createWrapper();
+    wrapper = createWrapper(Card);
+    cardFindClass = wrapper.findComponent({
+      ref: 'card',
+    });
   });
 
   it('check Card content', () => {
@@ -29,9 +21,6 @@ describe('Card.vue', () => {
   });
 
   it('check init displaying class', async () => {
-    const cardFindClass = await wrapper.getComponent({
-      ref: 'card',
-    });
     expect(cardFindClass.classes()).toContain('ph-rounded-lg');
     expect(cardFindClass.classes()).toContain('ph-relative');
     expect(cardFindClass.classes()).toContain('ph-overflow-hidden');
@@ -39,9 +28,6 @@ describe('Card.vue', () => {
   });
 
   it('check props: light displaying class', async () => {
-    const cardFindClass = await wrapper.getComponent({
-      ref: 'card',
-    });
     expect(cardFindClass.classes()).toContain('ph-bg-grey6');
     await wrapper.setProps({ light: true });
     expect(cardFindClass.classes()).toContain('ph-bg-white');
@@ -49,9 +35,6 @@ describe('Card.vue', () => {
   });
 
   it('check props: shadow displaying class', async () => {
-    const cardFindClass = await wrapper.getComponent({
-      ref: 'card',
-    });
     expect(cardFindClass.classes()).toContain('ph-shadow-none');
     await wrapper.setProps({ shadow: true });
     expect(cardFindClass.classes()).toContain('ph-shadow');
