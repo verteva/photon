@@ -1,89 +1,90 @@
-import { mount, createLocalVue } from '@vue/test-utils';
 import AutoComplete from '@/components/Autocomplete/AutoComplete.vue';
-import { assertStyleVarSetup, assertPropsVarSetup } from '@/utils/unitTest';
+import {
+  createWrapper,
+  assertStyleVarSetup,
+  assertPropsVarSetup,
+} from '@/utils/unitTest';
 
 describe('AutoComplete.vue', () => {
-  const createWrapper = (propsOverrides = {}) => {
-    const localVue = createLocalVue();
-    return mount(AutoComplete, {
-      localVue,
-      propsData: {
-        ...propsOverrides,
-      },
+  let wrapper;
+  let autocomplete;
+  let input;
+  let openIndicator;
+  beforeEach(() => {
+    wrapper = createWrapper(AutoComplete);
+    autocomplete = wrapper.findComponent({
+      ref: 'autocomplete',
     });
-  };
+    input = wrapper.findComponent({
+      ref: 'input',
+    });
+    openIndicator = wrapper.find('.openIndicator');
+  });
 
   it('check init input should be empty', () => {
-    const wrapper = createWrapper();
-    const input = wrapper.findComponent({ ref: 'input' }).element;
-    expect(input.value).toBe('');
+    expect(input.element.value).toBe('');
   });
 
-  it('check placeholder is correct when input value is empty', () => {
+  it('check placeholder is correct when input value is empty', async () => {
     const placeHolder = 'Please select';
-    const wrapper = createWrapper({ placeHolder: placeHolder });
-    const input = wrapper.findComponent({ ref: 'input' }).element;
-    expect(input.placeholder).toBe(placeHolder);
+    await wrapper.setProps({ placeHolder });
+    expect(input.element.placeholder).toBe(placeHolder);
   });
 
-  it('check background color variable is setup', () => {
+  it('check background color variable is setup', async () => {
     const backgroundColor = '#FFFFFF';
-    const wrapper = createWrapper({ backgroundColor: backgroundColor });
+    await wrapper.setProps({ backgroundColor });
     assertStyleVarSetup(wrapper, 'autocomplete', 'bgColor', backgroundColor);
   });
 
-  it('check props:loading is setup correctly', () => {
+  it('check props:loading is setup correctly', async () => {
     const loading = true;
-    const wrapper = createWrapper({ loading: loading });
+    await wrapper.setProps({ loading });
     const progressBar = wrapper.findComponent({ ref: 'progressBar' });
     expect(progressBar.classes()).toContain('ph-progress-loading');
   });
 
-  it('check props:hideOpenIndicator is setup correctly', () => {
+  it('check props:hideOpenIndicator is setup correctly', async () => {
     const hideOpenIndicator = true;
-    const wrapper = createWrapper({ hideOpenIndicator: hideOpenIndicator });
+    await wrapper.setProps({ hideOpenIndicator });
     const openIndicator = wrapper.find('.openIndicator');
     expect(openIndicator.exists()).toBeFalsy();
   });
 
-  it('check props:hideInputOnSelected is setup correctly', () => {
+  it('check props:hideInputOnSelected is setup correctly', async () => {
     const hideInputOnSelected = true;
-    const wrapper = createWrapper({ hideInputOnSelected: hideInputOnSelected });
-    const input = wrapper.findComponent({ ref: 'input' });
+    await wrapper.setProps({ hideInputOnSelected });
     expect(input.isVisible()).toBeTruthy();
   });
 
-  it('check props:hideClearBtn is setup correctly', () => {
+  it('check props:hideClearBtn is setup correctly', async () => {
     const hideClearBtn = true;
-    const wrapper = createWrapper({ hideClearBtn: hideClearBtn });
-    const autocomplete = wrapper.findComponent({ ref: 'autocomplete' });
+    await wrapper.setProps({ hideClearBtn });
     assertPropsVarSetup(autocomplete, 'clearable', !hideClearBtn);
   });
 
-  it('check props:maxHeight is setup correctly', () => {
+  it('check props:maxHeight is setup correctly', async () => {
     const maxHeight = '200px';
-    const wrapper = createWrapper({ maxHeight: maxHeight });
+    await wrapper.setProps({ maxHeight });
     assertStyleVarSetup(wrapper, 'autocomplete', 'maxHeight', maxHeight);
   });
 
-  it('check props:prefixIcon is setup correctly', () => {
+  it('check props:prefixIcon is setup correctly', async () => {
     const prefixIcon = 'LocationSimple';
-    const wrapper = createWrapper({ prefixIcon: prefixIcon });
+    await wrapper.setProps({ prefixIcon });
     const icon = wrapper.findComponent({ ref: 'prefixIcon' });
     assertPropsVarSetup(icon, 'name', prefixIcon);
   });
 
-  it('check props:textColor is setup correctly', () => {
+  it('check props:textColor is setup correctly', async () => {
     const textColor = '#323232';
-    const wrapper = createWrapper({ textColor: textColor });
+    await wrapper.setProps({ textColor });
     assertStyleVarSetup(wrapper, 'autocomplete', 'textColor', textColor);
   });
 
-  it('check props:highlightBackgroundColor is setup correctly', () => {
+  it('check props:highlightBackgroundColor is setup correctly', async () => {
     const highlightBackgroundColor = '#eeeeee';
-    const wrapper = createWrapper({
-      highlightBackgroundColor: highlightBackgroundColor,
-    });
+    await wrapper.setProps({ highlightBackgroundColor });
     assertStyleVarSetup(
       wrapper,
       'autocomplete',
@@ -92,15 +93,15 @@ describe('AutoComplete.vue', () => {
     );
   });
 
-  it('check props:borderColor is setup correctly', () => {
+  it('check props:borderColor is setup correctly', async () => {
     const borderColor = '#e0e0e0';
-    const wrapper = createWrapper({ borderColor: borderColor });
+    await wrapper.setProps({ borderColor });
     assertStyleVarSetup(wrapper, 'autocomplete', 'borderColor', borderColor);
   });
 
-  it('check props:borderFocusColor is setup correctly', () => {
+  it('check props:borderFocusColor is setup correctly', async () => {
     const borderFocusColor = '#e0e0e0';
-    const wrapper = createWrapper({ borderFocusColor: borderFocusColor });
+    await wrapper.setProps({ borderFocusColor });
     assertStyleVarSetup(
       wrapper,
       'autocomplete',
@@ -109,25 +110,21 @@ describe('AutoComplete.vue', () => {
     );
   });
 
-  it('check props:openIndicatorIcon is setup correctly', () => {
+  it('check props:openIndicatorIcon is setup correctly', async () => {
     const openIndicatorIcon = 'ChevronDown';
-    const wrapper = createWrapper({ openIndicatorIcon: openIndicatorIcon });
-    const openIndicator = wrapper.find('.openIndicator');
+    await wrapper.setProps({ openIndicatorIcon });
     assertPropsVarSetup(openIndicator, 'name', openIndicatorIcon);
   });
 
-  it('check props:openIndicatorIconSize is setup correctly', () => {
+  it('check props:openIndicatorIconSize is setup correctly', async () => {
     const openIndicatorIconSize = 'xs';
-    const wrapper = createWrapper({
-      openIndicatorIconSize: openIndicatorIconSize,
-    });
-    const openIndicator = wrapper.find('.openIndicator');
+    await wrapper.setProps({ openIndicatorIconSize });
     assertPropsVarSetup(openIndicator, 'type', openIndicatorIconSize);
   });
 
-  it('check props:openIndicatorColor is setup correctly', () => {
+  it('check props:openIndicatorColor is setup correctly', async () => {
     const openIndicatorColor = '#009EDE';
-    const wrapper = createWrapper({ openIndicatorColor: openIndicatorColor });
+    await wrapper.setProps({ openIndicatorColor });
     assertStyleVarSetup(
       wrapper,
       'autocomplete',
@@ -136,9 +133,9 @@ describe('AutoComplete.vue', () => {
     );
   });
 
-  it('check props:openIndicatorIndent is setup correctly', () => {
+  it('check props:openIndicatorIndent is setup correctly', async () => {
     const openIndicatorIndent = '10px';
-    const wrapper = createWrapper({ openIndicatorIndent: openIndicatorIndent });
+    await wrapper.setProps({ openIndicatorIndent });
     assertStyleVarSetup(
       wrapper,
       'autocomplete',
@@ -147,18 +144,15 @@ describe('AutoComplete.vue', () => {
     );
   });
 
-  it('check props:labelVar is setup correctly', () => {
+  it('check props:labelVar is setup correctly', async () => {
     const labelVar = 'label';
-    const wrapper = createWrapper({ labelVar: labelVar });
-    const autocomplete = wrapper.findComponent({ ref: 'autocomplete' });
+    await wrapper.setProps({ labelVar });
     assertPropsVarSetup(autocomplete, 'label', labelVar);
   });
 
   test('focus handler test', async () => {
     const focusHandler = AutoComplete.onFocus;
-    const wrapper = createWrapper({ focusHandler });
-
-    const input = wrapper.findComponent({ ref: 'input' });
+    await wrapper.setProps({ focusHandler });
 
     expect(wrapper.vm.focused).toBe(false);
 
