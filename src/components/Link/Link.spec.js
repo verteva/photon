@@ -5,7 +5,7 @@ describe('Link.vue', () => {
   let wrapper;
   let linkEl;
   beforeEach(() => {
-    wrapper = createWrapper();
+    wrapper = createWrapper(Link);
     linkEl = wrapper.findComponent({ ref: 'elRef' });
   });
 
@@ -19,8 +19,9 @@ describe('Link.vue', () => {
     expect(linkEl.attributes().href).toBe('#');
   });
 
-  it('check value of link href is setup correctly', () => {
+  it('check value of link href is setup correctly', async () => {
     const link = 'https://apply.nano.com.au';
+    await wrapper.setProps({ link });
     expect(linkEl.attributes().href).toBe(link);
   });
 
