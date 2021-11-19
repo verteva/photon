@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import Link from './Link.vue';
+import Link from '@/components/Link/Link.vue';
 
-describe('SkeletonLoader.vue', () => {
+describe('Link.vue', () => {
   const createWrapper = (propsOverrides = {}) => {
     const localVue = createLocalVue();
     return mount(Link, {
@@ -13,13 +13,6 @@ describe('SkeletonLoader.vue', () => {
         default: 'Slot Content',
       },
     });
-  };
-
-  const assertStyleVarSetup = (wrapper, styleName, style) => {
-    const circular = wrapper.findComponent({ ref: 'circular' });
-    return expect(circular.attributes('style')).toContain(
-      '--' + styleName + ': ' + style
-    );
   };
 
   it('check slot content', () => {
