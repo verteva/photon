@@ -10,17 +10,27 @@
     />
     <label
       :for="id"
-      class="ph-border-brand2"
+      class="ph-flex ph-items-center ph-border-brand2 ph-overflow-hidden ph-relative"
       :class="[
         ...radioClassList,
         value === valueRadio
           ? 'ph-bg-brand-light2 ph-border-brand2'
           : [unselectedBackgroundColor, 'ph-border-grey4'],
+        value === valueRadio && icon && 'bar-bottom-brand',
       ]"
     >
-      {{ label }}
+      <div
+        :class="
+          icon && 'ph-flex ph-items-center ph-font-bold ph-gap-2 ph-text-sm'
+        "
+      >
+        <p-icon v-if="icon" :name="icon" type="xl" class="ph-text-brand2" />
+        {{ label }}
+      </div>
     </label>
+
     <div
+      v-if="!icon"
       class="ph-pointer-events-none ph-w-4 ph-h-4 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2 ph-rounded-full ph-border ph-transition ph-duration-300"
       :class="
         value === valueRadio
@@ -38,10 +48,17 @@
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import Vue, { PropType } from 'vue';
+import PIcon from '../Icon';
+
 export default Vue.extend({
   name: 'InputRadio',
+  components: {
+    PIcon,
+  },
+
   props: {
     errors: {
       type: Array,
@@ -77,6 +94,10 @@ export default Vue.extend({
     },
     rows: {
       type: String as PropType<string>,
+      default: '',
+    },
+    icon: {
+      type: String,
       default: '',
     },
   },
@@ -118,5 +139,17 @@ export default Vue.extend({
   @apply ph-border-solid;
   @apply ph-text-brand2;
   @apply ph-border-brand2;
+}
+.bar-bottom-brand:after {
+  @apply ph-bg-brand2;
+  @apply ph-absolute;
+  animation-fill-mode: both;
+  transform-origin: 50% 100%;
+  content: '';
+  width: 100%;
+  height: 6px;
+  bottom: 0;
+  left: 0;
+  @apply ph-animate-growOut;
 }
 </style>
