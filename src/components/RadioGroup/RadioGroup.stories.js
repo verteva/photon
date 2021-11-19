@@ -19,10 +19,12 @@ const Template = (args, { argTypes }) => ({
         {
           value: 1,
           label: 'On my own',
+          icon: 'Apartment'
         },
         {
           value: 2,
           label: 'With a plus one',
+          icon: 'AddToWallet'
         },
         {
           value: 4,
