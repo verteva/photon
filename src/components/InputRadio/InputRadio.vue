@@ -144,11 +144,11 @@ export default Vue.extend({
   @apply ph-absolute;
   @apply ph-animate-growOut;
   @apply ph-w-full;
+  @apply ph-bottom-0;
+  @apply ph-left-0;
   animation-fill-mode: both;
   transform-origin: 50% 100%;
   content: '';
   height: 6px;
-  bottom: 0;
-  left: 0;
 }
 </style>
