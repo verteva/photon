@@ -1,5 +1,6 @@
 import PAccordion from './Accordion.vue';
 import '../../assets/scss/main.scss';
+import PCheckbox from '../Checkbox';
 
 export default {
   title: 'Components/Accordion',
@@ -56,6 +57,73 @@ const SimpleTemplate = (args, { argTypes }) => ({
 });
 export const Simple = SimpleTemplate.bind({});
 Simple.args = {
+  shadow: true,
+  noHeadingRule: true,
+  openArrows: false,
+  openCloseIcons: ['Edit', 'MinusBordered'],
+  shadow: true,
+  responsivePadding: true,
+};
+
+const CheckboxTemplate = (args, { argTypes }) => ({
+  components: { PAccordion, PCheckbox },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <button @click="addThings" class="ph-my-10">+ ADD</button> /
+      <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
+      <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
+
+      <PAccordion v-bind="$props" v-model="forceOpen" >
+        <template v-slot:heading>
+          Heading
+        </template>
+        Some content
+        <ul>
+          <li> 
+            <p-checkbox
+              v-for="item in items"
+              v-model="innerValue"
+              label="item.label"
+            >
+            </p-checkbox>
+          </li>
+        </ul>
+      </PAccordion>
+    </div>
+  `,
+  data() {
+    return {
+      things: [],
+      forceOpen: true,
+      items: [
+        {
+          label: 'this is an item',
+        },
+        {
+          label: 'this is an item',
+        },
+        {
+          label: 'this is an item',
+        },
+      ],
+    };
+  },
+  methods: {
+    openClose() {
+      this.forceOpen = !this.forceOpen;
+    },
+    addThings() {
+      this.things.push(Math.random());
+    },
+    subThings() {
+      this.things = this.things.slice(1, this.things.length);
+    },
+  },
+});
+
+export const CheckBox = CheckboxTemplate.bind({});
+CheckBox.args = {
   shadow: true,
   noHeadingRule: true,
   openArrows: false,
