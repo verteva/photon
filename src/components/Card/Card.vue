@@ -1,5 +1,5 @@
 <template>
-  <div :class="classList">
+  <div ref="card" :class="classList">
     <slot />
   </div>
 </template>
