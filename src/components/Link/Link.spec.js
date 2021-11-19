@@ -15,7 +15,6 @@ describe('Link.vue', () => {
   });
 
   it('check default value of link href is #', () => {
-    console.log('linkEl', linkEl);
     expect(linkEl.attributes().href).toBe('#');
   });
 
