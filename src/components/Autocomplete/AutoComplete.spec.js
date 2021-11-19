@@ -1,5 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import AutoComplete from '@/components/Autocomplete/AutoComplete.vue';
+import { assertStyleVarSetup, assertPropsVarSetup } from '@utils/unitTest.ts';
 
 describe('AutoComplete.vue', () => {
   const createWrapper = (propsOverrides = {}) => {
@@ -10,17 +11,6 @@ describe('AutoComplete.vue', () => {
         ...propsOverrides,
       },
     });
-  };
-
-  const assertStyleVarSetup = (wrapper, styleName, style) => {
-    const autocomplete = wrapper.findComponent({ ref: 'autocomplete' });
-    return expect(autocomplete.attributes('style')).toContain(
-      '--' + styleName + ': ' + style
-    );
-  };
-
-  const assertPropsVarSetup = (component, propsName, propsVal) => {
-    return expect(component.props(propsName)).toBe(propsVal);
   };
 
   it('check init input should be empty', () => {
@@ -39,7 +29,7 @@ describe('AutoComplete.vue', () => {
   it('check background color variable is setup', () => {
     const backgroundColor = '#FFFFFF';
     const wrapper = createWrapper({ backgroundColor: backgroundColor });
-    assertStyleVarSetup(wrapper, 'bgColor', backgroundColor);
+    assertStyleVarSetup(wrapper, 'autocomplete', 'bgColor', backgroundColor);
   });
 
   it('check props:loading is setup correctly', () => {
@@ -73,7 +63,7 @@ describe('AutoComplete.vue', () => {
   it('check props:maxHeight is setup correctly', () => {
     const maxHeight = '200px';
     const wrapper = createWrapper({ maxHeight: maxHeight });
-    assertStyleVarSetup(wrapper, 'maxHeight', maxHeight);
+    assertStyleVarSetup(wrapper, 'autocomplete', 'maxHeight', maxHeight);
   });
 
   it('check props:prefixIcon is setup correctly', () => {
@@ -86,7 +76,7 @@ describe('AutoComplete.vue', () => {
   it('check props:textColor is setup correctly', () => {
     const textColor = '#323232';
     const wrapper = createWrapper({ textColor: textColor });
-    assertStyleVarSetup(wrapper, 'textColor', textColor);
+    assertStyleVarSetup(wrapper, 'autocomplete', 'textColor', textColor);
   });
 
   it('check props:highlightBackgroundColor is setup correctly', () => {
@@ -94,19 +84,29 @@ describe('AutoComplete.vue', () => {
     const wrapper = createWrapper({
       highlightBackgroundColor: highlightBackgroundColor,
     });
-    assertStyleVarSetup(wrapper, 'highlightBgColor', highlightBackgroundColor);
+    assertStyleVarSetup(
+      wrapper,
+      'autocomplete',
+      'highlightBgColor',
+      highlightBackgroundColor
+    );
   });
 
   it('check props:borderColor is setup correctly', () => {
     const borderColor = '#e0e0e0';
     const wrapper = createWrapper({ borderColor: borderColor });
-    assertStyleVarSetup(wrapper, 'borderColor', borderColor);
+    assertStyleVarSetup(wrapper, 'autocomplete', 'borderColor', borderColor);
   });
 
   it('check props:borderFocusColor is setup correctly', () => {
     const borderFocusColor = '#e0e0e0';
     const wrapper = createWrapper({ borderFocusColor: borderFocusColor });
-    assertStyleVarSetup(wrapper, 'borderFocusColor', borderFocusColor);
+    assertStyleVarSetup(
+      wrapper,
+      'autocomplete',
+      'borderFocusColor',
+      borderFocusColor
+    );
   });
 
   it('check props:openIndicatorIcon is setup correctly', () => {
@@ -128,13 +128,23 @@ describe('AutoComplete.vue', () => {
   it('check props:openIndicatorColor is setup correctly', () => {
     const openIndicatorColor = '#009EDE';
     const wrapper = createWrapper({ openIndicatorColor: openIndicatorColor });
-    assertStyleVarSetup(wrapper, 'openIndicatorColor', openIndicatorColor);
+    assertStyleVarSetup(
+      wrapper,
+      'autocomplete',
+      'openIndicatorColor',
+      openIndicatorColor
+    );
   });
 
   it('check props:openIndicatorIndent is setup correctly', () => {
     const openIndicatorIndent = '10px';
     const wrapper = createWrapper({ openIndicatorIndent: openIndicatorIndent });
-    assertStyleVarSetup(wrapper, 'openIndicatorIndent', openIndicatorIndent);
+    assertStyleVarSetup(
+      wrapper,
+      'autocomplete',
+      'openIndicatorIndent',
+      openIndicatorIndent
+    );
   });
 
   it('check props:labelVar is setup correctly', () => {
