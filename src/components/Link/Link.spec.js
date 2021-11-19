@@ -1,42 +1,30 @@
-import { mount, createLocalVue } from '@vue/test-utils';
+import { createWrapper } from '@/utils/unitTest.ts';
 import Link from '@/components/Link/Link.vue';
 
 describe('Link.vue', () => {
-  const createWrapper = (propsOverrides = {}) => {
-    const localVue = createLocalVue();
-    return mount(Link, {
-      localVue,
-      propsData: {
-        ...propsOverrides,
-      },
-      slots: {
-        default: 'Slot Content',
-      },
-    });
-  };
+  let wrapper;
+  let linkEl;
+  beforeEach(() => {
+    wrapper = createWrapper();
+    linkEl = wrapper.findComponent({ ref: 'elRef' });
+  });
 
   it('check slot content', () => {
-    const wrapper = createWrapper();
     const linkSlotContent = wrapper.findComponent({ ref: 'elRef' }).html();
     expect(linkSlotContent).toContain('Slot Content');
   });
 
   it('check default value of link href is #', () => {
-    const wrapper = createWrapper();
-    const linkEl = wrapper.findComponent({ ref: 'elRef' });
+    console.log('linkEl', linkEl);
     expect(linkEl.attributes().href).toBe('#');
   });
 
   it('check value of link href is setup correctly', () => {
     const link = 'https://apply.nano.com.au';
-    const wrapper = createWrapper({ link });
-    const linkEl = wrapper.findComponent({ ref: 'elRef' });
     expect(linkEl.attributes().href).toBe(link);
   });
 
   it('check value of classList is setup correctly', () => {
-    const wrapper = createWrapper();
-    const linkEl = wrapper.findComponent({ ref: 'elRef' });
     expect(linkEl.attributes().class).toContain('ph-text-brand2');
     expect(linkEl.attributes().class).toContain('ph-group');
     expect(linkEl.attributes().class).toContain('ph-relative');
