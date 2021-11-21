@@ -1,15 +1,31 @@
 <template>
-  <div :id="id" :class="classList" :style="{ height }">
+  <div :id="id" class="ph-relative" :class="classList" :style="{ height }">
+    <!-- @click="toggleOpen" -->
+    <div
+      class="ph-absolute ph-left-8 ph-top-6 ph-p-1 ph-bg-brand2 ph-text-white ph-rounded-lg"
+    >
+      <button class="ph-z-50 ph-flex" @click.prevent="clearSelection">
+        selected
+        <PIcon
+          name="Plus"
+          color="#fff"
+          type="med"
+          alt="dsfffsd"
+          text-color="#fff"
+          class="ph-rotate-45"
+        />
+      </button>
+    </div>
     <component
       :is="headerComponent"
       :disabled="disabled"
       :class="headerClassList"
-      @click="toggleOpen"
       @focus="focussed = true"
       @blur="focussed = false"
     >
-      {{ section }}
-      <slot name="heading" :expanded="expanded" />
+      <!-- <div>section {{ section }}</div>
+      <div>countTest {{ countTest }}</div> -->
+
       <p-icon
         v-if="complete"
         name="Checkmark"
@@ -60,12 +76,14 @@ import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 import { v4 as uuidv4 } from 'uuid';
 import { AccordionElementHeights, AccordionData } from './types';
+import Button from '../Button/Button.vue';
 
 export default Vue.extend({
   name: 'PAccordion',
 
   components: {
     PIcon,
+    Button,
   },
 
   props: {
@@ -154,6 +172,7 @@ export default Vue.extend({
       focussed: false,
       expandComplete: Boolean(this.value || this.open || this.stayOpen),
       id: this.identifier || uuidv4(),
+      countTest: 0,
     };
   },
 
@@ -265,6 +284,11 @@ export default Vue.extend({
   },
 
   methods: {
+    clearSelection() {
+      console.log('click');
+      this.$emit('clearAll');
+    },
+
     onTransitionEnd(e: TransitionEvent) {
       /*
         TransitionEvent fires for each property that

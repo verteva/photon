@@ -26,10 +26,8 @@ const CheckboxTemplate = (args, { argTypes }) => ({
       <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
     -----  {{count}}
-      <PFormAccordion v-bind="$props" v-model="forceOpen" >
-        <template v-slot:heading>
-        <div @click.prevent="count++" class="ph-z-50">  {{selectedLength}} selected </div>
-        </template>
+      <PFormAccordion v-bind="$props" v-model="forceOpen" @clearAll="clearSelection">
+
         Some content
         <ul>
           <li> 
@@ -75,12 +73,16 @@ const CheckboxTemplate = (args, { argTypes }) => ({
     subThings() {
       this.things = this.things.slice(1, this.things.length);
     },
-  },
-  computed: {
-    selectedLength() {
-      return this.items.filter(item => item.value === true).length;
+    clearSelection() {
+      // console.log(value); // someValue
+      this.items.filter(item => (item.value = false));
     },
   },
+  // computed: {
+  //   selectedLength() {
+  //     return this.items.filter(item => item.value === true).length;
+  //   },
+  // },
 });
 
 export const CheckBox = CheckboxTemplate.bind({});
