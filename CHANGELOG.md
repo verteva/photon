@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
+## [0.1.618] - 2021-11-22
+### Fix
+- Fix duplicated icons in autocomplete when selected
+
 ## [0.1.617] - 2021-11-18
 ### Add
 - Radio buttons with icons 
