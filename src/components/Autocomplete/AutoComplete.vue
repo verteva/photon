@@ -628,9 +628,7 @@ export default Vue.extend({
 .vs__clear {
   @apply ph-fill-current;
 }
-.ph-autocomplete__selected
-  + .ph-autocomplete-search
-  .ph-autocomplete-prefix-icon {
+.vs__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon {
   display: none;
 }
 .ph-option-leading-loose {

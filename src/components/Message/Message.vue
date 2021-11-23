@@ -5,6 +5,7 @@
       <div class="ph-font-bold ph-pt-1 ph-leading-5">
         {{ title }}
       </div>
+      <slot />
       <div v-if="description" class="ph-mt-2 ph-mb-4 ph-leading-5">
         <div>
           {{ description }}
