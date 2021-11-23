@@ -24,6 +24,10 @@ const Template = (args, { argTypes }) => ({
       
       <PMessage title="Simple one line warning message"  type="warning" /><br />
       <PMessage v-bind='$props' type="warning" @click='()=>{}' /><br />
+
+      <p-message type="error" >
+        Slot content
+      </p-message>
     </div>
   `,
 });
