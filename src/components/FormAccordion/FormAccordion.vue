@@ -1,31 +1,26 @@
 <template>
   <div :id="id" class="ph-relative" :class="classList" :style="{ height }">
-    <!-- @click="toggleOpen" -->
     <div
-      class="ph-absolute ph-left-8 ph-top-6 ph-p-1 ph-bg-brand2 ph-text-white ph-rounded-lg"
+      v-if="selectedLength > 0"
+      class="ph-absolute ph-left-8 ph-top-1.5 ph-bg-brand2 ph-text-white ph-rounded-full"
     >
-      <button class="ph-z-50 ph-flex" @click.prevent="clearSelection">
-        selected
-        <PIcon
-          name="Plus"
-          color="#fff"
-          type="med"
-          alt="dsfffsd"
-          text-color="#fff"
-          class="ph-rotate-45"
-        />
+      <button
+        class="ph-z-50 ph-flex ph-text-sm ph-p-1 ph-px-3"
+        @click.prevent="clearSelection"
+      >
+        {{ selectedLength }} Selected
+        <PIcon name="Cross" color="#fff" type="med" text-color="#fff" />
       </button>
     </div>
     <component
       :is="headerComponent"
       :disabled="disabled"
       :class="headerClassList"
+      class="ph-border-b ph-border-grey5 ph-h-11"
       @focus="focussed = true"
       @blur="focussed = false"
+      @click="toggleOpen"
     >
-      <!-- <div>section {{ section }}</div>
-      <div>countTest {{ countTest }}</div> -->
-
       <p-icon
         v-if="complete"
         name="Checkmark"
@@ -159,6 +154,10 @@ export default Vue.extend({
       type: [String, Number],
       default: null,
     },
+    selectedLength: {
+      type: Number,
+      default: 0,
+    },
   },
 
   data(): AccordionData {
@@ -196,7 +195,7 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
-        this.unstyled ? '' : 'ph-py-6 ph-px-4 sm:ph-px-8',
+        this.unstyled ? '' : 'ph-py-3 ph-px-4 sm:ph-px-8',
         (this.fullWidth && 'ph-w-full') || '',
       ];
 
