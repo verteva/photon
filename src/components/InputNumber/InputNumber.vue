@@ -18,6 +18,7 @@
         type="number"
         class="ph-antialiased ph-w-full ph-font-bold ph-text-grey1 ph-rounded-lg ph-py-2 ph-px-5 ph-border ph-border-grey5 focus:ph-border-brand2 focus:ph-outline-none ph-border-solid ph-transition ph-bg-white"
         @change="onChange"
+        @wheel="$event.preventDefault()"
       />
       <div
         ref="increase"
