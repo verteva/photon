@@ -1,6 +1,7 @@
 import PAccordion from './Accordion.vue';
 import '../../assets/scss/main.scss';
 import PCheckbox from '../Checkbox';
+import PIcon from '../Icon';
 
 export default {
   title: 'Components/Accordion',
@@ -66,27 +67,20 @@ Simple.args = {
 };
 
 const CheckboxTemplate = (args, { argTypes }) => ({
-  components: { PAccordion, PCheckbox },
+  components: { PAccordion, PCheckbox, PIcon },
   props: Object.keys(argTypes),
   template: `
     <div>
-      <button @click="addThings" class="ph-my-10">+ ADD</button> /
-      <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
-      <PAccordion v-bind="$props" v-model="forceOpen" >
-        <template v-slot:heading>
-          Heading
-        </template>
-        Some content
+      <PAccordion v-bind="$props" v-model="forceOpen"  @clearAll="clearSelection">
         <ul>
           <li> 
             <p-checkbox
               v-for="item in items"
-              v-model="innerValue"
-              label="item.label"
-            >
-            </p-checkbox>
+              v-model="item.value"
+              :label="item.label"
+            />
           </li>
         </ul>
       </PAccordion>
@@ -94,30 +88,15 @@ const CheckboxTemplate = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      things: [],
       forceOpen: true,
-      items: [
-        {
-          label: 'this is an item',
-        },
-        {
-          label: 'this is an item',
-        },
-        {
-          label: 'this is an item',
-        },
-      ],
     };
   },
   methods: {
     openClose() {
       this.forceOpen = !this.forceOpen;
     },
-    addThings() {
-      this.things.push(Math.random());
-    },
-    subThings() {
-      this.things = this.things.slice(1, this.things.length);
+    clearSelection() {
+      this.items.filter(item => (item.value = false));
     },
   },
 });
@@ -126,10 +105,25 @@ export const CheckBox = CheckboxTemplate.bind({});
 CheckBox.args = {
   shadow: true,
   noHeadingRule: true,
-  openArrows: false,
+  openArrows: true,
   openCloseIcons: ['Edit', 'MinusBordered'],
   shadow: true,
   responsivePadding: true,
+  isCheckbox: true,
+  items: [
+    {
+      label: 'this is an item1',
+      value: false,
+    },
+    {
+      label: 'this is an item2',
+      value: false,
+    },
+    {
+      label: 'this is an item3',
+      value: false,
+    },
+  ],
 };
 
 const NestedTemplate = (args, { argTypes }) => ({

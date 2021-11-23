@@ -10,6 +10,20 @@
     >
       {{ section }}
       <slot name="heading" :expanded="expanded" />
+
+      <div
+        v-if="isCheckbox && selectedLength > 0"
+        :class="[checkboxClassList, selectedLength > 0 && 'ph-animate-fadeIn']"
+      >
+        <button
+          class="ph-flex ph-text-sm ph-p-1 ph-px-3 ph-rounded-full ph-bg-brand2"
+          @click.stop="clearSelection"
+        >
+          {{ selectedLength }} Selected
+          <PIcon name="Cross" color="#fff" type="med" text-color="#fff" />
+        </button>
+      </div>
+
       <p-icon
         v-if="complete"
         name="Checkmark"
@@ -141,6 +155,18 @@ export default Vue.extend({
       type: [String, Number],
       default: null,
     },
+    // selectedLength: {
+    //   type: Number as PropType<number>,
+    //   default: 0,
+    // },
+    isCheckbox: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    items: {
+      type: Array,
+      default: () => [],
+    },
   },
 
   data(): AccordionData {
@@ -168,6 +194,11 @@ export default Vue.extend({
       return this.stayOpen ? 'div' : 'button';
     },
 
+    checkboxClassList(): string[] {
+      const classes = ['ph-absolute', 'ph-left-8', 'ph-top-2', 'ph-text-white'];
+      return classes;
+    },
+
     headerClassList(): string[] {
       const classes = [
         'acc-header',
@@ -177,8 +208,10 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
+        'ph-relative',
         this.unstyled ? '' : 'ph-py-6 ph-px-4 sm:ph-px-8',
         (this.fullWidth && 'ph-w-full') || '',
+        this.isCheckbox ? 'ph-border-b ph-border-grey5 ph-h-11' : '',
       ];
 
       return classes;
@@ -214,6 +247,9 @@ export default Vue.extend({
 
     componentRadius(): string {
       return 'sm:ph-rounded-xl';
+    },
+    selectedLength(): any {
+      return this.items.filter(item => item.value === true).length;
     },
   },
 
@@ -355,6 +391,10 @@ export default Vue.extend({
           accordion.style.height = `${updatedHeight}px`;
         });
       }
+    },
+    clearSelection() {
+      console.log('click');
+      this.$emit('clearAll');
     },
   },
 });
