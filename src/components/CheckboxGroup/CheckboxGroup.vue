@@ -4,7 +4,6 @@
       {{ label }}
       <slot />
     </p-label>
-    {{ innerValue }}
     <div
       v-for="val in items"
       :key="val.label"
@@ -26,7 +25,7 @@
         <div
           class="ph-checkbox-toggle ph-w-6 ph-h-6 ph-rounded-md ph-border ph-absolute ph-left-0 ph-flex ph-items-center ph-justify-center ph-transition"
           :class="
-            innerValue.includes(val.value)
+            innerValue && innerValue.includes(val.value)
               ? 'ph-bg-brand2 ph-border-brand2'
               : 'ph-bg-grey6 ' + darkBorder
               ? 'ph-border-grey4'
@@ -38,7 +37,7 @@
             type="xs"
             class="ph-text-white ph-transition ph-duration-300 ph-transform"
             :class="
-              innerValue.includes(val.value)
+              innerValue && innerValue.includes(val.value)
                 ? 'ph-opacity-1 ph-scale-100'
                 : 'ph-opacity-0 ph-scale-0'
             "
@@ -127,14 +126,20 @@ export default Vue.extend({
   methods: {
     onChange(event) {
       const value = event.target.id;
-
-      let newModel = [...(this as any).innerValue];
-      if (newModel.includes(value)) {
-        newModel = (this as any).innerValue.filter(a => a !== value);
-      } else {
-        newModel.push(value);
+      
+      /* Handle null cases */
+      if (!(this as any).innerValue) {
+        return (this as any).$emit('input', [value]);
       }
-
+      
+      /* When value is already selected */
+      if ((this as any).innerValue.includes(value)) {
+        return (this as any).$emit('input', (this as any).innerValue.filter(a => a !== value));
+      } 
+      
+      /* When value is not selected */            
+      const newModel = (this as any).innerValue;
+      newModel.push(value);
       (this as any).$emit('input', newModel);
     },
   },
