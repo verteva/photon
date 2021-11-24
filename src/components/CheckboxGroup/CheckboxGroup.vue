@@ -4,7 +4,7 @@
       {{ label }}
       <slot />
     </p-label>
-    {{innerValue}}
+    {{ innerValue }}
     <div
       v-for="val in items"
       :key="val.label"
@@ -76,7 +76,7 @@ export default Vue.extend({
       type: Array,
       default: (): [] => [],
     },
-    
+
     items: {
       type: Array,
       default: (): [] => [],
@@ -128,7 +128,7 @@ export default Vue.extend({
     onChange(event) {
       const value = event.target.id;
       console.log(value);
-      
+
       let newModel = [...(this as any).innerValue];
       if (newModel.includes(value)) {
         newModel = (this as any).innerValue.filter(a => a !== value);
