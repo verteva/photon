@@ -19,6 +19,7 @@
         :placeholder="placeholder"
         :value="value"
         :type="$attrs.type"
+        :disabled="$attrs.disabled"
         tabindex="0"
         @keydown="validatePress"
         @input="updateValue($event.target.value)"

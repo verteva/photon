@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.1.623] - 2021-11-24
+### Add
+- Add a disabled flag for input text
+
 ## [0.1.622] - 2021-11-24
 ### Fix
 - Fix CheckboxGroup being able to handle null v-model on init
