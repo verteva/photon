@@ -4,7 +4,11 @@
       {{ label }}
       <slot />
     </p-label>
-    <div v-for="val in innerValue" :key="val.label" class="ph-relative ph-pl-7 ph-flex ph-flex-col ph-my-3">
+    <div
+      v-for="val in innerValue"
+      :key="val.label"
+      class="ph-relative ph-pl-7 ph-flex ph-flex-col ph-my-3"
+    >
       <input
         :id="val.label"
         v-model="val.value"
@@ -32,7 +36,9 @@
             type="xs"
             class="ph-text-white ph-transition ph-duration-300 ph-transform"
             :class="
-              val.value ? 'ph-opacity-1 ph-scale-100' : 'ph-opacity-0 ph-scale-0'
+              val.value
+                ? 'ph-opacity-1 ph-scale-100'
+                : 'ph-opacity-0 ph-scale-0'
             "
           />
         </div>
@@ -111,7 +117,7 @@ export default Vue.extend({
   },
 
   methods: {
-    onChange(event) {            
+    onChange(event) {
       (this as any).$emit('change', event);
     },
   },
