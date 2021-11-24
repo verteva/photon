@@ -18,6 +18,7 @@
         :name="name"
         :rows="numRows"
         :dark-mode="darkMode"
+        :icon="item.icon"
       ></PInputRadio>
     </div>
   </p-input>
