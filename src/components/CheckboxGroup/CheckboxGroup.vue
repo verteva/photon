@@ -126,18 +126,22 @@ export default Vue.extend({
   methods: {
     onChange(event) {
       const value = event.target.id;
-      
+
       /* Handle null cases */
       if (!(this as any).innerValue) {
         return (this as any).$emit('input', [value]);
       }
-      
+
       /* When value is already selected */
       if ((this as any).innerValue.includes(value)) {
-        return (this as any).$emit('input', (this as any).innerValue.filter(a => a !== value));
-      } 
-      
-      /* When value is not selected */            
+        return (this as any).$emit(
+          'input',
+          (this as any).innerValue.filter(a => a !== value)
+        );
+      }
+
+      /* When value is not selected */
+
       const newModel = (this as any).innerValue;
       newModel.push(value);
       (this as any).$emit('input', newModel);
