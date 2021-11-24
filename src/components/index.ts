@@ -15,6 +15,7 @@ import PCard from './Card';
 import PRate from './Rate';
 import PDateInput from './DateInput';
 import PCheckbox from './Checkbox';
+import PCheckboxGroup from './CheckboxGroup';
 import PInputRadio from './InputRadio';
 import PRadioGroup from './RadioGroup';
 import PMessage from './Message';
@@ -56,6 +57,7 @@ const components: PhotonComponents = {
   PRate,
   PDateInput,
   PCheckbox,
+  PCheckboxGroup,
   PMessage,
   PToast,
   PList,
