@@ -1,7 +1,6 @@
 import PAccordion from './Accordion.vue';
 import '../../assets/scss/main.scss';
 import PCheckbox from '../Checkbox';
-import PIcon from '../Icon';
 
 export default {
   title: 'Components/Accordion',
@@ -67,17 +66,16 @@ Simple.args = {
 };
 
 const CheckboxTemplate = (args, { argTypes }) => ({
-  components: { PAccordion, PCheckbox, PIcon },
+  components: { PAccordion, PCheckbox },
   props: Object.keys(argTypes),
   template: `
     <div>
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
-      <PAccordion v-bind="$props" v-model="forceOpen"  @clearAll="clearSelection">
+      <PAccordion v-bind="$props" v-model="forceOpen">
         <ul>
-          <li> 
+          <li v-for="item in items"> 
             <p-checkbox
-              v-for="item in items"
               v-model="item.value"
               :label="item.label"
             />
@@ -94,9 +92,6 @@ const CheckboxTemplate = (args, { argTypes }) => ({
   methods: {
     openClose() {
       this.forceOpen = !this.forceOpen;
-    },
-    clearSelection() {
-      this.items.filter(item => (item.value = false));
     },
   },
 });
