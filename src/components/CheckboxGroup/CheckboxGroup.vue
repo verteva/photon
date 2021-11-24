@@ -127,7 +127,6 @@ export default Vue.extend({
   methods: {
     onChange(event) {
       const value = event.target.id;
-      console.log(value);
 
       let newModel = [...(this as any).innerValue];
       if (newModel.includes(value)) {
