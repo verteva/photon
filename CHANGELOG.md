@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.624] - 2021-11-25
+### Add
+- fix duplicated icons in autocomplete address
 
 ## [0.1.623] - 2021-11-24
 ### Add
