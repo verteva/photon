@@ -26,6 +26,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Add
 - Add CheckboxGroup component
 
+## [0.1.620] - 2021-11-24
+### Add
+- Prevent value change on number input field input-number component
+
 ## [0.1.619] - 2021-11-23
 ### Add
 - Add slot to p-message component
