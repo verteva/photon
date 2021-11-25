@@ -19,7 +19,7 @@ const Template = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      date: '1978-06-14',
+      date: '',
     };
   },
 });

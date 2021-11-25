@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.1.621] - 2021-11-24
+### Add
+- Modify accordion to handle checkboxes
+
 ## [0.1.620] - 2021-11-24
 ### Add
 - Add CheckboxGroup component

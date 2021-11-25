@@ -1,5 +1,11 @@
 <template>
-  <div :id="id" :class="classList" :style="{ height }">
+  <div
+    :id="id"
+    ref="accordion"
+    class="todd"
+    :class="classList"
+    :style="{ height }"
+  >
     <component
       :is="headerComponent"
       :disabled="disabled"
@@ -54,6 +60,7 @@
         class="ph-absolute ph-top-0 ph-left-0 ph-right-0 ph-mx-8"
       />
       <div
+        ref="accordionContent"
         class="acc-content ph-w-full"
         :class="[
           unstyled ? '' : `ph-pb-6 ${componentPadding}`,
@@ -254,6 +261,7 @@ export default Vue.extend({
 
   watch: {
     value(val) {
+      console.log(val);
       this.expanded = val;
     },
     open(val) {
@@ -279,16 +287,18 @@ export default Vue.extend({
 
   mounted(): void {
     const { accordion, totalHeight, headerHeight, content } = this.getNode();
-    accordion.addEventListener('transitionend', this.onTransitionEnd);
+    if (accordion) {
+      accordion.addEventListener('transitionend', this.onTransitionEnd);
 
-    this.maxHeight = totalHeight;
-    this.minHeight = headerHeight;
+      this.maxHeight = totalHeight;
+      this.minHeight = headerHeight;
 
-    if (this.expanded) {
-      this.initialRender = false;
-    } else {
-      this.height = `${this.minHeight}px`;
-      content.style.display = 'none';
+      if (this.expanded) {
+        this.initialRender = false;
+      } else {
+        this.height = `${this.minHeight}px`;
+        content.style.display = 'none';
+      }
     }
   },
 
