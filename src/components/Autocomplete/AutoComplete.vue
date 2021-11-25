@@ -631,6 +631,11 @@ export default Vue.extend({
 .vs__selected + .ph-autocomplete-search .ph-autocomplete-prefix-icon {
   display: none;
 }
+.ph-autocomplete__selected
+  + .ph-autocomplete-search
+  .ph-autocomplete-prefix-icon {
+  display: none;
+}
 .ph-option-leading-loose {
   @apply ph-py-2;
 }
