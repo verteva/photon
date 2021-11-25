@@ -1,11 +1,5 @@
 <template>
-  <div
-    :id="id"
-    ref="accordion"
-    class="todd"
-    :class="classList"
-    :style="{ height }"
-  >
+  <div :id="id" ref="accordion" :class="classList" :style="{ height }">
     <component
       :is="headerComponent"
       :disabled="disabled"
@@ -160,7 +154,7 @@ export default Vue.extend({
     },
     identifier: {
       type: [String, Number],
-      default: null,
+      default: 'a9c40d0b-8bc0-4b10-ab05-a6a57f5b7ca9',
     },
     isCheckbox: {
       type: Boolean as PropType<boolean>,
@@ -362,6 +356,10 @@ export default Vue.extend({
       const accordion = document.getElementById(this.id);
       const header = accordion && accordion.querySelector('.acc-header');
       const content = accordion && accordion.querySelector('.acc-content');
+
+      console.log('!---------------');
+      console.log(accordion);
+      console.log('---------------!');
 
       const headerHeight =
         header && Math.round(header.getBoundingClientRect().height);

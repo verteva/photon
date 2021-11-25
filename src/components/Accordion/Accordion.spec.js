@@ -36,45 +36,12 @@ describe('Accordion.vue', () => {
   });
 
   it('check props: toggle accordion', async () => {
-    const closeToggle = false;
-    await wrapper.setData({ expanded: closeToggle });
-    // await wrapper.setProps({ value: closeToggle });
+    const accordionToggle = true;
+    await wrapper.setData({ expanded: accordionToggle });
+    await wrapper.setProps({ value: accordionToggle });
 
-    // const openToggle = true;
-    // await wrapper.setProps({ value: openToggle });
-    const accContent = await wrapper.find('.acc-content');
-    // console.log(accContent);
-    // await console.log(accContent.element.HTMLDivElement);
-    // await console.log(accContent.element[0]);
-    // await console.log(accContent.element.attributes().style);
-    // await console.log(accContent.attributes().style);
-    // expect(accContent.attributes('style')).toContain('display: none;');
-    // assertStyleVarSetup(wrapper, 'accordionContent', 'display', 'none');
-    const el = wrapper.findComponent({ ref: 'accordionContent' });
+    const el = wrapper.findComponent({ ref: 'accordion' });
     console.log(el.attributes('style'));
-    // const wrapperHtml = wrapper.find('.acc-header').html();
     expect(true).toEqual(true);
-    // await console.log(wrapperHtml);
   });
-
-  //   it('check init displaying class', async () => {
-  //     expect(cardFindClass.classes()).toContain('ph-rounded-lg');
-  //     expect(cardFindClass.classes()).toContain('ph-relative');
-  //     expect(cardFindClass.classes()).toContain('ph-overflow-hidden');
-  //     expect(cardFindClass.classes()).toContain('ph-p-9');
-  //   });
-
-  //   it('check props: light displaying class', async () => {
-  //     expect(cardFindClass.classes()).toContain('ph-bg-grey6');
-  //     await wrapper.setProps({ light: true });
-  //     expect(cardFindClass.classes()).toContain('ph-bg-white');
-  //     expect(wrapper.vm.light).toEqual(true);
-  //   });
-
-  //   it('check props: shadow displaying class', async () => {
-  //     expect(cardFindClass.classes()).toContain('ph-shadow-none');
-  //     await wrapper.setProps({ shadow: true });
-  //     expect(cardFindClass.classes()).toContain('ph-shadow');
-  //     expect(wrapper.vm.shadow).toEqual(true);
-  //   });
 });
