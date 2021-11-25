@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 
+## [0.1.623] - 2021-11-24
+### Add
+- Add a disabled flag for input text
+
+## [0.1.622] - 2021-11-24
+### Fix
+- Fix CheckboxGroup being able to handle null v-model on init
+
+## [0.1.621] - 2021-11-24
+### Fix
+- Fix CheckboxGroup component to use array for v-model
+
+## [0.1.620] - 2021-11-24
+### Add
+- Add CheckboxGroup component
+
+## [0.1.619] - 2021-11-23
+### Add
+- Add slot to p-message component
+
 ## [0.1.618] - 2021-11-22
 ### Fix
 - Fix duplicated icons in autocomplete when selected
