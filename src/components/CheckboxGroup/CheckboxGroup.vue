@@ -10,7 +10,7 @@
       class="ph-relative ph-pl-7 ph-flex ph-flex-col ph-my-3"
     >
       <input
-        :id="val.value"
+        :id="`${val.value}-${id}`"
         v-model="innerValue"
         :value="val.value"
         :name="name"
@@ -19,7 +19,7 @@
         @change="onChange($event)"
       />
       <label
-        :for="val.label"
+        :for="`${val.value}-${id}`"
         class="ph-pl-2 ph-transition ph-duration-500 ph-cursor-pointer"
       >
         <div
@@ -125,7 +125,7 @@ export default Vue.extend({
 
   methods: {
     onChange(event) {
-      const value = event.target.id;
+      const value = event.target.id.split('-')[0];
 
       /* Handle null cases */
       if (!(this as any).innerValue) {

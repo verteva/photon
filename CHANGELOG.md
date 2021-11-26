@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.627] - 2021-11-26
+### Add
+- Add ID suffix to Checkbox group to support multiple sets of checkbox groups
+
 ## [0.1.626] - 2021-11-26
 ### Add
 - Add a noPadding and rounded property to Card
