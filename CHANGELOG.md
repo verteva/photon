@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.626] - 2021-11-26
+### Add
+- Add a noPadding and rounded property to Card
+
 ## [0.1.625] - 2021-11-26
 ### Add
 - Prevent value change on number input field input-number component

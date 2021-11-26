@@ -18,6 +18,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    
+    noPadding: {
+      type: Boolean,
+      default: false,
+    },
+   
+   rounded: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   computed: {
@@ -25,10 +35,10 @@ export default {
       return [
         (this as any).light ? 'ph-bg-white' : 'ph-bg-grey6',
         (this as any).shadow ? 'ph-shadow' : 'ph-shadow-none',
-        'ph-rounded-lg',
+        (this as any).rounded ? 'ph-rounded-lg' : '',
+        (this as any).noPadding ? '' : 'ph-p-9',
         'ph-relative',
         'ph-overflow-hidden',
-        'ph-p-9',
       ];
     },
   },
