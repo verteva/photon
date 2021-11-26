@@ -18,13 +18,13 @@ export default {
       type: Boolean,
       default: false,
     },
-    
+
     noPadding: {
       type: Boolean,
       default: false,
     },
-   
-   rounded: {
+
+    rounded: {
       type: Boolean,
       default: true,
     },
