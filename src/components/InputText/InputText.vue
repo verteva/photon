@@ -25,6 +25,7 @@
         @input="updateValue($event.target.value)"
         @focus="onFocus"
         @blur="onBlur"
+        @wheel="$event.preventDefault()"
       />
       <div v-if="iconRight" :class="[iconClassList, 'ph-right-1']">
         <p-icon :name="iconRight" type="lg" />
@@ -44,6 +45,7 @@
       tabindex="0"
       v-on="$listeners"
       @keydown="validatePress"
+      @wheel="$event.preventDefault()"
     />
   </div>
 </template>
