@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.628] - 2021-11-29
+### fix
+- Prevent default on input field to handle numbers
+- Remove unused code in InputNumber component
+
 ## [0.1.627] - 2021-11-26
 ### Add
 - Add ID suffix to Checkbox group to support multiple sets of checkbox groups

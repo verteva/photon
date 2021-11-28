@@ -45,6 +45,7 @@
       tabindex="0"
       v-on="$listeners"
       @keydown="validatePress"
+      @wheel="$event.preventDefault()"
     />
   </div>
 </template>
