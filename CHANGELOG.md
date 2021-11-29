@@ -6,8 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.629] - 2021-11-30
+### Add
+- Checkbox unit tests
+
 ## [0.1.628] - 2021-11-29
-### fix
+### Fix
 - Prevent default on input field to handle numbers
 - Remove unused code in InputNumber component
 
