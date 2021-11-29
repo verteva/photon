@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.629] - 2021-11-30
+### Add
+- InfoCard Unit Testing
+
 ## [0.1.628] - 2021-11-29
 ### fix
 - Prevent default on input field to handle numbers
