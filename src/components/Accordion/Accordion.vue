@@ -60,6 +60,7 @@
         :class="[
           unstyled ? '' : `ph-pb-6 ${componentPadding}`,
           noHeadingRule ? 'ph-pt-2' : 'ph-pt-6',
+          !expanded && 'ph-display-none',
         ]"
       >
         <slot name="default" />
@@ -115,7 +116,7 @@ export default Vue.extend({
     },
     open: {
       type: Boolean as PropType<boolean>,
-      default: false,
+      default: true,
     },
     stayOpen: {
       type: Boolean as PropType<boolean>,
@@ -164,10 +165,6 @@ export default Vue.extend({
     items: {
       type: Array,
       default: () => [],
-    },
-    columns: {
-      type: String,
-      default: 'yestty',
     },
   },
 
@@ -285,7 +282,7 @@ export default Vue.extend({
   },
 
   mounted(): void {
-    const { accordion, totalHeight, headerHeight, content } = this.getNode();
+    const { accordion, totalHeight, headerHeight } = this.getNode();
     if (accordion) {
       accordion.addEventListener('transitionend', this.onTransitionEnd);
 
@@ -296,12 +293,9 @@ export default Vue.extend({
         this.initialRender = false;
       } else {
         this.height = `${this.minHeight}px`;
-        content.style.display = 'none';
+        this.expanded = false;
       }
     }
-    this.count = 1;
-    // console.log('mounted');
-    // console.log(this.$refs.accordionHeader);
   },
 
   beforeDestroy() {
@@ -361,7 +355,6 @@ export default Vue.extend({
       return `${this.minHeight}px`;
     },
     getNode(): AccordionElementHeights {
-      this.count = 2;
       const accordion = this.$refs.accordion as any;
       const header = accordion && (this.$refs.accordionHeader as any);
       const content = accordion && (this.$refs.accordionContent as any);

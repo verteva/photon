@@ -27,7 +27,6 @@ const SimpleTemplate = (args, { argTypes }) => ({
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
       <PAccordion v-bind="$props" v-model="forceOpen" >
- 
         Some content
         <ul>
           <li v-for="thing in things" :key="thing">{{thing}}</li>
@@ -38,7 +37,7 @@ const SimpleTemplate = (args, { argTypes }) => ({
   data() {
     return {
       things: [],
-      forceOpen: true,
+      forceOpen: false,
     };
   },
   methods: {
@@ -103,6 +102,20 @@ CheckBox.args = {
   shadow: true,
   responsivePadding: true,
   isCheckbox: true,
+  items: [
+    {
+      label: 'this is an item1',
+      value: true,
+    },
+    {
+      label: 'this is an item2',
+      value: false,
+    },
+    {
+      label: 'this is an item3',
+      value: false,
+    },
+  ],
 };
 
 const NestedTemplate = (args, { argTypes }) => ({
