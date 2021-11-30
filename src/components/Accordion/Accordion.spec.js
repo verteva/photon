@@ -7,7 +7,7 @@ import {
 
 describe('Accordion.vue', () => {
   let wrapper;
-
+  const test = '123';
   beforeEach(() => {
     wrapper = createWrapper(Accordion);
   });
@@ -15,7 +15,6 @@ describe('Accordion.vue', () => {
   it('check props: header text', async () => {
     const headerText = 'This is the header';
     await wrapper.setProps({ section: headerText });
-    await console.log(wrapper.props());
     expect(wrapper.props().section).toEqual(headerText);
   });
 
@@ -35,11 +34,63 @@ describe('Accordion.vue', () => {
     expect(wrapperHtml).toContain(headerText);
   });
 
-  it.only('check props: toggle accordion', async () => {
+  it('check props: toggle accordion', async () => {
+    const accordionContent = wrapper.getComponent({ ref: 'accordionContent' });
+    expect(accordionContent.isVisible()).toBe(false);
     await wrapper.getComponent({ ref: 'accordionHeader' }).trigger('click');
-    const Content = wrapper.getComponent({ ref: 'accordionContent' });
-    expect(wrapper.html()).toContain('Slot Content</div>');
-    expect(Content.element.style.display).toEqual('initial');
+    expect(accordionContent.element.style.display).toEqual('initial');
+    expect(accordionContent.isVisible()).toBe(true);
+    expect(accordionContent.html()).toContain('Slot Content</div>');
+  });
+
+  it('check props: unstyled', async () => {
+    const unstyled = true;
+    const bgClass = wrapper.props().backgroundColor;
+    await wrapper.setProps({ unstyled: unstyled });
+    expect(wrapper.props().unstyled).toBe(unstyled);
+    const accordion = wrapper.getComponent({ ref: 'accordion' });
+    expect(accordion.classes()).not.toContain(bgClass);
+  });
+
+  it('check props: unstyled', async () => {
+    const unstyled = true;
+    await wrapper.setProps({ unstyled });
+    expect(wrapper.props().unstyled).toBe(unstyled);
+    const accordion = wrapper.getComponent({ ref: 'accordion' });
+    expect(accordion.classes()).not.toContain('ph-bg-grey6');
+  });
+
+  it('check props: if has checkbox', async () => {
+    const checkboxTemplate = `       <ul>
+    <li v-for="item in items"> 
+      <p-checkbox
+        v-model="item.value"
+        :label="item.label"
+      />
+    </li>
+  </ul>`;
+
+    console.log(wrapper);
+    const isCheckbox = true;
+    const items = [
+      {
+        label: 'this is an item1',
+        value: false,
+      },
+      {
+        label: 'this is an item2',
+        value: false,
+      },
+      {
+        label: 'this is an item3',
+        value: false,
+      },
+    ];
+
+    await wrapper.setProps({ isCheckbox });
+    await wrapper.setProps({ items });
+    const content = wrapper.getComponent({ ref: 'accordionContent' });
+    console.log(content.html());
   });
 
   // it.only('check props: toggle accordion', async () => {

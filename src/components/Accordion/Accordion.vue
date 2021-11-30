@@ -155,7 +155,7 @@ export default Vue.extend({
     },
     identifier: {
       type: [String, Number],
-      default: 'a9c40d0b-8bc0-4b10-ab05-a6a57f5b7ca9',
+      default: null,
     },
     isCheckbox: {
       type: Boolean as PropType<boolean>,
