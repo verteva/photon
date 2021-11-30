@@ -103,20 +103,6 @@ CheckBox.args = {
   shadow: true,
   responsivePadding: true,
   isCheckbox: true,
-  items: [
-    {
-      label: 'this is an item1',
-      value: false,
-    },
-    {
-      label: 'this is an item2',
-      value: false,
-    },
-    {
-      label: 'this is an item3',
-      value: false,
-    },
-  ],
 };
 
 const NestedTemplate = (args, { argTypes }) => ({

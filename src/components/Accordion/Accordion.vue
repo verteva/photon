@@ -165,6 +165,10 @@ export default Vue.extend({
       type: Array,
       default: () => [],
     },
+    columns: {
+      type: String,
+      default: 'yestty',
+    },
   },
 
   data(): AccordionData {

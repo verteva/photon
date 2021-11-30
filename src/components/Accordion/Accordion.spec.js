@@ -1,4 +1,5 @@
 import Accordion from '@/components/Accordion/Accordion.vue';
+import { mount, createLocalVue } from '@vue/test-utils';
 import {
   createWrapper,
   assertStyleVarSetup,
@@ -60,37 +61,68 @@ describe('Accordion.vue', () => {
     expect(accordion.classes()).not.toContain('ph-bg-grey6');
   });
 
-  it('check props: if has checkbox', async () => {
-    const checkboxTemplate = `       <ul>
-    <li v-for="item in items"> 
-      <p-checkbox
-        v-model="item.value"
-        :label="item.label"
-      />
-    </li>
-  </ul>`;
+  it.only('check props: if has checkbox', async () => {
+    const checkboxComponent = 'hell world';
 
-    console.log(wrapper);
-    const isCheckbox = true;
-    const items = [
-      {
-        label: 'this is an item1',
-        value: false,
+    const Component = {
+      template: '<div>{{ msg }} <div> <slot name="msg"></slot></div></div>',
+      props: ['msg'],
+    };
+    const wrapper = mount(Component, {
+      slots: {
+        default: 'msg',
       },
-      {
-        label: 'this is an item2',
-        value: false,
+      scopedSlots: {
+        foo: '<p slot-scope="msg">{{msg}},{{msg}}</p>',
       },
-      {
-        label: 'this is an item3',
-        value: false,
+      propsData: {
+        msg: 'aBC123',
       },
-    ];
+    });
+    expect(wrapper).toBe(wrapper);
+    console.log(wrapper.html());
+    // const slots = {
+    //   default: '{{columns}}',
+    // };
+    // const welcome = '123';
+    // wrapper = mount(Accordion, {
+    //   scopedSlots: {
+    //     default: '<p>{{welcome}}</p>',
+    //   },
+    //   propsData: {
+    //     welcome: 'abc',
+    //   },
+    //   props: {
+    //     welcome: 'abc',
+    //   },
+    // });
+    // await wrapper.setProps({ items: columns });
+    // console.log(wrapper.vm);
+    console.log(wrapper.props());
+    // const items = [
+    //   {
+    //     label: 'this is an item1',
+    //     value: false,
+    //   },
+    //   {
+    //     label: 'this is an item2',
+    //     value: false,
+    //   },
+    //   {
+    //     label: 'this is an item3',
+    //     value: false,
+    //   },
+    // ];
 
-    await wrapper.setProps({ isCheckbox });
-    await wrapper.setProps({ items });
-    const content = wrapper.getComponent({ ref: 'accordionContent' });
-    console.log(content.html());
+    // await wrapper.setData({ items });
+
+    // console.log(wrapper.props());
+
+    // console.log(wrapper);
+    // const isCheckbox = true;
+    // await wrapper.setProps({ isCheckbox });
+    // const content = wrapper.getComponent({ ref: 'accordionContent' });
+    // console.log(content.html());
   });
 
   // it.only('check props: toggle accordion', async () => {
