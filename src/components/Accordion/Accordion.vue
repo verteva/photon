@@ -2,6 +2,7 @@
   <div :id="id" ref="accordion" :class="classList" :style="{ height }">
     <component
       :is="headerComponent"
+      ref="accordionHeader"
       :disabled="disabled"
       :class="headerClassList"
       @click="toggleOpen"
@@ -294,6 +295,9 @@ export default Vue.extend({
         content.style.display = 'none';
       }
     }
+    this.count = 1;
+    // console.log('mounted');
+    // console.log(this.$refs.accordionHeader);
   },
 
   beforeDestroy() {
@@ -353,21 +357,14 @@ export default Vue.extend({
       return `${this.minHeight}px`;
     },
     getNode(): AccordionElementHeights {
-      const accordion = document.getElementById(this.id);
-      const header = accordion && accordion.querySelector('.acc-header');
-      const content = accordion && accordion.querySelector('.acc-content');
+      this.count = 2;
+      const accordion = this.$refs.accordion as any;
+      const header = accordion && (this.$refs.accordionHeader as any);
+      const content = accordion && (this.$refs.accordionContent as any);
 
-      console.log('!---------------');
-      console.log(accordion);
-      console.log('---------------!');
-
-      const headerHeight =
-        header && Math.round(header.getBoundingClientRect().height);
-      const contentHeight =
-        content && Math.round(content.getBoundingClientRect().height);
-      const totalHeight =
-        accordion && Math.round(accordion.getBoundingClientRect().height);
-
+      const headerHeight = header && Math.round(header.clientHeight);
+      const contentHeight = content && Math.round(content.clientHeight);
+      const totalHeight = accordion && Math.round(accordion.clientHeight);
       return {
         accordion: accordion as HTMLElement,
         content: content as HTMLElement,

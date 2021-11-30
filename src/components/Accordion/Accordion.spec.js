@@ -35,13 +35,25 @@ describe('Accordion.vue', () => {
     expect(wrapperHtml).toContain(headerText);
   });
 
-  it('check props: toggle accordion', async () => {
-    const accordionToggle = true;
-    await wrapper.setData({ expanded: accordionToggle });
-    await wrapper.setProps({ value: accordionToggle });
-
-    const el = wrapper.findComponent({ ref: 'accordion' });
-    console.log(el.attributes('style'));
-    expect(true).toEqual(true);
+  it.only('check props: toggle accordion', async () => {
+    await wrapper.getComponent({ ref: 'accordionHeader' }).trigger('click');
+    const Content = wrapper.getComponent({ ref: 'accordionContent' });
+    expect(wrapper.html()).toContain('Slot Content</div>');
+    expect(Content.element.style.display).toEqual('initial');
   });
+
+  // it.only('check props: toggle accordion', async () => {
+  //   const accordionToggle = true;
+  //   await wrapper.setData({ expanded: accordionToggle, id: '123456789' });
+  //   // await wrapper.vm.$nextTick();
+  //   await wrapper.setProps({ value: accordionToggle });
+  //   await console.log(1, wrapper.vm.id);
+  //   await wrapper.vm.getNode();
+
+  //   await console.log(1, wrapper.vm.expanded);
+  //   await console.log(2, wrapper.props().value);
+  //   const el = wrapper.findComponent({ ref: 'accordion' });
+  //   // console.log(el.attributes('style'));
+  //   expect(true).toEqual(true);
+  // });
 });
