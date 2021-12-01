@@ -1,6 +1,6 @@
 <template>
   <div ref="container" :class="classList">
-    <div v-if="brandBar" :class="brandBarClassList" />
+    <div v-if="brandBar" ref="brandBar" :class="brandBarClassList" />
     <div class="ph-bg-white">
       <div
         v-if="heading"
