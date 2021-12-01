@@ -15,19 +15,21 @@ const Template = (args, { argTypes }) => ({
     <div>
       <PCheckboxGroup
         v-bind='$props'
-        v-model='foodOptions'
+        v-model='selected'
         label="Tick your favourtite fruit..."
+        :items="foodOptions"
+        :errors="['Required']"
       />
       {{ foodOptions }} 
     </div>
   `,
-  // :errors="optIn === false && ['Required'] || []"
   data() {
     return {
+      selected: ['Bananas'],
       foodOptions: [
-        { label: 'Apples', value: false },
-        { label: 'Bananas', value: true },
-        { label: 'Oranges', value: false },
+        { label: 'Apples', value: 'Apples' },
+        { label: 'Bananas', value: 'Bananas' },
+        { label: 'Oranges', value: 'Oranges' },
       ],
     };
   },

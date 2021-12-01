@@ -6,6 +6,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.629] - 2021-11-30
+### Add
+- InfoCard Unit Testing
+- BrandGradientText Unit Testing
+
+## [0.1.628] - 2021-11-29
+### fix
+- Prevent default on input field to handle numbers
+- Remove unused code in InputNumber component
+
+## [0.1.627] - 2021-11-26
+### Add
+- Add ID suffix to Checkbox group to support multiple sets of checkbox groups
+
+## [0.1.626] - 2021-11-26
+### Add
+- Add a noPadding and rounded property to Card
+
+## [0.1.625] - 2021-11-26
+### Add
+- Prevent value change on number input field input-number component
+
+## [0.1.624] - 2021-11-25
+### Add
+- fix duplicated icons in autocomplete address
+
+## [0.1.623] - 2021-11-24
+### Add
+- Add a disabled flag for input text
+
+## [0.1.622] - 2021-11-24
+### Fix
+- Fix CheckboxGroup being able to handle null v-model on init
+
+## [0.1.621] - 2021-11-24
+### Fix
+- Fix CheckboxGroup component to use array for v-model
 
 ## [0.1.621] - 2021-11-24
 ### Add

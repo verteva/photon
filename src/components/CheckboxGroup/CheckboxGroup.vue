@@ -5,26 +5,27 @@
       <slot />
     </p-label>
     <div
-      v-for="val in innerValue"
+      v-for="val in items"
       :key="val.label"
       class="ph-relative ph-pl-7 ph-flex ph-flex-col ph-my-3"
     >
       <input
-        :id="val.label"
-        v-model="val.value"
+        :id="`${val.value}-${id}`"
+        v-model="innerValue"
+        :value="val.value"
         :name="name"
         type="checkbox"
         class="ph-checkbox ph-absolute ph-opacity-0"
-        @change="onChange"
+        @change="onChange($event)"
       />
       <label
-        :for="val.label"
+        :for="`${val.value}-${id}`"
         class="ph-pl-2 ph-transition ph-duration-500 ph-cursor-pointer"
       >
         <div
           class="ph-checkbox-toggle ph-w-6 ph-h-6 ph-rounded-md ph-border ph-absolute ph-left-0 ph-flex ph-items-center ph-justify-center ph-transition"
           :class="
-            val.value
+            innerValue && innerValue.includes(val.value)
               ? 'ph-bg-brand2 ph-border-brand2'
               : 'ph-bg-grey6 ' + darkBorder
               ? 'ph-border-grey4'
@@ -36,7 +37,7 @@
             type="xs"
             class="ph-text-white ph-transition ph-duration-300 ph-transform"
             :class="
-              val.value
+              innerValue && innerValue.includes(val.value)
                 ? 'ph-opacity-1 ph-scale-100'
                 : 'ph-opacity-0 ph-scale-0'
             "
@@ -75,6 +76,11 @@ export default Vue.extend({
       default: (): [] => [],
     },
 
+    items: {
+      type: Array,
+      default: (): [] => [],
+    },
+
     label: {
       type: String as PropType<string>,
       default: '',
@@ -84,6 +90,7 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
+
     darkBorder: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -118,7 +125,26 @@ export default Vue.extend({
 
   methods: {
     onChange(event) {
-      (this as any).$emit('change', event);
+      const value = event.target.id.split('-')[0];
+
+      /* Handle null cases */
+      if (!(this as any).innerValue) {
+        return (this as any).$emit('input', [value]);
+      }
+
+      /* When value is already selected */
+      if ((this as any).innerValue.includes(value)) {
+        return (this as any).$emit(
+          'input',
+          (this as any).innerValue.filter(a => a !== value)
+        );
+      }
+
+      /* When value is not selected */
+
+      const newModel = (this as any).innerValue;
+      newModel.push(value);
+      (this as any).$emit('input', newModel);
     },
   },
 });
