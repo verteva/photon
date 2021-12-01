@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.1.630] - 2021-12-01
+### Add
+- Modify accordion to handle checkboxes
+- Accordion unit tests
 
 ## [0.1.629] - 2021-11-30
 ### Add
@@ -43,10 +47,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.621] - 2021-11-24
 ### Fix
 - Fix CheckboxGroup component to use array for v-model
-
-## [0.1.621] - 2021-11-24
-### Add
-- Modify accordion to handle checkboxes
 
 ## [0.1.620] - 2021-11-24
 ### Add
