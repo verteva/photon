@@ -27,6 +27,9 @@ const SimpleTemplate = (args, { argTypes }) => ({
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
       <PAccordion v-bind="$props" v-model="forceOpen" >
+      <template v-slot:heading>
+        Heading
+      </template>
         Some content
         <ul>
           <li v-for="thing in things" :key="thing">{{thing}}</li>

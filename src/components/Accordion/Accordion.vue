@@ -257,7 +257,6 @@ export default Vue.extend({
 
   watch: {
     value(val) {
-      console.log(val);
       this.expanded = val;
     },
     open(val) {
