@@ -116,7 +116,7 @@ export default Vue.extend({
     },
     open: {
       type: Boolean as PropType<boolean>,
-      default: true,
+      default: false,
     },
     stayOpen: {
       type: Boolean as PropType<boolean>,

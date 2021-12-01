@@ -109,21 +109,17 @@ describe('Accordion.vue', () => {
       },
     });
     await wrapper.setProps({ isCheckbox: true });
-    await console.log(wrapper.html());
     expect(wrapper.html()).toContain('this is an item1');
     expect(wrapper.html()).toContain('this is an item2');
     expect(wrapper.html()).toContain('this is an item3');
   });
 
   it('check props: disabled', async () => {
-    console.log(wrapper.html());
     const accordionWrapper = wrapper.getComponent({ ref: 'accordion' });
     await wrapper.setProps({ disabled: false });
     expect(accordionWrapper.classes()).toContain('ph-opacity-100');
     await wrapper.setProps({ disabled: true });
     expect(accordionWrapper.classes()).toContain('ph-opacity-50');
-    console.log(wrapper.html());
-    console.log(accordionWrapper.html());
   });
 
   it('check props: open', async () => {
