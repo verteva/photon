@@ -32,10 +32,11 @@ describe('Accordion.vue', () => {
   });
 
   it('check props: toggle accordion', async () => {
+    await wrapper.setData({ expanded: false });
     const accordionContent = wrapper.getComponent({ ref: 'accordionContent' });
-    expect(accordionContent.isVisible()).toBe(false);
+    expect(accordionContent.classes()).toContain('ph-display-none');
     await wrapper.getComponent({ ref: 'accordionHeader' }).trigger('click');
-    expect(accordionContent.element.style.display).toEqual('initial');
+    expect(accordionContent.classes()).not.toContain('ph-display-none');
     expect(accordionContent.isVisible()).toBe(true);
     expect(accordionContent.html()).toContain('Slot Content</div>');
   });
@@ -86,6 +87,22 @@ describe('Accordion.vue', () => {
     const wrapper = mount(Accordion, {
       slots: {
         default: checkboxHTML,
+      },
+      propsData: {
+        items: [
+          {
+            label: 'this is an item1',
+            value: true,
+          },
+          {
+            label: 'this is an item2',
+            value: true,
+          },
+          {
+            label: 'this is an item3',
+            value: true,
+          },
+        ],
       },
       stubs: {
         'p-checkbox': PCheckbox,
