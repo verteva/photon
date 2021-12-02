@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.629] - 2021-11-30
 ### Add
 - InfoCard Unit Testing
+- BrandGradientText Unit Testing
 
 ## [0.1.628] - 2021-11-29
 ### fix
