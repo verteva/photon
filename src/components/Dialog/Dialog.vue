@@ -5,7 +5,11 @@
     </div>
     <div id="photon-dialog" ref="dialog" :class="viewboxClassList">
       <div class="ph-absolute ph-top-1 ph-right-2 ph-z-1">
-        <p-button button-style="plain" @click="eventType = cancel">
+        <p-button
+          ref="cancelIcon"
+          button-style="plain"
+          @click="eventType = cancel"
+        >
           <p-icon name="Cross" type="lg" />
         </p-button>
       </div>

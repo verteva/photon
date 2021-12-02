@@ -7,6 +7,7 @@ describe('Dialog.vue', () => {
   let headingEl;
   let confirmEl;
   let cancelEl;
+  let cancelIcon;
   beforeEach(() => {
     wrapper = createWrapper(Dialog);
     dialogEl = wrapper.findComponent({
@@ -21,6 +22,9 @@ describe('Dialog.vue', () => {
     cancelEl = wrapper.findComponent({
       ref: 'cancel',
     });
+    cancelIcon = wrapper.findComponent({
+      ref: 'cancelIcon',
+    })
   });
 
   it('check prop heading', async () => {
@@ -49,5 +53,29 @@ describe('Dialog.vue', () => {
     expect(cancelEl.exists()).toBeTruthy();
     await wrapper.setProps({ singleButton });
     expect(cancelEl.exists()).toBeFalsy();
+  });
+
+  it('check dialog animation when click on confirm button', async () => {
+    expect(dialogEl.attributes().class).toContain('ph-animate-fadeIn');
+    await confirmEl.trigger('click');
+    expect(dialogEl.attributes().class).toContain('ph-animate-fadeOut');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted().confirm).toBeTruthy();
+  });
+
+  it('check dialog animation when click on cancel button', async () => {
+    expect(dialogEl.attributes().class).toContain('ph-animate-fadeIn');
+    await cancelEl.trigger('click');
+    expect(dialogEl.attributes().class).toContain('ph-animate-fadeOut');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted().cancel).toBeTruthy();
+  });
+
+  it('check dialog animation when click on cancel Icon', async () => {
+    expect(dialogEl.attributes().class).toContain('ph-animate-fadeIn');
+    await cancelIcon.trigger('click');
+    expect(dialogEl.attributes().class).toContain('ph-animate-fadeOut');
+    await wrapper.vm.$nextTick();
+    expect(wrapper.emitted().cancel).toBeTruthy();
   });
 });
