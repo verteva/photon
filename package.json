@@ -93,11 +93,6 @@
       {
         "message": "You’ve got leftover conflict markers",
         "regex": "/^[<>|=]{4,}/m"
-      },
-      {
-        "message": "You have unfinished devs",
-        "nonBlocking": "true",
-        "regex": "(?:FIXME|TODO)"
       }
     ]
   }
