@@ -121,6 +121,7 @@ export default Vue.extend({
 
   computed: {
     unselectedBackgroundColor() {
+      console.log('hellohghghg');
       return this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white';
     },
   },

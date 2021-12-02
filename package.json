@@ -75,10 +75,30 @@
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11",
     "husky": "^7.0.4",
-    "lint-staged": "^11.2.6"
+    "lint-staged": "^11.2.6",
+    "git-precommit-checks": "^3.0.6"
   },
   "lint-staged": {
     "*.vue": "npm run lint",
     "*.js": "npm run lint"
+  },
+  "git-precommit-checks": {
+    "rules": [
+      {
+        "filter": "\\.(js|vue)$",
+        "nonBlocking": "true",
+        "message": "You’ve got leftover `console.log`",
+        "regex": "console\\.log"
+      },
+      {
+        "message": "You’ve got leftover conflict markers",
+        "regex": "/^[<>|=]{4,}/m"
+      },
+      {
+        "message": "You have unfinished devs",
+        "nonBlocking": "true",
+        "regex": "(?:FIXME|TODO)"
+      }
+    ]
   }
 }
