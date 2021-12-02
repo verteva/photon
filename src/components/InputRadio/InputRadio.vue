@@ -24,7 +24,12 @@
           icon && 'ph-flex ph-items-center ph-font-bold ph-gap-2 ph-text-sm'
         "
       >
-        <p-icon v-if="icon" :name="icon" type="xl" class="ph-text-brand2" />
+        <p-icon
+          v-if="icon"
+          :name="icon"
+          type="xl"
+          class="icon-baby ph-text-brand2"
+        />
         {{ label }}
       </div>
     </label>
