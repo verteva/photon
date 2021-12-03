@@ -4,6 +4,7 @@ import DateInput from '@/components/DateInput/DateInput.vue';
 describe('DateInput.vue', () => {
   let wrapper;
   beforeEach(() => {
+    wrapper = null;
     wrapper = createWrapper(DateInput);
   });
 
@@ -24,44 +25,13 @@ describe('DateInput.vue', () => {
     await month.setValue('06');
     await year.setValue('1924');
 
-    expect(wrapper.find('input[name="day"]').element.value).toEqual('14');
-    expect(wrapper.find('input[name="month"]').element.value).toEqual('06');
-    expect(wrapper.find('input[name="year"]').element.value).toEqual('1924');
+    expect(day.element.value).toEqual('14');
+    expect(month.element.value).toEqual('06');
+    expect(year.element.value).toEqual('1924');
   });
 
   it('check prop: dark mode', async () => {
-    expect(wrapper.find('input[name="day"]').classes()).toContain(
-      'ph-bg-white'
-    );
-    expect(wrapper.find('input[name="month"]').classes()).toContain(
-      'ph-bg-white'
-    );
-    expect(wrapper.find('input[name="year"]').classes()).toContain(
-      'ph-bg-white'
-    );
     await wrapper.setProps({ darkMode: true });
-    expect(wrapper.find('input[name="day"]').classes()).toContain(
-      'ph-bg-grey6'
-    );
-    expect(wrapper.find('input[name="month"]').classes()).toContain(
-      'ph-bg-grey6'
-    );
-    expect(wrapper.find('input[name="year"]').classes()).toContain(
-      'ph-bg-grey6'
-    );
+    expect(wrapper.props().darkMode).toEqual(true);
   });
-  // it.only('check prop: value should split into 3 values', async () => {
-  //   await wrapper.setData({ day: '', month: '', dyear: '' });
-  //   await wrapper.setProps({ value: '11-11-1980' });
-
-  //   await wrapper.vm.setDate();
-  //   await wrapper.vm.$nextTick();
-  //   console.log(wrapper.vm.day);
-  //   console.log(wrapper.vm.month);
-  //   console.log(wrapper.vm.year);
-  //   console.log(wrapper.html());
-  //   expect(wrapper.find('input[name="day"]').element.value).toEqual('14');
-  //   expect(wrapper.find('input[name="month"]').element.value).toEqual('06');
-  //   expect(wrapper.find('input[name="year"]').element.value).toEqual('1924');
-  // });
 });
