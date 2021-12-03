@@ -69,10 +69,6 @@ export default Vue.extend({
   },
 
   data() {
-    // const [year, month, day] = (this as any).value
-    //   ? (this as any).value.split('-')
-    //   : '---';
-
     const [year, month, day] = (this as any).value
       ? (this as any).value.split('-')
       : ['', '', ''];
@@ -112,6 +108,10 @@ export default Vue.extend({
       (this as any).innerValue = `${(this as any).year}-${
         (this as any).month
       }-${(this as any).day}`;
+      console.log('run test');
+      console.log((this as any).day);
+      console.log((this as any).month);
+      console.log((this as any).year);
     },
     updateDay(e) {
       (this as any).day = e.target.value;
