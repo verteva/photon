@@ -1,6 +1,7 @@
 <template>
   <div class="ph-flex ph-items-center ph-w-80">
     <p-input-text
+      name="day"
       placeholder="DD"
       :dark-mode="darkMode"
       :value="day"
@@ -16,6 +17,7 @@
     </div>
 
     <p-input-text
+      name="month"
       placeholder="MM"
       :dark-mode="darkMode"
       :value="month"
@@ -31,6 +33,7 @@
     </div>
 
     <p-input-text
+      name="year"
       placeholder="YYYY"
       :dark-mode="darkMode"
       :value="year"
@@ -66,7 +69,14 @@ export default Vue.extend({
   },
 
   data() {
-    const [year, month, day] = (this as any).value.split('-');
+    // const [year, month, day] = (this as any).value
+    //   ? (this as any).value.split('-')
+    //   : '---';
+
+    const [year, month, day] = (this as any).value
+      ? (this as any).value.split('-')
+      : ['', '', ''];
+
     return {
       day,
       month,
