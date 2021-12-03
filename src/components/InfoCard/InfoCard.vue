@@ -74,7 +74,7 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
-    
+
     border: {
       type: String as PropType<string>,
       default: 'transparent',
@@ -82,7 +82,7 @@ export default Vue.extend({
   },
 
   computed: {
-    classList(): string[] {     
+    classList(): string[] {
       return [
         'ph-relative',
         'ph-rounded-lg',
