@@ -1,11 +1,15 @@
 <template>
-  <div :class="classList">
-    <div v-if="brandBar" :class="brandBarClassList" />
+  <div ref="container" :class="classList">
+    <div v-if="brandBar" ref="brandBar" :class="brandBarClassList" />
     <div class="ph-bg-white">
-      <div v-if="heading" class="ph-bg-grey10 ph-w-full ph-relative">
+      <div
+        v-if="heading"
+        ref="heading"
+        class="ph-bg-grey10 ph-w-full ph-relative"
+      >
         <div class="ph-p-5" :class="!brandBar ? 'ph-pl-9' : ''">
           <PBrandGradientText>
-            <span class="ph-text-2xl ph-font-bold">
+            <span ref="headingText" class="ph-text-2xl ph-font-bold">
               {{ heading }}
             </span>
           </PBrandGradientText>
@@ -13,11 +17,12 @@
         <hr class="ph-bg-alert2 ph-border-t-1 ph-border-grey5" />
 
         <div v-if="icon" :class="iconClassList">
-          <p-icon :name="icon" type="xl" />
+          <p-icon ref="iconEl" :name="icon" type="xl" />
         </div>
       </div>
 
       <div
+        ref="content"
         class="ph-w-full ph-p-5 ph-pr-10"
         :class="[`ph-bg-${contentBg}`, !brandBar ? 'ph-pl-9' : '']"
       >
