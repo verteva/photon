@@ -86,7 +86,6 @@
     "rules": [
       {
         "filter": "\\.(js|vue|ts)$",
-        "nonBlocking": "true",
         "message": "You’ve got leftover `console.log`",
         "regex": "console\\.log"
       },
