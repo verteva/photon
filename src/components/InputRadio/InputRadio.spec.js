@@ -40,16 +40,11 @@ describe('RadioGroup.vue', () => {
     expect(wrapper.html()).toContain('hello world label');
   });
 
-  it('multiple radio buttons', async () => {
-    expect(wrapper.html()).toContain('On my own');
-    expect(wrapper.html()).toContain('With 9 people');
-    const radioNumbers = wrapper.findAll('.radio-item');
-    expect(radioNumbers.length).toBe(5);
-  });
-
   it('event: select radio button', async () => {
+    const radioLabel = wrapper.find('.radio-item label');
+    expect(radioLabel.classes()).not.toContain('ph-border-brand2');
+    console.log(wrapper.props());
     await wrapper.setProps({ value: 1 });
-    const radioLabel = wrapper.findAll('.radio-item label').at(0);
     expect(radioLabel.classes()).toContain('ph-border-brand2');
   });
 
