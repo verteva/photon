@@ -1,7 +1,8 @@
 <template>
-  <div class="ph-relative radio-item" :style="rows">
+  <div class="ph-relative radio-item">
     <input
       :id="id"
+      ref="radioItem"
       v-model="innerValue"
       type="radio"
       class="focus:ph-outline-none ph-opacity-0 ph-w-0 ph-h-0 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2"
@@ -24,12 +25,7 @@
           icon && 'ph-flex ph-items-center ph-font-bold ph-gap-2 ph-text-sm'
         "
       >
-        <p-icon
-          v-if="icon"
-          :name="icon"
-          type="xl"
-          class="icon-baby ph-text-brand2"
-        />
+        <p-icon v-if="icon" :name="icon" type="xl" class="ph-text-brand2" />
         {{ label }}
       </div>
     </label>
