@@ -30,8 +30,7 @@ describe('RadioGroup.vue', () => {
   const slots = { label: 'This is a label' };
 
   beforeEach(() => {
-    wrapper = createWrapper(RadioGroup, slots);
-    wrapper.setProps({ items });
+    wrapper = createWrapper(RadioGroup, slots, { items });
   });
 
   it('slot: label slot', async () => {
