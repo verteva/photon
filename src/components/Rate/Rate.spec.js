@@ -10,17 +10,20 @@ describe('Rate.vue', () => {
   });
 
   it('props: name', async () => {
+    const name = 'PRINCIPAL & INTEREST';
+
     expect(wrapper.props().name).toEqual('');
-    await wrapper.setProps({ name: 'PRINCIPAL & INTEREST' });
+    await wrapper.setProps({ name });
 
     expect(wrapper.props().name).toEqual('PRINCIPAL & INTEREST');
   });
 
   it('props: show rate after load', async () => {
+    const rate = '2.52';
     expect(wrapper.props().rate).toEqual('');
-    await wrapper.setProps({ rate: '2.49' });
+    await wrapper.setProps({ rate });
 
-    expect(wrapper.props().rate).toEqual('2.49');
+    expect(wrapper.props().rate).toEqual(rate);
   });
 
   it('props: show loading', async () => {
