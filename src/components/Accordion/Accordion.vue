@@ -1,8 +1,8 @@
 <template>
   <div :id="id" ref="accordion" :class="classList" :style="{ height }">
     <component
-      :is="headerComponent"
       ref="accordionHeader"
+      :is="headerComponent"
       :disabled="disabled"
       :class="headerClassList"
       @click="toggleOpen"

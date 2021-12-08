@@ -1,6 +1,8 @@
 import PAccordion from './Accordion.vue';
 import '../../assets/scss/main.scss';
+import PButton from '../Button';
 import PCheckbox from '../Checkbox';
+import PIcon from '../Icon';
 
 export default {
   title: 'Components/Accordion',
@@ -66,13 +68,27 @@ Simple.args = {
 };
 
 const CheckboxTemplate = (args, { argTypes }) => ({
-  components: { PAccordion, PCheckbox },
+  components: { PAccordion, PCheckbox, PButton, PIcon },
   props: Object.keys(argTypes),
   template: `
     <div>
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
       <PAccordion v-bind="$props" v-model="forceOpen">
+        <template v-slot:heading>
+          <p-button
+            v-if="numberSelected"
+            @click.prevent.stop="clearSelection"
+            class="ph-flex ph-text-sm ph-p-1 ph-px-3 ph-rounded-full ph-bg-brand2 ph-items-end ph-pl-5"
+            size="xs"
+          >
+            {{ numberSelected }} Selected
+            <p-icon name="Cross" color="#fff" type="med" text-color="#fff" />
+          </p-button>
+          <div v-else class="ph-text-xs ph-py-2">
+            (no items selected)
+          </div>
+        </template>
         <ul>
           <li v-for="item in items"> 
             <p-checkbox
@@ -89,7 +105,15 @@ const CheckboxTemplate = (args, { argTypes }) => ({
       forceOpen: true,
     };
   },
+  computed: {
+    numberSelected() {
+      return this.items.filter(item => item.value).length;
+    },
+  },
   methods: {
+    clearSelection() {
+      this.items.filter(item => item.value = false);
+    },
     openClose() {
       this.forceOpen = !this.forceOpen;
     },
@@ -104,7 +128,7 @@ CheckBox.args = {
   openCloseIcons: ['Edit', 'MinusBordered'],
   shadow: true,
   responsivePadding: true,
-  isCheckbox: true,
+  // isCheckbox: true,
   items: [
     {
       label: 'this is an item1',
