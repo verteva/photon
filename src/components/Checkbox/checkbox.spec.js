@@ -1,7 +1,7 @@
 import { createWrapper } from '@/utils/unitTest.ts';
 import Checkbox from '@/components/Checkbox/Checkbox.vue';
 
-describe('ContentCard.vue', () => {
+describe('Checkbox.vue', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = createWrapper(Checkbox);
