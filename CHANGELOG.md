@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dialog unit testing
 - Add configurable border for InfoCard
 - Radio buttons unit testing
+- DateInput Unit Testing
  
 ## [0.1.629] - 2021-11-30
 ### Add
