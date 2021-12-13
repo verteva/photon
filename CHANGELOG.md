@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - BrandGradientText unit testing
 - Dialog unit testing
 - Add configurable border for InfoCard
+- Radio buttons unit testing
  
 ## [0.1.629] - 2021-11-30
 ### Add
