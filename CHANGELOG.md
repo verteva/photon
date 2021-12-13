@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [0.1.629] - 2021-12-03
+### Add
+- Add configurable border for InfoCard
 
 ## [0.1.630] - 2021-12-02
 ### Add
@@ -15,8 +18,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - InfoCard Unit Testing
 - BrandGradientText Unit Testing
 
+## [0.1.629] - 2021-11-30
+### Add
+- Checkbox unit tests
+
 ## [0.1.628] - 2021-11-29
-### fix
+### Fix
 - Prevent default on input field to handle numbers
 - Remove unused code in InputNumber component
 

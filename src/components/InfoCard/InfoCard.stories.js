@@ -17,7 +17,7 @@ const Template = (args, { argTypes }) => ({
         Some content...
       </p-info-card>
       <br /><br />
-      <p-info-card v-bind='$props' >
+      <p-info-card v-bind='$props' border='brand2'>
         Some content...
       </p-info-card>
     </div>
