@@ -5,18 +5,22 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
-## [0.1.630] - 2021-12-03
+## [0.1.630] - 2021-12-13
 ### Add
+- Dialog Testing
+- InfoCard unit testing
+- BrandGradientText unit testing
+- Dialog unit testing
+- Add configurable border for InfoCard
+- Radio buttons unit testing
 - DateInput Unit Testing
-
+ 
 ## [0.1.629] - 2021-11-30
 ### Add
-- InfoCard Unit Testing
-- BrandGradientText Unit Testing
+- Checkbox unit testing
 
 ## [0.1.628] - 2021-11-29
-### fix
+### Fix
 - Prevent default on input field to handle numbers
 - Remove unused code in InputNumber component
 
