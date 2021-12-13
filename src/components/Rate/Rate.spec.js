@@ -30,10 +30,10 @@ describe('Rate.vue', () => {
     await wrapper.setProps({ loading: true });
     expect(wrapper.props().loading).toEqual(true);
     await wrapper.vm.calculate();
-    const rateLoaingValue = +rateValue.text();
+    const rateLoadingValue = Number(rateValue.text());
 
-    expect(rateLoaingValue).toBeTruthy();
-    expect(rateLoaingValue).toBeGreaterThanOrEqual(0.01);
+    expect(rateLoadingValue).toBeTruthy();
+    expect(rateLoadingValue).toBeGreaterThanOrEqual(0.01);
   });
 
   it('props: currency', async () => {
