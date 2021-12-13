@@ -24,7 +24,7 @@ describe('Dialog.vue', () => {
     });
     cancelIcon = wrapper.findComponent({
       ref: 'cancelIcon',
-    })
+    });
   });
 
   it('check prop heading', async () => {
