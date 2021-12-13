@@ -12,10 +12,14 @@
         (loading && !currency && 'ph-text-brandh2') || '',
       ]"
     >
-      <div class="ph-text-3.5xl ph-mr-2">
+      <div ref="rateValue" class="ph-text-3.5xl ph-mr-2">
         {{ loading ? calculation : rate }}
       </div>
-      <div v-if="!loading" class="ph-flex ph-flex-col">
+      <div
+        v-if="!loading"
+        class="ph-flex ph-flex-col"
+        :class="(darkMode && 'ph-text-white') || ''"
+      >
         <div v-if="currency" class="ph-text-xs ph-mt-auto">
           per month
         </div>
