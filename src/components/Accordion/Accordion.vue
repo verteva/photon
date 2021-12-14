@@ -177,7 +177,11 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
-        this.unstyled ? '' : 'ph-py-6 ph-px-4 sm:ph-px-8',
+        this.noHeadingRule
+          ? 'ph-py-4 ph-px-4 sm:ph-px-8'
+          : this.unstyled
+          ? ''
+          : 'ph-py-6 ph-px-4 sm:ph-px-8',
         (this.fullWidth && 'ph-w-full') || '',
       ];
 
