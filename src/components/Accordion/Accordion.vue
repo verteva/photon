@@ -141,6 +141,10 @@ export default Vue.extend({
       type: [String, Number],
       default: null,
     },
+    noHeadingPadding: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
 
   data(): AccordionData {
@@ -177,7 +181,7 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
-        this.noHeadingRule
+        this.noHeadingPadding
           ? 'ph-py-4 ph-px-4 sm:ph-px-8'
           : this.unstyled
           ? ''
