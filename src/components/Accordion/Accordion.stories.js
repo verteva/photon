@@ -69,6 +69,9 @@ const NestedTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <PAccordion v-bind="$props" section="Level 1" v-model="test" stay-open>
+    <div class='ph-my-10 ph-py-5 ph-px-10'>
+    Some static HTML content...
+    </div>
     <PAccordion class="ph-mb-1" section="Level 2a" open background-color="ph-bg-white" :border="false" shadow>
       Lorem ipsum...
     </PAccordion>
