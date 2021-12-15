@@ -3,10 +3,7 @@
     <component
       :is="headerComponent"
       :disabled="disabled"
-      :class="[
-        headerClassList,
-        headingPadding ? `ph-py-${headingPadding}` : 'ph-py-6',
-      ]"
+      :class="headerClassList"
       @click="toggleOpen"
       @focus="focussed = true"
       @blur="focussed = false"
@@ -184,7 +181,7 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
-        // this.headingPadding && `ph-py-${this.headingPadding}`,
+        `tw-py-${this.headingPadding}`,
         this.unstyled ? '' : 'ph-px-4 sm:ph-px-8',
         (this.fullWidth && 'ph-w-full') || '',
       ];
