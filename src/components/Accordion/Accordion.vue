@@ -143,7 +143,7 @@ export default Vue.extend({
     },
     headingPadding: {
       type: String as PropType<string>,
-      default: '6',
+      default: 'ph-py-6',
     },
   },
 
@@ -181,7 +181,7 @@ export default Vue.extend({
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
-        `tw-py-${this.headingPadding}`,
+        this.headingPadding,
         this.unstyled ? '' : 'ph-px-4 sm:ph-px-8',
         (this.fullWidth && 'ph-w-full') || '',
       ];
