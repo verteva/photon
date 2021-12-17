@@ -58,7 +58,6 @@ export default Vue.extend({
     },
 
     messagesClassList(): string[] {
-      console.log((this as any).store);
       return [
         'ph-transform',
         'ph-min-w-72',
