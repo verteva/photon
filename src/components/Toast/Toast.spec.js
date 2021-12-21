@@ -1,14 +1,5 @@
 import Toast from '@/components/Toast/Toast.vue';
 import { createWrapper } from '@/utils/unitTest';
-import Vuex from 'vuex';
-import { mount, createLocalVue } from '@vue/test-utils';
-
-// const localVue = createLocalVue();
-// localVue.use(Vuex);
-
-// const mutations = {
-//   testMutation: jest.fn(),
-// };
 
 const state = {
   toast: {
@@ -25,50 +16,25 @@ const state = {
 };
 
 describe('Toast.vue', () => {
-  // const createWrapper = (propsOverrides = {}, state = {}) => {
-  //   const localVue = createLocalVue();
-  //   localVue.use(Vuex);
-  //   // state = {};
-  //   // mutations = {};
-  //   const store = new Vuex.Store({ state, mutations });
-  //   return mount(Toast, {
-  //     localVue,
-  //     propsData: {
-  //       ...propsOverrides,
-  //     },
-  //     store,
-  //   });
-  // };
-
   let wrapper;
 
   beforeEach(() => {
     wrapper = createWrapper(Toast, {}, {}, state);
-    console.log(wrapper);
-  });
-
-  it.only('store state: title render', async () => {
-    // const title = state.toast.queue[0].title;
-    // expect(wrapper.html()).toContain(title);
-    expect(true).toBeTruthy();
   });
 
   it('store state: title render', async () => {
-    const wrapper = createWrapper();
     const title = state.toast.queue[0].title;
 
     expect(wrapper.html()).toContain(title);
   });
 
   it('store state: description render', async () => {
-    const wrapper = createWrapper();
     const description = state.toast.queue[0].description;
 
     expect(wrapper.html()).toContain(description);
   });
 
   it('check prop limit', async () => {
-    const wrapper = createWrapper();
     const limit = 4;
 
     await wrapper.setProps({ limit });
@@ -77,7 +43,6 @@ describe('Toast.vue', () => {
   });
 
   it('check prop yPos', async () => {
-    const wrapper = createWrapper();
     const yPos = 'bottom';
 
     await wrapper.setProps({ yPos });
@@ -86,7 +51,6 @@ describe('Toast.vue', () => {
   });
 
   it('check prop xPos', async () => {
-    const wrapper = createWrapper();
     const xPos = 'center';
 
     await wrapper.setProps({ xPos });
