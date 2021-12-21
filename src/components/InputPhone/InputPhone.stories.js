@@ -22,6 +22,11 @@ const Template = (args, { argTypes }) => ({
           <p-label>Input Phone<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal"></span></p-label>
         </template>        
       </p-input-phone>
+      <p-input-phone
+        v-bind='$props'
+        :errors="errs"
+      >          
+      </p-input-phone>
     </div>
   `,
   data() {
