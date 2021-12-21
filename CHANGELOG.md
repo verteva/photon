@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.632] - 2021-12-21
+### Fix
+- Added Vuex to Toast Component
+- Toast & Message unit tests
+
 ## [0.1.631] - 2021-12-13
 ### Fix
 - InputRadio reaction issues
