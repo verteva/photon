@@ -5,16 +5,12 @@ export const createWrapper = (
   component: any,
   slots = { default: 'Slot Content' },
   propsOverrides = {},
-  state = {}
+  state = {},
+  listeners = {}
 ): Wrapper<Vue> => {
   const localVue = createLocalVue();
   localVue.use(Vuex);
   const store = new Vuex.Store({ state });
-  console.log(slots);
-  console.log(propsOverrides);
-  console.log('store');
-  console.log(store.state);
-
   return mount(component, {
     localVue,
     propsData: {
@@ -22,6 +18,7 @@ export const createWrapper = (
     },
     slots,
     store,
+    listeners,
   });
 };
 

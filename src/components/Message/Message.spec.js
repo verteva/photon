@@ -2,13 +2,14 @@ import Message from '@/components/Message/Message.vue';
 import { createWrapper } from '@/utils/unitTest';
 
 describe('Message.vue', () => {
+  const onClick = jest.fn();
+  const listeners = {
+    click: onClick,
+  };
+
   let wrapper;
-  let button;
-  let iconWrapper;
   beforeEach(() => {
-    wrapper = createWrapper(Message);
-    button = wrapper.getComponent({ ref: 'messageButton' });
-    iconWrapper = wrapper.getComponent({ ref: 'ph-message' });
+    wrapper = createWrapper(Message, {}, {}, {}, listeners);
   });
 
   it('check prop: callToAction', async () => {
@@ -40,23 +41,28 @@ describe('Message.vue', () => {
 
     const type = 'warning';
     await wrapper.setProps({ type });
+
     expect(wrapper.props().type).toEqual(type);
 
     const computedIcon = wrapper.vm.typeStyle;
     const iconClasses = computedIcon.classes;
     const icontype = computedIcon.icon;
+    const messageWrapper = wrapper.getComponent({ ref: 'messageIcon' });
 
-    expect(iconWrapper.classes()).toContain(iconClasses[0]);
-    expect(iconWrapper.classes()).toContain(iconClasses[1]);
-    expect(iconWrapper.text()).toContain(icontype);
+    expect(wrapper.classes()).toContain(iconClasses[0]);
+    expect(wrapper.classes()).toContain(iconClasses[1]);
+    expect(messageWrapper.vm.name).toContain(icontype);
   });
 
   it('emit event: button click, show button when description', async () => {
     expect(wrapper.emitted('click')).toBeFalsy();
 
     const description = 'show button';
+    const callToAction = 'click me!';
 
     await wrapper.setProps({ description });
+    await wrapper.setProps({ callToAction });
+    const button = wrapper.getComponent({ ref: 'messageButton' });
     await button.trigger('click');
 
     expect(wrapper.emitted('click')).toBeTruthy();
