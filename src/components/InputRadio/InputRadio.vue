@@ -7,7 +7,7 @@
       type="radio"
       class="focus:ph-outline-none ph-opacity-0 ph-w-0 ph-h-0 ph-absolute ph-left-3 ph-inset-y-1/2 ph--mt-2"
       :name="name"
-      @change="$emit('input', valueRadio)"
+      @click="onClick(valueRadio)"
     />
     <label
       :for="id"
@@ -119,10 +119,14 @@ export default Vue.extend({
       ],
     };
   },
-
   computed: {
     unselectedBackgroundColor() {
       return this.darkMode ? 'ph-bg-grey6' : 'ph-bg-white';
+    },
+  },
+  methods: {
+    onClick(value) {
+      (this as any).$emit('input', value);
     },
   },
 });
