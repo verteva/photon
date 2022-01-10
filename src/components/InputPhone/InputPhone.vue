@@ -1,14 +1,14 @@
 <template>
   <p-input
-    v-if="!simple"
     :class="[
       errors.length ? 'ph-input-error-content' : '',
       darkMode ? 'ph-inputPhone-dark' : '',
     ]"
     :errors="errors"
   >
-    <p-label>
-      <slot v-if="!label" name="label" />
+    <p-label v-if="label">{{ label }}</p-label>
+    <p-label v-else-if="$slots.label">
+      <slot name="label" />
     </p-label>
     <div :class="componentClassList">
       <VuePhoneNumberInput
@@ -61,7 +61,7 @@ export default Vue.extend({
     },
     label: {
       type: String as PropType<string>,
-      default: '',
+      default: null,
     },
     errors: {
       type: Array as PropType<string[]>,

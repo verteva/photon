@@ -1,20 +1,25 @@
 <template>
-  <div :class="baseClassList">
+  <div ref="container" :class="baseClassList">
     <div :class="backDropWrapperClassList">
       <div :class="backDropClassList" />
     </div>
-    <div id="photon-dialog" :class="viewboxClassList">
+    <div id="photon-dialog" ref="dialog" :class="viewboxClassList">
       <div class="ph-absolute ph-top-1 ph-right-2 ph-z-1">
-        <p-button button-style="plain" @click="eventType = cancel">
+        <p-button
+          ref="cancelIcon"
+          button-style="plain"
+          @click="eventType = cancel"
+        >
           <p-icon name="Cross" type="lg" />
         </p-button>
       </div>
-      <h1 class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
+      <h1 ref="heading" class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
         {{ heading }}
       </h1>
       <slot />
       <div class="ph-flex ph-flex-col sm:ph-flex-row ph-mt-2">
         <p-button
+          ref="confirm"
           class="ph-mr-0 ph-mb-4 sm:ph-mb-0 sm:ph-mr-4"
           @click="eventType = confirm"
         >
@@ -22,6 +27,7 @@
         </p-button>
         <p-button
           v-if="!singleButton"
+          ref="cancel"
           button-style="secondary"
           outlined
           @click="eventType = cancel"

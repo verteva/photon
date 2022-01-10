@@ -6,17 +6,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.630] - 2021-12-02
+## [0.1.633] - 2022-01-10
 ### Add
 - Husky git precommit
 
+## [0.1.632] - 2022-01-07
+### Fix
+- InputText turn off autocomplete
+
+## [0.1.631] - 2021-12-13
+### Fix
+- InputRadio reaction issues
+
+## [0.1.630] - 2021-12-13
+### Add
+- Dialog Testing
+- InfoCard unit testing
+- BrandGradientText unit testing
+- Dialog unit testing
+- Add configurable border for InfoCard
+- Radio buttons unit testing
+- DateInput unit testing
+- Add Rate component unit testing
+- InputPhone unit testing
+ 
 ## [0.1.629] - 2021-11-30
 ### Add
-- InfoCard Unit Testing
-- BrandGradientText Unit Testing
+- Checkbox unit testing
 
 ## [0.1.628] - 2021-11-29
-### fix
+### Fix
 - Prevent default on input field to handle numbers
 - Remove unused code in InputNumber component
 
