@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.632] - 2022-01-11
+### Fix
+- InfoCard remove red background of splitter
+
 ## [0.1.632] - 2022-01-07
 ### Fix
 - InputText turn off autocomplete
