@@ -5,6 +5,7 @@
       placeholder="DD"
       :dark-mode="darkMode"
       :value="day"
+      v-bind="$attrs"
       simple
       centered
       number
@@ -21,6 +22,7 @@
       placeholder="MM"
       :dark-mode="darkMode"
       :value="month"
+      v-bind="$attrs"
       simple
       centered
       number
@@ -37,6 +39,7 @@
       placeholder="YYYY"
       :dark-mode="darkMode"
       :value="year"
+      v-bind="$attrs"
       simple
       centered
       number
