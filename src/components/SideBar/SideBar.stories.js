@@ -12,18 +12,14 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PSideBar, PIcon },
   props: Object.keys(argTypes),
-  template: `<PSideBar v-bind='$props' 
+  template: `<PSideBar v-bind='$props' app class="ph-bg-brand2 ph-text-white" 
   >      
-    <div class="ph-flex ph-items-center">
-      <div class="ph-font-bold ph-mt-1 ph-leading-5 ph-mr-auto">
-        I want a better <br />variable rate
-      </div>
-      <PIcon
-        name="Percentage"
-        type="xl"
-        class="ph-text-brand2"
-      />
-    </div>
+    <ul>
+      <li>Nav Item 1</li>
+      <li>Nav Item 2</li>
+      <li>Nav Item 3</li>
+      <li>Nav Item 4</li>
+    </ul>
   </PSideBar>`,
 });
 
