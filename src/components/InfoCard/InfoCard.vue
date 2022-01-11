@@ -14,7 +14,7 @@
             </span>
           </PBrandGradientText>
         </div>
-        <hr class="ph-bg-alert2 ph-border-t-1 ph-border-grey5" />
+        <hr class="ph-border-t-1 ph-border-grey5" />
 
         <div v-if="icon" :class="iconClassList">
           <p-icon ref="iconEl" :name="icon" type="xl" />
