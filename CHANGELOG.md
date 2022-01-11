@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.632] - 2022-01-11
+## [0.1.634] - 2022-01-12
+### Add
+- SideBar Component
+
+## [0.1.633] - 2022-01-11
 ### Fix
 - InfoCard remove red background of splitter
 
