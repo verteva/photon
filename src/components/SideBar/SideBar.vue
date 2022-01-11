@@ -12,7 +12,7 @@
     }"
     v-on="$listeners"
   >
-    <div class="side-bar__content">
+    <div ref="sideBarContent" class="side-bar__content">
       <slot></slot>
     </div>
   </nav>
@@ -39,16 +39,6 @@ export default {
       default: false,
     },
   },
-  data(): any {
-    return {
-      hover: false,
-    };
-  },
-  methods: {
-    mouseOver(): void {
-      (this as any).hover = !(this as any).hover;
-    },
-  },
 };
 </script>
 
@@ -58,9 +48,14 @@ export default {
   @apply ph-flex-col;
   @apply ph-overflow-hidden;
   @apply ph-max-w-full;
+  @apply ph-top-0;
   width: var(--width, 290px);
   height: var(--height, 100%);
   position: var(--position, relative);
   z-index: var(--zIndex, 0);
+}
+
+.side-bar__content {
+  @apply ph-height-full;
 }
 </style>
