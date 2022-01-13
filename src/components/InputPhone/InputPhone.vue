@@ -6,9 +6,11 @@
     ]"
     :errors="errors"
   >
-    <p-label v-if="label">{{ label }}</p-label>
-    <p-label v-else-if="$slots.label">
-      <slot name="label" />
+    <slot v-if="$scopedSlots.label" name="label">
+      <p-label>{{ label }}</p-label>
+    </slot>
+    <p-label v-else>
+      {{ label }}
     </p-label>
     <div :class="componentClassList">
       <VuePhoneNumberInput
