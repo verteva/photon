@@ -25,7 +25,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import { gsap, Expo } from 'gsap';
+import { gsap } from 'gsap';
 import TweenLite from 'gsap';
 import { Draggable } from 'gsap/Draggable';
 import { v4 as uuidv4 } from 'uuid';
@@ -193,13 +193,7 @@ export default Vue.extend({
         liveSnap: snapPoints,
       })[0];
 
-      const {
-        steps,
-        stepXvalue,
-        dragRange,
-        min,
-        valueRange,
-      } = this.dragDimensions();
+      const { steps, stepXvalue, dragRange } = this.dragDimensions();
 
       for (let i = 0; i < steps; i++) {
         snapPoints.push(Math.round(i * stepXvalue));
