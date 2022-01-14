@@ -17,6 +17,7 @@ module.exports = {
     'vue/html-self-closing': 0,
     'vue/no-v-html': 0,
     '@typescript-eslint/no-explicit-any': 0,
+    "@typescript-eslint/no-unused-vars": ["error", { "args": "none" }],
     'prettier/prettier': ['error', { singleQuote: true }],
     quotes: ['error', 'single', { avoidEscape: true }],
   },
