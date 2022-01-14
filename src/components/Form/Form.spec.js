@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { mount, createLocalVue } from '@vue/test-utils';
 import Form from '@/components/Form/Form.vue';
 import PInput from '@/components/InputText';

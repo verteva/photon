@@ -1,17 +1,24 @@
 import { mount, createLocalVue, Wrapper } from '@vue/test-utils';
+import Vuex from 'vuex';
 
 export const createWrapper = (
   component: any,
   slots = { default: 'Slot Content' },
-  propsOverrides = {}
+  propsOverrides = {},
+  state = {},
+  listeners = {}
 ): Wrapper<Vue> => {
   const localVue = createLocalVue();
+  localVue.use(Vuex);
+  const store = new Vuex.Store({ state });
   return mount(component, {
     localVue,
     propsData: {
       ...propsOverrides,
     },
-    slots: slots,
+    slots,
+    store,
+    listeners,
   });
 };
 

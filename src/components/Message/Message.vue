@@ -1,6 +1,11 @@
 <template>
   <div ref="ph-message" :class="classList">
-    <p-icon :name="typeStyle.icon" type="lg" :class="iconClassList" />
+    <p-icon
+      ref="messageIcon"
+      :name="typeStyle.icon"
+      type="lg"
+      :class="iconClassList"
+    />
     <div class="ph-flex ph-flex-col ph-flex-1">
       <div class="ph-font-bold ph-pt-1 ph-leading-5">
         {{ title }}
@@ -12,6 +17,7 @@
         </div>
         <p-button
           v-if="$listeners.click && callToAction"
+          ref="messageButton"
           class="ph-mt-4"
           @click="$emit('click')"
         >

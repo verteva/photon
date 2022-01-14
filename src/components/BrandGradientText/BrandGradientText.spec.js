@@ -1,5 +1,5 @@
 import BrandGradientText from '@/components/BrandGradientText/BrandGradientText.vue';
-import { createWrapper, assertStyleVarSetup } from '@/utils/unitTest';
+import { createWrapper } from '@/utils/unitTest';
 
 describe('BrandGradientText.vue', () => {
   let wrapper;
