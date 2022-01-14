@@ -13,6 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fix
 - InfoCard remove red background of splitter
 
+## [0.1.634] - 2021-12-21
+### Fix
+- Added Vuex to Toast Component
+- Toast & Message unit tests
+
 ## [0.1.632] - 2022-01-07
 ### Fix
 - InputText turn off autocomplete
