@@ -56,6 +56,6 @@ export default {
 }
 
 .side-bar__content {
-  @apply ph-height-full;
+  @apply ph-h-full;
 }
 </style>
