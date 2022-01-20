@@ -1,5 +1,5 @@
 export default {
-  title: 'Button & Tags/Tag',
+  title: 'Button & Tags/Forms',
   argTypes: {},
 };
 

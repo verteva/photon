@@ -1,8 +1,9 @@
 import { mount, createLocalVue, Wrapper } from '@vue/test-utils';
+import { VueConstructor } from 'vue';
 import Vuex from 'vuex';
 
 export const createWrapper = (
-  component: any,
+  component: VueConstructor,
   slots = { default: 'Slot Content' },
   propsOverrides = {},
   state = {},
