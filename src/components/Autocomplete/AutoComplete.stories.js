@@ -34,7 +34,8 @@ AutocompleteMain.args = {
   openIndicatorIcon: 'MenuDown',
   openIndicatorIconSize: 'med',
   customLabelVar: 'label',
-
+  initInput: '001',
+  selectedBy: 'id',
   optionItems: [
     {
       id: '001',
