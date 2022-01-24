@@ -176,6 +176,7 @@ import {
   LeadingMax,
   DropDown,
   DropUp,
+  InputValueType,
 } from './types';
 import { createPopper } from '@popperjs/core';
 
@@ -313,7 +314,7 @@ export default Vue.extend({
       default: null,
     },
     value: {
-      type: String as PropType<string>,
+      type: [Number, String, Object] as PropType<InputValueType>,
       default: null,
     },
     maxHeight: {
@@ -356,8 +357,8 @@ export default Vue.extend({
       default: false,
     },
     initInput: {
-      type: String as PropType<string>,
-      default: '',
+      type: [Number, String, Object] as PropType<InputValueType>,
+      default: null,
     },
     errors: {
       type: Array,
@@ -588,6 +589,10 @@ export default Vue.extend({
 
 .vs__search {
   opacity: 1 !important;
+}
+
+.vs__selected {
+  color: var(--textColor);
 }
 
 .vs__actions {
