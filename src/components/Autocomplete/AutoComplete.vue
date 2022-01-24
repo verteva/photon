@@ -36,6 +36,7 @@
         @search:blur="$emit('blur')"
         @open="onOpen"
         @close="onClose"
+        @option:selected="onSelected"
       >
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
@@ -325,6 +326,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    selectedBy: {
+      type: String as PropType<string>,
+      default: 'label',
+    },
     labelVar: {
       type: String as PropType<string>,
       default: 'label',
@@ -393,7 +398,7 @@ export default Vue.extend({
         'hover:ph-text-brandh2',
       ],
       focused: false,
-      selected: this.initInput || '',
+      selected: '',
       searchText: '',
       manualInput: '',
       toggleMenu: false,
@@ -419,8 +424,20 @@ export default Vue.extend({
       return props;
     },
   },
-
+  created() {
+    const selected = (this as any).getSelected(this.initInput);
+    this.$data.selected = selected ? selected[this.labelVar] || '' : '';
+  },
+  mounted() {
+    this.$emit('selectedObj', (this as any).getSelected(this.initInput));
+  },
   methods: {
+    getSelected(input: string) {
+      const option = (this as any).optionItems.filter(
+        item => item[this.selectedBy] === input
+      )[0];
+      return option ? option : null;
+    },
     validateIcon(option: { icon: string }) {
       return option.icon ? option.icon : null;
     },
@@ -460,6 +477,9 @@ export default Vue.extend({
       this.$data.focused = false;
       this.$data.toggleMenu = false;
       this.$emit('onBlur');
+    },
+    onSelected(selectedOption: any) {
+      this.$emit('selectedObj', selectedOption);
     },
     withPopper(dropdownList, component, { width }) {
       /**
