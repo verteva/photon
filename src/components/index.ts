@@ -31,6 +31,7 @@ import PContentCard from './ContentCard';
 import PProgressCircular from './ProgressCircular';
 import PBadge from './Badge';
 import PSideBar from './SideBar';
+import PInputSelect from './InputSelect';
 import { PText, PH1, PH2, PH3, PBlockquote } from './Typography';
 
 export interface PhotonComponents {
@@ -75,6 +76,7 @@ const components: PhotonComponents = {
   PBadge,
   PProgressCircular,
   PSideBar,
+  PInputSelect,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;

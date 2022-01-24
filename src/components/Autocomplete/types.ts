@@ -38,3 +38,5 @@ export type MarginSize =
   | typeof LeadingNormal
   | typeof LeadingLoose
   | typeof LeadingMax;
+
+export type InputValueType = string | number;
