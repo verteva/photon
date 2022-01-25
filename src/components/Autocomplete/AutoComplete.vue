@@ -9,7 +9,11 @@
         :value="initInput"
         :options="optionItems"
         :label="labelVar"
-        :reduce="!returnObj ? content => content[labelVar] : content => content"
+        :reduce="
+          !simple && !returnObj
+            ? content => content[labelVar]
+            : content => content
+        "
         :placeholder="placeHolder"
         :class="[
           'ph-autocomplete-drop' + dropType,
@@ -71,7 +75,11 @@
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal"
               style="line-height: 40px;"
-              v-html="option[customLabelVar]"
+              v-html="
+                option[customLabelVar]
+                  ? option[customLabelVar]
+                  : option[labelVar]
+              "
             ></label>
           </div>
         </template>
@@ -93,7 +101,11 @@
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal ph-pt-0.5"
               style="line-height: 40px;"
-              v-html="option[customLabelVar]"
+              v-html="
+                option[customLabelVar]
+                  ? option[customLabelVar]
+                  : option[labelVar]
+              "
             ></label>
           </div>
         </template>
@@ -383,6 +395,10 @@ export default Vue.extend({
         return options;
       },
     },
+    simple: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
   data() {
     return {
@@ -426,7 +442,9 @@ export default Vue.extend({
   },
   created() {
     const selected = (this as any).getSelected(this.initInput);
-    this.$data.selected = selected ? selected[this.labelVar] || '' : '';
+    this.$data.selected = selected
+      ? selected[this.labelVar] || ''
+      : this.initInput;
   },
   mounted() {
     this.$emit('selectedObj', (this as any).getSelected(this.initInput));
