@@ -9,7 +9,11 @@
         :value="initInput"
         :options="optionItems"
         :label="labelVar"
-        :reduce="!returnObj ? content => content[labelVar] : content => content"
+        :reduce="
+          !simple && !returnObj
+            ? content => content[labelVar]
+            : content => content
+        "
         :placeholder="placeHolder"
         :class="[
           'ph-autocomplete-drop' + dropType,
@@ -36,6 +40,7 @@
         @search:blur="$emit('blur')"
         @open="onOpen"
         @close="onClose"
+        @option:selected="onSelected"
       >
         <template #search="{ attributes, events }">
           <div class="ph-autocomplete-search ph-flex ph-flex-1">
@@ -70,7 +75,11 @@
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal"
               style="line-height: 40px;"
-              v-html="option[customLabelVar]"
+              v-html="
+                option[customLabelVar]
+                  ? option[customLabelVar]
+                  : option[labelVar]
+              "
             ></label>
           </div>
         </template>
@@ -92,7 +101,11 @@
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal ph-pt-0.5"
               style="line-height: 40px;"
-              v-html="option[customLabelVar]"
+              v-html="
+                option[customLabelVar]
+                  ? option[customLabelVar]
+                  : option[labelVar]
+              "
             ></label>
           </div>
         </template>
@@ -176,6 +189,7 @@ import {
   LeadingMax,
   DropDown,
   DropUp,
+  InputValueType,
 } from './types';
 import { createPopper } from '@popperjs/core';
 
@@ -313,7 +327,7 @@ export default Vue.extend({
       default: null,
     },
     value: {
-      type: String as PropType<string>,
+      type: [Number, String, Object] as PropType<InputValueType>,
       default: null,
     },
     maxHeight: {
@@ -323,6 +337,10 @@ export default Vue.extend({
     returnObj: {
       type: Boolean as PropType<boolean>,
       default: false,
+    },
+    selectedBy: {
+      type: String as PropType<string>,
+      default: 'label',
     },
     labelVar: {
       type: String as PropType<string>,
@@ -356,8 +374,8 @@ export default Vue.extend({
       default: false,
     },
     initInput: {
-      type: String as PropType<string>,
-      default: '',
+      type: [Number, String, Object] as PropType<InputValueType>,
+      default: null,
     },
     errors: {
       type: Array,
@@ -377,6 +395,10 @@ export default Vue.extend({
         return options;
       },
     },
+    simple: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
   data() {
     return {
@@ -392,7 +414,7 @@ export default Vue.extend({
         'hover:ph-text-brandh2',
       ],
       focused: false,
-      selected: this.initInput || '',
+      selected: '',
       searchText: '',
       manualInput: '',
       toggleMenu: false,
@@ -418,8 +440,22 @@ export default Vue.extend({
       return props;
     },
   },
-
+  created() {
+    const selected = (this as any).getSelected(this.initInput);
+    this.$data.selected = selected
+      ? selected[this.labelVar] || ''
+      : this.initInput;
+  },
+  mounted() {
+    this.$emit('selectedObj', (this as any).getSelected(this.initInput));
+  },
   methods: {
+    getSelected(input: string) {
+      const option = (this as any).optionItems.filter(
+        item => item[this.selectedBy] === input
+      )[0];
+      return option ? option : null;
+    },
     validateIcon(option: { icon: string }) {
       return option.icon ? option.icon : null;
     },
@@ -459,6 +495,9 @@ export default Vue.extend({
       this.$data.focused = false;
       this.$data.toggleMenu = false;
       this.$emit('onBlur');
+    },
+    onSelected(selectedOption: any) {
+      this.$emit('selectedObj', selectedOption);
     },
     withPopper(dropdownList, component, { width }) {
       /**
@@ -588,6 +627,10 @@ export default Vue.extend({
 
 .vs__search {
   opacity: 1 !important;
+}
+
+.vs__selected {
+  color: var(--textColor);
 }
 
 .vs__actions {

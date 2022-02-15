@@ -13,8 +13,29 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PAutoComplete },
   props: Object.keys(argTypes),
-  template: '<PAutoComplete v-bind="$props" />',
+  template:
+    '<div><PAutoComplete v-model="selected" @selectedObj="selectedOption" v-bind="$props" />selected option:{{$data.selected}}</div>',
+  data() {
+    return {
+      selected: null,
+    };
+  },
+  methods: {
+    selectedOption(selectedOption) {
+      this.$data.selected = selectedOption;
+    },
+  },
 });
+
+export const AutocompleteSimple = Template.bind({});
+AutocompleteSimple.args = {
+  label: 'Autocomplete',
+  dropType: 'up',
+  openIndicatorIcon: 'MenuDown',
+  openIndicatorIconSize: 'med',
+  simple: true,
+  optionItems: ['item1', 'item2'],
+};
 
 export const AutocompleteMain = Template.bind({});
 AutocompleteMain.args = {
@@ -23,14 +44,16 @@ AutocompleteMain.args = {
   openIndicatorIcon: 'MenuDown',
   openIndicatorIconSize: 'med',
   customLabelVar: 'label',
+  initInput: '001',
+  selectedBy: 'id',
   optionItems: [
     {
-      code: '001',
+      id: '001',
       label: '<span class="af_hl">highlight</span> test1',
       icon: 'Checkmark',
     },
     {
-      code: '002',
+      id: '002',
       label: '<span class="af_hl">highlight</span> test2',
       icon: 'Checkmark',
     },
