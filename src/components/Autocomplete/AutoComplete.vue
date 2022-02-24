@@ -580,6 +580,7 @@ export default Vue.extend({
 
 .vs__selected-options input {
   color: currentColor;
+  -webkit-appearance: none;
 }
 
 .vs__search {
