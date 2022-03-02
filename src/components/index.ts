@@ -1,4 +1,5 @@
 import { Component } from 'vue';
+import PLoanFigures from './LoanFigures';
 import PIcon from './Icon';
 import PButton from './Button';
 import PSkipLink from './SkipLink';
@@ -39,6 +40,7 @@ export interface PhotonComponents {
 }
 
 const components: PhotonComponents = {
+  PLoanFigures,
   PButton,
   PSkipLink,
   PAccordion,
