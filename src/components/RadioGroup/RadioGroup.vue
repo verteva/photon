@@ -5,7 +5,7 @@
       <slot v-if="!label" name="label" />
     </p-label>
     <div
-      class="radio-wrapper ph-grid sm:ph-grid-flow-col ph-radio-group ph-gap-5"
+      class="radio-wrapper ph-grid sm:ph-grid-flow-col ph-auto-cols-fr ph-radio-group ph-gap-5"
       :style="numRows"
     >
       <PInputRadio
