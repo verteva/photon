@@ -1,7 +1,7 @@
 <template>
   <div
-    class="ph-flex ph-w-full ph-p-2 ph-rounded-lg ph-text-white ph-px-4"
-    :class="background"
+    class="ph-flex ph-w-full ph-p-2 ph-rounded-lg ph-px-4"
+    :class="[background, darkMode ? '' : 'ph-text-white']"
   >
     <div class="ph-flex ph-flex-col ph-justify-end ph-mr-auto">
       <div class="ph-text-sm ph-mt-3">
@@ -9,7 +9,6 @@
       </div>
       <div class="ph-text-lg sm:ph-text-3xl ph-font-bold ph-mb-1">
         <span class="ph-text-lg sm:ph-text-3xl ph-font-bold">
-          <!-- {{ display }} -->
           <div
             class="tw-flex tw-w-auto"
             :class="[$attrs.class, (!loading && 'tw-animate-fadeInSlow') || '']"
@@ -19,7 +18,12 @@
         </span>
       </div>
     </div>
-    <p-icon :name="name" class="ph-text-white" type="xxl" />
+    <p-icon
+      v-if="icon"
+      :name="icon"
+      :class="darkMode ? '' : 'ph-text-white'"
+      type="xxl"
+    />
   </div>
 </template>
 
@@ -46,7 +50,7 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
-    name: {
+    icon: {
       type: String as PropType<string>,
       default: '',
     },
