@@ -1,4 +1,5 @@
 import { createWrapper } from '@/utils/unitTest.ts';
+import { addCommaSeparators } from '@/utils/';
 import LoanFigures from '@/components/LoanFigures/LoanFigures.vue';
 
 describe('LoanFigures.vue', () => {
@@ -21,18 +22,13 @@ describe('LoanFigures.vue', () => {
 
   it('props: loading', async () => {
     await wrapper.setProps({ loading: true });
-    expect(wrapper.props().loading).toEqual(true);
-    await wrapper.vm.calculate();
-    const loadingValue = Number(LoanFiguresValue.text());
-
-    expect(loadingValue).toBeTruthy();
-    expect(loadingValue).toBeGreaterThanOrEqual(0.01);
+    expect(wrapper.props().loading).toBeTruthy;
   });
 
-  it('props: name', async () => {
-    const name = 'Rent';
-    await wrapper.setProps({ name });
-    expect(wrapper.props().name).toEqual(name);
+  it('props: icon', async () => {
+    const icon = 'Rent';
+    await wrapper.setProps({ icon });
+    expect(wrapper.props().icon).toEqual(icon);
   });
   it('props: value', async () => {
     const value = 200000;
@@ -40,10 +36,17 @@ describe('LoanFigures.vue', () => {
     expect(wrapper.props().value).toEqual(value);
   });
   it('props: darkMode', async () => {
-    expect(wrapper.classes()).not.toContain('ph-text-white');
     await wrapper.setProps({ darkMode: true });
 
     expect(wrapper.props().darkMode).toEqual(true);
-    expect(wrapper.classes()).toContain('ph-text-white');
+    expect(wrapper.classes()).not.toContain('ph-text-white');
+  });
+  it('computed: display', async () => {
+    const value = 200000;
+    await wrapper.setProps({ value });
+    const numberConv = addCommaSeparators(value);
+    await console.log(wrapper.vm.display);
+    const displayComputed = wrapper.vm.display;
+    expect(displayComputed).toEqual('$' + numberConv);
   });
 });

@@ -20,6 +20,6 @@ CurrentLoan.args = {
   title: 'Current Loan',
   loading: false,
   darkMode: false,
-  name: 'Rent',
+  icon: 'Rent',
   value: 200000,
 };
