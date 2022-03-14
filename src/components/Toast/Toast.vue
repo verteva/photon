@@ -46,23 +46,22 @@ export default Vue.extend({
   computed: {
     classList(): string[] {
       return [
-        'ph-w-3/5',
         'ph-fixed',
         'ph-z-10',
+        'ph-w-full',
+        'ph-flex',
+        'ph-flex-col',
+        'ph-pointer-events-none',
         ((this as any).yPos === 'top' && 'ph-top-10') || '',
         ((this as any).yPos === 'bottom' && 'ph-bottom-10') || '',
-        ((this as any).xPos === 'center' && 'ph-inset-x-1/2') || '',
-        ((this as any).xPos === 'left' && 'ph-left-10') || '',
-        ((this as any).xPos === 'right' && 'ph-right-10') || '',
+        ((this as any).xPos === 'left' && 'ph-items-start') || '',
+        ((this as any).xPos === 'right' && 'ph-items-end') || '',
+        ((this as any).xPos === 'center' && 'ph-items-center') || '',
       ];
     },
 
     messagesClassList(): string[] {
-      return [
-        'ph-transform',
-        'ph-min-w-72',
-        ((this as any).xPos === 'center' && 'ph--translate-x-1/2') || '',
-      ];
+      return ['ph-transform', 'ph-pointer-events-auto'];
     },
 
     messageList(): any {
@@ -91,7 +90,7 @@ export default Vue.extend({
             if (store) {
               store.dispatch('toast/removeToast', id);
             }
-          }, 4000);
+          }, msg.delay || 5000);
         }
       });
     },
