@@ -90,7 +90,7 @@ export default Vue.extend({
             if (store) {
               store.dispatch('toast/removeToast', id);
             }
-          }, msg.delay || 5000);
+          }, msg.delay || 4000);
         }
       });
     },
