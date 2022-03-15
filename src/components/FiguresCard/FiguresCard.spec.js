@@ -1,11 +1,11 @@
 import { createWrapper } from '@/utils/unitTest.ts';
 import { addCommaSeparators } from '@/utils/';
-import LoanFiguresCard from '@/components/LoanFigures/LoanFiguresCard.vue';
+import FiguresCard from '@/components/FiguresCard/FiguresCard.vue';
 
-describe('LoanFiguresCard.vue', () => {
+describe('FiguresCard.vue', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = createWrapper(LoanFiguresCard);
+    wrapper = createWrapper(FiguresCard);
   });
 
   it('props: background', async () => {
@@ -31,17 +31,27 @@ describe('LoanFiguresCard.vue', () => {
     expect(wrapper.props().icon).toEqual(icon);
   });
 
+  it('props: iconSize', async () => {
+    const iconSize = 'xxl';
+    await wrapper.setProps({ iconSize });
+    expect(wrapper.props().iconSize).toEqual(iconSize);
+  });
+
   it('props: value', async () => {
     const value = 200000;
     await wrapper.setProps({ value });
     expect(wrapper.props().value).toEqual(value);
   });
 
-  it('props: darkMode', async () => {
-    await wrapper.setProps({ darkMode: true });
+  it('props: textColor', async () => {
+    const textColor = 'ph-text-white';
+    await wrapper.setProps({ textColor });
+    expect(wrapper.props().textColor).toEqual(textColor);
+  });
 
-    expect(wrapper.props().darkMode).toEqual(true);
-    expect(wrapper.classes()).not.toContain('ph-text-white');
+  it('props: isCurrency', async () => {
+    await wrapper.setProps({ isCurrency: true });
+    expect(wrapper.props().isCurrency).toBeTruthy;
   });
 
   it('computed: display', async () => {

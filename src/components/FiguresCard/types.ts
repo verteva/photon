@@ -1,4 +1,4 @@
-export interface LoanFiguresData {
+export interface FiguresData {
   calculation: number;
   calcInterval: number;
   min: number;
