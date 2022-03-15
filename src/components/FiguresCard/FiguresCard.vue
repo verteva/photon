@@ -13,27 +13,22 @@
             class="ph-flex ph-w-auto"
             :class="[$attrs.class, (!loading && 'ph-animate-fadeInSlow') || '']"
           >
-            {{ loading ? calculation : display }}
+            {{ loading && isCurrency ? calculation : display }}
           </div>
         </span>
       </div>
     </div>
-    <p-icon
-      v-if="icon"
-      :name="icon"
-      :class="darkMode ? '' : 'ph-text-white'"
-      :type="iconSize"
-    />
+    <p-icon v-if="icon" :name="icon" :class="textColor" :type="iconSize" />
   </div>
 </template>
 
 <script lang="ts">
 import { addCommaSeparators } from '../../utils';
-import { LoanFiguresData } from './types';
+import { FiguresData } from './types';
 import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 export default Vue.extend({
-  name: 'LoanFiguresCard',
+  name: 'FiguresCard',
   components: {
     PIcon,
   },
@@ -46,9 +41,9 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    darkMode: {
-      type: Boolean as PropType<boolean>,
-      default: false,
+    textColor: {
+      type: String as PropType<string>,
+      default: 'ph-text-white',
     },
     icon: {
       type: String as PropType<string>,
@@ -66,8 +61,12 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    isCurrency: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
   },
-  data(): LoanFiguresData {
+  data(): FiguresData {
     return {
       calculation: 0.0,
       calcInterval: 0,
@@ -77,7 +76,9 @@ export default Vue.extend({
   },
   computed: {
     display() {
-      return `$${addCommaSeparators(this.value)}` as string;
+      return (this as any).isCurrency
+        ? `$${addCommaSeparators(this.value)}`
+        : (this as any).value;
     },
   },
 

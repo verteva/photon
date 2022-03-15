@@ -22,7 +22,7 @@ import PMessage from './Message';
 import PToast from './Toast';
 import PList from './List';
 import PLi from './ListItem';
-import PLoanFiguresCard from './LoanFiguresCard';
+import PFiguresCard from './FiguresCard';
 import PInfoCard from './InfoCard';
 import PBrandGradientText from './BrandGradientText';
 import PSwitchToggle from './SwitchToggle';
@@ -65,7 +65,7 @@ const components: PhotonComponents = {
   PToast,
   PList,
   PLi,
-  PLoanFiguresCard,
+  PFiguresCard,
   PInfoCard,
   PBrandGradientText,
   PForm,
