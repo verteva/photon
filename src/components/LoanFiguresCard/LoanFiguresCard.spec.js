@@ -1,6 +1,6 @@
 import { createWrapper } from '@/utils/unitTest.ts';
 import { addCommaSeparators } from '@/utils/';
-import LoanFigures from '@/components/LoanFigures/LoanFigures.vue';
+import LoanFigures from '@/components/LoanFigures/LoanFiguresCard.vue';
 
 describe('LoanFigures.vue', () => {
   let wrapper;
@@ -30,17 +30,20 @@ describe('LoanFigures.vue', () => {
     await wrapper.setProps({ icon });
     expect(wrapper.props().icon).toEqual(icon);
   });
+
   it('props: value', async () => {
     const value = 200000;
     await wrapper.setProps({ value });
     expect(wrapper.props().value).toEqual(value);
   });
+
   it('props: darkMode', async () => {
     await wrapper.setProps({ darkMode: true });
 
     expect(wrapper.props().darkMode).toEqual(true);
     expect(wrapper.classes()).not.toContain('ph-text-white');
   });
+
   it('computed: display', async () => {
     const value = 200000;
     await wrapper.setProps({ value });

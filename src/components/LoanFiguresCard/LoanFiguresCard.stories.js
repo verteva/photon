@@ -1,4 +1,4 @@
-import PLoanFigures from './LoanFigures.vue';
+import PLoanFigures from './LoanFiguresCard.vue';
 
 export default {
   title: 'Components/LoanFigures',
