@@ -10,8 +10,8 @@
       <div class="ph-text-lg sm:ph-text-3xl ph-font-bold ph-mb-1">
         <span class="ph-text-lg sm:ph-text-3xl ph-font-bold">
           <div
-            class="tw-flex tw-w-auto"
-            :class="[$attrs.class, (!loading && 'tw-animate-fadeInSlow') || '']"
+            class="ph-flex ph-w-auto"
+            :class="[$attrs.class, (!loading && 'ph-animate-fadeInSlow') || '']"
           >
             {{ loading ? calculation : display }}
           </div>
@@ -22,7 +22,7 @@
       v-if="icon"
       :name="icon"
       :class="darkMode ? '' : 'ph-text-white'"
-      type="xxl"
+      :type="iconSize"
     />
   </div>
 </template>
@@ -33,7 +33,7 @@ import { LoanFiguresData } from './types';
 import Vue, { PropType } from 'vue';
 import PIcon from '../Icon';
 export default Vue.extend({
-  name: 'LoanFigures',
+  name: 'LoanFiguresCard',
   components: {
     PIcon,
   },
@@ -53,6 +53,10 @@ export default Vue.extend({
     icon: {
       type: String as PropType<string>,
       default: '',
+    },
+    iconSize: {
+      type: String as PropType<string>,
+      default: 'xxl',
     },
     value: {
       type: Number as PropType<number>,

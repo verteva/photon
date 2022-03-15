@@ -1,5 +1,4 @@
 import { Component } from 'vue';
-import PLoanFigures from './LoanFigures';
 import PIcon from './Icon';
 import PButton from './Button';
 import PSkipLink from './SkipLink';
@@ -23,6 +22,7 @@ import PMessage from './Message';
 import PToast from './Toast';
 import PList from './List';
 import PLi from './ListItem';
+import PLoanFigures from './LoanFiguresCard';
 import PInfoCard from './InfoCard';
 import PBrandGradientText from './BrandGradientText';
 import PSwitchToggle from './SwitchToggle';
