@@ -1,3 +1,3 @@
-import PLoanFigures from './LoanFiguresCard.vue';
+import PLoanFiguresCard from './LoanFiguresCard.vue';
 
-export default PLoanFigures;
+export default PLoanFiguresCard;

@@ -1,17 +1,17 @@
-import PLoanFigures from './LoanFiguresCard.vue';
+import PLoanFiguresCard from './LoanFiguresCard.vue';
 
 export default {
-  title: 'Components/LoanFigures',
-  component: PLoanFigures,
+  title: 'Components/LoanFiguresCard',
+  component: PLoanFiguresCard,
   argTypes: {
     // Configurable component options in SB UI...
   },
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { PLoanFigures },
+  components: { PLoanFiguresCard },
   props: Object.keys(argTypes),
-  template: "<PLoanFigures v-bind='$props' />",
+  template: "<PLoanFiguresCard v-bind='$props' />",
 });
 
 export const CurrentLoan = Template.bind({});
