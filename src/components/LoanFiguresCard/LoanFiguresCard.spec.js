@@ -1,11 +1,11 @@
 import { createWrapper } from '@/utils/unitTest.ts';
 import { addCommaSeparators } from '@/utils/';
-import LoanFigures from '@/components/LoanFigures/LoanFiguresCard.vue';
+import LoanFiguresCard from '@/components/LoanFigures/LoanFiguresCard.vue';
 
-describe('LoanFigures.vue', () => {
+describe('LoanFiguresCard.vue', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = createWrapper(LoanFigures);
+    wrapper = createWrapper(LoanFiguresCard);
   });
 
   it('props: background', async () => {
