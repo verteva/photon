@@ -1,7 +1,7 @@
 <template>
   <div
     class="ph-flex ph-w-full ph-p-2 ph-rounded-lg ph-px-4"
-    :class="[background, darkMode ? '' : 'ph-text-white']"
+    :class="[background, textColor]"
   >
     <div class="ph-flex ph-flex-col ph-justify-end ph-mr-auto">
       <div class="ph-text-sm ph-mt-3">
