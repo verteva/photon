@@ -91,7 +91,6 @@ export default Vue.extend({
     return {
       inFocus: false,
       id: '',
-      innerValue: (this as any).value,
       baseClassList: [
         'ph-antialiased',
         'ph-w-full ',
@@ -111,6 +110,14 @@ export default Vue.extend({
   },
 
   computed: {
+    innerValue: {
+      get() {
+        return (this as any).value;
+      },
+      set(val) {
+        (this as any).$emit('input', val);
+      },
+    },
     componentClassList(): string[] {
       return [(this as any).inFocus ? 'ph-text-brand2' : '', 'ph-relative'];
     },
