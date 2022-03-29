@@ -22,7 +22,7 @@ export default [
   'Burger',
   'Calendar',
   'Camera',
-  'CameraAcess',
+  'CameraAccess',
   'CaptureId',
   'CardPIN',
   'CardsApproved',
