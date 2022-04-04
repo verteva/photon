@@ -20,7 +20,6 @@
           '--countriesHeight': onlyCountries.length * 30,
           '--countriesMaxHeight': onlyCountries,
           '--borderRadius': borderRadius + 'px',
-          
         }"
         :border-radius="borderRadius"
         default-country-code="AU"
