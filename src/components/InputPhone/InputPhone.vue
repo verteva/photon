@@ -20,6 +20,7 @@
           '--countriesHeight': onlyCountries.length * 30,
           '--countriesMaxHeight': onlyCountries,
           '--borderRadius': borderRadius + 'px',
+          
         }"
         :border-radius="borderRadius"
         default-country-code="AU"
@@ -31,6 +32,7 @@
         v-on="$listeners"
         @phone-number-focused="onFocus"
         @phone-number-blur="onBlur"
+        :disabled="disabled"
       />
     </div>
   </p-input>
@@ -53,6 +55,10 @@ export default Vue.extend({
   },
 
   props: {
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     darkMode: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -218,5 +224,10 @@ input::-webkit-inner-spin-button {
 }
 .vue-phone-number-input input {
   @apply ph-font-sans;
+}
+
+.vue-phone-number-input .input-tel.is-disabled .input-tel__input,
+.vue-phone-number-input .country-selector.is-disabled .country-selector__input {
+  background: white !important;
 }
 </style>
