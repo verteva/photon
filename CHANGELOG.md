@@ -8,10 +8,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.639] - 2022-02-15
+## [0.1.647] - 2022-04-14
 ### Add
 - Husky git precommit
-- InputPhone label style
+
+## [0.1.646] - 2022-04-04
+### Add
+- Add disabled prop to phone input
+
+## [0.1.645] - 2022-03-29
+### Fixed
+- Fixed icon name typo
+
+## [0.1.644] - 2022-03-17
+### Fixed
+- Fixed InputPhone component innerValue
+
+## [0.1.643] - 2022-03-16
+### Add
+- Add the Figures component
+
+## [0.1.642] - 2022-03-14
+### Add
+- Add a delay user can configure to autoclose
+- Improve alignment
+
+## [0.1.641] - 2022-03-04
+### Fix
+- Fix RadioGroup button alignment
+
+## [0.1.640] - 2022-02-24
+## [0.1.639] - 2022-02-23
+### Fix
+- Autocomplete input field webkit-appearance for input field
+## [0.1.638] - 2022-01-27
 
 ## [0.1.638] - 2022-01-27
 ### Fix

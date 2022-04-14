@@ -7,8 +7,6 @@
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
   >
-    <title>Experiments</title>
-    <defs></defs>
     <g
       id="Experiments"
       stroke="none"

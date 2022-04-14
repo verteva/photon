@@ -28,6 +28,7 @@
         no-example
         show-code-on-list
         v-bind="$attrs"
+        :disabled="disabled"
         v-on="$listeners"
         @phone-number-focused="onFocus"
         @phone-number-blur="onBlur"
@@ -53,6 +54,10 @@ export default Vue.extend({
   },
 
   props: {
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     darkMode: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -91,7 +96,6 @@ export default Vue.extend({
     return {
       inFocus: false,
       id: '',
-      innerValue: (this as any).value,
       baseClassList: [
         'ph-antialiased',
         'ph-w-full ',
@@ -111,6 +115,14 @@ export default Vue.extend({
   },
 
   computed: {
+    innerValue: {
+      get() {
+        return (this as any).value;
+      },
+      set(val) {
+        (this as any).$emit('input', val);
+      },
+    },
     componentClassList(): string[] {
       return [(this as any).inFocus ? 'ph-text-brand2' : '', 'ph-relative'];
     },
@@ -211,5 +223,10 @@ input::-webkit-inner-spin-button {
 }
 .vue-phone-number-input input {
   @apply ph-font-sans;
+}
+
+.vue-phone-number-input .input-tel.is-disabled .input-tel__input,
+.vue-phone-number-input .country-selector.is-disabled .country-selector__input {
+  background: white !important;
 }
 </style>
