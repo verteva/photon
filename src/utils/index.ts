@@ -10,9 +10,10 @@ export const removeCommaSeparators = (str: string): number => {
 
 export const isNumber = (event: KeyboardEvent): boolean => {
   if (
-    event.keyCode > 31 &&
-    (event.keyCode < 48 || event.keyCode > 57) &&
-    event.keyCode !== 46
+    (event.keyCode > 31 &&
+      (event.keyCode < 48 || event.keyCode > 57) &&
+      event.keyCode !== 46) ||
+    event.keyCode === 13
   ) {
     return false;
   } else {
