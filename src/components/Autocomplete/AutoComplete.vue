@@ -47,7 +47,9 @@
             <p-icon
               v-if="prefixIcon"
               ref="prefixIcon"
-              class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4 ph-text-grey2"
+              class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4"
+              :class="!iconColor && 'ph-text-grey2' || ''"
+              :style="{ color: iconColor || 'inherit' }"
               :name="prefixIcon"
               type="med"
             ></p-icon>
@@ -297,6 +299,10 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '#e0e0e0',
     },
+    iconColor: {
+      type: String as PropType<string>,
+      default: '',
+    },
     borderFocusColor: {
       type: String as PropType<string>,
       default: '#009EDE',
@@ -398,6 +404,10 @@ export default Vue.extend({
     simple: {
       type: Boolean as PropType<boolean>,
       default: false,
+    },
+    darkMode: {
+      type: Boolean as PropType<boolean>,
+      default: true,
     },
   },
   data() {
