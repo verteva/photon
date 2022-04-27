@@ -48,7 +48,7 @@
               v-if="prefixIcon"
               ref="prefixIcon"
               class="ph-autocomplete-prefix-icon ph-my-auto ph-mx-4"
-              :class="!iconColor && 'ph-text-grey2' || ''"
+              :class="(!iconColor && 'ph-text-grey2') || ''"
               :style="{ color: iconColor || 'inherit' }"
               :name="prefixIcon"
               type="med"
