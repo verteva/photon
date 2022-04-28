@@ -31,6 +31,7 @@
         <p-icon
           :name="!innerValue ? openCloseIcons[0] : openCloseIcons[1]"
           type="sm"
+          :class="openCloseIconsClass"
         />
       </div>
     </component>
@@ -80,6 +81,10 @@ export default Vue.extend({
     openCloseIcons: {
       type: Array as PropType<Array<string>>,
       default: () => [],
+    },
+    openCloseIconsClass: {
+      type: String as PropType<string>,
+      default: '',
     },
     unstyled: {
       type: Boolean as PropType<boolean>,
