@@ -6,6 +6,7 @@
     <div class="ph-flex ph-flex-col ph-justify-end ph-mr-auto">
       <div class="ph-text-sm ph-mt-3">
         {{ title }}
+        <slot name="title" />
       </div>
       <div class="ph-text-lg sm:ph-text-3xl ph-font-bold ph-mb-1">
         <span class="ph-text-lg sm:ph-text-3xl ph-font-bold">
