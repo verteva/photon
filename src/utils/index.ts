@@ -8,14 +8,13 @@ export const removeCommaSeparators = (str: string): number => {
   return Number(str.split(',').join(''));
 };
 
+export const isNumericInput = (keyCode: number): boolean =>
+  /*
+    keycode 48 to 57 => Digit0 to Digit9;
+    keycode 96 to 105 => Numpad0 to Numpad9;
+  */
+  (keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105);
+
 export const isNumber = (event: KeyboardEvent): boolean => {
-  if (
-    (event.keyCode >= 48 && event.keyCode <= 57) ||
-    (event.keyCode >= 96 && event.keyCode <= 105) ||
-    event.code === 'Backspace'
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  return isNumericInput(event.keyCode) || event.code === 'Backspace';
 };
