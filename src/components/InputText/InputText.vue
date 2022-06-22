@@ -56,7 +56,7 @@ import PIcon from '../Icon';
 import PInput from '../Input';
 import PLabel from '../Label';
 import { InputTextData, InputValueType } from './types';
-import { isNumber } from '../../utils';
+import { isNumber, isAllowedKey } from '../../utils';
 
 export default Vue.extend({
   name: 'PInputText',
@@ -170,7 +170,7 @@ export default Vue.extend({
         in the text input
       */
 
-      if (this.number && !isNumber(event)) {
+      if (this.number && !isNumber(event) && !isAllowedKey(event)) {
         return event.preventDefault();
       }
     },

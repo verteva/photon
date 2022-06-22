@@ -16,5 +16,11 @@ export const isNumericInput = (keyCode: number): boolean =>
   (keyCode >= 48 && keyCode <= 57) || (keyCode >= 96 && keyCode <= 105);
 
 export const isNumber = (event: KeyboardEvent): boolean => {
-  return isNumericInput(event.keyCode) || event.code === 'Backspace';
+  return isNumericInput(event.keyCode) || event.code === 'Backspace';  
+};
+
+export const isAllowedKey = (event: KeyboardEvent): boolean => {
+  const codes = ['Tab'];
+  const keyCodes = [9];
+  return codes.includes(event.code) || keyCodes.includes(event.keyCode);  
 };
