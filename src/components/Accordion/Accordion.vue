@@ -44,7 +44,7 @@
         class="acc-content ph-w-full"
         :class="[
           unstyled ? '' : `ph-pb-6 ${componentPadding}`,
-          noHeadingRule ? 'ph-pt-2' : 'ph-pt-6',
+          !unstyled && (noHeadingRule ? 'ph-pt-2' : 'ph-pt-6'),
         ]"
       >
         <slot name="default" />
