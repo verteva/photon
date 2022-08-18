@@ -194,6 +194,10 @@ export default Vue.extend({
       default: '10px',
     },
 
+    labelVar: {
+      type: String as PropType<string>,
+      default: 'label',
+    },
     customLabelVar: {
       type: String as PropType<string>,
       default: 'label',
@@ -260,7 +264,6 @@ export default Vue.extend({
     },
 
     onInput(value: string) {
-      console.log('Input change value', value);
       this.$emit('input', value);
     },
 

@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.654] - 2022-07-18
+### Fix
+- When `unstyled` is selected for the `Accordion` it no longer adds padding to the content. You can supply padding by adding it to the component you add into the default slot
+- Added missing properties to the `InputBasicSelect` to allow it to only return a value if an object is provided as the item value.
+
 ## [0.1.653] - 2022-07-16
 ### Add
 - Add new Input Basic Select component
