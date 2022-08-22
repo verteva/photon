@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.655] - 2022-07-22
+### Fix
+- Fixed the `Accordion` component to allow the disabling of the box-shadows.
+- Fixed the `InputBasicSelect` to always pop out the select dropdowns and append it to `<body />`.
+
+
 ## [0.1.654] - 2022-07-18
 ### Fix
 - When `unstyled` is selected for the `Accordion` it no longer adds padding to the content. You can supply padding by adding it to the component you add into the default slot

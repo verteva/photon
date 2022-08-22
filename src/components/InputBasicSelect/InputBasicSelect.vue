@@ -21,6 +21,7 @@
           'ph-input-basic-select-drop' + dropType,
           { 'ph-input-basic-select-open': isOpen },
         ]"
+        :append-to-body="true"
         :clearable="!hideClearBtn"
         :style="{
           '--bgColor': backgroundColor,

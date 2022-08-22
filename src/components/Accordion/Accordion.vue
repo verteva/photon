@@ -118,6 +118,10 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    focusShadow: {
+      type: Boolean as PropType<boolean>,
+      default: true,
+    },
     noHeadingRule: {
       type: Boolean as PropType<boolean>,
       default: false,
@@ -145,6 +149,10 @@ export default Vue.extend({
     identifier: {
       type: [String, Number],
       default: null,
+    },
+    textStyle: {
+      type: String as PropType<string>,
+      default: 'ph-uppercase',
     },
   },
 
@@ -178,7 +186,7 @@ export default Vue.extend({
         'acc-header',
         'ph-flex',
         'ph-items-center',
-        'ph-uppercase',
+        this.textStyle,
         'ph-text-grey3',
         'ph-font-normal',
         'focus:ph-outline-none',
@@ -192,7 +200,7 @@ export default Vue.extend({
     classList(): string[] {
       let shadow = this.shadow ? 'ph-shadow' : '';
       if (this.focussed) {
-        shadow = 'ph-shadow-brand';
+        shadow = this.focusShadow ? 'ph-shadow-brand' : '';
       }
 
       const a: string[] = [
