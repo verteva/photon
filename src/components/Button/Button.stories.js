@@ -1,14 +1,7 @@
 import PButton from './Button.vue';
+import Loader from '../Loader';
 import '../../assets/scss/main.scss';
-
-const notContolled = {
-  control: { disable: true },
-};
-
-const notDisplayed = {
-  control: { disable: true },
-  table: { disable: true },
-};
+import { ButtonSizes, ButtonStyles, ButtonTypes } from './types';
 
 const bool = { options: [true, false] };
 
@@ -17,17 +10,29 @@ export default {
   component: PButton,
   // Set the order of the props
   argTypes: {
-    label: '',
-    submitting: bool,
+    label: {
+      control: 'text',
+      defaultValue: 'Hello',
+    },
     disabled: bool,
-    noRadius: bool,
-    outlined: bool,
+    submitting: bool,
     upperCase: bool,
-    valid: bool,
     block: bool,
-    buttonStyle: notContolled,
-    type: notContolled,
-    size: notContolled,
+    buttonStyle: {
+      control: 'select',
+      options: Object.values(ButtonStyles),
+      defaultValue: ButtonStyles.PRIMARY,
+    },
+    type: {
+      control: 'select',
+      options: Object.values(ButtonTypes),
+      defaultValue: ButtonTypes.BUTTON,
+    },
+    size: {
+      control: 'select',
+      options: Object.values(ButtonSizes),
+      defaultValue: ButtonSizes.MEDIUM,
+    },
   },
   // Set the initial values of the props
   args: {},
@@ -45,44 +50,41 @@ const DocsTemplate = (args, { argTypes }) => ({
     </div>
   `,
   data() {
+    const sizes = Object.values(ButtonSizes);
     return {
-      buttons: [
-        {
-          type: 'primary',
-          sizes: ['medium', 'small', 'xs'],
-        },
-        {
-          type: 'secondary',
-          sizes: ['medium', 'small', 'xs'],
-        },
-        {
-          type: 'plain',
-          sizes: ['medium'],
-        },
-      ],
+      buttons: Object.values(ButtonStyles).map(type => ({
+        type,
+        sizes,
+      })),
     };
   },
+});
+
+// This is how to do the submitting state in the future. Seperated from the button component.
+const SubmittingTemplate = (args, { argTypes }) => ({
+  components: { PButton, Loader },
+  props: Object.keys(argTypes),
+  template: `
+    <div class="ph-flex">
+      <PButton v-bind="$props" class="ph-my-2">
+        <div :style="{ opacity: submitting ? 0 : 1 }" class="ph-transition">{{ label }}</div>
+        <loader :style="{ opacity: !submitting ? 0 : 1 }" class="ph-transition" :size="size" />
+      </PButton>
+    </div>
+  `,
 });
 
 export const Docs = DocsTemplate.bind({});
 Docs.argTypes = {};
 
+export const Submitting = SubmittingTemplate.bind({});
+Submitting.argTypes = {};
+
 const PlaygroundTemplate = (args, { argTypes }) => ({
   components: { PButton },
   props: Object.keys(argTypes),
-  template: '<p-button>Hello</p-button>',
+  template: '<p-button v-bind="{...props}">Hello</p-button>',
 });
+
 export const Playground = PlaygroundTemplate.bind({});
-Playground.argTypes = {
-  label: notDisplayed,
-  submitting: notDisplayed,
-  disabled: notDisplayed,
-  noRadius: notDisplayed,
-  buttonStyle: notDisplayed,
-  type: notDisplayed,
-  size: notDisplayed,
-  outlined: notDisplayed,
-  upperCase: notDisplayed,
-  valid: notDisplayed,
-  block: notDisplayed,
-};
+Docs.argTypes = {};

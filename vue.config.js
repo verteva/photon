@@ -25,6 +25,10 @@ module.exports = {
           ],
           include: path.resolve(__dirname, '../'),
         },
+        {
+          test: /\.scss$/,
+          use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+        },
       ],
     },
   },

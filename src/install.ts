@@ -8,6 +8,13 @@ import {
   DefaultProps,
 } from 'vue/types/options';
 import './assets/scss/main.scss';
+import {
+  parseBrandingJson,
+  parseObject,
+  flattenObjectToCssVars,
+  replaceTemplateValue,
+} from './utils/parseBrandingJson';
+import { injectThemeCssVariables } from './utils/injectThemeCssVariables';
 
 import * as toast from './components/Toast/store';
 
@@ -38,4 +45,9 @@ export default {
   photonStores: {
     toast,
   },
+  parseObject,
+  parseBrandingJson,
+  flattenObjectToCssVars,
+  replaceTemplateValue,
+  injectThemeCssVariables,
 };
