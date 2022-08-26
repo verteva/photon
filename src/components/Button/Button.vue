@@ -90,8 +90,7 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   display: flex;
-  transition: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
+  transition: $all-transitions;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: getButtonStyleProperty('letter-spacing', '', '', 0.025em);
@@ -134,7 +133,7 @@ export default Vue.extend({
         left: 0;
         opacity: 0;
         border-radius: inherit;
-        transition: opacity;
+        transition: $all-transitions;
         transition-duration: 150ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
@@ -193,8 +192,7 @@ export default Vue.extend({
       width: 100%;
       justify-content: center;
       align-items: center;
-      transition: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
-        backdrop-filter;
+      transition: $all-transitions;
       transition-duration: 150ms;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }

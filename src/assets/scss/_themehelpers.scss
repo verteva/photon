@@ -11,3 +11,6 @@
 
   @return var($base-var, $fallback)
 }
+
+$all-transitions: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
+backdrop-filter;

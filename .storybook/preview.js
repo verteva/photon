@@ -25,7 +25,10 @@ export const withTheme = (story, context) => {
     },
     watch: {
       theme: {
-        handler: (val) => injectThemeCssVariables(flattenObjectToCssVars(parseBrandingJson(getTheme(val)))),
+        handler: async (val) => {
+          const json = await getTheme(val);
+          injectThemeCssVariables(flattenObjectToCssVars(parseBrandingJson(json)));
+        },
         immediate: true,
       },
     }
@@ -60,6 +63,7 @@ export const globalTypes = {
         { value: 'Nano', icon: 'circlehollow', title: 'NANO' },
         { value: 'amp', icon: 'circle', title: 'AMP' },
         { value: 'suncorp', icon: 'circle', title: 'SUNCORP' },
+        { value: 'danbrand', icon: 'circle', title: 'danbrand' },
       ],
       // Property that specifies if the name of the item will be displayed
       showName: true,
