@@ -10,6 +10,7 @@ export const ButtonStyles = {
   SECONDARY: 'secondary',
   SECONDARY_OUTLINE: 'secondary-outline',
   PLAIN: 'plain',
+  TERTIARY: 'tertiary',
 } as const;
 
 export type ButtonStyle = valueof<typeof ButtonStyles>;

@@ -4,12 +4,7 @@
     class="button"
     v-bind="$attrs"
     :type="type"
-    :class="[
-      disabled && 'disabled',
-      submitting && 'loading',
-      buttonStyle,
-      size,
-    ]"
+    :class="[disabled && 'disabled', submitting && 'loading', buttonStyle, size]"
     :disabled="isDisabled"
     v-on="$listeners"
   >
@@ -28,13 +23,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import {
-  ButtonSizes,
-  ButtonStyles,
-  HTMLType,
-  ButtonTypes,
-  ButtonSize,
-} from './types';
+import { ButtonSizes, ButtonStyles, HTMLType, ButtonTypes, ButtonSize } from './types';
 
 export default Vue.extend({
   name: 'PButton',
@@ -85,17 +74,27 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+@import './src/assets/scss/_themehelpers.scss';
+
+@function getButtonStyleProperty($property, $style, $state, $fallback) {
+  @return getThemeProperty('button', $property, 'styles-#{$style}', $state, $fallback);
+}
+
+@function getButtonSizeProperty($property, $style, $state, $fallback) {
+  @return getThemeProperty('button', $property, 'sizes-#{$style}', $state, $fallback);
+}
+
 .button {
   position: relative;
   overflow: hidden;
   justify-content: center;
   align-items: center;
   display: flex;
-  transition: background-color, border-color, color, fill, stroke, opacity,
-    box-shadow, transform, filter, backdrop-filter;
+  transition: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: var(--button-base-letter-spacing, 0.025em);
+  letter-spacing: getButtonStyleProperty('letter-spacing', '', '', 0.025em);
 
   &:after {
     content: '';
@@ -111,22 +110,20 @@ export default Vue.extend({
     transform-origin: 50% 50%;
   }
 
-  $buttonStyles: 'primary' 'primary-outline' 'secondary' 'secondary-outline'
-    'plain';
+  $buttonStyles: 'primary' 'primary-outline' 'secondary' 'secondary-outline' 'plain';
   @each $style in $buttonStyles {
     &.#{$style} {
-      border-radius: var(--button-styles-#{$style}-border-radius, 50%);
-      background: var(--button-styles-#{$style}-background, red);
-      border: var(
-        --button-styles-#{$style}-border,
-        var(--button-base-border, 1px solid #e5e5e5)
-      );
+      background: getButtonStyleProperty('background', $style, '', red);
       background-size: cover;
       background-position: center center;
-      color: var(--button-styles-#{$style}-color, white);
-      border-color: var(--button-styles-#{$style}-border-color, red);
-      padding: var(--button-styles-#{$style}-padding);
-      text-transform: var(--button-styles-#{$style}-text-transform, none);
+
+      color: getButtonStyleProperty('color', $style, '', white);
+
+      border: getButtonStyleProperty('border', $style, '', 1px solid #e5e5e5);
+      border-radius: getButtonStyleProperty('border-radius', $style, '', 50%);
+      border-color: getButtonStyleProperty('border-color', $style, '', red);
+
+      text-transform: getButtonStyleProperty('text-transform', $style, '', none);
 
       .disabled-background,
       .hover-background {
@@ -143,44 +140,35 @@ export default Vue.extend({
       }
 
       .disabled-background {
-        background: var(--button-styles-#{$style}-disabled-background, #e5e5e5);
+        background: getButtonStyleProperty('background', $style, 'disabled', #e5e5e5);
       }
 
       .hover-background {
-        background: var(--button-styles-#{$style}-hover-background, #e5e5e5);
+        background: getButtonStyleProperty('background', $style, 'hover', #e5e5e5);
       }
 
       &:hover {
-        color: var(
-          --button-styles-#{$style}-hover-color,
-          var(--button-styles-#{$style}-color, white)
-        );
-        border-color: var(
-          --button-styles-#{$style}-hover-border-color,
-          var(--button-styles-#{$style}-border-color, red)
-        );
+        color: getButtonStyleProperty('color', $style, 'hover', white);
+        border-color: getButtonStyleProperty('border-color', $style, 'hover', white);
         .hover-background {
-          opacity: var(--button-styles-#{$style}-hover-background-opacity, 0.2);
+          opacity: getButtonStyleProperty('opacity', $style, 'hover', white);
         }
       }
 
       &.disabled {
-        color: var(--button-styles-#{$style}-disabled-color, #e5e5e5);
-        border-color: var(
-          --button-styles-#{$style}-disabled-border-color,
-          #e5e5e5
-        );
+        color: getButtonStyleProperty('color', $style, 'disabled', #e5e5e5);
+        border-color: getButtonStyleProperty('border-color', $style, 'disabled', #e5e5e5);
         cursor: not-allowed;
 
         .disabled-background {
-          opacity: 1;
+          opacity: getButtonStyleProperty('opacity', $style, 'disabled', 1);
         }
       }
     }
 
     &:focus.#{$style} {
-      outline: var(--button-styles-#{$style}-focus-outline);
-      box-shadow: var(--button-styles-#{$style}-focus-box-shadow, none);
+      outline: getButtonStyleProperty('outline', $style, 'focus', none);
+      box-shadow: getButtonStyleProperty('box-shadow', $style, 'focus', none);
 
       &:not(:active)::after {
         animation: ripple 1s ease-out;
@@ -191,8 +179,8 @@ export default Vue.extend({
   $buttonSizes: 'xs' 'small' 'medium' 'large';
   @each $size in $buttonSizes {
     &.#{$size} {
-      font-size: var(--button-sizes-#{$size}-font-size, 0.75rem);
-      padding: var(--button-sizes-#{$size}-padding, 0.25rem 0.5rem);
+      font-size: getButtonSizeProperty('font-size', $size, '', 0.75rem);
+      padding: getButtonSizeProperty('padding', $size, '', 0.75rem);
     }
   }
   .container {
@@ -205,8 +193,8 @@ export default Vue.extend({
       width: 100%;
       justify-content: center;
       align-items: center;
-      transition: background-color, border-color, color, fill, stroke, opacity,
-        box-shadow, transform, filter, backdrop-filter;
+      transition: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
+        backdrop-filter;
       transition-duration: 150ms;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }

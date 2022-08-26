@@ -1,0 +1,13 @@
+@use "sass:string";
+
+@function getThemeProperty($component, $property, $style, $state, $fallback) {
+  $state-modifier: if(string.length($state) > 0, '#{$state}-', '');
+  $style-modifier: if(string.length($style) > 0, '#{$style}-', '');
+  $base-var: --#{$component}-base-#{$state-modifier}#{$property};
+  $style-var: --#{$component}-#{$style-modifier}#{$state-modifier}#{$property};
+  @if string.length($style) {
+    @return var($style-var, var($base-var, $fallback))
+  }
+
+  @return var($base-var, $fallback)
+}
