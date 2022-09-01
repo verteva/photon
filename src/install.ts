@@ -1,5 +1,8 @@
 // import components, { photonComponents } from './stories'
 import components, { PhotonComponentKeys } from './components';
+import componentsV2, {
+  PhotonComponentKeys as PhotonComponentKeysV2,
+} from '@/components v2';
 import { Component } from 'vue';
 import {
   DefaultData,
@@ -40,6 +43,11 @@ export default {
     for (const key in components) {
       const _key: PhotonComponentKeys = key;
       Vue.component(key, components[_key]);
+    }
+
+    for (const key in componentsV2) {
+      const _key: PhotonComponentKeysV2 = key;
+      Vue.component(key, componentsV2[_key]);
     }
   },
   photonStores: {

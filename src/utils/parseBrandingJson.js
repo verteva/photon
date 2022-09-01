@@ -12,8 +12,6 @@ export const replaceTemplateValue = (templateString, root) => {
 
   let returnString = templateString;
 
-  console.log(matches);
-
   matches.forEach(match => {
     const value = get(root, match, '');
     returnString = returnString.replace(

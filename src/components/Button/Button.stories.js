@@ -1,7 +1,14 @@
 import PButton from './Button.vue';
-import Loader from '../Loader';
 import '../../assets/scss/main.scss';
-import { ButtonSizes, ButtonStyles, ButtonTypes } from './types';
+
+const notContolled = {
+  control: { disable: true },
+};
+
+const notDisplayed = {
+  control: { disable: true },
+  table: { disable: true },
+};
 
 const bool = { options: [true, false] };
 
@@ -10,29 +17,17 @@ export default {
   component: PButton,
   // Set the order of the props
   argTypes: {
-    label: {
-      control: 'text',
-      defaultValue: 'Hello',
-    },
-    disabled: bool,
+    label: '',
     submitting: bool,
+    disabled: bool,
+    noRadius: bool,
+    outlined: bool,
     upperCase: bool,
+    valid: bool,
     block: bool,
-    buttonStyle: {
-      control: 'select',
-      options: Object.values(ButtonStyles),
-      defaultValue: ButtonStyles.PRIMARY,
-    },
-    type: {
-      control: 'select',
-      options: Object.values(ButtonTypes),
-      defaultValue: ButtonTypes.BUTTON,
-    },
-    size: {
-      control: 'select',
-      options: Object.values(ButtonSizes),
-      defaultValue: ButtonSizes.MEDIUM,
-    },
+    buttonStyle: notContolled,
+    type: notContolled,
+    size: notContolled,
   },
   // Set the initial values of the props
   args: {},
@@ -43,48 +38,51 @@ const DocsTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div class="ph-flex">
-      <div v-for="btn in buttons" :key="btn.type" class="ph-flex ph-flex-col ph-mr-10 ph-items-center">
-        <div class="ph-text-xs ph-mb-2">{{ btn.type.toUpperCase() }}</div>
-        <PButton v-for="size in btn.sizes" :key="size" v-bind="$props" :buttonStyle="btn.type" :size="size" class="ph-my-2" />
-      </div>
+    <div v-for="btn in buttons" :key="btn.type" class="ph-flex ph-flex-col ph-mr-10 ph-items-center">
+      <div class="ph-text-xs ph-mb-2">{{ btn.type.toUpperCase() }}</div>
+      <PButton v-for="size in btn.sizes" :key="size" v-bind="$props" :buttonStyle="btn.type" :size="size" class="ph-my-2" />
+    </div>
     </div>
   `,
   data() {
-    const sizes = Object.values(ButtonSizes);
     return {
-      buttons: Object.values(ButtonStyles).map(type => ({
-        type,
-        sizes,
-      })),
+      buttons: [
+        {
+          type: 'primary',
+          sizes: ['medium', 'small', 'xs'],
+        },
+        {
+          type: 'secondary',
+          sizes: ['medium', 'small', 'xs'],
+        },
+        {
+          type: 'plain',
+          sizes: ['medium'],
+        },
+      ],
     };
   },
-});
-
-// This is how to do the submitting state in the future. Seperated from the button component.
-const SubmittingTemplate = (args, { argTypes }) => ({
-  components: { PButton, Loader },
-  props: Object.keys(argTypes),
-  template: `
-    <div class="ph-flex">
-      <PButton v-bind="$props" class="ph-my-2">
-        <div :style="{ opacity: submitting ? 0 : 1 }" class="ph-transition">{{ label }}</div>
-        <loader :style="{ opacity: !submitting ? 0 : 1 }" class="ph-transition" :size="size" />
-      </PButton>
-    </div>
-  `,
 });
 
 export const Docs = DocsTemplate.bind({});
 Docs.argTypes = {};
 
-export const Submitting = SubmittingTemplate.bind({});
-Submitting.argTypes = {};
-
 const PlaygroundTemplate = (args, { argTypes }) => ({
   components: { PButton },
   props: Object.keys(argTypes),
-  template: '<p-button v-bind="{...props}">Hello</p-button>',
+  template: '<p-button>Hello</p-button>',
 });
-
 export const Playground = PlaygroundTemplate.bind({});
-Docs.argTypes = {};
+Playground.argTypes = {
+  label: notDisplayed,
+  submitting: notDisplayed,
+  disabled: notDisplayed,
+  noRadius: notDisplayed,
+  buttonStyle: notDisplayed,
+  type: notDisplayed,
+  size: notDisplayed,
+  outlined: notDisplayed,
+  upperCase: notDisplayed,
+  valid: notDisplayed,
+  block: notDisplayed,
+};

@@ -4,15 +4,26 @@ import '../src/assets/css/main.css';
 import Vuex from 'vuex';
 import Vue from 'vue';
 import store from '../src/components/store';
-import {flattenObjectToCssVars, parseBrandingJson} from "../src/utils/parseBrandingJson";
+import { flattenObjectToCssVars, parseBrandingJson } from "../src/utils/parseBrandingJson";
 import { injectThemeCssVariables } from "../src/utils/injectThemeCssVariables";
-import { getTheme } from '../themeLocation';
 
+const getThemeLocation = () => {
+  try {
+    return require('../themeLocation')
+  }
+  catch (e) {
+    alert('Could not load themeLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information.')
+    console.error('Could not load themeLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information.');
+    return {};
+  }
+}
+
+const { getTheme } = getThemeLocation();
 
 Vue.use(Vuex);
 Vue.prototype.$store = store;
 
-const theme = Vue.observable({ value: null })
+const theme = Vue.observable({ value: null });
 
 export const withTheme = (story, context) => {
   theme.value = context.globals.theme;
@@ -26,8 +37,16 @@ export const withTheme = (story, context) => {
     watch: {
       theme: {
         handler: async (val) => {
-          const json = await getTheme(val);
-          injectThemeCssVariables(flattenObjectToCssVars(parseBrandingJson(json)));
+          if (!getTheme) {
+            return;
+          }
+          try {
+            const json = await getTheme(val);
+            const loadedTheme = parseBrandingJson(json);
+            injectThemeCssVariables(flattenObjectToCssVars(loadedTheme));
+          } catch (e) {
+            console.error('Error: Unable to load and inject theme, errors:', e);
+          }
         },
         immediate: true,
       },

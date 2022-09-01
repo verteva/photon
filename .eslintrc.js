@@ -20,7 +20,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
-    'prettier/prettier': ['error', { singleQuote: true, printWidth: 120 }],
+    'prettier/prettier': ['error', { singleQuote: true, printWidth: 80 }],
     quotes: ['error', 'single', { avoidEscape: true }],
   },
   overrides: [
