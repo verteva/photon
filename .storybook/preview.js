@@ -84,14 +84,13 @@ export const globalTypes = {
       // The icon for the toolbar item
       icon: 'circlehollow',
       // Array of options
-      items: Object.keys(getThemeNames(getThemeFiles())).map(key => {
-        console.log('KEY', key);
-        return ({
+      items: getThemeNames(getThemeFiles()).map(
+        key => ({
           value: key,
           title: key,
           icon: 'circlehollow',
         })
-      }),
+      ),
       // Property that specifies if the name of the item will be displayed
       showName: true,
     },

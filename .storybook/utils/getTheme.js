@@ -1,17 +1,14 @@
 export const getTheme = async (files, theme = '') => {
-  let themeObject = {};
   try {
-    const keys = files.keys();
-    const filteredKeys = keys.filter(key => key.includes(theme));
+    const filePaths = files.keys();
+    const filteredFilePaths = filePaths.filter(filePath => filePath.includes(theme));
 
-    filteredKeys.map(key => {
-      const json = files(key);
-      Object.keys(json).forEach(key => {
-        themeObject[key] = json[key];
-      });
-    });
-
-    return themeObject;
+    return filteredFilePaths.reduce((acc, filePath) => ({
+        ...acc,
+        ...files(filePath),
+      }),
+      {},
+    );
   } catch (e) {
     console.log('e', e);
   }
