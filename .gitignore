@@ -25,4 +25,4 @@ pnpm-debug.log*
 *.sw?
 
 # Local theme location file.
-themeLocation.js
+themeFileLocation.js

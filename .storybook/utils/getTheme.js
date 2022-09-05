@@ -1,12 +1,6 @@
-export const getTheme = async theme => {
+export const getTheme = async (files, theme = '') => {
   let themeObject = {};
   try {
-    const files = require.context(
-      '<PATH_TO_BRANDING_FOLDER>',
-      true,
-      /theme\.json$/i
-    );
-
     const keys = files.keys();
     const filteredKeys = keys.filter(key => key.includes(theme));
 

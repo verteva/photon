@@ -9,6 +9,7 @@
     "build:lib": "vue-cli-service build --target lib src/install.ts",
     "lib": "vue-cli-service build --target lib src/install.ts",
     "sb": "start-storybook -p 6006",
+    "sb:external": "STORYBOOK_THEME_LOCATION=external start-storybook -p 6006",
     "start": "harp server --port $PORT",
     "ico": "sh ./scripts/ico.sh",
     "new": "sh ./scripts/new.sh",

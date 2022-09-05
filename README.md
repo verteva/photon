@@ -80,13 +80,17 @@ _ie. Icons/icons/House.vue_
 
 Photon v2 components are a new system of styling photon components. 
 
-In order to get the theme files to load you need to create a loader that pulls in all the theme files.
+You can start the local build by running `npm run sb` and then navigating to the `Photon v2` section of the storybook.
+
+If you want to run it with external theme files you can run `npm run sb:external` and then navigate to the `Photon v2` section of the storybook.
+
+In order to get the external theme files to load you need to create a loader that pulls in all the theme files.
 
 run the following command
 ```typescript
-cp themeLoader.sample.js themeLoader.js
+cp themeFileLocation.sample.js themeFileLocation.js
 ```
-Open the new `themeLoader.js` file and replace the `<PATH_TO_BRANDING_FOLDER>` with the absolute path to your branding folder for `onboarding`
+Open the new `themeFileLocation.js` file and replace the `<PATH_TO_BRANDING_FOLDER>` with the absolute path to your branding folder for `onboarding`
 
 Make sure it does not have a trailing slash `/` at the end.
 

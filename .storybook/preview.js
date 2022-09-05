@@ -6,19 +6,27 @@ import Vue from 'vue';
 import store from '../src/components/store';
 import { flattenObjectToCssVars, parseBrandingJson } from "../src/utils/parseBrandingJson";
 import { injectThemeCssVariables } from "../src/utils/injectThemeCssVariables";
+import { getThemeNames } from "./utils/getThemeNames";
+import { getTheme } from './utils/getTheme';
 
-const getThemeLocation = () => {
+const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
+
+const getThemeFiles = () => {
+  const localFiles = require.context('../src/theme/', true, /theme\.json$/i);
+  if (!isExternal) {
+    return localFiles;
+  }
   try {
-    return require('../themeLocation')
+    const { getFiles } = require('../themeFileLocation');
+    const externalFiles = getFiles();
+    return externalFiles;
   }
   catch (e) {
-    alert('Could not load themeLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information.')
-    console.error('Could not load themeLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information.');
-    return {};
+    alert('Could not load themeFileLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information. Using default theme instead.');
+    console.error('Could not load themeFileLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information. Using default theme instead.');
+    return localFiles;
   }
-}
-
-const { getTheme } = getThemeLocation();
+};
 
 Vue.use(Vuex);
 Vue.prototype.$store = store;
@@ -37,11 +45,9 @@ export const withTheme = (story, context) => {
     watch: {
       theme: {
         handler: async (val) => {
-          if (!getTheme) {
-            return;
-          }
           try {
-            const json = await getTheme(val);
+            const files = getThemeFiles();
+            const json = await getTheme(files, isExternal ? val : '');
             const loadedTheme = parseBrandingJson(json);
             injectThemeCssVariables(flattenObjectToCssVars(loadedTheme));
           } catch (e) {
@@ -70,7 +76,7 @@ export const parameters = {
 };
 
 export const globalTypes = {
-  theme: {
+  theme: isExternal ? ({
     name: 'Theme',
     description: 'Global theme for components',
     defaultValue: 'Nano',
@@ -78,16 +84,18 @@ export const globalTypes = {
       // The icon for the toolbar item
       icon: 'circlehollow',
       // Array of options
-      items: [
-        { value: 'Nano', icon: 'circlehollow', title: 'NANO' },
-        { value: 'amp', icon: 'circle', title: 'AMP' },
-        { value: 'suncorp', icon: 'circle', title: 'SUNCORP' },
-        { value: 'danbrand', icon: 'circle', title: 'danbrand' },
-      ],
+      items: Object.keys(getThemeNames(getThemeFiles())).map(key => {
+        console.log('KEY', key);
+        return ({
+          value: key,
+          title: key,
+          icon: 'circlehollow',
+        })
+      }),
       // Property that specifies if the name of the item will be displayed
       showName: true,
     },
-  },
+  }) : ({ }),
 }
 
 export const decorators = [withTheme];
