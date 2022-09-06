@@ -1,5 +1,6 @@
 import { Component } from 'vue';
 import P2Button from './Button';
+import P2InputNumber from './InputNumber';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -7,6 +8,7 @@ export interface PhotonComponents {
 
 const components: PhotonComponents = {
   P2Button,
+  P2InputNumber,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;
