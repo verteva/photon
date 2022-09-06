@@ -1,0 +1,134 @@
+{
+  "button": {
+    "base": {
+      "border": "1px solid",
+      "border-radius": "0px",
+      "border-color": "transparent",
+      "color": "{{colors.white}}",
+      "background": "{{colors.primary.500}}",
+      "letter-spacing": "0.05em",
+      "padding": "10px 20px",
+      "font-size": "{{font.size.md}}",
+      "disabled": {
+        "background": "{{colors.neutral.600}}",
+        "color": "{{colors.neutral.500}}",
+        "border": "{{button.base.border}}",
+        "border-color": "{{colors.neutral.500}}"
+      },
+      "hover": {
+        "background": "{{colors.black}}",
+        "border": "{{button.base.border}}",
+        "border-color": "{{button.base.border-color}}",
+        "opacity": 0.2
+      },
+      "focus": {
+        "box-shadow": "0px 0px 0px 6px {{colors.primary.500}}66",
+        "outline": "none"
+      }
+    },
+    "styles": {
+      "primary": {
+        "background": "{{colors.primary.500}}",
+        "border-radius": "{{button.base.border-radius}}",
+        "border-color": "{{colors.primary.500}}",
+        "color": "{{colors.white}}",
+        "disabled": {
+          "background": "{{colors.neutral.600}}",
+          "color": "{{colors.neutral.500}}",
+          "border-color": "{{colors.neutral.500}}"
+        },
+        "hover": {
+          "background": "{{colors.black}}",
+          "border-color": "{{button.styles.primary.border-color}}",
+          "opacity": 0.2
+        },
+        "focus": {
+          "box-shadow": "0px 0px 0px 6px {{colors.primary.500}}66",
+          "outline": "none"
+        }
+      },
+      "primary-outline": {
+        "background": "transparent",
+        "border-radius": "0px",
+        "color": "{{colors.primary.500}}",
+        "border-color": "{{colors.neutral.500}}",
+        "disabled": {
+          "background": "{{colors.neutral.600}}",
+          "color": "{{colors.neutral.500}}",
+          "border-color": "{{colors.neutral.500}}"
+        },
+        "hover": {
+          "background": "{{colors.black}}",
+          "color": "{{colors.neutral.800}}",
+          "border-color": "{{button.styles.primary-outline.border-color}}",
+          "opacity": 0.2
+        }
+      },
+      "secondary": {
+        "background": "linear-gradient(180deg, {{colors.white}} 0%, {{colors.neutral.300}} 100%)",
+        "border-radius": "{{button.base.border-radius}}",
+        "color": "{{colors.neutral.800}}",
+        "border-color": "{{colors.titanium}}",
+        "disabled": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.neutral.500}}",
+          "border-color": "{{colors.neutral.300}}"
+        },
+        "hover": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.primary.500}}",
+          "border-color": "{{colors.primary.500}}",
+          "opacity": 1
+        }
+      },
+      "secondary-outline": {
+        "background": "transparent",
+        "border-radius": "{{button.base.border-radius}}",
+        "color": "{{colors.primary.500}}",
+        "border-color": "{{colors.primary.500}}",
+        "disabled": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.neutral.500}}",
+          "border-color": "{{colors.neutral.500}}"
+        },
+        "hover": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.primary.500}}",
+          "border-color": "{{colors.neutral.600}}",
+          "opacity": 1
+        }
+      },
+      "plain": {
+        "background": "transparent",
+        "border-radius": "{{button.base.border-radius}}",
+        "color": "{{colors.neutral.800}}",
+        "disabled": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.neutral.500}}",
+          "border-color": "{{colors.neutral.500}}"
+        },
+        "hover": {
+          "opacity": 0
+        }
+      }
+    },
+    "sizes": {
+      "large": {
+        "padding": "14px 26px",
+        "font-size": "{{font.size.lg}}"
+      },
+      "medium": {
+        "padding": "10px 20px",
+        "font-size": "{{font.size.md}}"
+      },
+      "small": {
+        "padding": "6px 14px",
+        "font-size": "{{font.size.xs}}"
+      },
+      "xs": {
+        "padding": "4px 10px",
+        "font-size": "{{font.size.xxs}}"
+      }
+    }
+  }
+}

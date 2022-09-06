@@ -38,10 +38,10 @@ const DocsTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div class="ph-flex">
-      <div v-for="btn in buttons" :key="btn.type" class="ph-flex ph-flex-col ph-mr-10 ph-items-center">
-        <div class="ph-text-xs ph-mb-2">{{ btn.type.toUpperCase() }}</div>
-        <PButton v-for="size in btn.sizes" :key="size" v-bind="$props" :buttonStyle="btn.type" :size="size" class="ph-my-2" />
-      </div>
+    <div v-for="btn in buttons" :key="btn.type" class="ph-flex ph-flex-col ph-mr-10 ph-items-center">
+      <div class="ph-text-xs ph-mb-2">{{ btn.type.toUpperCase() }}</div>
+      <PButton v-for="size in btn.sizes" :key="size" v-bind="$props" :buttonStyle="btn.type" :size="size" class="ph-my-2" />
+    </div>
     </div>
   `,
   data() {

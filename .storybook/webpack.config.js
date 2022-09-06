@@ -10,7 +10,7 @@ module.exports = ({ config }) => {
         require.resolve('sass-loader'),
       ],
       include: path.resolve(__dirname, '../'),
-    });  
+    });
 
   config.module.rules.push({
     test: /\.postcss$/,
