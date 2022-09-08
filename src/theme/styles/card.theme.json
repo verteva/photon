@@ -1,0 +1,27 @@
+{
+  "card": {
+    "base": {
+      "background": "{{colors.neutral.100}}",
+      "box-shadow": "none",
+      "border-radius": "0",
+      "padding": "{{variables.box-padding.default}}"
+    },
+    "style": {
+      "light": {
+        "background": "{{colors.white}}"
+      },
+      "shadow": {
+        "box-shadow": "{{variables.box-shadow.default}}"
+      },
+      "rounded": {
+        "border-radius": "{{variables.border-radius.default}}"
+      },
+      "border": {
+        "border": "1px solid {{colors.neutral.500}}"
+      },
+      "nopadding": {
+        "padding": "0"
+      }
+    }
+  }
+}
