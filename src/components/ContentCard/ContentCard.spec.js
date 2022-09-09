@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import ContentCard from '@/components/contentCard/ContentCard.vue';
+import ContentCard from './ContentCard';
 
 const createWrapper = (propsOverrides = {}) => {
   const localVue = createLocalVue();
