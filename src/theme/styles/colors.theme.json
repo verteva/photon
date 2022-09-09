@@ -36,6 +36,12 @@
     },
     "white": "{{colors.neutral.0}}",
     "black": "{{colors.neutral.1000}}",
+    "text": {
+      "body": "{{colors.neutral.800}}",
+      "heading": "{{colors.neutral.1000}}",
+      "meta": "{{colors.neutral.600}}",
+      "caption": "{{colors.neutral.600}}"
+    },
     "titanium": "#f1f1f1"
   }
 }

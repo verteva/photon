@@ -27,7 +27,7 @@
         :class="{
           disabled: innerValue === maxVal,
         }"
-        @click="changeNumber('add')"
+        @click="changeNumber(changeNumberValue.increase)"
       >
         +
       </div>
@@ -39,6 +39,7 @@
 import Vue, { PropType } from 'vue';
 import PInput from '../../components/Input';
 import PLabel from '../../components/Label';
+import { changeNumberValue, changeNumberType } from './types';
 
 export default Vue.extend({
   name: 'P2InputNumber',
@@ -79,11 +80,12 @@ export default Vue.extend({
         (this as any).$emit('input', Number(val));
       },
     },
+    changeNumberValue: () => changeNumberValue,
   },
 
   methods: {
-    changeNumber(change) {
-      if (change === 'add') {
+    changeNumber(change: changeNumberType) {
+      if (change === changeNumberValue.increase) {
         (this as any).innerValue < (this as any).maxVal &&
           (this as any).innerValue++;
       } else {
@@ -130,10 +132,10 @@ export default Vue.extend({
 
     width: getInputNumberThemeProperty('width', '', 100%);
     padding: getInputNumberThemeProperty('padding', '', 0);
-    color: getInputNumberThemeProperty('color', '', grey);
+    color: getInputNumberThemeProperty('color', '', gray);
     background: getInputNumberThemeProperty('background', '', white);
-    border: getInputNumberThemeProperty('border', '', 1px solid grey);
-    border-color: getInputNumberThemeProperty('border-color', '', grey);
+    border: getInputNumberThemeProperty('border', '', 1px solid gray);
+    border-color: getInputNumberThemeProperty('border-color', '', gray);
     border-radius: getInputNumberThemeProperty('border-radius', '', 0);
     font-weight: getInputNumberThemeProperty('font-weight', '', 400);
 
@@ -144,7 +146,7 @@ export default Vue.extend({
         'focus',
         1px solid transparent
       );
-      border-color: getInputNumberThemeProperty('border-color', 'focus', grey);
+      border-color: getInputNumberThemeProperty('border-color', 'focus', gray);
     }
 
     &.disabled {
@@ -157,16 +159,16 @@ export default Vue.extend({
       border-color: getInputNumberThemeProperty(
         'border-color',
         'disabled',
-        grey
+        gray
       );
-      background: getInputNumberThemeProperty('background', 'disabled', grey);
+      background: getInputNumberThemeProperty('background', 'disabled', gray);
     }
   }
 
   .photon-input-number-button {
     font-size: getInputNumberButtonThemeProperty('font-size', '', 2.25rem);
     line-height: getInputNumberThemeProperty('line-height', '', 2.5rem);
-    color: getInputNumberButtonThemeProperty('color', '', grey);
+    color: getInputNumberButtonThemeProperty('color', '', gray);
     cursor: pointer;
 
     &.plus {
@@ -179,7 +181,7 @@ export default Vue.extend({
 
     &.disabled {
       cursor: not-allowed;
-      color: getInputNumberButtonThemeProperty('color', 'disabled', grey);
+      color: getInputNumberButtonThemeProperty('color', 'disabled', gray);
     }
   }
 }
