@@ -1,0 +1,12 @@
+{
+  "label": {
+    "base": {
+      "font-family": "{{font.family.primary}}",
+      "font-size": "{{font.size.md}}",
+      "font-weight": "{{font.weight.bold}}",
+      "color": "{{color.text.body}}",
+      "line-height": "1.5",
+      "margin": "0 0 0.5rem 0"
+    }
+  }
+}
