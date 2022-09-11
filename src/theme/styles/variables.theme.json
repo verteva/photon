@@ -9,7 +9,7 @@
 		"box-padding": {
 			"default": "{{variables.box-padding.md}}",
 			"sm": "20px",
-			"md": "30px",
+			"md": "36px",
 			"lg": "40px"
 		},
 		"box-shadow": {
