@@ -5,24 +5,38 @@ export const parseBrandingJson = jsonFile => {
 };
 
 export const replaceTemplateValue = (templateString, root) => {
-  const matches = templateString.match(/(?<={{)(.*?)(?=}})/g);
-  if (!matches || !matches.length) {
+  if (typeof templateString !== 'string') {
     return templateString;
   }
+  try {
+    const matches = templateString.match(/(?<={{)(.*?)(?=}})/g);
 
-  let returnString = templateString;
+    if (!matches || !matches.length) {
+      return templateString;
+    }
 
-  matches.forEach(match => {
-    const value = get(root, match, '');
-    returnString = returnString.replace(
-      match,
-      replaceTemplateValue(value, root)
+    let returnString = templateString;
+
+    matches.forEach(match => {
+      const value = get(root, match, '');
+      returnString = returnString.replace(
+        match,
+        replaceTemplateValue(value, root)
+      );
+    });
+
+    returnString = returnString.replace(/{{/g, '').replace(/}}/g, '');
+
+    return returnString;
+  } catch (error) {
+    console.error(
+      `Can't match templatestring ${templateString} for root ${JSON.stringify(
+        root
+      )}`,
+      error
     );
-  });
-
-  returnString = returnString.replace(/{{/g, '').replace(/}}/g, '');
-
-  return returnString;
+    return '';
+  }
 };
 
 export const parseObject = (object, root) => {

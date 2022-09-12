@@ -1,0 +1,33 @@
+{
+  "input-number": {
+    "base": {
+      "width": "100%",
+      "font-weight": "bold",
+      "color": "{{colors.neutral.800}}",
+      "border-radius": "0.625rem",
+      "padding": "0.5rem 1.25rem",
+      "border": "1px solid {{colors.neutral.300}}",
+      "border-color": "{{colors.neutral.300}}",
+      "background": "{{colors.white}}",
+      "disabled": {
+
+      },
+      "focus": {
+        "outline": "none",
+        "border": "1px solid {{colors.primary.500}}",
+        "border-color": "{{colors.primary.500}}"
+      }
+    },
+    "buttons": {
+      "base": {
+        "font-size": "2.25rem",
+        "line-height": "2.5rem",
+        "color": "{{colors.neutral.800}}",
+        "margin": "1rem",
+        "disabled": {
+          "color": "{{colors.neutral.500}}"
+        }
+      }
+    }
+  }
+}

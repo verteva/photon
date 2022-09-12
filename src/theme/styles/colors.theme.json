@@ -3,7 +3,7 @@
     "primary": {
       "300": "#3DD6C7",
       "400": "#03B4FC",
-      "500": "#3b4e98",
+      "500": "#009EDE",
       "700": "#004DBD"
     },
     "highlight": {
@@ -36,6 +36,12 @@
     },
     "white": "{{colors.neutral.0}}",
     "black": "{{colors.neutral.1000}}",
+    "text": {
+      "body": "{{colors.neutral.800}}",
+      "heading": "{{colors.neutral.1000}}",
+      "meta": "{{colors.neutral.600}}",
+      "caption": "{{colors.neutral.600}}"
+    },
     "titanium": "#f1f1f1"
   }
 }

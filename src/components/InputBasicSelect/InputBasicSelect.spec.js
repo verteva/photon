@@ -1,4 +1,4 @@
-import InputBasicSelect from '@/components/InputBasicSelect/InputBasicSelect.vue';
+import InputBasicSelect from './InputBasicSelect';
 import { createWrapper } from '@/utils/unitTest';
 
 describe('InputSelect.vue', () => {
