@@ -1,4 +1,5 @@
 import { Component } from 'vue';
+import P2Form from './Form';
 import P2Button from './Button';
 import P2Input from './Input';
 import P2InputNumber from './InputNumber';
@@ -9,6 +10,7 @@ export interface PhotonComponents {
 }
 
 const components: PhotonComponents = {
+  P2Form,
   P2Button,
   P2Input,
   P2InputNumber,
