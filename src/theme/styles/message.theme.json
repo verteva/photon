@@ -1,0 +1,47 @@
+{
+    "message": {
+        "base": {
+            "color": "{{colors.neutral.790}}",
+            "padding": "1rem",
+            "border-radius": "0.625rem",
+            "border-width": "1px"
+        },
+        "styles": {
+            "success": {
+                "background": "{{colors.success.300}}",
+                "color": "{{colors.success.500}}",
+                "border-color": "{{colors.success.500}}"
+            },
+            "info": {
+                "background": "{{colors.info.300}}",
+                "color": "{{colors.info.500}}",
+                "border-color": "{{colors.info.500}}"
+            },
+            "error": {
+                "background": "{{colors.danger.300}}",
+                "color": "{{colors.danger.500}}",
+                "border-color": "{{colors.danger.500}}"
+            },
+            "warning": {
+                "background": "{{colors.warning.300}}",
+                "color": "{{colors.warning.500}}",
+                "border-color": "{{colors.warning.500}}"
+            },
+            "icon": {
+                "margin": "0 1rem 0 0"
+            },
+            "title": {
+                "font-weight": "700",
+                "padding": "0.25rem 0 0 0",
+                "line-height": "1.25rem"
+            },
+            "description": {
+                "margin": "0.5rem 0 1rem 0",
+                "line-height": "1.25rem"
+            },
+            "button": {
+                "margin": "1rem 0 0 0"
+            }
+        }
+    }
+}
