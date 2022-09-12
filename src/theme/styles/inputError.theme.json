@@ -1,0 +1,11 @@
+{
+  "input-error": {
+    "base": {
+      "font-size": "0.875rem",
+      "line-height": "1.5",
+      "min-height": "1.5em",
+      "padding": "0.25rem",
+      "color": "{{colors.danger.500}}"
+    }
+  }
+}
