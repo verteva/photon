@@ -116,6 +116,8 @@ export default Vue.extend({
   display: flex;
   transition: $all-transitions;
   transition-duration: 150ms;
+  font-family: getButtonStyleProperty('font-family', '', '', inherit);
+  font-weight: getButtonStyleProperty('font-weight', '', '', inherit);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: getButtonStyleProperty('letter-spacing', '', '', 0.025em);
 

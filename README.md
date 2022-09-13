@@ -84,13 +84,7 @@ You can start the local build by running `npm run sb` and then navigating to the
 
 If you want to run it with external theme files you can run `npm run sb:external` and then navigate to the `Photon v2` section of the storybook.
 
-In order to get the external theme files to load you need to create a loader that pulls in all the theme files.
-
-run the following command
-```typescript
-cp themeFileLocation.sample.js themeFileLocation.js
-```
-Open the new `themeFileLocation.js` file and replace the `<PATH_TO_BRANDING_FOLDER>` with the absolute path to your branding folder for `onboarding`
+In order to get the external theme files to load you need to add the the absolute path to your branding folder for `onboarding` into the `.env` file.
 
 Make sure it does not have a trailing slash `/` at the end.
 
