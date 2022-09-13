@@ -1,4 +1,4 @@
-import Message from '@/components/Message/Message.vue';
+import Message from '@/components v2/Message/Message.vue';
 import { createWrapper } from '@/utils/unitTest';
 
 describe('Message.vue', () => {
@@ -44,14 +44,11 @@ describe('Message.vue', () => {
 
     expect(wrapper.props().type).toEqual(type);
 
-    const computedIcon = wrapper.vm.typeStyle;
-    const iconClasses = computedIcon.classes;
-    const icontype = computedIcon.icon;
+    const computedIcon = wrapper.vm.icon;
+    const iconType = computedIcon[type];
     const messageWrapper = wrapper.getComponent({ ref: 'messageIcon' });
 
-    expect(wrapper.classes()).toContain(iconClasses[0]);
-    expect(wrapper.classes()).toContain(iconClasses[1]);
-    expect(messageWrapper.vm.name).toContain(icontype);
+    expect(messageWrapper.vm.name).toContain(iconType);
   });
 
   it('emit event: button click, show button when description', async () => {

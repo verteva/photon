@@ -27,7 +27,7 @@
       </div>
     </div>
     <div v-if="!hideClose" @click="$emit('close')">
-      <p-icon name="Cross" type="lg" class="message-icon" :class="[type]" />
+      <p-icon name="Cross" type="lg" class="icon" :class="[type]" />
     </div>
   </div>
 </template>
@@ -157,7 +157,7 @@ $types: 'success', 'info', 'error', 'warning';
     }
   }
   .icon {
-    margin: getMessageStyleProperty('margin', 'styles', 'icon', 0);
+    margin: getMessageStyleProperty('margin', 'components', 'icon', 0);
     cursor: pointer;
     @each $type in $types {
       &.#{$type} {
@@ -176,26 +176,31 @@ $types: 'success', 'info', 'error', 'warning';
     flex: 1 1 0%;
   }
   .title {
-    font-weight: getMessageStyleProperty('font-weight', 'styles', 'title', 700);
-    padding-top: getMessageStyleProperty('padding', 'styles', 'title', 0);
+    font-weight: getMessageStyleProperty(
+      'font-weight',
+      'components',
+      'title',
+      700
+    );
+    padding-top: getMessageStyleProperty('padding', 'components', 'title', 0);
     line-height: getMessageStyleProperty(
       'line-height',
-      'styles',
+      'components',
       'title',
       1.25rem
     );
   }
   .description {
-    margin: getMessageStyleProperty('margin', 'styles', 'description', 0);
+    margin: getMessageStyleProperty('margin', 'components', 'description', 0);
     line-height: getMessageStyleProperty(
       'line-height',
-      'styles',
+      'components',
       'description',
       0
     );
   }
   .button {
-    margin: getMessageStyleProperty('margin', 'styles', 'button', 0);
+    margin: getMessageStyleProperty('margin', 'components', 'button', 0);
   }
 }
 </style>
