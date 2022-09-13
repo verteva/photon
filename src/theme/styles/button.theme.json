@@ -1,37 +1,27 @@
 {
   "button": {
     "base": {
-      "border": "1px solid",
-      "border-radius": "0px",
-      "border-color": "transparent",
-      "color": "{{colors.white}}",
-      "background": "{{colors.primary.500}}",
+      "border": "1px solid {{colors.primary.100}}",
+      "border-radius": "24px",
+      "font-size": "{{font.semantic.h1.size}}",
       "letter-spacing": "0.05em",
-      "padding": "10px 20px",
-      "font-size": "{{font.size.md}}",
       "disabled": {
-        "background": "{{colors.neutral.600}}",
-        "color": "{{colors.neutral.500}}",
-        "border": "{{button.base.border}}",
-        "border-color": "{{colors.neutral.500}}"
-      },
-      "hover": {
-        "background": "{{colors.black}}",
-        "border": "{{button.base.border}}",
-        "border-color": "{{button.base.border-color}}",
-        "opacity": 0.2
+        "border": "{{button.base.border}}"
       },
       "focus": {
-        "box-shadow": "0px 0px 0px 6px {{colors.primary.500}}66",
+        "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
         "outline": "none"
+      },
+      "hover": {
+        "border": "{{button.base.border}}"
       }
     },
     "styles": {
       "primary": {
-        "background": "{{colors.primary.500}}",
+        "background": "linear-gradient(360deg, {{colors.primary.500}} 0%, {{colors.primary.400}} 100%)",
         "border-radius": "{{button.base.border-radius}}",
-        "border-color": "{{colors.primary.500}}",
         "color": "{{colors.white}}",
+        "border-color": "{{colors.primary.500}}",
         "disabled": {
           "background": "{{colors.neutral.600}}",
           "color": "{{colors.neutral.500}}",
@@ -39,17 +29,16 @@
         },
         "hover": {
           "background": "{{colors.black}}",
-          "border-color": "{{button.styles.primary.border-color}}",
           "opacity": 0.2
         },
         "focus": {
-          "box-shadow": "0px 0px 0px 6px {{colors.primary.500}}66",
+          "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
           "outline": "none"
         }
       },
       "primary-outline": {
         "background": "transparent",
-        "border-radius": "0px",
+        "border-radius": "{{button.base.border-radius}}",
         "color": "{{colors.primary.500}}",
         "border-color": "{{colors.neutral.500}}",
         "disabled": {
@@ -60,8 +49,12 @@
         "hover": {
           "background": "{{colors.black}}",
           "color": "{{colors.neutral.800}}",
-          "border-color": "{{button.styles.primary-outline.border-color}}",
+          "border-color": "{{colors.neutral.500}}",
           "opacity": 0.2
+        },
+        "focus": {
+          "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
+          "outline": "none"
         }
       },
       "secondary": {
@@ -79,13 +72,17 @@
           "color": "{{colors.primary.500}}",
           "border-color": "{{colors.primary.500}}",
           "opacity": 1
+        },
+        "focus": {
+          "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
+          "outline": "none"
         }
       },
       "secondary-outline": {
         "background": "transparent",
         "border-radius": "{{button.base.border-radius}}",
-        "color": "{{colors.primary.500}}",
-        "border-color": "{{colors.primary.500}}",
+        "color": "{{colors.neutral.800}}",
+        "border-color": "{{colors.neutral.500}}",
         "disabled": {
           "background": "{{colors.white}}",
           "color": "{{colors.neutral.500}}",
@@ -96,19 +93,71 @@
           "color": "{{colors.primary.500}}",
           "border-color": "{{colors.neutral.600}}",
           "opacity": 1
+        },
+        "focus": {
+          "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
+          "outline": "none"
         }
       },
-      "plain": {
-        "background": "transparent",
+      "tertiary": {
+        "background": "pink",
         "border-radius": "{{button.base.border-radius}}",
         "color": "{{colors.neutral.800}}",
+        "border-color": "{{colors.neutral.500}}",
         "disabled": {
           "background": "{{colors.white}}",
           "color": "{{colors.neutral.500}}",
           "border-color": "{{colors.neutral.500}}"
         },
         "hover": {
-          "opacity": 0
+          "background": "{{colors.white}}",
+          "color": "{{colors.primary.500}}",
+          "border-color": "{{colors.neutral.600}}",
+          "opacity": 1
+        },
+        "focus": {
+          "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
+          "outline": "none"
+        }
+      },
+      "tertiary-outline": {
+        "background": "transparent",
+        "border-radius": "{{button.base.border-radius}}",
+        "color": "{{colors.neutral.800}}",
+        "border-color": "pink",
+        "disabled": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.neutral.500}}",
+          "border-color": "{{colors.neutral.500}}"
+        },
+        "hover": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.primary.500}}",
+          "border-color": "{{colors.neutral.600}}",
+          "opacity": 1
+        },
+        "focus": {
+          "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
+          "outline": "none"
+        }
+      },
+      "plain": {
+        "background": "transparent",
+        "border-radius": "{{button.base.border-radius}}",
+        "color": "{{colors.neutral.800}}",
+        "border-color": "transparent",
+        "disabled": {
+          "background": "{{colors.white}}",
+          "color": "{{colors.neutral.500}}",
+          "border-color": "{{colors.neutral.500}}"
+        },
+        "hover": {
+          "opacity": 0,
+          "border-color": "transparent"
+        },
+        "focus": {
+          "box-shadow": "0px 0px 0px 6px rgba(0, 158, 222, 0.4)",
+          "outline": "none"
         }
       }
     },
@@ -119,7 +168,7 @@
       },
       "medium": {
         "padding": "10px 20px",
-        "font-size": "{{font.size.md}}"
+        "font-size": "{{font.size.sm}}"
       },
       "small": {
         "padding": "6px 14px",
