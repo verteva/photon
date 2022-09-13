@@ -9,7 +9,7 @@ export const replaceTemplateValue = (templateString, root) => {
     return templateString;
   }
   try {
-    const matches = templateString.match(/(?<={{)(.*?)(?=}})/g);
+    const matches = templateString.match(/({{)(.*?)(}})/g);
 
     if (!matches || !matches.length) {
       return templateString;
@@ -18,14 +18,13 @@ export const replaceTemplateValue = (templateString, root) => {
     let returnString = templateString;
 
     matches.forEach(match => {
-      const value = get(root, match, '');
+      const strippedMatch = match.replace('{{', '').replace('}}', '');
+      const value = get(root, strippedMatch, '');
       returnString = returnString.replace(
         match,
         replaceTemplateValue(value, root)
       );
     });
-
-    returnString = returnString.replace(/{{/g, '').replace(/}}/g, '');
 
     return returnString;
   } catch (error) {
