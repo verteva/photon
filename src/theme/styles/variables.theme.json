@@ -1,0 +1,22 @@
+{
+	"variables": {
+		"border-radius": {
+			"default": "{{variables.border-radius.md}}",
+			"sm": "4px",
+			"md": "10px",
+			"lg": "18px"
+		},
+		"box-padding": {
+			"default": "{{variables.box-padding.md}}",
+			"sm": "20px",
+			"md": "36px",
+			"lg": "40px"
+		},
+		"box-shadow": {
+			"default": "{{variables.box-shadow.md}}",
+			"sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+			"md": "0 2.76px 2.21px 0 rgba(0, 0, 0, 0.02), 0 6.65px 5.32px 0 rgba(0, 0, 0, 0.03)",
+			"lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+		}
+	}
+}
