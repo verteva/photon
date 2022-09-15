@@ -1,4 +1,13 @@
-# photon
+<h1 align="center" style="border-bottom: none;">🚀 Nano / Photon </h1>
+<h3 align="center">Theme-able component library</h3>
+<p align="center">
+  <a href="https://v2.vuejs.org/">
+    <img alt="Join the community on GitHub Discussions" src="https://img.shields.io/badge/Vue.js-2.6.11-4fc08d?logo=Vue.js">
+  </a>
+  <a href="https://github.com/semantic-release/semantic-release/">
+    <img alt="semantic-release: angular" src="https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release">
+  </a>
+</p>
 
 ## Project setup
 ```
@@ -95,4 +104,7 @@ To learn more about the photon v2 system check the documentation bellow
 <!-- Turn this into a link to a local MD file. --> 
 
 ### Semantic versioning.
-TBA
+
+This project uses [semantic versioning](https://semver.org/) and [semantic release](https://github.com/semantic-release/semantic-release) to automatically publish new versions to npm.
+
+When you merge a PR into `main`, semantic-release will automatically publish a new version to npm.

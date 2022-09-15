@@ -20,7 +20,7 @@
       {
         "notifyOnSuccess": true,
         "notifyOnFail": true,
-        "slackChannel": "test-channel-semantic"
+        "slackChannel": "build-notifications"
       }
     ]
   ]
