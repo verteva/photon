@@ -1,6 +1,5 @@
 {
-  "branches": ["d/PLAT-64-semantic-version-release"],
-  "dryRun": true,
+  "branches": ["main"],
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -19,16 +18,9 @@
     [
       "semantic-release-slack-bot",
       {
-        "notifyOnSuccess": false,
-        "notifyOnFail": false,
-        "slackChannel": "test-channel-semantic",
-        "branchesConfig": [
-          {
-            "pattern": "main",
-            "notifyOnFail": true,
-            "notifyOnSuccess": true
-          }
-        ]
+        "notifyOnSuccess": true,
+        "notifyOnFail": true,
+        "slackChannel": "test-channel-semantic"
       }
     ]
   ]

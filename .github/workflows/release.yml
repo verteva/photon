@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - d/PLAT-64-semantic-version-release
 jobs:
   release:
     name: Release
@@ -30,5 +29,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          SLACK_TOKEN: ${{ secrets.SLACK_RELEASE_BOT_TOKEN }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
         run: npx semantic-release
