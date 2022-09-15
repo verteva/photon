@@ -94,6 +94,5 @@ To learn more about the photon v2 system check the documentation bellow
 [creating photon v2 components](https://verteva.atlassian.net/wiki/spaces/ENG/pages/1613594659/Creating+Photon+v2+components)
 <!-- Turn this into a link to a local MD file. --> 
 
-
-
-
+### Semantic versioning.
+TBA
