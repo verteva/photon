@@ -3,13 +3,18 @@ import '../src/assets/css/main.css';
 
 import Vuex from 'vuex';
 import Vue from 'vue';
-import store from '../src/components/store';
-import { flattenObjectToCssVars, parseBrandingJson } from "../src/utils/parseBrandingJson";
-import { injectThemeCssVariables } from "../src/utils/injectThemeCssVariables";
+import store from '@/components/store';
+import { flattenObjectToCssVars, parseBrandingJson } from "@/utils/parseBrandingJson";
+import { injectThemeCssVariables } from "@/utils/injectThemeCssVariables";
 import { getThemeNames } from "./utils/getThemeNames";
 import { getTheme } from './utils/getTheme';
 
 const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
+
+
+if (isExternal) {
+  import('../src/assets/scss/dev-fonts.scss');
+}
 
 const getThemeFiles = () => {
   const localFiles = require.context('../src/theme/', true, /theme\.json$/i);
@@ -17,7 +22,7 @@ const getThemeFiles = () => {
     return localFiles;
   }
   try {
-    const { getFiles } = require('../themeFileLocation');
+    const { getFiles } = require('@/utils/themeFileLocation');
     const externalFiles = getFiles();
     return externalFiles;
   }

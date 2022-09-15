@@ -13,7 +13,8 @@
     "start": "harp server --port $PORT",
     "ico": "sh ./scripts/ico.sh",
     "new": "sh ./scripts/new.sh",
-    "deploy": "npm run build:lib && npm publish"
+    "deploy": "npm run build:lib && npm publish",
+    "prepare": "husky install"
   },
   "main": "dist/photon.umd.js",
   "module": "dist/photon.umd.js",
@@ -34,6 +35,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-controls": "^6.2.9",
     "@storybook/addon-docs": "^6.2.9",
@@ -62,9 +65,12 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.2.13",
     "postcss-loader": "^4.3.0",
     "prettier": "^1.19.1",
+    "resolve-url-loader": "^5.0.0",
     "sass": "^1.54.5",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.3.0",
@@ -75,5 +81,10 @@
     "vue-loader": "^15.9.7",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts}": [
+      "npm run lint"
+    ]
   }
 }
