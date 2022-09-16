@@ -4,13 +4,15 @@ import '../src/assets/css/main.css';
 import Vuex from 'vuex';
 import Vue from 'vue';
 import store from '@/components/store';
-import { flattenObjectToCssVars, parseBrandingJson } from "@/utils/parseBrandingJson";
-import { injectThemeCssVariables } from "@/utils/injectThemeCssVariables";
-import { getThemeNames } from "./utils/getThemeNames";
+import {
+  flattenObjectToCssVars,
+  parseBrandingJson,
+} from '@/utils/parseBrandingJson';
+import { injectThemeCssVariables } from '@/utils/injectThemeCssVariables';
+import { getThemeNames } from './utils/getThemeNames';
 import { getTheme } from './utils/getTheme';
 
 const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
-
 
 if (isExternal) {
   import('../src/assets/scss/dev-fonts.scss');
@@ -23,12 +25,14 @@ const getThemeFiles = () => {
   }
   try {
     const { getFiles } = require('@/utils/themeFileLocation');
-    const externalFiles = getFiles();
-    return externalFiles;
-  }
-  catch (e) {
-    alert('Could not load themeFileLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information. Using default theme instead.');
-    console.error('Could not load themeFileLocation.js. Make sure you\'ve copied the file. Check the readme.md for more information. Using default theme instead.');
+    return getFiles();
+  } catch (e) {
+    alert(
+      "Could not load themeFileLocation.js. Make sure you've copied the file. Check the readme.md for more information. Using default theme instead."
+    );
+    console.error(
+      "Could not load themeFileLocation.js. Make sure you've copied the file. Check the readme.md for more information. Using default theme instead."
+    );
     return localFiles;
   }
 };
@@ -49,7 +53,7 @@ export const withTheme = (story, context) => {
     },
     watch: {
       theme: {
-        handler: async (val) => {
+        handler: async val => {
           try {
             const files = getThemeFiles();
             const json = await getTheme(files, isExternal ? val : '');
@@ -61,9 +65,9 @@ export const withTheme = (story, context) => {
         },
         immediate: true,
       },
-    }
+    },
   };
-}
+};
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -81,25 +85,25 @@ export const parameters = {
 };
 
 export const globalTypes = {
-  theme: isExternal ? ({
-    name: 'Theme',
-    description: 'Global theme for components',
-    defaultValue: 'Nano',
-    toolbar: {
-      // The icon for the toolbar item
-      icon: 'circlehollow',
-      // Array of options
-      items: getThemeNames(getThemeFiles()).map(
-        key => ({
-          value: key,
-          title: key,
+  theme: isExternal
+    ? {
+        name: 'Theme',
+        description: 'Global theme for components',
+        defaultValue: 'Nano',
+        toolbar: {
+          // The icon for the toolbar item
           icon: 'circlehollow',
-        })
-      ),
-      // Property that specifies if the name of the item will be displayed
-      showName: true,
-    },
-  }) : ({ }),
-}
+          // Array of options
+          items: getThemeNames(getThemeFiles()).map(key => ({
+            value: key,
+            title: key,
+            icon: 'circlehollow',
+          })),
+          // Property that specifies if the name of the item will be displayed
+          showName: true,
+        },
+      }
+    : {},
+};
 
 export const decorators = [withTheme];
