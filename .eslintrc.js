@@ -6,7 +6,8 @@ module.exports = {
   extends: [
     'plugin:vue/recommended',
     '@vue/typescript/recommended',
-    '@vue/prettier',
+    'plugin:storybook/recommended',
+    '@vue/prettier'
   ],
   parserOptions: {
     ecmaVersion: 2020,
@@ -20,7 +21,13 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
-    'prettier/prettier': ['error', { singleQuote: true, printWidth: 80 }],
+    'prettier/prettier': ['error', {
+      semi: true,
+      singleQuote: true,
+      jsxBracketSameLine: true,
+      printWidth: 80,
+      trailingComma: 'es5',
+    }],
     quotes: ['error', 'single', { avoidEscape: true }],
   },
   overrides: [
@@ -40,5 +47,11 @@ module.exports = {
         jest: true,
       },
     },
+    {
+      files: ['.storybook/**/*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 0,
+      }
+    }
   ],
 };
