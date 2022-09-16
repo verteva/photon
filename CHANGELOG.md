@@ -1,3 +1,15 @@
+# [0.3.0](https://github.com/verteva/photon/compare/v0.2.2...v0.3.0) (2022-09-16)
+
+
+### Bug Fixes
+
+* updated semantic release commit message ([e0717ae](https://github.com/verteva/photon/commit/e0717aeaa5ae5371fd708eb9aa981d5cc12231d4))
+
+
+### Features
+
+* semantic versioning ([f18fd53](https://github.com/verteva/photon/commit/f18fd5322860e8e990aee8ad7950151b3d531bf0))
+
 # Changelog
 All notable changes to this project will be documented in this file.
 
