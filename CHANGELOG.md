@@ -10,11 +10,7 @@
 
 * semantic versioning ([f18fd53](https://github.com/verteva/photon/commit/f18fd5322860e8e990aee8ad7950151b3d531bf0))
 
-# Changelog
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## ---- End of manual changelogs ----
 
 ## [0.2.2] - 2022-03-13
 ### Fix

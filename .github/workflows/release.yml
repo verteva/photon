@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - d/test-semantic-token
 jobs:
   release:
     name: Release
@@ -28,7 +27,6 @@ jobs:
 
       - name: Release
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
