@@ -5,8 +5,14 @@
     <img alt="Join the community on GitHub Discussions" src="https://img.shields.io/badge/Vue.js-2.6.11-4fc08d?logo=Vue.js">
   </a>
   <a href="https://github.com/semantic-release/semantic-release/">
-    <img alt="semantic-release: angular" src="https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release">
+    <img alt="semantic-release: conventional-commits" src="https://img.shields.io/badge/semantic--release-conventional--commits-e10079?logo=semantic-release">
   </a>
+  <a href="https://www.npmjs.com/package/@nanonpm/photon">
+    <img alt="package" src="https://img.shields.io/npm/v/@nanonpm/photon.svg?style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/@nanonpm/photon">
+        <img src="https://img.shields.io/npm/dm/@nanonpm/photon.svg?style=flat-square">
+    </a>
 </p>
 
 ## Project setup
