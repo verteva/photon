@@ -1,10 +1,15 @@
 const path = require('path');
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, IgnorePlugin } = require('webpack');
 
-if (
-  process.env.STORYBOOK_THEME_LOCATION === 'external' &&
-  !process.env.STORYBOOK_BRANDING_PATH
-) {
+const {
+  STORYBOOK_THEME_LOCATION,
+  STORYBOOK_BRANDING_PATH,
+  NODE_ENV,
+} = process.env;
+
+const isBuild = NODE_ENV === 'production';
+
+if (STORYBOOK_THEME_LOCATION === 'external' && !STORYBOOK_BRANDING_PATH) {
   console.error(
     'Can not load external themes without a branding path. Set your STORYBOOK_BRANDING_PATH in the .env variables'
   );
@@ -30,13 +35,22 @@ module.exports = ({ config }) => {
 
   config.resolve.alias = {
     ...config.resolve.alias,
-    branding: process.env.STORYBOOK_BRANDING_PATH,
+    ...(isBuild ? {} : { branding: STORYBOOK_BRANDING_PATH }),
     '@': path.resolve(__dirname, '../src'),
   };
 
+  if (isBuild) {
+    config.plugins.push(
+      new IgnorePlugin(
+        /^(\.\.\/src\/assets\/scss\/dev-fonts\.scss|@\/utils\/themeFileLocation)$/
+      )
+    );
+  }
+
   config.plugins.push(
     new DefinePlugin({
-      BRANDING_PATH: JSON.stringify(process.env.STORYBOOK_BRANDING_PATH),
+      BRANDING_PATH: JSON.stringify(STORYBOOK_BRANDING_PATH),
+      IS_BUILD: JSON.stringify(isBuild),
     })
   );
 
