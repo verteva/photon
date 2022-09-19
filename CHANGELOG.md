@@ -1,3 +1,11 @@
+## [0.3.1](https://github.com/verteva/photon/compare/v0.3.0...v0.3.1) (2022-09-16)
+
+
+### Bug Fixes
+
+* changed to git-pr for semantic release ([d7e10dd](https://github.com/verteva/photon/commit/d7e10dd4da8d2b8180ca17373cf88858265e8ca8))
+* themelocation fix ([bcd14c4](https://github.com/verteva/photon/commit/bcd14c40dd5efba733986b952dfd66abecb08c9f))
+
 # [0.3.0](https://github.com/verteva/photon/compare/v0.2.2...v0.3.0) (2022-09-16)
 
 
