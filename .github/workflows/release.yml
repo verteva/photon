@@ -27,6 +27,7 @@ jobs:
 
       - name: Release
         env:
+          GH_TOKEN_RELEASE: ${{ secrets.GH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
