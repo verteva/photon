@@ -1,8 +1,36 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+## [0.3.1](https://github.com/verteva/photon/compare/v0.3.0...v0.3.1) (2022-09-16)
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+### Bug Fixes
+
+* changed to git-pr for semantic release ([d7e10dd](https://github.com/verteva/photon/commit/d7e10dd4da8d2b8180ca17373cf88858265e8ca8))
+* themelocation fix ([bcd14c4](https://github.com/verteva/photon/commit/bcd14c40dd5efba733986b952dfd66abecb08c9f))
+
+# [0.3.0](https://github.com/verteva/photon/compare/v0.2.2...v0.3.0) (2022-09-16)
+
+
+### Bug Fixes
+
+* updated semantic release commit message ([e0717ae](https://github.com/verteva/photon/commit/e0717aeaa5ae5371fd708eb9aa981d5cc12231d4))
+
+
+### Features
+
+* semantic versioning ([f18fd53](https://github.com/verteva/photon/commit/f18fd5322860e8e990aee8ad7950151b3d531bf0))
+
+## ---- End of manual changelogs ----
+
+## [0.2.2] - 2022-03-13
+### Fix
+- Fix previous broken release
+
+## [0.2.1] - 2022-03-13
+### Fix
+- Simplified the template parser for safari and added error handling.
+### Add
+- Added the Input component to v2
+- Added the InputNumber component to v2
+- Added the Label component to v2
 
 ## [0.2.0] - 2022-08-01
 ### Major update

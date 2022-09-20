@@ -1,4 +1,19 @@
-# photon
+<h1 align="center" style="border-bottom: none;">🚀 Nano / Photon </h1>
+<h3 align="center">Theme-able component library</h3>
+<p align="center">
+  <a href="https://v2.vuejs.org/">
+    <img alt="Join the community on GitHub Discussions" src="https://img.shields.io/badge/Vue.js-2.6.11-4fc08d?logo=Vue.js">
+  </a>
+  <a href="https://github.com/semantic-release/semantic-release/">
+    <img alt="semantic-release: conventional-commits" src="https://img.shields.io/badge/semantic--release-conventional--commits-e10079?logo=semantic-release">
+  </a>
+  <a href="https://www.npmjs.com/package/@nanonpm/photon">
+    <img alt="package" src="https://img.shields.io/npm/v/@nanonpm/photon.svg?style=flat-square">
+    </a>
+    <a href="https://www.npmjs.com/package/@nanonpm/photon">
+        <img src="https://img.shields.io/npm/dm/@nanonpm/photon.svg?style=flat-square">
+    </a>
+</p>
 
 ## Project setup
 ```
@@ -84,13 +99,7 @@ You can start the local build by running `npm run sb` and then navigating to the
 
 If you want to run it with external theme files you can run `npm run sb:external` and then navigate to the `Photon v2` section of the storybook.
 
-In order to get the external theme files to load you need to create a loader that pulls in all the theme files.
-
-run the following command
-```typescript
-cp themeFileLocation.sample.js themeFileLocation.js
-```
-Open the new `themeFileLocation.js` file and replace the `<PATH_TO_BRANDING_FOLDER>` with the absolute path to your branding folder for `onboarding`
+In order to get the external theme files to load you need to add the the absolute path to your branding folder for `onboarding` into the `.env` file.
 
 Make sure it does not have a trailing slash `/` at the end.
 
@@ -100,6 +109,8 @@ To learn more about the photon v2 system check the documentation bellow
 [creating photon v2 components](https://verteva.atlassian.net/wiki/spaces/ENG/pages/1613594659/Creating+Photon+v2+components)
 <!-- Turn this into a link to a local MD file. --> 
 
+### Semantic versioning.
 
+This project uses [semantic versioning](https://semver.org/) and [semantic release](https://github.com/semantic-release/semantic-release) to automatically publish new versions to npm.
 
-
+When you merge a PR into `main`, semantic-release will automatically publish a new version to npm.
