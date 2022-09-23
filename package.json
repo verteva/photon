@@ -32,7 +32,7 @@
     "gsap": "^3.11.0",
     "harp": "^0.41.0",
     "lodash.get": "^4.4.2",
-    "vue": "^2.6.11",
+    "vue": "^2.7.10",
     "vue-phone-number-input": "^1.1.10",
     "vue-select": "^3.20.0",
     "vuex": "^3.6.2"
@@ -88,7 +88,7 @@
     "vue-cli-plugin-tailwind": "~2.0.6",
     "vue-loader": "^15.9.7",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.7.10"
   },
   "lint-staged": {
     "*.{vue,js,ts}": [
