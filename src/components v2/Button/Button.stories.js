@@ -2,6 +2,7 @@ import P2Button from './Button.vue';
 import Loader from '../../components/Loader';
 import '../../assets/scss/main.scss';
 import { ButtonSizes, ButtonStyles, ButtonTypes } from './types';
+import { withDesign } from 'storybook-addon-designs';
 
 const bool = { options: [true, false] };
 
@@ -36,6 +37,7 @@ export default {
   },
   // Set the initial values of the props
   args: {},
+  decorators: [withDesign],
 };
 
 const DocsTemplate = (args, { argTypes }) => ({
@@ -76,15 +78,22 @@ const SubmittingTemplate = (args, { argTypes }) => ({
 
 export const Docs = DocsTemplate.bind({});
 Docs.argTypes = {};
+Docs.parameters = {
+  design: {
+    type: 'figma',
+    url:
+      'https://www.figma.com/file/U5qkPG71ZzYAnQY7i52VlA/Design-Token-intro-and-demo-(via-Figma-Token)-(Community)?node-id=148%3A888',
+  },
+};
 
 export const Submitting = SubmittingTemplate.bind({});
 Submitting.argTypes = {};
 
-const PlaygroundTemplate = (args, { argTypes }) => ({
-  components: { P2Button },
-  props: Object.keys(argTypes),
-  template: '<p2-button v-bind="{...props}">Hello</p2-button>',
-});
-
-export const Playground = PlaygroundTemplate.bind({});
-Docs.argTypes = {};
+// const PlaygroundTemplate = (args, { argTypes }) => ({
+//   components: { P2Button },
+//   props: Object.keys(argTypes),
+//   template: '<p2-button v-bind="{...props}">Hello</p2-button>',
+// });
+//
+// export const Playground = PlaygroundTemplate.bind({});
+// Docs.argTypes = {};
