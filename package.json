@@ -29,7 +29,7 @@
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/greensock": "^1.15.32",
     "core-js": "^3.6.5",
-    "gsap": "^3.7.1",
+    "gsap": "^3.11.0",
     "harp": "^0.41.0",
     "lodash.get": "^4.4.2",
     "vue": "^2.6.11",
