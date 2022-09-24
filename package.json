@@ -30,7 +30,7 @@
     "@types/greensock": "^1.15.32",
     "core-js": "^3.25.0",
     "gsap": "^3.11.0",
-    "harp": "^0.41.0",
+    "harp": "^0.42.0",
     "lodash.get": "^4.4.2",
     "vue": "^2.7.10",
     "vue-phone-number-input": "^1.1.10",
