@@ -19,11 +19,11 @@ import {
 } from './utils/parseBrandingJson';
 import { injectThemeCssVariables } from './utils/injectThemeCssVariables';
 import {
-  getChameleonTheme,
-  getChameleonThemeNames,
-  parseBrandingJsonV2,
+  getFigmaTheme,
+  getFigmaThemeNames,
+  parseFigmaJson,
   getBuiltThemeFiles,
-} from './utils/chameleon';
+} from './utils/figmaTheme';
 
 import * as toast from './components/Toast/store';
 
@@ -64,10 +64,10 @@ export default {
   flattenObjectToCssVars,
   replaceTemplateValue,
   injectThemeCssVariables,
-  chameleon: {
-    getChameleonTheme,
-    getChameleonThemeNames,
-    parseBrandingJsonV2,
+  figmaTheme: {
+    getFigmaTheme,
+    getFigmaThemeNames,
+    parseFigmaJson,
     getBuiltThemeFiles,
   },
 };

@@ -1,6 +1,6 @@
 import { replaceTemplateValue } from './replaceTemplateValue';
 
-export const parseBrandingJson = jsonFile => {
+export const parseFigmaJson = jsonFile => {
   return parseObject(jsonFile, jsonFile);
 };
 
@@ -24,7 +24,7 @@ export const parseObject = (object, root) => {
 
 export const flattenObjectToCssVars = (
   object,
-  base = '--chameleon-',
+  base = '--',
   delimiter = '-'
 ) => {
   const flattenedObject = {};

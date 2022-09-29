@@ -3,9 +3,9 @@ const { resolve } = require('path');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const fs = require('fs');
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const { chameleon } = require('../dist/photon.common.js');
+const { figmaTheme } = require('../dist/photon.common.js');
 
-const { getBuiltThemeFiles } = chameleon;
+const { getBuiltThemeFiles } = figmaTheme;
 
 const getFiles = () => {
   const path = resolve(__dirname, '../src/photon-token-poc/themes');
@@ -14,6 +14,7 @@ const getFiles = () => {
 
 const buildThemeFiles = async () => {
   const files = getFiles();
+
   const mergedJson = files.reduce(
     (acc, file) => ({
       ...acc,

@@ -13,9 +13,9 @@ import { getTheme } from './utils/getTheme';
 import { getThemeNames } from './utils/getThemeNames';
 
 const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
-const isChameleon = process.env.STORYBOOK_THEME_LOCATION === 'chameleon';
+const isFigma = process.env.STORYBOOK_THEME_LOCATION === 'figma';
 
-if (isExternal || isChameleon) {
+if (isExternal || isFigma) {
   import('../src/assets/scss/dev-fonts.scss');
 }
 
@@ -113,9 +113,7 @@ export const withTheme = story => {
                 `${process.env.STORYBOOK_THEME_URL}/${val}.json`
               );
               const parsedTheme = await res.json();
-              injectThemeCssVariables(
-                flattenObjectToCssVars(parsedTheme, '--chameleon-')
-              );
+              injectThemeCssVariables(flattenObjectToCssVars(parsedTheme));
               store.dispatch('theme/setTheme', parsedTheme);
             };
 

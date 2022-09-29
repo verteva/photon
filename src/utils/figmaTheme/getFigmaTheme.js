@@ -4,23 +4,13 @@ import merge from 'lodash.merge';
 const sortArray = (arr, sortArr) => {
   return arr.sort((a, b) => {
     return (
-      sortArr.indexOf(
-        a
-          .split('/')
-          .pop()
-          .replace('.json', '')
-      ) -
-      sortArr.indexOf(
-        b
-          .split('/')
-          .pop()
-          .replace('.json', '')
-      )
+      sortArr.indexOf(a.replace('.json', '')) -
+      sortArr.indexOf(b.replace('.json', ''))
     );
   });
 };
 
-export const getChameleonTheme = async (files, theme = '') => {
+export const getFigmaTheme = async (files, theme = '') => {
   try {
     const filePaths = files.keys();
 
@@ -39,18 +29,17 @@ export const getChameleonTheme = async (files, theme = '') => {
     const themeMetaData = themeFile.find(({ name }) => name === theme);
 
     const partialsToLoad = tokenSetOrder.filter(
-      themeName => themeMetaData.selectedTokenSets[themeName] === 'enabled'
+      themeName => themeMetaData.selectedTokenSets[themeName] !== 'disabled'
     );
 
-    const sortedPartialsToLoad = sortArray(filePaths, tokenSetOrder).filter(
-      sortedFile =>
-        partialsToLoad.includes(
-          sortedFile
-            .split('/')
-            .pop()
-            .replace('.json', '')
-        )
+    const sortedPartialsToLoad = sortArray(
+      filePaths,
+      tokenSetOrder
+    ).filter(sortedFile =>
+      partialsToLoad.includes(sortedFile.replace('.json', ''))
     );
+
+    console.log('sortedPartialsToLoad', sortedPartialsToLoad);
 
     return sortedPartialsToLoad.reduce(
       (acc, filePath) => merge(acc, files(filePath)),
@@ -63,7 +52,7 @@ export const getChameleonTheme = async (files, theme = '') => {
   return '';
 };
 
-export const getChameleonThemeNames = files => {
+export const getFigmaThemeNames = files => {
   const filePaths = files.keys();
 
   const themeFilePath = filePaths.find(filePath => filePath.includes('$theme'));
