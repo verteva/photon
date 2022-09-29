@@ -36,7 +36,6 @@ export default {
   },
   // Set the initial values of the props
   args: {},
-  decorators: [withDesign],
 };
 
 const DocsTemplate = (args, { argTypes }) => ({
