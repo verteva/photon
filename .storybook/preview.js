@@ -77,7 +77,7 @@ export const withTheme = story => {
   return {
     components: { story, ThemeBar },
     template:
-      isExternal || isChameleon
+      isExternal || isFigma
         ? '<ThemeBar :theme="theme" :theme-names="themeNames" @input="val => theme = val.target.value"><story /></ThemeBar>'
         : '<story />',
     data() {
@@ -88,7 +88,7 @@ export const withTheme = story => {
       };
     },
     async created() {
-      if (isChameleon) {
+      if (isFigma) {
         try {
           const res = await fetch(
             `${process.env.STORYBOOK_THEME_URL}/themes.json`
@@ -107,7 +107,7 @@ export const withTheme = story => {
     watch: {
       theme: {
         async handler(val) {
-          if (isChameleon) {
+          if (isFigma) {
             const loadChameleonTheme = async () => {
               const res = await fetch(
                 `${process.env.STORYBOOK_THEME_URL}/${val}.json`
@@ -136,7 +136,7 @@ export const withTheme = story => {
 };
 
 export const parameters = {
-  layout: isChameleon || isExternal ? 'fullscreen' : 'padded',
+  layout: isFigma || isExternal ? 'fullscreen' : 'padded',
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
