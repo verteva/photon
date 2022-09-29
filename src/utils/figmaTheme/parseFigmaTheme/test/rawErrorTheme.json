@@ -1,0 +1,11 @@
+{
+  "colors": {
+    "black": "this should not be here. Can't terminate at a string thats not associated with a value/type pair",
+    "brand": {
+      "green": {
+        "type": "color",
+        "value": "#219653"
+      }
+    }
+  }
+}
