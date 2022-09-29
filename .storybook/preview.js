@@ -108,7 +108,7 @@ export const withTheme = story => {
       theme: {
         async handler(val) {
           if (isFigma) {
-            const loadChameleonTheme = async () => {
+            const loadFigmaTheme = async () => {
               const res = await fetch(
                 `${process.env.STORYBOOK_THEME_URL}/${val}.json`
               );
@@ -117,7 +117,7 @@ export const withTheme = story => {
               store.dispatch('theme/setTheme', parsedTheme);
             };
 
-            loadChameleonTheme();
+            loadFigmaTheme();
             return;
           }
           try {

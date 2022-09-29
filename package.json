@@ -4,14 +4,12 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/verteva/photon.git"
+    "url": "https://github.com/verteva/photon.git"
   },
   "scripts": {
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "tsc:theme": "tsc ./scripts/buildThemeFiles.ts --skipLibCheck",
     "build": "build-storybook",
-    "build:theme": "node ./scripts/buildThemeFiles.js",
     "build:lib": "vue-cli-service build --target lib src/install.ts",
     "lib": "vue-cli-service build --target lib src/install.ts",
     "sb": "start-storybook -p 6006",
@@ -30,16 +28,16 @@
   "dependencies": {
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/linter-config": "^3.1.2",
-    "@tailwindcss/postcss7-compat": "^2.0.2",
+    "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/greensock": "^1.15.32",
-    "core-js": "^3.6.5",
-    "gsap": "^3.7.1",
+    "core-js": "^3.25.0",
+    "gsap": "^3.11.1",
     "harp": "^0.41.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
-    "vue": "^2.6.11",
+    "vue": "^2.7.10",
     "vue-phone-number-input": "^1.1.10",
-    "vue-select": "^3.12.2",
+    "vue-select": "^3.20.0",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
@@ -82,7 +80,6 @@
     "lint-staged": "^13.0.3",
     "postcss": "^8.2.13",
     "postcss-loader": "^4.3.0",
-    "require-context": "^1.1.0",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.54.5",
     "sass-loader": "^8.0.2",
@@ -97,17 +94,11 @@
     "vue-cli-plugin-tailwind": "~2.0.6",
     "vue-loader": "^15.9.7",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.7.10"
   },
   "lint-staged": {
     "*.{vue,js,ts}": [
       "npm run lint"
     ]
-  },
-  "bugs": {
-    "url": "https://github.com/verteva/photon/issues"
-  },
-  "readme": "ERROR: No README data found!",
-  "homepage": "https://github.com/verteva/photon#readme",
-  "_id": "@nanonpm/photon@0.3.1"
+  }
 }
