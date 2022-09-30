@@ -20,6 +20,11 @@ export const resolveTemplateString = (
     matches.forEach(match => {
       const strippedMatch = match.replace('{', '').replace('}', '');
       const value = get(root, `${strippedMatch}${valueToken}`, '');
+      if (!value) {
+        console.error(
+          `value is empty for match ${strippedMatch}. Are you sure you are targeting the right value?`
+        );
+      }
       const resolvedValue = replaceTemplateValue(value, root);
       if (
         templateString.length !== match.length &&
