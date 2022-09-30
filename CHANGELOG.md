@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/verteva/photon/compare/v0.4.0...v0.4.1) (2022-09-30)
+
+
+### Bug Fixes
+
+* added additional basic parser for unknown types as a catch all ([d979813](https://github.com/verteva/photon/commit/d979813a3b9824c03cd6e39a4f80355402e4ff78))
+
 # [0.4.0](https://github.com/verteva/photon/compare/v0.3.2...v0.4.0) (2022-09-30)
 
 
