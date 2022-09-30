@@ -5,7 +5,7 @@ export const boxShadowParser = (value, root) => {
     return replaceTemplateValue(value.value, root);
   }
 
-  const buildShadow = ({ blur, color, spread, type, x, y }) =>
+  const buildShadow = ({ blur, color, spread, x, y }) =>
     `${replaceTemplateValue(x, root)}px ${replaceTemplateValue(
       y,
       root
