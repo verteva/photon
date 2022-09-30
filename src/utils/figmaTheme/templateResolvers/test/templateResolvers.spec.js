@@ -93,33 +93,32 @@ describe('figmaTheme/templateResolvers/', () => {
   });
 
   describe('errors', () => {
-    it('throws error when trying to parse objects into strings', () => {
+    it('Throws an error when trying to parse objects into strings', () => {
       expect(() =>
         replaceTemplateValue(brokenRoot.other.primary, brokenRoot)
       ).toThrowErrorMatchingSnapshot();
     });
 
-    it('throws error when trying to parse objects that do not exist', () => {
-      expect(() =>
-        replaceTemplateValue(brokenRoot.other.secondary, brokenRoot)
-      ).toThrowErrorMatchingSnapshot();
+    it('logs an error when trying to parse objects that do not exist', () => {
+      jest.spyOn(console, 'error').mockImplementation();
+
+      replaceTemplateValue(brokenRoot.other.secondary, brokenRoot);
+
+      // assert the expected warning
+      expect(console.error).toHaveBeenCalledWith(
+        expect.stringContaining('value is empty for match')
+      );
     });
 
-    it('throws error when trying to parse types that do not exist', () => {
+    it('Throws an error when trying to parse an object without a type key', () => {
       expect(() =>
         replaceTemplateValue(brokenRoot.other.tertiary, brokenRoot)
       ).toThrowErrorMatchingSnapshot();
     });
 
-    it('throws error when trying to parse an object without a type key', () => {
+    it("Throws an error when trying to parse an key that's not a string nor object", () => {
       expect(() =>
         replaceTemplateValue(brokenRoot.other.quaternary, brokenRoot)
-      ).toThrowErrorMatchingSnapshot();
-    });
-
-    it('throws error when trying to parse an key thats not a string nor object', () => {
-      expect(() =>
-        replaceTemplateValue(brokenRoot.other.quinary, brokenRoot)
       ).toThrowErrorMatchingSnapshot();
     });
   });

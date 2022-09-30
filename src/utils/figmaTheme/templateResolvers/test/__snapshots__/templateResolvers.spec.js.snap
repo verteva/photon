@@ -1,17 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`figmaTheme/templateResolvers/ errors throws error when trying to parse an key thats not a string nor object 1`] = `"Invalid template value, must be a string or an object with a type property"`;
+exports[`figmaTheme/templateResolvers/ errors Throws an error when trying to parse an key that's not a string nor object 1`] = `"Invalid template value, must be a string or an object with a type property"`;
 
-exports[`figmaTheme/templateResolvers/ errors throws error when trying to parse an object without a type key 1`] = `"Invalid template value, cant parse objects without a type"`;
+exports[`figmaTheme/templateResolvers/ errors Throws an error when trying to parse an object without a type key 1`] = `"Invalid template value, cant parse objects without a type"`;
 
-exports[`figmaTheme/templateResolvers/ errors throws error when trying to parse objects into strings 1`] = `
+exports[`figmaTheme/templateResolvers/ errors Throws an error when trying to parse objects into strings 1`] = `
 "Error: Template string is not valid. You tried to parse object value into a string. 
 
 - templateString: {typography.primary} {color.primary} 
 	- match: typography.primary 
 	- value: [object Object]"
 `;
-
-exports[`figmaTheme/templateResolvers/ errors throws error when trying to parse objects that do not exist 1`] = `"TypeError: resolver is not a function"`;
-
-exports[`figmaTheme/templateResolvers/ errors throws error when trying to parse types that do not exist 1`] = `"resolver is not a function"`;

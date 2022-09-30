@@ -13,6 +13,7 @@ const parsers = {
   fontWeights: basicParser,
   typography: compositionParser,
   other: basicParser,
+  basic: basicParser,
 };
 
 export default parsers;
