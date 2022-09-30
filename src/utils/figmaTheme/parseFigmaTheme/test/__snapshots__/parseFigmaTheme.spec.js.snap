@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`figmaTheme/flattenObjectToCssVars parses a figma theme and then flattens it 1`] = `
+Object {
+  "--colors-black": "#000000",
+  "--colors-brand-green": "#219653",
+  "--colors-brand-orange": "orange",
+  "--colors-brand-purple": "#6f53f9",
+  "--colors-brand-red": "#eb5757",
+  "--colors-brand-teal": "#31839b",
+  "--colors-grey-00": "#07131f",
+  "--colors-grey-01": "#6a6e80",
+  "--colors-grey-02": "#949494",
+  "--colors-grey-03": "#b5b5b5",
+  "--colors-grey-08": "#f4f4f4",
+  "--colors-grey-09": "grey",
+  "--colors-grey-10": "#f9f9f9",
+  "--colors-theme-primary": "",
+  "--colors-theme-secondary": "#31839b",
+  "--colors-theme-tertiary": "#eb5757",
+  "--colors-white": "#ffffff",
+  "--spacing-default": "2",
+}
+`;
+
+exports[`figmaTheme/parseFigmaTheme errors throws when the them file format is wrong 1`] = `"Invalid template. Cannot parse non-object values. Objects must either have nested objects or terminate with an object with a valid type property."`;
+
+exports[`figmaTheme/parseFigmaTheme parses a figma theme 1`] = `
+Object {
+  "colors": Object {
+    "black": "#000000",
+    "brand": Object {
+      "green": "#219653",
+      "orange": "orange",
+      "purple": "#6f53f9",
+      "red": "#eb5757",
+      "teal": "#31839b",
+    },
+    "grey": Object {
+      "00": "#07131f",
+      "01": "#6a6e80",
+      "02": "#949494",
+      "03": "#b5b5b5",
+      "08": "#f4f4f4",
+      "09": "grey",
+      "10": "#f9f9f9",
+    },
+    "theme": Object {
+      "primary": "",
+      "secondary": "#31839b",
+      "tertiary": "#eb5757",
+    },
+    "white": "#ffffff",
+  },
+  "spacing": Object {
+    "default": "2",
+  },
+}
+`;

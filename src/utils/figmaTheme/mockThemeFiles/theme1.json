@@ -1,0 +1,22 @@
+{
+  "colors": {
+    "brand": {
+      "orange": {
+        "value": "orange",
+        "type": "color"
+      }
+    },
+    "grey": {
+      "09": {
+        "value": "grey",
+        "type": "color"
+      }
+    },
+    "theme": {
+      "primary": {
+        "value": "{colors.brand.grey}",
+        "type": "color"
+      }
+    }
+  }
+}

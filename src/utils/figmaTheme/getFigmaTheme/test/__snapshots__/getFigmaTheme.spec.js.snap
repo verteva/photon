@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`figmaTheme/getFigmaTheme errors throws when a $meta file cannot be found 1`] = `"No $meta file found"`;
+
+exports[`figmaTheme/getFigmaTheme errors throws when a $theme file cannot be found 1`] = `"No $theme file found"`;
+
+exports[`figmaTheme/getFigmaTheme errors throws when all partials are disabled for a theme 1`] = `"No enabled partials found for this theme theme4. Check the $theme file for this theme."`;
+
+exports[`figmaTheme/getFigmaTheme errors throws when there is no theme data for supplied theme 1`] = `"No data found for theme theme4. This theme may not exist."`;
+
+exports[`figmaTheme/getFigmaTheme gets a figma theme from a files object 1`] = `
+Object {
+  "colors": Object {
+    "black": Object {
+      "type": "color",
+      "value": "#000000",
+    },
+    "brand": Object {
+      "green": Object {
+        "type": "color",
+        "value": "#219653",
+      },
+      "orange": Object {
+        "type": "color",
+        "value": "orange",
+      },
+      "purple": Object {
+        "type": "color",
+        "value": "#6f53f9",
+      },
+      "red": Object {
+        "type": "color",
+        "value": "#eb5757",
+      },
+      "teal": Object {
+        "type": "color",
+        "value": "#31839b",
+      },
+    },
+    "grey": Object {
+      "00": Object {
+        "type": "color",
+        "value": "#07131f",
+      },
+      "01": Object {
+        "type": "color",
+        "value": "#6a6e80",
+      },
+      "02": Object {
+        "type": "color",
+        "value": "#949494",
+      },
+      "03": Object {
+        "type": "color",
+        "value": "#b5b5b5",
+      },
+      "08": Object {
+        "type": "color",
+        "value": "#f4f4f4",
+      },
+      "09": Object {
+        "type": "color",
+        "value": "grey",
+      },
+      "10": Object {
+        "type": "color",
+        "value": "#f9f9f9",
+      },
+    },
+    "theme": Object {
+      "primary": Object {
+        "type": "color",
+        "value": "{colors.brand.grey}",
+      },
+      "secondary": Object {
+        "type": "color",
+        "value": "{colors.brand.teal}",
+      },
+      "tertiary": Object {
+        "type": "color",
+        "value": "{colors.brand.red}",
+      },
+    },
+    "white": Object {
+      "type": "color",
+      "value": "#ffffff",
+    },
+  },
+}
+`;
+
+exports[`figmaTheme/getFigmaTheme gets a figma theme from a files object with folders 1`] = `
+Object {
+  "colors": Object {
+    "black": Object {
+      "type": "color",
+      "value": "#000000",
+    },
+    "brand": Object {
+      "green": Object {
+        "type": "color",
+        "value": "#219653",
+      },
+      "orange": Object {
+        "type": "color",
+        "value": "orange",
+      },
+      "purple": Object {
+        "type": "color",
+        "value": "#6f53f9",
+      },
+      "red": Object {
+        "type": "color",
+        "value": "#eb5757",
+      },
+      "teal": Object {
+        "type": "color",
+        "value": "#31839b",
+      },
+    },
+    "grey": Object {
+      "00": Object {
+        "type": "color",
+        "value": "#07131f",
+      },
+      "01": Object {
+        "type": "color",
+        "value": "#6a6e80",
+      },
+      "02": Object {
+        "type": "color",
+        "value": "#949494",
+      },
+      "03": Object {
+        "type": "color",
+        "value": "#b5b5b5",
+      },
+      "08": Object {
+        "type": "color",
+        "value": "#f4f4f4",
+      },
+      "09": Object {
+        "type": "color",
+        "value": "grey",
+      },
+      "10": Object {
+        "type": "color",
+        "value": "#f9f9f9",
+      },
+    },
+    "theme": Object {
+      "primary": Object {
+        "type": "color",
+        "value": "{colors.brand.grey}",
+      },
+      "secondary": Object {
+        "type": "color",
+        "value": "{colors.brand.teal}",
+      },
+      "tertiary": Object {
+        "type": "color",
+        "value": "{colors.brand.red}",
+      },
+    },
+    "white": Object {
+      "type": "color",
+      "value": "#ffffff",
+    },
+  },
+  "spacing": Object {
+    "default": Object {
+      "type": "spacing",
+      "value": "2",
+    },
+  },
+}
+`;
+
+exports[`figmaTheme/getFigmaTheme gets a second figma theme from a files object 1`] = `
+Object {
+  "colors": Object {
+    "black": Object {
+      "type": "color",
+      "value": "#000000",
+    },
+    "brand": Object {
+      "green": Object {
+        "type": "color",
+        "value": "#219653",
+      },
+      "orange": Object {
+        "type": "color",
+        "value": "purple",
+      },
+      "purple": Object {
+        "type": "color",
+        "value": "#6f53f9",
+      },
+      "red": Object {
+        "type": "color",
+        "value": "#eb5757",
+      },
+      "teal": Object {
+        "type": "color",
+        "value": "#31839b",
+      },
+    },
+    "grey": Object {
+      "00": Object {
+        "type": "color",
+        "value": "#07131f",
+      },
+      "01": Object {
+        "type": "color",
+        "value": "#6a6e80",
+      },
+      "02": Object {
+        "type": "color",
+        "value": "#949494",
+      },
+      "03": Object {
+        "type": "color",
+        "value": "#b5b5b5",
+      },
+      "08": Object {
+        "type": "color",
+        "value": "#f4f4f4",
+      },
+      "09": Object {
+        "type": "color",
+        "value": "#f6f6f6",
+      },
+      "10": Object {
+        "type": "color",
+        "value": "#f9f9f9",
+      },
+    },
+    "theme": Object {
+      "primary": Object {
+        "type": "color",
+        "value": "{colors.brand.black}",
+      },
+      "secondary": Object {
+        "type": "color",
+        "value": "{colors.brand.teal}",
+      },
+      "tertiary": Object {
+        "type": "color",
+        "value": "{colors.brand.red}",
+      },
+    },
+    "white": Object {
+      "type": "color",
+      "value": "#ffffff",
+    },
+  },
+}
+`;
+
+exports[`figmaTheme/getFigmaThemeNames errors throws when a $theme file cannot be found 1`] = `"No $theme file found"`;
+
+exports[`figmaTheme/getFigmaThemeNames gets figma theme names from a files object 1`] = `
+Array [
+  "theme1",
+  "theme2",
+]
+`;
