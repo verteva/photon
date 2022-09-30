@@ -201,6 +201,19 @@ export const boxShadowRoot = {
   },
 };
 
+export const unknownRoot = {
+  unknown: {
+    primary: {
+      value: 'unknown',
+      type: 'unknown',
+    },
+    secondary: {
+      value: '{unknown.primary}',
+      type: 'unknown',
+    },
+  },
+};
+
 export const brokenRoot = {
   color: {
     primary: {
@@ -223,18 +236,14 @@ export const brokenRoot = {
       type: 'other',
     },
     secondary: {
-      value: '{other.tertiary}',
+      value: '{other.fake}',
       type: 'other',
     },
     tertiary: {
       value: '{other.primary}',
-      type: 'fake',
-    },
-    quaternary: {
-      value: '{other.tertiary}',
       swipe: 'no type value here!',
     },
-    quinary: 0,
+    quaternary: 0,
   },
 };
 
@@ -246,6 +255,7 @@ export const basicRoots = {
   otherRoot,
   spacingRoot,
   borderRadiusRoot,
+  unknownRoot, // this defaults to basic parser. Unknown/New types.
 };
 
 export const compositonRoots = {

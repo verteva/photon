@@ -16,5 +16,12 @@ export const replaceTemplateValue = (templateValue, root) => {
     return resolveTemplateString(templateValue, root);
   }
   const resolver = parsers[templateValue.type];
+  if (!resolver) {
+    console.log(
+      `no resolver found for type ${templateValue.type}. Using basic resolver`
+    );
+
+    return parsers.basic(templateValue, root);
+  }
   return resolver(templateValue, root);
 };
