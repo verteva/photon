@@ -1,3 +1,11 @@
+## [0.3.2](https://github.com/verteva/photon/compare/v0.3.1...v0.3.2) (2022-09-20)
+
+
+### Bug Fixes
+
+* fixed build for storybook build ([dc68b15](https://github.com/verteva/photon/commit/dc68b15d0a14bb22a4dc685170328283e22ae996))
+* use user token for release-pr so that actions run ([334006b](https://github.com/verteva/photon/commit/334006b175dbe9cbba9cb0e268ab08e809422f54))
+
 ## [0.3.1](https://github.com/verteva/photon/compare/v0.3.0...v0.3.1) (2022-09-16)
 
 

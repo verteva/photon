@@ -79,12 +79,3 @@ Docs.argTypes = {};
 
 export const Submitting = SubmittingTemplate.bind({});
 Submitting.argTypes = {};
-
-const PlaygroundTemplate = (args, { argTypes }) => ({
-  components: { P2Button },
-  props: Object.keys(argTypes),
-  template: '<p2-button v-bind="{...props}">Hello</p2-button>',
-});
-
-export const Playground = PlaygroundTemplate.bind({});
-Docs.argTypes = {};
