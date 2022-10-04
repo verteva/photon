@@ -1,3 +1,15 @@
+## [0.4.2](https://github.com/verteva/photon/compare/v0.4.1...v0.4.2) (2022-10-04)
+
+
+### Bug Fixes
+
+* added additional parser types and fixed shadow parser ([e45af43](https://github.com/verteva/photon/commit/e45af431979f5c5d16c4ffc1c2dac0018cd26a1a))
+* added maths parser for numeric types ([021aa45](https://github.com/verteva/photon/commit/021aa4562f3d04a1af9227bf6521b9c60a93f770))
+* updated math parser to return unparsable strings back ([8b0d85c](https://github.com/verteva/photon/commit/8b0d85c8bc9d762a9ba3816221d04d979925b602))
+* upgrade core-js from 3.25.0 to 3.25.1 ([3fb1fbf](https://github.com/verteva/photon/commit/3fb1fbff616f2553df22bf9f3d6b252ce566b0df))
+* upgrade harp from 0.41.0 to 0.42.0 ([b56c9c7](https://github.com/verteva/photon/commit/b56c9c757b23e1616962afdd919b5ba709724367))
+* upgrade vue-phone-number-input from 1.1.10 to 1.1.12 ([d5c6bcb](https://github.com/verteva/photon/commit/d5c6bcb10e140709b65bc348d98fd1bc3b8bf2d9))
+
 ## [0.4.1](https://github.com/verteva/photon/compare/v0.4.0...v0.4.1) (2022-09-30)
 
 
