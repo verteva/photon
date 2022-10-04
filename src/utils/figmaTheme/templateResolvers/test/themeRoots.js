@@ -77,6 +77,10 @@ export const spacingRoot = {
       value: '{spacing.primary}',
       type: 'spacing',
     },
+    tertiary: {
+      value: '{spacing.secondary} * 2',
+      type: 'spacing',
+    },
   },
 };
 
@@ -89,6 +93,97 @@ export const borderRadiusRoot = {
     secondary: {
       value: '{borderRadius.primary}',
       type: 'borderRadius',
+    },
+  },
+};
+
+export const fontSizesRoot = {
+  fontSizes: {
+    primary: {
+      value: '5',
+      type: 'fontSizes',
+    },
+    secondary: {
+      value: '{fontSizes.primary}',
+      type: 'fontSizes',
+    },
+  },
+};
+
+export const lineHeightsRoot = {
+  lineHeights: {
+    primary: {
+      value: '110%',
+      type: 'lineHeights',
+    },
+    secondary: {
+      value: '{lineHeights.primary}',
+      type: 'lineHeights',
+    },
+  },
+};
+
+export const letterSpacingRoot = {
+  letterSpacing: {
+    primary: {
+      value: '5',
+      type: 'letterSpacing',
+    },
+    secondary: {
+      value: '{letterSpacing.primary}',
+      type: 'letterSpacing',
+    },
+  },
+};
+
+export const paragraphSpacingRoot = {
+  paragraphSpacing: {
+    primary: {
+      value: '5',
+      type: 'paragraphSpacing',
+    },
+    secondary: {
+      value: '{paragraphSpacing.primary}',
+      type: 'paragraphSpacing',
+    },
+  },
+};
+
+export const textCaseRoot = {
+  textCase: {
+    primary: {
+      value: 'uppercase',
+      type: 'textCase',
+    },
+    secondary: {
+      value: '{textCase.primary}',
+      type: 'textCase',
+    },
+  },
+};
+
+export const textDecorationRoot = {
+  textDecoration: {
+    primary: {
+      value: 'underlined',
+      type: 'textDecoration',
+    },
+    secondary: {
+      value: '{textDecoration.primary}',
+      type: 'textDecoration',
+    },
+  },
+};
+
+export const iconRoot = {
+  icon: {
+    primary: {
+      value: 'airplane',
+      type: 'icon',
+    },
+    secondary: {
+      value: '{icon.primary}',
+      type: 'icon',
     },
   },
 };
@@ -129,6 +224,7 @@ export const compositionRoot = {
       value: {
         color: '#000000',
         borderWidth: '2',
+        spacing: '20',
       },
       type: 'composition',
     },
@@ -140,6 +236,7 @@ export const compositionRoot = {
       value: {
         color: '{color.primary}',
         borderWidth: '{borderWidth.primary}',
+        spacing: '{spacing.tertiary}',
       },
       type: 'composition',
     },
@@ -147,6 +244,7 @@ export const compositionRoot = {
       value: {
         color: '{color.secondary}',
         borderWidth: '{borderWidth.secondary}',
+        spacing: '20',
       },
       type: 'composition',
     },
@@ -156,16 +254,14 @@ export const compositionRoot = {
 export const boxShadowRoot = {
   boxShadow: {
     primary: {
-      value: [
-        {
-          color: '#000000',
-          type: 'dropShadow',
-          x: '0',
-          y: '0',
-          blur: '0',
-          spread: '0',
-        },
-      ],
+      value: {
+        color: '#000000',
+        type: 'dropShadow',
+        x: '0',
+        y: '0',
+        blur: '0',
+        spread: '0',
+      },
       type: 'boxShadow',
     },
     secondary: {
@@ -173,22 +269,39 @@ export const boxShadowRoot = {
       type: 'boxShadow',
     },
     tertiary: {
+      value: {
+        color: '{color.primary}',
+        type: 'dropShadow',
+        x: '0',
+        y: '0',
+        blur: '0',
+        spread: '0',
+      },
+      type: 'boxShadow',
+    },
+    danger: {
+      value: {
+        color: '{color.secondary}',
+        type: 'dropShadow',
+        x: '0',
+        y: '0',
+        blur: '0',
+        spread: '0',
+      },
+      type: 'boxShadow',
+    },
+    array: {
       value: [
         {
-          color: '{color.primary}',
+          color: 'red',
           type: 'dropShadow',
           x: '0',
           y: '0',
           blur: '0',
           spread: '0',
         },
-      ],
-      type: 'boxShadow',
-    },
-    danger: {
-      value: [
         {
-          color: '{color.secondary}',
+          color: 'blue',
           type: 'dropShadow',
           x: '0',
           y: '0',
@@ -255,10 +368,17 @@ export const basicRoots = {
   otherRoot,
   spacingRoot,
   borderRadiusRoot,
+  fontSizesRoot,
+  lineHeightsRoot,
+  letterSpacingRoot,
+  paragraphSpacingRoot,
+  textCaseRoot,
+  textDecorationRoot,
+  iconRoot,
   unknownRoot, // this defaults to basic parser. Unknown/New types.
 };
 
-export const compositonRoots = {
+export const compositionRoots = {
   typographyRoot: {
     ...typographyRoot,
     ...fontFamiliesRoot,
@@ -268,5 +388,6 @@ export const compositonRoots = {
     ...colorRoot,
     ...borderWidthRoot,
     ...compositionRoot,
+    ...spacingRoot,
   },
 };

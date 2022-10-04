@@ -2,8 +2,9 @@ import { replaceTemplateValue } from '../replaceTemplateValue';
 
 import {
   basicRoots,
-  compositonRoots,
+  compositionRoots,
   colorRoot,
+  spacingRoot,
   boxShadowRoot,
   brokenRoot,
 } from './themeRoots';
@@ -36,9 +37,20 @@ describe('figmaTheme/templateResolvers/', () => {
     });
   });
 
-  Object.keys(compositonRoots).forEach(rootName => {
+  describe('basic parser - math in parsers', () => {
+    it('parses a nested template with a math equation', () => {
+      const result = replaceTemplateValue(
+        spacingRoot.spacing.tertiary,
+        spacingRoot
+      );
+
+      expect(result).toEqual('20');
+    });
+  });
+
+  Object.keys(compositionRoots).forEach(rootName => {
     const keyName = rootName.replace('Root', '');
-    const root = compositonRoots[rootName];
+    const root = compositionRoots[rootName];
     describe(`compositionParser - ${keyName}`, () => {
       it('parses a terminating value', () => {
         const result = replaceTemplateValue(root[keyName].primary, root);
@@ -89,6 +101,12 @@ describe('figmaTheme/templateResolvers/', () => {
       const result = replaceTemplateValue(root.boxShadow.danger, root);
 
       expect(result).toEqual('0px 0px 0px 0px #000000');
+    });
+
+    it('parses an array box shadow value', () => {
+      const result = replaceTemplateValue(root.boxShadow.array, root);
+
+      expect(result).toEqual('0px 0px 0px 0px red, 0px 0px 0px 0px blue');
     });
   });
 
