@@ -77,6 +77,10 @@ export const spacingRoot = {
       value: '{spacing.primary}',
       type: 'spacing',
     },
+    tertiary: {
+      value: '{spacing.secondary} * 2',
+      type: 'spacing',
+    },
   },
 };
 
@@ -220,6 +224,7 @@ export const compositionRoot = {
       value: {
         color: '#000000',
         borderWidth: '2',
+        spacing: '20',
       },
       type: 'composition',
     },
@@ -231,6 +236,7 @@ export const compositionRoot = {
       value: {
         color: '{color.primary}',
         borderWidth: '{borderWidth.primary}',
+        spacing: '{spacing.tertiary}',
       },
       type: 'composition',
     },
@@ -238,6 +244,7 @@ export const compositionRoot = {
       value: {
         color: '{color.secondary}',
         borderWidth: '{borderWidth.secondary}',
+        spacing: '20',
       },
       type: 'composition',
     },
@@ -381,5 +388,6 @@ export const compositionRoots = {
     ...colorRoot,
     ...borderWidthRoot,
     ...compositionRoot,
+    ...spacingRoot,
   },
 };
