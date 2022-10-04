@@ -1,0 +1,16 @@
+{
+  "colors": {
+    "brand": {
+      "orange": {
+        "value": "purple",
+        "type": "color"
+      }
+    },
+    "theme": {
+      "primary": {
+        "value": "{colors.brand.black}",
+        "type": "color"
+      }
+    }
+  }
+}

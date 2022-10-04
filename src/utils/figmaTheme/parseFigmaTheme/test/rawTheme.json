@@ -1,0 +1,84 @@
+{
+  "colors": {
+    "black": {
+      "type": "color",
+      "value": "#000000"
+    },
+    "brand": {
+      "green": {
+        "type": "color",
+        "value": "#219653"
+      },
+      "orange": {
+        "type": "color",
+        "value": "orange"
+      },
+      "purple": {
+        "type": "color",
+        "value": "#6f53f9"
+      },
+      "red": {
+        "type": "color",
+        "value": "#eb5757"
+      },
+      "teal": {
+        "type": "color",
+        "value": "#31839b"
+      }
+    },
+    "grey": {
+      "00": {
+        "type": "color",
+        "value": "#07131f"
+      },
+      "01": {
+        "type": "color",
+        "value": "#6a6e80"
+      },
+      "02": {
+        "type": "color",
+        "value": "#949494"
+      },
+      "03": {
+        "type": "color",
+        "value": "#b5b5b5"
+      },
+      "08": {
+        "type": "color",
+        "value": "#f4f4f4"
+      },
+      "09": {
+        "type": "color",
+        "value": "grey"
+      },
+      "10": {
+        "type": "color",
+        "value": "#f9f9f9"
+      }
+    },
+    "theme": {
+      "primary": {
+        "type": "color",
+        "value": "{colors.brand.grey}"
+      },
+      "secondary": {
+        "type": "color",
+        "value": "{colors.brand.teal}"
+      },
+      "tertiary": {
+        "type": "color",
+        "value": "{colors.brand.red}"
+      }
+    },
+    "white": {
+      "type": "color",
+      "value": "#ffffff"
+    }
+  },
+  "spacing": {
+    "default": {
+      "type": "spacing",
+      "value": "2"
+    }
+  }
+}
