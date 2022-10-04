@@ -18,6 +18,12 @@ import {
   replaceTemplateValue,
 } from './utils/parseBrandingJson';
 import { injectThemeCssVariables } from './utils/injectThemeCssVariables';
+import {
+  getFigmaTheme,
+  getFigmaThemeNames,
+  parseFigmaJson,
+  getBuiltThemeFiles,
+} from './utils/figmaTheme';
 
 import * as toast from './components/Toast/store';
 
@@ -58,4 +64,10 @@ export default {
   flattenObjectToCssVars,
   replaceTemplateValue,
   injectThemeCssVariables,
+  figmaTheme: {
+    getFigmaTheme,
+    getFigmaThemeNames,
+    parseFigmaJson,
+    getBuiltThemeFiles,
+  },
 };
