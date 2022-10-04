@@ -16,7 +16,7 @@
       {
         "assets": ["CHANGELOG.md", "package.json"],
         "baseRef": "main",
-        "pullrequestTitle": "chore(release): update release ${nextRelease.version} [skip ci]"
+        "pullrequestTitle": "chore(release): update release ${nextRelease.version}"
       }
     ],
     [

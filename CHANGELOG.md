@@ -1,3 +1,29 @@
+# [0.4.0](https://github.com/verteva/photon/compare/v0.3.2...v0.4.0) (2022-09-30)
+
+
+### Bug Fixes
+
+* upgrade @tailwindcss/postcss7-compat from 2.1.4 to 2.2.17 ([6e2f2dc](https://github.com/verteva/photon/commit/6e2f2dcb423876885656d74d8f45e0a3c9cdd85b))
+* upgrade core-js from 3.14.0 to 3.25.0 ([adb4078](https://github.com/verteva/photon/commit/adb407814df1c4758bbdc0e1820fabbb6e0f3545))
+* upgrade gsap from 3.11.0 to 3.11.1 ([a3a38d4](https://github.com/verteva/photon/commit/a3a38d4be74776119804c099ba42b50b5d4e82ce))
+* upgrade gsap from 3.7.1 to 3.11.0 ([1505a6e](https://github.com/verteva/photon/commit/1505a6ed941808bc11b9cbb25ebe2025530e9c90))
+* upgrade vue from 2.6.14 to 2.7.10 ([c982f74](https://github.com/verteva/photon/commit/c982f74ebbdbc4ddbf123584b12be58496a5ce29))
+* upgrade vue-select from 3.12.2 to 3.20.0 ([c1610d5](https://github.com/verteva/photon/commit/c1610d5e3abc15f39fa949d9752eee51135d44c2))
+
+
+### Features
+
+* added build scripts for automation ([0c2b5d5](https://github.com/verteva/photon/commit/0c2b5d56c821d2d7b8b30f7c708cb8639bb7bb08))
+* chameleon loading ([0035cd9](https://github.com/verteva/photon/commit/0035cd976f9d29c5dda252b800ef20c36f60e094))
+
+## [0.3.2](https://github.com/verteva/photon/compare/v0.3.1...v0.3.2) (2022-09-20)
+
+
+### Bug Fixes
+
+* fixed build for storybook build ([dc68b15](https://github.com/verteva/photon/commit/dc68b15d0a14bb22a4dc685170328283e22ae996))
+* use user token for release-pr so that actions run ([334006b](https://github.com/verteva/photon/commit/334006b175dbe9cbba9cb0e268ab08e809422f54))
+
 ## [0.3.1](https://github.com/verteva/photon/compare/v0.3.0...v0.3.1) (2022-09-16)
 
 

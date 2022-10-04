@@ -7,6 +7,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-postcss',
+    'storybook-addon-designs',
   ],
   webpackFinal: async (config, { configType }) => {
     config.resolve.alias = {
