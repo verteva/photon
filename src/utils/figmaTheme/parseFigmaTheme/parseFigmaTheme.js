@@ -13,7 +13,8 @@ export const parseObject = (object, root) => {
         'Invalid template. Cannot parse non-object values. Objects must either have nested objects or terminate with an object with a valid type property.'
       );
     }
-    if (object[key].type) {
+    // Only run if type-value pair is found
+    if (object[key].type && object[key].value) {
       parsedObject[key] = replaceTemplateValue(object[key], root);
       return;
     }

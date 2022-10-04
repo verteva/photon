@@ -13,6 +13,13 @@ const parsers = {
   fontFamilies: basicParser,
   fontWeights: basicParser,
   typography: compositionParser,
+  fontSizes: mathParser,
+  lineHeights: mathParser,
+  letterSpacing: mathParser,
+  paragraphSpacing: mathParser,
+  textCase: basicParser,
+  textDecoration: basicParser,
+  icon: basicParser,
   other: basicParser,
   basic: basicParser,
 };
