@@ -4,6 +4,7 @@ import {
   basicRoots,
   compositonRoots,
   colorRoot,
+  spacingRoot,
   boxShadowRoot,
   brokenRoot,
 } from './themeRoots';
@@ -33,6 +34,17 @@ describe('figmaTheme/templateResolvers/', () => {
       const result = replaceTemplateValue(colorRoot.color.tertiary, colorRoot);
 
       expect(result).toEqual('#000000 50% #000000 50%');
+    });
+  });
+
+  describe('basic parser - math in parsers', () => {
+    it('parses a nested template with a math equation', () => {
+      const result = replaceTemplateValue(
+        spacingRoot.spacing.tertiary,
+        spacingRoot
+      );
+
+      expect(result).toEqual('20');
     });
   });
 
