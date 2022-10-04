@@ -6,5 +6,10 @@ const parser = new Parser();
 export const mathParser = (value, root) => {
   const templateValue = replaceTemplateValue(value.value, root);
 
-  return parser.evaluate(templateValue).toString();
+  try {
+    return parser.evaluate(templateValue).toString();
+  } catch {
+    // Can't evaluate the maths expression. Returning value directly.
+    return templateValue;
+  }
 };
