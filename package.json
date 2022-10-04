@@ -29,7 +29,7 @@
     "@storybook/linter-config": "^3.1.2",
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "@types/greensock": "^1.15.32",
-    "core-js": "^3.25.0",
+    "core-js": "^3.25.1",
     "expr-eval": "^2.0.2",
     "gsap": "^3.11.1",
     "harp": "^0.42.0",
