@@ -1,0 +1,218 @@
+<template>
+  <label
+    class="ph-checkbox-label"
+    :class="[{ checked: value, disabled, focused }, size]"
+  >
+    <input
+      :checked="value === trueValue"
+      :disabled="disabled"
+      :name="name"
+      type="checkbox"
+      class="ph-checkbox-input"
+      @input="
+        event => $emit('input', event.target.checked ? trueValue : falseValue)
+      "
+      @focus="onFocus"
+      @blur="onBlur"
+    />
+    <div class="ph-checkbox-toggle">
+      <p-icon
+        name="Checkmark"
+        :type="iconType[size]"
+        class="ph-checkbox-checkmark"
+      />
+    </div>
+    {{ label }}
+    <slot />
+  </label>
+</template>
+
+<script lang="ts">
+import Vue, { PropType } from 'vue';
+import PIcon from '../../../../components/Icon';
+import { v4 as uuidv4 } from 'uuid';
+
+export default Vue.extend({
+  name: 'P2Checkbox',
+
+  components: {
+    PIcon,
+  },
+
+  props: {
+    value: {
+      type: [String, Number, Boolean] as PropType<string | number | boolean>,
+      default: false,
+    },
+
+    label: {
+      type: String as PropType<string>,
+      default: '',
+    },
+
+    name: {
+      type: String as PropType<string>,
+      default: '',
+    },
+
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+
+    trueValue: {
+      type: [String, Number, Boolean] as PropType<string | number | boolean>,
+      default: true,
+    },
+
+    falseValue: {
+      type: [String, Number, Boolean] as PropType<string | number | boolean>,
+      default: false,
+    },
+
+    size: {
+      type: String as PropType<string>,
+      default: 'lg',
+    },
+  },
+
+  data() {
+    return {
+      id: uuidv4(),
+      focused: false,
+      iconType: {
+        sm: 'xxs',
+        lg: 'xs',
+      },
+    };
+  },
+
+  created() {
+    const $this = this as any;
+    if (!!$this.label && $this.$slots.default) {
+      console.warn(
+        'Checkbox label and Checkbox slot(default) are both defined and will be rendered together. This is probably not intended.'
+      );
+    }
+  },
+
+  methods: {
+    onFocus() {
+      this.focused = true;
+    },
+    onBlur() {
+      this.focused = false;
+    },
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.ph-checkbox-label {
+  border: 1px dashed transparent;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+  transition-property: color, border-color;
+  transition-duration: 0.3s;
+  color: var(--checkbox-color-label);
+
+  .ph-checkbox-input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .ph-checkbox-toggle {
+    border-radius: 0.375rem;
+    border: 1px solid;
+    border-color: var(--checkbox-color-default);
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+
+  .ph-checkbox-checkmark {
+    opacity: 0;
+    scale: 0;
+    transition: all 0.3s;
+    color: var(--checkbox-color-legacy-fg) !important;
+  }
+
+  &.checked {
+    .ph-checkbox-toggle {
+      background-color: var(--checkbox-color-checked);
+      border-color: var(--checkbox-color-checked);
+    }
+    .ph-checkbox-checkmark {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--checkbox-color-disabled);
+    .ph-checkbox-toggle {
+      border-color: var(--checkbox-color-disabled);
+    }
+  }
+
+  &.disabled.checked {
+    .ph-checkbox-toggle {
+      background-color: var(--checkbox-color-disabled);
+      border-color: var(--checkbox-color-disabled);
+    }
+    .ph-checkbox-checkmark {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  &.focused {
+    border: 1px dashed var(--checkbox-color-default);
+  }
+
+  &.sm {
+    --checkbox-size: calc(
+      var(--checkbox-lg-label-typography-fontSize) * 1px + 2px
+    );
+    padding-left: calc(var(--checkbox-size) + 10px);
+    font-family: var(--checkbox-lg-label-typography-fontFamily);
+    font-weight: var(--checkbox-sm-label-typography-fontWeight);
+    font-size: calc(var(--checkbox-sm-label-typography-fontSize) * 1px);
+    line-height: var(--checkbox-sm-label-typography-lineHeight);
+    letter-spacing: var(--checkbox-sm-label-typography-letterSpacing);
+    text-decoration: var(--checkbox-sm-label-typography-textDecoration);
+    text-transform: var(--checkbox-sm-label-typography-textCase);
+    .ph-checkbox-toggle {
+      margin-top: 2px;
+      margin-left: 2px;
+      width: var(--checkbox-size);
+      height: var(--checkbox-size);
+    }
+  }
+
+  &.lg {
+    --checkbox-size: calc(
+      var(--checkbox-lg-label-typography-fontSize) * 1px + 4px
+    );
+    padding-left: calc(var(--checkbox-size) + 10px);
+    font-family: var(--checkbox-lg-label-typography-fontFamily);
+    font-weight: var(--checkbox-lg-label-typography-fontWeight);
+    font-size: calc(var(--checkbox-lg-label-typography-fontSize) * 1px);
+    line-height: var(--checkbox-lg-label-typography-lineHeight);
+    letter-spacing: var(--checkbox-lg-label-typography-letterSpacing);
+    text-decoration: var(--checkbox-lg-label-typography-textDecoration);
+    text-transform: var(--checkbox-lg-label-typography-textCase);
+    .ph-checkbox-toggle {
+      margin-top: 2px;
+      margin-left: 2px;
+      width: var(--checkbox-size);
+      height: var(--checkbox-size);
+    }
+  }
+}
+</style>
