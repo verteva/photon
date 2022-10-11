@@ -6,7 +6,14 @@
       "font-weight": "{{font.weight.bold}}",
       "color": "{{color.text.body}}",
       "line-height": "1.5",
-      "margin": "0 0 0.5rem 0"
+      "margin": "0 0 10px 0",
+      "inline-text": {
+        "font-weight": "{{font.weight.normal}}"
+      },
+      "asterisks": {
+        "font-weight": "{{font.weight.bold}}",
+        "color": "{{color.text.danger}}"
+      }
     }
   }
 }
