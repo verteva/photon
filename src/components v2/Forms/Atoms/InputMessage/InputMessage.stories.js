@@ -1,4 +1,4 @@
-import P2InputMessage from './Message.vue';
+import P2InputMessage from './InputMessage.vue';
 
 export default {
   title: 'v2/Forms/Atoms/InputMessage',

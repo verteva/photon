@@ -1,1 +1,3 @@
-export { default } from './ErrorMessage.vue';
+import P2ErrorMessage from './ErrorMessage.vue';
+
+export default P2ErrorMessage;
