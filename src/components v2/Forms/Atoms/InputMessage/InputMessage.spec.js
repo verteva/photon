@@ -1,11 +1,11 @@
-import Message from './Message.vue';
+import InputMessage from './InputMessage.vue';
 import { createWrapper } from '@/utils/unitTest';
 
-describe('Message.vue', () => {
+describe('InputMessage.vue', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = createWrapper(Message);
+    wrapper = createWrapper(InputMessage);
   });
 
   it('props: message', async () => {
