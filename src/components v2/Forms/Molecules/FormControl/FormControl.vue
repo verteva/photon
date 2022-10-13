@@ -69,7 +69,7 @@ export default Vue.extend({
     },
     size: {
       type: String,
-      default: 'md',
+      default: 'lg',
     },
   },
 });

@@ -1,6 +1,6 @@
 <template>
-  <div class="photon-input-message">
-    <p-icon v-if="icon" :name="icon" class="icon" :type="size" />
+  <div class="photon-input-message" :class="[size]">
+    <p-icon v-if="icon" :name="icon" class="icon" :type="iconSize" />
     <span>{{ message }}</span>
   </div>
 </template>
@@ -8,6 +8,11 @@
 <script lang="ts">
 import PIcon from '@/components/Icon';
 import Vue, { PropType } from 'vue';
+
+const iconSizeMatrix = {
+  sm: 'xs',
+  md: 'sm',
+};
 
 export default Vue.extend({
   name: 'P2InputMessage',
@@ -28,6 +33,11 @@ export default Vue.extend({
       default: 'sm',
     },
   },
+  computed: {
+    iconSize(): string {
+      return iconSizeMatrix[this.size];
+    },
+  },
 });
 </script>
 
@@ -35,21 +45,58 @@ export default Vue.extend({
 .photon-input-message {
   display: flex;
   align-items: center;
-  color: var(--input-message-base-color);
-  padding: var(--input-message-base-padding);
-  margin-top: calc(var(--input-message-base-margin-top) * -1);
-  margin-bottom: var(--input-message-base-margin-top);
+  color: var(--form-control-items-message-default-text-color);
+  margin-top: -10px;
+  margin-bottom: 10px;
 
   .icon {
     margin-right: 4px;
-    color: var(--input-message-base-icon-color) !important ;
+    color: var(--form-control-items-message-default-icon-color) !important ;
   }
 
   span {
-    font-size: var(--input-message-base-font-size);
-    font-family: var(--input-message-base-font-family);
-    font-weight: var(--input-message-base-font-weight);
-    line-height: var(--input-message-base-line-height);
+    font-family: var(--form-control-items-message-default-text-font-family);
+    font-weight: var(--form-control-items-message-default-text-font-weight);
+  }
+
+  &.sm {
+    span {
+      font-size: calc(
+        var(--form-control-items-message-sm-text-typography-fontSize) * 1px
+      );
+      line-height: var(
+        --form-control-items-message-sm-text-typography-lineHeight
+      );
+      text-decoration: var(
+        --form-control-items-message-sm-text-typography-textDecoration
+      );
+      text-transform: var(
+        --form-control-items-message-sm-text-typography-textCase
+      );
+      letter-spacing: var(
+        --form-control-items-message-sm-text-typography-letterSpacing
+      );
+    }
+  }
+
+  &.lg {
+    span {
+      font-size: calc(
+        var(--form-control-items-message-lg-text-typography-fontSize) * 1px
+      );
+      line-height: var(
+        --form-control-items-message-lg-text-typography-lineHeight
+      );
+      text-decoration: var(
+        --form-control-items-message-lg-text-typography-textDecoration
+      );
+      text-transform: var(
+        --form-control-items-message-lg-text-typography-textCase
+      );
+      letter-spacing: var(
+        --form-control-items-message-lg-text-typography-letterSpacing
+      );
+    }
   }
 }
 </style>
