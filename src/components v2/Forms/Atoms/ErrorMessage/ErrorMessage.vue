@@ -8,8 +8,8 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import PIcon from '@/components/Icon';
+import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
   name: 'PInputError',
@@ -18,11 +18,11 @@ export default Vue.extend({
   },
   props: {
     error: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
     size: {
-      type: String,
+      type: String as PropType<string>,
       default: 'sm',
     },
   },
@@ -39,6 +39,7 @@ export default Vue.extend({
   opacity: 1;
   padding: var(--input-error-base-padding);
   min-height: var(--input-error-base-min-height);
+  margin-top: 10px;
 
   &.hidden {
     opacity: 0;

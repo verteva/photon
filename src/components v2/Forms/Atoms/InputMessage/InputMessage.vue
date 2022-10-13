@@ -1,13 +1,13 @@
 <template>
-  <div class="photon-message">
+  <div class="photon-input-message">
     <p-icon v-if="icon" :name="icon" class="icon" :type="size" />
     <span>{{ message }}</span>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import PIcon from '@/components/Icon';
+import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
   name: 'P2InputMessage',
@@ -16,15 +16,15 @@ export default Vue.extend({
   },
   props: {
     message: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
     icon: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
     size: {
-      type: String,
+      type: String as PropType<string>,
       default: 'sm',
     },
   },
@@ -32,10 +32,13 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.photon-message {
+.photon-input-message {
   display: flex;
   align-items: center;
   color: var(--input-message-base-color);
+  padding: var(--input-message-base-padding);
+  margin-top: calc(var(--input-message-base-margin-top) * -1);
+  margin-bottom: var(--input-message-base-margin-top);
 
   .icon {
     margin-right: 4px;

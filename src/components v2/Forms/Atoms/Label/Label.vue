@@ -6,24 +6,26 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropType } from 'vue';
+
+export default Vue.extend({
   name: 'P2Label',
   props: {
     label: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
     isRequired: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
     inlineText: {
-      type: String,
+      type: String as PropType<string>,
       default: '',
     },
   },
-};
+});
 </script>
 
 <style lang="scss" scoped>

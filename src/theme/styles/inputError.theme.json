@@ -5,8 +5,8 @@
       "font-weight": "normal",
       "font-size": "0.875rem",
       "line-height": "1.5",
-      "min-height": "30px",
-      "padding": "0.25rem",
+      "min-height": "21px",
+      "padding": "0px",
       "color": "{{colors.danger.500}}"
     }
   }
