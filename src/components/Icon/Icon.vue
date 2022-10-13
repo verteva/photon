@@ -18,6 +18,7 @@ import {
   IconProperty,
   IconSize,
   IconList,
+  IconSizeXXs,
   IconSizeXs,
   IconSizeSm,
   IconSizeMedium,
@@ -27,6 +28,7 @@ import {
   IconSizeXXXl,
   IconSizeXXXXl,
   IconSizeHuge,
+  IconXXs,
   IconXs,
   IconSm,
   IconMedium,
@@ -58,6 +60,7 @@ export default Vue.extend({
       default: IconSizeMedium,
       validator(value: string): boolean {
         return [
+          IconSizeXXs,
           IconSizeXs,
           IconSizeSm,
           IconSizeMedium,
@@ -83,6 +86,10 @@ export default Vue.extend({
         height: IconMedium,
       };
       switch (this.type) {
+        case IconSizeXXs:
+          s.width = IconXXs;
+          s.height = IconXXs;
+          break;
         case IconSizeXs:
           s.width = IconXs;
           s.height = IconXs;
