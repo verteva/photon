@@ -1,24 +1,22 @@
 <template>
   <div>
     <P2Checkbox
-      v-for="checkbox in items"
+      v-for="(checkbox, index) in items"
       :key="checkbox.label"
       class="checkbox-group-item"
+      :size="size"
+      :disabled="disabled"
       :name="`${name}-${checkbox.label}`"
-      :value="value.include(checkbox.value)"
+      :value="checkbox.value"
       :label="checkbox.label"
-      :true-value="checkbox.value"
-      @input="
-        event => $emit('change', { id: checkbox.id, value: checkbox.value })
-      "
+      @input="event => $emit('change', { index, value: event })"
     />
   </div>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import P2Checkbox from '../CheckBox';
-import { v4 as uuidv4 } from 'uuid';
+import P2Checkbox from '../Checkbox';
 
 export default Vue.extend({
   name: 'CheckboxGroup',
@@ -28,11 +26,6 @@ export default Vue.extend({
   },
 
   props: {
-    value: {
-      type: Array,
-      default: (): [] => [],
-    },
-
     items: {
       type: Array,
       default: (): [] => [],
@@ -42,12 +35,16 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-  },
 
-  data() {
-    return {
-      id: uuidv4(),
-    };
+    size: {
+      type: String as PropType<string>,
+      default: 'md',
+    },
+
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
 
   created() {

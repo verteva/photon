@@ -71,6 +71,10 @@ export default Vue.extend({
       type: String,
       default: 'lg',
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 });
 </script>

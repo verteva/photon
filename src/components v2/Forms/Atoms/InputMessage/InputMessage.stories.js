@@ -12,7 +12,22 @@ const Template = (args, { argTypes }) => ({
     <P2InputMessage v-bind='$props' />`,
 });
 
-export const InputMessage = Template.bind({});
-InputMessage.args = {
+export const Default = Template.bind({});
+Default.args = {
   message: 'New phone who dis?',
+  size: 'md',
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  message: 'New phone who dis?',
+  icon: 'Telecommunications',
+  size: 'md',
+};
+
+export const SizeSmall = Template.bind({});
+SizeSmall.args = {
+  message: 'New phone who dis?',
+  icon: 'Telecommunications',
+  size: 'sm',
 };

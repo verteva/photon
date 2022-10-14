@@ -4,14 +4,12 @@
     :class="[{ checked: value, disabled, focused }, size]"
   >
     <input
-      :checked="value === trueValue"
+      :checked="value"
       :disabled="disabled"
       :name="name"
       type="checkbox"
       class="ph-checkbox-input"
-      @input="
-        event => $emit('input', event.target.checked ? trueValue : falseValue)
-      "
+      @input="event => $emit('input', event.target.checked)"
       @focus="onFocus"
       @blur="onBlur"
     />
@@ -41,7 +39,7 @@ export default Vue.extend({
 
   props: {
     value: {
-      type: [String, Number, Boolean] as PropType<string | number | boolean>,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
 
@@ -60,19 +58,9 @@ export default Vue.extend({
       default: false,
     },
 
-    trueValue: {
-      type: [String, Number, Boolean] as PropType<string | number | boolean>,
-      default: true,
-    },
-
-    falseValue: {
-      type: [String, Number, Boolean] as PropType<string | number | boolean>,
-      default: false,
-    },
-
     size: {
       type: String as PropType<string>,
-      default: 'lg',
+      default: 'md',
     },
   },
 
@@ -82,7 +70,7 @@ export default Vue.extend({
       focused: false,
       iconType: {
         sm: 'xxs',
-        lg: 'xs',
+        md: 'xs',
       },
     };
   },
@@ -115,7 +103,7 @@ export default Vue.extend({
   position: relative;
   transition-property: color, border-color;
   transition-duration: 0.3s;
-  color: var(--checkbox-color-label);
+  color: var(--checkbox-default-label-color);
 
   .ph-checkbox-input {
     position: absolute;
@@ -123,9 +111,9 @@ export default Vue.extend({
   }
 
   .ph-checkbox-toggle {
-    border-radius: 0.375rem;
+    border-radius: 4px;
     border: 1px solid;
-    border-color: var(--checkbox-color-default);
+    border-color: var(--checkbox-default-icon-color);
     position: absolute;
     left: 0;
     display: flex;
@@ -138,13 +126,13 @@ export default Vue.extend({
     opacity: 0;
     scale: 0;
     transition: all 0.3s;
-    color: var(--checkbox-color-legacy-fg) !important;
+    color: #fff !important;
   }
 
   &.checked {
     .ph-checkbox-toggle {
-      background-color: var(--checkbox-color-checked);
-      border-color: var(--checkbox-color-checked);
+      background-color: var(--checkbox-checked-icon-color);
+      border-color: var(--checkbox-checked-icon-color);
     }
     .ph-checkbox-checkmark {
       opacity: 1;
@@ -154,16 +142,16 @@ export default Vue.extend({
 
   &.disabled {
     cursor: not-allowed;
-    color: var(--checkbox-color-disabled);
+    color: var(--checkbox-disabled-label-color);
     .ph-checkbox-toggle {
-      border-color: var(--checkbox-color-disabled);
+      border-color: var(--checkbox-disabled-icon-color);
     }
   }
 
   &.disabled.checked {
     .ph-checkbox-toggle {
-      background-color: var(--checkbox-color-disabled);
-      border-color: var(--checkbox-color-disabled);
+      background-color: var(--checkbox-disabled-icon-color);
+      border-color: var(--checkbox-disabled-icon-color);
     }
     .ph-checkbox-checkmark {
       opacity: 1;
@@ -172,21 +160,22 @@ export default Vue.extend({
   }
 
   &.focused {
-    border: 1px dashed var(--checkbox-color-default);
+    box-shadow: 0 0 0 4px var(--checkbox-focus-border-color);
   }
 
   &.sm {
     --checkbox-size: calc(
-      var(--checkbox-lg-label-typography-fontSize) * 1px + 2px
+      var(--checkbox-sm-label-typography-fontSize) * 1px + 2px
     );
     padding-left: calc(var(--checkbox-size) + 10px);
-    font-family: var(--checkbox-lg-label-typography-fontFamily);
+    font-family: var(--checkbox-sm-label-typography-fontFamily);
     font-weight: var(--checkbox-sm-label-typography-fontWeight);
     font-size: calc(var(--checkbox-sm-label-typography-fontSize) * 1px);
     line-height: var(--checkbox-sm-label-typography-lineHeight);
     letter-spacing: var(--checkbox-sm-label-typography-letterSpacing);
     text-decoration: var(--checkbox-sm-label-typography-textDecoration);
     text-transform: var(--checkbox-sm-label-typography-textCase);
+    border-radius: calc(var(--checkbox-sm-border-radius) * 1px);
     .ph-checkbox-toggle {
       margin-top: 2px;
       margin-left: 2px;
@@ -195,18 +184,19 @@ export default Vue.extend({
     }
   }
 
-  &.lg {
+  &.md {
     --checkbox-size: calc(
-      var(--checkbox-lg-label-typography-fontSize) * 1px + 4px
+      var(--checkbox-md-label-typography-fontSize) * 1px + 4px
     );
     padding-left: calc(var(--checkbox-size) + 10px);
-    font-family: var(--checkbox-lg-label-typography-fontFamily);
-    font-weight: var(--checkbox-lg-label-typography-fontWeight);
-    font-size: calc(var(--checkbox-lg-label-typography-fontSize) * 1px);
-    line-height: var(--checkbox-lg-label-typography-lineHeight);
-    letter-spacing: var(--checkbox-lg-label-typography-letterSpacing);
-    text-decoration: var(--checkbox-lg-label-typography-textDecoration);
-    text-transform: var(--checkbox-lg-label-typography-textCase);
+    font-family: var(--checkbox-md-label-typography-fontFamily);
+    font-weight: var(--checkbox-md-label-typography-fontWeight);
+    font-size: calc(var(--checkbox-md-label-typography-fontSize) * 1px);
+    line-height: var(--checkbox-md-label-typography-lineHeight);
+    letter-spacing: var(--checkbox-md-label-typography-letterSpacing);
+    text-decoration: var(--checkbox-md-label-typography-textDecoration);
+    text-transform: var(--checkbox-md-label-typography-textCase);
+    border-radius: calc(var(--checkbox-md-border-radius) * 1px);
     .ph-checkbox-toggle {
       margin-top: 2px;
       margin-left: 2px;

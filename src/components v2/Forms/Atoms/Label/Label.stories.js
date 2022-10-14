@@ -14,9 +14,42 @@ const Template = (args, { argTypes }) => ({
   template: '<PLabel v-bind="$props"/>',
 });
 
-export const Label = Template.bind({});
-Label.args = {
+export const Default = Template.bind({});
+Default.args = {
   label: 'Label',
   isRequired: false,
-  inlineText: '( extra text )',
+  inlineText: '',
+  size: 'md',
+};
+
+export const IsRequired = Template.bind({});
+IsRequired.args = {
+  label: 'Label',
+  isRequired: true,
+  inlineText: '',
+  size: 'md',
+};
+
+export const ExtraText = Template.bind({});
+ExtraText.args = {
+  label: 'Label',
+  isRequired: false,
+  inlineText: '(Optional)',
+  size: 'md',
+};
+
+export const IsRequiredExtraText = Template.bind({});
+IsRequiredExtraText.args = {
+  label: 'Label',
+  isRequired: true,
+  inlineText: '(inline text)',
+  size: 'md',
+};
+
+export const SizeSmall = Template.bind({});
+SizeSmall.args = {
+  label: 'Label',
+  isRequired: true,
+  inlineText: '(small)',
+  size: 'sm',
 };

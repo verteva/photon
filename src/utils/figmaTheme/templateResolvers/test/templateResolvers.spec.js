@@ -48,6 +48,17 @@ describe('figmaTheme/templateResolvers/', () => {
     });
   });
 
+  describe('color parser - rgba values', () => {
+    it('parses a rgba template string', () => {
+      const result = replaceTemplateValue(
+        colorRoot.color.quaternary,
+        colorRoot
+      );
+
+      expect(result).toEqual('rgba(0, 0, 0, 0.5)');
+    });
+  });
+
   Object.keys(compositionRoots).forEach(rootName => {
     const keyName = rootName.replace('Root', '');
     const root = compositionRoots[rootName];

@@ -18,7 +18,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'lg'],
+        options: ['sm', 'md'],
       },
     },
     label: {
@@ -35,7 +35,7 @@ export default {
   args: {
     label: 'This is a photon checkbox!',
     name: 'likes-photon-checkbox',
-    size: 'lg',
+    size: 'md',
     value: false,
     disabled: false,
   },
@@ -76,14 +76,30 @@ const InteractiveTemplate = (args, { argTypes }) => ({
   },
 });
 
-export const DefaultCheckbox = Template.bind({});
-DefaultCheckbox.args = {};
+export const Default = Template.bind({});
+Default.args = {};
 
-export const MultiLineCheckbox = MultiLineTemplate.bind({});
-MultiLineCheckbox.args = {
+export const Checked = Template.bind({});
+Checked.args = {
+  value: true,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
+
+export const DisabledChecked = Template.bind({});
+DisabledChecked.args = {
+  value: true,
+  disabled: true,
+};
+
+export const MultiLine = MultiLineTemplate.bind({});
+MultiLine.args = {
   label:
     'This checkbox has a multi line label to show you the alignment of the checkbox and the label. Neat huh?',
 };
 
-export const InteractiveCheckbox = InteractiveTemplate.bind({});
-InteractiveCheckbox.args = {};
+export const Interactive = InteractiveTemplate.bind({});
+Interactive.args = {};

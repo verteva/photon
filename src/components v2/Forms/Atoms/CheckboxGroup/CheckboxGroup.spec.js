@@ -1,10 +1,10 @@
 import { createWrapper } from '@/utils/unitTest.ts';
-import Checkbox from '@/components/Checkbox/Checkbox.vue';
+import CheckboxGroup from '@/components/CheckboxGroup/CheckboxGroup.vue';
 
-describe('Checkbox.vue', () => {
+describe('CheckboxGroup.vue', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = createWrapper(Checkbox);
+    wrapper = createWrapper(CheckboxGroup);
   });
 
   it('check slot: label slot is setup', async () => {

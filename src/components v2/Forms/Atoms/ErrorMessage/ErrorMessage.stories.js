@@ -9,11 +9,18 @@ const Template = (args, { argTypes }) => ({
   components: { PInputError },
   props: Object.keys(argTypes),
   template: `
-      <PInputError v-bind="$props" />
-      `,
+    <PInputError v-bind="$props" />
+  `,
 });
 
-export const Inputs = Template.bind({});
-Inputs.args = {
+export const Default = Template.bind({});
+Default.args = {
   error: 'This is an error message.',
+  size: 'md',
+};
+
+export const SizeSmall = Template.bind({});
+SizeSmall.args = {
+  error: 'This is a small error message.',
+  size: 'sm',
 };
