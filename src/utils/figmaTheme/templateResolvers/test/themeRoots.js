@@ -12,6 +12,10 @@ export const colorRoot = {
       value: '{color.secondary} 50% {color.primary} 50%',
       type: 'color',
     },
+    quaternary: {
+      value: 'rgba({color.primary}, 0.5)',
+      type: 'color',
+    },
   },
 };
 
