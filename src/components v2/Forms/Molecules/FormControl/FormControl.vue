@@ -68,7 +68,7 @@ export default Vue.extend({
       default: '',
     },
     size: {
-      type: String,
+      type: String as PropType<string>,
       default: 'md',
     },
   },

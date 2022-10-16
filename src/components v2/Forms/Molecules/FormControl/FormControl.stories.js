@@ -95,7 +95,7 @@ const Template = (args, { argTypes }) => ({
       </div>
       {{ $props.default }}
     </P2FormControl>
-      `,
+  `,
 });
 
 export const FormControl = Template.bind({});
