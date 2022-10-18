@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`flattenObjectToCssVars.js parses a figma theme and then flattens it 1`] = `
+Object {
+  "--colors-brand-green": "#219653",
+  "--colors-brand-orange": "orange",
+  "--colors-brand-purple": "#6f53f9",
+  "--colors-brand-red": "#eb5757",
+  "--colors-brand-teal": "#31839b",
+  "--colors-grey-10": "#f9f9f9",
+  "--colors-theme-primary": "#f9f9f9",
+  "--colors-theme-secondary": "#31839b",
+  "--colors-theme-tertiary": "#eb5757",
+  "--size-medium": 500,
+  "--size-small": "500",
+}
+`;
+
+exports[`parseBrandingJson.js parses a branding theme 1`] = `
+Object {
+  "colors": Object {
+    "brand": Object {
+      "green": "#219653",
+      "orange": "orange",
+      "purple": "#6f53f9",
+      "red": "#eb5757",
+      "teal": "#31839b",
+    },
+    "grey": Object {
+      "10": "#f9f9f9",
+    },
+    "theme": Object {
+      "primary": "#f9f9f9",
+      "secondary": "#31839b",
+      "tertiary": "#eb5757",
+    },
+  },
+  "size": Object {
+    "medium": 500,
+    "small": "500",
+  },
+}
+`;
