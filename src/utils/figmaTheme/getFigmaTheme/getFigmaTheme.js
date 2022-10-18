@@ -39,27 +39,45 @@ export const getFigmaTheme = (files, theme) => {
     );
   }
 
-  const partialsToLoad = tokenSetOrder.filter(
+  const sourcePartialsToLoad = tokenSetOrder.filter(
     themeName => themeData.selectedTokenSets[themeName] !== 'disabled'
   );
 
-  if (!partialsToLoad || !partialsToLoad.length) {
+  const semanticPartialsToLoad = tokenSetOrder.filter(
+    themeName => themeData.selectedTokenSets[themeName] === 'enabled'
+  );
+
+  if (!sourcePartialsToLoad || !sourcePartialsToLoad.length) {
     throw new Error(
       `No enabled partials found for this theme ${theme}. Check the $theme file for this theme.`
     );
   }
 
-  const sortedPartialsToLoad = sortArray(
+  const sortedSourcePartialsToLoad = sortArray(
     filePaths,
     tokenSetOrder
   ).filter(sortedFile =>
-    partialsToLoad.includes(sortedFile.replace('.json', ''))
+    sourcePartialsToLoad.includes(sortedFile.replace('.json', ''))
   );
 
-  return sortedPartialsToLoad.reduce(
+  const sortedSemanticPartialsToLoad = sortArray(
+    filePaths,
+    tokenSetOrder
+  ).filter(sortedFile =>
+    semanticPartialsToLoad.includes(sortedFile.replace('.json', ''))
+  );
+
+  const sourceTheme = sortedSourcePartialsToLoad.reduce(
     (acc, filePath) => merge(acc, files(filePath)),
     {}
   );
+
+  const semanticTheme = sortedSemanticPartialsToLoad.reduce(
+    (acc, filePath) => merge(acc, files(filePath)),
+    {}
+  );
+
+  return { sourceTheme, semanticTheme };
 };
 
 export const getFigmaThemeNames = files => {

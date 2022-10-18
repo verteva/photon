@@ -1,7 +1,7 @@
 import { replaceTemplateValue } from '../templateResolvers';
 
-export const parseFigmaJson = jsonFile => {
-  return parseObject(jsonFile, jsonFile);
+export const parseFigmaJson = ({ sourceTheme, semanticTheme }) => {
+  return parseObject(semanticTheme, sourceTheme);
 };
 
 export const parseObject = (object, root) => {
