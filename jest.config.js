@@ -8,4 +8,6 @@ module.exports = {
     '!src/main.js',
     '!src/stories/**',
   ],
+  verbose: true,
+  setupFilesAfterEnv: ['./setupTests.js'],
 };

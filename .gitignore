@@ -26,4 +26,5 @@ pnpm-debug.log*
 
 coverage
 
+public/figmaThemes/*
 public/figmaThemes
