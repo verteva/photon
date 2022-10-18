@@ -1,0 +1,23 @@
+{
+  "colors": {
+    "brand": {
+      "green": "#219653",
+      "orange": "orange",
+      "purple": "#6f53f9",
+      "red": "#eb5757",
+      "teal": "#31839b"
+    },
+    "grey": {
+      "10": "#f9f9f9"
+    },
+    "theme": {
+      "primary": "{{colors.grey.10}}",
+      "secondary": "{{colors.brand.teal}}",
+      "tertiary": "{{colors.brand.red}}"
+    }
+  },
+  "size": {
+    "medium": 500,
+    "small": "{{size.medium}}"
+  }
+}
