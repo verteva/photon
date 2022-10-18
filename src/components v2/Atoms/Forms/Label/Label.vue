@@ -39,35 +39,27 @@ export default Vue.extend({
   margin-bottom: 10px;
 
   .label {
-    font-family: var(
-      --form-control-items-label-default-text-font-family,
-      "'roboto' arial sans-serif"
-    );
-    font-weight: var(--form-control-items-label-default-text-font-weight, bold);
-    color: var(--form-control-items-label-default-text-color, #000);
+    font-family: var(--form-control-items-label-default-text-font-family);
+    font-weight: var(--form-control-items-label-default-text-font-weight);
+    color: var(--form-control-items-label-default-text-color);
   }
 
   .required-asterisks {
     margin-left: 2px;
-    font-family: var(
-      --form-control-items-label-default-text-font-family,
-      "'roboto' arial sans-serif"
-    );
-    font-weight: var(--form-control-items-label-default-text-font-weight, bold);
-    color: var(--form-control-items-label-default-icon-color, #f00);
+    font-family: var(--form-control-items-label-default-text-font-family);
+    font-weight: var(--form-control-items-label-default-text-font-weight);
+    color: var(--form-control-items-label-default-icon-color);
   }
 
   .inline-text {
     margin-left: 8px;
     font-family: var(
-      --form-control-items-label-default-inline-message-font-family,
-      "'roboto' arial sans-serif"
+      --form-control-items-label-default-inline-message-font-family
     );
     font-weight: var(
-      --form-control-items-label-default-inline-message-font-weight,
-      400
+      --form-control-items-label-default-inline-message-font-weight
     );
-    color: var(--form-control-items-label-default-inline-message-color, #000);
+    color: var(--form-control-items-label-default-inline-message-color);
   }
 
   &.sm {
@@ -77,8 +69,7 @@ export default Vue.extend({
         var(--form-control-items-label-sm-text-typography-fontSize, 1rem) * 1px
       );
       line-height: var(
-        --form-control-items-label-sm-text-typography-lineHeight,
-        1.5
+        --form-control-items-label-sm-text-typography-lineHeight
       );
       letter-spacing: var(
         --form-control-items-label-sm-text-typography-letterSpacing
@@ -102,8 +93,7 @@ export default Vue.extend({
           ) * 1px
       );
       line-height: var(
-        --form-control-items-label-sm-inline-message-typography-lineHeight,
-        1.5
+        --form-control-items-label-sm-inline-message-typography-lineHeight
       );
       letter-spacing: var(
         --form-control-items-label-sm-inline-message-typography-letterSpacing
@@ -127,8 +117,7 @@ export default Vue.extend({
         var(--form-control-items-label-lg-text-typography-fontSize, 1rem) * 1px
       );
       line-height: var(
-        --form-control-items-label-lg-text-typography-lineHeight,
-        1.5
+        --form-control-items-label-lg-text-typography-lineHeight
       );
       letter-spacing: var(
         --form-control-items-label-lg-text-typography-letterSpacing
@@ -152,8 +141,7 @@ export default Vue.extend({
           ) * 1px
       );
       line-height: var(
-        --form-control-items-label-lg-inline-message-typography-lineHeight,
-        1.5
+        --form-control-items-label-lg-inline-message-typography-lineHeight
       );
       letter-spacing: var(
         --form-control-items-label-lg-inline-message-typography-letterSpacing

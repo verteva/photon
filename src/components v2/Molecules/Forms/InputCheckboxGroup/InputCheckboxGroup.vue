@@ -37,7 +37,7 @@ export default Vue.extend({
   props: {
     // General Props
     size: {
-      type: String,
+      type: String as PropType<string>,
       default: 'md',
     },
     disabled: {
@@ -73,7 +73,7 @@ export default Vue.extend({
 
     // CheckboxGroup props
     items: {
-      type: Array,
+      type: Array as PropType<any[]>,
       default: (): [] => [],
     },
     name: {

@@ -38,7 +38,7 @@ export default Vue.extend({
   props: {
     // General Props
     size: {
-      type: String,
+      type: String as PropType<string>,
       default: 'md',
     },
     disabled: {

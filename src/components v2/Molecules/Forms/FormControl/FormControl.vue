@@ -68,11 +68,11 @@ export default Vue.extend({
       default: '',
     },
     size: {
-      type: String,
-      default: 'lg',
+      type: String as PropType<string>,
+      default: 'md',
     },
     disabled: {
-      type: Boolean,
+      type: Boolean as PropType<boolean>,
       default: false,
     },
   },

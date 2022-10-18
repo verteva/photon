@@ -27,7 +27,7 @@ export default Vue.extend({
 
   props: {
     items: {
-      type: Array,
+      type: Array as PropType<any[]>,
       default: (): [] => [],
     },
 

@@ -108,6 +108,7 @@ export default Vue.extend({
   .ph-checkbox-input {
     position: absolute;
     opacity: 0;
+    pointer-events: none;
   }
 
   .ph-checkbox-toggle {
