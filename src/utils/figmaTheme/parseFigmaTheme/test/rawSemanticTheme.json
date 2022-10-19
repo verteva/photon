@@ -1,0 +1,18 @@
+{
+  "colors": {
+    "theme": {
+      "primary": {
+        "type": "color",
+        "value": "{colors.grey.10}"
+      },
+      "secondary": {
+        "type": "color",
+        "value": "{colors.brand.teal}"
+      },
+      "tertiary": {
+        "type": "color",
+        "value": "{colors.brand.red}"
+      }
+    }
+  }
+}

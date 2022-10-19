@@ -71,6 +71,40 @@ Object {
 }
 `;
 
+exports[`figmaTheme/buildThemeFiles builds theme files for source themes 1`] = `
+Object {
+  "theme1": Object {
+    "colors": Object {
+      "brand": Object {
+        "orange": "orange",
+      },
+      "grey": Object {
+        "09": "grey",
+      },
+      "theme": Object {
+        "primary": "",
+      },
+    },
+  },
+  "theme2": Object {
+    "colors": Object {
+      "brand": Object {
+        "orange": "purple",
+      },
+      "theme": Object {
+        "primary": "",
+      },
+    },
+  },
+  "themes": Object {
+    "themes": Array [
+      "theme1",
+      "theme2",
+    ],
+  },
+}
+`;
+
 exports[`figmaTheme/buildThemeFiles builds theme files for themes 1`] = `
 Object {
   "theme1": Object {

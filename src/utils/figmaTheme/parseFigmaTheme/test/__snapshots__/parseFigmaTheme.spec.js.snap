@@ -57,3 +57,15 @@ Object {
   },
 }
 `;
+
+exports[`figmaTheme/parseFigmaTheme parses a figma theme from a semantic and source file 1`] = `
+Object {
+  "colors": Object {
+    "theme": Object {
+      "primary": "#f9f9f9",
+      "secondary": "#31839b",
+      "tertiary": "#eb5757",
+    },
+  },
+}
+`;

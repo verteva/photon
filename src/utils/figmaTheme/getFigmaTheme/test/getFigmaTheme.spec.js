@@ -24,12 +24,14 @@ const createFileObject = files => {
 describe('figmaTheme/getFigmaTheme', () => {
   it('gets a figma theme from a files object', () => {
     const result = getFigmaTheme(createFileObject(correctFiles), 'theme1');
-    expect(result).toMatchSnapshot();
+    expect(result.semanticTheme).toMatchSnapshot();
+    expect(result.sourceTheme).toMatchSnapshot();
   });
 
   it('gets a second figma theme from a files object', () => {
     const result = getFigmaTheme(createFileObject(correctFiles), 'theme2');
-    expect(result).toMatchSnapshot();
+    expect(result.semanticTheme).toMatchSnapshot();
+    expect(result.sourceTheme).toMatchSnapshot();
   });
 
   it('gets a figma theme from a files object with folders', () => {
@@ -37,7 +39,8 @@ describe('figmaTheme/getFigmaTheme', () => {
       createFileObject(correctNestedFiles),
       'theme1'
     );
-    expect(result).toMatchSnapshot();
+    expect(result.semanticTheme).toMatchSnapshot();
+    expect(result.sourceTheme).toMatchSnapshot();
   });
 
   describe('errors', () => {
