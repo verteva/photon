@@ -1,6 +1,8 @@
 <template>
   <div class="photon-input-message" :class="[size]">
-    <p-icon v-if="icon" :name="icon" class="icon" :type="iconSize" />
+    <div v-if="icon" class="icon-wrapper">
+      <p-icon :name="icon" class="icon" :type="iconSize" />
+    </div>
     <span>{{ message }}</span>
   </div>
 </template>
@@ -13,10 +15,10 @@ import {
   FORM_CONTROL_SIZE_TYPE,
 } from '@/utils/constants/FormControlConstants';
 import validators from '@/utils/validators';
-import { IconSizeSm, IconSizeXs } from '@/components/Icon/types';
+import { IconSizeSm, IconSizeXsm } from '@/components/Icon/types';
 
 const iconSizeMatrix = {
-  [FORM_CONTROL_SIZE.SMALL]: IconSizeXs,
+  [FORM_CONTROL_SIZE.SMALL]: IconSizeXsm,
   [FORM_CONTROL_SIZE.MEDIUM]: IconSizeSm,
 };
 
@@ -51,14 +53,16 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .photon-input-message {
   display: flex;
-  align-items: center;
   color: var(--form-control-items-message-default-text-color);
   margin-top: -10px;
   margin-bottom: 10px;
 
   .icon {
-    margin-right: 4px;
     color: var(--form-control-items-message-default-icon-color) !important ;
+  }
+
+  .icon-wrapper {
+    margin-right: 4px;
   }
 
   span {
@@ -84,24 +88,40 @@ export default Vue.extend({
         --form-control-items-message-sm-text-typography-letterSpacing
       );
     }
+    .icon-wrapper {
+      height: calc(
+        var(--form-control-items-message-sm-text-typography-fontSize) * 1.5px
+      );
+      width: calc(
+        var(--form-control-items-message-sm-text-typography-fontSize) * 1.5px
+      );
+    }
   }
 
-  &.lg {
+  &.md {
     span {
       font-size: calc(
-        var(--form-control-items-message-lg-text-typography-fontSize) * 1px
+        var(--form-control-items-message-md-text-typography-fontSize) * 1px
       );
       line-height: var(
-        --form-control-items-message-lg-text-typography-lineHeight
+        --form-control-items-message-md-text-typography-lineHeight
       );
       text-decoration: var(
-        --form-control-items-message-lg-text-typography-textDecoration
+        --form-control-items-message-md-text-typography-textDecoration
       );
       text-transform: var(
-        --form-control-items-message-lg-text-typography-textCase
+        --form-control-items-message-md-text-typography-textCase
       );
       letter-spacing: var(
-        --form-control-items-message-lg-text-typography-letterSpacing
+        --form-control-items-message-md-text-typography-letterSpacing
+      );
+    }
+    .icon-wrapper {
+      height: calc(
+        var(--form-control-items-message-md-text-typography-fontSize) * 1.5px
+      );
+      width: calc(
+        var(--form-control-items-message-md-text-typography-fontSize) * 1.5px
       );
     }
   }

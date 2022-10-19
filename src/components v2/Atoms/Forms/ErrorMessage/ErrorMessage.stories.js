@@ -3,6 +3,22 @@ import PInputError from './ErrorMessage.vue';
 export default {
   title: 'v2/Atoms/Forms/ErrorMessage',
   component: PInputError,
+  argTypes: {
+    error: {
+      control: {
+        type: 'text',
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
+    },
+  },
+  args: {
+    size: 'md',
+  },
 };
 
 const Template = (args, { argTypes }) => ({

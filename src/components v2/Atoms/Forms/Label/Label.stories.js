@@ -4,7 +4,15 @@ export default {
   title: 'v2/Atoms/Forms/Label',
   component: PLabel,
   argTypes: {
-    // Configurable component options in SB UI...
+    size: {
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
+    },
+  },
+  args: {
+    size: 'md',
   },
 };
 

@@ -8,6 +8,7 @@ export interface IconProperty {
 export type IconSize =
   | typeof IconSizeXXs
   | typeof IconSizeXs
+  | typeof IconSizeXsm
   | typeof IconSizeSm
   | typeof IconSizeMedium
   | typeof IconSizeLg
@@ -19,6 +20,7 @@ export type IconSize =
 
 export const IconSizeXXs = 'xxs';
 export const IconSizeXs = 'xs';
+export const IconSizeXsm = 'xsm';
 export const IconSizeSm = 'sm';
 export const IconSizeMedium = 'med';
 export const IconSizeLg = 'lg';
@@ -30,6 +32,7 @@ export const IconSizeHuge = 'huge';
 
 export const IconXXs = 10;
 export const IconXs = 12;
+export const IconXsm = 14;
 export const IconSm = 18;
 export const IconMedium = 22;
 export const IconLg = 32;

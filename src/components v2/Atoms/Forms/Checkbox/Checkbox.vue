@@ -20,7 +20,9 @@
         class="ph-checkbox-checkmark"
       />
     </div>
-    {{ label }}
+    <span>
+      {{ label }}
+    </span>
     <slot />
   </label>
 </template>
@@ -193,7 +195,7 @@ export default Vue.extend({
     --checkbox-size: calc(
       var(--checkbox-md-label-typography-fontSize) * 1px + 4px
     );
-    padding-left: calc(var(--checkbox-size) + 10px);
+    padding-left: 32px;
     font-family: var(--checkbox-md-label-typography-fontFamily);
     font-weight: var(--checkbox-md-label-typography-fontWeight);
     font-size: calc(var(--checkbox-md-label-typography-fontSize) * 1px);

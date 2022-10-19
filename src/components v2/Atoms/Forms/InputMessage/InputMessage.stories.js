@@ -1,8 +1,31 @@
 import P2InputMessage from './InputMessage.vue';
+import Icons from '@/components/Icon/icons';
 
 export default {
   title: 'v2/Atoms/Forms/InputMessage',
   component: P2InputMessage,
+  argTypes: {
+    message: {
+      control: {
+        type: 'text',
+      },
+    },
+    icon: {
+      control: {
+        type: 'select',
+        options: [...Icons, ''],
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
+    },
+  },
+  args: {
+    size: 'md',
+  },
 };
 
 const Template = (args, { argTypes }) => ({

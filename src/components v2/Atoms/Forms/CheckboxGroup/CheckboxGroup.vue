@@ -66,10 +66,16 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .checkbox-group-item {
-  margin-bottom: 8px;
-
   &:last-child {
     margin-bottom: 0;
+  }
+
+  &.sm {
+    margin-bottom: 6px;
+  }
+
+  &.md {
+    margin-bottom: 8px;
   }
 }
 </style>

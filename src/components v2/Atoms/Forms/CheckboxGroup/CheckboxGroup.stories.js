@@ -4,7 +4,15 @@ export default {
   title: 'V2/Atoms/Forms/Checkbox Group',
   component: P2CheckboxGroup,
   argTypes: {
-    // Configurable component options in SB UI...
+    size: {
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
+    },
+  },
+  args: {
+    size: 'md',
   },
 };
 

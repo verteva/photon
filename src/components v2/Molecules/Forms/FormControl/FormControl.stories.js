@@ -84,6 +84,9 @@ export default {
       },
     },
   },
+  args: {
+    size: 'md',
+  },
 };
 
 const Template = (args, { argTypes }) => ({

@@ -1,7 +1,8 @@
 <template>
   <div class="photon-label" :class="[size]">
-    <span class="label">{{ label }}</span>
-    <span v-if="isRequired" class="required-asterisks">*</span>
+    <span class="label">
+      {{ label }}<span v-if="isRequired" class="required-asterisks">*</span>
+    </span>
     <span class="inline-text">{{ inlineText }}</span>
   </div>
 </template>
@@ -116,50 +117,50 @@ export default Vue.extend({
     }
   }
 
-  &.lg {
+  &.md {
     .label,
     .required-asterisks {
       font-size: calc(
-        var(--form-control-items-label-lg-text-typography-fontSize, 1rem) * 1px
+        var(--form-control-items-label-md-text-typography-fontSize, 1rem) * 1px
       );
       line-height: var(
-        --form-control-items-label-lg-text-typography-lineHeight
+        --form-control-items-label-md-text-typography-lineHeight
       );
       letter-spacing: var(
-        --form-control-items-label-lg-text-typography-letterSpacing
+        --form-control-items-label-md-text-typography-letterSpacing
       );
       padding: var(
-        --form-control-items-label-lg-text-typography-paragraphSpacing
+        --form-control-items-label-md-text-typography-paragraphSpacing
       );
       text-decoration: var(
-        --form-control-items-label-lg-text-typography-textDecoration
+        --form-control-items-label-md-text-typography-textDecoration
       );
       text-transform: var(
-        --form-control-items-label-lg-text-typography-textCase
+        --form-control-items-label-md-text-typography-textCase
       );
     }
 
     .inline-text {
       font-size: calc(
         var(
-            --form-control-items-label-lg-inline-message-typography-fontSize,
+            --form-control-items-label-md-inline-message-typography-fontSize,
             1rem
           ) * 1px
       );
       line-height: var(
-        --form-control-items-label-lg-inline-message-typography-lineHeight
+        --form-control-items-label-md-inline-message-typography-lineHeight
       );
       letter-spacing: var(
-        --form-control-items-label-lg-inline-message-typography-letterSpacing
+        --form-control-items-label-md-inline-message-typography-letterSpacing
       );
       padding: var(
-        --form-control-items-label-lg-inline-message-typography-paragraphSpacing
+        --form-control-items-label-md-inline-message-typography-paragraphSpacing
       );
       text-decoration: var(
-        --form-control-items-label-lg-inline-message-typography-textDecoration
+        --form-control-items-label-md-inline-message-typography-textDecoration
       );
       text-transform: var(
-        --form-control-items-label-lg-inline-message-typography-textCase
+        --form-control-items-label-md-inline-message-typography-textCase
       );
     }
   }
