@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`injectThemeCssVariables.js injects the css into the dom 1`] = `
+"
+    :root {
+      colors-brand-green: #219653;colors-brand-green-dark: #1d7a44;colors-brand-green-light: #2ebd60;colors-brand-green-lighter: #e6f4ec;
+    }
+  "
+`;
