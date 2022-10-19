@@ -17,6 +17,11 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import P2Checkbox from '../Checkbox';
+import {
+  FORM_CONTROL_SIZE,
+  FORM_CONTROL_SIZE_TYPE,
+} from '@/utils/constants/FormControlConstants';
+import validators from '@/utils/validators';
 
 export default Vue.extend({
   name: 'CheckboxGroup',
@@ -37,8 +42,9 @@ export default Vue.extend({
     },
 
     size: {
-      type: String as PropType<string>,
-      default: 'md',
+      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
+      default: FORM_CONTROL_SIZE.MEDIUM,
+      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
     },
 
     disabled: {
@@ -49,7 +55,7 @@ export default Vue.extend({
 
   created() {
     const $this = this as any;
-    if (!!$this.label && $this.$slots.default) {
+    if (Boolean($this.label) && $this.$slots.default) {
       console.warn(
         'Checkbox label and Checkbox slot(default) are both defined and will be rendered together. This is probably not intended.'
       );

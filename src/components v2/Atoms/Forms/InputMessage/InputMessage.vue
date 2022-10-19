@@ -8,10 +8,16 @@
 <script lang="ts">
 import PIcon from '@/components/Icon';
 import Vue, { PropType } from 'vue';
+import {
+  FORM_CONTROL_SIZE,
+  FORM_CONTROL_SIZE_TYPE,
+} from '@/utils/constants/FormControlConstants';
+import validators from '@/utils/validators';
+import { IconSizeSm, IconSizeXs } from '@/components/Icon/types';
 
 const iconSizeMatrix = {
-  sm: 'xs',
-  md: 'sm',
+  [FORM_CONTROL_SIZE.SMALL]: IconSizeXs,
+  [FORM_CONTROL_SIZE.MEDIUM]: IconSizeSm,
 };
 
 export default Vue.extend({
@@ -29,8 +35,9 @@ export default Vue.extend({
       default: '',
     },
     size: {
-      type: String as PropType<string>,
-      default: 'sm',
+      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
+      default: FORM_CONTROL_SIZE.MEDIUM,
+      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
     },
   },
   computed: {

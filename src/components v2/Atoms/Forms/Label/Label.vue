@@ -8,6 +8,11 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
+import {
+  FORM_CONTROL_SIZE,
+  FORM_CONTROL_SIZE_TYPE,
+} from '@/utils/constants/FormControlConstants';
+import validators from '@/utils/validators';
 
 export default Vue.extend({
   name: 'P2Label',
@@ -25,8 +30,9 @@ export default Vue.extend({
       default: '',
     },
     size: {
-      type: String as PropType<string>,
-      default: 'sm',
+      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
+      default: FORM_CONTROL_SIZE.MEDIUM,
+      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
     },
   },
 });

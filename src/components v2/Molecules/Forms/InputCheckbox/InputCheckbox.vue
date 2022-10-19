@@ -28,6 +28,11 @@
 import Vue, { PropType } from 'vue';
 import P2Checkbox from '@/components v2/Atoms/Forms/Checkbox';
 import P2FormControl from '@/components v2/Molecules/Forms/FormControl';
+import {
+  FORM_CONTROL_SIZE,
+  FORM_CONTROL_SIZE_TYPE,
+} from '@/utils/constants/FormControlConstants';
+import validators from '@/utils/validators';
 
 export default Vue.extend({
   name: 'InputCheckbox',
@@ -38,8 +43,9 @@ export default Vue.extend({
   props: {
     // General Props
     size: {
-      type: String as PropType<string>,
-      default: 'md',
+      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
+      default: FORM_CONTROL_SIZE.MEDIUM,
+      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
     },
     disabled: {
       type: Boolean as PropType<boolean>,
