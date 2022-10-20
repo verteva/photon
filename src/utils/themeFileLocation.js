@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export const getFiles = () => {
   if (IS_BUILD) {
     return null;
