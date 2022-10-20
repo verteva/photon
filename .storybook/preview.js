@@ -12,6 +12,7 @@ import { injectThemeCssVariables } from '@/utils/injectThemeCssVariables';
 import { getTheme } from './utils/getTheme';
 import { getThemeNames } from './utils/getThemeNames';
 import { ThemeBar } from './themeBar';
+
 import './theme-bar.scss';
 
 const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
@@ -84,7 +85,7 @@ export const withTheme = story => {
                 `${process.env.STORYBOOK_THEME_URL}/${val}.json`
               );
               const parsedTheme = await res.json();
-              this.color = parsedTheme.color.theme.primary.default;
+              this.color = parsedTheme.theme.primary.default;
               injectThemeCssVariables(flattenObjectToCssVars(parsedTheme));
               store.dispatch('theme/setTheme', parsedTheme);
             };

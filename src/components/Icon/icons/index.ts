@@ -39,6 +39,7 @@ export default [
   'ChevronUp',
   'Childcare',
   'Circle',
+  'CircleV2',
   'Clothing',
   'Coffee',
   'Communications',
