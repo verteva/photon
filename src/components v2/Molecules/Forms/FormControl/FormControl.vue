@@ -31,9 +31,14 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import P2Label from '@/components v2/Forms/Atoms/Label';
-import P2ErrorMessage from '@/components v2/Forms/Atoms/ErrorMessage';
-import P2InputMessage from '@/components v2/Forms/Atoms/InputMessage';
+import P2Label from '@/components v2/Atoms/Forms/Label';
+import P2ErrorMessage from '@/components v2/Atoms/Forms/ErrorMessage';
+import P2InputMessage from '@/components v2/Atoms/Forms/InputMessage';
+import {
+  FORM_CONTROL_SIZE,
+  FORM_CONTROL_SIZE_TYPE,
+} from '@/utils/constants/FormControlConstants';
+import validators from '@/utils/validators';
 
 export default Vue.extend({
   name: 'P2FormControl',
@@ -43,6 +48,7 @@ export default Vue.extend({
     P2InputMessage,
   },
   props: {
+    // Label props
     label: {
       type: String as PropType<string>,
       default: '',
@@ -55,6 +61,7 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    // InputMessage props
     extraMessage: {
       type: String as PropType<string>,
       default: '',
@@ -63,13 +70,20 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
+    // ErrorMessage props
     error: {
       type: String as PropType<string>,
       default: '',
     },
+    // Global props
     size: {
-      type: String as PropType<string>,
-      default: 'md',
+      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
+      default: FORM_CONTROL_SIZE.MEDIUM,
+      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
+    },
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
   },
 });

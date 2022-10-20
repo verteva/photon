@@ -14,7 +14,7 @@ const booleanControl = {
 };
 
 export default {
-  title: 'v2/Forms/Molecules/FormControl',
+  title: 'v2/Molecules/Forms/FormControl',
   component: P2FormControl,
   argTypes: {
     label: {
@@ -65,6 +65,12 @@ export default {
         category: 'General',
       },
     },
+    disabled: {
+      ...booleanControl,
+      table: {
+        category: 'General',
+      },
+    },
     default: {
       description: 'The default Vue slot',
       control: {
@@ -77,6 +83,9 @@ export default {
         },
       },
     },
+  },
+  args: {
+    size: 'md',
   },
 };
 
@@ -98,12 +107,32 @@ const Template = (args, { argTypes }) => ({
   `,
 });
 
-export const FormControl = Template.bind({});
-FormControl.args = {
+export const Default = Template.bind({});
+Default.args = {
+  label: 'This is the label',
+  inlineText: '( Extra inline text )',
+  isRequired: true,
+  extraMessage: '',
+  messageIcon: 'Info',
+  error: '',
+};
+
+export const ExtraMessage = Template.bind({});
+ExtraMessage.args = {
   label: 'This is the label',
   inlineText: '( Extra inline text )',
   isRequired: true,
   extraMessage: 'This is the extra message',
+  messageIcon: 'Info',
+  error: '',
+};
+
+export const ErrorMessage = Template.bind({});
+ErrorMessage.args = {
+  label: 'This is the label',
+  inlineText: '( Extra inline text )',
+  isRequired: true,
+  extraMessage: '',
   messageIcon: 'Info',
   error: 'This is an error message',
 };

@@ -11,6 +11,8 @@ import {
 import { injectThemeCssVariables } from '@/utils/injectThemeCssVariables';
 import { getTheme } from './utils/getTheme';
 import { getThemeNames } from './utils/getThemeNames';
+import { ThemeBar } from './themeBar';
+import './theme-bar.scss';
 
 const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
 const isFigma = process.env.STORYBOOK_THEME_LOCATION === 'figma';
@@ -41,47 +43,16 @@ const getThemeFiles = () => {
 Vue.use(Vuex);
 Vue.prototype.$store = store;
 
-export const ThemeBar = {
-  name: 'ThemeBar',
-  props: {
-    theme: {
-      type: String,
-      default: 'base',
-    },
-    themeNames: {
-      default: [],
-    },
-  },
-  template: `
-    <div class="wrapper">
-      <div class="theme-bar">
-        <div>
-          Theme: {{ theme }}
-          <select :value="theme" @input="val => $emit('input', val)">
-            <option
-              v-for="themeName in themeNames"
-              :key="themeName"
-              :value="themeName"
-            >
-              {{ themeName }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="story-container"><slot /></div>
-    </div>
-  `,
-};
-
 export const withTheme = story => {
   return {
     components: { story, ThemeBar },
     template:
       isExternal || isFigma
-        ? '<ThemeBar :theme="theme" :theme-names="themeNames" @input="val => theme = val.target.value"><story /></ThemeBar>'
+        ? '<ThemeBar :theme="theme" :theme-names="themeNames" @input="val => theme = val.target.value" :color="color"><story /></ThemeBar>'
         : '<story />',
     data() {
       return {
+        color: 'black',
         themeObject: {},
         themeNames: ['base'],
         theme: 'base',
@@ -113,6 +84,7 @@ export const withTheme = story => {
                 `${process.env.STORYBOOK_THEME_URL}/${val}.json`
               );
               const parsedTheme = await res.json();
+              this.color = parsedTheme.color.theme.primary.default;
               injectThemeCssVariables(flattenObjectToCssVars(parsedTheme));
               store.dispatch('theme/setTheme', parsedTheme);
             };
