@@ -1,3 +1,28 @@
+# [0.5.0](https://github.com/verteva/photon/compare/v0.4.2...v0.5.0) (2022-10-20)
+
+
+### Bug Fixes
+
+* added validators and improved type security ([8915916](https://github.com/verteva/photon/commit/89159166b6f3d6b3115c1d6118d5257f18ddb7ee))
+* fixed all tests and updated folder structure for atomic components ([67f6a6a](https://github.com/verteva/photon/commit/67f6a6a13b419f120ae442bde25dd912214a769d))
+* fixed imports for Molecules ([9131a6a](https://github.com/verteva/photon/commit/9131a6a25dc6f1db121de4f3f9a1cb60dd13a15c))
+* style updates according to review ([e37ff20](https://github.com/verteva/photon/commit/e37ff20232cc847a06b2fe737c124857cb381136))
+* updated color parser ([5e7146d](https://github.com/verteva/photon/commit/5e7146db614adbbe8c785328cd07e7667b0554d9))
+* upgrade harp from 0.42.0 to 0.46.0 ([cd42795](https://github.com/verteva/photon/commit/cd427958f7f9667806d54c6992c865165c163079))
+* upgrade vue-phone-number-input from 1.1.12 to 1.12.13 ([698102b](https://github.com/verteva/photon/commit/698102b3677794ebbc85957fdadd9bf601b2316a))
+
+
+### Features
+
+* added source file exclusion from parser ([17c560c](https://github.com/verteva/photon/commit/17c560c0e323d73e348a7f2c0d0cc18376a360a2))
+* checkBox and checkboxgroup atoms added ([1ffa250](https://github.com/verteva/photon/commit/1ffa2502e22b8b224d1059b8001e32411b107903))
+* checkbox fixed with new values ([0f65cda](https://github.com/verteva/photon/commit/0f65cdadb7daa4433f51b98008236cdfce54e69e))
+* form atom for error message ([46c2824](https://github.com/verteva/photon/commit/46c282428f45ba745a2ae098c1b5e8f2215b8802))
+* form atom for label ([dabdb01](https://github.com/verteva/photon/commit/dabdb010dd98ae31231d3daacf6d17ddbcd9bbd5))
+* form control molecule ([633a98e](https://github.com/verteva/photon/commit/633a98e8ad4755dda23e06cce2a527c9919337eb))
+* input message atom component ([dbe69c2](https://github.com/verteva/photon/commit/dbe69c2f4fa48749fba97c3e8b10b44dbcff2022))
+* switching form controll to figma tokens ([f3f330e](https://github.com/verteva/photon/commit/f3f330ed91ddf6fd43d2417a73b3bd67e1866d88))
+
 ## [0.4.2](https://github.com/verteva/photon/compare/v0.4.1...v0.4.2) (2022-10-04)
 
 
