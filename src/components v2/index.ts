@@ -6,6 +6,8 @@ import P2InputNumber from './InputNumber';
 import P2Label from './Label';
 import P2Card from './Card';
 import P2Message from './Message';
+import P2InputCheckbox from './Forms/Molecules/InputCheckbox';
+import P2InputCheckboxGroup from './Forms/Molecules/InputCheckboxGroup';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -19,6 +21,8 @@ const components: PhotonComponents = {
   P2Label,
   P2Card,
   P2Message,
+  P2InputCheckbox,
+  P2InputCheckboxGroup,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;

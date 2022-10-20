@@ -2,10 +2,11 @@ import { boxShadowParser } from './boxShadowParser';
 import { compositionParser } from './compositionParser';
 import { basicParser } from './basicParser';
 import { mathParser } from './mathParser';
+import { colorParser } from './colorParser';
 
 const parsers = {
   composition: compositionParser,
-  color: basicParser,
+  color: colorParser,
   spacing: mathParser,
   borderRadius: mathParser,
   borderWidth: mathParser,

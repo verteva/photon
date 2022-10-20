@@ -1,0 +1,16 @@
+{
+  "input-message": {
+    "base": {
+      "color": "{{colors.black}}",
+      "font-size": "0.875rem",
+      "line-height": "1.5",
+      "font-weight": "{{font.weight.regular}}",
+      "font-family": "{{font.family.primary}}",
+      "padding": "4px 0px",
+      "margin-top": "10px",
+      "icon": {
+        "color": "{{colors.primary.500}}"
+      }
+    }
+  }
+}

@@ -20,13 +20,23 @@ export const themeJson = [
       theme2: 'enabled',
     },
   },
+];
+
+export const sourceThemeJson = [
   {
-    name: 'theme3',
+    name: 'theme1',
     selectedTokenSets: {
-      global: 'enabled',
-      theme1: 'disabled',
+      global: 'source',
+      theme1: 'enabled',
       theme2: 'disabled',
-      theme3: 'enabled',
+    },
+  },
+  {
+    name: 'theme2',
+    selectedTokenSets: {
+      global: 'source',
+      theme1: 'disabled',
+      theme2: 'enabled',
     },
   },
 ];
@@ -56,7 +66,17 @@ export const correctFiles = {
   '$metadata.json': {
     tokenSetOrder: ['global', 'theme1', 'theme2'],
   },
-  '$theme.json': nestedThemeJson,
+  '$theme.json': themeJson,
+  'global.json': globalTheme,
+  'theme1.json': theme1,
+  'theme2.json': theme2,
+};
+
+export const correctSourceFiles = {
+  '$metadata.json': {
+    tokenSetOrder: ['global', 'theme1', 'theme2'],
+  },
+  '$theme.json': sourceThemeJson,
   'global.json': globalTheme,
   'theme1.json': theme1,
   'theme2.json': theme2,
