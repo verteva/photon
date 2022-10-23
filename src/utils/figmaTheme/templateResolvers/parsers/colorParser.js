@@ -8,15 +8,15 @@ export const colorParser = (value, root) => {
 };
 
 const transformHEXRGBa = value => {
-  if (value.startsWith('rgba(#')) {
-    const [hex, alpha] = value
-      .replace(')', '')
-      .split('rgba(')
-      .pop()
-      .split(', ');
-    const [r, g, b] = parseToRgba(hex);
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-  } else {
+  if (!value.startsWith('rgba(#')) {
     return value;
   }
+
+  const [hex, alpha] = value
+    .replace(')', '')
+    .split('rgba(')
+    .pop()
+    .split(', ');
+  const [r, g, b] = parseToRgba(hex);
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };
