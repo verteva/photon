@@ -1,0 +1,29 @@
+.wrapper {
+  .theme-bar {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-bottom: 1px solid #7f7f7f;
+    display: flex;
+    align-items: center;
+    .theme-bar-title {
+      display: flex;
+      align-items: center;
+    }
+
+    select {
+      min-width: 100px;
+      border: 1px solid #7f7f7f;
+
+      margin-left: 6px;
+      padding: 6px;
+      border-radius: 2px;
+      border: 1px solid #7f7f7f;
+      color: white;
+    }
+  }
+
+  .story-container {
+    padding: 20px;
+    background-color: white;
+  }
+}

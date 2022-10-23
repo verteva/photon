@@ -1,0 +1,12 @@
+name: 'Comment Action'
+description: 'Post the link to the temp storybook url'
+author: 'Dan Drory'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
+
+runs:
+  using: 'node16'
+  main: '../../../../scripts/comment.js'
