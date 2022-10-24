@@ -6,6 +6,12 @@ inputs:
   GITHUB_TOKEN:
     description: 'GitHub token'
     required: true
+  BUCKET_NAME:
+    description: 'Bucket name'
+    required: true
+  BUILD_VERSION:
+    description: 'Version'
+    required: false
 
 runs:
   using: 'node16'
