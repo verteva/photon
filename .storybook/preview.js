@@ -1,4 +1,4 @@
-// import '!style-loader!css-loader!sass-loader!../src/assets/scss/main.scss';
+import '!style-loader!css-loader!sass-loader!../src/assets/scss/main.scss';
 import '../src/assets/css/main.css';
 
 import Vuex from 'vuex';
@@ -16,10 +16,6 @@ import './theme-bar.scss';
 
 const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
 const isFigma = process.env.STORYBOOK_THEME_LOCATION === 'figma';
-
-if (isExternal || isFigma) {
-  import('../src/assets/scss/dev-fonts.scss');
-}
 
 const getThemeFiles = () => {
   const localFiles = require.context('../src/theme/', true, /theme\.json$/i);
@@ -84,7 +80,7 @@ export const withTheme = story => {
                 `${process.env.STORYBOOK_THEME_URL}/${val}.json`
               );
               const parsedTheme = await res.json();
-              this.color = parsedTheme.color.theme.primary.default;
+              this.color = parsedTheme?.theme?.primary?.default;
               injectThemeCssVariables(flattenObjectToCssVars(parsedTheme));
               store.dispatch('theme/setTheme', parsedTheme);
             };
