@@ -28,3 +28,6 @@ coverage
 
 public/figmaThemes/*
 public/figmaThemes
+
+public/cxThemes/*
+public/cxThemes
