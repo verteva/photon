@@ -1,7 +1,7 @@
 import P2Message from './Message.vue';
 
 export default {
-  title: 'V2/Components/Message',
+  title: 'V2/Molecules/Components/Message',
   component: P2Message,
   argTypes: {
     // Configurable component options in SB UI...
@@ -15,13 +15,13 @@ const Template = (args, { argTypes }) => ({
     <div>
       <P2Message title="Simple one line success message"  type="success" /><br />
       <P2Message v-bind='$props' type="success" @click='()=>{}' /><br />
-      
+
       <P2Message title="Simple one line info message"  type="info" /><br />
       <P2Message v-bind='$props' type="info" @click='()=>{}' /><br />
-      
+
       <P2Message title="Simple one line error message"  type="error" /><br />
       <P2Message v-bind='$props' type="error" @click='()=>{}' /><br />
-      
+
       <P2Message title="Simple one line warning message"  type="warning" /><br />
       <P2Message v-bind='$props' type="warning" @click='()=>{}' /><br />
 

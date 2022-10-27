@@ -125,7 +125,16 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['About PHOTON', 'Global', 'Button & Tags', 'Forms', 'Components'],
+      order: [
+        'About PHOTON',
+        'Documentation',
+        'v2',
+        ['About PHOTON v2', 'Atoms', 'Molecules'],
+        'Global',
+        'Button & Tags',
+        'Forms',
+        'Components',
+      ],
     },
   },
 };

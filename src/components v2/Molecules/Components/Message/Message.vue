@@ -34,8 +34,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '../../components/Icon';
-import PButton from '../Button';
+import PIcon from '@/components/Icon';
+import PButton from '@/components v2/Atoms/Components/Button';
 import {
   MessageSuccess,
   MessageInfo,

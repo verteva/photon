@@ -1,10 +1,10 @@
 import P2Form from './Form.vue';
-import PInputText from '../../components/InputText';
-import PButton from '../Button';
-import { PText } from '../../components/Typography';
+import PInputText from '@/components/InputText';
+import PButton from '@/components v2/Atoms/Components/Button';
+import { PText } from '@/components/Typography';
 
 export default {
-  title: 'v2/Forms/Form',
+  title: 'v2/Atoms/Forms/Form',
 };
 
 const Template = (args, { argTypes }) => ({

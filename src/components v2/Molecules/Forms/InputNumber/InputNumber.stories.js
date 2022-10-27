@@ -1,7 +1,7 @@
 import PInputNumber from './InputNumber.vue';
-import PButton from '../Button';
+import PButton from '@/components v2/Atoms/Components/Button';
 export default {
-  title: 'v2/Forms/InputNumber',
+  title: 'v2/Molecules/Forms/InputNumber',
   component: PInputNumber,
   argTypes: {
     // Configurable component options in SB UI...

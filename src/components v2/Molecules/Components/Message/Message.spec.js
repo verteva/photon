@@ -1,4 +1,4 @@
-import Message from '@/components v2/Message/Message.vue';
+import Message from '@/components v2/Molecules/Components/Message/Message.vue';
 import { createWrapper } from '@/utils/unitTest';
 
 describe('Message.vue', () => {
