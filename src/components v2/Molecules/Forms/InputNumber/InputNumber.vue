@@ -37,8 +37,8 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PInput from '../../components/Input';
-import PLabel from '../../components/Label';
+import PInput from '@/components/Input';
+import PLabel from '@/components/Label';
 import { changeNumberValue, changeNumberType } from './types';
 
 export default Vue.extend({

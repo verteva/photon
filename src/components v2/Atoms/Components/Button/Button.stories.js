@@ -1,12 +1,11 @@
 import P2Button from './Button.vue';
-import Loader from '../../components/Loader';
-import '../../assets/scss/main.scss';
+import Loader from '@/components/Loader';
 import { ButtonSizes, ButtonStyles, ButtonTypes } from './types';
 
 const bool = { options: [true, false] };
 
 export default {
-  title: 'v2/Button & Tags/Button',
+  title: 'v2/Atoms/Components/Button',
   component: P2Button,
   // Set the order of the props
   argTypes: {

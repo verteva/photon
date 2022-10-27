@@ -1,7 +1,7 @@
 import P2Card from './Card.vue';
 
 export default {
-  title: 'V2/Components/Card',
+  title: 'V2/Atoms/Components/Card',
   component: P2Card,
   argTypes: {
     // Configurable component options in SB UI...

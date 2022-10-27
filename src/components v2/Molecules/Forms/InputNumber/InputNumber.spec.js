@@ -1,5 +1,5 @@
 import { mount, createLocalVue } from '@vue/test-utils';
-import InputNumber from '@/components v2/InputNumber/InputNumber.vue';
+import InputNumber from '@/components v2/Molecules/Forms/InputNumber/InputNumber.vue';
 
 const createWrapper = (propsOverrides = {}) => {
   const localVue = createLocalVue();
