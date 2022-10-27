@@ -71,6 +71,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    focusIndex: {
+      type: Number,
+      default: 1,
+    },
   },
 
   data(): DialogData {
@@ -132,6 +136,19 @@ export default {
         (this as any).onAnimationEnd,
         false
       );
+
+      const focusIndex = (this as any).focusIndex;
+      if (focusIndex >= 0) {
+        const focusable = [
+          ...node.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          ),
+        ] as HTMLElement[] | null;
+        if (focusable != null && focusable.length > focusIndex) {
+          const focusEl = focusable[focusIndex] as HTMLElement;
+          focusEl.focus();
+        }
+      }
     }
   },
 
