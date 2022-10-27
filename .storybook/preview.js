@@ -44,14 +44,14 @@ export const withTheme = story => {
     components: { story, ThemeBar },
     template:
       isExternal || isFigma
-        ? '<ThemeBar :theme="theme" :theme-names="themeNames" @input="val => theme = val.target.value" :color="color"><story /></ThemeBar>'
+        ? '<ThemeBar :theme="theme" :theme-names="themeNames" @input="setThemeName" :color="color"><story /></ThemeBar>'
         : '<story />',
     data() {
       return {
         color: 'black',
         themeObject: {},
-        themeNames: ['base'],
-        theme: 'base',
+        themeNames: ['Nano'],
+        theme: 'Nano',
       };
     },
     async created() {
@@ -69,7 +69,16 @@ export const withTheme = story => {
       if (isExternal) {
         const files = getThemeFiles();
         this.themeNames = getThemeNames(files);
+        if (store._modules.root._children.theme.state.themeName) {
+          this.theme = store._modules.root._children.theme.state.themeName;
+        }
       }
+    },
+    methods: {
+      setThemeName(themeName) {
+        this.theme = themeName.target.value;
+        store.dispatch('theme/setThemeName', themeName.target.value);
+      },
     },
     watch: {
       theme: {
@@ -92,7 +101,9 @@ export const withTheme = story => {
             const files = getThemeFiles();
             const json = await getTheme(files, isExternal ? val : '');
             const loadedTheme = parseBrandingJson(json);
+            this.color = loadedTheme?.theme?.primary?.default;
             injectThemeCssVariables(flattenObjectToCssVars(loadedTheme));
+            store.dispatch('theme/setTheme', loadedTheme);
           } catch (e) {
             console.error('Error: Unable to load and inject theme, errors:', e);
           }
