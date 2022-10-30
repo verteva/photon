@@ -77,29 +77,37 @@ const InteractiveTemplate = (args, { argTypes }) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  size: 'md',
+};
 
 export const Checked = Template.bind({});
 Checked.args = {
+  size: 'md',
   value: true,
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
+  size: 'md',
   disabled: true,
 };
 
 export const DisabledChecked = Template.bind({});
 DisabledChecked.args = {
+  size: 'md',
   value: true,
   disabled: true,
 };
 
 export const MultiLine = MultiLineTemplate.bind({});
 MultiLine.args = {
+  size: 'md',
   label:
     'This checkbox has a multi line label to show you the alignment of the checkbox and the label. Neat huh?',
 };
 
 export const Interactive = InteractiveTemplate.bind({});
-Interactive.args = {};
+Interactive.args = {
+  size: 'md',
+};

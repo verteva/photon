@@ -63,6 +63,9 @@ export default Vue.extend({
 
   .icon-wrapper {
     margin-right: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   span {
