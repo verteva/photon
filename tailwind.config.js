@@ -4,6 +4,7 @@ module.exports = {
   prefix: 'ph-',
   shadowLookup: true,
   darkMode: false, // or 'media' or 'class'
+  safeList: ['ph-my-2', 'my-2'],
   theme: {
     screens: {
       xs: '375px',
