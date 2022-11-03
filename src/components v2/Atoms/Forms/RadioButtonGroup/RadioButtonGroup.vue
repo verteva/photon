@@ -9,6 +9,7 @@
       :rows="numRows"
       :disabled="disabled"
       :icon="item.icon"
+      :name="name"
       @click="() => $emit('click', index)"
     />
   </div>
@@ -40,6 +41,10 @@ export default Vue.extend({
     selectedIndex: {
       type: Number as PropType<number>,
       default: -1,
+    },
+    name: {
+      type: String as PropType<string>,
+      default: '',
     },
   },
   data() {
