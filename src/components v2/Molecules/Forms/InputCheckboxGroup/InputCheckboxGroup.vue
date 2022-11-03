@@ -9,6 +9,7 @@
       error,
       size,
       disabled,
+      hideError,
     }"
   >
     <P2CheckboxGroup
@@ -75,6 +76,10 @@ export default Vue.extend({
     error: {
       type: String as PropType<string>,
       default: '',
+    },
+    hideError: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
 
     // CheckboxGroup props

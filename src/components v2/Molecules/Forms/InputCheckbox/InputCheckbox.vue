@@ -9,6 +9,7 @@
       error,
       size,
       disabled,
+      hideError,
     }"
   >
     <P2Checkbox
@@ -20,7 +21,9 @@
         disabled,
       }"
       @input="$emit('input', $event)"
-    />
+    >
+      <slot />
+    </P2Checkbox>
   </P2FormControl>
 </template>
 
@@ -75,6 +78,10 @@ export default Vue.extend({
     error: {
       type: String as PropType<string>,
       default: '',
+    },
+    hideError: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
     // Checkbox Props
     name: {
