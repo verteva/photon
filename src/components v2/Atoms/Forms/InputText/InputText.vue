@@ -1,5 +1,5 @@
 <template>
-  <div class="ph-input-text">
+  <div class="ph-input-text" :class="inFocus && 'ph-input-text-focus'">
     <div v-if="iconLeft" class="ph-input-text-icon ph-input-text-icon-left">
       <p-icon :name="iconLeft" type="lg" />
     </div>
@@ -15,7 +15,10 @@
       :type="$attrs.type"
       :disabled="$attrs.disabled"
       tabindex="0"
+      :number="number"
       @keydown="validatePress"
+      @focus="onFocus"
+      @blur="onBlur"
       @wheel="$event.preventDefault()"
       @input="$emit('input', $event.target.value)"
     />
@@ -32,7 +35,7 @@ import { InputTextData } from './types';
 import { isNumber, isAllowedKey } from '@/utils';
 
 export default Vue.extend({
-  name: 'PInputText',
+  name: 'P2InputText',
 
   components: {
     PIcon,
@@ -71,6 +74,7 @@ export default Vue.extend({
 
   data(): InputTextData {
     return {
+      inFocus: false,
       currencyOptions: {
         currency: null,
         precision: 0,
@@ -86,13 +90,18 @@ export default Vue.extend({
   },
 
   methods: {
+    onFocus() {
+      this.inFocus = true;
+    },
+    onBlur() {
+      this.inFocus = false;
+    },
     validatePress(event: KeyboardEvent) {
       /* 
         TODO: As an enhacement, add keycode checks
         to allow for a user select all (cmd + a)
         in the text input
       */
-      console.log('hello world', event);
       if (this.number && !isNumber(event) && !isAllowedKey(event)) {
         return event.preventDefault();
       }
@@ -103,36 +112,41 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .ph-input-text {
   position: relative;
+
+  &.ph-input-text-focus {
+    .ph-input-text-input {
+      outline: none;
+      border: var(--input-text-focus-border);
+    }
+    .ph-input-text-icon {
+      color: var(--input-text-focus-color);
+    }
+  }
   .ph-input-text-input {
     padding: var(--input-text-base-padding);
     transition-property: background-color, border-color, color, fill, stroke,
       opacity, box-shadow, transform;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
+    font-weight: var(--input-text-base-font-weight);
     width: 100%;
-    border-radius: 0.5rem;
-    border-width: 1px;
-    border-style: solid;
+    border-radius: calc(var(--input-text-base-border-radius) * 1px);
+    border: var(--input-text-base-border);
     background: var(--input-text-base-background-color);
-    &:focus {
-      outline: none;
-      border: var(--input-text-focus-border);
-    }
     &.ph-input-text-input-icon-left {
-      left: 0.25rem;
-      padding-right: 2.5rem;
-      padding-left: 2.5rem;
+      left: 4px;
+      padding-right: 40px;
+      padding-left: 40px;
     }
     &.ph-input-text-icon-right {
-      padding-right: 2.5rem;
+      padding-right: 40px;
     }
     &.ph-input-text-icon-center {
       text-align: center;
     }
   }
   .ph-input-text-icon {
-    right: 0.25rem;
+    right: 4px;
     display: flex;
     position: absolute;
     top: 0;
@@ -141,12 +155,10 @@ export default Vue.extend({
     transition-duration: 200ms;
     justify-content: center;
     align-items: center;
-    width: 3rem;
+    width: 48px;
     height: 100%;
     &.ph-input-text-icon-left {
-      left: 0.25rem;
-      // padding-right: 2.5rem;
-      // padding-left: 2.5rem;
+      left: 4px;
     }
   }
 }

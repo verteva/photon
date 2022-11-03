@@ -18,8 +18,7 @@ const Template = (args, { argTypes }) => ({
         v-bind='$props'
         :errors="errs"
         v-model="name"
-      >            
-      </p-input-text>
+      />            
       <p-text xs class="ph-mb-5">Name: {{ name }}</p-text>
       
     </div>
@@ -40,7 +39,7 @@ const Template = (args, { argTypes }) => ({
     },
   },
 });
-const Currency = (args, { argTypes }) => ({
+const LeftIconTemplate = (args, { argTypes }) => ({
   components: { PInputText, PLabel, PButton, PText },
   props: Object.keys(argTypes),
   template: `
@@ -51,9 +50,71 @@ const Currency = (args, { argTypes }) => ({
         v-model="name"
         currency
         icon-left='Dollar'
-      >            
-      </p-input-text>
-      <p-text xs class="ph-mb-5">Name: {{ name }}</p-text>
+      />            
+      <p-text xs class="ph-mb-5">Value: {{ name }}</p-text>
+      
+    </div>
+  `,
+  data() {
+    return {
+      name: null,
+      errs: [],
+    };
+  },
+  methods: {
+    showError() {
+      if (this.errs?.length) {
+        this.errs = [];
+      } else {
+        this.errs = ['Inline validation error'];
+      }
+    },
+  },
+});
+const RightIconTemplate = (args, { argTypes }) => ({
+  components: { PInputText, PLabel, PButton, PText },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <p-input-text
+        v-bind='$props'
+        :errors="errs"
+        v-model="name"
+        currency
+        icon-right='Dollar'
+      />            
+      <p-text xs class="ph-mb-5">Value: {{ name }}</p-text>
+      
+    </div>
+  `,
+  data() {
+    return {
+      name: null,
+      errs: [],
+    };
+  },
+  methods: {
+    showError() {
+      if (this.errs?.length) {
+        this.errs = [];
+      } else {
+        this.errs = ['Inline validation error'];
+      }
+    },
+  },
+});
+const PasswordTemplate = (args, { argTypes }) => ({
+  components: { PInputText, PLabel, PButton, PText },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <p-input-text
+        v-bind='$props'
+        :errors="errs"
+        v-model="name"
+        type="password"
+      />            
+      <p-text xs class="ph-mb-5">Password: {{ name }}</p-text>
       
     </div>
   `,
@@ -78,7 +139,24 @@ export const Default = Template.bind({});
 Default.args = {
   // Props to be passed....
 };
-export const Dollar = Currency.bind({});
-Dollar.args = {
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+  placeholder: 'Enter your name...',
+};
+export const Centered = Template.bind({});
+Centered.args = {
+  centered: true,
+  placeholder: 'Enter your name...',
+};
+export const LeftIcon = LeftIconTemplate.bind({});
+LeftIcon.args = {
+  // Props to be passed....
+};
+export const RightIcon = RightIconTemplate.bind({});
+RightIcon.args = {
+  // Props to be passed....
+};
+export const Password = PasswordTemplate.bind({});
+Password.args = {
   // Props to be passed....
 };

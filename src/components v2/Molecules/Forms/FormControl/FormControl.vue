@@ -21,6 +21,7 @@
       <slot :size="size" />
     </div>
     <P2ErrorMessage
+      v-if="!hideError"
       v-bind="{
         error,
         size,
@@ -76,6 +77,10 @@ export default Vue.extend({
       default: '',
     },
     // Global props
+    hideError: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
     size: {
       type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
       default: FORM_CONTROL_SIZE.MEDIUM,
