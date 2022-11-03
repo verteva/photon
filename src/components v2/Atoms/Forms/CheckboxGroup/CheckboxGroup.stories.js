@@ -70,6 +70,7 @@ const MultiLineTemplate = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = {
+  size: 'md',
   items: [
     { label: 'Apples', value: false },
     { label: 'Bananas', value: false },
@@ -79,6 +80,7 @@ Default.args = {
 
 export const Checked = Template.bind({});
 Checked.args = {
+  size: 'md',
   items: [
     { label: 'Apples', value: true },
     { label: 'Bananas', value: true },
@@ -89,6 +91,7 @@ Checked.args = {
 
 export const Disabled = Template.bind({});
 Disabled.args = {
+  size: 'md',
   items: [
     { label: 'Apples', value: false },
     { label: 'Bananas', value: false },
@@ -99,6 +102,7 @@ Disabled.args = {
 
 export const DisabledChecked = Template.bind({});
 DisabledChecked.args = {
+  size: 'md',
   items: [
     { label: 'Apples', value: true },
     { label: 'Bananas', value: true },
@@ -109,6 +113,7 @@ DisabledChecked.args = {
 
 export const MultiLine = MultiLineTemplate.bind({});
 MultiLine.args = {
+  size: 'md',
   items: [
     {
       label:
@@ -153,4 +158,6 @@ SizeSmall.args = {
 };
 
 export const Interactive = InteractiveTemplate.bind({});
-Interactive.args = {};
+Interactive.args = {
+  size: 'md',
+};
