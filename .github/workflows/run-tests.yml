@@ -42,9 +42,7 @@ jobs:
 
       - name: Fix code coverage paths
 	      working-directory: ./coverage
-	      run: |
-          sed -i 's/\/home\/runner\/work\/<your-repo-name>\/<your-repo-name>\//\/github\/workspace\//g' lcov.info
-          sed -i 's/\/home\/runner\/work\/<your-repo-name>\/<your-repo-name>\//\/github\/workspace\//g' sonar-cloud-reporter.xml
+	      run: sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' lcov.info
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
