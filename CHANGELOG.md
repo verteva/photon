@@ -1,3 +1,13 @@
+## [0.5.1](https://github.com/verteva/photon/compare/v0.5.0...v0.5.1) (2022-10-31)
+
+
+### Bug Fixes
+
+* add focus to Dialog ([f2f8650](https://github.com/verteva/photon/commit/f2f8650e4470da87e011b04c7d2370d24fb23bae))
+* node version in release pipeline ([7dc46ad](https://github.com/verteva/photon/commit/7dc46ad22b835250967364d1cc6f6a3b49d30e50))
+* upgrade gsap from 3.11.1 to 3.11.2 ([148bf04](https://github.com/verteva/photon/commit/148bf0494cba7e2e2e606dbf80050427ba313dd5))
+* upgrade gsap from 3.11.2 to 3.11.3 ([23b7ff8](https://github.com/verteva/photon/commit/23b7ff8c1bc2522d02ca9d171111c5801133bf46))
+
 # [0.5.0](https://github.com/verteva/photon/compare/v0.4.2...v0.5.0) (2022-10-20)
 
 
