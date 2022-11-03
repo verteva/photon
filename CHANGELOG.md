@@ -1,3 +1,17 @@
+# [0.6.0](https://github.com/verteva/photon/compare/v0.5.1...v0.6.0) (2022-11-03)
+
+
+### Bug Fixes
+
+* can hide form control error. added input checkbox slot ([242d261](https://github.com/verteva/photon/commit/242d26137de2aa09bfddeae93d8e884baa2b3870))
+* checkboxes fixed with styles ([9daf762](https://github.com/verteva/photon/commit/9daf76292cc1fc93b3ee633ecf7e10301039e490))
+
+
+### Features
+
+* add RadioButton and RadioButton components ([3c258d1](https://github.com/verteva/photon/commit/3c258d1af59e94e10599771e4c5d6e748ff9c104))
+* adding css/replacing radio tailwind ([2916b1e](https://github.com/verteva/photon/commit/2916b1ecdf839bbd94457cdf187a6bd97ca11f0d))
+
 ## [0.5.1](https://github.com/verteva/photon/compare/v0.5.0...v0.5.1) (2022-10-31)
 
 
