@@ -1,0 +1,7 @@
+organization=nano
+projectKey=verteva_photon
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.34420
+dashboardUrl=https://sonarcloud.io/dashboard?id=verteva_photon
+ceTaskId=AYQ_thbF4vtf6BvMt12q
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYQ_thbF4vtf6BvMt12q
