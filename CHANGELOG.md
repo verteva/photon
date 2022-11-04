@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/verteva/photon/compare/v0.6.0...v0.6.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* radio button missing name attribute binding ([a1400ff](https://github.com/verteva/photon/commit/a1400fffbbf48774d9d8b7741839edde8f19b678))
+
 # [0.6.0](https://github.com/verteva/photon/compare/v0.5.1...v0.6.0) (2022-11-03)
 
 
