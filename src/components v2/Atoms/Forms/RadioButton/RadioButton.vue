@@ -5,7 +5,7 @@
       ref="radioInputItem"
       type="radio"
       class="ph-radio-input"
-      name="name"
+      :name="name"
       :checked="checked"
       @click="$emit('click')"
     />
