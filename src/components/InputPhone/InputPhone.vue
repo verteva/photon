@@ -28,10 +28,10 @@
         no-example
         show-code-on-list
         v-bind="$attrs"
+        :disabled="disabled"
         v-on="$listeners"
         @phone-number-focused="onFocus"
         @phone-number-blur="onBlur"
-        :disabled="disabled"
       />
     </div>
   </p-input>

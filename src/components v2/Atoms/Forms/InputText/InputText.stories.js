@@ -82,7 +82,11 @@ const RightIconTemplate = (args, { argTypes }) => ({
         v-model="name"
         currency
         icon-right='Dollar'
-      />            
+      >
+      <template>
+      <p-label>Password<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal">(min 6 characters)</span></p-label>
+      </template> 
+      </p-input-text>          
       <p-text xs class="ph-mb-5">Value: {{ name }}</p-text>
       
     </div>
@@ -159,4 +163,12 @@ RightIcon.args = {
 export const Password = PasswordTemplate.bind({});
 Password.args = {
   // Props to be passed....
+};
+export const Number = Template.bind({});
+Number.args = {
+  number: true,
+};
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
 };

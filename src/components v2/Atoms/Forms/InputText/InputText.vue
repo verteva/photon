@@ -10,12 +10,13 @@
         'ph-input-text-input-icon-left': iconLeft,
         'ph-input-text-icon-right': iconRight,
         'ph-input-text-icon-center': centered,
+        'input-error': error,
       }"
       :placeholder="placeholder"
-      :type="$attrs.type"
+      :type="!$attrs.type ? 'text' : number === true ? 'number' : $attrs.type"
       :disabled="$attrs.disabled"
       tabindex="0"
-      :number="number"
+      :value="value"
       @keydown="validatePress"
       @focus="onFocus"
       @blur="onBlur"
@@ -31,22 +32,18 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
-import { InputTextData } from './types';
+import { InputTextData, InputValueType } from './types';
 import { isNumber, isAllowedKey } from '@/utils';
 
 export default Vue.extend({
   name: 'P2InputText',
-
   components: {
     PIcon,
   },
+  inheritAttrs: true,
 
   props: {
     centered: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    simple: {
       type: Boolean as PropType<boolean>,
       default: false,
     },
@@ -66,9 +63,13 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    label: {
+    error: {
       type: String as PropType<string>,
       default: '',
+    },
+    value: {
+      type: [Number, String] as PropType<InputValueType>,
+      default: null,
     },
   },
 
@@ -97,11 +98,6 @@ export default Vue.extend({
       this.inFocus = false;
     },
     validatePress(event: KeyboardEvent) {
-      /* 
-        TODO: As an enhacement, add keycode checks
-        to allow for a user select all (cmd + a)
-        in the text input
-      */
       if (this.number && !isNumber(event) && !isAllowedKey(event)) {
         return event.preventDefault();
       }
@@ -135,11 +131,11 @@ export default Vue.extend({
     background: var(--input-text-base-background-color);
     &.ph-input-text-input-icon-left {
       left: 4px;
-      padding-right: 40px;
-      padding-left: 40px;
+      padding-right: var(--input-text-icon-padding);
+      padding-left: var(--input-text-icon-padding);
     }
     &.ph-input-text-icon-right {
-      padding-right: 40px;
+      padding-right: var(--input-text-icon-padding);
     }
     &.ph-input-text-icon-center {
       text-align: center;
@@ -153,12 +149,14 @@ export default Vue.extend({
     transition-property: background-color, border-color, color, fill, stroke,
       opacity, box-shadow, transform;
     transition-duration: 200ms;
-    justify-content: center;
     align-items: center;
-    width: 48px;
+    width: var(--input-text-icon-width);
     height: 100%;
     &.ph-input-text-icon-left {
       left: 4px;
+    }
+    &.input-error {
+      color: var(--form-control-items-error-default-text-color);
     }
   }
 }

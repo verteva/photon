@@ -1,53 +1,58 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import InputText from '@/components/InputText/InputText.vue';
+import { createWrapper } from '@/utils/unitTest.ts';
+import InputText from './InputText.vue';
 
-describe('InputText.vue', () => {
-  const createWrapper = (propsOverrides = {}) => {
-    const localVue = createLocalVue();
-    return mount(InputText, {
-      localVue,
-      propsData: {
-        ...propsOverrides,
-      },
-    });
-  };
-
-  const getInput = wrapper => {
-    return wrapper.find('input').element;
-  };
-
-  const event = { preventDefault: () => null };
-
+describe('Checkbox.vue', () => {
+  let wrapper;
   beforeEach(() => {
-    jest.spyOn(event, 'preventDefault');
+    wrapper = createWrapper(InputText);
   });
 
-  it('check init input should be empty', () => {
-    const wrapper = createWrapper();
-    const input = getInput(wrapper);
-    expect(input.value).toBe('');
+  it('props: centered', async () => {
+    const centered = true;
+    await wrapper.setProps({ centered });
+
+    expect(wrapper.html()).toContain('ph-input-text-icon-center');
   });
 
-  it('check placeholder is correct when input value is empty', () => {
-    const placeholder = 'Please select';
-    const wrapper = createWrapper({ placeholder: placeholder });
-    const input = getInput(wrapper);
-    expect(input.placeholder).toBe(placeholder);
-  });
-
-  it('check darkmode is correct', () => {
-    const darkMode = true;
-    const wrapper = createWrapper({ darkMode: darkMode });
-    const input = wrapper.find('input');
-    expect(input.classes()).toContain('ph-bg-grey6');
-  });
-
-  it('check props:number is correct setup', async () => {
+  it('props: number', async () => {
     const number = true;
-    const wrapper = createWrapper({ number: number });
-    event.keyCode = 32;
-    await wrapper.vm.validatePress(event);
-    await wrapper.vm.$nextTick();
-    expect(event.preventDefault).toBeCalled();
+    await wrapper.setProps({ number });
+    const input = await wrapper.find('input');
+    await input.setValue(1000);
+    expect(wrapper.find('input').element.value).toBe('1000');
+  });
+
+  it('props: placeholder', async () => {
+    const placeholder = 'Enter your name...';
+    await wrapper.setProps({ placeholder });
+    const input = await wrapper.find('input');
+    expect(input.attributes('placeholder')).toBe(placeholder);
+  });
+
+  it('props: iconLeft', async () => {
+    const iconLeft = 'Apartment';
+    await wrapper.setProps({ iconLeft });
+    expect(wrapper.html()).toContain('ph-input-text-icon-left');
+  });
+
+  it('props: iconRight', async () => {
+    const iconRight = 'Apartment';
+    await wrapper.setProps({ iconRight });
+    expect(wrapper.html()).toContain('ph-input-text-icon-right');
+  });
+  it('props: centered', async () => {
+    const centered = true;
+    await wrapper.setProps({ centered });
+    expect(wrapper.html()).toContain('ph-input-text-icon-center');
+  });
+
+  it('emit: input', async () => {
+    const value = 'hello world';
+    await wrapper.setProps({ value });
+    const input = await wrapper.find('input');
+    await input.setValue(value);
+    console.log(wrapper.emitted());
+    expect(wrapper.emitted().input).toBeTruthy();
+    expect(wrapper.emitted().input[0]).toEqual([value]);
   });
 });
