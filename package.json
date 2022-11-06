@@ -39,7 +39,7 @@
     "harp": "^0.46.0",
     "lodash.get": "^4.4.2",
     "lodash.merge": "^4.6.2",
-    "vue": "^2.7.10",
+    "vue": "^2.7.13",
     "vue-phone-number-input": "^1.12.13",
     "vue-select": "^3.20.0",
     "vuex": "^3.6.2"
