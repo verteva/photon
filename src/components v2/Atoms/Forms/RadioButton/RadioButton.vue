@@ -206,4 +206,9 @@ export default Vue.extend({
     }
   }
 }
+@media screen and (max-width: 639px) {
+  .ph-radio-item {
+    grid-column: auto / span 1 !important;
+  }
+}
 </style>

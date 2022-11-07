@@ -6,10 +6,14 @@
       :key="`${item.label}-${id}`"
       :checked="index === selectedIndex"
       :label="item.label"
-      :rows="numRows"
       :disabled="disabled"
       :icon="item.icon"
       :name="name"
+      :style="
+        item.fullWidth
+          ? { gridColumn: `1 / span ${rows}` }
+          : { gridColumn: 'auto / span 1' }
+      "
       @click="() => $emit('click', index)"
     />
   </div>
@@ -54,7 +58,7 @@ export default Vue.extend({
   },
   computed: {
     numRows(): string {
-      return `grid-template-rows: repeat(${this.rows}, auto);`;
+      return `grid-template-rows: repeat(${this.rows}, 1fr);`;
     },
   },
 });
@@ -65,6 +69,11 @@ export default Vue.extend({
   gap: 1.25rem;
   grid-auto-columns: minmax(0, 1fr);
 }
+
+.ph-radio-button-grid-column {
+  grid-column: auto / span 1;
+}
+
 @media screen and (min-width: 640px) {
   .radio-wrapper {
     grid-auto-flow: column;
