@@ -1,10 +1,10 @@
-import { render, fireEvent } from '@testing-library/vue';
-import InputText from './InputText.vue';
+import { render } from '@testing-library/vue';
+import InputRadioButton from './InputRadioButton.vue';
 
-describe('InputText.vue', () => {
+describe('InputCheckbox.vue', () => {
   it('props: label', async () => {
     const label = 'This is a label';
-    const { getByText } = render(InputText, {
+    const { getByText } = render(InputRadioButton, {
       props: {
         label,
       },
@@ -18,7 +18,7 @@ describe('InputText.vue', () => {
   it('props: inlineText', async () => {
     const label = 'This is a label';
     const inlineText = 'This is an inlineText';
-    const { getByText } = render(InputText, {
+    const { getByText } = render(InputRadioButton, {
       props: {
         inlineText,
         label,
@@ -33,7 +33,7 @@ describe('InputText.vue', () => {
   it('props: isRequired', async () => {
     const label = 'This is a label';
     const isRequired = true;
-    const { getByText } = render(InputText, {
+    const { getByText } = render(InputRadioButton, {
       props: {
         isRequired,
         label,
@@ -47,7 +47,7 @@ describe('InputText.vue', () => {
 
   it('props: extraMessage', async () => {
     const extraMessage = 'This is an extra message';
-    const { getByText } = render(InputText, {
+    const { getByText } = render(InputRadioButton, {
       props: {
         extraMessage,
       },
@@ -60,7 +60,7 @@ describe('InputText.vue', () => {
 
   it('props: error', async () => {
     const error = 'This is an error';
-    const { getByText } = render(InputText, {
+    const { getByText } = render(InputRadioButton, {
       props: {
         error,
       },
@@ -71,18 +71,16 @@ describe('InputText.vue', () => {
     expect(container).toBeTruthy();
   });
 
-  it('emits: input', async () => {
-    const placeholder = 'This is the checkbox label';
-    const { findByPlaceholderText, emitted } = render(InputText, {
+  it('props: radioButtonLabel', async () => {
+    const radioButtonLabel = 'This is the checkbox label';
+    const { getByText } = render(InputRadioButton, {
       props: {
-        placeholder,
+        radioButtonLabel,
       },
     });
 
-    const inputElement = await findByPlaceholderText(placeholder);
-    console.log(inputElement);
-    const inputVal = 'This is the input value';
-    await fireEvent.update(inputElement, inputVal);
-    expect(emitted().input).toEqual([[inputVal]]);
+    const container = getByText(radioButtonLabel);
+
+    expect(container).toBeTruthy();
   });
 });

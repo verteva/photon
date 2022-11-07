@@ -9,24 +9,23 @@
       error,
       size,
       disabled,
-      hideError,
     }"
   >
-    <P2CheckboxGroup
+    <P2RadioButtonGroup
       v-bind="{
-        name,
         items,
-        size,
         disabled,
+        selectedIndex,
+        rows,
       }"
-      @input="$emit('input', $event)"
+      @click="$emit('click', $event)"
     />
   </P2FormControl>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import P2CheckboxGroup from '@/components v2/Atoms/Forms/CheckboxGroup';
+import P2RadioButtonGroup from '@/components v2/Atoms/Forms/RadioButtonGroup';
 import P2FormControl from '@/components v2/Molecules/Forms/FormControl';
 import {
   FORM_CONTROL_SIZE,
@@ -35,9 +34,9 @@ import {
 import validators from '@/utils/validators';
 
 export default Vue.extend({
-  name: 'InputCheckboxGroup',
+  name: 'InputRadioButtonGroup',
   components: {
-    P2CheckboxGroup,
+    P2RadioButtonGroup,
     P2FormControl,
   },
   props: {
@@ -77,19 +76,19 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    hideError: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
 
-    // CheckboxGroup props
+    // RadioButtonGroup props
     items: {
-      type: Array as PropType<any[]>,
-      default: (): [] => [],
+      type: Array as PropType<Array<string>>,
+      default: () => [],
     },
-    name: {
-      type: String as PropType<string>,
-      default: '',
+    rows: {
+      type: Number as PropType<number>,
+      default: 1,
+    },
+    selectedIndex: {
+      type: Number as PropType<number>,
+      default: -1,
     },
   },
 });

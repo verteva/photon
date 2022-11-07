@@ -1,3 +1,3 @@
-import PInputText from './InputText.vue';
+import P2InputText from './InputText.vue';
 
-export default PInputText;
+export default P2InputText;

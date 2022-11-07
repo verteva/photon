@@ -118,7 +118,11 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div>
-    <InputText v-bind="$props" v-model="value" />
+    <InputText v-bind="$props" v-model="value">
+    <template slot="label">
+        Click <b>me</b>!
+    </template>      
+    </InputText>
     <div> Value: {{ value }}</div>
     </div>
   `,

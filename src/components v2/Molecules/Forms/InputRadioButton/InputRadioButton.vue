@@ -9,24 +9,24 @@
       error,
       size,
       disabled,
-      hideError,
     }"
   >
-    <P2CheckboxGroup
+    <P2RadioButton
       v-bind="{
         name,
-        items,
-        size,
+        label: radioButtonLabel,
+        id,
+        icon,
         disabled,
+        checked,
       }"
-      @input="$emit('input', $event)"
     />
   </P2FormControl>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import P2CheckboxGroup from '@/components v2/Atoms/Forms/CheckboxGroup';
+import P2RadioButton from '@/components v2/Atoms/Forms/RadioButton';
 import P2FormControl from '@/components v2/Molecules/Forms/FormControl';
 import {
   FORM_CONTROL_SIZE,
@@ -35,24 +35,23 @@ import {
 import validators from '@/utils/validators';
 
 export default Vue.extend({
-  name: 'InputCheckboxGroup',
+  name: 'InputRadioButton',
   components: {
-    P2CheckboxGroup,
+    P2RadioButton,
     P2FormControl,
   },
   props: {
     // General Props
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
+    // FormControl Props
     size: {
       type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
       default: FORM_CONTROL_SIZE.MEDIUM,
       validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
     },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-
-    // FormControl Props
     label: {
       type: String as PropType<string>,
       default: '',
@@ -77,19 +76,26 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    hideError: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-
-    // CheckboxGroup props
-    items: {
-      type: Array as PropType<any[]>,
-      default: (): [] => [],
-    },
+    // Checkbox Props
     name: {
       type: String as PropType<string>,
       default: '',
+    },
+    radioButtonLabel: {
+      type: String as PropType<string>,
+      default: '',
+    },
+    id: {
+      type: String as PropType<string>,
+      default: '',
+    },
+    icon: {
+      type: String as PropType<string>,
+      default: '',
+    },
+    checked: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
   },
 });
