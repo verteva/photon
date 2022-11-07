@@ -5,6 +5,7 @@
       :name="icon[type]"
       type="lg"
       class="icon"
+      color=""
       :class="[type]"
     />
     <div class="content">
@@ -129,44 +130,29 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
-@import './src/assets/scss/_themehelpers.scss';
-
-@function getMessageStyleProperty($property, $style, $state, $fallback: '') {
-  @return getThemeProperty('message', $property, $style, $state, $fallback);
-}
-
 $types: 'success', 'info', 'error', 'warning';
 
 .photon-message {
   max-width: 48rem; /* 768px */
   display: flex;
   align-items: flex-start;
-  color: getMessageStyleProperty('color', 'base', '', black);
-  padding: getMessageStyleProperty('padding', 'base', '', 1rem);
-  border-radius: getMessageStyleProperty('border-radius', 'base', '', 0);
-  border-width: getMessageStyleProperty('border-width', 'base', '', 1px);
+  color: var(--message-base-color);
+  padding: var(--message-base-padding);
+  border-radius: var(--message-base-border-radius);
+  border-width: var(--message-base-border-width);
+
   @each $type in $types {
     &.#{$type} {
-      background: getMessageStyleProperty('background', 'styles', $type, white);
-      border-color: getMessageStyleProperty(
-        'border-color',
-        'styles',
-        $type,
-        black
-      );
+      background: var(--message-styles-#{$type}-background);
+      border-color: var(--message-styles-#{$type}-border-color);
     }
   }
   .icon {
-    margin: getMessageStyleProperty('margin', 'components', 'icon', 0);
+    margin: var(--message-components-icon-margin);
     cursor: pointer;
     @each $type in $types {
       &.#{$type} {
-        color: getMessageStyleProperty(
-          'color',
-          'styles',
-          $type,
-          white
-        ) !important;
+        color: var(--message-styles-#{$type}-color);
       }
     }
   }
@@ -175,32 +161,20 @@ $types: 'success', 'info', 'error', 'warning';
     flex-direction: column;
     flex: 1 1 0%;
   }
+
   .title {
-    font-weight: getMessageStyleProperty(
-      'font-weight',
-      'components',
-      'title',
-      700
-    );
-    padding-top: getMessageStyleProperty('padding', 'components', 'title', 0);
-    line-height: getMessageStyleProperty(
-      'line-height',
-      'components',
-      'title',
-      1.25rem
-    );
+    font-weight: var(--message-components-title-font-weight);
+    padding: var(--message-components-title-padding);
+    line-height: var(--message-components-title-line-height);
   }
+
   .description {
-    margin: getMessageStyleProperty('margin', 'components', 'description', 0);
-    line-height: getMessageStyleProperty(
-      'line-height',
-      'components',
-      'description',
-      0
-    );
+    margin: var(--message-components-description-margin);
+    line-height: var(--message-components-description-line-height);
   }
+
   .button {
-    margin: getMessageStyleProperty('margin', 'components', 'button', 0);
+    margin: var(--message-components-button-margin);
   }
 }
 </style>
