@@ -26,6 +26,7 @@ import {
 } from './utils/figmaTheme';
 
 import * as toast from './components/Toast/store';
+import * as toastV2 from './components v2/store/toast';
 
 interface options {
   prefix?: string;
@@ -58,7 +59,9 @@ export default {
   },
   photonStores: {
     toast,
+    toastV2,
   },
+  Components: componentsV2,
   parseObject,
   parseBrandingJson,
   flattenObjectToCssVars,
