@@ -4,6 +4,7 @@ import '../src/assets/css/main.css';
 import Vuex from 'vuex';
 import Vue from 'vue';
 import store from '@/components/store';
+import externalStore from '@/components v2/store';
 import {
   flattenObjectToCssVars,
   parseBrandingJson,
@@ -37,7 +38,7 @@ const getThemeFiles = () => {
 };
 
 Vue.use(Vuex);
-Vue.prototype.$store = store;
+Vue.prototype.$store = isExternal ? externalStore : store;
 
 export const withTheme = story => {
   return {
