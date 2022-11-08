@@ -1,5 +1,5 @@
 <template>
-  <div ref="ph-message" class="photon-message" :class="[type]">
+  <div ref="ph-message" class="photon-message list" :class="[type]">
     <p-icon
       ref="messageIcon"
       :name="icon[type]"
@@ -87,10 +87,6 @@ export default Vue.extend({
     },
   },
 
-  data() {
-    return {};
-  },
-
   computed: {
     icon(): any {
       return {
@@ -99,32 +95,6 @@ export default Vue.extend({
         error: 'Error',
         warning: 'Alert',
       };
-    },
-  },
-
-  mounted() {
-    const node = (this as any).$refs['ph-message'];
-    if (node) {
-      node.addEventListener(
-        'animationend',
-        (this as any).onAnimationEnd,
-        false
-      );
-    }
-  },
-
-  methods: {
-    onAnimationEnd(e: AnimationEvent): void {
-      /*
-        TransitionEvent fires for each property that
-        is transitioning so check the event is fired
-        on the height, so we can set to auto to allow
-        for dynamic content adjustments.
-      */
-
-      if (e.animationName === 'ph-fadeOut') {
-        (this as any).$emit('transitionedOut');
-      }
     },
   },
 });
