@@ -28,7 +28,7 @@
       </div>
     </div>
     <div v-if="!hideClose" @click="$emit('close')">
-      <p-icon name="Cross" type="lg" class="icon" :class="[type]" />
+      <p-icon name="Cross" type="lg" class="icon" color="" :class="[type]" />
     </div>
   </div>
 </template>
