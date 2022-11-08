@@ -1,7 +1,7 @@
 import { createWrapper } from '@/utils/unitTest.ts';
 import InputText from './InputText.vue';
 
-describe('Checkbox.vue', () => {
+describe('Atoms/InputText.vue', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = createWrapper(InputText);
@@ -40,6 +40,7 @@ describe('Checkbox.vue', () => {
     await wrapper.setProps({ iconRight });
     expect(wrapper.html()).toContain('ph-input-text-icon-right');
   });
+
   it('props: centered', async () => {
     const centered = true;
     await wrapper.setProps({ centered });
@@ -51,7 +52,6 @@ describe('Checkbox.vue', () => {
     await wrapper.setProps({ value });
     const input = await wrapper.find('input');
     await input.setValue(value);
-    console.log(wrapper.emitted());
     expect(wrapper.emitted().input).toBeTruthy();
     expect(wrapper.emitted().input[0]).toEqual([value]);
   });

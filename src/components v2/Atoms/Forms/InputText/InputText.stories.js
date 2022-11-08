@@ -39,105 +39,6 @@ const Template = (args, { argTypes }) => ({
     },
   },
 });
-const LeftIconTemplate = (args, { argTypes }) => ({
-  components: { PInputText, PLabel, PButton, PText },
-  props: Object.keys(argTypes),
-  template: `
-    <div>
-      <p-input-text
-        v-bind='$props'
-        :errors="errs"
-        v-model="name"
-        currency
-        icon-left='Dollar'
-      />            
-      <p-text xs class="ph-mb-5">Value: {{ name }}</p-text>
-      
-    </div>
-  `,
-  data() {
-    return {
-      name: null,
-      errs: [],
-    };
-  },
-  methods: {
-    showError() {
-      if (this.errs?.length) {
-        this.errs = [];
-      } else {
-        this.errs = ['Inline validation error'];
-      }
-    },
-  },
-});
-const RightIconTemplate = (args, { argTypes }) => ({
-  components: { PInputText, PLabel, PButton, PText },
-  props: Object.keys(argTypes),
-  template: `
-    <div>
-      <p-input-text
-        v-bind='$props'
-        :errors="errs"
-        v-model="name"
-        currency
-        icon-right='Dollar'
-      >
-      <template>
-      <p-label>Password<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal">(min 6 characters)</span></p-label>
-      </template> 
-      </p-input-text>          
-      <p-text xs class="ph-mb-5">Value: {{ name }}</p-text>
-      
-    </div>
-  `,
-  data() {
-    return {
-      name: null,
-      errs: [],
-    };
-  },
-  methods: {
-    showError() {
-      if (this.errs?.length) {
-        this.errs = [];
-      } else {
-        this.errs = ['Inline validation error'];
-      }
-    },
-  },
-});
-const PasswordTemplate = (args, { argTypes }) => ({
-  components: { PInputText, PLabel, PButton, PText },
-  props: Object.keys(argTypes),
-  template: `
-    <div>
-      <p-input-text
-        v-bind='$props'
-        :errors="errs"
-        v-model="name"
-        type="password"
-      />            
-      <p-text xs class="ph-mb-5">Password: {{ name }}</p-text>
-      
-    </div>
-  `,
-  data() {
-    return {
-      name: null,
-      errs: [],
-    };
-  },
-  methods: {
-    showError() {
-      if (this.errs?.length) {
-        this.errs = [];
-      } else {
-        this.errs = ['Inline validation error'];
-      }
-    },
-  },
-});
 
 export const Default = Template.bind({});
 Default.args = {
@@ -152,21 +53,21 @@ Centered.args = {
   centered: true,
   placeholder: 'Enter your name...',
 };
-export const LeftIcon = LeftIconTemplate.bind({});
+export const LeftIcon = Template.bind({});
 LeftIcon.args = {
-  // Props to be passed....
+  leftIcon: 'Dollar',
 };
-export const RightIcon = RightIconTemplate.bind({});
+export const RightIcon = Template.bind({});
 RightIcon.args = {
-  // Props to be passed....
+  rightIcon: 'Dollar',
 };
-export const Password = PasswordTemplate.bind({});
+export const Password = Template.bind({});
 Password.args = {
-  // Props to be passed....
+  type: 'password',
 };
 export const Number = Template.bind({});
 Number.args = {
-  number: true,
+  type: 'number',
 };
 export const Disabled = Template.bind({});
 Disabled.args = {

@@ -13,11 +13,10 @@
         'input-error': error,
       }"
       :placeholder="placeholder"
-      :type="!$attrs.type ? 'text' : number === true ? 'number' : $attrs.type"
-      :disabled="$attrs.disabled"
+      :type="type"
+      :disabled="disabled"
       tabindex="0"
       :value="value"
-      @keydown="validatePress"
       @focus="onFocus"
       @blur="onBlur"
       @wheel="$event.preventDefault()"
@@ -32,15 +31,13 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
-import { InputTextData, InputValueType } from './types';
-import { isNumber, isAllowedKey } from '@/utils';
+import { InputValues, InputTypes } from './types';
 
 export default Vue.extend({
   name: 'P2InputText',
   components: {
     PIcon,
   },
-  inheritAttrs: true,
 
   props: {
     centered: {
@@ -68,26 +65,27 @@ export default Vue.extend({
       default: '',
     },
     value: {
-      type: [Number, String] as PropType<InputValueType>,
+      type: [Number, String] as PropType<InputValues>,
       default: null,
+    },
+    id: {
+      type: String as PropType<string>,
+      default: '',
+    },
+    type: {
+      type: String as PropType<InputTypes>,
+      default: 'text',
+    },
+    disabled: {
+      type: Boolean as PropType<boolean>,
+      default: false,
     },
   },
 
-  data(): InputTextData {
+  data() {
     return {
       inFocus: false,
-      currencyOptions: {
-        currency: null,
-        precision: 0,
-        valueRange: { min: 0 },
-        allowNegative: false,
-      },
-      id: '',
-    } as InputTextData;
-  },
-
-  mounted() {
-    this.id = 'photon_input_' + this._uid;
+    };
   },
 
   methods: {
@@ -96,11 +94,6 @@ export default Vue.extend({
     },
     onBlur() {
       this.inFocus = false;
-    },
-    validatePress(event: KeyboardEvent) {
-      if (this.number && !isNumber(event) && !isAllowedKey(event)) {
-        return event.preventDefault();
-      }
     },
   },
 });

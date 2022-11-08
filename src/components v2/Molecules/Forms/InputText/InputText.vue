@@ -13,7 +13,7 @@
     }"
   >
     <P2InputText
-      :number="number"
+      :id="id"
       :placeholder="placeholder"
       :icon-left="iconLeft"
       :icon-right="iconRight"
@@ -21,10 +21,9 @@
       :error="error"
       :disabled="disabled"
       :value="value"
-      v-bind="$attrs"
+      :type="type"
       @input="$emit('input', $event)"
-    >
-    </P2InputText>
+    />
   </P2FormControl>
 </template>
 
@@ -37,14 +36,14 @@ import {
   FORM_CONTROL_SIZE_TYPE,
 } from '@/utils/constants/FormControlConstants';
 import validators from '@/utils/validators';
-
+import { InputValues, InputTypes } from './types';
 export default Vue.extend({
   name: 'InputText',
   components: {
     P2InputText,
     P2FormControl,
   },
-  inheritAttrs: true,
+
   props: {
     // General Props
     size: {
@@ -86,10 +85,6 @@ export default Vue.extend({
       default: false,
     },
     // InputText Props
-    number: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
     placeholder: {
       type: String as PropType<string>,
       default: '',
@@ -107,8 +102,16 @@ export default Vue.extend({
       default: false,
     },
     value: {
+      type: [Number, String] as PropType<InputValues>,
+      default: null,
+    },
+    id: {
       type: String as PropType<string>,
       default: '',
+    },
+    type: {
+      type: String as PropType<InputTypes>,
+      default: 'text',
     },
   },
 });

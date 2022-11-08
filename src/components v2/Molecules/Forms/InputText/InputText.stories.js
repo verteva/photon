@@ -1,7 +1,5 @@
 import InputText from './InputText.vue';
 import Icons from '@/components/Icon/icons';
-import PButton from '@/components v2/Atoms/Components/Button';
-import PLabel from '@/components/Label';
 
 const textControl = {
   control: {
@@ -114,18 +112,17 @@ export default {
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { InputText, PButton, PLabel },
+  components: { InputText },
   props: Object.keys(argTypes),
   template: `
     <div>
-    <InputText v-bind="$props" v-model="value"> 
-    </InputText>
-    <div> Value: {{ value }}</div>
+    <InputText v-bind="$props" v-model="name" /> 
+    <div> Value: {{ name }}</div>
     </div>
   `,
   data() {
     return {
-      value: '',
+      name: '',
     };
   },
 });

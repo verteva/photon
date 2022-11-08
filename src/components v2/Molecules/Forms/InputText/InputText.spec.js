@@ -1,7 +1,7 @@
 import { render, fireEvent } from '@testing-library/vue';
 import InputText from './InputText.vue';
 
-describe('InputCheckboxGroupGroup.vue', () => {
+describe('Molecules/inputText.vue', () => {
   it('props: label', async () => {
     const label = 'This is a label';
     const { getByText } = render(InputText, {
@@ -80,7 +80,6 @@ describe('InputCheckboxGroupGroup.vue', () => {
     });
 
     const inputElement = await findByPlaceholderText(placeholder);
-    console.log(inputElement);
     const inputVal = 'This is the input value';
     await fireEvent.update(inputElement, inputVal);
     expect(emitted().input).toEqual([[inputVal]]);
