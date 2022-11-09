@@ -1,3 +1,19 @@
+# [0.7.0](https://github.com/verteva/photon/compare/v0.6.1...v0.7.0) (2022-11-09)
+
+
+### Bug Fixes
+
+* select radio button full width ([cc272ad](https://github.com/verteva/photon/commit/cc272ad5d44de768e40a2f13b613a537ac00c7ed))
+
+
+### Features
+
+* add the MIT licence ([9b5db92](https://github.com/verteva/photon/commit/9b5db92f6b5cb78d9627bda8dc5cd2b6a0b3891f))
+* input text component ([d636858](https://github.com/verteva/photon/commit/d6368587d88139ed8365844725f7d10fbaa13a66))
+* message component v2 ([3b70a55](https://github.com/verteva/photon/commit/3b70a555fa807a033b8b62442564bf8befa422ab))
+* toast component added ([eed4861](https://github.com/verteva/photon/commit/eed4861383738b336d85e61098c7b3087a209026))
+* working in progress adding input text ([b0fbc66](https://github.com/verteva/photon/commit/b0fbc66d24422f074f1565be685e0e2d5e25e1bb))
+
 ## [0.6.1](https://github.com/verteva/photon/compare/v0.6.0...v0.6.1) (2022-11-04)
 
 
