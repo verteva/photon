@@ -4,11 +4,16 @@ export default {
   title: 'V2/Molecules/Components/Message',
   component: P2Message,
   argTypes: {
-    // Configurable component options in SB UI...
+    type: {
+      control: {
+        type: 'select',
+        options: ['success', 'info', 'error', 'warning'],
+      },
+    },
   },
 };
 
-const Template = (args, { argTypes }) => ({
+const AllMessageTemplate = (args, { argTypes }) => ({
   components: { P2Message },
   props: Object.keys(argTypes),
   template: `
@@ -32,8 +37,63 @@ const Template = (args, { argTypes }) => ({
   `,
 });
 
-export const Message = Template.bind({});
-Message.args = {
+const Template = (args, { argTypes }) => ({
+  components: { P2Message },
+  props: Object.keys(argTypes),
+  template: `
+      <P2Message v-bind='$props' @click='()=>{}' />
+  `,
+});
+
+export const Default = Template.bind({});
+Default.args = {
+  title: 'Simple one line success message',
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  title: 'Simple one line success message',
+  type: 'error',
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  title: 'Simple one line success message',
+  type: 'info',
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  title: 'Simple one line success message',
+  type: 'warning',
+};
+
+export const WithDescription = Template.bind({});
+WithDescription.args = {
+  title: 'Simple one line success message',
+  description: 'This is a description',
+};
+
+export const WithCallToAction = Template.bind({});
+WithCallToAction.args = {
+  title: 'Simple one line success message',
+  description: 'This is a description',
+  callToAction: 'Next',
+};
+
+export const HiddenCloseButton = Template.bind({});
+HiddenCloseButton.args = {
+  title: 'Simple one line success message',
+  hideClose: true,
+};
+
+export const Interactive = Template.bind({});
+Interactive.args = {
+  title: 'Simple one line success message',
+};
+
+export const AllMessages = AllMessageTemplate.bind({});
+AllMessages.args = {
   title: 'Title',
   description: 'Some description...',
   callToAction: 'Next...',

@@ -29,7 +29,7 @@ const Template = (args, { argTypes }) => ({
         v-model="name"
         v-bind='$props'
         currency
-        icon-left='Dollar'
+        icon-right='Dollar'
         placeholder="Enter your name..."
         label="Name"
         :errors="errs"

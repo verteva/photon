@@ -69,8 +69,8 @@ Disabled.args = {
   selectedIndex: 2,
   disabled: true,
 };
-export const icons = Template.bind({});
-icons.args = {
+export const Icons = Template.bind({});
+Icons.args = {
   items: [
     {
       value: 1,
@@ -103,8 +103,8 @@ icons.args = {
   ],
   selectedIndex: 2,
 };
-export const singleRow = Template.bind({});
-singleRow.args = {
+export const SingleRow = Template.bind({});
+SingleRow.args = {
   items: [
     {
       value: 1,
@@ -134,8 +134,8 @@ singleRow.args = {
   rows: 1,
   selectedIndex: 2,
 };
-export const twoRows = Template.bind({});
-twoRows.args = {
+export const TwoRows = Template.bind({});
+TwoRows.args = {
   items: [
     {
       value: 1,
@@ -153,20 +153,12 @@ twoRows.args = {
       value: 4,
       label: 'With 4 people',
     },
-    {
-      value: 7,
-      label: 'With your plus one',
-    },
-    {
-      value: 99,
-      label: 'With 9 people',
-    },
   ],
   rows: 2,
   selectedIndex: 2,
 };
-export const threeRows = Template.bind({});
-threeRows.args = {
+export const ThreeRows = Template.bind({});
+ThreeRows.args = {
   items: [
     {
       value: 1,
@@ -194,6 +186,30 @@ threeRows.args = {
     },
   ],
   rows: 3,
+  selectedIndex: 2,
+};
+
+export const FirstRadioFullWidth = Template.bind({});
+FirstRadioFullWidth.args = {
+  items: [
+    {
+      value: 1,
+      label: 'On my own ddd',
+      icon: 'Apartment',
+      fullWidth: true,
+    },
+    {
+      label: 'This is a photon radio icon checked',
+      icon: 'Apartment',
+      value: 'photon radio-checked',
+      id: '1',
+    },
+    {
+      value: 4,
+      label: 'With 4 people',
+    },
+  ],
+  rows: 2,
   selectedIndex: 2,
 };
 
