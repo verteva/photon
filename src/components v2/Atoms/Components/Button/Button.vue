@@ -36,46 +36,48 @@ import {
   ButtonSize,
 } from './types';
 
+export const props = {
+  label: {
+    type: String as PropType<string>,
+    default: 'Button',
+  },
+  buttonStyle: {
+    type: String as PropType<string>,
+    default: ButtonStyles.PRIMARY,
+  },
+  type: {
+    type: String as PropType<HTMLType>,
+    default: ButtonTypes.BUTTON,
+  },
+  disabled: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  submitting: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  upperCase: {
+    type: Boolean as PropType<boolean>,
+    default: true,
+  },
+  block: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  size: {
+    type: String as PropType<ButtonSize>,
+    default: ButtonSizes.MEDIUM,
+    validator(value: string): boolean {
+      return Object.values(ButtonSizes).indexOf(value as ButtonSize) !== -1;
+    },
+  },
+};
+
 export default Vue.extend({
   name: 'PButton',
 
-  props: {
-    label: {
-      type: String as PropType<string>,
-      default: 'Button',
-    },
-    buttonStyle: {
-      type: String as PropType<string>,
-      default: ButtonStyles.PRIMARY,
-    },
-    type: {
-      type: String as PropType<HTMLType>,
-      default: ButtonTypes.BUTTON,
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    submitting: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    upperCase: {
-      type: Boolean as PropType<boolean>,
-      default: true,
-    },
-    block: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    size: {
-      type: String as PropType<ButtonSize>,
-      default: ButtonSizes.MEDIUM,
-      validator(value: string): boolean {
-        return Object.values(ButtonSizes).indexOf(value as ButtonSize) !== -1;
-      },
-    },
-  },
+  props,
   computed: {
     isDisabled(): boolean {
       return this.disabled || this.submitting;

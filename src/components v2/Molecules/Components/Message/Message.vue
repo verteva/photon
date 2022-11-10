@@ -45,6 +45,40 @@ import {
   MessageType,
 } from './types';
 
+export const props = {
+  type: {
+    type: String as PropType<MessageType>,
+    default: 'success',
+    validator(value: string): boolean {
+      return (
+        [MessageSuccess, MessageInfo, MessageError, MessageWarning].indexOf(
+          value
+        ) !== -1
+      );
+    },
+  },
+
+  title: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  description: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  callToAction: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  hideClose: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+};
+
 export default Vue.extend({
   name: 'P2Message',
 
@@ -53,39 +87,7 @@ export default Vue.extend({
     PButton,
   },
 
-  props: {
-    type: {
-      type: String as PropType<MessageType>,
-      default: 'success',
-      validator(value: string): boolean {
-        return (
-          [MessageSuccess, MessageInfo, MessageError, MessageWarning].indexOf(
-            value
-          ) !== -1
-        );
-      },
-    },
-
-    title: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    description: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    callToAction: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    hideClose: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-  },
+  props,
 
   computed: {
     icon(): any {
