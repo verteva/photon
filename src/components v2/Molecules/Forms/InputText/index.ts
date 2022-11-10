@@ -1,3 +1,1 @@
-import PInputText from './InputText.vue';
-
-export default PInputText;
+export { default, props } from './InputText.vue';

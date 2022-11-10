@@ -1,3 +1,1 @@
-import PButton from './Button.vue';
-
-export default PButton;
+export { default, props } from './Button.vue';

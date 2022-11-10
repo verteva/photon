@@ -9,33 +9,29 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import {
-  FORM_CONTROL_SIZE,
-  FORM_CONTROL_SIZE_TYPE,
-} from '@/utils/constants/FormControlConstants';
-import validators from '@/utils/validators';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { size } = formProps;
+
+export const props = {
+  label: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  isRequired: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  inlineText: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  size,
+};
 
 export default Vue.extend({
   name: 'P2Label',
-  props: {
-    label: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    isRequired: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    inlineText: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    size: {
-      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
-      default: FORM_CONTROL_SIZE.MEDIUM,
-      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
-    },
-  },
+  props,
 });
 </script>
 
