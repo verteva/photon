@@ -16,27 +16,30 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { disabled } = formProps;
+
+export const props = {
+  value: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  name: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  id: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  // Global props
+  disabled,
+};
 
 export default Vue.extend({
   name: 'P2Toggle',
-  props: {
-    value: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    name: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    id: {
-      type: String as PropType<string>,
-      default: '',
-    },
-  },
+  props,
 });
 </script>
 

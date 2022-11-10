@@ -1,3 +1,1 @@
-import P2InputToggle from './InputToggle.vue';
-
-export default P2InputToggle;
+export { default, props } from './InputToggle.vue';

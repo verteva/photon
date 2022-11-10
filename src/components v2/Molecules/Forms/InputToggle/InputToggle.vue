@@ -25,74 +25,51 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
-import P2Toggle from '@/components v2/Atoms/Forms/Toggle';
-import P2FormControl from '@/components v2/Molecules/Forms/FormControl';
-import {
-  FORM_CONTROL_SIZE,
-  FORM_CONTROL_SIZE_TYPE,
-} from '@/utils/constants/FormControlConstants';
-import validators from '@/utils/validators';
+import Vue from 'vue';
+import P2Toggle, {
+  props as ToggleProps,
+} from '@/components v2/Atoms/Forms/Toggle';
+import P2FormControl, {
+  props as FormControlProps,
+} from '@/components v2/Molecules/Forms/FormControl';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { name, value, id } = ToggleProps;
+const { size, disabled } = formProps;
+const {
+  label,
+  inlineText,
+  isRequired,
+  extraMessage,
+  messageIcon,
+  error,
+  hideError,
+} = FormControlProps;
+
+export const props = {
+  // General Props
+  size,
+  disabled,
+  // FormControl Props
+  label,
+  inlineText,
+  isRequired,
+  extraMessage,
+  messageIcon,
+  error,
+  hideError,
+  // Toggle Props
+  name,
+  value,
+  id,
+};
 
 export default Vue.extend({
-  name: 'InputCheckbox',
+  name: 'InputToggle',
   components: {
     P2Toggle,
     P2FormControl,
   },
-  props: {
-    // General Props
-    size: {
-      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
-      default: FORM_CONTROL_SIZE.MEDIUM,
-      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    // FormControl Props
-    label: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    inlineText: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    isRequired: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    extraMessage: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    messageIcon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    error: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    hideError: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    // Toggle Props
-    name: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    value: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    id: {
-      type: String as PropType<string>,
-      default: '',
-    },
-  },
+  props,
 });
 </script>
