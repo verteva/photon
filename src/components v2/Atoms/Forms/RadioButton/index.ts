@@ -1,3 +1,1 @@
-import PRadioButton from './RadioButton.vue';
-
-export default PRadioButton;
+export { default, props } from './RadioButton.vue';

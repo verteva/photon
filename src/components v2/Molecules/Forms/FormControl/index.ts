@@ -1,3 +1,1 @@
-import P2FormControl from './FormControl.vue';
-
-export default P2FormControl;
+export { default, props } from './FormControl.vue';

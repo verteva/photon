@@ -29,38 +29,41 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { disabled } = formProps;
+
+export const props = {
+  name: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  label: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  id: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  icon: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  checked: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  // Global props
+  disabled,
+};
 
 export default Vue.extend({
   name: 'InputRadio',
   components: {
     PIcon,
   },
-  props: {
-    name: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    label: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    id: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    icon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    checked: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-  },
+  props,
 });
 </script>
 

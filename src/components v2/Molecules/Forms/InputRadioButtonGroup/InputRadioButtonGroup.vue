@@ -24,14 +24,44 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
-import P2RadioButtonGroup from '@/components v2/Atoms/Forms/RadioButtonGroup';
-import P2FormControl from '@/components v2/Molecules/Forms/FormControl';
-import {
-  FORM_CONTROL_SIZE,
-  FORM_CONTROL_SIZE_TYPE,
-} from '@/utils/constants/FormControlConstants';
-import validators from '@/utils/validators';
+import Vue from 'vue';
+import P2RadioButtonGroup, {
+  props as RadioButtonGroupProps,
+} from '@/components v2/Atoms/Forms/RadioButtonGroup';
+import P2FormControl, {
+  props as FormControlProps,
+} from '@/components v2/Molecules/Forms/FormControl';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { size, disabled } = formProps;
+const {
+  label,
+  inlineText,
+  isRequired,
+  extraMessage,
+  messageIcon,
+  error,
+  hideError,
+} = FormControlProps;
+const { items, rows, selectedIndex } = RadioButtonGroupProps;
+
+export const props = {
+  // General Props
+  size,
+  disabled,
+  // FormControl Props
+  label,
+  inlineText,
+  isRequired,
+  extraMessage,
+  messageIcon,
+  error,
+  hideError,
+  // RadioButtonGroup props
+  items,
+  rows,
+  selectedIndex,
+};
 
 export default Vue.extend({
   name: 'InputRadioButtonGroup',
@@ -39,59 +69,6 @@ export default Vue.extend({
     P2RadioButtonGroup,
     P2FormControl,
   },
-  props: {
-    // General Props
-    size: {
-      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
-      default: FORM_CONTROL_SIZE.MEDIUM,
-      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-
-    // FormControl Props
-    label: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    inlineText: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    isRequired: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    extraMessage: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    messageIcon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    error: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    // RadioButtonGroup props
-    items: {
-      type: Array as PropType<Array<string>>,
-      default: () => [],
-    },
-    rows: {
-      type: Number as PropType<number>,
-      default: 1,
-    },
-    selectedIndex: {
-      type: Number as PropType<number>,
-      default: -1,
-    },
-  },
+  props,
 });
 </script>
-
-<style lang="scss" scoped></style>
