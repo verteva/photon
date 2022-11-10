@@ -22,35 +22,37 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
-import P2RadioButton from '../RadioButton';
+import P2RadioButton, { props as RadioButtonProps } from '../RadioButton';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { name } = RadioButtonProps;
+const { disabled } = formProps;
+
+export const props = {
+  items: {
+    type: Array as PropType<Array<string>>,
+    default: () => [],
+  },
+  rows: {
+    type: Number as PropType<number>,
+    default: 3,
+  },
+  selectedIndex: {
+    type: Number as PropType<number>,
+    default: -1,
+  },
+  // RadioButton props
+  name,
+  // Global props
+  disabled,
+};
 
 export default Vue.extend({
   name: 'PRadioGroup',
   components: {
     P2RadioButton,
   },
-  props: {
-    items: {
-      type: Array as PropType<Array<string>>,
-      default: () => [],
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    rows: {
-      type: Number as PropType<number>,
-      default: 3,
-    },
-    selectedIndex: {
-      type: Number as PropType<number>,
-      default: -1,
-    },
-    name: {
-      type: String as PropType<string>,
-      default: '',
-    },
-  },
+  props,
   data() {
     return {
       id: uuidv4(),

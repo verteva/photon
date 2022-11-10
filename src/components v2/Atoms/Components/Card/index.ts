@@ -1,3 +1,1 @@
-import P2Card from './Card.vue';
-
-export default P2Card;
+export { default, props } from './Card.vue';

@@ -15,35 +15,37 @@
 </template>
 
 <script lang="ts">
+export const props = {
+  light: {
+    type: Boolean,
+    default: false,
+  },
+
+  shadow: {
+    type: Boolean,
+    default: false,
+  },
+
+  border: {
+    type: Boolean,
+    default: false,
+  },
+
+  rounded: {
+    type: Boolean,
+    default: true,
+  },
+
+  noPadding: {
+    type: Boolean,
+    default: false,
+  },
+};
+
 export default {
   name: 'P2Card',
 
-  props: {
-    light: {
-      type: Boolean,
-      default: false,
-    },
-
-    shadow: {
-      type: Boolean,
-      default: false,
-    },
-
-    border: {
-      type: Boolean,
-      default: false,
-    },
-
-    rounded: {
-      type: Boolean,
-      default: true,
-    },
-
-    noPadding: {
-      type: Boolean,
-      default: false,
-    },
-  },
+  props,
 };
 </script>
 

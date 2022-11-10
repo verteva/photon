@@ -9,26 +9,24 @@
       error,
       size,
       disabled,
+      hideError,
     }"
   >
-    <P2RadioButton
-      v-bind="{
-        name,
-        label: radioButtonLabel,
-        id,
-        icon,
-        disabled,
-        checked,
-      }"
+    <P2InputDate
+      :disabled="disabled"
+      :value="value"
+      @dateDay="$emit('dateDay', $event)"
+      @dateMonth="$emit('dateMonth', $event)"
+      @dateYear="$emit('dateYear', $event)"
     />
   </P2FormControl>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import P2RadioButton, {
-  props as RadioButtonProps,
-} from '@/components v2/Atoms/Forms/RadioButton';
+import P2InputDate, {
+  props as InputDateProps,
+} from '@/components v2/Atoms/Forms/InputDate';
 import P2FormControl, {
   props as FormControlProps,
 } from '@/components v2/Molecules/Forms/FormControl';
@@ -44,7 +42,7 @@ const {
   error,
   hideError,
 } = FormControlProps;
-const { name, label: radioButtonLabel, id, icon, checked } = RadioButtonProps;
+const { value } = InputDateProps;
 
 export const props = {
   // General Props
@@ -58,20 +56,17 @@ export const props = {
   messageIcon,
   error,
   hideError,
-  // Checkbox Props
-  name,
-  radioButtonLabel,
-  id,
-  icon,
-  checked,
+  // InputText Props
+  value,
 };
 
 export default Vue.extend({
-  name: 'InputRadioButton',
+  name: 'InputDate',
   components: {
-    P2RadioButton,
+    P2InputDate,
     P2FormControl,
   },
+
   props,
 });
 </script>

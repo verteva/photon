@@ -19,6 +19,23 @@ import Vue, { PropType } from 'vue';
 import P2Message from '@/components v2/Molecules/Components/Message/Message.vue';
 import { Toast } from './types';
 
+export const props = {
+  toasts: {
+    type: Array as PropType<Toast[]>,
+    default: () => [],
+  },
+
+  yPos: {
+    type: String as PropType<string>,
+    default: 'top',
+  },
+
+  xPos: {
+    type: String as PropType<string>,
+    default: 'center',
+  },
+};
+
 export default Vue.extend({
   name: 'P2Toast',
 
@@ -26,22 +43,7 @@ export default Vue.extend({
     P2Message,
   },
 
-  props: {
-    toasts: {
-      type: Array as PropType<Toast[]>,
-      default: () => [],
-    },
-
-    yPos: {
-      type: String as PropType<string>,
-      default: 'top',
-    },
-
-    xPos: {
-      type: String as PropType<string>,
-      default: 'center',
-    },
-  },
+  props,
 
   methods: {
     beforeLeave(el: HTMLElement): void {
