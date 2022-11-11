@@ -22,6 +22,8 @@
       :disabled="disabled"
       :value="value"
       :type="type"
+      @blur="$emit('blur', $event)"
+      @focus="$emit('focus', $event)"
       @input="$emit('input', $event)"
     />
   </P2FormControl>
