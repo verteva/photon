@@ -1,5 +1,6 @@
 import P2RadioButtonGroup from './RadioButtonGroup.vue';
 import PButton from '@/components/Button';
+
 export default {
   title: 'V2/Atoms/Forms/RadioButtonGroup',
   component: P2RadioButtonGroup,
