@@ -96,11 +96,13 @@ export default Vue.extend({
   },
 
   methods: {
-    onFocus() {
+    onFocus(e: InputEvent) {
       this.inFocus = true;
+      this.$emit('focus', e);
     },
-    onBlur() {
+    onBlur(e: InputEvent) {
       this.inFocus = false;
+      this.$emit('blur', e);
     },
   },
 });
