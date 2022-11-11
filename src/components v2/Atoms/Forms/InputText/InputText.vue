@@ -17,6 +17,7 @@
       :disabled="disabled"
       tabindex="0"
       :value="value"
+      :maxlength="maxlength"
       @focus="onFocus"
       @blur="onBlur"
       @wheel="$event.preventDefault()"
@@ -72,6 +73,10 @@ export const props = {
   type: {
     type: String as PropType<InputTypes>,
     default: 'text',
+  },
+  maxlength: {
+    type: Number as PropType<number>,
+    default: null,
   },
   disabled,
 };
