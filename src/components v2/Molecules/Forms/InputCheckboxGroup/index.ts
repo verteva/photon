@@ -1,3 +1,1 @@
-import P2InputCheckboxGroup from './InputCheckboxGroup.vue';
-
-export default P2InputCheckboxGroup;
+export { default, props } from './InputCheckboxGroup.vue';

@@ -1,3 +1,1 @@
-import P2InputRadioButtonGroup from './InputRadioButtonGroup.vue';
-
-export default P2InputRadioButtonGroup;
+export { default, props } from './InputRadioButtonGroup.vue';

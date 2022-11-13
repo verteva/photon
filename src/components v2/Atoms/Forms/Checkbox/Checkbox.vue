@@ -30,11 +30,30 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
-import validators from '@/utils/validators';
-import {
-  FORM_CONTROL_SIZE,
-  FORM_CONTROL_SIZE_TYPE,
-} from '@/utils/constants/FormControlConstants';
+import { FORM_CONTROL_SIZE } from '@/utils/constants/FormControlConstants';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { size, disabled } = formProps;
+
+export const props = {
+  value: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  label: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  name: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  disabled,
+  size,
+};
 
 export default Vue.extend({
   name: 'P2Checkbox',
@@ -43,33 +62,7 @@ export default Vue.extend({
     PIcon,
   },
 
-  props: {
-    value: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-
-    label: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    name: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-
-    size: {
-      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
-      default: FORM_CONTROL_SIZE.MEDIUM,
-      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
-    },
-  },
+  props,
 
   data() {
     return {

@@ -9,31 +9,32 @@
       error,
       size,
       disabled,
+      hideError,
     }"
   >
-    <P2RadioButton
+    <P2Toggle
       v-bind="{
         name,
-        label: radioButtonLabel,
+        value,
         id,
-        icon,
         disabled,
-        checked,
       }"
+      @input="$emit('input', $event)"
     />
   </P2FormControl>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import P2RadioButton, {
-  props as RadioButtonProps,
-} from '@/components v2/Atoms/Forms/RadioButton';
+import P2Toggle, {
+  props as ToggleProps,
+} from '@/components v2/Atoms/Forms/Toggle';
 import P2FormControl, {
   props as FormControlProps,
 } from '@/components v2/Molecules/Forms/FormControl';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
+const { name, value, id } = ToggleProps;
 const { size, disabled } = formProps;
 const {
   label,
@@ -44,7 +45,6 @@ const {
   error,
   hideError,
 } = FormControlProps;
-const { name, label: radioButtonLabel, id, icon, checked } = RadioButtonProps;
 
 export const props = {
   // General Props
@@ -58,18 +58,16 @@ export const props = {
   messageIcon,
   error,
   hideError,
-  // Checkbox Props
+  // Toggle Props
   name,
-  radioButtonLabel,
+  value,
   id,
-  icon,
-  checked,
 };
 
 export default Vue.extend({
-  name: 'InputRadioButton',
+  name: 'InputToggle',
   components: {
-    P2RadioButton,
+    P2Toggle,
     P2FormControl,
   },
   props,

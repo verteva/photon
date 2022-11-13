@@ -17,6 +17,7 @@
       :disabled="disabled"
       tabindex="0"
       :value="value"
+      :maxlength="maxlength"
       @focus="onFocus"
       @blur="onBlur"
       @wheel="$event.preventDefault()"
@@ -32,6 +33,53 @@
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
 import { InputValues, InputTypes } from './types';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { disabled } = formProps;
+
+export const props = {
+  centered: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  number: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  placeholder: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  iconLeft: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  iconRight: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  error: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  value: {
+    type: [Number, String] as PropType<InputValues>,
+    default: null,
+  },
+  id: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  type: {
+    type: String as PropType<InputTypes>,
+    default: 'text',
+  },
+  maxlength: {
+    type: Number as PropType<number>,
+    default: null,
+  },
+  disabled,
+};
 
 export default Vue.extend({
   name: 'P2InputText',
@@ -39,48 +87,7 @@ export default Vue.extend({
     PIcon,
   },
 
-  props: {
-    centered: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    number: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    placeholder: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    iconLeft: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    iconRight: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    error: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    value: {
-      type: [Number, String] as PropType<InputValues>,
-      default: null,
-    },
-    id: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    type: {
-      type: String as PropType<InputTypes>,
-      default: 'text',
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-  },
+  props,
 
   data() {
     return {
@@ -89,11 +96,13 @@ export default Vue.extend({
   },
 
   methods: {
-    onFocus() {
+    onFocus(e: InputEvent) {
       this.inFocus = true;
+      this.$emit('focus', e);
     },
-    onBlur() {
+    onBlur(e: InputEvent) {
       this.inFocus = false;
+      this.$emit('blur', e);
     },
   },
 });

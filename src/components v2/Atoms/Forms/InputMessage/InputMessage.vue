@@ -10,16 +10,27 @@
 <script lang="ts">
 import PIcon from '@/components/Icon';
 import Vue, { PropType } from 'vue';
-import {
-  FORM_CONTROL_SIZE,
-  FORM_CONTROL_SIZE_TYPE,
-} from '@/utils/constants/FormControlConstants';
-import validators from '@/utils/validators';
+import { FORM_CONTROL_SIZE } from '@/utils/constants/FormControlConstants';
 import { IconSizeSm, IconSizeXsm } from '@/components/Icon/types';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { size } = formProps;
 
 const iconSizeMatrix = {
   [FORM_CONTROL_SIZE.SMALL]: IconSizeXsm,
   [FORM_CONTROL_SIZE.MEDIUM]: IconSizeSm,
+};
+
+export const props = {
+  message: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  icon: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  size,
 };
 
 export default Vue.extend({
@@ -27,21 +38,7 @@ export default Vue.extend({
   components: {
     PIcon,
   },
-  props: {
-    message: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    icon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    size: {
-      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
-      default: FORM_CONTROL_SIZE.MEDIUM,
-      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
-    },
-  },
+  props,
   computed: {
     iconSize(): string {
       return iconSizeMatrix[this.size];
