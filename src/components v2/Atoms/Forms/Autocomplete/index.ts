@@ -1,3 +1,3 @@
-import PAutocomplete from './AutoComplete.vue';
+import P2Autocomplete from './AutoComplete.vue';
 
-export default PAutocomplete;
+export default P2Autocomplete;

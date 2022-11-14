@@ -14,27 +14,16 @@ const Template = (args, { argTypes }) => ({
   components: { P2AutoComplete },
   props: Object.keys(argTypes),
   template:
-    '<div><P2AutoComplete :items="items2" />selected option:{{$data.selected}}</div>',
+    '<div><P2AutoComplete v-model="selected" @selectedObj="selectedOption" v-bind="$props" />selected option:{{$data.selected}}</div>',
   data() {
     return {
-      items2: [
-        'Apple',
-        'Banana',
-        'Orange',
-        'Mango',
-        'Pear',
-        'Peach',
-        'Grape',
-        'Tangerine',
-        'Pineapple',
-      ],
       selected: null,
     };
   },
   methods: {
-    // selectedOption(selectedOption) {
-    //   this.$data.selected = selectedOption;
-    // },
+    selectedOption(selectedOption) {
+      this.$data.selected = selectedOption;
+    },
   },
 });
 
