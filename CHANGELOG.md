@@ -1,3 +1,10 @@
+## [0.8.1](https://github.com/verteva/photon/compare/v0.8.0...v0.8.1) (2022-11-15)
+
+
+### Bug Fixes
+
+* unable to select the radio button circle ([ad7efc7](https://github.com/verteva/photon/commit/ad7efc7b54827ffe74585ae715ae5dd073935ed2))
+
 # [0.8.0](https://github.com/verteva/photon/compare/v0.7.0...v0.8.0) (2022-11-13)
 
 
