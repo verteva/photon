@@ -17,6 +17,7 @@
       :disabled="disabled"
       tabindex="0"
       :value="value"
+      :maxlength="maxlength"
       @focus="onFocus"
       @blur="onBlur"
       @wheel="$event.preventDefault()"
@@ -73,6 +74,10 @@ export const props = {
     type: String as PropType<InputTypes>,
     default: 'text',
   },
+  maxlength: {
+    type: Number as PropType<number>,
+    default: null,
+  },
   disabled,
 };
 
@@ -91,11 +96,13 @@ export default Vue.extend({
   },
 
   methods: {
-    onFocus() {
+    onFocus(e: InputEvent) {
       this.inFocus = true;
+      this.$emit('focus', e);
     },
-    onBlur() {
+    onBlur(e: InputEvent) {
       this.inFocus = false;
+      this.$emit('blur', e);
     },
   },
 });

@@ -12,28 +12,21 @@
       hideError,
     }"
   >
-    <P2InputText
-      :id="id"
-      :placeholder="placeholder"
-      :icon-left="iconLeft"
-      :icon-right="iconRight"
-      :centered="centered"
-      :error="error"
+    <P2InputDate
       :disabled="disabled"
       :value="value"
-      :type="type"
-      @blur="$emit('blur', $event)"
-      @focus="$emit('focus', $event)"
-      @input="$emit('input', $event)"
+      @dateDay="$emit('dateDay', $event)"
+      @dateMonth="$emit('dateMonth', $event)"
+      @dateYear="$emit('dateYear', $event)"
     />
   </P2FormControl>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import P2InputText, {
-  props as InputTextProps,
-} from '@/components v2/Atoms/Forms/InputText';
+import P2InputDate, {
+  props as InputDateProps,
+} from '@/components v2/Atoms/Forms/InputDate';
 import P2FormControl, {
   props as FormControlProps,
 } from '@/components v2/Molecules/Forms/FormControl';
@@ -49,16 +42,7 @@ const {
   error,
   hideError,
 } = FormControlProps;
-const {
-  placeholder,
-  iconLeft,
-  iconRight,
-  centered,
-  value,
-  id,
-  type,
-  maxlength,
-} = InputTextProps;
+const { value } = InputDateProps;
 
 export const props = {
   // General Props
@@ -73,25 +57,16 @@ export const props = {
   error,
   hideError,
   // InputText Props
-  placeholder,
-  iconLeft,
-  iconRight,
-  centered,
   value,
-  id,
-  type,
-  maxlength,
 };
 
 export default Vue.extend({
-  name: 'InputText',
+  name: 'InputDate',
   components: {
-    P2InputText,
+    P2InputDate,
     P2FormControl,
   },
 
   props,
 });
 </script>
-
-<style lang="scss" scoped></style>

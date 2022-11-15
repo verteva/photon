@@ -153,6 +153,8 @@ export default Vue.extend({
       border-radius: getButtonStyleProperty('border-radius', $style, '', 50%);
       border-color: getButtonStyleProperty('border-color', $style, '', red);
 
+      font-weight: getButtonStyleProperty('font-weight', $style, '', inherit);
+
       text-transform: getButtonStyleProperty(
         'text-transform',
         $style,
