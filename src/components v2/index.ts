@@ -6,6 +6,7 @@ import P2InputText from './Molecules/Forms/InputText';
 import P2Card from './Atoms/Components/Card';
 import P2Message from './Molecules/Components/Message';
 import P2Toast from './Molecules/Components/Toast';
+import P2Dialog from './Molecules/Components/Dialog';
 import P2InputCheckbox from './Molecules/Forms/InputCheckbox';
 import P2InputCheckboxGroup from './Molecules/Forms/InputCheckboxGroup';
 import P2InputRadioButton from './Molecules/Forms/InputRadioButton';
@@ -24,6 +25,7 @@ const components: PhotonComponents = {
   P2Card,
   P2Message,
   P2Toast,
+  P2Dialog,
   P2InputCheckbox,
   P2InputCheckboxGroup,
   P2InputRadioButton,
