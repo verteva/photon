@@ -1,3 +1,16 @@
+# [0.8.0](https://github.com/verteva/photon/compare/v0.7.0...v0.8.0) (2022-11-13)
+
+
+### Bug Fixes
+
+* input text component blur event added for ([77137bd](https://github.com/verteva/photon/commit/77137bd08f5bd8899c37c32b2bd7b62f1cda9419))
+
+
+### Features
+
+* add input date component ([fd3f6b2](https://github.com/verteva/photon/commit/fd3f6b20e6f886f7924de59b41e5611c5920a5d9))
+* toggle component ([299078d](https://github.com/verteva/photon/commit/299078df77d90db32040c69b055078d2519d5582))
+
 # [0.7.0](https://github.com/verteva/photon/compare/v0.6.1...v0.7.0) (2022-11-09)
 
 
