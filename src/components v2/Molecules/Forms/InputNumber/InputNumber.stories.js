@@ -1,28 +1,119 @@
-import PInputNumber from './InputNumber.vue';
-import PButton from '@/components v2/Atoms/Components/Button';
-export default {
-  title: 'v2/Molecules/Forms/InputNumber',
-  component: PInputNumber,
-  argTypes: {
-    // Configurable component options in SB UI...
+import InputNumber from './InputNumber.vue';
+import Icons from '@/components/Icon/icons';
+
+const textControl = {
+  control: {
+    type: 'text',
   },
 };
 
-const Template = (args, { argTypes }) => ({
-  components: { PInputNumber, PButton },
+const booleanControl = {
+  control: {
+    type: 'boolean',
+  },
+};
+
+export default {
+  title: 'v2/Molecules/Forms/InputNumber',
+  component: InputNumber,
+  argTypes: {
+    label: {
+      ...textControl,
+      table: {
+        category: 'FormControl',
+      },
+    },
+    inlineText: {
+      ...textControl,
+      table: {
+        category: 'FormControl',
+      },
+    },
+    isRequired: {
+      ...booleanControl,
+      table: {
+        category: 'FormControl',
+      },
+    },
+    extraMessage: {
+      ...textControl,
+      table: {
+        category: 'FormControl',
+      },
+    },
+    messageIcon: {
+      control: {
+        type: 'select',
+        options: [...Icons, ''],
+      },
+      table: {
+        category: 'FormControl',
+      },
+    },
+    error: {
+      ...textControl,
+      table: {
+        category: 'FormControl',
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
+      table: {
+        category: 'General',
+      },
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        category: 'General',
+      },
+    },
+    value: {
+      control: {
+        type: 'number',
+      },
+    },
+    minVal: {
+      control: {
+        type: 'number',
+      },
+    },
+    maxVal: {
+      control: {
+        type: 'number',
+      },
+    },
+  },
+  args: {
+    disabled: false,
+  },
+};
+
+const InteractiveTemplate = (args, { argTypes }) => ({
+  components: { InputNumber },
   props: Object.keys(argTypes),
-  template: `<div>
-    <PInputNumber v-bind='$props' v-model='innerValue' :errors='errs'>
-    <template v-slot:label>
-        <p-label>Input Phone<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal"></span></p-label>
-    </template>
-    </PInputNumber>
-    <PButton :disabled="false" @click="showError">Toggle inline errors</PButton>
-    </div>`,
+  template: `
+    <div>
+      <InputNumber
+        v-bind="$props"
+        :value='innerValue'
+        :error="innerValue === 0 ? 'Value must be greater than 0' : ''"
+        @input="onInput"
+        @blur="onBlur"
+        @change:subtract="onSubtract"
+        @change:add="onAdd"
+      />
+      value: {{ innerValue }}
+    </div>
+  `,
   data() {
     return {
       innerValue: 0,
-      errs: [],
     };
   },
   methods: {
@@ -33,10 +124,62 @@ const Template = (args, { argTypes }) => ({
         this.errs = ['Inline validation error'];
       }
     },
+    onSubtract() {
+      this.innerValue -= 1;
+    },
+    onAdd() {
+      this.innerValue += 1;
+    },
+    onInput(val) {
+      this.innerValue = val;
+    },
+    onBlur() {
+      this.innerValue = Math.min(
+        this.maxVal,
+        Math.max(this.minVal, this.innerValue)
+      );
+    },
   },
 });
 
-export const InputNumber = Template.bind({});
-InputNumber.args = {
-  label: 'Photon label',
+const Template = (args, { argTypes }) => ({
+  components: { InputNumber },
+  props: Object.keys(argTypes),
+  template: `
+    <div>
+      <InputNumber v-bind="$props" v-model="name" />
+      <div> Value: {{ name }}</div>
+    </div>
+  `,
+  data() {
+    return {
+      name: '',
+    };
+  },
+});
+
+export const Default = Template.bind({});
+Default.args = {
+  label: 'How many little angels do you have?',
+  inlineText: '',
+  isRequired: true,
+  extraMessage: '( 0 - 10 )',
+  iconLeft: '',
+  size: 'md',
+  messageIcon: '',
+  error: '',
+};
+
+export const Interactive = InteractiveTemplate.bind({});
+Interactive.args = {
+  label: 'How many little angels do you have?',
+  inlineText: '',
+  isRequired: true,
+  extraMessage: '( 0 - 10 )',
+  iconLeft: '',
+  size: 'md',
+  messageIcon: '',
+  error: '',
+  maxVal: 10,
+  minVal: 0,
 };
