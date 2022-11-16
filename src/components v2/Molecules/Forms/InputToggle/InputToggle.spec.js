@@ -1,10 +1,10 @@
-import { render, fireEvent } from '@testing-library/vue';
-import InputNumber from './InputNumber.vue';
+import { fireEvent, render } from '@testing-library/vue';
+import InputToggle from './InputToggle.vue';
 
-describe('Molecules/InputNumber.vue', () => {
+describe('InputToggle.vue', () => {
   it('props: label', async () => {
     const label = 'This is a label';
-    const { getByText } = render(InputNumber, {
+    const { getByText } = render(InputToggle, {
       props: {
         label,
       },
@@ -18,7 +18,7 @@ describe('Molecules/InputNumber.vue', () => {
   it('props: inlineText', async () => {
     const label = 'This is a label';
     const inlineText = 'This is an inlineText';
-    const { getByText } = render(InputNumber, {
+    const { getByText } = render(InputToggle, {
       props: {
         inlineText,
         label,
@@ -33,7 +33,7 @@ describe('Molecules/InputNumber.vue', () => {
   it('props: isRequired', async () => {
     const label = 'This is a label';
     const isRequired = true;
-    const { getByText } = render(InputNumber, {
+    const { getByText } = render(InputToggle, {
       props: {
         isRequired,
         label,
@@ -47,7 +47,7 @@ describe('Molecules/InputNumber.vue', () => {
 
   it('props: extraMessage', async () => {
     const extraMessage = 'This is an extra message';
-    const { getByText } = render(InputNumber, {
+    const { getByText } = render(InputToggle, {
       props: {
         extraMessage,
       },
@@ -60,7 +60,7 @@ describe('Molecules/InputNumber.vue', () => {
 
   it('props: error', async () => {
     const error = 'This is an error';
-    const { getByText } = render(InputNumber, {
+    const { getByText } = render(InputToggle, {
       props: {
         error,
       },
@@ -72,38 +72,14 @@ describe('Molecules/InputNumber.vue', () => {
   });
 
   it('emits: input', async () => {
-    const { getByTestId, emitted } = render(InputNumber, {
-      props: {
-        value: 0,
-      },
+    const { getByTestId, emitted } = render(InputToggle, {
+      props: {},
     });
 
-    const inputElement = await getByTestId('input-text');
-    await fireEvent.update(inputElement, 5);
-    expect(emitted().input).toEqual([['5']]);
-  });
+    const container = getByTestId('toggle');
 
-  it('emits: change:subtract', async () => {
-    const { getByText, emitted } = render(InputNumber, {
-      props: {
-        value: 2,
-      },
-    });
+    await fireEvent.click(container);
 
-    const inputElement = await getByText('-');
-    await fireEvent.click(inputElement);
-    expect(emitted()['change:subtract']).toEqual([[]]);
-  });
-
-  it('emits: change:add', async () => {
-    const { getByText, emitted } = render(InputNumber, {
-      props: {
-        value: 0,
-      },
-    });
-
-    const inputElement = await getByText('+');
-    await fireEvent.click(inputElement);
-    expect(emitted()['change:add']).toEqual([[]]);
+    expect(emitted().input).toEqual([[true]]);
   });
 });

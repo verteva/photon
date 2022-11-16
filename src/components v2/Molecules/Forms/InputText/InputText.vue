@@ -22,6 +22,8 @@
       :disabled="disabled"
       :value="value"
       :type="type"
+      @blur="$emit('blur', $event)"
+      @focus="$emit('focus', $event)"
       @input="$emit('input', $event)"
     />
   </P2FormControl>
@@ -55,6 +57,7 @@ const {
   value,
   id,
   type,
+  maxlength,
 } = InputTextProps;
 
 export const props = {
@@ -77,6 +80,7 @@ export const props = {
   value,
   id,
   type,
+  maxlength,
 };
 
 export default Vue.extend({

@@ -18,11 +18,11 @@
         <p-icon v-if="icon" :name="icon" type="xl" />
         <span class="ph-radio-label-text">{{ label }}</span>
       </div>
-    </label>
 
-    <div v-if="!icon" class="ph-radio-circle-container">
-      <div class="ph-radio-circle" />
-    </div>
+      <div v-if="!icon" class="ph-radio-circle-container">
+        <div class="ph-radio-circle" />
+      </div>
+    </label>
   </div>
 </template>
 
@@ -87,6 +87,11 @@ export default Vue.extend({
     border-color: var(--radio-button-styles-primary-default-border-color);
     background: var(--radio-button-styles-primary-background);
     color: var(--radio-button-styles-primary-default-color);
+
+    &.ph-radio-bar-bottom-brand {
+      padding: 20px;
+      justify-content: center;
+    }
   }
   &.ph-radio-disabled {
     .ph-radio-label {
@@ -113,14 +118,6 @@ export default Vue.extend({
       outline: none;
     }
     &:checked {
-      ~ .ph-radio-circle-container {
-        border-color: var(--radio-button-styles-primary-border-color);
-        background: var(--radio-button-styles-primary-checked-color);
-
-        .ph-radio-circle {
-          background: var(--radio-button-styles-primary-checked-circle);
-        }
-      }
       + .ph-radio-label {
         background: var(--radio-button-styles-primary-checked-background);
         border-color: var(--radio-button-styles-primary-checked-border-color);
@@ -130,6 +127,14 @@ export default Vue.extend({
         }
         .ph-radio-label-icon {
           color: var(--radio-button-styles-primary-checked-color);
+        }
+        .ph-radio-circle-container {
+          border-color: var(--radio-button-styles-primary-border-color);
+          background: var(--radio-button-styles-primary-checked-color);
+
+          .ph-radio-circle {
+            background: var(--radio-button-styles-primary-checked-circle);
+          }
         }
       }
       ~ .ph-radio-bar-bottom-brand:after {

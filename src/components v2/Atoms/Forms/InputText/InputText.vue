@@ -1,5 +1,11 @@
 <template>
-  <div class="ph-input-text" :class="inFocus && 'ph-input-text-focus'">
+  <div
+    class="ph-input-text"
+    :class="[
+      inFocus && 'ph-input-text-focus',
+      disabled && 'ph-input-text-disabled',
+    ]"
+  >
     <div v-if="iconLeft" class="ph-input-text-icon ph-input-text-icon-left">
       <p-icon :name="iconLeft" type="lg" />
     </div>
@@ -17,6 +23,8 @@
       :disabled="disabled"
       tabindex="0"
       :value="value"
+      :maxlength="maxlength"
+      data-testid="input-text"
       @focus="onFocus"
       @blur="onBlur"
       @wheel="$event.preventDefault()"
@@ -73,6 +81,10 @@ export const props = {
     type: String as PropType<InputTypes>,
     default: 'text',
   },
+  maxlength: {
+    type: Number as PropType<number>,
+    default: null,
+  },
   disabled,
 };
 
@@ -91,15 +103,18 @@ export default Vue.extend({
   },
 
   methods: {
-    onFocus() {
+    onFocus(e: InputEvent) {
       this.inFocus = true;
+      this.$emit('focus', e);
     },
-    onBlur() {
+    onBlur(e: InputEvent) {
       this.inFocus = false;
+      this.$emit('blur', e);
     },
   },
 });
 </script>
+
 <style lang="scss" scoped>
 .ph-input-text {
   position: relative;
@@ -152,6 +167,15 @@ export default Vue.extend({
     }
     &.input-error {
       color: var(--form-control-items-error-default-text-color);
+    }
+  }
+
+  &.ph-input-text-disabled {
+    cursor: not-allowed;
+    .ph-input-text-input {
+      cursor: not-allowed;
+      color: var(--input-text-disabled-color);
+      border-color: var(--input-text-disabled-border-color);
     }
   }
 }

@@ -1,3 +1,1 @@
-import PInputNumber from './InputNumber.vue';
-
-export default PInputNumber;
+export { default, props } from './InputNumber.vue';

@@ -623,7 +623,7 @@ export default Vue.extend({
 }
 
 .ph-autocomplete__v-select .vs__dropdown-toggle:focus-within svg {
-  @apply ph-transition;
+  /* @apply ph-transition; */
   @apply ph-text-brand2;
 }
 

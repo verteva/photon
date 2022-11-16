@@ -12,16 +12,13 @@
       hideError,
     }"
   >
-    <P2NumberInput
-      :id="id"
-      :disabled="disabled"
-      :value="value"
-      :min-val="minVal"
-      :max-val="maxVal"
-      @change:subtract="$emit('change:subtract')"
-      @change:add="$emit('change:add')"
-      @blur="$emit('blur', $event)"
-      @focus="$emit('focus', $event)"
+    <P2Toggle
+      v-bind="{
+        name,
+        value,
+        id,
+        disabled,
+      }"
       @input="$emit('input', $event)"
     />
   </P2FormControl>
@@ -29,14 +26,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import P2NumberInput, {
-  props as NumberInputProps,
-} from '@/components v2/Molecules/Forms/NumberInput';
+import P2Toggle, {
+  props as ToggleProps,
+} from '@/components v2/Atoms/Forms/Toggle';
 import P2FormControl, {
   props as FormControlProps,
 } from '@/components v2/Molecules/Forms/FormControl';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
+const { name, value, id } = ToggleProps;
 const { size, disabled } = formProps;
 const {
   label,
@@ -47,7 +45,6 @@ const {
   error,
   hideError,
 } = FormControlProps;
-const { value, maxVal, minVal, id } = NumberInputProps;
 
 export const props = {
   // General Props
@@ -61,20 +58,18 @@ export const props = {
   messageIcon,
   error,
   hideError,
-  // NumberInput Props
-  id,
+  // Toggle Props
+  name,
   value,
-  minVal,
-  maxVal,
+  id,
 };
 
 export default Vue.extend({
-  name: 'InputNumber',
+  name: 'InputToggle',
   components: {
-    P2NumberInput,
+    P2Toggle,
     P2FormControl,
   },
-
   props,
 });
 </script>

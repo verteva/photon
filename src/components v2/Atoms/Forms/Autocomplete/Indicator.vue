@@ -4,7 +4,7 @@
       v-if="!hideOpenIndicator"
       class="openIndicator"
       :name="openIndicatorIcon"
-      type="xs"
+      type="med"
     />
   </span>
 </template>

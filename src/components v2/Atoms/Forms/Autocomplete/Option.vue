@@ -28,10 +28,7 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
-    optionLeading: {
-      type: String as PropType<string>,
-      default: 'left',
-    },
+
     option: {
       type: Object as PropType<any>,
       default: () => ({}),
@@ -55,5 +52,13 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .ph-autocomplete-option {
   white-space: normal;
+  .af_hl {
+    display: inline-block;
+    padding: 1px;
+    margin: 0;
+    border-radius: 0.5rem;
+    background: var(--autocomplete-input-background-color);
+    color: var(--autocomplete-input-base-text-color);
+  }
 }
 </style>

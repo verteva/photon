@@ -29,20 +29,13 @@ const Template = (args, { argTypes }) => ({
 
 export const AutocompleteSimple = Template.bind({});
 AutocompleteSimple.args = {
-  label: 'Autocomplete',
-  dropType: 'up',
   openIndicatorIcon: 'MenuDown',
-  openIndicatorIconSize: 'med',
-  simple: true,
   optionItems: ['item1', 'item2'],
 };
 
 export const AutocompleteMain = Template.bind({});
 AutocompleteMain.args = {
-  label: 'Autocomplete',
-  dropType: 'up',
   openIndicatorIcon: 'MenuDown',
-  openIndicatorIconSize: 'med',
   customLabelVar: 'label',
   initInput: '001',
   selectedBy: 'id',
@@ -62,7 +55,6 @@ AutocompleteMain.args = {
 
 export const AutocompleteAddress = Template.bind({});
 AutocompleteAddress.args = {
-  label: 'Autocomplete Address',
   loading: true,
   allowOptionIcon: true,
   hideOpenIndicator: true,
@@ -71,7 +63,6 @@ AutocompleteAddress.args = {
   noDropOnStart: true,
   showSelectedIcon: true,
   disableFilter: true,
-  maxHeight: '200px',
   placeHolder: 'Search for your property',
   noOptionsText: 'Search for your <b>property</b>',
   prefixIcon: 'LocationSimple',

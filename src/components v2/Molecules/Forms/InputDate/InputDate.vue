@@ -12,26 +12,21 @@
       hideError,
     }"
   >
-    <P2NumberInput
-      :id="id"
+    <P2InputDate
       :disabled="disabled"
       :value="value"
-      :min-val="minVal"
-      :max-val="maxVal"
-      @change:subtract="$emit('change:subtract')"
-      @change:add="$emit('change:add')"
-      @blur="$emit('blur', $event)"
-      @focus="$emit('focus', $event)"
-      @input="$emit('input', $event)"
+      @dateDay="$emit('dateDay', $event)"
+      @dateMonth="$emit('dateMonth', $event)"
+      @dateYear="$emit('dateYear', $event)"
     />
   </P2FormControl>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import P2NumberInput, {
-  props as NumberInputProps,
-} from '@/components v2/Molecules/Forms/NumberInput';
+import P2InputDate, {
+  props as InputDateProps,
+} from '@/components v2/Atoms/Forms/InputDate';
 import P2FormControl, {
   props as FormControlProps,
 } from '@/components v2/Molecules/Forms/FormControl';
@@ -47,7 +42,7 @@ const {
   error,
   hideError,
 } = FormControlProps;
-const { value, maxVal, minVal, id } = NumberInputProps;
+const { value } = InputDateProps;
 
 export const props = {
   // General Props
@@ -61,17 +56,14 @@ export const props = {
   messageIcon,
   error,
   hideError,
-  // NumberInput Props
-  id,
+  // InputText Props
   value,
-  minVal,
-  maxVal,
 };
 
 export default Vue.extend({
-  name: 'InputNumber',
+  name: 'InputDate',
   components: {
-    P2NumberInput,
+    P2InputDate,
     P2FormControl,
   },
 

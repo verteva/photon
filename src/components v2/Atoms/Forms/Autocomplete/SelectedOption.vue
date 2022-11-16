@@ -65,24 +65,27 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .ph-autocomplete-selected {
   display: flex;
-  padding-top: 0.125rem;
-  padding-bottom: 0.125rem;
+  padding-top: 2px;
+  padding-bottom: 2px;
   .ph-selected-icon {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 16px;
+    margin-right: 16px;
     margin-top: auto;
     margin-bottom: auto;
-    color: #009ede;
+    color: var(--autocomplete-focus-svg-icon-color);
   }
   .ph-autocomplete-spacing {
-    width: 0.75rem;
+    width: 12px;
   }
   .ph-autocomplete-selected-label {
     overflow: hidden;
-    padding-top: 0.125rem;
+    padding-top: 2px;
     white-space: normal;
-    height: 2.5rem;
     line-height: 40px;
+  }
+
+  + .ph-autocomplete-search .ph-autocomplete-prefix-icon {
+    display: none;
   }
 }
 </style>
