@@ -1,63 +1,109 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import InputNumber from '@/components v2/Molecules/Forms/InputNumber/InputNumber.vue';
+import { render, fireEvent } from '@testing-library/vue';
+import InputNumber from './InputNumber.vue';
 
-const createWrapper = (propsOverrides = {}) => {
-  const localVue = createLocalVue();
-  return mount(InputNumber, {
-    localVue,
-    propsData: {
-      ...propsOverrides,
-    },
-  });
-};
+describe('Molecules/InputNumber.vue', () => {
+  it('props: label', async () => {
+    const label = 'This is a label';
+    const { getByText } = render(InputNumber, {
+      props: {
+        label,
+      },
+    });
 
-describe('InputText.vue', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = createWrapper();
+    const container = getByText(label);
+
+    expect(container).toBeTruthy();
   });
 
-  it('check init value should be 0', () => {
-    const input = wrapper.findComponent(InputNumber);
-    expect(input.props().value).toBe(0);
+  it('props: inlineText', async () => {
+    const label = 'This is a label';
+    const inlineText = 'This is an inlineText';
+    const { getByText } = render(InputNumber, {
+      props: {
+        inlineText,
+        label,
+      },
+    });
+
+    const container = getByText(inlineText);
+
+    expect(container).toBeTruthy();
   });
 
-  it('check init input should be greater than min value', async () => {
-    const minVal = 0;
-    wrapper.setProps(minVal);
-    expect(wrapper.vm.minVal).toEqual(minVal);
-    const inputElement = wrapper.find('input');
-    inputElement.find('input').setValue(minVal);
-    const inputElementValue = wrapper.find('input').element.value;
-    expect(Number(inputElementValue)).toBeGreaterThanOrEqual(minVal);
+  it('props: isRequired', async () => {
+    const label = 'This is a label';
+    const isRequired = true;
+    const { getByText } = render(InputNumber, {
+      props: {
+        isRequired,
+        label,
+      },
+    });
+
+    const container = getByText('*');
+
+    expect(container).toBeTruthy();
   });
 
-  it('check init input should be less than min value', async () => {
-    const maxVal = 20;
-    await wrapper.setProps({ maxVal });
-    expect(wrapper.vm.maxVal).toEqual(maxVal);
-    const inputElement = wrapper.find('input');
-    inputElement.find('input').setValue(maxVal);
-    const inputElementValue = wrapper.find('input').element.value;
-    expect(Number(inputElementValue)).toBeGreaterThanOrEqual(maxVal);
+  it('props: extraMessage', async () => {
+    const extraMessage = 'This is an extra message';
+    const { getByText } = render(InputNumber, {
+      props: {
+        extraMessage,
+      },
+    });
+
+    const container = getByText(extraMessage);
+
+    expect(container).toBeTruthy();
   });
 
-  it('check change input value', async () => {
-    const inputIncrease = wrapper.findComponent({ ref: 'increase' });
-    await inputIncrease.trigger('click');
-    expect(wrapper.emitted('input')[0]).toEqual([1]);
+  it('props: error', async () => {
+    const error = 'This is an error';
+    const { getByText } = render(InputNumber, {
+      props: {
+        error,
+      },
+    });
 
-    const inputDecrease = wrapper.findComponent({ ref: 'decrease' });
-    await inputDecrease.trigger('click');
-    expect(wrapper.emitted('input')[0]).toEqual([1]);
+    const container = getByText(error);
+
+    expect(container).toBeTruthy();
   });
 
-  it('input errors prop', async () => {
-    await wrapper.setProps({ errors: ['required'] });
-    expect(wrapper.vm.errors).toContain('required');
-    wrapper.find('.photon-input-error');
-    const errorLabel = wrapper.find('.photon-input-error');
-    expect(errorLabel.isVisible()).toBe(true);
-    expect(errorLabel.text()).toBe('required');
+  it('emits: input', async () => {
+    const { getByTestId, emitted } = render(InputNumber, {
+      props: {
+        value: 0,
+      },
+    });
+
+    const inputElement = await getByTestId('input-text');
+    await fireEvent.update(inputElement, 5);
+    expect(emitted().input).toEqual([['5']]);
+  });
+
+  it('emits: change:subtract', async () => {
+    const { getByText, emitted } = render(InputNumber, {
+      props: {
+        value: 2,
+      },
+    });
+
+    const inputElement = await getByText('-');
+    await fireEvent.click(inputElement);
+    expect(emitted()['change:subtract']).toEqual([[]]);
+  });
+
+  it('emits: change:add', async () => {
+    const { getByText, emitted } = render(InputNumber, {
+      props: {
+        value: 0,
+      },
+    });
+
+    const inputElement = await getByText('+');
+    await fireEvent.click(inputElement);
+    expect(emitted()['change:add']).toEqual([[]]);
   });
 });
