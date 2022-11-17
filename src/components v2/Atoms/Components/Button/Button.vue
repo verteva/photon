@@ -15,7 +15,7 @@
   >
     <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
     <div class="container">
-      <div class="label" :class="[upperCase && 'ph-uppercase']">
+      <div class="label">
         <slot name="default">
           {{ label }}
         </slot>
@@ -153,6 +153,8 @@ export default Vue.extend({
       border-radius: getButtonStyleProperty('border-radius', $style, '', 50%);
       border-color: getButtonStyleProperty('border-color', $style, '', red);
 
+      font-weight: getButtonStyleProperty('font-weight', $style, '', inherit);
+
       text-transform: getButtonStyleProperty(
         'text-transform',
         $style,
@@ -258,6 +260,7 @@ export default Vue.extend({
       transition: $all-transitions;
       transition-duration: 150ms;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: var(--button-base-text-transform, none);
     }
   }
 }
