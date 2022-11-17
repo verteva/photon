@@ -1,12 +1,9 @@
-import P2AutoComplete from './AutoComplete.vue';
+import P2AutoComplete from './InputAutoComplete.vue';
 
 export default {
-  title: 'V2/Atoms/Forms/AutoComplete',
+  title: 'V2/Atoms/Forms/InputAutoComplete',
   component: P2AutoComplete,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-    placeHolder: '',
-  },
+  argTypes: {},
   args: {},
 };
 
@@ -14,7 +11,7 @@ const Template = (args, { argTypes }) => ({
   components: { P2AutoComplete },
   props: Object.keys(argTypes),
   template:
-    '<div><P2AutoComplete v-model="selected" @selectedObj="selectedOption" v-bind="$props" />selected option:{{$data.selected}}</div>',
+    '<div><P2AutoComplete v-model="selected" @selectedObj="selectedOption" v-bind="$props"><template #list-footer> I am a Footer </template></P2AutoComplete>selected option:{{$data.selected}}</div>',
   data() {
     return {
       selected: null,
@@ -27,14 +24,37 @@ const Template = (args, { argTypes }) => ({
   },
 });
 
-export const AutocompleteSimple = Template.bind({});
-AutocompleteSimple.args = {
+export const Default = Template.bind({});
+Default.args = {
+  initInput: '',
   openIndicatorIcon: 'MenuDown',
-  optionItems: ['item1', 'item2'],
+  disabled: true,
+  disableFilter: true,
+  noDropOnStart: true,
 };
 
-export const AutocompleteMain = Template.bind({});
-AutocompleteMain.args = {
+export const Placeholder = Template.bind({});
+Placeholder.args = {
+  placeHolder: 'Search for your property',
+  initInput: '',
+  openIndicatorIcon: 'MenuDown',
+  disabled: true,
+  disableFilter: true,
+  noDropOnStart: true,
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+  initInput: '',
+  openIndicatorIcon: 'MenuDown',
+  disabled: true,
+  disableFilter: true,
+  noDropOnStart: true,
+};
+
+export const DropDown = Template.bind({});
+DropDown.args = {
   openIndicatorIcon: 'MenuDown',
   customLabelVar: 'label',
   initInput: '001',
@@ -43,18 +63,46 @@ AutocompleteMain.args = {
     {
       id: '001',
       label: '<span class="af_hl">highlight</span> test1',
-      icon: 'Checkmark',
     },
     {
       id: '002',
       label: '<span class="af_hl">highlight</span> test2',
-      icon: 'Checkmark',
     },
   ],
 };
 
-export const AutocompleteAddress = Template.bind({});
-AutocompleteAddress.args = {
+export const SimpleOption = Template.bind({});
+SimpleOption.args = {
+  openIndicatorIcon: 'MenuDown',
+  customLabelVar: 'label',
+  simple: true,
+  optionItems: ['item1', 'item2'],
+};
+
+export const OptionPrefixIcon = Template.bind({});
+OptionPrefixIcon.args = {
+  openIndicatorIcon: 'MenuDown',
+  customLabelVar: 'label',
+  initInput: '001',
+  selectedBy: 'id',
+  allowOptionIcon: true,
+  prefixIcon: 'LocationSimple',
+  optionItems: [
+    {
+      id: '001',
+      label: '<span class="af_hl">highlight</span> test1',
+      icon: 'LocationSimple',
+    },
+    {
+      id: '002',
+      label: '<span class="af_hl">highlight</span> test2',
+      icon: 'Apartment',
+    },
+  ],
+};
+
+export const InputPrefixIcon = Template.bind({});
+InputPrefixIcon.args = {
   loading: true,
   allowOptionIcon: true,
   hideOpenIndicator: true,
@@ -62,7 +110,6 @@ AutocompleteAddress.args = {
   hideClearBtn: false,
   noDropOnStart: true,
   showSelectedIcon: true,
-  disableFilter: true,
   placeHolder: 'Search for your property',
   noOptionsText: 'Search for your <b>property</b>',
   prefixIcon: 'LocationSimple',

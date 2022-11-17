@@ -8,9 +8,20 @@
       :data-deselect="deselect"
       :data-multiple="multiple"
       :data-disabled="disabled"
-    ></p-icon>
-    <span v-else class="ph-autocomplete-spacing"> </span>
-    <label class="ph-autocomplete-selected-label" v-html="option.label"></label>
+    />
+    <span
+      v-else
+      class="ph-autocomplete-spacing"
+      :class="{
+        'ph-autocomplete-extra-spacing': allowOptionIcon && showSelectedIcon,
+      }"
+    />
+    <label
+      class="ph-autocomplete-selected-label"
+      v-html="
+        option[customLabelVar] ? option[customLabelVar] : option[labelVar]
+      "
+    />
   </div>
 </template>
 
@@ -29,10 +40,6 @@ export default Vue.extend({
       default: () => ({}),
     },
     validateIcon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    prefixIcon: {
       type: String as PropType<string>,
       default: '',
     },
@@ -58,6 +65,14 @@ export default Vue.extend({
       type: Boolean as PropType<boolean>,
       default: false,
     },
+    labelVar: {
+      type: String as PropType<string>,
+      default: 'label',
+    },
+    customLabelVar: {
+      type: String as PropType<string>,
+      default: 'custom_label',
+    },
   },
 });
 </script>
@@ -75,7 +90,10 @@ export default Vue.extend({
     color: var(--autocomplete-focus-svg-icon-color);
   }
   .ph-autocomplete-spacing {
-    width: 12px;
+    width: 32px;
+    &.ph-autocomplete-extra-spacing {
+      width: 12px;
+    }
   }
   .ph-autocomplete-selected-label {
     overflow: hidden;

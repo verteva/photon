@@ -34,7 +34,7 @@ export default {
 }
 
 .ph-progress-bar-long-ltr {
-  background-color: var(--autocomplete-loading-bar-color);
+  background-color: var(--vselect-loading-base-loading-bar-color);
   bottom: 0;
   left: 0;
   position: absolute;
@@ -43,14 +43,14 @@ export default {
   width: auto;
   will-change: left, right;
   height: 0.125rem;
-  background: var(--autocomplete-loading-bar-color);
+  background: var(--vselect-loading-base-loading-bar-color);
   animation-name: progressLinearLongLtr;
   animation-duration: 2.2s;
   animation-iteration-count: infinite;
 }
 
 .ph-progress-bar-short-ltr {
-  background-color: var(--autocomplete-loading-bar-color);
+  background-color: var(--vselect-loading-base-loading-bar-color);
   bottom: 0;
   left: 0;
   position: absolute;
@@ -58,7 +58,7 @@ export default {
   top: 0;
   width: 50%;
   will-change: left, right;
-  background: var(--autocomplete-loading-bar-color);
+  background: var(--vselect-loading-base-loading-bar-color);
   animation-name: progressLinearShortLtr;
   animation-duration: 2.2s;
   animation-iteration-count: infinite;

@@ -1,17 +1,17 @@
 <template>
-  <div class="ph-autocomplete__option ph-flex">
+  <div class="ph-autocomplete__option">
     <p-icon
       v-if="allowOptionIcon && validateIcon"
-      class="ph-my-auto ph-mr-4"
+      class="ph-option-icon ph-mr-4"
       :name="validateIcon"
       type="xs"
-    ></p-icon>
+    />
     <label
       class="ph-autocomplete-option"
       v-html="
         option[customLabelVar] ? option[customLabelVar] : option[labelVar]
       "
-    ></label>
+    />
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
 export default Vue.extend({
-  name: 'Footer',
+  name: 'Option',
   components: {
     PIcon,
   },
@@ -37,28 +37,38 @@ export default Vue.extend({
       type: String as PropType<string>,
       default: '',
     },
-    customLabelVar: {
-      type: String as PropType<string>,
-      default: '',
-    },
     labelVar: {
       type: String as PropType<string>,
-      default: '',
+      default: 'label',
+    },
+    customLabelVar: {
+      type: String as PropType<string>,
+      default: 'custom_label',
     },
   },
 });
 </script>
 
 <style lang="scss" scoped>
-.ph-autocomplete-option {
+.vs__dropdown-option--highlight {
+  background-color: var(--vselect-option-base-highlight-background-color);
+}
+.ph-autocomplete__option {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  display: flex;
   white-space: normal;
+  display: flex;
   .af_hl {
     display: inline-block;
     padding: 1px;
     margin: 0;
-    border-radius: 0.5rem;
-    background: var(--autocomplete-input-background-color);
-    color: var(--autocomplete-input-base-text-color);
+    border-radius: 8px;
+    background: var(--vselect-option-base-background-color);
+    color: var(--vselect-option-base-text-color);
   }
+}
+.ph-option-icon {
+  margin: auto 8px auto 0;
 }
 </style>

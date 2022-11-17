@@ -5,28 +5,39 @@
         ref="autocomplete"
         v-model="selected"
         v-bind="conditionalProps"
+        data-testid="autocomplete"
         class="ph-autocomplete__v-select"
         :value="initInput"
         :options="optionItems"
         :label="labelVar"
+        :reduce="
+          !simple && !returnObj
+            ? content => content[labelVar]
+            : content => content
+        "
+        append-to-body
         :placeholder="placeHolder"
         :class="'ph-autocomplete-open' && toggleMenu"
         :clearable="!hideClearBtn"
+        v-on="$listeners"
         @input="onInput"
         @search="onSearch"
         @search:blur="$emit('blur')"
         @open="onOpen"
         @close="onClose"
-        @blur="onBlur"
         @option:selected="onSelected"
       >
         <template #search="{ attributes, events }">
           <InputSearch
+            ref="input"
             :prefix-icon="prefixIcon"
             :hide-input-on-selected="!selected ? true : !hideInputOnSelected"
             :selected="selected"
             :attributes="attributes"
             :events="events"
+            :disabled="disabled"
+            @focus="onFocus"
+            @blur="onBlur"
           />
         </template>
         <template v-if="!disableFilter" #selected-option="option">
@@ -47,12 +58,15 @@
           <SelectedOption
             :allow-option-icon="allowOptionIcon"
             :show-selected-icon="showSelectedIcon"
-            :validate-icon="validateIcon(option)"
-            :prefix-icon="prefixIcon"
+            :validate-icon="
+              validateIcon(option) ? validateIcon(option) : prefixIcon
+            "
             :deselect="deselect"
             :multiple="multiple"
             :disabled="disabled"
             :option="option"
+            :label-var="labelVar"
+            :custom-label-var="customLabelVar"
           />
         </template>
         <template #open-indicator="{ attributes }">
@@ -63,21 +77,21 @@
           />
         </template>
         <template #option="option">
-          <div>
-            <Option
-              :allow-option-icon="allowOptionIcon"
-              :validate-icon="validateIcon(option)"
-              :option="option"
-              :label-var="labelVar"
-              :custom-label-var="customLabelVar"
-            ></Option>
-          </div>
+          <Option
+            :allow-option-icon="allowOptionIcon"
+            :validate-icon="validateIcon(option)"
+            :option="option"
+            :label-var="labelVar"
+            :custom-label-var="customLabelVar"
+          />
         </template>
         <template #no-options>
           <NoOptions :no-options-text="noOptionsText" />
         </template>
         <template #list-footer>
-          <Footer :show-footer="showFooter" :add-footer="addFooter" />
+          <Footer :show-footer="showFooter" :add-footer="addFooter">
+            <slot name="list-footer" />
+          </Footer>
         </template>
       </v-select>
     </div>
@@ -88,20 +102,119 @@
 import Vue, { PropType } from 'vue';
 import vSelect from 'vue-select';
 
-import { InputValueType } from './types';
+import Footer from '@/components v2/Atoms/Components/VSelect/Footer';
+import Indicator from '@/components v2/Atoms/Components/VSelect/Indicator';
+import InputSearch from '@/components v2/Atoms/Components/VSelect/InputSearch';
+import NoOptions from '@/components v2/Atoms/Components/VSelect/NoOptions';
+import Option from '@/components v2/Atoms/Components/VSelect/Option';
+import SelectedOption from '@/components v2/Atoms/Components/VSelect/SelectedOption';
+import LoadingBar from '@/components v2/Atoms/Components/VSelect/LoadingBar';
 
-import NoOptions from './NoOptions.vue';
-import Footer from './Footer.vue';
-import Option from './Option.vue';
-import Indicator from './Indicator.vue';
-import InputSearch from './Inputsearch.vue';
-import SelectedOption from './SelectedOption.vue';
-import LoadingBar from './LoadingBar.vue';
+export const props = {
+  optionItems: {
+    type: Array,
+    default: () => [],
+  },
 
+  placeHolder: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  noOptionsText: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  allowOptionIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  showSelectedIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  prefixIcon: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  hideOpenIndicator: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  showFooter: {
+    type: Boolean as PropType<boolean>,
+    default: true,
+  },
+  openIndicatorIcon: {
+    type: String as PropType<string>,
+    default: 'ChevronDown',
+  },
+  value: {
+    type: [Number, String, Object] as PropType<string | number>,
+    default: null,
+  },
+  selectedBy: {
+    type: String as PropType<string>,
+    default: 'label',
+  },
+  labelVar: {
+    type: String as PropType<string>,
+    default: 'label',
+  },
+  customLabelVar: {
+    type: String as PropType<string>,
+    default: 'custom_label',
+  },
+  noDropOnStart: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  hideClearBtn: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  loading: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  initInput: {
+    type: [Number, String, Object] as PropType<string | number>,
+    default: null,
+  },
+  hideInputOnSelected: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  disableFilter: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  disabled: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  simple: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  returnObj: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  defaultFilter: {
+    type: Function,
+    default: options => {
+      return options;
+    },
+  },
+  lazyFocus: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+};
 Vue.component('vSelect', vSelect);
 
 export default Vue.extend({
-  name: 'PAutoComplete',
+  name: 'P2InputAutoComplete',
 
   components: {
     vSelect,
@@ -114,95 +227,7 @@ export default Vue.extend({
     LoadingBar,
   },
 
-  props: {
-    optionItems: {
-      type: Array,
-      default: () => [],
-    },
-
-    placeHolder: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    noOptionsText: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    allowOptionIcon: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    showSelectedIcon: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    prefixIcon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    hideOpenIndicator: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    showFooter: {
-      type: Boolean as PropType<boolean>,
-      default: true,
-    },
-    openIndicatorIcon: {
-      type: String as PropType<string>,
-      default: 'ChevronDown',
-    },
-    value: {
-      type: [Number, String, Object] as PropType<InputValueType>,
-      default: null,
-    },
-    selectedBy: {
-      type: String as PropType<string>,
-      default: 'label',
-    },
-    labelVar: {
-      type: String as PropType<string>,
-      default: 'label',
-    },
-    customLabelVar: {
-      type: String as PropType<string>,
-      default: 'custom_label',
-    },
-    noDropOnStart: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    hideClearBtn: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    loading: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    initInput: {
-      type: [Number, String, Object] as PropType<InputValueType>,
-      default: null,
-    },
-    errors: {
-      type: Array,
-      default: () => [],
-    },
-    hideInputOnSelected: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    disableFilter: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    defaultFilter: {
-      type: Function,
-      default: options => {
-        return options;
-      },
-    },
-  },
+  props,
   data() {
     return {
       focused: false,
@@ -282,6 +307,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@import '~vue-select/dist/vue-select.css';
+
 .ph-autocomplete__v-select {
   --vs-search-input-color: var(--autocomplete-input-base-text-color);
   --vs-search-input-bg: var(--autocomplete-input-base-background-color);
@@ -293,15 +320,15 @@ export default Vue.extend({
     --autocomplete-input-base-placeholder-color
   );
   .vs__dropdown-toggle {
-    border-radius: 8px;
+    border-radius: var(--autocomplete-input-base-border-radius);
     padding-bottom: 0;
     border-color: var(--autocomplete-input-base-border-color);
     background-color: var(--autocomplete-input-base-background-color);
 
     &:focus-within {
       border-color: var(--autocomplete-input-focus-border-color);
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: var(--autocomplete-input-base-border-radius);
+      border-bottom-right-radius: var(--autocomplete-input-base-border-radius);
       svg {
         transition-property: background-color, border-color, color, fill, stroke,
           opacity, box-shadow, transform;
@@ -314,7 +341,7 @@ export default Vue.extend({
 .vs__selected {
   margin: 0px 2px 0;
   border-width: 0px;
-  height: 30px;
+  height: var(--autocomplete-input-base-height);
   color: var(--autocomplete-input-base-text-color);
   & + .ph-autocomplete-search .ph-autocomplete-prefix-icon {
     display: none;
@@ -330,22 +357,12 @@ export default Vue.extend({
     -webkit-appearance: none;
     &::placeholder {
       color: var(--autocomplete-input-base-placeholder-color);
-      text-indent: 10px;
+      text-indent: var(--autocomplete-input-base-placeholder-indent);
     }
   }
 }
 
-.vs__dropdown-option--highlight {
-  background-color: var(--autocomplete-input-focus-background-color);
-  color: var(--autocomplete-input-base-text-color);
-}
-
-.vs__open-indicator {
-  color: var(--autocomplete-input-focus-svg-icon-color);
-}
-
 .vs__actions {
-  // padding-right: var(--openIndicatorIndent);
   color: var(--autocomplete-input-focus-text-color);
 }
 
@@ -359,7 +376,6 @@ export default Vue.extend({
   padding-top: 12px;
   margin-top: 2px;
   margin-top: 2px;
-  box-shadow: 0 4px 6px 0 rgba(32, 33, 36, 0.28);
   max-height: 304px;
 }
 
