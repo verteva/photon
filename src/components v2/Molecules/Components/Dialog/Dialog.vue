@@ -1,9 +1,14 @@
 <template>
-  <div ref="container" :class="baseClassList">
+  <div ref="container" class="photon-dialog">
     <div :class="backDropWrapperClassList">
       <div :class="backDropClassList" />
     </div>
-    <div id="photon-dialog" ref="dialog" :class="viewboxClassList">
+    <p2-card
+      id="photon-dialog"
+      ref="dialog"
+      class="dialog-viewbox"
+      :class="[viewboxAnimation, size]"
+    >
       <div class="ph-absolute ph-top-1 ph-right-2 ph-z-1">
         <p2-button
           ref="cancelIcon"
@@ -34,64 +39,66 @@
           {{ cancelLabel }}
         </p2-button>
       </div>
-    </div>
+    </p2-card>
   </div>
 </template>
 
 <script lang="ts">
+import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
 import P2Button from '@/components v2/Atoms/Components/Button';
+import P2Card from '@/components v2/Atoms/Components/Card';
 
 import { DialogData } from './types';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
-export default {
+const { size } = formProps;
+
+export const props = {
+  heading: {
+    type: String as PropType<string>,
+    default: '',
+  },
+  confirmLabel: {
+    type: String as PropType<string>,
+    default: 'Yes',
+  },
+
+  cancelLabel: {
+    type: String as PropType<string>,
+    default: 'Cancel',
+  },
+  singleButton: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  focusIndex: {
+    type: Number as PropType<number>,
+    default: 1,
+  },
+  secondaryButtonStyle: {
+    type: String as PropType<string>,
+    default: 'secondary',
+  },
+  size,
+};
+
+export default Vue.extend({
   name: 'Dialog',
 
   components: {
     PIcon,
     P2Button,
+    P2Card,
   },
 
-  props: {
-    heading: {
-      type: String,
-      default: '',
-    },
-    confirmLabel: {
-      type: String,
-      default: 'Yes',
-    },
-
-    cancelLabel: {
-      type: String,
-      default: 'Cancel',
-    },
-    singleButton: {
-      type: Boolean,
-      default: false,
-    },
-    focusIndex: {
-      type: Number,
-      default: 1,
-    },
-    secondaryButtonStyle: {
-      type: String,
-      default: 'secondary',
-    },
-  },
+  props,
 
   data(): DialogData {
     return {
       cancel: 'cancel',
       confirm: 'confirm',
       eventType: '',
-      baseClassList: [
-        'ph-fixed',
-        'ph-inset-0',
-        'ph-z-10',
-        'ph-flex',
-        'ph-flex-col',
-      ],
     };
   },
 
@@ -106,20 +113,10 @@ export default {
     backDropClassList(): string[] {
       return ['ph-absolute', 'ph-inset-0', 'ph-bg-black', 'ph-opacity-60'];
     },
-    viewboxClassList(): string[] {
-      return [
-        (this as any).eventType === ''
-          ? 'ph-animate-fadeIn'
-          : 'ph-animate-fadeOut',
-        'ph-rounded',
-        'ph-p-6 sm:ph-p-12',
-        'ph-bg-white',
-        'ph-relative',
-        'ph-w-10/12 sm:ph-w-100',
-        'ph-flex',
-        'ph-flex-col',
-        'ph-m-auto',
-      ];
+    viewboxAnimation(): string {
+      return (this as any).eventType === ''
+        ? 'ph-animate-fadeIn'
+        : 'ph-animate-fadeOut';
     },
   },
 
@@ -178,5 +175,38 @@ export default {
       }
     },
   },
-};
+});
 </script>
+<style lang="scss" scoped>
+.photon-dialog {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+
+  .dialog-viewbox {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--dialog-viewbox-border-radius);
+    background: var(--dialog-viewbox-background);
+    width: var(--dialog-viewbox-width);
+    margin: var(--dialog-viewbox-margin);
+    padding: var(--dialog-viewbox-padding);
+
+    &.sm {
+      width: var(--dialog-viewbox-sm-width);
+      padding: var(--dialog-viewbox-sm-padding);
+    }
+
+    &.md {
+      width: var(--dialog-viewbox-sm-width);
+      padding: var(--dialog-viewbox-sm-padding);
+    }
+  }
+}
+</style>
