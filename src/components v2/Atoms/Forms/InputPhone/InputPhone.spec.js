@@ -18,9 +18,9 @@ describe('InputPhone.vue', () => {
   });
 
   it('check placeholder is correct when input value is empty', async () => {
-    const placeHolder = 'eg: 0405 123 456';
-    await wrapper.setProps({ placeHolder });
-    expect(inputEl.placeholder).toBe(placeHolder);
+    const placeholder = 'eg: 0405 123 456';
+    await wrapper.setProps({ placeholder });
+    expect(inputEl.placeholder).toBe(placeholder);
   });
 
   it('check prop:countries is correct', async () => {

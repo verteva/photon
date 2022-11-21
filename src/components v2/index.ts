@@ -12,6 +12,7 @@ import P2InputCheckboxGroup from './Molecules/Forms/InputCheckboxGroup';
 import P2InputRadioButton from './Molecules/Forms/InputRadioButton';
 import P2InputRadioButtonGroup from './Molecules/Forms/InputRadioButtonGroup';
 import P2InputToggle from './Molecules/Forms/InputToggle';
+import P2InputPhone from './Molecules/Forms/InputPhone';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -31,6 +32,7 @@ const components: PhotonComponents = {
   P2InputRadioButton,
   P2InputRadioButtonGroup,
   P2InputToggle,
+  P2InputPhone,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;
