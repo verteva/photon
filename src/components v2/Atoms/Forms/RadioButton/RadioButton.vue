@@ -87,6 +87,11 @@ export default Vue.extend({
     border-color: var(--radio-button-styles-primary-default-border-color);
     background: var(--radio-button-styles-primary-background);
     color: var(--radio-button-styles-primary-default-color);
+
+    &.ph-radio-bar-bottom-brand {
+      padding: 20px;
+      justify-content: center;
+    }
   }
   &.ph-radio-disabled {
     .ph-radio-label {
