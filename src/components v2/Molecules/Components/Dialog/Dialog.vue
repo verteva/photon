@@ -1,5 +1,5 @@
 <template>
-  <div ref="container" class="photon-dialog">
+  <div ref="container" class="photon-dialog" :class="[size]">
     <p2-back-drop :class="backDropWrapperClassList" />
     <p2-card
       id="photon-dialog"
@@ -7,7 +7,7 @@
       class="dialog-viewbox"
       :class="[viewboxAnimation, size]"
     >
-      <div class="ph-absolute ph-top-1 ph-right-2 ph-z-1">
+      <div class="dialog-close">
         <p2-button
           ref="cancelIcon"
           button-style="plain"
@@ -19,15 +19,12 @@
       <p2-headline>
         {{ heading }}
       </p2-headline>
-      <!-- <h1 ref="heading" class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
-        {{ heading }}
-      </h1> -->
 
       <slot />
-      <div class="ph-flex ph-flex-col sm:ph-flex-row ph-mt-2">
+      <div class="dialog-buttons">
         <p2-button
           ref="confirm"
-          class="ph-mr-0 ph-mb-4 sm:ph-mb-0 sm:ph-mr-4"
+          class="dialog-confirm"
           @click="eventType = confirm"
         >
           {{ confirmLabel }}
@@ -199,15 +196,52 @@ export default Vue.extend({
     width: var(--dialog-viewbox-width);
     margin: var(--dialog-viewbox-margin);
     padding: var(--dialog-viewbox-padding);
+  }
 
-    &.sm {
+  .dialog-close {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.5rem;
+    z-index: 1;
+  }
+
+  .dialog-buttons {
+    display: flex;
+    flex-direction: column;
+    margin: var(--dialog-buttons-margin);
+
+    .dialog-confirm {
+      margin: var(--dialog-buttons-confirm-margin-default);
+    }
+  }
+
+  &.sm {
+    .dialog-viewbox {
       width: var(--dialog-viewbox-sm-width);
       padding: var(--dialog-viewbox-sm-padding);
     }
 
-    &.md {
-      width: var(--dialog-viewbox-sm-width);
-      padding: var(--dialog-viewbox-sm-padding);
+    .dialog-buttons {
+      flex-direction: row;
+    }
+
+    .dialog-confirm {
+      margin: var(--dialog-buttons-confirm-margin-sm);
+    }
+  }
+
+  &.md {
+    .dialog-viewbox {
+      width: var(--dialog-viewbox-md-width);
+      padding: var(--dialog-viewbox-md-padding);
+    }
+
+    .dialog-buttons {
+      flex-direction: row;
+    }
+
+    .dialog-confirm {
+      margin: var(--dialog-buttons-confirm-margin-md);
     }
   }
 
