@@ -15,7 +15,7 @@
   >
     <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
     <div class="container">
-      <div class="label" :class="[upperCase && 'ph-uppercase']">
+      <div class="label">
         <slot name="default">
           {{ label }}
         </slot>
@@ -36,46 +36,48 @@ import {
   ButtonSize,
 } from './types';
 
+export const props = {
+  label: {
+    type: String as PropType<string>,
+    default: 'Button',
+  },
+  buttonStyle: {
+    type: String as PropType<string>,
+    default: ButtonStyles.PRIMARY,
+  },
+  type: {
+    type: String as PropType<HTMLType>,
+    default: ButtonTypes.BUTTON,
+  },
+  disabled: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  submitting: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  upperCase: {
+    type: Boolean as PropType<boolean>,
+    default: true,
+  },
+  block: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  size: {
+    type: String as PropType<ButtonSize>,
+    default: ButtonSizes.MEDIUM,
+    validator(value: string): boolean {
+      return Object.values(ButtonSizes).indexOf(value as ButtonSize) !== -1;
+    },
+  },
+};
+
 export default Vue.extend({
   name: 'PButton',
 
-  props: {
-    label: {
-      type: String as PropType<string>,
-      default: 'Button',
-    },
-    buttonStyle: {
-      type: String as PropType<string>,
-      default: ButtonStyles.PRIMARY,
-    },
-    type: {
-      type: String as PropType<HTMLType>,
-      default: ButtonTypes.BUTTON,
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    submitting: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    upperCase: {
-      type: Boolean as PropType<boolean>,
-      default: true,
-    },
-    block: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    size: {
-      type: String as PropType<ButtonSize>,
-      default: ButtonSizes.MEDIUM,
-      validator(value: string): boolean {
-        return Object.values(ButtonSizes).indexOf(value as ButtonSize) !== -1;
-      },
-    },
-  },
+  props,
   computed: {
     isDisabled(): boolean {
       return this.disabled || this.submitting;
@@ -150,6 +152,8 @@ export default Vue.extend({
       border: getButtonStyleProperty('border', $style, '', 1px solid #e5e5e5);
       border-radius: getButtonStyleProperty('border-radius', $style, '', 50%);
       border-color: getButtonStyleProperty('border-color', $style, '', red);
+
+      font-weight: getButtonStyleProperty('font-weight', $style, '', inherit);
 
       text-transform: getButtonStyleProperty(
         'text-transform',
@@ -256,6 +260,7 @@ export default Vue.extend({
       transition: $all-transitions;
       transition-duration: 150ms;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      text-transform: var(--button-base-text-transform, none);
     }
   }
 }

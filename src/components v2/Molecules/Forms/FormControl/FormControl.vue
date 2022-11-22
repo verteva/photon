@@ -21,6 +21,7 @@
       <slot :size="size" />
     </div>
     <P2ErrorMessage
+      v-if="!hideError"
       v-bind="{
         error,
         size,
@@ -31,14 +32,41 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import P2Label from '@/components v2/Atoms/Forms/Label';
-import P2ErrorMessage from '@/components v2/Atoms/Forms/ErrorMessage';
-import P2InputMessage from '@/components v2/Atoms/Forms/InputMessage';
-import {
-  FORM_CONTROL_SIZE,
-  FORM_CONTROL_SIZE_TYPE,
-} from '@/utils/constants/FormControlConstants';
-import validators from '@/utils/validators';
+import P2Label, {
+  props as LabelProps,
+} from '@/components v2/Atoms/Forms/Label';
+import P2ErrorMessage, {
+  props as ErrorMessageProps,
+} from '@/components v2/Atoms/Forms/ErrorMessage';
+import P2InputMessage, {
+  props as InputMessageProps,
+} from '@/components v2/Atoms/Forms/InputMessage';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { label, inlineText, isRequired } = LabelProps;
+const { message: extraMessage, icon: messageIcon } = InputMessageProps;
+const { error } = ErrorMessageProps;
+const { size, disabled } = formProps;
+
+export const props = {
+  // Label props
+  label,
+  inlineText,
+  isRequired,
+  // InputMessage props
+  extraMessage,
+  messageIcon,
+  // ErrorMessage props
+  error,
+  // Global props
+  size,
+  disabled,
+  // FormControl props
+  hideError: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+};
 
 export default Vue.extend({
   name: 'P2FormControl',
@@ -47,44 +75,6 @@ export default Vue.extend({
     P2ErrorMessage,
     P2InputMessage,
   },
-  props: {
-    // Label props
-    label: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    inlineText: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    isRequired: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    // InputMessage props
-    extraMessage: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    messageIcon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    // ErrorMessage props
-    error: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    // Global props
-    size: {
-      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
-      default: FORM_CONTROL_SIZE.MEDIUM,
-      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-  },
+  props,
 });
 </script>

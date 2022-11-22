@@ -1,3 +1,1 @@
-import PCheckboxGroup from './CheckboxGroup.vue';
-
-export default PCheckboxGroup;
+export { default, props } from './CheckboxGroup.vue';

@@ -10,4 +10,5 @@ module.exports = {
   ],
   verbose: true,
   setupFilesAfterEnv: ['./setupTests.js'],
+  testResultsProcessor: 'jest-sonar-reporter',
 };

@@ -1,3 +1,1 @@
-import PLabel from './Label.vue';
-
-export default PLabel;
+export { default, props } from './Label.vue';

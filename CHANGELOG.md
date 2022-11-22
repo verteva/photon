@@ -1,3 +1,70 @@
+## [0.8.1](https://github.com/verteva/photon/compare/v0.8.0...v0.8.1) (2022-11-15)
+
+
+### Bug Fixes
+
+* unable to select the radio button circle ([ad7efc7](https://github.com/verteva/photon/commit/ad7efc7b54827ffe74585ae715ae5dd073935ed2))
+
+# [0.8.0](https://github.com/verteva/photon/compare/v0.7.0...v0.8.0) (2022-11-13)
+
+
+### Bug Fixes
+
+* input text component blur event added for ([77137bd](https://github.com/verteva/photon/commit/77137bd08f5bd8899c37c32b2bd7b62f1cda9419))
+
+
+### Features
+
+* add input date component ([fd3f6b2](https://github.com/verteva/photon/commit/fd3f6b20e6f886f7924de59b41e5611c5920a5d9))
+* toggle component ([299078d](https://github.com/verteva/photon/commit/299078df77d90db32040c69b055078d2519d5582))
+
+# [0.7.0](https://github.com/verteva/photon/compare/v0.6.1...v0.7.0) (2022-11-09)
+
+
+### Bug Fixes
+
+* select radio button full width ([cc272ad](https://github.com/verteva/photon/commit/cc272ad5d44de768e40a2f13b613a537ac00c7ed))
+
+
+### Features
+
+* add the MIT licence ([9b5db92](https://github.com/verteva/photon/commit/9b5db92f6b5cb78d9627bda8dc5cd2b6a0b3891f))
+* input text component ([d636858](https://github.com/verteva/photon/commit/d6368587d88139ed8365844725f7d10fbaa13a66))
+* message component v2 ([3b70a55](https://github.com/verteva/photon/commit/3b70a555fa807a033b8b62442564bf8befa422ab))
+* toast component added ([eed4861](https://github.com/verteva/photon/commit/eed4861383738b336d85e61098c7b3087a209026))
+* working in progress adding input text ([b0fbc66](https://github.com/verteva/photon/commit/b0fbc66d24422f074f1565be685e0e2d5e25e1bb))
+
+## [0.6.1](https://github.com/verteva/photon/compare/v0.6.0...v0.6.1) (2022-11-04)
+
+
+### Bug Fixes
+
+* radio button missing name attribute binding ([a1400ff](https://github.com/verteva/photon/commit/a1400fffbbf48774d9d8b7741839edde8f19b678))
+
+# [0.6.0](https://github.com/verteva/photon/compare/v0.5.1...v0.6.0) (2022-11-03)
+
+
+### Bug Fixes
+
+* can hide form control error. added input checkbox slot ([242d261](https://github.com/verteva/photon/commit/242d26137de2aa09bfddeae93d8e884baa2b3870))
+* checkboxes fixed with styles ([9daf762](https://github.com/verteva/photon/commit/9daf76292cc1fc93b3ee633ecf7e10301039e490))
+
+
+### Features
+
+* add RadioButton and RadioButton components ([3c258d1](https://github.com/verteva/photon/commit/3c258d1af59e94e10599771e4c5d6e748ff9c104))
+* adding css/replacing radio tailwind ([2916b1e](https://github.com/verteva/photon/commit/2916b1ecdf839bbd94457cdf187a6bd97ca11f0d))
+
+## [0.5.1](https://github.com/verteva/photon/compare/v0.5.0...v0.5.1) (2022-10-31)
+
+
+### Bug Fixes
+
+* add focus to Dialog ([f2f8650](https://github.com/verteva/photon/commit/f2f8650e4470da87e011b04c7d2370d24fb23bae))
+* node version in release pipeline ([7dc46ad](https://github.com/verteva/photon/commit/7dc46ad22b835250967364d1cc6f6a3b49d30e50))
+* upgrade gsap from 3.11.1 to 3.11.2 ([148bf04](https://github.com/verteva/photon/commit/148bf0494cba7e2e2e606dbf80050427ba313dd5))
+* upgrade gsap from 3.11.2 to 3.11.3 ([23b7ff8](https://github.com/verteva/photon/commit/23b7ff8c1bc2522d02ca9d171111c5801133bf46))
+
 # [0.5.0](https://github.com/verteva/photon/compare/v0.4.2...v0.5.0) (2022-10-20)
 
 

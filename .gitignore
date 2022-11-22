@@ -25,9 +25,13 @@ pnpm-debug.log*
 *.sw?
 
 coverage
+test-report.xml
 
 public/figmaThemes/*
 public/figmaThemes
 
 public/cxThemes/*
 public/cxThemes
+
+
+.scannerwork

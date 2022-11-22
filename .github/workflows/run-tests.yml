@@ -2,6 +2,9 @@ name: Run Jest Tests
 
 on:
   pull_request:
+  push:
+    branches:
+      - develop
 
 jobs:
   jest-test:
@@ -35,4 +38,11 @@ jobs:
 
       - run: npm install
 
-      - run: npm run test:unit
+      - run: npm run test:unit --coverage
+      - run: sed 's/\/home\/runner\/work\/photon\/photon\//\/github\/workspace\//g' ./coverage/lcov.info > updated.txt && mv updated.txt ./coverage/lcov.info
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  

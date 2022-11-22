@@ -16,43 +16,30 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import P2Checkbox from '../Checkbox';
-import {
-  FORM_CONTROL_SIZE,
-  FORM_CONTROL_SIZE_TYPE,
-} from '@/utils/constants/FormControlConstants';
-import validators from '@/utils/validators';
+import P2Checkbox, { props as CheckboxProps } from '../Checkbox';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { name } = CheckboxProps;
+const { size, disabled } = formProps;
+
+export const props = {
+  items: {
+    type: Array as PropType<any[]>,
+    default: (): [] => [],
+  },
+  // Checkbox props
+  name,
+  // Global props
+  size,
+  disabled,
+};
 
 export default Vue.extend({
   name: 'CheckboxGroup',
-
   components: {
     P2Checkbox,
   },
-
-  props: {
-    items: {
-      type: Array as PropType<any[]>,
-      default: (): [] => [],
-    },
-
-    name: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    size: {
-      type: String as PropType<FORM_CONTROL_SIZE_TYPE>,
-      default: FORM_CONTROL_SIZE.MEDIUM,
-      validator: validators.includes(Object.values(FORM_CONTROL_SIZE)),
-    },
-
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-  },
-
+  props,
   created() {
     const $this = this as any;
     if (Boolean($this.label) && $this.$slots.default) {

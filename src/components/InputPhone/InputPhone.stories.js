@@ -6,7 +6,13 @@ import { PText } from '../Typography';
 export default {
   title: 'Forms/InputPhone',
   component: PInputPhone,
-  argTypes: {},
+  argTypes: {
+    value: {
+      control: {
+        type: 'text',
+      },
+    },
+  },
 };
 
 const Template = (args, { argTypes }) => ({
@@ -17,15 +23,15 @@ const Template = (args, { argTypes }) => ({
       <p-input-phone
         v-bind='$props'
         :errors="errs"
-      >        
+      >
         <template v-slot:label>
           <p-label>Input Phone<span class="ph-text-xs ph-text-grey3 ph-ml-1 ph-font-normal"></span></p-label>
-        </template>        
+        </template>
       </p-input-phone>
       <p-input-phone
         v-bind='$props'
         :errors="errs"
-      >          
+      >
       </p-input-phone>
     </div>
   `,

@@ -1,3 +1,1 @@
-import P2Message from './Message.vue';
-
-export default P2Message;
+export { default, props } from './Message.vue';

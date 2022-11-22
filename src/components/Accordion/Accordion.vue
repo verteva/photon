@@ -385,8 +385,8 @@ hr {
 }
 
 /* Focusing the button with a mouse, touch, or stylus will show a subtle drop shadow. */
-.acc-header button:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: 1px 1px 5px rgba(1, 1, 0, 0.7);
-}
+//.acc-header button:focus:not(:focus-visible) {
+//  outline: none;
+//  box-shadow: 1px 1px 5px rgba(1, 1, 0, 0.7);
+//}
 </style>
