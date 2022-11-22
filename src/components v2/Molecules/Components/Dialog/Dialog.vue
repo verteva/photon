@@ -1,8 +1,6 @@
 <template>
   <div ref="container" class="photon-dialog">
-    <div :class="backDropWrapperClassList">
-      <div :class="backDropClassList" />
-    </div>
+    <p2-back-drop :class="backDropWrapperClassList" />
     <p2-card
       id="photon-dialog"
       ref="dialog"
@@ -18,9 +16,13 @@
           <p-icon name="Cross" type="lg" />
         </p2-button>
       </div>
-      <h1 ref="heading" class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
+      <p2-headline>
         {{ heading }}
-      </h1>
+      </p2-headline>
+      <!-- <h1 ref="heading" class="ph-text-h2 sm:ph-text-h1 ph-mt-0 ph-mb-4">
+        {{ heading }}
+      </h1> -->
+
       <slot />
       <div class="ph-flex ph-flex-col sm:ph-flex-row ph-mt-2">
         <p2-button
@@ -48,6 +50,8 @@ import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
 import P2Button from '@/components v2/Atoms/Components/Button';
 import P2Card from '@/components v2/Atoms/Components/Card';
+import P2BackDrop from '@/components v2/Atoms/Components/BackDrop';
+import P2Headline from '@/components v2/Atoms/Components/Headline';
 
 import { DialogData } from './types';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
@@ -90,6 +94,8 @@ export default Vue.extend({
     PIcon,
     P2Button,
     P2Card,
+    P2BackDrop,
+    P2Headline,
   },
 
   props,
@@ -105,18 +111,14 @@ export default Vue.extend({
   computed: {
     backDropWrapperClassList(): string[] {
       return [
-        (this as any).eventType === ''
-          ? 'ph-animate-fadeIn'
-          : 'ph-animate-fadeOut',
+        (this as any).eventType === '' ? 'animate-fade-in' : 'animate-fade-out',
       ];
     },
-    backDropClassList(): string[] {
-      return ['ph-absolute', 'ph-inset-0', 'ph-bg-black', 'ph-opacity-60'];
-    },
+
     viewboxAnimation(): string {
       return (this as any).eventType === ''
-        ? 'ph-animate-fadeIn'
-        : 'ph-animate-fadeOut';
+        ? 'animate-fade-in'
+        : 'animate-fade-out';
     },
   },
 
@@ -170,7 +172,7 @@ export default Vue.extend({
       // if (e.propertyName === 'opacity') {
 
       // }
-      if (e.animationName === 'ph-fadeOut') {
+      if (e.animationName.indexOf('fadeOut') === 0) {
         (this as any).$emit('transitionedOut');
       }
     },
@@ -207,6 +209,32 @@ export default Vue.extend({
       width: var(--dialog-viewbox-sm-width);
       padding: var(--dialog-viewbox-sm-padding);
     }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.35s cubic-bezier(0.3, 0.28, 0.26, 0.81);
+  }
+
+  .animate-fade-out {
+    animation: fadeOut 0.35s cubic-bezier(0.3, 0.28, 0.26, 0.81);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 </style>
