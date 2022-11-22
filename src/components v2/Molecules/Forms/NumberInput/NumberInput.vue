@@ -16,6 +16,7 @@
       type="number"
       :value="value"
       :disabled="disabled"
+      centered
       @focus="$emit('focus', $event)"
       @blur="$emit('blur', $event)"
       @input="$emit('input', $event)"
