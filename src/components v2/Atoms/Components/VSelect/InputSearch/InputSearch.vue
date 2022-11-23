@@ -12,8 +12,8 @@
         prefixIcon && 'ph-autocomplete-search-indent',
         disabled && 'ph-autocomplete-disabled',
       ]"
-      v-bind="attributes"
-      v-on="events"
+      v-bind="inputSearchAttributes"
+      v-on="inputSearchEvents"
       @focus="onFocus"
       @blur="onBlur"
     />
@@ -23,8 +23,12 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { disabled } = formProps;
 
 export const props = {
+  disabled,
   prefixIcon: {
     type: String as PropType<string>,
     default: '',
@@ -40,18 +44,14 @@ export const props = {
     default: null,
   },
 
-  attributes: {
+  inputSearchAttributes: {
     type: Object as PropType<Record<string, any>>,
     default: () => ({}),
   },
 
-  events: {
+  inputSearchEvents: {
     type: Object as PropType<Record<string, any>>,
     default: () => ({}),
-  },
-  disabled: {
-    type: Boolean as PropType<boolean>,
-    default: false,
   },
 };
 

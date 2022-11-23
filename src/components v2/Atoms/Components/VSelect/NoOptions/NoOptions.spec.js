@@ -8,9 +8,9 @@ describe('Atoms/NoOptions.vue', () => {
     wrapper = createWrapper(NoOptions);
   });
 
-  it('props: noOptionsText', async () => {
-    const noOptionsText = 'There are no options';
-    await wrapper.setProps({ noOptionsText });
+  it('props: no options text', async () => {
+    const text = 'There are no options';
+    await wrapper.setProps({ text });
     expect(wrapper.html()).toContain('There are no options');
   });
 });

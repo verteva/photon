@@ -79,8 +79,11 @@ describe('Molecules/AutoComplete.vue', () => {
 
   it('emits: input', async () => {
     const autocomplete = await wrapper.findComponent({
-      ref: 'autocomplete',
+      ref: 'inputAutocomplete',
     });
-    await autocomplete.trigger('input', 'test');
+    const inputElm = await autocomplete.find('input');
+    await inputElm.setValue('some value');
+    console.log(await wrapper.emitted());
+    expect(wrapper.emitted()['update:searchInput'][0][0]).toBe('some value');
   });
 });

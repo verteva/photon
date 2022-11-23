@@ -111,9 +111,10 @@ InputPrefixIcon.args = {
   noDropOnStart: true,
   showSelectedIcon: true,
   placeHolder: 'Search for your property',
-  noOptionsText: 'Search for your <b>property</b>',
+  text: 'Search for your <b>property</b>',
   prefixIcon: 'LocationSimple',
   footer: "Can't find your address? <a href='#'>Enter it manually</a>",
+  disableFilter: true,
   optionItems: [
     {
       code: '001',

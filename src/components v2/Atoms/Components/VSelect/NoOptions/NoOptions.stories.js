@@ -14,5 +14,5 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  noOptionsText: 'No options here buddy',
+  text: 'No options here buddy',
 };

@@ -1,5 +1,5 @@
 <template>
-  <span v-bind="attributes">
+  <span v-bind="indicatorAttributes">
     <p-icon
       v-if="!hideOpenIndicator"
       class="openIndicator"
@@ -24,7 +24,7 @@ export const props = {
     default: 'Apartment',
   },
 
-  attributes: {
+  indicatorAttributes: {
     type: Object as PropType<any>,
     default: () => ({}),
   },

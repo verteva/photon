@@ -18,34 +18,40 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
+
+export const props = {
+  option: {
+    type: Object as PropType<any>,
+    default: () => ({}),
+  },
+
+  labelVar: {
+    type: String as PropType<string>,
+    default: 'label',
+  },
+
+  customLabelVar: {
+    type: String as PropType<string>,
+    default: 'customLabel',
+  },
+
+  allowOptionIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  validateIcon: {
+    type: String as PropType<string>,
+    default: '',
+  },
+};
+
 export default Vue.extend({
   name: 'Option',
   components: {
     PIcon,
   },
-  props: {
-    allowOptionIcon: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-
-    option: {
-      type: Object as PropType<any>,
-      default: () => ({}),
-    },
-    validateIcon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    labelVar: {
-      type: String as PropType<string>,
-      default: 'label',
-    },
-    customLabelVar: {
-      type: String as PropType<string>,
-      default: 'custom_label',
-    },
-  },
+  props,
 });
 </script>
 

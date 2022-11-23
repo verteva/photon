@@ -28,52 +28,61 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+
+const { disabled } = formProps;
+
+export const props = {
+  option: {
+    type: Object as PropType<any>,
+    default: () => ({}),
+  },
+
+  labelVar: {
+    type: String as PropType<string>,
+    default: 'label',
+  },
+
+  customLabelVar: {
+    type: String as PropType<string>,
+    default: 'customLabel',
+  },
+
+  allowOptionIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  validateIcon: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  deselect: {
+    type: Function,
+    default: select => {
+      return select;
+    },
+  },
+
+  multiple: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  showSelectedIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  disabled,
+};
 
 export default Vue.extend({
   name: 'SelectedOption',
   components: {
     PIcon,
   },
-  props: {
-    option: {
-      type: Object as PropType<any>,
-      default: () => ({}),
-    },
-    validateIcon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-    allowOptionIcon: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    showSelectedIcon: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    deselect: {
-      type: Function,
-      default: options => {
-        return options;
-      },
-    },
-    multiple: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    disabled: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-    labelVar: {
-      type: String as PropType<string>,
-      default: 'label',
-    },
-    customLabelVar: {
-      type: String as PropType<string>,
-      default: 'custom_label',
-    },
-  },
+  props,
 });
 </script>
 

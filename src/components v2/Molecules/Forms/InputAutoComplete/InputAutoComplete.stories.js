@@ -37,13 +37,13 @@ Default.args = {
   size: 'md',
   messageIcon: '',
   error: '',
+  simple: true,
   openIndicatorIcon: 'MenuDown',
   optionItems: ['item1', 'item2'],
 };
 
 export const AutocompleteAddress = Template.bind({});
 AutocompleteAddress.args = {
-  label: 'Autocomplete Address',
   loading: true,
   allowOptionIcon: true,
   hideOpenIndicator: true,
@@ -51,11 +51,10 @@ AutocompleteAddress.args = {
   hideClearBtn: false,
   noDropOnStart: true,
   showSelectedIcon: true,
-  disableFilter: true,
-  maxHeight: '200px',
   placeHolder: 'Search for your property',
-  noOptionsText: 'Search for your <b>property</b>',
+  text: 'Search for your <b>property</b>',
   prefixIcon: 'LocationSimple',
+  disableFilter: true,
   footer: "Can't find your address? <a href='#'>Enter it manually</a>",
   optionItems: [
     {

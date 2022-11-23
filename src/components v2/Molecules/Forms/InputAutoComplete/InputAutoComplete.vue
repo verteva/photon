@@ -13,6 +13,7 @@
     }"
   >
     <P2InputAutoComplete
+      ref="inputAutocomplete"
       v-bind="{
         disabled,
         optionItems,
@@ -36,7 +37,6 @@
         disableFilter,
         simple,
         returnObj,
-        defaultFilter,
         lazyFocus,
       }"
       @selectedObj="$emit('selectedObj', $event)"
@@ -46,7 +46,6 @@
       @blur="$emit('blur')"
       @update:selected="$emit('update:selected', $event)"
       @update:value="$emit('update:value', $event)"
-      v-on="$listeners"
     />
   </P2FormControl>
 </template>
@@ -74,7 +73,7 @@ const {
 const {
   optionItems,
   placeHolder,
-  noOptionsText,
+  text: noOptionsText,
   allowOptionIcon,
   showSelectedIcon,
   prefixIcon,
@@ -93,7 +92,6 @@ const {
   disableFilter,
   simple,
   returnObj,
-  defaultFilter,
   lazyFocus,
 } = InputAutoCompleteProps;
 
@@ -131,7 +129,6 @@ export const props = {
   disableFilter,
   simple,
   returnObj,
-  defaultFilter,
   lazyFocus,
 };
 

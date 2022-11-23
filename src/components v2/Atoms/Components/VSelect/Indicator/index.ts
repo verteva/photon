@@ -1,3 +1,1 @@
-import P2Indicator from './Indicator.vue';
-
-export default P2Indicator;
+export { default, props } from './Indicator.vue';

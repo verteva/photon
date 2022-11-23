@@ -13,11 +13,10 @@ describe('Atoms/Option.vue', () => {
 
   it('props: allowOptionIcon && validateIcon', async () => {
     const allowOptionIcon = true;
-    const validateIcon = 'Apartment';
-    await wrapper.setProps({ allowOptionIcon, validateIcon });
+    const prefixIcon = 'Apartment';
+    await wrapper.setProps({ allowOptionIcon, prefixIcon });
 
-    expect(wrapper.html()).toContain('ph-option-icon');
-    expect(wrapper.html()).toContain(validateIcon);
+    expect(wrapper.html()).toContain(prefixIcon);
   });
 
   it('props: option', async () => {

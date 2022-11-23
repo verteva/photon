@@ -16,9 +16,7 @@ describe('Atoms/InputSearch.vue', () => {
   });
 
   it('props:hideInputOnSelected is setup correctly', async () => {
-    const input = await wrapper.findComponent({
-      ref: 'input',
-    });
+    const input = await wrapper.find('[data-testid="autocomplete-input"]');
     const hideInputOnSelected = true;
     await wrapper.setProps({ hideInputOnSelected });
     expect(input.isVisible()).toBeTruthy();

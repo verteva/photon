@@ -1,3 +1,1 @@
-import P2SelectedOption from './SelectedOption.vue';
-
-export default P2SelectedOption;
+export { default, props } from './SelectedOption.vue';

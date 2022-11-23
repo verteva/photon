@@ -1,3 +1,1 @@
-import P2InputSearch from './InputSearch.vue';
-
-export default P2InputSearch;
+export { default, props } from './InputSearch.vue';

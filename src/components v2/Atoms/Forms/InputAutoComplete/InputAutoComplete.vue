@@ -4,7 +4,6 @@
       <v-select
         ref="autocomplete"
         v-model="selected"
-        v-bind="conditionalProps"
         data-testid="autocomplete"
         class="ph-autocomplete__v-select"
         :value="initInput"
@@ -19,13 +18,15 @@
         :placeholder="placeHolder"
         :class="'ph-autocomplete-open' && toggleMenu"
         :clearable="!hideClearBtn"
-        v-on="$listeners"
+        :dropdown-should-open="dropdownShouldOpen"
+        :searchable="!disableFilter"
         @input="onInput"
         @search="onSearch"
         @search:blur="$emit('blur')"
         @open="onOpen"
         @close="onClose"
         @option:selected="onSelected"
+        v-on="$listeners"
       >
         <template #search="{ attributes, events }">
           <InputSearch
@@ -33,8 +34,8 @@
             :prefix-icon="prefixIcon"
             :hide-input-on-selected="!selected ? true : !hideInputOnSelected"
             :selected="selected"
-            :attributes="attributes"
-            :events="events"
+            :input-search-attributes="attributes"
+            :input-search-events="events"
             :disabled="disabled"
             @focus="onFocus"
             @blur="onBlur"
@@ -71,7 +72,7 @@
         </template>
         <template #open-indicator="{ attributes }">
           <Indicator
-            :attributes="attributes"
+            :indicator-attributes="attributes"
             :hide-open-indicator="hideOpenIndicator"
             :open-indicator-icon="openIndicatorIcon"
           />
@@ -86,7 +87,7 @@
           />
         </template>
         <template #no-options>
-          <NoOptions :no-options-text="noOptionsText" />
+          <NoOptions :text="text" />
         </template>
         <template #list-footer>
           <Footer :show-footer="showFooter" :add-footer="addFooter">
@@ -101,52 +102,88 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import vSelect from 'vue-select';
+import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
-import Footer from '@/components v2/Atoms/Components/VSelect/Footer';
-import Indicator from '@/components v2/Atoms/Components/VSelect/Indicator';
-import InputSearch from '@/components v2/Atoms/Components/VSelect/InputSearch';
-import NoOptions from '@/components v2/Atoms/Components/VSelect/NoOptions';
-import Option from '@/components v2/Atoms/Components/VSelect/Option';
-import SelectedOption from '@/components v2/Atoms/Components/VSelect/SelectedOption';
-import LoadingBar from '@/components v2/Atoms/Components/VSelect/LoadingBar';
+const { disabled } = formProps;
+
+import Footer, {
+  props as FooterProps,
+} from '@/components v2/Atoms/Components/VSelect/Footer';
+import Indicator, {
+  props as IndicatorProps,
+} from '@/components v2/Atoms/Components/VSelect/Indicator';
+import InputSearch, {
+  props as InputSearchProps,
+} from '@/components v2/Atoms/Components/VSelect/InputSearch';
+import NoOptions, {
+  props as NoOptionsProps,
+} from '@/components v2/Atoms/Components/VSelect/NoOptions';
+import Option, {
+  props as OptionProps,
+} from '@/components v2/Atoms/Components/VSelect/Option';
+import SelectedOption, {
+  props as SelectedOptionProps,
+} from '@/components v2/Atoms/Components/VSelect/SelectedOption';
+import LoadingBar, {
+  props as LoadingBarProps,
+} from '@/components v2/Atoms/Components/VSelect/LoadingBar';
+
+const { showFooter } = FooterProps;
+const {
+  hideOpenIndicator,
+  openIndicatorIcon,
+  indicatorAttributes,
+} = IndicatorProps;
+
+const {
+  prefixIcon,
+  inputSearchAttributes,
+  inputSearchEvents,
+} = InputSearchProps;
+
+const { text } = NoOptionsProps;
+const { allowOptionIcon, option, labelVar, customLabelVar } = OptionProps;
+const { deselect, multiple, showSelectedIcon } = SelectedOptionProps;
+const { loading } = LoadingBarProps;
 
 export const props = {
+  // form props
+  disabled,
+  // footer props
+  showFooter,
+  // indicator props
+  hideOpenIndicator,
+  openIndicatorIcon,
+  indicatorAttributes,
+  // input search props
+  prefixIcon,
+
+  inputSearchAttributes,
+  inputSearchEvents,
+  // no options props
+  text,
+  // option props
+  allowOptionIcon,
+  option,
+  labelVar,
+  customLabelVar,
+  // selected option props
+  deselect,
+  multiple,
+  showSelectedIcon,
+  // loading bar props
+  loading,
   optionItems: {
     type: Array,
     default: () => [],
   },
-
+  hideInputOnSelected: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
   placeHolder: {
     type: String as PropType<string>,
     default: '',
-  },
-  noOptionsText: {
-    type: String as PropType<string>,
-    default: '',
-  },
-  allowOptionIcon: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  showSelectedIcon: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  prefixIcon: {
-    type: String as PropType<string>,
-    default: '',
-  },
-  hideOpenIndicator: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  showFooter: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  openIndicatorIcon: {
-    type: String as PropType<string>,
-    default: 'ChevronDown',
   },
   value: {
     type: [Number, String, Object] as PropType<string | number>,
@@ -156,14 +193,6 @@ export const props = {
     type: String as PropType<string>,
     default: 'label',
   },
-  labelVar: {
-    type: String as PropType<string>,
-    default: 'label',
-  },
-  customLabelVar: {
-    type: String as PropType<string>,
-    default: 'custom_label',
-  },
   noDropOnStart: {
     type: Boolean as PropType<boolean>,
     default: false,
@@ -172,23 +201,11 @@ export const props = {
     type: Boolean as PropType<boolean>,
     default: false,
   },
-  loading: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
   initInput: {
     type: [Number, String, Object] as PropType<string | number>,
     default: null,
   },
-  hideInputOnSelected: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
   disableFilter: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  disabled: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
@@ -199,12 +216,6 @@ export const props = {
   returnObj: {
     type: Boolean as PropType<boolean>,
     default: false,
-  },
-  defaultFilter: {
-    type: Function,
-    default: options => {
-      return options;
-    },
   },
   lazyFocus: {
     type: Boolean as PropType<boolean>,
@@ -238,33 +249,36 @@ export default Vue.extend({
   },
   computed: {
     addFooter() {
-      return this.optionItems.length > 0;
-    },
-    conditionalProps() {
-      let props = {};
-      if (this.noDropOnStart) {
-        props['dropdown-should-open'] = () =>
-          this.optionItems.length > 0 && this.$data.toggleMenu;
-      }
-      if (this.disableFilter) {
-        props['filter'] = () => this.defaultFilter(this.optionItems);
-      }
-      return props;
+      return (this as any).optionItems.length > 0;
     },
   },
   created() {
-    const selected = (this as any).getSelected(this.initInput);
+    const selected = (this as any).getSelected((this as any).initInput);
     this.$data.selected = selected
-      ? selected[this.labelVar] || ''
-      : this.initInput;
+      ? selected[(this as any).labelVar] || ''
+      : (this as any).initInput;
   },
   mounted() {
-    this.$emit('selectedObj', (this as any).getSelected(this.initInput));
+    this.$emit(
+      'selectedObj',
+      (this as any).getSelected((this as any).initInput)
+    );
   },
   methods: {
+    dropdownShouldOpen(VueSelect) {
+      if (
+        this.noDropOnStart &&
+        this.optionItems.length > 0 &&
+        this.$data.toggleMenu
+      ) {
+        return VueSelect.open;
+      }
+      return VueSelect.open && this.optionItems.length > 0;
+    },
+
     getSelected(input: string) {
       const option = (this as any).optionItems.filter(
-        item => item[this.selectedBy] === input
+        item => item[(this as any).selectedBy] === input
       )[0];
       return option ? option : null;
     },

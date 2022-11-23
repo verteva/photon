@@ -10,7 +10,7 @@ import Vue, { PropType } from 'vue';
 export const props = {
   showFooter: {
     type: Boolean as PropType<boolean>,
-    default: false,
+    default: true,
   },
   addFooter: {
     type: Boolean as PropType<boolean>,

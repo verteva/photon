@@ -1,3 +1,1 @@
-import P2Footer from './Footer.vue';
-
-export default P2Footer;
+export { default, props } from './Footer.vue';

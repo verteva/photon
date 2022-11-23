@@ -10,14 +10,16 @@
 </template>
 
 <script>
+export const props = {
+  loading: {
+    type: Boolean,
+    default: false,
+  },
+};
+
 export default {
   name: 'LoadingBar',
-  props: {
-    loading: {
-      type: Boolean,
-      default: false,
-    },
-  },
+  props,
 };
 </script>
 
