@@ -8,10 +8,10 @@
         class="ph-autocomplete__v-select"
         :value="initInput"
         :options="optionItems"
-        :label="labelVar"
+        :label="selectedOptionLabelVar"
         :reduce="
           !simple && !returnObj
-            ? content => content[labelVar]
+            ? content => content[selectedOptionLabelVar]
             : content => content
         "
         append-to-body
@@ -43,7 +43,7 @@
         </template>
         <template v-if="!disableFilter" #selected-option="option">
           <SelectedOption
-            :allow-option-icon="allowOptionIcon"
+            :allow-option-icon="selectedOptionAllowOptionIcon"
             :show-selected-icon="showSelectedIcon"
             :validate-icon="
               validateIcon(option) ? validateIcon(option) : prefixIcon
@@ -57,7 +57,7 @@
           #selected-option-container="{ option, deselect, multiple, disabled }"
         >
           <SelectedOption
-            :allow-option-icon="allowOptionIcon"
+            :allow-option-icon="selectedOptionAllowOptionIcon"
             :show-selected-icon="showSelectedIcon"
             :validate-icon="
               validateIcon(option) ? validateIcon(option) : prefixIcon
@@ -66,8 +66,8 @@
             :multiple="multiple"
             :disabled="disabled"
             :option="option"
-            :label-var="labelVar"
-            :custom-label-var="customLabelVar"
+            :label-var="selectedOptionLabelVar"
+            :custom-label-var="selectedOptionCustomLabelVar"
           />
         </template>
         <template #open-indicator="{ attributes }">
@@ -79,11 +79,11 @@
         </template>
         <template #option="option">
           <Option
-            :allow-option-icon="allowOptionIcon"
+            :allow-option-icon="optionAllowOptionIcon"
             :validate-icon="validateIcon(option)"
             :option="option"
-            :label-var="labelVar"
-            :custom-label-var="customLabelVar"
+            :label-var="optionLabelVar"
+            :custom-label-var="optionCustomLabelVar"
           />
         </template>
         <template #no-options>
@@ -142,8 +142,20 @@ const {
 } = InputSearchProps;
 
 const { text } = NoOptionsProps;
-const { allowOptionIcon, option, labelVar, customLabelVar } = OptionProps;
-const { deselect, multiple, showSelectedIcon } = SelectedOptionProps;
+const {
+  allowOptionIcon: optionAllowOptionIcon,
+  option,
+  labelVar: optionLabelVar,
+  customLabelVar: optionCustomLabelVar,
+} = OptionProps;
+const {
+  deselect,
+  multiple,
+  showSelectedIcon,
+  labelVar: selectedOptionLabelVar,
+  customLabelVar: selectedOptionCustomLabelVar,
+  allowOptionIcon: selectedOptionAllowOptionIcon,
+} = SelectedOptionProps;
 const { loading } = LoadingBarProps;
 
 export const props = {
@@ -163,14 +175,17 @@ export const props = {
   // no options props
   text,
   // option props
-  allowOptionIcon,
   option,
-  labelVar,
-  customLabelVar,
+  optionLabelVar,
+  optionCustomLabelVar,
+  optionAllowOptionIcon,
   // selected option props
   deselect,
   multiple,
   showSelectedIcon,
+  selectedOptionLabelVar,
+  selectedOptionCustomLabelVar,
+  selectedOptionAllowOptionIcon,
   // loading bar props
   loading,
   optionItems: {
@@ -255,7 +270,7 @@ export default Vue.extend({
   created() {
     const selected = (this as any).getSelected((this as any).initInput);
     this.$data.selected = selected
-      ? selected[(this as any).labelVar] || ''
+      ? selected[(this as any).optionLabelVar] || ''
       : (this as any).initInput;
   },
   mounted() {
