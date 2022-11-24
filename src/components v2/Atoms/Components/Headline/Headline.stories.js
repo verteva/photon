@@ -1,14 +1,22 @@
-import PHeadline from './Headline.vue';
+import P2Headline from './Headline.vue';
 
 export default {
-  title: 'v2/Atoms/Forms/Headline',
-  component: PHeadline,
+  title: 'V2/Atoms/Components/Headline',
+  component: P2Headline,
+  argTypes: {
+    // Configurable component options in SB UI...
+  },
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { PLabel },
+  components: { P2Headline },
   props: Object.keys(argTypes),
-  template: '<PHeadline v-bind="$props"/>',
+  template: `
+    <p2-headline v-bind='$props' >
+      Headline
+    </p2-headline>
+  `,
 });
 
 export const Default = Template.bind({});
+Default.args = {};

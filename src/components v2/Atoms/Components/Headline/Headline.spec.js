@@ -1,30 +1,16 @@
-import Label from './Label.vue';
+import Headline from './Headline.vue';
 import { createWrapper } from '@/utils/unitTest';
 
-describe('Label.vue', () => {
+describe('Headline.vue', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = createWrapper(Label);
+    wrapper = createWrapper(Headline);
   });
 
-  it('props: label', async () => {
-    const label = 'This is a label';
-    await wrapper.setProps({ label });
+  it('has photon-headline class', async () => {
+    const el = wrapper.find('.photon-headline');
 
-    expect(wrapper.html()).toContain(label);
-  });
-
-  it('props: isRequired', async () => {
-    await wrapper.setProps({ isRequired: true });
-
-    expect(wrapper.html()).toContain('*');
-  });
-
-  it('props: inlineText', async () => {
-    const inlineText = 'This is a label';
-    await wrapper.setProps({ inlineText });
-
-    expect(wrapper.html()).toContain(inlineText);
+    expect(el.exists()).toBeTruthy();
   });
 });
