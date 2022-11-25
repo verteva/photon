@@ -16,6 +16,7 @@ import P2InputRadioButton from './Molecules/Forms/InputRadioButton';
 import P2InputRadioButtonGroup from './Molecules/Forms/InputRadioButtonGroup';
 import P2InputToggle from './Molecules/Forms/InputToggle';
 import P2InputPhone from './Molecules/Forms/InputPhone';
+import P2InputAutoComplete from './Molecules/Forms/InputAutoComplete';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -37,6 +38,7 @@ const components: PhotonComponents = {
   P2InputRadioButtonGroup,
   P2InputToggle,
   P2InputPhone,
+  P2InputAutoComplete,
   P2BackDrop,
   P2Headline,
 };
