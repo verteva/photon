@@ -16,19 +16,9 @@ describe('Form.vue', () => {
     });
   };
 
-  it('check init prop:disalbed should be false', () => {
-    const wrapper = createWrapper();
-    expect(wrapper.vm.disabled).toBe(false);
-  });
-
   it('check init text input should be empty', () => {
     const wrapper = createWrapper();
     const input = wrapper.find('input').element;
     expect(input.value).toBe('');
-  });
-
-  it('check init prop:novalidate should be true', () => {
-    const wrapper = createWrapper();
-    expect(wrapper.vm.novalidate).toBe(true);
   });
 });
