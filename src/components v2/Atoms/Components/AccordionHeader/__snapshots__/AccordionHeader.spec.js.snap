@@ -1,0 +1,440 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccordionHeader.vue props: disabled 1`] = `
+<div>
+  <div
+    class="ph-accordion-header acc-header disabled full-width interactive"
+    tabindex="0"
+  >
+    
+  
+   
+    <!---->
+     
+    <div
+      class="ph-ml-auto"
+      data-testid="openArrow"
+    >
+      <div
+        class="ph-accordion-header-chevron"
+      >
+        <svg
+          class="picon"
+          color="inherit"
+          height="12"
+          version="1.1"
+          viewBox="0 0 12 7"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Experiments"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              id=<-06_2_Desktop->-FINANCIALS---Employment
+              transform="translate(-1097.000000, -422.000000)"
+            >
+              <rect
+                fill="url(#linearGradient-1)"
+                height="1395"
+                id="Mask"
+                width="1440"
+                x="0"
+                y="0"
+              />
+               
+              <rect
+                height="7"
+                id="Rectangle"
+                width="12"
+                x="1097"
+                y="422"
+              />
+               
+              <polyline
+                id="Path-13"
+                points="1098 423 1103 428 1108 423"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`AccordionHeader.vue props: expanded = true 1`] = `
+<div>
+  <div
+    class="ph-accordion-header acc-header full-width interactive"
+    tabindex="0"
+  >
+    
+  
+   
+    <!---->
+     
+    <div
+      class="ph-ml-auto"
+      data-testid="openArrow"
+    >
+      <div
+        class="ph-accordion-header-chevron expanded"
+      >
+        <svg
+          class="picon"
+          color="inherit"
+          height="12"
+          version="1.1"
+          viewBox="0 0 12 7"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Experiments"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              id=<-06_2_Desktop->-FINANCIALS---Employment
+              transform="translate(-1097.000000, -422.000000)"
+            >
+              <rect
+                fill="url(#linearGradient-1)"
+                height="1395"
+                id="Mask"
+                width="1440"
+                x="0"
+                y="0"
+              />
+               
+              <rect
+                height="7"
+                id="Rectangle"
+                width="12"
+                x="1097"
+                y="422"
+              />
+               
+              <polyline
+                id="Path-13"
+                points="1098 423 1103 428 1108 423"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`AccordionHeader.vue props: fullWidth 1`] = `
+<div>
+  <div
+    class="ph-accordion-header acc-header full-width interactive"
+    tabindex="0"
+  >
+    
+  
+   
+    <!---->
+     
+    <div
+      class="ph-ml-auto"
+      data-testid="openArrow"
+    >
+      <div
+        class="ph-accordion-header-chevron"
+      >
+        <svg
+          class="picon"
+          color="inherit"
+          height="12"
+          version="1.1"
+          viewBox="0 0 12 7"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Experiments"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              id=<-06_2_Desktop->-FINANCIALS---Employment
+              transform="translate(-1097.000000, -422.000000)"
+            >
+              <rect
+                fill="url(#linearGradient-1)"
+                height="1395"
+                id="Mask"
+                width="1440"
+                x="0"
+                y="0"
+              />
+               
+              <rect
+                height="7"
+                id="Rectangle"
+                width="12"
+                x="1097"
+                y="422"
+              />
+               
+              <polyline
+                id="Path-13"
+                points="1098 423 1103 428 1108 423"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`AccordionHeader.vue props: interactive 1`] = `
+<div>
+  <div
+    class="ph-accordion-header acc-header full-width interactive"
+    tabindex="0"
+  >
+    
+  
+   
+    <!---->
+     
+    <div
+      class="ph-ml-auto"
+      data-testid="openArrow"
+    >
+      <div
+        class="ph-accordion-header-chevron"
+      >
+        <svg
+          class="picon"
+          color="inherit"
+          height="12"
+          version="1.1"
+          viewBox="0 0 12 7"
+          width="12"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Experiments"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              id=<-06_2_Desktop->-FINANCIALS---Employment
+              transform="translate(-1097.000000, -422.000000)"
+            >
+              <rect
+                fill="url(#linearGradient-1)"
+                height="1395"
+                id="Mask"
+                width="1440"
+                x="0"
+                y="0"
+              />
+               
+              <rect
+                height="7"
+                id="Rectangle"
+                width="12"
+                x="1097"
+                y="422"
+              />
+               
+              <polyline
+                id="Path-13"
+                points="1098 423 1103 428 1108 423"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+     
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`AccordionHeader.vue props: openArrows = false, expanded, openCloseIcons 1`] = `
+<div>
+  <div
+    class="ph-accordion-header acc-header full-width interactive"
+    tabindex="0"
+  >
+    
+  
+   
+    <!---->
+     
+    <!---->
+     
+    <div
+      class="ph-ml-auto"
+    >
+      <div>
+        <svg
+          class="picon"
+          color="inherit"
+          height="18"
+          version="1.1"
+          viewBox="0 0 12 7"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Experiments"
+            stroke-width="1"
+            transform="rotate(180, 6, 3)"
+            troke="none"
+          >
+            <g
+              id=<-06_2_Desktop->-FINANCIALS---Employment
+              transform="translate(-1097.000000, -422.000000)"
+            >
+              <rect
+                fill="url(#linearGradient-1)"
+                height="1395"
+                id="Mask"
+                width="1440"
+                x="0"
+                y="0"
+              />
+               
+              <rect
+                height="7"
+                id="Rectangle"
+                width="12"
+                x="1097"
+                y="422"
+              />
+               
+              <polyline
+                id="Path-13"
+                points="1098 423 1103 428 1108 423"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`AccordionHeader.vue props: openArrows = false, openCloseIcons 1`] = `
+<div>
+  <div
+    class="ph-accordion-header acc-header full-width interactive"
+    tabindex="0"
+  >
+    
+  
+   
+    <!---->
+     
+    <!---->
+     
+    <div
+      class="ph-ml-auto"
+    >
+      <div>
+        <svg
+          class="picon"
+          color="inherit"
+          height="18"
+          version="1.1"
+          viewBox="0 0 12 7"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            id="Experiments"
+            stroke="none"
+            stroke-width="1"
+          >
+            <g
+              id=<-06_2_Desktop->-FINANCIALS---Employment
+              transform="translate(-1097.000000, -422.000000)"
+            >
+              <rect
+                fill="url(#linearGradient-1)"
+                height="1395"
+                id="Mask"
+                width="1440"
+                x="0"
+                y="0"
+              />
+               
+              <rect
+                height="7"
+                id="Rectangle"
+                width="12"
+                x="1097"
+                y="422"
+              />
+               
+              <polyline
+                id="Path-13"
+                points="1098 423 1103 428 1108 423"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

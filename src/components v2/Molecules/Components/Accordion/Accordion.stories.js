@@ -1,9 +1,25 @@
 import PAccordion from './Accordion.vue';
-import '../../assets/scss/main.scss';
 
 export default {
-  title: 'Components/Accordion',
+  title: 'V2/Molecules/Components/Accordion',
   component: PAccordion,
+  argTypes: {
+    stayOpen: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    light: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    border: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
   parameters: {
     backgrounds: {
       default: 'white',
@@ -54,12 +70,13 @@ const SimpleTemplate = (args, { argTypes }) => ({
     },
   },
 });
+
 export const Simple = SimpleTemplate.bind({});
 Simple.args = {
-  shadow: true,
   noHeadingRule: true,
   openArrows: false,
   openCloseIcons: ['Edit', 'MinusBordered'],
+  shadow: true,
   responsivePadding: true,
 };
 
@@ -71,10 +88,10 @@ const NestedTemplate = (args, { argTypes }) => ({
     <div class='ph-my-10 ph-py-5 ph-px-10'>
       Some static HTML content...
     </div>
-    <PAccordion class="ph-mb-1" section="Level 2a" open background-color="ph-bg-white" :border="false" shadow>
+    <PAccordion class="ph-mb-1" section="Level 2a" open light :border="false" shadow>
       Lorem ipsum...
     </PAccordion>
-    <PAccordion section="Level 2b" background-color="ph-bg-white" :border="false" shadow>
+    <PAccordion section="Level 2b" light :border="false" shadow>
       Hello world!
     </PAccordion>
   </PAccordion>
@@ -85,6 +102,7 @@ const NestedTemplate = (args, { argTypes }) => ({
     };
   },
 });
+
 export const Nested = NestedTemplate.bind({});
 Nested.args = {
   mobileNoPadding: true,
@@ -145,6 +163,7 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
     },
   },
 });
+
 export const SingleFocus = SingleFocusTemplate.bind({});
 
 const UnstyledTemplate = (args, { argTypes }) => ({
@@ -164,4 +183,5 @@ const UnstyledTemplate = (args, { argTypes }) => ({
     </div>
   `,
 });
+
 export const Unstyled = UnstyledTemplate.bind({});

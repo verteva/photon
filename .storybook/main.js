@@ -9,7 +9,6 @@ module.exports = {
     '@storybook/addon-postcss',
     'storybook-addon-designs',
   ],
-  staticDirs: ['../public'],
   webpackFinal: async (config, { configType }) => {
     config.resolve.alias = {
       ...config.resolve.alias,

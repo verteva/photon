@@ -41,6 +41,8 @@ describe('InputPhone.vue', () => {
   test('focus handler test', async () => {
     expect(wrapper.vm.inFocus).toBe(false);
 
+    console.log('INPUT', input);
+
     await input.trigger('focus');
 
     expect(wrapper.vm.inFocus).toBe(true);

@@ -1,11 +1,17 @@
+/* eslint-env node */
+require("@rushstack/eslint-patch/modern-module-resolution")
+
 module.exports = {
   root: true,
   env: {
     node: true,
   },
+  plugins: [
+    'eslint-plugin-vue'
+  ],
   extends: [
     'plugin:vue/recommended',
-    '@vue/typescript/recommended',
+    '@vue/eslint-config-typescript',
     'plugin:storybook/recommended',
     '@vue/prettier'
   ],
