@@ -11,8 +11,8 @@
         :label="labelVar"
         :reduce="
           !simple && !returnObj
-            ? content => content[labelVar]
-            : content => content
+            ? (content) => content[labelVar]
+            : (content) => content
         "
         :placeholder="placeHolder"
         :class="[
@@ -76,7 +76,7 @@
             <span v-else class="ph-w-3"></span>
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal"
-              style="line-height: 40px;"
+              style="line-height: 40px"
               v-html="
                 option[customLabelVar]
                   ? option[customLabelVar]
@@ -102,7 +102,7 @@
             <span v-else class="ph-w-3"></span>
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal ph-pt-0.5"
-              style="line-height: 40px;"
+              style="line-height: 40px"
               v-html="
                 option[customLabelVar]
                   ? option[customLabelVar]
@@ -150,7 +150,19 @@
         <template #list-footer>
           <div
             v-if="showFooter"
-            class="ph-opacity-0 ph-transition ph-autocomplete__option--footer ph-flex ph-m-0 ph-px-5 ph-py-2 ph-text-sm ph-sticky ph-bottom-0 ph-z-1 ph-bg-white"
+            class="
+              ph-opacity-0 ph-transition
+              ph-autocomplete__option--footer
+              ph-flex
+              ph-m-0
+              ph-px-5
+              ph-py-2
+              ph-text-sm
+              ph-sticky
+              ph-bottom-0
+              ph-z-1
+              ph-bg-white
+            "
             :class="addFooter ? 'ph-opacity-100' : ''"
           >
             <slot name="list-footer"> </slot>
@@ -195,7 +207,7 @@ import {
 } from './types';
 import { createPopper } from '@popperjs/core';
 
-Vue.component('vSelect', vSelect);
+Vue.component('VSelect', vSelect);
 
 export default Vue.extend({
   name: 'PAutoComplete',
@@ -397,7 +409,7 @@ export default Vue.extend({
     },
     defaultFilter: {
       type: Function,
-      default: options => {
+      default: (options) => {
         return options;
       },
     },
@@ -462,7 +474,7 @@ export default Vue.extend({
   methods: {
     getSelected(input: string) {
       const option = (this as any).optionItems.filter(
-        item => item[this.selectedBy] === input
+        (item) => item[this.selectedBy] === input
       )[0];
       return option ? option : null;
     },
@@ -559,7 +571,7 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import '~vue-select/dist/vue-select.css';
 
 .ph-autocomplete__v-select {

@@ -34,7 +34,6 @@ export const assertStyleVarSetup = (
   style: string
 ): void => {
   const el = wrapper.findComponent({ ref: refName });
-  console.log('el', el);
   return expect(el.attributes('style')).toContain(
     '--' + styleName + ': ' + style
   );

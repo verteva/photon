@@ -14,7 +14,9 @@
         :searchable="false"
         class="ph-input-basic-select__v-select"
         :options="items"
-        :reduce="!returnObj ? content => content[labelVar] : content => content"
+        :reduce="
+          !returnObj ? (content) => content[labelVar] : (content) => content
+        "
         :placeholder="placeholder"
         :label="customLabelVar"
         :class="[
@@ -52,7 +54,7 @@
             <span v-else class="ph-w-3" />
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal"
-              style="line-height: 40px;"
+              style="line-height: 40px"
               v-html="
                 option[customLabelVar]
                   ? option[customLabelVar]
@@ -293,7 +295,7 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import '~vue-select/dist/vue-select.css';
 
 .ph-input-basic-select__v-select {

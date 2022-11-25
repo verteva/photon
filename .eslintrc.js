@@ -34,6 +34,8 @@ module.exports = {
       printWidth: 80,
       trailingComma: 'es5',
     }],
+    'vue/multi-word-component-names': 'off',
+    'vue/no-reserved-component-names': 'off',
     quotes: ['error', 'single', { avoidEscape: true }],
   },
   overrides: [
