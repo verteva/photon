@@ -17,10 +17,15 @@
       v-if="complete"
       name="Checkmark"
       type="xs"
+      color=""
       data-testid="complete-checkmark"
       class="ph-accordion-checkmark"
     />
-    <div v-if="openArrows" class="ph-ml-auto" data-testid="openArrow">
+    <div
+      v-if="openArrows"
+      class="ph-accordion-header__icon"
+      data-testid="openArrow"
+    >
       <p-icon
         name="ChevronDown"
         type="xs"
@@ -30,7 +35,10 @@
         }"
       />
     </div>
-    <div v-if="!openArrows && openCloseIcons.length === 2" class="ph-ml-auto">
+    <div
+      v-if="!openArrows && openCloseIcons.length === 2"
+      class="ph-accordion-header__icon"
+    >
       <p-icon
         :name="!expanded ? openCloseIcons[0] : openCloseIcons[1]"
         type="sm"
@@ -121,8 +129,14 @@ defineProps(props);
     }
   }
 
+  .ph-accordion-header__icon {
+    margin-left: auto;
+    color: var(--accordion-header-icon-color);
+  }
+
   .ph-accordion-checkmark {
-    color: var(--accordion-header-checkmark);
+    margin-left: 8px;
+    color: var(--accordion-header-checkmark) !important;
   }
 }
 </style>

@@ -1,5 +1,6 @@
 module.exports = {
   testMatch: ['**/?(*.)+(spec|test).js'],
+  coverageProvider: 'v8',
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,vue}',
