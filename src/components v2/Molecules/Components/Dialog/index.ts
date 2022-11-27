@@ -1,3 +1,1 @@
-import PDialog from './Dialog.vue';
-
-export default PDialog;
+export { default, props } from './Dialog.vue';
