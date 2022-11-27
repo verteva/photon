@@ -1,3 +1,16 @@
+# [0.9.0](https://github.com/verteva/photon/compare/v0.8.1...v0.9.0) (2022-11-16)
+
+
+### Bug Fixes
+
+* button fixes ([686a395](https://github.com/verteva/photon/commit/686a395e0a5909830ab7faea2635cd7a9326e63e))
+
+
+### Features
+
+* early Dialog transition for button fixes ([94b3d4d](https://github.com/verteva/photon/commit/94b3d4d3d473360e3e885e3d6f60a1732590b16b))
+* **PLAT-10:** input number update ([70e8a75](https://github.com/verteva/photon/commit/70e8a7523425ba2521b2587c2daf8bf3b40e1ed4))
+
 ## [0.8.1](https://github.com/verteva/photon/compare/v0.8.0...v0.8.1) (2022-11-15)
 
 
