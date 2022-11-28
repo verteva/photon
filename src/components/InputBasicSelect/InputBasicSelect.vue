@@ -293,7 +293,7 @@ export default Vue.extend({
 });
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import '~vue-select/dist/vue-select.css';
 
 .ph-input-basic-select__v-select {
