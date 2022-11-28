@@ -25,8 +25,8 @@ const Template = (args, { argTypes }) => ({
     onSubmit() {
       this.showValue = true;
       this.result = this.foodOptions
-        .filter(option => option.value === true)
-        .map(option => option.label);
+        .filter((option) => option.value === true)
+        .map((option) => option.label);
     },
     onChange({ index, value }) {
       this.foodOptions[index].value = value;

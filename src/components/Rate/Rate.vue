@@ -20,16 +20,10 @@
         class="ph-flex ph-flex-col"
         :class="(darkMode && 'ph-text-white') || ''"
       >
-        <div v-if="currency" class="ph-text-xs ph-mt-auto">
-          per month
-        </div>
+        <div v-if="currency" class="ph-text-xs ph-mt-auto">per month</div>
         <div v-else>
-          <div class="ph-text-lg ph--mb-2.5">
-            %
-          </div>
-          <div class="ph-text-xs">
-            p.a
-          </div>
+          <div class="ph-text-lg ph--mb-2.5">%</div>
+          <div class="ph-text-xs">p.a</div>
         </div>
       </div>
     </div>

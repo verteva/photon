@@ -11,8 +11,8 @@
         :label="selectedOptionLabelVar"
         :reduce="
           !simple && !returnObj
-            ? content => content[selectedOptionLabelVar]
-            : content => content
+            ? (content) => content[selectedOptionLabelVar]
+            : (content) => content
         "
         append-to-body
         :placeholder="placeHolder"
@@ -129,17 +129,11 @@ import LoadingBar, {
 } from '@/components v2/Atoms/Components/VSelect/LoadingBar';
 
 const { showFooter } = FooterProps;
-const {
-  hideOpenIndicator,
-  openIndicatorIcon,
-  indicatorAttributes,
-} = IndicatorProps;
+const { hideOpenIndicator, openIndicatorIcon, indicatorAttributes } =
+  IndicatorProps;
 
-const {
-  prefixIcon,
-  inputSearchAttributes,
-  inputSearchEvents,
-} = InputSearchProps;
+const { prefixIcon, inputSearchAttributes, inputSearchEvents } =
+  InputSearchProps;
 
 const { text } = NoOptionsProps;
 const {
@@ -237,7 +231,7 @@ export const props = {
     default: false,
   },
 };
-Vue.component('vSelect', vSelect);
+Vue.component('VSelect', vSelect);
 
 export default Vue.extend({
   name: 'P2InputAutoComplete',
@@ -293,7 +287,7 @@ export default Vue.extend({
 
     getSelected(input: string) {
       const option = (this as any).optionItems.filter(
-        item => item[(this as any).selectedBy] === input
+        (item) => item[(this as any).selectedBy] === input
       )[0];
       return option ? option : null;
     },

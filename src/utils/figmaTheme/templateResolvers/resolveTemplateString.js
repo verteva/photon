@@ -17,7 +17,7 @@ export const resolveTemplateString = (
 
     let returnString = templateString;
 
-    matches.forEach(match => {
+    matches.forEach((match) => {
       const strippedMatch = match.replace('{', '').replace('}', '');
       const value = get(root, `${strippedMatch}${valueToken}`, '');
       if (!value) {
