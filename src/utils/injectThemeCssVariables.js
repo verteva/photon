@@ -1,4 +1,4 @@
-export const injectThemeCssVariables = flattenedTheme => {
+export const injectThemeCssVariables = (flattenedTheme) => {
   const headTag = document.getElementsByTagName('head')[0];
   const styleTag =
     document.getElementById('theme-css-variables') ||

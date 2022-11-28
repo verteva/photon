@@ -9,6 +9,9 @@ module.exports = {
     '@storybook/addon-postcss',
     'storybook-addon-designs',
   ],
+  features: {
+    previewMdx2: true,
+  },
   webpackFinal: async (config, { configType }) => {
     config.resolve.alias = {
       ...config.resolve.alias,

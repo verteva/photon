@@ -98,7 +98,7 @@ defineProps(props);
   display: flex;
   align-items: center;
   color: var(--accordion-header-color);
-  font-family: var(--accordion-header-font-family);
+  font-family: var(--accordion-header-font-family) !important;
   font-weight: var(--accordion-header-font-weight);
   font-size: var(--accordion-header-font-size);
   text-transform: var(--accordion-header-text-transform);

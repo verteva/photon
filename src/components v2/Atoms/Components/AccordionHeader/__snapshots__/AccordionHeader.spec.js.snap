@@ -12,7 +12,7 @@ exports[`AccordionHeader.vue props: disabled 1`] = `
     <!---->
      
     <div
-      class="ph-ml-auto"
+      class="ph-accordion-header__icon"
       data-testid="openArrow"
     >
       <div
@@ -86,7 +86,7 @@ exports[`AccordionHeader.vue props: expanded = true 1`] = `
     <!---->
      
     <div
-      class="ph-ml-auto"
+      class="ph-accordion-header__icon"
       data-testid="openArrow"
     >
       <div
@@ -160,7 +160,7 @@ exports[`AccordionHeader.vue props: fullWidth 1`] = `
     <!---->
      
     <div
-      class="ph-ml-auto"
+      class="ph-accordion-header__icon"
       data-testid="openArrow"
     >
       <div
@@ -234,7 +234,7 @@ exports[`AccordionHeader.vue props: interactive 1`] = `
     <!---->
      
     <div
-      class="ph-ml-auto"
+      class="ph-accordion-header__icon"
       data-testid="openArrow"
     >
       <div
@@ -310,7 +310,7 @@ exports[`AccordionHeader.vue props: openArrows = false, expanded, openCloseIcons
     <!---->
      
     <div
-      class="ph-ml-auto"
+      class="ph-accordion-header__icon"
     >
       <div>
         <svg
@@ -382,7 +382,7 @@ exports[`AccordionHeader.vue props: openArrows = false, openCloseIcons 1`] = `
     <!---->
      
     <div
-      class="ph-ml-auto"
+      class="ph-accordion-header__icon"
     >
       <div>
         <svg

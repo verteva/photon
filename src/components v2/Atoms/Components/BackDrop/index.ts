@@ -1,1 +1,1 @@
-export { default, props } from './BackDrop.vue';
+export { default } from './BackDrop.vue';

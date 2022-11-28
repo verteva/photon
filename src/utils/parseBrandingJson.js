@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 
-export const parseBrandingJson = jsonFile => {
+export const parseBrandingJson = (jsonFile) => {
   return parseObject(jsonFile, jsonFile);
 };
 
@@ -16,7 +16,7 @@ export const replaceTemplateValue = (templateString, root) => {
 
   let returnString = templateString;
 
-  matches.forEach(match => {
+  matches.forEach((match) => {
     const strippedMatch = match.replace('{{', '').replace('}}', '');
     const value = get(root, strippedMatch, '');
     returnString = returnString.replace(
@@ -31,7 +31,7 @@ export const replaceTemplateValue = (templateString, root) => {
 export const parseObject = (object, root) => {
   const parsedObject = {};
 
-  Object.keys(object).forEach(key => {
+  Object.keys(object).forEach((key) => {
     if (typeof object[key] === 'object') {
       parsedObject[key] = parseObject(object[key], root);
     } else {
@@ -53,7 +53,7 @@ export const flattenObjectToCssVars = (
 ) => {
   const flattenedObject = {};
 
-  Object.keys(object).forEach(key => {
+  Object.keys(object).forEach((key) => {
     if (typeof object[key] === 'object') {
       Object.assign(
         flattenedObject,
