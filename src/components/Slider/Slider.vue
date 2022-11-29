@@ -235,9 +235,8 @@ export default Vue.extend({
       if (!this.steps) {
         const ref = this.$refs[`ph-track-${this.id}`] as SliderTrackRef;
         const { width } = ref.getBoundingClientRect();
-        const {
-          width: handleWidth,
-        } = this.draggable.target.getBoundingClientRect();
+        const { width: handleWidth } =
+          this.draggable.target.getBoundingClientRect();
         TweenLite.to(`#ph-handle-${this.id}`, 0.1, {
           x: width * this.innerValue - handleWidth * this.innerValue + 1,
         });

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`figmaTheme/flattenObjectToCssVars parses a figma theme and then flattens it 1`] = `
-Object {
+{
   "--colors-black": "#000000",
   "--colors-brand-green": "#219653",
   "--colors-brand-orange": "orange",
@@ -26,17 +26,17 @@ Object {
 exports[`figmaTheme/parseFigmaTheme errors throws when the them file format is wrong 1`] = `"Invalid template. Cannot parse non-object values. Objects must either have nested objects or terminate with an object with a valid type property."`;
 
 exports[`figmaTheme/parseFigmaTheme parses a figma theme 1`] = `
-Object {
-  "colors": Object {
+{
+  "colors": {
     "black": "#000000",
-    "brand": Object {
+    "brand": {
       "green": "#219653",
       "orange": "orange",
       "purple": "#6f53f9",
       "red": "#eb5757",
       "teal": "#31839b",
     },
-    "grey": Object {
+    "grey": {
       "00": "#07131f",
       "01": "#6a6e80",
       "02": "#949494",
@@ -45,23 +45,23 @@ Object {
       "09": "grey",
       "10": "#f9f9f9",
     },
-    "theme": Object {
+    "theme": {
       "primary": "",
       "secondary": "#31839b",
       "tertiary": "#eb5757",
     },
     "white": "#ffffff",
   },
-  "spacing": Object {
+  "spacing": {
     "default": "2",
   },
 }
 `;
 
 exports[`figmaTheme/parseFigmaTheme parses a figma theme from a semantic and source file 1`] = `
-Object {
-  "colors": Object {
-    "theme": Object {
+{
+  "colors": {
+    "theme": {
       "primary": "#f9f9f9",
       "secondary": "#31839b",
       "tertiary": "#eb5757",

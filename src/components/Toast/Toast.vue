@@ -82,7 +82,7 @@ export default Vue.extend({
 
   watch: {
     messageList() {
-      this.messageList.forEach(msg => {
+      this.messageList.forEach((msg) => {
         if (msg.autoclose && typeof msg.remove === 'undefined') {
           const { id } = msg;
           setTimeout(() => {
