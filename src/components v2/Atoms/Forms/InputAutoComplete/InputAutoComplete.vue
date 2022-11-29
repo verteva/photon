@@ -308,7 +308,7 @@ export default Vue.extend({
       ) {
         return VueSelect.open;
       }
-      return VueSelect.open && this.optionItems.length > 0;
+      return VueSelect.open && !this.disabled && this.optionItems.length > 0;
     },
 
     getSelected(input: string) {
