@@ -1,7 +1,7 @@
 import PBrandGradientText from './BrandGradientText.vue';
 
 export default {
-  title: 'Components/BrandGradientText',
+  title: 'V2/Atoms/Components/BrandGradientText',
   component: PBrandGradientText,
   argTypes: {
     // Configurable component options in SB UI...
