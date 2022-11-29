@@ -1,3 +1,1 @@
-import PContentCard from './ContentCard.vue';
-
-export default PContentCard;
+export { default, props } from './ContentCard.vue';

@@ -60,7 +60,7 @@ export const props = {
 
   deselect: {
     type: Function,
-    default: select => {
+    default: (select) => {
       return select;
     },
   },

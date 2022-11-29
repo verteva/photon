@@ -12,6 +12,9 @@ export const createWrapper = (
   const localVue = createLocalVue();
   localVue.use(Vuex);
   const store = new Vuex.Store({ state });
+  const div = document.createElement('div');
+  div.id = 'root';
+  document.body.appendChild(div);
   return mount(component, {
     localVue,
     propsData: {
@@ -20,6 +23,7 @@ export const createWrapper = (
     slots,
     store,
     listeners,
+    attachTo: '#root',
   });
 };
 

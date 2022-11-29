@@ -7,16 +7,12 @@ export const colorParser = (value, root) => {
   return transformHEXRGBa(templateValue);
 };
 
-const transformHEXRGBa = value => {
+const transformHEXRGBa = (value) => {
   if (!value.startsWith('rgba(#')) {
     return value;
   }
 
-  const [hex, alpha] = value
-    .replace(')', '')
-    .split('rgba(')
-    .pop()
-    .split(', ');
+  const [hex, alpha] = value.replace(')', '').split('rgba(').pop().split(', ');
   const [r, g, b] = parseToRgba(hex);
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 };

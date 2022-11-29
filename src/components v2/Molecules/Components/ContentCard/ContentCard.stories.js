@@ -5,6 +5,26 @@ export default {
   component: PContentCard,
   argTypes: {
     // Configurable component options in SB UI...
+    active: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    isInteractive: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    allowOverflow: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 };
 

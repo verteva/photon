@@ -1,147 +1,144 @@
 <template>
   <Card
     ref="contentCard"
+    class="content-card"
     no-padding
-    v-bind="$attrs"
-    class="content-card ph-bg-gradient-light-grey2 ph-rounded-lg ph-transition-opacity ph-duration-300 ph-relative ph-border"
-    :class="(defaultParentClass, conditionParentClass)"
-    v-on="$listeners"
-    @mouseover="mouseOver"
-    @mouseout="mouseOver"
+    :class="[
+      {
+        disabled,
+        active,
+        interactive: isInteractive && !disabled,
+        'allow-overflow': allowOverflow,
+      },
+      type,
+    ]"
+    @click.native="$emit('click')"
   >
-    <div :class="(conditionChildClass, defaultChildClass)" />
-    <div
-      class="ph-relative ph-z-1 ph-transition-color ph-w-full"
-      :class="[active && 'ph-text-brand2', padding]"
-    >
+    <div class="content-card-backdrop" />
+    <div class="content-card-content">
       <slot />
     </div>
   </Card>
 </template>
 
 <script lang="ts">
-import Card from '@/components v2/Atoms/Components/Card';
-
-export default {
-  name: 'ContentCard',
-  components: {
-    Card,
+export const props = {
+  active: {
+    type: Boolean,
+    default: false,
   },
-  props: {
-    active: {
-      type: Boolean,
-      default: false,
-    },
-    flex: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    isInteractive: {
-      type: Boolean,
-      default: false,
-    },
-    padding: {
-      type: String,
-      default: 'ph-p-7',
-    },
-    allowOverflow: {
-      type: Boolean,
-      default: false,
-    },
-    breakpoint: {
-      type: Boolean,
-      default: false,
-    },
+  disabled: {
+    type: Boolean,
+    default: false,
   },
-  data(): any {
-    return {
-      hover: false,
-    };
+  isInteractive: {
+    type: Boolean,
+    default: false,
   },
-  computed: {
-    interactive(): any {
-      if ((this as any).isInteractive) return true;
-      else
-        return (
-          (this as any).$listeners &&
-          (this as any).$listeners.click &&
-          !(this as any).disabled
-        );
-    },
-    conditionParentClass(): any {
-      return [
-        (this as any).active
-          ? 'ph-border-brand2 bar-bottom-brand'
-          : 'ph-border-grey9',
-        (this as any).interactive &&
-          !(this as any).disabled &&
-          'ph-cursor-pointer',
-        !(this as any).flex && 'ph-h-height',
-        (this as any).allowOverflow
-          ? 'ph-overflow-visible'
-          : 'ph-overflow-hidden',
-      ];
-    },
-    defaultParentClass(): any {
-      return [
-        'content-card',
-        'ph-bg-gradient-light-grey2',
-        'ph-rounded-lg',
-        'ph-transition-opacity',
-        'ph-duration-300',
-        'ph-relative ph-border',
-      ];
-    },
-    conditionChildClass(): any {
-      return [
-        (this as any).interactive &&
-          !(this as any).disabled &&
-          (this as any).hover &&
-          (this as any).breakpoint &&
-          'ph-opacity-5',
-        (this as any).interactive &&
-          !(this as any).disabled &&
-          (this as any).active &&
-          'ph-opacity-10',
-      ];
-    },
-    defaultChildClass(): string[] {
-      return [
-        'ph-absolute',
-        'ph-top-0',
-        'ph-left-0',
-        'ph-right-0',
-        'ph-bottom-0',
-        'ph-opacity-0',
-        'ph-transition-opacity',
-        'ph-duration-300',
-        'ph-bg-brand2',
-      ];
-    },
+  allowOverflow: {
+    type: Boolean,
+    default: false,
   },
-  methods: {
-    mouseOver(): void {
-      (this as any).hover = !(this as any).hover;
-    },
+  type: {
+    type: String,
+    default: '',
   },
 };
+export default {};
 </script>
 
-<style lang="postcss" scoped>
-.content-card.bar-bottom-brand:after {
-  @apply ph-bg-brand2;
-  @apply ph-absolute;
-  animation-fill-mode: both;
-  transform-origin: 50% 100%;
-  content: '';
-  width: 100%;
-  height: 6px;
-  bottom: 0;
-  left: 0;
-  @apply ph-animate-growOut;
+<script setup lang="ts">
+import Card from '@/components v2/Atoms/Components/Card';
+
+defineProps(props);
+</script>
+
+<style lang="scss" scoped>
+.content-card {
+  background: var(--content-card-background);
+  border-radius: var(--content-card-border-radius);
+  transition: all ease-in-out 300ms;
+  position: relative;
+  border: var(--content-card-border);
+  overflow: hidden;
+
+  &:after {
+    background: var(--content-card-active-after-background);
+    animation-fill-mode: both;
+    transition: transform 0.35s cubic-bezier(0.3, 0.28, 0.26, 0.81);
+    animation-direction: normal, reverse;
+    transform-origin: 50% 100%;
+    content: '';
+    width: 100%;
+    height: 6px;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0) translateY(4px);
+  }
+
+  .content-card-content {
+    padding: calc(var(--content-card-content-padding) * 1px);
+    position: relative;
+    z-index: 1;
+    transition: color ease-in-out 300ms;
+    width: 100%;
+  }
+
+  &.active {
+    border-color: var(--content-card-active-border-color);
+
+    .content-card-content {
+      color: var(--content-card-active-color);
+    }
+    &:after {
+      transform: scaleX(1) translateY(0);
+    }
+  }
+
+  .content-card-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 300ms;
+    background: var(--content-card-backdrop-background);
+  }
+
+  &.bordered {
+    border: var(--content-card-bordered-border);
+    background: var(--content-card-bordered-background);
+    .content-card-backdrop {
+      background: var(--content-card-bordered-hover-background);
+    }
+  }
+
+  &.interactive {
+    cursor: pointer;
+    &:hover {
+      .content-card-backdrop {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &.allow-overflow {
+    overflow: visible;
+  }
+}
+
+@keyframes grow-out {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 </style>
