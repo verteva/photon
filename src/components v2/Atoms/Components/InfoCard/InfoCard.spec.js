@@ -1,4 +1,4 @@
-import InfoCard from '@/components v2/Atoms/components/InfoCard/InfoCard.vue';
+import InfoCard from './InfoCard.vue';
 
 import { createWrapper } from '@/utils/unitTest';
 
