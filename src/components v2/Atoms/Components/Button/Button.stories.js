@@ -51,7 +51,7 @@ const DocsTemplate = (args, { argTypes }) => ({
   data() {
     const sizes = Object.values(ButtonSizes);
     return {
-      buttons: Object.values(ButtonStyles).map(type => ({
+      buttons: Object.values(ButtonStyles).map((type) => ({
         type,
         sizes,
       })),
