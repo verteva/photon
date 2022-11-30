@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`flattenObjectToCssVars.js parses a figma theme and then flattens it 1`] = `
-Object {
+{
   "--colors-brand-green": "#219653",
   "--colors-brand-orange": "orange",
   "--colors-brand-purple": "#6f53f9",
@@ -17,25 +17,25 @@ Object {
 `;
 
 exports[`parseBrandingJson.js parses a branding theme 1`] = `
-Object {
-  "colors": Object {
-    "brand": Object {
+{
+  "colors": {
+    "brand": {
       "green": "#219653",
       "orange": "orange",
       "purple": "#6f53f9",
       "red": "#eb5757",
       "teal": "#31839b",
     },
-    "grey": Object {
+    "grey": {
       "10": "#f9f9f9",
     },
-    "theme": Object {
+    "theme": {
       "primary": "#f9f9f9",
       "secondary": "#31839b",
       "tertiary": "#eb5757",
     },
   },
-  "size": Object {
+  "size": {
     "medium": 500,
     "small": "500",
   },

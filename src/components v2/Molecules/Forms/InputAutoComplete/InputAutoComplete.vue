@@ -49,7 +49,11 @@
       @blur="$emit('blur')"
       @update:selected="$emit('update:selected', $event)"
       @update:value="$emit('update:value', $event)"
-    />
+    >
+      <template #list-footer>
+        <slot name="list-footer" />
+      </template>
+    </P2InputAutoComplete>
   </P2FormControl>
 </template>
 
@@ -99,6 +103,7 @@ const {
   simple,
   returnObj,
   lazyFocus,
+  dataIm,
 } = InputAutoCompleteProps;
 
 export const props = {
@@ -139,6 +144,7 @@ export const props = {
   simple,
   returnObj,
   lazyFocus,
+  dataIm,
 };
 
 export default Vue.extend({
