@@ -20,6 +20,7 @@ import P2InputAutoComplete from './Molecules/Forms/InputAutoComplete';
 import P2Accordion from './Molecules/Components/Accordion';
 import P2InputSelect from './Molecules/Forms/InputSelect';
 import P2ListItem from './Atoms/Components/ListItem';
+import P2ContentCard from './Molecules/Components/ContentCard';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -35,6 +36,7 @@ const components: PhotonComponents = {
   P2Toast,
   P2Dialog,
   P2InputDate,
+  P2ContentCard,
   P2InputCheckbox,
   P2InputCheckboxGroup,
   P2InputRadioButton,

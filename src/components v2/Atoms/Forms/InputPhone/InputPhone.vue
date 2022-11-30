@@ -13,6 +13,7 @@
         phoneNumberLabel: placeholder,
       }"
       no-example
+      valid-characters-only
       show-code-on-list
       :disabled="disabled"
       @input="$emit('input', $event)"
