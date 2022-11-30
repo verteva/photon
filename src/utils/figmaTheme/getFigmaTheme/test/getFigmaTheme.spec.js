@@ -7,14 +7,14 @@ import {
   brokenFilesIncorectTokens,
 } from '../../mockThemeFiles/testFileObjects';
 
-const createFileObject = files => {
+const createFileObject = (files) => {
   const keys = Object.keys(files);
 
-  const fileObject = function(key) {
+  const fileObject = function (key) {
     return files[key];
   };
 
-  fileObject.keys = function() {
+  fileObject.keys = function () {
     return keys;
   };
 

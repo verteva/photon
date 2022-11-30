@@ -11,7 +11,7 @@ import {
 
 describe('figmaTheme/templateResolvers/', () => {
   // run the same test for all basic parsers.
-  Object.keys(basicRoots).forEach(rootName => {
+  Object.keys(basicRoots).forEach((rootName) => {
     const keyName = rootName.replace('Root', '');
     const root = basicRoots[rootName];
     describe(`basic parser - ${keyName}`, () => {
@@ -59,7 +59,7 @@ describe('figmaTheme/templateResolvers/', () => {
     });
   });
 
-  Object.keys(compositionRoots).forEach(rootName => {
+  Object.keys(compositionRoots).forEach((rootName) => {
     const keyName = rootName.replace('Root', '');
     const root = compositionRoots[rootName];
     describe(`compositionParser - ${keyName}`, () => {

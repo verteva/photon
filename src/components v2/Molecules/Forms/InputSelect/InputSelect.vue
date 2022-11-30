@@ -36,13 +36,8 @@ import P2FormControl, {
 } from '@/components v2/Molecules/Forms/FormControl';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
-const {
-  items,
-  value,
-  showFooter,
-  customLabelVar,
-  openIndicatorIcon,
-} = InputSelectProps;
+const { items, value, showFooter, customLabelVar, openIndicatorIcon } =
+  InputSelectProps;
 const { size, disabled } = formProps;
 const {
   inlineText,

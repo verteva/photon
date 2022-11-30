@@ -37,8 +37,9 @@ const AllTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div class="ph-max-w-xl ph-pt-16">
-      <div class="ph-flex ph-flex-wrap ph-w-full" :style="{ color: '${args.textColor ||
-        ''}' }">
+      <div class="ph-flex ph-flex-wrap ph-w-full" :style="{ color: '${
+        args.textColor || ''
+      }' }">
         <div
           v-for="i in icons"
           :key="i"
