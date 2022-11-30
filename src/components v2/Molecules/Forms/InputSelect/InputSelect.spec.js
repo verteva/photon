@@ -1,7 +1,7 @@
 import { render } from '@testing-library/vue';
 import InputSelect from './InputSelect.vue';
 
-describe('InputToggle.vue', () => {
+describe('Molecules/InputSelect.vue', () => {
   it('props: label', async () => {
     const label = 'This is a label';
     const { getByText } = render(InputSelect, {
