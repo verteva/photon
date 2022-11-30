@@ -47,9 +47,8 @@ export default Vue.extend({
 
   methods: {
     beforeLeave(el: HTMLElement): void {
-      const { marginLeft, marginTop, width, height } = window.getComputedStyle(
-        el
-      );
+      const { marginLeft, marginTop, width, height } =
+        window.getComputedStyle(el);
 
       el.style.left = `${el.offsetLeft - parseFloat(marginLeft)}px`;
       el.style.top = `${el.offsetTop - parseFloat(marginTop)}px`;

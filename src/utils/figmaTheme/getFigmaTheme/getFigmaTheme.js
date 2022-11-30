@@ -13,7 +13,7 @@ const sortArray = (arr, sortArr) => {
 export const getFigmaTheme = (files, theme) => {
   const filePaths = files.keys();
 
-  const metaFilePath = filePaths.find(filePath =>
+  const metaFilePath = filePaths.find((filePath) =>
     filePath.includes('$metadata')
   );
 
@@ -23,7 +23,9 @@ export const getFigmaTheme = (files, theme) => {
 
   const { tokenSetOrder } = files(metaFilePath);
 
-  const themeFilePath = filePaths.find(filePath => filePath.includes('$theme'));
+  const themeFilePath = filePaths.find((filePath) =>
+    filePath.includes('$theme')
+  );
 
   if (!themeFilePath) {
     throw new Error('No $theme file found');
@@ -40,11 +42,11 @@ export const getFigmaTheme = (files, theme) => {
   }
 
   const sourcePartialsToLoad = tokenSetOrder.filter(
-    themeName => themeData.selectedTokenSets[themeName] !== 'disabled'
+    (themeName) => themeData.selectedTokenSets[themeName] !== 'disabled'
   );
 
   const semanticPartialsToLoad = tokenSetOrder.filter(
-    themeName => themeData.selectedTokenSets[themeName] === 'enabled'
+    (themeName) => themeData.selectedTokenSets[themeName] === 'enabled'
   );
 
   if (!sourcePartialsToLoad || !sourcePartialsToLoad.length) {
@@ -53,17 +55,15 @@ export const getFigmaTheme = (files, theme) => {
     );
   }
 
-  const sortedSourcePartialsToLoad = sortArray(
-    filePaths,
-    tokenSetOrder
-  ).filter(sortedFile =>
-    sourcePartialsToLoad.includes(sortedFile.replace('.json', ''))
+  const sortedSourcePartialsToLoad = sortArray(filePaths, tokenSetOrder).filter(
+    (sortedFile) =>
+      sourcePartialsToLoad.includes(sortedFile.replace('.json', ''))
   );
 
   const sortedSemanticPartialsToLoad = sortArray(
     filePaths,
     tokenSetOrder
-  ).filter(sortedFile =>
+  ).filter((sortedFile) =>
     semanticPartialsToLoad.includes(sortedFile.replace('.json', ''))
   );
 
@@ -80,10 +80,12 @@ export const getFigmaTheme = (files, theme) => {
   return { sourceTheme, semanticTheme };
 };
 
-export const getFigmaThemeNames = files => {
+export const getFigmaThemeNames = (files) => {
   const filePaths = files.keys();
 
-  const themeFilePath = filePaths.find(filePath => filePath.includes('$theme'));
+  const themeFilePath = filePaths.find((filePath) =>
+    filePath.includes('$theme')
+  );
 
   if (!themeFilePath) {
     throw new Error('No $theme file found');

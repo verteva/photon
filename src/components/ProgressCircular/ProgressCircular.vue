@@ -14,7 +14,7 @@
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="22.22222222222222 22.22222222222222 44.44444444444444 44.44444444444444"
-      style="transform: rotate(0deg);"
+      style="transform: rotate(0deg)"
     >
       <circle
         v-if="underlay"

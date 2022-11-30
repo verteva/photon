@@ -3,7 +3,7 @@
     width="30"
     height="30"
     viewBox="0 0 30 30"
-    style="display: block; transform: scale(-1,1)"
+    style="display: block; transform: scale(-1, 1)"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >

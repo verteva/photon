@@ -136,7 +136,7 @@ export default Vue.extend({
       if ((this as any).innerValue.includes(value)) {
         return (this as any).$emit(
           'input',
-          (this as any).innerValue.filter(a => a !== value)
+          (this as any).innerValue.filter((a) => a !== value)
         );
       }
 
