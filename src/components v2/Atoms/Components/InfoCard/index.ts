@@ -1,3 +1,1 @@
-import PInfoCard from './InfoCard.vue';
-
-export default PInfoCard;
+export { default, props } from './InfoCard.vue';

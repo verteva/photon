@@ -45,6 +45,43 @@ import PBrandGradientText from '@/components/BrandGradientText';
 import PIcon from '@/components/Icon';
 import { ColorValues } from './types';
 
+export const props = {
+  heading: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  icon: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  contentBg: {
+    type: String as PropType<ColorValues>,
+    default: 'primary',
+  },
+
+  iconBg: {
+    type: String as PropType<ColorValues>,
+    default: '',
+  },
+
+  shadow: {
+    type: Boolean as PropType<boolean>,
+    default: true,
+  },
+
+  brandBar: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  border: {
+    type: String as PropType<string>,
+    default: 'transparent',
+  },
+};
+
 export default Vue.extend({
   name: 'InfoCard',
 
@@ -53,42 +90,7 @@ export default Vue.extend({
     PIcon,
   },
 
-  props: {
-    heading: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    icon: {
-      type: String as PropType<string>,
-      default: '',
-    },
-
-    contentBg: {
-      type: String as PropType<ColorValues>,
-      default: 'primary',
-    },
-
-    iconBg: {
-      type: String as PropType<ColorValues>,
-      default: '',
-    },
-
-    shadow: {
-      type: Boolean as PropType<boolean>,
-      default: true,
-    },
-
-    brandBar: {
-      type: Boolean as PropType<boolean>,
-      default: false,
-    },
-
-    border: {
-      type: String as PropType<string>,
-      default: 'transparent',
-    },
-  },
+  props,
 });
 </script>
 
