@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`figmaTheme/buildThemeFiles builds theme files for nested themes 1`] = `
-Object {
-  "theme1": Object {
-    "colors": Object {
+{
+  "theme1": {
+    "colors": {
       "black": "#000000",
-      "brand": Object {
+      "brand": {
         "green": "#219653",
         "orange": "orange",
         "purple": "#6f53f9",
         "red": "#eb5757",
         "teal": "#31839b",
       },
-      "grey": Object {
+      "grey": {
         "00": "#07131f",
         "01": "#6a6e80",
         "02": "#949494",
@@ -21,28 +21,28 @@ Object {
         "09": "grey",
         "10": "#f9f9f9",
       },
-      "theme": Object {
+      "theme": {
         "primary": "",
         "secondary": "#31839b",
         "tertiary": "#eb5757",
       },
       "white": "#ffffff",
     },
-    "spacing": Object {
+    "spacing": {
       "default": "2",
     },
   },
-  "theme2": Object {
-    "colors": Object {
+  "theme2": {
+    "colors": {
       "black": "#000000",
-      "brand": Object {
+      "brand": {
         "green": "#219653",
         "orange": "purple",
         "purple": "#6f53f9",
         "red": "#eb5757",
         "teal": "#31839b",
       },
-      "grey": Object {
+      "grey": {
         "00": "#07131f",
         "01": "#6a6e80",
         "02": "#949494",
@@ -51,19 +51,19 @@ Object {
         "09": "#f6f6f6",
         "10": "#f9f9f9",
       },
-      "theme": Object {
+      "theme": {
         "primary": "",
         "secondary": "#31839b",
         "tertiary": "#eb5757",
       },
       "white": "#ffffff",
     },
-    "spacing": Object {
+    "spacing": {
       "default": "2",
     },
   },
-  "themes": Object {
-    "themes": Array [
+  "themes": {
+    "themes": [
       "theme1",
       "theme2",
     ],
@@ -72,32 +72,32 @@ Object {
 `;
 
 exports[`figmaTheme/buildThemeFiles builds theme files for source themes 1`] = `
-Object {
-  "theme1": Object {
-    "colors": Object {
-      "brand": Object {
+{
+  "theme1": {
+    "colors": {
+      "brand": {
         "orange": "orange",
       },
-      "grey": Object {
+      "grey": {
         "09": "grey",
       },
-      "theme": Object {
+      "theme": {
         "primary": "",
       },
     },
   },
-  "theme2": Object {
-    "colors": Object {
-      "brand": Object {
+  "theme2": {
+    "colors": {
+      "brand": {
         "orange": "purple",
       },
-      "theme": Object {
+      "theme": {
         "primary": "",
       },
     },
   },
-  "themes": Object {
-    "themes": Array [
+  "themes": {
+    "themes": [
       "theme1",
       "theme2",
     ],
@@ -106,18 +106,18 @@ Object {
 `;
 
 exports[`figmaTheme/buildThemeFiles builds theme files for themes 1`] = `
-Object {
-  "theme1": Object {
-    "colors": Object {
+{
+  "theme1": {
+    "colors": {
       "black": "#000000",
-      "brand": Object {
+      "brand": {
         "green": "#219653",
         "orange": "orange",
         "purple": "#6f53f9",
         "red": "#eb5757",
         "teal": "#31839b",
       },
-      "grey": Object {
+      "grey": {
         "00": "#07131f",
         "01": "#6a6e80",
         "02": "#949494",
@@ -126,7 +126,7 @@ Object {
         "09": "grey",
         "10": "#f9f9f9",
       },
-      "theme": Object {
+      "theme": {
         "primary": "",
         "secondary": "#31839b",
         "tertiary": "#eb5757",
@@ -134,17 +134,17 @@ Object {
       "white": "#ffffff",
     },
   },
-  "theme2": Object {
-    "colors": Object {
+  "theme2": {
+    "colors": {
       "black": "#000000",
-      "brand": Object {
+      "brand": {
         "green": "#219653",
         "orange": "purple",
         "purple": "#6f53f9",
         "red": "#eb5757",
         "teal": "#31839b",
       },
-      "grey": Object {
+      "grey": {
         "00": "#07131f",
         "01": "#6a6e80",
         "02": "#949494",
@@ -153,7 +153,7 @@ Object {
         "09": "#f6f6f6",
         "10": "#f9f9f9",
       },
-      "theme": Object {
+      "theme": {
         "primary": "",
         "secondary": "#31839b",
         "tertiary": "#eb5757",
@@ -161,8 +161,8 @@ Object {
       "white": "#ffffff",
     },
   },
-  "themes": Object {
-    "themes": Array [
+  "themes": {
+    "themes": [
       "theme1",
       "theme2",
     ],

@@ -30,6 +30,8 @@ export default Vue.extend({
   background-color: var(--vselect-footer-base-background-color);
   padding: var(--vselect-footer-base-padding);
   margin: 0;
+  bottom: 0;
+  z-index: 1;
   display: flex;
   position: sticky;
   transition-property: background-color, border-color, color, fill, stroke,

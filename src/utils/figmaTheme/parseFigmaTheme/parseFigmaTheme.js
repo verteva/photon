@@ -7,7 +7,7 @@ export const parseFigmaJson = ({ sourceTheme, semanticTheme }) => {
 export const parseObject = (object, root) => {
   const parsedObject = {};
 
-  Object.keys(object).forEach(key => {
+  Object.keys(object).forEach((key) => {
     if (typeof object[key] !== 'object') {
       throw new Error(
         'Invalid template. Cannot parse non-object values. Objects must either have nested objects or terminate with an object with a valid type property.'
@@ -32,7 +32,7 @@ export const flattenObjectToCssVars = (
 ) => {
   const flattenedObject = {};
 
-  Object.keys(object).forEach(key => {
+  Object.keys(object).forEach((key) => {
     if (typeof object[key] === 'object') {
       Object.assign(
         flattenedObject,

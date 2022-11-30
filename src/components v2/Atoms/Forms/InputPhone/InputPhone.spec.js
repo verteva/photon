@@ -26,6 +26,7 @@ describe('InputPhone.vue', () => {
   it('check prop:countries is correct', async () => {
     const countries = ['AU', 'NZ'];
     await wrapper.setProps({ countries: countries });
+    console.log('PHONEINPUT', phoneInput);
     expect(phoneInput.attributes('style')).toContain(
       '--countriesHeight: ' + 60
     );

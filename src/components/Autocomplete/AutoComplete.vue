@@ -11,8 +11,8 @@
         :label="labelVar"
         :reduce="
           !simple && !returnObj
-            ? content => content[labelVar]
-            : content => content
+            ? (content) => content[labelVar]
+            : (content) => content
         "
         :placeholder="placeHolder"
         :class="[
@@ -76,7 +76,7 @@
             <span v-else class="ph-w-3"></span>
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal"
-              style="line-height: 40px;"
+              style="line-height: 40px"
               v-html="
                 option[customLabelVar]
                   ? option[customLabelVar]
@@ -102,7 +102,7 @@
             <span v-else class="ph-w-3"></span>
             <label
               class="ph-h-10 ph-overflow-hidden ph-whitespace-normal ph-pt-0.5"
-              style="line-height: 40px;"
+              style="line-height: 40px"
               v-html="
                 option[customLabelVar]
                   ? option[customLabelVar]
@@ -195,7 +195,7 @@ import {
 } from './types';
 import { createPopper } from '@popperjs/core';
 
-Vue.component('vSelect', vSelect);
+Vue.component('VSelect', vSelect);
 
 export default Vue.extend({
   name: 'PAutoComplete',
@@ -397,7 +397,7 @@ export default Vue.extend({
     },
     defaultFilter: {
       type: Function,
-      default: options => {
+      default: (options) => {
         return options;
       },
     },
@@ -462,7 +462,7 @@ export default Vue.extend({
   methods: {
     getSelected(input: string) {
       const option = (this as any).optionItems.filter(
-        item => item[this.selectedBy] === input
+        (item) => item[this.selectedBy] === input
       )[0];
       return option ? option : null;
     },

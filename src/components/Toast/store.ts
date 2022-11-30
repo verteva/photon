@@ -28,7 +28,7 @@ export const actions = {
   ): void => {
     return commit(
       'SET',
-      state.queue.filter(t => t.id !== id)
+      state.queue.filter((t) => t.id !== id)
     );
   },
 
@@ -42,7 +42,7 @@ export const actions = {
     },
     id: string
   ): void => {
-    const setflaggedToast = state.queue.map(t => {
+    const setflaggedToast = state.queue.map((t) => {
       const toastData = { ...t };
       if (typeof t.remove === 'undefined' && t.id === id) {
         toastData.remove = true;

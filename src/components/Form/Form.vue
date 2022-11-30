@@ -47,9 +47,11 @@ export default Vue.extend({
   },
   methods: {
     disableAll(val: boolean) {
-      (((this.$refs.pform as HTMLElement).getElementsByTagName(
-        'input'
-      ) as any) as Array<HTMLElement>).forEach(item => {
+      (
+        (this.$refs.pform as HTMLElement).getElementsByTagName(
+          'input'
+        ) as any as Array<HTMLElement>
+      ).forEach((item) => {
         if (val) {
           item.setAttribute('disabled', '');
         } else {

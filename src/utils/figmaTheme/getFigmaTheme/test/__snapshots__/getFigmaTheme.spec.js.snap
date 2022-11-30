@@ -9,79 +9,79 @@ exports[`figmaTheme/getFigmaTheme errors throws when all partials are disabled f
 exports[`figmaTheme/getFigmaTheme errors throws when there is no theme data for supplied theme 1`] = `"No data found for theme theme4. This theme may not exist."`;
 
 exports[`figmaTheme/getFigmaTheme gets a figma theme from a files object 1`] = `
-Object {
-  "colors": Object {
-    "black": Object {
+{
+  "colors": {
+    "black": {
       "type": "color",
       "value": "#000000",
     },
-    "brand": Object {
-      "green": Object {
+    "brand": {
+      "green": {
         "type": "color",
         "value": "#219653",
       },
-      "orange": Object {
+      "orange": {
         "type": "color",
         "value": "orange",
       },
-      "purple": Object {
+      "purple": {
         "type": "color",
         "value": "#6f53f9",
       },
-      "red": Object {
+      "red": {
         "type": "color",
         "value": "#eb5757",
       },
-      "teal": Object {
+      "teal": {
         "type": "color",
         "value": "#31839b",
       },
     },
-    "grey": Object {
-      "00": Object {
+    "grey": {
+      "00": {
         "type": "color",
         "value": "#07131f",
       },
-      "01": Object {
+      "01": {
         "type": "color",
         "value": "#6a6e80",
       },
-      "02": Object {
+      "02": {
         "type": "color",
         "value": "#949494",
       },
-      "03": Object {
+      "03": {
         "type": "color",
         "value": "#b5b5b5",
       },
-      "08": Object {
+      "08": {
         "type": "color",
         "value": "#f4f4f4",
       },
-      "09": Object {
+      "09": {
         "type": "color",
         "value": "grey",
       },
-      "10": Object {
+      "10": {
         "type": "color",
         "value": "#f9f9f9",
       },
     },
-    "theme": Object {
-      "primary": Object {
+    "theme": {
+      "primary": {
         "type": "color",
         "value": "{colors.brand.grey}",
       },
-      "secondary": Object {
+      "secondary": {
         "type": "color",
         "value": "{colors.brand.teal}",
       },
-      "tertiary": Object {
+      "tertiary": {
         "type": "color",
         "value": "{colors.brand.red}",
       },
     },
-    "white": Object {
+    "white": {
       "type": "color",
       "value": "#ffffff",
     },
@@ -90,79 +90,79 @@ Object {
 `;
 
 exports[`figmaTheme/getFigmaTheme gets a figma theme from a files object 2`] = `
-Object {
-  "colors": Object {
-    "black": Object {
+{
+  "colors": {
+    "black": {
       "type": "color",
       "value": "#000000",
     },
-    "brand": Object {
-      "green": Object {
+    "brand": {
+      "green": {
         "type": "color",
         "value": "#219653",
       },
-      "orange": Object {
+      "orange": {
         "type": "color",
         "value": "orange",
       },
-      "purple": Object {
+      "purple": {
         "type": "color",
         "value": "#6f53f9",
       },
-      "red": Object {
+      "red": {
         "type": "color",
         "value": "#eb5757",
       },
-      "teal": Object {
+      "teal": {
         "type": "color",
         "value": "#31839b",
       },
     },
-    "grey": Object {
-      "00": Object {
+    "grey": {
+      "00": {
         "type": "color",
         "value": "#07131f",
       },
-      "01": Object {
+      "01": {
         "type": "color",
         "value": "#6a6e80",
       },
-      "02": Object {
+      "02": {
         "type": "color",
         "value": "#949494",
       },
-      "03": Object {
+      "03": {
         "type": "color",
         "value": "#b5b5b5",
       },
-      "08": Object {
+      "08": {
         "type": "color",
         "value": "#f4f4f4",
       },
-      "09": Object {
+      "09": {
         "type": "color",
         "value": "grey",
       },
-      "10": Object {
+      "10": {
         "type": "color",
         "value": "#f9f9f9",
       },
     },
-    "theme": Object {
-      "primary": Object {
+    "theme": {
+      "primary": {
         "type": "color",
         "value": "{colors.brand.grey}",
       },
-      "secondary": Object {
+      "secondary": {
         "type": "color",
         "value": "{colors.brand.teal}",
       },
-      "tertiary": Object {
+      "tertiary": {
         "type": "color",
         "value": "{colors.brand.red}",
       },
     },
-    "white": Object {
+    "white": {
       "type": "color",
       "value": "#ffffff",
     },
@@ -171,85 +171,85 @@ Object {
 `;
 
 exports[`figmaTheme/getFigmaTheme gets a figma theme from a files object with folders 1`] = `
-Object {
-  "colors": Object {
-    "black": Object {
+{
+  "colors": {
+    "black": {
       "type": "color",
       "value": "#000000",
     },
-    "brand": Object {
-      "green": Object {
+    "brand": {
+      "green": {
         "type": "color",
         "value": "#219653",
       },
-      "orange": Object {
+      "orange": {
         "type": "color",
         "value": "orange",
       },
-      "purple": Object {
+      "purple": {
         "type": "color",
         "value": "#6f53f9",
       },
-      "red": Object {
+      "red": {
         "type": "color",
         "value": "#eb5757",
       },
-      "teal": Object {
+      "teal": {
         "type": "color",
         "value": "#31839b",
       },
     },
-    "grey": Object {
-      "00": Object {
+    "grey": {
+      "00": {
         "type": "color",
         "value": "#07131f",
       },
-      "01": Object {
+      "01": {
         "type": "color",
         "value": "#6a6e80",
       },
-      "02": Object {
+      "02": {
         "type": "color",
         "value": "#949494",
       },
-      "03": Object {
+      "03": {
         "type": "color",
         "value": "#b5b5b5",
       },
-      "08": Object {
+      "08": {
         "type": "color",
         "value": "#f4f4f4",
       },
-      "09": Object {
+      "09": {
         "type": "color",
         "value": "grey",
       },
-      "10": Object {
+      "10": {
         "type": "color",
         "value": "#f9f9f9",
       },
     },
-    "theme": Object {
-      "primary": Object {
+    "theme": {
+      "primary": {
         "type": "color",
         "value": "{colors.brand.grey}",
       },
-      "secondary": Object {
+      "secondary": {
         "type": "color",
         "value": "{colors.brand.teal}",
       },
-      "tertiary": Object {
+      "tertiary": {
         "type": "color",
         "value": "{colors.brand.red}",
       },
     },
-    "white": Object {
+    "white": {
       "type": "color",
       "value": "#ffffff",
     },
   },
-  "spacing": Object {
-    "default": Object {
+  "spacing": {
+    "default": {
       "type": "spacing",
       "value": "2",
     },
@@ -258,85 +258,85 @@ Object {
 `;
 
 exports[`figmaTheme/getFigmaTheme gets a figma theme from a files object with folders 2`] = `
-Object {
-  "colors": Object {
-    "black": Object {
+{
+  "colors": {
+    "black": {
       "type": "color",
       "value": "#000000",
     },
-    "brand": Object {
-      "green": Object {
+    "brand": {
+      "green": {
         "type": "color",
         "value": "#219653",
       },
-      "orange": Object {
+      "orange": {
         "type": "color",
         "value": "orange",
       },
-      "purple": Object {
+      "purple": {
         "type": "color",
         "value": "#6f53f9",
       },
-      "red": Object {
+      "red": {
         "type": "color",
         "value": "#eb5757",
       },
-      "teal": Object {
+      "teal": {
         "type": "color",
         "value": "#31839b",
       },
     },
-    "grey": Object {
-      "00": Object {
+    "grey": {
+      "00": {
         "type": "color",
         "value": "#07131f",
       },
-      "01": Object {
+      "01": {
         "type": "color",
         "value": "#6a6e80",
       },
-      "02": Object {
+      "02": {
         "type": "color",
         "value": "#949494",
       },
-      "03": Object {
+      "03": {
         "type": "color",
         "value": "#b5b5b5",
       },
-      "08": Object {
+      "08": {
         "type": "color",
         "value": "#f4f4f4",
       },
-      "09": Object {
+      "09": {
         "type": "color",
         "value": "grey",
       },
-      "10": Object {
+      "10": {
         "type": "color",
         "value": "#f9f9f9",
       },
     },
-    "theme": Object {
-      "primary": Object {
+    "theme": {
+      "primary": {
         "type": "color",
         "value": "{colors.brand.grey}",
       },
-      "secondary": Object {
+      "secondary": {
         "type": "color",
         "value": "{colors.brand.teal}",
       },
-      "tertiary": Object {
+      "tertiary": {
         "type": "color",
         "value": "{colors.brand.red}",
       },
     },
-    "white": Object {
+    "white": {
       "type": "color",
       "value": "#ffffff",
     },
   },
-  "spacing": Object {
-    "default": Object {
+  "spacing": {
+    "default": {
       "type": "spacing",
       "value": "2",
     },
@@ -345,79 +345,79 @@ Object {
 `;
 
 exports[`figmaTheme/getFigmaTheme gets a second figma theme from a files object 1`] = `
-Object {
-  "colors": Object {
-    "black": Object {
+{
+  "colors": {
+    "black": {
       "type": "color",
       "value": "#000000",
     },
-    "brand": Object {
-      "green": Object {
+    "brand": {
+      "green": {
         "type": "color",
         "value": "#219653",
       },
-      "orange": Object {
+      "orange": {
         "type": "color",
         "value": "purple",
       },
-      "purple": Object {
+      "purple": {
         "type": "color",
         "value": "#6f53f9",
       },
-      "red": Object {
+      "red": {
         "type": "color",
         "value": "#eb5757",
       },
-      "teal": Object {
+      "teal": {
         "type": "color",
         "value": "#31839b",
       },
     },
-    "grey": Object {
-      "00": Object {
+    "grey": {
+      "00": {
         "type": "color",
         "value": "#07131f",
       },
-      "01": Object {
+      "01": {
         "type": "color",
         "value": "#6a6e80",
       },
-      "02": Object {
+      "02": {
         "type": "color",
         "value": "#949494",
       },
-      "03": Object {
+      "03": {
         "type": "color",
         "value": "#b5b5b5",
       },
-      "08": Object {
+      "08": {
         "type": "color",
         "value": "#f4f4f4",
       },
-      "09": Object {
+      "09": {
         "type": "color",
         "value": "#f6f6f6",
       },
-      "10": Object {
+      "10": {
         "type": "color",
         "value": "#f9f9f9",
       },
     },
-    "theme": Object {
-      "primary": Object {
+    "theme": {
+      "primary": {
         "type": "color",
         "value": "{colors.brand.black}",
       },
-      "secondary": Object {
+      "secondary": {
         "type": "color",
         "value": "{colors.brand.teal}",
       },
-      "tertiary": Object {
+      "tertiary": {
         "type": "color",
         "value": "{colors.brand.red}",
       },
     },
-    "white": Object {
+    "white": {
       "type": "color",
       "value": "#ffffff",
     },
@@ -426,79 +426,79 @@ Object {
 `;
 
 exports[`figmaTheme/getFigmaTheme gets a second figma theme from a files object 2`] = `
-Object {
-  "colors": Object {
-    "black": Object {
+{
+  "colors": {
+    "black": {
       "type": "color",
       "value": "#000000",
     },
-    "brand": Object {
-      "green": Object {
+    "brand": {
+      "green": {
         "type": "color",
         "value": "#219653",
       },
-      "orange": Object {
+      "orange": {
         "type": "color",
         "value": "purple",
       },
-      "purple": Object {
+      "purple": {
         "type": "color",
         "value": "#6f53f9",
       },
-      "red": Object {
+      "red": {
         "type": "color",
         "value": "#eb5757",
       },
-      "teal": Object {
+      "teal": {
         "type": "color",
         "value": "#31839b",
       },
     },
-    "grey": Object {
-      "00": Object {
+    "grey": {
+      "00": {
         "type": "color",
         "value": "#07131f",
       },
-      "01": Object {
+      "01": {
         "type": "color",
         "value": "#6a6e80",
       },
-      "02": Object {
+      "02": {
         "type": "color",
         "value": "#949494",
       },
-      "03": Object {
+      "03": {
         "type": "color",
         "value": "#b5b5b5",
       },
-      "08": Object {
+      "08": {
         "type": "color",
         "value": "#f4f4f4",
       },
-      "09": Object {
+      "09": {
         "type": "color",
         "value": "#f6f6f6",
       },
-      "10": Object {
+      "10": {
         "type": "color",
         "value": "#f9f9f9",
       },
     },
-    "theme": Object {
-      "primary": Object {
+    "theme": {
+      "primary": {
         "type": "color",
         "value": "{colors.brand.black}",
       },
-      "secondary": Object {
+      "secondary": {
         "type": "color",
         "value": "{colors.brand.teal}",
       },
-      "tertiary": Object {
+      "tertiary": {
         "type": "color",
         "value": "{colors.brand.red}",
       },
     },
-    "white": Object {
+    "white": {
       "type": "color",
       "value": "#ffffff",
     },
@@ -509,7 +509,7 @@ Object {
 exports[`figmaTheme/getFigmaThemeNames errors throws when a $theme file cannot be found 1`] = `"No $theme file found"`;
 
 exports[`figmaTheme/getFigmaThemeNames gets figma theme names from a files object 1`] = `
-Array [
+[
   "theme1",
   "theme2",
 ]

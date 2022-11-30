@@ -22,7 +22,7 @@ const SimpleTemplate = (args, { argTypes }) => ({
   template: `
     <div>
       <button @click="addThings" class="ph-my-10">+ ADD</button> /
-      <button @click="subThings" class="ph-my-10">- REMOVE</button> / 
+      <button @click="subThings" class="ph-my-10">- REMOVE</button> /
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
       <PAccordion v-bind="$props" v-model="forceOpen">
@@ -60,7 +60,6 @@ Simple.args = {
   noHeadingRule: true,
   openArrows: false,
   openCloseIcons: ['Edit', 'MinusBordered'],
-  shadow: true,
   responsivePadding: true,
 };
 
@@ -133,7 +132,7 @@ const SingleFocusTemplate = (args, { argTypes }) => ({
       >
         Item 3
       </PAccordion>
-    </div>      
+    </div>
   `,
   data() {
     return {

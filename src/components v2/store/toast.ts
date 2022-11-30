@@ -87,7 +87,7 @@ export const actions = {
   ): void => {
     commit(
       'SET_TOASTS',
-      state.toasts.filter(t => t.id !== id)
+      state.toasts.filter((toast) => toast.id !== id)
     );
 
     if (state.queue.length && state.toasts.length < state.limit) {

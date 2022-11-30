@@ -72,13 +72,13 @@ export default Vue.extend({
         Can only pass one (or none) size prop max
       */
       const sizeProps = ['xl', 'lg', 'sm', 'xs'].filter(
-        size => (this as any)[size]
+        (size) => (this as any)[size]
       );
 
       if (sizeProps.length > 1) {
         console.warn(`WARNING! You have passed more than 1 size prop to <PText>.
-          
-          The <PText> component will prioritise size props cascading in the following order: 
+
+          The <PText> component will prioritise size props cascading in the following order:
           xl, lg, sm, xs.
         `);
       }
