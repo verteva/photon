@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentCard.vue renders a component 1`] = `
+<div>
+  <div
+    class="card content-card rounded no-padding"
+  >
+    <div
+      class="content-card-backdrop"
+    />
+     
+    <div
+      class="content-card-content"
+    />
+  </div>
+</div>
+`;
+
+exports[`ContentCard.vue renders a component with props: active with value true 1`] = `
+<div>
+  <div
+    class="card content-card rounded no-padding active"
+  >
+    <div
+      class="content-card-backdrop"
+    />
+     
+    <div
+      class="content-card-content"
+    />
+  </div>
+</div>
+`;
+
+exports[`ContentCard.vue renders a component with props: allowOverflow with value true 1`] = `
+<div>
+  <div
+    class="card content-card rounded no-padding allow-overflow"
+  >
+    <div
+      class="content-card-backdrop"
+    />
+     
+    <div
+      class="content-card-content"
+    />
+  </div>
+</div>
+`;
+
+exports[`ContentCard.vue renders a component with props: disabled with value true 1`] = `
+<div>
+  <div
+    class="card content-card rounded no-padding disabled"
+  >
+    <div
+      class="content-card-backdrop"
+    />
+     
+    <div
+      class="content-card-content"
+    />
+  </div>
+</div>
+`;
+
+exports[`ContentCard.vue renders a component with props: isInteractive with value true 1`] = `
+<div>
+  <div
+    class="card content-card rounded no-padding interactive"
+  >
+    <div
+      class="content-card-backdrop"
+    />
+     
+    <div
+      class="content-card-content"
+    />
+  </div>
+</div>
+`;
+
+exports[`ContentCard.vue renders a component with props: type with value bordered 1`] = `
+<div>
+  <div
+    class="card content-card rounded no-padding bordered"
+  >
+    <div
+      class="content-card-backdrop"
+    />
+     
+    <div
+      class="content-card-content"
+    />
+  </div>
+</div>
+`;
