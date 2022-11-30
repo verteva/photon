@@ -1,3 +1,30 @@
+# [0.10.0](https://github.com/verteva/photon/compare/v0.9.0...v0.10.0) (2022-11-27)
+
+
+### Bug Fixes
+
+* additional props for autocomplete ([2c3f2c1](https://github.com/verteva/photon/commit/2c3f2c1f44e4a065545575fb0deab9d009617438))
+* number input is now centered ([b54e50a](https://github.com/verteva/photon/commit/b54e50a88e7fdcc6b12baba7d260770953037952))
+* prop import pr feedback ([4dbc2c7](https://github.com/verteva/photon/commit/4dbc2c7b49e2e969c7e0afa86c329a69206071d0))
+* remove all ph classes ([cab9c53](https://github.com/verteva/photon/commit/cab9c53e4a4428789cfceec4046a8a41722a8a03))
+* removed props export from backdrop ([dc699ba](https://github.com/verteva/photon/commit/dc699ba827767f032a2ac984cabd859d423a4769))
+* update back-drop ref ([0147faa](https://github.com/verteva/photon/commit/0147faa8ac62f28fca495246dcad21e265032883))
+* update dialog with backdrop and headline ([e6d6062](https://github.com/verteva/photon/commit/e6d60625179e40fc4e4f95f88a455f0a26b6e6a0))
+* update dialog with cx-branding ([5467273](https://github.com/verteva/photon/commit/54672739a1f76d6619d66dd7862dc8ad05b5fd59))
+* update spec and stories ([93b602b](https://github.com/verteva/photon/commit/93b602ba4d68debbe4020809f0f153d2f8a2f670))
+* update spec of Dialog ([4283bb8](https://github.com/verteva/photon/commit/4283bb8f361e430bd88b58b2bd9b088fc827e78b))
+* upgrade core-js from 3.25.5 to 3.26.0 ([7b47114](https://github.com/verteva/photon/commit/7b47114b1b62ba2f3b381974ef3e601a9ca4b867))
+
+
+### Features
+
+* add autocomplete component ([edb73ec](https://github.com/verteva/photon/commit/edb73ec580dc995871699ea5f006cf9d1cd8dff9))
+* add autocomplete to photon v2 ([93e8023](https://github.com/verteva/photon/commit/93e8023d2f58bbe6330ed50ddec5d5ed44584e40))
+* add P2Form to components v2 ([5b412c6](https://github.com/verteva/photon/commit/5b412c658116a15de3d78de61bc073f6cec1ed6f))
+* breaking autocomplete components into sub stories ([7b9156f](https://github.com/verteva/photon/commit/7b9156f10f3fcdc135457ee55e0a7d07c7fe49e1))
+* input phone component ([d4bf825](https://github.com/verteva/photon/commit/d4bf825c6bed850513d2ac5862fca2d8899a3c28))
+* input phone v2 component ([261a6ee](https://github.com/verteva/photon/commit/261a6ee3c0a06374c264eca4bb63aae74e135864))
+
 # [0.9.0](https://github.com/verteva/photon/compare/v0.8.1...v0.9.0) (2022-11-16)
 
 
