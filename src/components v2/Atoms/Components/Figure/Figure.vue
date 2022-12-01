@@ -109,15 +109,15 @@ export default Vue.extend({
   margin-bottom: 0.25rem;
   &.sm {
     .figure {
-      font-size: 30px;
-      line-height: 2.25rem;
+      font-size: var(--figure-sm-font-size);
+      line-height: var(--figure-sm-line-height);
     }
   }
 
   &.md {
     .figure {
-      font-size: 30px;
-      line-height: 2.25rem;
+      font-size: var(--figure-md-font-size);
+      line-height: var(--figure-md-line-height);
     }
   }
 }

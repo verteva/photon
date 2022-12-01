@@ -9,7 +9,13 @@
       <p2-figure :value="value" :loading="loading" :is-currency="isCurrency" />
     </div>
 
-    <p-icon v-if="icon" :name="icon" :class="textColor" :type="iconSize" />
+    <p-icon
+      v-if="icon"
+      :name="icon"
+      class="figures-card-icon"
+      :class="textColor"
+      :type="iconSize"
+    />
   </div>
 </template>
 
@@ -17,9 +23,6 @@
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
 import P2Figure from '@/components v2/Atoms/Components/Figure';
-import { formProps } from '@/components v2/Atoms/Forms/globalProps';
-
-const { size } = formProps;
 
 export const props = {
   title: {
@@ -50,7 +53,6 @@ export const props = {
     type: Boolean as PropType<boolean>,
     default: true,
   },
-  size,
 };
 
 export default Vue.extend({
@@ -83,5 +85,14 @@ export default Vue.extend({
 .figures-card-title {
   font-size: var(--figures-card-text-title-font-size);
   margin: var(--figures-card-text-title-margin);
+}
+
+.figures-card-icon {
+  display: flex;
+  justify-content: center;
+
+  ::v-deep & > svg {
+    margin: var(--figures-card-icon-svg-margin);
+  }
 }
 </style>
