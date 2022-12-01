@@ -1,3 +1,24 @@
+# [0.11.0](https://github.com/verteva/photon/compare/v0.10.0...v0.11.0) (2022-11-30)
+
+
+### Bug Fixes
+
+* change to relative path ([b161593](https://github.com/verteva/photon/commit/b16159367dd8d6f7c5d2e8dcda9afec980e99c21))
+* changed coverage provider ([e1ba3f3](https://github.com/verteva/photon/commit/e1ba3f3988725c45d3a6daa3ddf1bb9745101377))
+* missing footer style and filter binding ([6e30ad1](https://github.com/verteva/photon/commit/6e30ad11e658ac1dfd129e0e7dac53dfc3a8cd48))
+* move props outside ([c2d0aa3](https://github.com/verteva/photon/commit/c2d0aa3d4bb0443f829baade0cfba07a4102da3f))
+* removed react deps ([6a235af](https://github.com/verteva/photon/commit/6a235af3e7dfc4d96715579b7d435f30cf7a7b3f))
+* update name of component test ([3c35e1f](https://github.com/verteva/photon/commit/3c35e1f443a3468aaced291a4724f91330c1b954))
+
+
+### Features
+
+* accordion v2 component ([b9d9524](https://github.com/verteva/photon/commit/b9d9524fe43cc6b7e9c7d03d8d2391d61e87f2b4))
+* content card v2 ([7d9712f](https://github.com/verteva/photon/commit/7d9712f4523f21026320e260d6fe186083d27522))
+* info card photon version 2 component ([644cc17](https://github.com/verteva/photon/commit/644cc17b2a163c8216b11b7fbdb01f0cd9d3ca64))
+* list items component photon V2 ([01ee3c1](https://github.com/verteva/photon/commit/01ee3c1536a61dc12896ad7811c2e3c1c23fe328))
+* photon v2 input select integration ([a2c8f7b](https://github.com/verteva/photon/commit/a2c8f7b198d8ed88ed1a86dfa022fd962812adc5))
+
 # [0.10.0](https://github.com/verteva/photon/compare/v0.9.0...v0.10.0) (2022-11-27)
 
 
