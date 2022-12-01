@@ -16,6 +16,7 @@ const Template = (args, { argTypes }) => ({
 
 export const CurrentLoan = Template.bind({});
 CurrentLoan.args = {
+  cardStyle: 'tertiary',
   title: 'Current Loan',
   loading: false,
   isCurrency: true,

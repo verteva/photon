@@ -1,5 +1,5 @@
 <template>
-  <div class="photon-figures-card">
+  <div class="photon-figures-card" :class="[cardStyle]">
     <div class="figures-card-text-container">
       <div class="figures-card-title">
         {{ title }}
@@ -25,6 +25,10 @@ import PIcon from '@/components/Icon';
 import P2Figure from '@/components v2/Atoms/Components/Figure';
 
 export const props = {
+  cardStyle: {
+    type: String as PropType<string>,
+    default: 'primary',
+  },
   title: {
     type: String as PropType<string>,
     default: '',
@@ -71,8 +75,22 @@ export default Vue.extend({
   width: 100%;
   border-radius: var(--figures-card-border-radius);
   padding: var(--figures-card-padding);
-  background: var(--figures-card-background);
   color: var(--figures-card-text-color);
+
+  &.primary {
+    background: var(--figures-card-styles-primary-background);
+    color: var(--figures-card-styles-primary-color);
+  }
+
+  &.secondary {
+    background: var(--figures-card-styles-secondary-background);
+    color: var(--figures-card-styles-secondary-color);
+  }
+
+  &.tertiary {
+    background: var(--figures-card-styles-tertiary-background);
+    color: var(--figures-card-styles-tertiary-color);
+  }
 }
 
 .figures-card-text-container {
