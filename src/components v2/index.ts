@@ -21,6 +21,7 @@ import P2Accordion from './Molecules/Components/Accordion';
 import P2InputSelect from './Molecules/Forms/InputSelect';
 import P2ListItem from './Atoms/Components/ListItem';
 import P2ContentCard from './Molecules/Components/ContentCard';
+import P2FiguresCard from './Molecules/Components/FiguresCard';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -49,6 +50,7 @@ const components: PhotonComponents = {
   P2ListItem,
   P2Accordion,
   P2InputSelect,
+  P2FiguresCard,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;
