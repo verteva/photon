@@ -9,6 +9,7 @@
         :value="initInput"
         :options="optionItems"
         :label="optionLabelVar"
+        :calculate-position="withPopper"
         :reduce="
           !simple && !returnObj
             ? (content) => content[optionLabelVar]
@@ -245,6 +246,7 @@ export const props = {
   },
 };
 Vue.component('VSelect', vSelect);
+import { createPopper } from '@popperjs/core';
 
 export default Vue.extend({
   name: 'P2InputAutoComplete',
@@ -267,6 +269,7 @@ export default Vue.extend({
       selected: '',
       searchText: '',
       toggleMenu: false,
+      placement: 'top',
     };
   },
   computed: {
@@ -344,6 +347,32 @@ export default Vue.extend({
     },
     onSelected(selectedOption: any) {
       this.$emit('selectedObj', selectedOption);
+    },
+    withPopper(dropdownList, component, { width }) {
+      dropdownList.style.width = width;
+      const popper = createPopper(component.$refs.toggle, dropdownList, {
+        placement: this.$data.placement,
+        modifiers: [
+          {
+            name: 'offset',
+            options: {
+              offset: [0, -1],
+            },
+          },
+          {
+            name: 'toggleClass',
+            enabled: true,
+            phase: 'write',
+            fn({ state }) {
+              component.$el.classList.toggle(
+                'drop-up',
+                state.placement === 'top'
+              );
+            },
+          },
+        ],
+      });
+      return () => popper.destroy();
     },
   },
 });
