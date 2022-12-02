@@ -31,6 +31,7 @@ Default.args = {
   customLabelVar: 'label',
   returnObj: true,
   disabled: true,
+  reducePrefixSpacing: true,
   items: [
     {
       code: '000',
@@ -56,21 +57,6 @@ Interactive.args = {
   customLabelVar: 'label',
   returnObj: true,
   disabled: false,
-  items: [
-    {
-      code: '000',
-      label: 'Please select...',
-      icon: 'Checkmark',
-    },
-    {
-      code: '001',
-      label: '<span class="af_hl">highlight</span> test1',
-      icon: 'Checkmark',
-    },
-    {
-      code: '002',
-      label: '<span class="af_hl">highlight</span> test2',
-      icon: 'Checkmark',
-    },
-  ],
+  reducePrefixSpacing: true,
+  items: ['test1', 'test2', 'test3'],
 };

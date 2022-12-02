@@ -39,6 +39,7 @@
             :input-search-attributes="attributes"
             :input-search-events="events"
             :disabled="disabled"
+            :reduce-prefix-spacing="reducePrefixSpacing"
             @focus="onFocus"
             @blur="onBlur"
           />
@@ -54,6 +55,7 @@
             :custom-label-var="selectedOptionCustomLabelVar"
             :prefix-icon="prefixIcon"
             :option="option"
+            :reduce-prefix-spacing="reducePrefixSpacing"
           />
         </template>
         <template
@@ -150,6 +152,7 @@ const {
   deselect,
   multiple,
   showSelectedIcon,
+  reducePrefixSpacing,
   labelVar: selectedOptionLabelVar,
   customLabelVar: selectedOptionCustomLabelVar,
   allowOptionIcon: selectedOptionAllowOptionIcon,
@@ -181,6 +184,7 @@ export const props = {
   deselect,
   multiple,
   showSelectedIcon,
+  reducePrefixSpacing,
   selectedOptionLabelVar,
   selectedOptionCustomLabelVar,
   selectedOptionAllowOptionIcon,
