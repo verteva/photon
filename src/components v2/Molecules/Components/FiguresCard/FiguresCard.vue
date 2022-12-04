@@ -102,6 +102,7 @@ export default Vue.extend({
 }
 
 .figures-card-title {
+  font-family: var(--figures-card-font-family);
   font-size: var(--figures-card-text-title-font-size);
   margin: var(--figures-card-text-title-margin);
 }

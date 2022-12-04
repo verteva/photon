@@ -107,9 +107,16 @@ export default Vue.extend({
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 0.25rem;
+
+  .figure {
+    font-family: var(--figure-font-family);
+    font-weight: var(--figure-default-font-weight);
+    line-height: var(--figure-default-line-height);
+  }
   &.sm {
     .figure {
       font-size: var(--figure-sm-font-size);
+      font-weight: var(--figure-sm-font-weight);
       line-height: var(--figure-sm-line-height);
     }
   }
@@ -117,6 +124,7 @@ export default Vue.extend({
   &.md {
     .figure {
       font-size: var(--figure-md-font-size);
+      font-weight: var(--figure-md-font-weight);
       line-height: var(--figure-md-line-height);
     }
   }
