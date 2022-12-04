@@ -4,3 +4,9 @@ export interface FiguresData {
   min: number;
   max: number;
 }
+
+export const CardStyles = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  TERTIARY: 'tertiary',
+} as const;

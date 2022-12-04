@@ -1,10 +1,15 @@
 import PFiguresCard from './FiguresCard.vue';
+import { CardStyles } from './types';
 
 export default {
   title: 'v2/Molecules/Components/FiguresCard',
   component: PFiguresCard,
   argTypes: {
-    // Configurable component options in SB UI...
+    cardStyle: {
+      control: 'select',
+      options: Object.values(CardStyles),
+      defaultValue: CardStyles.PRIMARY,
+    },
   },
 };
 

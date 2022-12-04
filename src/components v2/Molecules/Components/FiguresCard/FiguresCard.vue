@@ -23,11 +23,12 @@
 import Vue, { PropType } from 'vue';
 import PIcon from '@/components/Icon';
 import P2Figure from '@/components v2/Atoms/Components/Figure';
+import { CardStyles } from './types';
 
 export const props = {
   cardStyle: {
     type: String as PropType<string>,
-    default: 'primary',
+    default: CardStyles.PRIMARY,
   },
   title: {
     type: String as PropType<string>,
