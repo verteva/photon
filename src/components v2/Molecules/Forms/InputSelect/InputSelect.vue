@@ -17,9 +17,16 @@
         items,
         value,
         showFooter,
-        customLabelVar,
+        optionLabelVar,
+        optionCustomLabelVar,
+        selectedOptionLabelVar,
+        selectedOptionCustomLabelVar,
+        placeHolder,
         openIndicatorIcon,
         disabled,
+        reducePrefixSpacing,
+        simple,
+        initInput,
       }"
       @input="$emit('input', $event)"
     />
@@ -36,8 +43,20 @@ import P2FormControl, {
 } from '@/components v2/Molecules/Forms/FormControl';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
-const { items, value, showFooter, customLabelVar, openIndicatorIcon } =
-  InputSelectProps;
+const {
+  items,
+  value,
+  showFooter,
+  optionLabelVar,
+  optionCustomLabelVar,
+  selectedOptionLabelVar,
+  selectedOptionCustomLabelVar,
+  placeHolder,
+  openIndicatorIcon,
+  reducePrefixSpacing,
+  simple,
+  initInput,
+} = InputSelectProps;
 const { size, disabled } = formProps;
 const {
   inlineText,
@@ -61,12 +80,19 @@ export const props = {
   messageIcon,
   error,
   hideError,
-  // InlineSelect Props
+  // InputSelect Props
   items,
   value,
   showFooter,
-  customLabelVar,
+  optionLabelVar,
+  optionCustomLabelVar,
+  selectedOptionLabelVar,
+  selectedOptionCustomLabelVar,
+  placeHolder,
   openIndicatorIcon,
+  reducePrefixSpacing,
+  simple,
+  initInput,
 };
 
 export default Vue.extend({

@@ -1,14 +1,20 @@
 <template>
   <div class="ph-input-autocomplete-select">
-    <P2Autocomplete
+    <P2InputAutoComplete
       :show-footer="showFooter"
-      :custom-label-var="customLabelVar"
+      :option-label-var="optionLabelVar"
+      :option-custom-label-var="optionCustomLabelVar"
+      :selected-option-label-var="selectedOptionLabelVar"
+      :selected-option-custom-label-var="selectedOptionCustomLabelVar"
       :open-indicator-icon="openIndicatorIcon"
       :option-items="items"
       :init-input="value"
       :value="value"
       :disabled="disabled"
       hide-clear-btn
+      :reduce-prefix-spacing="reducePrefixSpacing"
+      :simple="simple"
+      :place-holder="placeHolder"
       @input="$emit('input', selected)"
       @update:selected="selected = $event"
     />
@@ -17,7 +23,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import P2Autocomplete from '@/components v2/Atoms/Forms/InputAutoComplete';
+import P2InputAutoComplete from '@/components v2/Atoms/Forms/InputAutoComplete';
 import { InputSelectData, InputValueType } from './types';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
@@ -33,24 +39,52 @@ export const props = {
     type: [Number, String, Object] as PropType<InputValueType>,
     default: null,
   },
+  reducePrefixSpacing: {
+    type: Boolean as PropType<boolean>,
+    default: true,
+  },
   showFooter: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
-  customLabelVar: {
+  optionLabelVar: {
     type: String as PropType<string>,
     default: 'label',
+  },
+  optionCustomLabelVar: {
+    type: String as PropType<string>,
+    default: 'customLabel',
+  },
+  selectedOptionLabelVar: {
+    type: String as PropType<string>,
+    default: 'label',
+  },
+  selectedOptionCustomLabelVar: {
+    type: String as PropType<string>,
+    default: 'customLabel',
+  },
+  placeHolder: {
+    type: String as PropType<string>,
+    default: '',
   },
   openIndicatorIcon: {
     type: String as PropType<string>,
     default: 'ChevronDown',
   },
+  simple: {
+    type: Boolean as PropType<boolean>,
+    default: true,
+  },
+  initInput: {
+    type: String as PropType<string>,
+    default: '',
+  },
 };
 
 export default Vue.extend({
-  name: 'PInputSelect',
+  name: 'P2InputSelect',
   components: {
-    P2Autocomplete,
+    P2InputAutoComplete,
   },
   props,
   data(): InputSelectData {
@@ -61,10 +95,6 @@ export default Vue.extend({
   },
 
   methods: {
-    updateValue(value: string) {
-      this.$emit('input', value);
-    },
-
     onFocus(e: InputEvent) {
       this.inFocus = true;
       this.$emit('focus', e);
