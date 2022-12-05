@@ -18,10 +18,34 @@ describe('Atoms/InputSelect.vue', () => {
     assertPropsVarSetup(wrapper, 'showFooter', showFooter);
   });
 
-  test('props: customLabelVar', async () => {
-    const customLabelVar = 'name';
-    await wrapper.setProps({ customLabelVar });
-    assertPropsVarSetup(wrapper, 'customLabelVar', customLabelVar);
+  test('props: optionLabelVar', async () => {
+    const optionLabelVar = 'name';
+    await wrapper.setProps({ optionLabelVar });
+    assertPropsVarSetup(wrapper, 'optionLabelVar', optionLabelVar);
+  });
+
+  test('props: optionCustomLabelVar', async () => {
+    const optionCustomLabelVar = 'name';
+    await wrapper.setProps({ optionCustomLabelVar });
+    assertPropsVarSetup(wrapper, 'optionCustomLabelVar', optionCustomLabelVar);
+  });
+  test('props: selectedOptionLabelVar', async () => {
+    const selectedOptionLabelVar = 'name';
+    await wrapper.setProps({ selectedOptionLabelVar });
+    assertPropsVarSetup(
+      wrapper,
+      'selectedOptionLabelVar',
+      selectedOptionLabelVar
+    );
+  });
+  test('props: selectedOptionCustomLabelVar', async () => {
+    const selectedOptionCustomLabelVar = 'name';
+    await wrapper.setProps({ selectedOptionCustomLabelVar });
+    assertPropsVarSetup(
+      wrapper,
+      'selectedOptionCustomLabelVar',
+      selectedOptionCustomLabelVar
+    );
   });
 
   test('props: openIndicatorIcon', async () => {
