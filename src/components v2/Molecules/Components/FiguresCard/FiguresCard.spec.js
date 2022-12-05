@@ -1,17 +1,10 @@
 import { createWrapper } from '@/utils/unitTest.ts';
-import { addCommaSeparators } from '@/utils/';
-import FiguresCard from '@/components/FiguresCard/FiguresCard.vue';
+import FiguresCard from '@/components v2/Molecules/Components/FiguresCard/FiguresCard.vue';
 
 describe('FiguresCard.vue', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = createWrapper(FiguresCard);
-  });
-
-  it('props: background', async () => {
-    const background = 'ph-bg-brand1';
-    await wrapper.setProps({ background });
-    expect(wrapper.props().background).toEqual(background);
   });
 
   it('props: title', async () => {
@@ -52,14 +45,5 @@ describe('FiguresCard.vue', () => {
   it('props: isCurrency', async () => {
     await wrapper.setProps({ isCurrency: true });
     expect(wrapper.props().isCurrency).toBeTruthy;
-  });
-
-  it('computed: display', async () => {
-    const value = 200000;
-    await wrapper.setProps({ value });
-    const numberConv = addCommaSeparators(value);
-    await console.log(wrapper.vm.display);
-    const displayComputed = wrapper.vm.display;
-    expect(displayComputed).toEqual('$' + numberConv);
   });
 });
