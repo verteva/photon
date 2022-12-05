@@ -2,7 +2,10 @@
   <div class="ph-input-autocomplete-select">
     <P2InputAutoComplete
       :show-footer="showFooter"
-      :custom-label-var="customLabelVar"
+      :option-label-var="optionLabelVar"
+      :option-custom-label-var="optionCustomLabelVar"
+      :selected-option-label-var="selectedOptionLabelVar"
+      :selected-option-custom-label-var="selectedOptionCustomLabelVar"
       :open-indicator-icon="openIndicatorIcon"
       :option-items="items"
       :init-input="value"

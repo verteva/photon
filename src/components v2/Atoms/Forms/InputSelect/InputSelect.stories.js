@@ -28,7 +28,10 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = {
   openIndicatorIcon: 'MenuDown',
-  customLabelVar: 'label',
+  optionLabelVar: 'label',
+  optionCustomLabelVar: 'label',
+  selectedOptionLabelVar: 'label',
+  selectedOptionCustomLabelVar: 'label',
   returnObj: true,
   disabled: true,
   reducePrefixSpacing: true,
@@ -54,7 +57,6 @@ Default.args = {
 export const Interactive = Template.bind({});
 Interactive.args = {
   openIndicatorIcon: 'MenuDown',
-  customLabelVar: 'label',
   returnObj: true,
   disabled: false,
   reducePrefixSpacing: true,
