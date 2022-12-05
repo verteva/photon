@@ -28,9 +28,13 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = {
   openIndicatorIcon: 'MenuDown',
-  customLabelVar: 'label',
+  optionLabelVar: 'label',
+  optionCustomLabelVar: 'label',
+  selectedOptionLabelVar: 'label',
+  selectedOptionCustomLabelVar: 'label',
   returnObj: true,
   disabled: true,
+  reducePrefixSpacing: true,
   items: [
     {
       code: '000',
@@ -53,24 +57,8 @@ Default.args = {
 export const Interactive = Template.bind({});
 Interactive.args = {
   openIndicatorIcon: 'MenuDown',
-  customLabelVar: 'label',
   returnObj: true,
   disabled: false,
-  items: [
-    {
-      code: '000',
-      label: 'Please select...',
-      icon: 'Checkmark',
-    },
-    {
-      code: '001',
-      label: '<span class="af_hl">highlight</span> test1',
-      icon: 'Checkmark',
-    },
-    {
-      code: '002',
-      label: '<span class="af_hl">highlight</span> test2',
-      icon: 'Checkmark',
-    },
-  ],
+  reducePrefixSpacing: true,
+  items: ['test1', 'test2', 'test3'],
 };
