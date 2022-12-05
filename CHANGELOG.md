@@ -1,3 +1,20 @@
+# [0.12.0](https://github.com/verteva/photon/compare/v0.11.0...v0.12.0) (2022-12-05)
+
+
+### Bug Fixes
+
+* add info card photon v2 to export ob-web ([ca7fe0b](https://github.com/verteva/photon/commit/ca7fe0b4ae708b97a99f9300d8101cb0ffd1c23d))
+* incorrect label variable props defined in atoms component ([dff030a](https://github.com/verteva/photon/commit/dff030ac8e448e38f7f5c5f3f9991746fd497ac4))
+* re-arrange css values ([6004a42](https://github.com/verteva/photon/commit/6004a425aa3c0b3273c55530148acd3190d08250))
+* update export names of list items ([d52af6b](https://github.com/verteva/photon/commit/d52af6b3d49b7c3cb7d21c1faf87d2d0d7ec2589))
+* update indicator and position of dropdown ([a216f78](https://github.com/verteva/photon/commit/a216f786e7ec51cfdaf4359492e44dab32eb24eb))
+* update input select found issues during integration ([0b61e01](https://github.com/verteva/photon/commit/0b61e018bbf964ea9a1a1b0ff27267b8e11ce8f9))
+
+
+### Features
+
+* brand gradient text photon v2 components ([e38ab89](https://github.com/verteva/photon/commit/e38ab8939e2f2f6bea404a6f698cf5d6f1d2eeaf))
+
 # [0.11.0](https://github.com/verteva/photon/compare/v0.10.0...v0.11.0) (2022-11-30)
 
 
