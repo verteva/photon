@@ -1,6 +1,6 @@
 <template>
   <div class="ph-autocomplete">
-    <div class="ph-autocomplete__field">
+    <div class="ph-autocomplete__field" :data-im="dataIm">
       <v-select
         ref="autocomplete"
         v-model="selected"
@@ -8,10 +8,10 @@
         class="ph-autocomplete__v-select"
         :value="initInput"
         :options="optionItems"
-        :label="selectedOptionLabelVar"
+        :label="optionLabelVar"
         :reduce="
           !simple && !returnObj
-            ? (content) => content[selectedOptionLabelVar]
+            ? (content) => content[optionLabelVar]
             : (content) => content
         "
         append-to-body
@@ -19,6 +19,7 @@
         :class="'ph-autocomplete-open' && toggleMenu"
         :clearable="!hideClearBtn"
         :dropdown-should-open="dropdownShouldOpen"
+        v-bind="filter"
         :searchable="!disableFilter"
         @input="onInput"
         @search="onSearch"
@@ -48,6 +49,8 @@
             :validate-icon="
               validateIcon(option) ? validateIcon(option) : prefixIcon
             "
+            :label-var="selectedOptionLabelVar"
+            :custom-label-var="selectedOptionCustomLabelVar"
             :prefix-icon="prefixIcon"
             :option="option"
           />
@@ -230,6 +233,16 @@ export const props = {
     type: Boolean as PropType<boolean>,
     default: false,
   },
+  defaultFilter: {
+    type: Function,
+    default: (options) => {
+      return options;
+    },
+  },
+  dataIm: {
+    type: String as PropType<string>,
+    default: '',
+  },
 };
 Vue.component('VSelect', vSelect);
 
@@ -260,6 +273,13 @@ export default Vue.extend({
     addFooter() {
       return (this as any).optionItems.length > 0;
     },
+    filter() {
+      let props = {};
+      if (!this.disableFilter) {
+        props['filter'] = () => (this as any).defaultFilter(this.optionItems);
+      }
+      return props;
+    },
   },
   created() {
     const selected = (this as any).getSelected((this as any).initInput);
@@ -282,7 +302,7 @@ export default Vue.extend({
       ) {
         return VueSelect.open;
       }
-      return VueSelect.open && this.optionItems.length > 0;
+      return VueSelect.open && !this.disabled && this.optionItems.length > 0;
     },
 
     getSelected(input: string) {
@@ -422,5 +442,9 @@ export default Vue.extend({
     width: 24px;
     height: 24px;
   }
+}
+.vs__dropdown-option--highlight {
+  background-color: var(--vselect-option-base-highlight-background-color);
+  color: var(--autocomplete-input-base-text-color);
 }
 </style>

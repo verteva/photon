@@ -12,7 +12,7 @@ describe('InputText.vue', () => {
     });
   };
 
-  const getInput = wrapper => {
+  const getInput = (wrapper) => {
     return wrapper.find('input').element;
   };
 

@@ -23,7 +23,7 @@
           class="ph-transition-all"
           :class="
             (innerValue && 'ph-transform ph-rotate-0') ||
-              'ph-transform ph--rotate-90'
+            'ph-transform ph--rotate-90'
           "
         />
       </div>
@@ -348,12 +348,8 @@ export default Vue.extend({
     },
     switchState() {
       // Capture the height before close if its open
-      const {
-        accordion,
-        totalHeight,
-        contentHeight,
-        headerHeight,
-      } = this.getNode();
+      const { accordion, totalHeight, contentHeight, headerHeight } =
+        this.getNode();
 
       if (this.expanded && headerHeight) {
         this.maxHeight = contentHeight + headerHeight;

@@ -18,7 +18,9 @@ import P2InputToggle from './Molecules/Forms/InputToggle';
 import P2InputPhone from './Molecules/Forms/InputPhone';
 import P2InputAutoComplete from './Molecules/Forms/InputAutoComplete';
 import P2Accordion from './Molecules/Components/Accordion';
+import P2InputSelect from './Molecules/Forms/InputSelect';
 import P2ListItem from './Atoms/Components/ListItem';
+import P2ContentCard from './Molecules/Components/ContentCard';
 import P2BrandGradientText from './Atoms/Components/BrandGradientText';
 
 export interface PhotonComponents {
@@ -35,6 +37,7 @@ const components: PhotonComponents = {
   P2Toast,
   P2Dialog,
   P2InputDate,
+  P2ContentCard,
   P2InputCheckbox,
   P2InputCheckboxGroup,
   P2InputRadioButton,
@@ -46,6 +49,7 @@ const components: PhotonComponents = {
   P2Headline,
   P2ListItem,
   P2Accordion,
+  P2InputSelect,
   P2BrandGradientText,
 };
 

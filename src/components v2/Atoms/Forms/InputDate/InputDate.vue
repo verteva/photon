@@ -10,9 +10,7 @@
       :disabled="disabled"
       @input="$emit('dateDay', $event)"
     />
-    <div class="ph-date-slash">
-      /
-    </div>
+    <div class="ph-date-slash">/</div>
 
     <p2-input-text
       type="text"
@@ -25,9 +23,7 @@
       @input="$emit('dateMonth', $event)"
     />
 
-    <div class="ph-date-slash">
-      /
-    </div>
+    <div class="ph-date-slash">/</div>
 
     <p2-input-text
       name="year"
