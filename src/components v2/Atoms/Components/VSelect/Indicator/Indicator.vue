@@ -4,7 +4,7 @@
       v-if="!hideOpenIndicator"
       class="openIndicator"
       :name="openIndicatorIcon"
-      type="med"
+      type="xs"
     />
   </span>
 </template>
@@ -21,7 +21,7 @@ export const props = {
 
   openIndicatorIcon: {
     type: String as PropType<string>,
-    default: 'Apartment',
+    default: 'ChevronDown',
   },
 
   indicatorAttributes: {
@@ -40,7 +40,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.vs__open-indicator {
+.vs__open-indicator,
+.openIndicator {
   color: var(--vselect-indicator-base-svg-icon-color);
 }
 </style>
