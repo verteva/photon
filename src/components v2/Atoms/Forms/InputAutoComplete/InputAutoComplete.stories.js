@@ -27,7 +27,7 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = {
   initInput: '',
-  openIndicatorIcon: 'MenuDown',
+  openIndicatorIcon: 'ChevronDown',
   disabled: true,
   disableFilter: true,
   noDropOnStart: true,
@@ -37,7 +37,7 @@ export const Placeholder = Template.bind({});
 Placeholder.args = {
   placeHolder: 'Search for your property',
   initInput: '',
-  openIndicatorIcon: 'MenuDown',
+  openIndicatorIcon: 'ChevronDown',
   disabled: true,
   disableFilter: true,
   noDropOnStart: true,
@@ -47,7 +47,7 @@ export const Loading = Template.bind({});
 Loading.args = {
   loading: true,
   initInput: '',
-  openIndicatorIcon: 'MenuDown',
+  openIndicatorIcon: 'ChevronDown',
   disabled: true,
   disableFilter: true,
   noDropOnStart: true,
@@ -55,7 +55,7 @@ Loading.args = {
 
 export const DropDown = Template.bind({});
 DropDown.args = {
-  openIndicatorIcon: 'MenuDown',
+  openIndicatorIcon: 'ChevronDown',
   customLabelVar: 'label',
   initInput: '001',
   selectedBy: 'id',
@@ -73,7 +73,7 @@ DropDown.args = {
 
 export const SimpleOption = Template.bind({});
 SimpleOption.args = {
-  openIndicatorIcon: 'MenuDown',
+  openIndicatorIcon: 'ChevronDown',
   customLabelVar: 'label',
   simple: true,
   optionItems: ['item1', 'item2'],
@@ -81,7 +81,7 @@ SimpleOption.args = {
 
 export const OptionPrefixIcon = Template.bind({});
 OptionPrefixIcon.args = {
-  openIndicatorIcon: 'MenuDown',
+  openIndicatorIcon: 'ChevronDown',
   customLabelVar: 'label',
   initInput: '001',
   selectedBy: 'id',
