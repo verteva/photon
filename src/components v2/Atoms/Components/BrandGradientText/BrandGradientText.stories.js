@@ -13,9 +13,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <PBrandGradientText>
-    <span>
       THIS IS Gradient Text
-    </span>
   </PBrandGradientText>`,
 });
 

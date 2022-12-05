@@ -14,9 +14,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .ph-brand-gradient-text {
   display: inline-block;
+  color: transparent;
+  background: var(--gradient-text-base-gradient);
   background-clip: text;
   -webkit-background-clip: text;
-  color: transparent;
-  background-image: var(--gradient-text-base-gradient);
 }
 </style>
