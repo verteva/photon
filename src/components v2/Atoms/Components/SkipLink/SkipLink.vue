@@ -41,15 +41,15 @@ export default Vue.extend({
 
   .ph-skip-link-anchor {
     background: var(--theme-primary-default);
-    color: white;
+    color: #fff;
     position: absolute;
     padding: 0;
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 16px;
+    line-height: 1.5;
     width: 0;
     height: 0;
-    border-radius: 0.375rem;
+    border-radius: 6px;
     outline: 0;
     pointer-events: none;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -57,8 +57,8 @@ export default Vue.extend({
     opacity: 0;
 
     &:focus {
-      padding: 1rem;
-      margin: 0.5rem;
+      padding: 16px;
+      margin: 8px;
       width: auto;
       height: auto;
       pointer-events: auto;
