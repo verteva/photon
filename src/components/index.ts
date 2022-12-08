@@ -12,7 +12,6 @@ import PAutoComplete from './Autocomplete';
 import PDialog from './Dialog';
 import PInputSlider from './InputSlider';
 import PCard from './Card';
-import PRate from './Rate';
 import PDateInput from './DateInput';
 import PCheckbox from './Checkbox';
 import PCheckboxGroup from './CheckboxGroup';
@@ -58,7 +57,6 @@ const components: PhotonComponents = {
   PBlockquote,
   PInputSlider,
   PCard,
-  PRate,
   PDateInput,
   PCheckbox,
   PCheckboxGroup,
