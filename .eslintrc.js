@@ -33,6 +33,7 @@ module.exports = {
       jsxBracketSameLine: true,
       printWidth: 80,
       trailingComma: 'es5',
+      endOfLine: 'auto',
     }],
     'vue/multi-word-component-names': 'off',
     'vue/no-reserved-component-names': 'off',
