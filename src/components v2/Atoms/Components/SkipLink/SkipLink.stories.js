@@ -1,7 +1,7 @@
 import P2SkipLink from './SkipLink.vue';
 
 export default {
-  title: 'V2/Atoms/Forms/SkipLink',
+  title: 'V2/Atoms/Components/SkipLink',
   component: P2SkipLink,
 };
 

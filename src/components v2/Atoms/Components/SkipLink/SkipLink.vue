@@ -1,10 +1,5 @@
 <template>
-  <nav
-    class="ph-skip-link"
-    aria-label="skip links navigation"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
+  <nav class="ph-skip-link" aria-label="skip links navigation">
     <a
       class="ph-skip-link-anchor"
       :href="mainMenuId"
@@ -21,23 +16,23 @@
     </a>
   </nav>
 </template>
-
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 
+export const props = {
+  mainMenuId: {
+    type: String as PropType<string>,
+    default: '#mainmenu',
+  },
+  contentId: {
+    type: String as PropType<string>,
+    default: '#content',
+  },
+};
+
 export default Vue.extend({
   name: 'P2SkipLink',
-
-  props: {
-    mainMenuId: {
-      type: String as PropType<string>,
-      default: '#mainmenu',
-    },
-    contentId: {
-      type: String as PropType<string>,
-      default: '#content',
-    },
-  },
+  props,
 });
 </script>
 <style lang="scss" scoped>
