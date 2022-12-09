@@ -1,5 +1,4 @@
 import P2Button from './Button.vue';
-import Loader from '@/components/Loader';
 import { ButtonSizes, ButtonStyles, ButtonTypes } from './types';
 
 const bool = { options: [true, false] };
@@ -67,7 +66,6 @@ const SubmittingTemplate = (args, { argTypes }) => ({
     <div class="ph-flex">
       <P2Button v-bind="$props" class="ph-my-2">
         <div :style="{ opacity: submitting ? 0 : 1 }" class="ph-transition">{{ label }}</div>
-        <loader :style="{ opacity: !submitting ? 0 : 1 }" class="ph-transition" :size="size" />
       </P2Button>
     </div>
   `,
