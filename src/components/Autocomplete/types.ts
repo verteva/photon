@@ -9,7 +9,7 @@ export type DropType = typeof DropUp | typeof DropDown;
 
 export const IconXSmall = 'xs';
 export const IconSmall = 'sm';
-export const IconMedium = 'med';
+export const IconMedium = 'md';
 export const IconLarge = 'lg';
 export type IconSize =
   | typeof IconXSmall

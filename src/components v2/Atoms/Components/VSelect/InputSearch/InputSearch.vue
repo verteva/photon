@@ -1,7 +1,7 @@
 <template>
   <div class="ph-autocomplete-search">
     <span v-if="prefixIcon" class="ph-icon-wrapper ph-autocomplete-prefix-icon">
-      <p-icon ref="prefixIcon" :name="prefixIcon" type="med" />
+      <p-icon ref="prefixIcon" :name="prefixIcon" type="md" />
     </span>
     <input
       v-show="hideInputOnSelected"

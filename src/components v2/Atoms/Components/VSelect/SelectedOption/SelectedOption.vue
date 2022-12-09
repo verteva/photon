@@ -4,7 +4,7 @@
       v-if="allowOptionIcon && showSelectedIcon"
       class="ph-selected-icon"
       :name="validateIcon"
-      type="med"
+      type="md"
       :data-deselect="deselect"
       :data-multiple="multiple"
       :data-disabled="disabled"
