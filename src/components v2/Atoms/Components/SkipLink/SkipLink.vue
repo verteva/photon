@@ -1,6 +1,7 @@
 <template>
   <nav class="ph-skip-link" aria-label="skip links navigation">
     <a
+      id="ph-skip-link-navigation"
       class="ph-skip-link-anchor"
       :href="mainMenuId"
       aria-label="skip to navigation link"
@@ -8,6 +9,7 @@
       Skip to navigation
     </a>
     <a
+      id="ph-skip-link-content"
       class="ph-skip-link-anchor"
       :href="contentId"
       aria-label="skip to content link"
