@@ -1,3 +1,1 @@
-import P2SkipLink from './SkipLink.vue';
-
-export default P2SkipLink;
+export { default, props } from './SkipLink.vue';

@@ -1,6 +1,7 @@
 <template>
   <nav class="ph-skip-link" aria-label="skip links navigation">
     <a
+      id="ph-skip-link-navigation"
       class="ph-skip-link-anchor"
       :href="mainMenuId"
       aria-label="skip to navigation link"
@@ -8,6 +9,7 @@
       Skip to navigation
     </a>
     <a
+      id="ph-skip-link-content"
       class="ph-skip-link-anchor"
       :href="contentId"
       aria-label="skip to content link"
@@ -40,16 +42,16 @@ export default Vue.extend({
   z-index: 50;
 
   .ph-skip-link-anchor {
-    background: var(--theme-primary-default);
-    color: #fff;
+    background: var(--skiplink-base-background);
+    color: var(--skiplink-base-color);
     position: absolute;
     padding: 0;
     margin: 0;
-    font-size: 16px;
+    font-size: var(--skiplink-base-font-size);
     line-height: 1.5;
     width: 0;
     height: 0;
-    border-radius: 6px;
+    border-radius: var(--skiplink-base-border-radius);
     outline: 0;
     pointer-events: none;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -57,7 +59,7 @@ export default Vue.extend({
     opacity: 0;
 
     &:focus {
-      padding: 16px;
+      padding: var(--skiplink-base-padding);
       margin: 8px;
       width: auto;
       height: auto;
