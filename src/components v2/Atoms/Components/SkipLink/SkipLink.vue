@@ -42,16 +42,16 @@ export default Vue.extend({
   z-index: 50;
 
   .ph-skip-link-anchor {
-    background: var(--skiplink-base-background);
-    color: var(--skiplink-base-color);
+    background: var(--skip-link-base-background);
+    color: var(--skip-link-base-color);
     position: absolute;
     padding: 0;
     margin: 0;
-    font-size: var(--skiplink-base-font-size);
+    font-size: var(--skip-link-base-font-size);
     line-height: 1.5;
     width: 0;
     height: 0;
-    border-radius: var(--skiplink-base-border-radius);
+    border-radius: var(--skip-link-base-border-radius);
     outline: 0;
     pointer-events: none;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -59,7 +59,7 @@ export default Vue.extend({
     opacity: 0;
 
     &:focus {
-      padding: var(--skiplink-base-padding);
+      padding: var(--skip-link-base-padding);
       margin: 8px;
       width: auto;
       height: auto;
