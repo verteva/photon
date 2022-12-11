@@ -22,6 +22,7 @@
       :disabled="disabled"
       :value="value"
       :type="type"
+      :size="size"
       @blur="$emit('blur', $event)"
       @focus="$emit('focus', $event)"
       @input="$emit('input', $event)"
@@ -93,5 +94,3 @@ export default Vue.extend({
   props,
 });
 </script>
-
-<style lang="scss" scoped></style>
