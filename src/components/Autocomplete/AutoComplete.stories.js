@@ -32,7 +32,7 @@ AutocompleteSimple.args = {
   label: 'Autocomplete',
   dropType: 'up',
   openIndicatorIcon: 'MenuDown',
-  openIndicatorIconSize: 'med',
+  openIndicatorIconSize: 'md',
   simple: true,
   optionItems: ['item1', 'item2'],
 };
@@ -42,7 +42,7 @@ AutocompleteMain.args = {
   label: 'Autocomplete',
   dropType: 'up',
   openIndicatorIcon: 'MenuDown',
-  openIndicatorIconSize: 'med',
+  openIndicatorIconSize: 'md',
   customLabelVar: 'label',
   initInput: '001',
   selectedBy: 'id',
