@@ -3,7 +3,7 @@
     <div class="figures-card-text-container">
       <div class="figures-card-title">
         {{ title }}
-        <slot name="title" />
+        <slot v-if="!title" name="title" />
       </div>
 
       <p2-figure :value="value" :loading="loading" :is-currency="isCurrency" />
