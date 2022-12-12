@@ -13,7 +13,6 @@
     :disabled="isDisabled"
     v-on="$listeners"
   >
-    <slot v-for="(_, name) in $slots" :slot="name" :name="name" />
     <div class="container">
       <div class="label">
         <slot name="default">
