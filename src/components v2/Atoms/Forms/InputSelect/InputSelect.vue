@@ -11,6 +11,7 @@
       :init-input="value"
       :value="value"
       :disabled="disabled"
+      :selected-by="selectedBy"
       hide-clear-btn
       :reduce-prefix-spacing="reducePrefixSpacing"
       :simple="simple"
@@ -78,6 +79,10 @@ export const props = {
   initInput: {
     type: String as PropType<string>,
     default: '',
+  },
+  selectedBy: {
+    type: String as PropType<string>,
+    default: 'label',
   },
 };
 
