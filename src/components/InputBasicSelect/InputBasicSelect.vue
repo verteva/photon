@@ -49,7 +49,7 @@
               v-if="allowOptionIcon && showSelectedIcon"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
               :name="validateIcon(option) ? validateIcon(option) : prefixIcon"
-              type="med"
+              type="md"
             />
             <span v-else class="ph-w-3" />
             <label

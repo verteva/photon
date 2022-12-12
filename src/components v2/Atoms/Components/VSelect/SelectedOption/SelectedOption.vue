@@ -4,7 +4,7 @@
       v-if="allowOptionIcon && showSelectedIcon"
       class="ph-selected-icon"
       :name="validateIcon"
-      type="med"
+      type="md"
       :data-deselect="deselect"
       :data-multiple="multiple"
       :data-disabled="disabled"
@@ -13,7 +13,8 @@
       v-else
       class="ph-autocomplete-spacing"
       :class="{
-        'ph-autocomplete-extra-spacing': allowOptionIcon && showSelectedIcon,
+        'ph-autocomplete-extra-spacing':
+          (allowOptionIcon && showSelectedIcon) || reducePrefixSpacing,
       }"
     />
     <label
@@ -69,7 +70,13 @@ export const props = {
     type: Boolean as PropType<boolean>,
     default: false,
   },
+
   showSelectedIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  reducePrefixSpacing: {
     type: Boolean as PropType<boolean>,
     default: false,
   },

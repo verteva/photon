@@ -19,9 +19,13 @@ import P2InputPhone from './Molecules/Forms/InputPhone';
 import P2InputAutoComplete from './Molecules/Forms/InputAutoComplete';
 import P2Accordion from './Molecules/Components/Accordion';
 import P2InputSelect from './Molecules/Forms/InputSelect';
-import P2ListItem from './Atoms/Components/ListItem';
+import P2List from './Atoms/Components/List';
+import P2Li from './Atoms/Components/ListItem';
 import P2ContentCard from './Molecules/Components/ContentCard';
 import P2FiguresCard from './Molecules/Components/FiguresCard';
+import P2BrandGradientText from './Atoms/Components/BrandGradientText';
+import P2InfoCard from './Atoms/Components/InfoCard';
+import P2SkipLink from './Atoms/Components/SkipLink';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -47,10 +51,14 @@ const components: PhotonComponents = {
   P2InputAutoComplete,
   P2BackDrop,
   P2Headline,
-  P2ListItem,
+  P2Li,
+  P2List,
   P2Accordion,
   P2InputSelect,
   P2FiguresCard,
+  P2BrandGradientText,
+  P2InfoCard,
+  P2SkipLink,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;

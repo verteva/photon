@@ -1,17 +1,18 @@
 <template>
   <div class="ph-autocomplete-search">
     <span v-if="prefixIcon" class="ph-icon-wrapper ph-autocomplete-prefix-icon">
-      <p-icon ref="prefixIcon" :name="prefixIcon" type="med" />
+      <p-icon ref="prefixIcon" :name="prefixIcon" type="md" />
     </span>
     <input
       v-show="hideInputOnSelected"
       data-testid="autocomplete-input"
       class="vs__search"
       :disabled="disabled"
-      :class="[
-        prefixIcon && 'ph-autocomplete-search-indent',
-        disabled && 'ph-autocomplete-disabled',
-      ]"
+      :class="{
+        'ph-autocomplete-select-indent': reducePrefixSpacing,
+        'ph-autocomplete-search-indent': prefixIcon,
+        'ph-autocomplete-disabled': disabled,
+      }"
       v-bind="inputSearchAttributes"
       v-on="inputSearchEvents"
       @focus="onFocus"
@@ -52,6 +53,10 @@ export const props = {
   inputSearchEvents: {
     type: Object as PropType<Record<string, any>>,
     default: () => ({}),
+  },
+  reducePrefixSpacing: {
+    type: Boolean as PropType<boolean>,
+    default: false,
   },
 };
 
@@ -114,6 +119,9 @@ export default Vue.extend({
   }
   .ph-autocomplete-search-indent {
     text-indent: 8px;
+  }
+  .ph-autocomplete-select-indent {
+    text-indent: 0px;
   }
   &.ph-autocomplete-disabled {
     cursor: not-allowed;

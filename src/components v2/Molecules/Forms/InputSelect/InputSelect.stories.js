@@ -171,23 +171,9 @@ export const Interactive = Template.bind({});
 Interactive.args = {
   openIndicatorIcon: 'MenuDown',
   customLabelVar: 'label',
+  simple: true,
   returnObj: true,
   disabled: false,
-  items: [
-    {
-      code: '000',
-      label: 'Please select...',
-      icon: 'Checkmark',
-    },
-    {
-      code: '001',
-      label: '<span class="af_hl">highlight</span> test1',
-      icon: 'Checkmark',
-    },
-    {
-      code: '002',
-      label: '<span class="af_hl">highlight</span> test2',
-      icon: 'Checkmark',
-    },
-  ],
+  initInput: 'test2',
+  items: ['test1', 'test2', 'test3'],
 };
