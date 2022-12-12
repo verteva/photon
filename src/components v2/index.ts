@@ -24,6 +24,7 @@ import P2Li from './Atoms/Components/ListItem';
 import P2ContentCard from './Molecules/Components/ContentCard';
 import P2BrandGradientText from './Atoms/Components/BrandGradientText';
 import P2InfoCard from './Atoms/Components/InfoCard';
+import P2SkipLink from './Atoms/Components/SkipLink';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -55,6 +56,7 @@ const components: PhotonComponents = {
   P2InputSelect,
   P2BrandGradientText,
   P2InfoCard,
+  P2SkipLink,
 };
 
 export type PhotonComponentKeys = keyof PhotonComponents;

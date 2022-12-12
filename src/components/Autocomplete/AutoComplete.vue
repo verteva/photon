@@ -51,7 +51,7 @@
               :class="(!iconColor && 'ph-text-grey2') || ''"
               :style="{ color: iconColor || 'inherit' }"
               :name="prefixIcon"
-              type="med"
+              type="md"
             ></p-icon>
             <input
               v-show="!selected ? true : !hideInputOnSelected"
@@ -71,7 +71,7 @@
               v-if="allowOptionIcon && showSelectedIcon"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
               :name="validateIcon(option) ? validateIcon(option) : prefixIcon"
-              type="med"
+              type="md"
             ></p-icon>
             <span v-else class="ph-w-3"></span>
             <label
@@ -94,7 +94,7 @@
               v-if="allowOptionIcon && showSelectedIcon"
               class="ph-my-auto ph-mx-4 ph-text-brand2"
               :name="validateIcon(option) ? validateIcon(option) : prefixIcon"
-              type="med"
+              type="md"
               :data-deselect="deselect"
               :data-multiple="multiple"
               :data-disabled="disabled"

@@ -39,7 +39,7 @@ InputSelect.args = {
   label: 'This is an input select',
   dropType: 'up',
   openIndicatorIcon: 'MenuDown',
-  openIndicatorIconSize: 'med',
+  openIndicatorIconSize: 'md',
   customLabelVar: 'label',
   returnObj: true,
   backgroundColor: '#123456',
