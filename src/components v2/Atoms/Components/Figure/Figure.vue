@@ -1,10 +1,7 @@
 <template>
   <div class="photon-figure" :class="[size]">
     <span class="figure-container">
-      <div
-        class="figure"
-        :class="[$attrs.class, (!loading && 'animate-fade-in-slow') || '']"
-      >
+      <div class="figure" :class="[(!loading && 'animate-fade-in-slow') || '']">
         {{ loading && isCurrency ? calculation : display }}
       </div>
     </span>

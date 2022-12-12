@@ -99,6 +99,7 @@ export default Vue.extend({
   flex-direction: column;
   justify-content: var(--figures-card-text-justify-content);
   margin: var(--figures-card-text-margin);
+  width: 100%;
 }
 
 .figures-card-title {
