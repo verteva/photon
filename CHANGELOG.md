@@ -1,3 +1,20 @@
+# [0.13.0](https://github.com/verteva/photon/compare/v0.12.0...v0.13.0) (2022-12-12)
+
+
+### Bug Fixes
+
+* move from rem to px ([73530d4](https://github.com/verteva/photon/commit/73530d408750ce9cafe8e7ee35c7e231031a6f62))
+* unit tests ([7ae7539](https://github.com/verteva/photon/commit/7ae75398a39754ffb2ddd1f102337e6e29b5e01e))
+* unit tests ([f35abf9](https://github.com/verteva/photon/commit/f35abf9ffceccf4122146c7b502fa35d51e6b83e))
+* update medium from from using 'med -> md' ([b5e8edb](https://github.com/verteva/photon/commit/b5e8edbab6e2736a7ac8cd340bbadca28ec99264))
+* wip CX-31 input text update ([73616cf](https://github.com/verteva/photon/commit/73616cf4b341280cd639585d98a03ab73c81cee3))
+
+
+### Features
+
+* skip link v2 ([1fa43c1](https://github.com/verteva/photon/commit/1fa43c10908924aede94960536f0d14b566322ed))
+* skiplink v2 with adjustments ([cceef3e](https://github.com/verteva/photon/commit/cceef3e66a3e7965a7b29b23aad68d905cb0d67f))
+
 # [0.12.0](https://github.com/verteva/photon/compare/v0.11.0...v0.12.0) (2022-12-05)
 
 
