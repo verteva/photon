@@ -77,8 +77,8 @@ export const props = {
     default: true,
   },
   initInput: {
-    type: String as PropType<string>,
-    default: '',
+    type: [Number, String, Object] as PropType<string | number>,
+    default: null,
   },
   selectedBy: {
     type: String as PropType<string>,
