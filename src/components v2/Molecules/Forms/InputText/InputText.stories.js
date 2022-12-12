@@ -133,7 +133,7 @@ Default.args = {
   inlineText: '( Please write your name, address and bank details )',
   isRequired: true,
   extraMessage: '',
-  iconLeft: '',
+  iconLeft: 'Apartment',
   size: 'md',
   messageIcon: '',
   error: '',

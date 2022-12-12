@@ -7,7 +7,7 @@
     ]"
   >
     <div v-if="iconLeft" class="ph-input-text-icon ph-input-text-icon-left">
-      <p-icon :name="iconLeft" type="lg" />
+      <p-icon :name="iconLeft" :type="size" />
     </div>
     <input
       :id="id"
@@ -31,7 +31,7 @@
       @input="$emit('input', $event.target.value)"
     />
     <div v-if="iconRight" class="ph-input-text-icon">
-      <p-icon :name="iconRight" type="lg" />
+      <p-icon :name="iconRight" :type="size" />
     </div>
   </div>
 </template>
@@ -42,7 +42,7 @@ import PIcon from '@/components/Icon';
 import { InputValues, InputTypes } from './types';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
-const { disabled } = formProps;
+const { disabled, size } = formProps;
 
 export const props = {
   centered: {
@@ -86,6 +86,7 @@ export const props = {
     default: null,
   },
   disabled,
+  size,
 };
 
 export default Vue.extend({
