@@ -1,3 +1,10 @@
+## [0.13.1](https://github.com/verteva/photon/compare/v0.13.0...v0.13.1) (2022-12-12)
+
+
+### Bug Fixes
+
+* removed slot rendering in button that caused <template> tags ([6329b2e](https://github.com/verteva/photon/commit/6329b2ecaeeb6b4ef593daaf027c0f770d773b95))
+
 # [0.13.0](https://github.com/verteva/photon/compare/v0.12.0...v0.13.0) (2022-12-12)
 
 
