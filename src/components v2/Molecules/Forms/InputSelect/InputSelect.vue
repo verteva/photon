@@ -27,6 +27,7 @@
         reducePrefixSpacing,
         simple,
         initInput,
+        selectedBy,
       }"
       @input="$emit('input', $event)"
     />
@@ -56,6 +57,7 @@ const {
   reducePrefixSpacing,
   simple,
   initInput,
+  selectedBy,
 } = InputSelectProps;
 const { size, disabled } = formProps;
 const {
@@ -93,6 +95,7 @@ export const props = {
   reducePrefixSpacing,
   simple,
   initInput,
+  selectedBy,
 };
 
 export default Vue.extend({
