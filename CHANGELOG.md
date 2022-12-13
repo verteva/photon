@@ -1,3 +1,31 @@
+# [0.14.0](https://github.com/verteva/photon/compare/v0.13.1...v0.14.0) (2022-12-13)
+
+
+### Bug Fixes
+
+* initinput support correct types like number ([0bb07fe](https://github.com/verteva/photon/commit/0bb07fe59b90ecd3771eb41e6688ec8b4b050148))
+* new branding vars ([3cec10e](https://github.com/verteva/photon/commit/3cec10eab4ef8a6bbdd8ba611040a671e7d5d96d))
+* selectedBy prop not working correctly ([4819d7b](https://github.com/verteva/photon/commit/4819d7b348e992eb7ca892481da7de7d87f33168))
+* update cardStyle ([c3917c1](https://github.com/verteva/photon/commit/c3917c1abbce5fff1e939d2f68af8d3e48e49e6b))
+* update figure type file ([724981e](https://github.com/verteva/photon/commit/724981ea5cb83681f5b0ede7aee93e74f2527704))
+* update fonts ([f666aea](https://github.com/verteva/photon/commit/f666aeadc46a152256fbfa55bfc344679e30d52f))
+* update spec ref ([e927806](https://github.com/verteva/photon/commit/e927806b218f9572d5e5bc3572bf79d655d006b7))
+* update title slot ([4491cbd](https://github.com/verteva/photon/commit/4491cbda6787dd2f241a93a24f19460d1ed85c37))
+* update types ([f2bb614](https://github.com/verteva/photon/commit/f2bb61432a6c7f50224207f48f664595ea69a955))
+* update unused FiguresData ([6ba1ed2](https://github.com/verteva/photon/commit/6ba1ed25f1d29663405cca9903afe6190a5d7ec3))
+
+
+### Features
+
+* add figure and figuresCard ([6042bdf](https://github.com/verteva/photon/commit/6042bdfc67961313b40e9f69306f54b2f3eae73e))
+
+## [0.13.1](https://github.com/verteva/photon/compare/v0.13.0...v0.13.1) (2022-12-12)
+
+
+### Bug Fixes
+
+* removed slot rendering in button that caused <template> tags ([6329b2e](https://github.com/verteva/photon/commit/6329b2ecaeeb6b4ef593daaf027c0f770d773b95))
+
 # [0.13.0](https://github.com/verteva/photon/compare/v0.12.0...v0.13.0) (2022-12-12)
 
 
