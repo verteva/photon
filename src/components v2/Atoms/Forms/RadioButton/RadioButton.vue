@@ -12,7 +12,7 @@
     <label
       :for="id"
       class="ph-radio-label"
-      :class="icon && 'ph-radio-bar-bottom-brand'"
+      :class="icon && 'ph-radio-bar-bottom-brand ph-radio-icon-label'"
     >
       <div :class="icon && 'ph-radio-label-icon'">
         <p-icon v-if="icon" :name="icon" type="xl" />
@@ -90,7 +90,7 @@ export default Vue.extend({
 
     &.ph-radio-bar-bottom-brand {
       padding: 20px;
-      justify-content: center;
+      justify-content: var(--radio-button-styles-primary-justify-content);
     }
   }
   &.ph-radio-disabled {
@@ -119,7 +119,9 @@ export default Vue.extend({
     }
     &:checked {
       + .ph-radio-label {
-        background: var(--radio-button-styles-primary-checked-background);
+        background: var(
+          --radio-button-styles-primary-checked-background-default
+        );
         border-color: var(--radio-button-styles-primary-checked-border-color);
         color: var(--radio-button-styles-primary-checked-color);
         .ph-radio-label-text {
@@ -135,6 +137,12 @@ export default Vue.extend({
           .ph-radio-circle {
             background: var(--radio-button-styles-primary-checked-circle);
           }
+        }
+
+        &.ph-radio-icon-label {
+          background: var(
+            --radio-button-styles-primary-checked-background-icon
+          );
         }
       }
       ~ .ph-radio-bar-bottom-brand:after {
