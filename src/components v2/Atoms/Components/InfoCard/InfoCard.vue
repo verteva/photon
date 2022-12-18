@@ -144,7 +144,7 @@ export default Vue.extend({
   display: flex;
   position: absolute;
   right: 20px;
-  top: 50%;
+  top: var(--info-card-style-icon-top);
   margin-top: 4px;
   color: var(--info-card-style-icon-color);
   justify-content: center;
