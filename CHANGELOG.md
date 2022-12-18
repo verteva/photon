@@ -1,3 +1,10 @@
+## [0.14.1](https://github.com/verteva/photon/compare/v0.14.0...v0.14.1) (2022-12-15)
+
+
+### Bug Fixes
+
+* update radio button checked background ([dc8abdd](https://github.com/verteva/photon/commit/dc8abdd2c497d4e61ec5b71a71eb87846191e352))
+
 # [0.14.0](https://github.com/verteva/photon/compare/v0.13.1...v0.14.0) (2022-12-13)
 
 
