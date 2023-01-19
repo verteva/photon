@@ -26,6 +26,7 @@ export default Vue.extend({
   font-size: var(--headline-default-font-size);
   line-height: var(--headline-default-line-height);
   letter-spacing: var(--headline-default-letter-spacing);
+  word-break: break-word;
 
   &.sm {
     font-size: var(--headline-sm-font-size);
