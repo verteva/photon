@@ -1,7 +1,7 @@
 <template>
-  <h1 class="photon-headline" :class="[size]">
+  <h2 class="photon-headline" :class="[size]">
     <slot />
-  </h1>
+  </h2>
 </template>
 
 <script lang="ts">
@@ -26,6 +26,7 @@ export default Vue.extend({
   font-size: var(--headline-default-font-size);
   line-height: var(--headline-default-line-height);
   letter-spacing: var(--headline-default-letter-spacing);
+  word-break: break-word;
 
   &.sm {
     font-size: var(--headline-sm-font-size);
