@@ -1,7 +1,7 @@
 <template>
-  <h1 class="photon-headline" :class="[size]">
+  <h2 class="photon-headline" :class="[size]">
     <slot />
-  </h1>
+  </h2>
 </template>
 
 <script lang="ts">
