@@ -12,7 +12,7 @@ const transformHEXRGBa = (value) => {
     return value;
   }
 
-  const [hex, alpha] = value.replace(')', '').split('rgba(').pop().split(', ');
+  const [hex, alpha] = value.replace(')', '').split('rgba(').pop().split(',');
   const [r, g, b] = parseToRgba(hex);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  return `rgba(${r}, ${g}, ${b}, ${alpha.trim()})`;
 };
