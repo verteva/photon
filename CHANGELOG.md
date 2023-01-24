@@ -1,3 +1,11 @@
+## [0.14.2](https://github.com/verteva/photon/compare/v0.14.1...v0.14.2) (2023-01-20)
+
+
+### Bug Fixes
+
+* heading 1 downgrade ([bd139a3](https://github.com/verteva/photon/commit/bd139a3d54697b5f99c60ee5b4df509f046abcd3))
+* update word break for dialogs with long words ([8ca4c28](https://github.com/verteva/photon/commit/8ca4c2889b989fc1b77f4a8f663c364bea896402))
+
 ## [0.14.1](https://github.com/verteva/photon/compare/v0.14.0...v0.14.1) (2022-12-15)
 
 
