@@ -67,6 +67,7 @@ export default Vue.extend({
 
   span {
     font-family: var(--form-control-items-message-default-text-font-family);
+    font-size: var(--form-control-items-message-default-text-font-size);
     font-weight: var(--form-control-items-message-default-text-font-weight);
   }
 
