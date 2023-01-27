@@ -98,6 +98,8 @@ export default Vue.extend({
   display: flex;
   padding-top: 2px;
   padding-bottom: 2px;
+  min-width: 0;
+
   .ph-selected-icon {
     margin-left: 16px;
     margin-right: 16px;
@@ -113,8 +115,9 @@ export default Vue.extend({
   }
   .ph-autocomplete-selected-label {
     overflow: hidden;
+    text-overflow: ellipsis;
     padding-top: 2px;
-    white-space: normal;
+    white-space: nowrap;
     line-height: 40px;
   }
 
