@@ -43,6 +43,17 @@ Placeholder.args = {
   noDropOnStart: true,
 };
 
+export const LongPlaceholder = Template.bind({});
+LongPlaceholder.args = {
+  placeHolder:
+    'Search for your property, Search for your property, Search for your property, Search for your property',
+  initInput: '',
+  openIndicatorIcon: 'ChevronDown',
+  disabled: true,
+  disableFilter: true,
+  noDropOnStart: true,
+};
+
 export const Loading = Template.bind({});
 Loading.args = {
   loading: true,
@@ -91,6 +102,29 @@ OptionPrefixIcon.args = {
     {
       id: '001',
       label: '<span class="af_hl">highlight</span> test1',
+      icon: 'LocationSimple',
+    },
+    {
+      id: '002',
+      label: '<span class="af_hl">highlight</span> test2',
+      icon: 'Apartment',
+    },
+  ],
+};
+
+export const LongOptionLabel = Template.bind({});
+LongOptionLabel.args = {
+  openIndicatorIcon: 'ChevronDown',
+  customLabelVar: 'label',
+  initInput: '001',
+  selectedBy: 'id',
+  allowOptionIcon: true,
+  prefixIcon: 'LocationSimple',
+  optionItems: [
+    {
+      id: '001',
+      label:
+        'this is a long option label and will render with more text thus an elipsis will be created!',
       icon: 'LocationSimple',
     },
     {
