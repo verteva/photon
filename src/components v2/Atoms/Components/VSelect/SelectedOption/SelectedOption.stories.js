@@ -20,3 +20,15 @@ Default.args = {
   allowOptionIcon: false,
   showSelectedIcon: false,
 };
+
+export const LongText = Template.bind({});
+LongText.args = {
+  option: {
+    label:
+      'Option 1 this is a very long text to show how an overflow should be handled.',
+  },
+  validateIcon: '',
+  prefixIcon: '',
+  allowOptionIcon: false,
+  showSelectedIcon: false,
+};
