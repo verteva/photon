@@ -8,8 +8,9 @@
       :maxlength="2"
       :value="value.day"
       :disabled="disabled"
-      :is-number="true"
+      is-number
       @input="$emit('dateDay', $event)"
+      @blur="$emit('dateDayBlur', $event)"
     />
     <div class="ph-date-slash">/</div>
 
@@ -21,8 +22,9 @@
       :maxlength="2"
       :value="value.month"
       :disabled="disabled"
-      :is-number="true"
+      is-number
       @input="$emit('dateMonth', $event)"
+      @blur="$emit('dateMonthBlur', $event)"
     />
 
     <div class="ph-date-slash">/</div>
@@ -34,8 +36,9 @@
       :maxlength="4"
       :value="value.year"
       :disabled="disabled"
-      :is-number="true"
+      is-number
       @input="$emit('dateYear', $event)"
+      @blur="$emit('dateYearBlur', $event)"
     />
   </div>
 </template>
