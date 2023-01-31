@@ -23,6 +23,7 @@
       :value="value"
       :type="type"
       :size="size"
+      :is-number="isNumber"
       @blur="$emit('blur', $event)"
       @focus="$emit('focus', $event)"
       @input="$emit('input', $event)"
@@ -59,6 +60,7 @@ const {
   id,
   type,
   maxlength,
+  isNumber,
 } = InputTextProps;
 
 export const props = {
@@ -82,6 +84,7 @@ export const props = {
   id,
   type,
   maxlength,
+  isNumber,
 };
 
 export default Vue.extend({
