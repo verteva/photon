@@ -25,10 +25,10 @@
       :value="value"
       :maxlength="maxlength"
       data-testid="input-text"
+      @input="onInput($event)"
       @focus="onFocus"
       @blur="onBlur"
       @wheel="$event.preventDefault()"
-      @input="$emit('input', $event.target.value)"
     />
     <div v-if="iconRight" class="ph-input-text-icon">
       <p-icon :name="iconRight" :type="size" />
@@ -46,10 +46,6 @@ const { disabled, size } = formProps;
 
 export const props = {
   centered: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  number: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
@@ -85,6 +81,10 @@ export const props = {
     type: Number as PropType<number>,
     default: null,
   },
+  isNumber: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
   disabled,
   size,
 };
@@ -107,6 +107,19 @@ export default Vue.extend({
     onFocus(e: InputEvent) {
       this.inFocus = true;
       this.$emit('focus', e);
+    },
+    onInput(e: InputEvent) {
+      const target = e.target as HTMLInputElement;
+      if (this.isNumber) {
+        const number = Number(target.value);
+        if (Number.isNaN(number)) {
+          target.value = '';
+          target.value = target.value.slice(0, -1);
+          e.preventDefault();
+          return;
+        }
+      }
+      this.$emit('input', target.value);
     },
     onBlur(e: InputEvent) {
       this.inFocus = false;
