@@ -1,3 +1,15 @@
+# [0.15.0](https://github.com/verteva/photon/compare/v0.14.4...v0.15.0) (2023-02-01)
+
+
+### Bug Fixes
+
+* prevent non numbers being typed inputText, inputDate ([94ab8cc](https://github.com/verteva/photon/commit/94ab8cc3d784494584a9828e5438d0d3f52326b3))
+
+
+### Features
+
+* added on blur handlers for input date ([131ccfb](https://github.com/verteva/photon/commit/131ccfbc2cd650f93cf856b5b5c26e01cd690c37))
+
 ## [0.14.4](https://github.com/verteva/photon/compare/v0.14.3...v0.14.4) (2023-01-27)
 
 
