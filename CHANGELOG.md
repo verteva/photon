@@ -1,3 +1,17 @@
+## [0.14.4](https://github.com/verteva/photon/compare/v0.14.3...v0.14.4) (2023-01-27)
+
+
+### Bug Fixes
+
+* overflow elpisis for long text ([9642319](https://github.com/verteva/photon/commit/9642319718ad00cbe54479138a35520cf7466cfc))
+
+## [0.14.3](https://github.com/verteva/photon/compare/v0.14.2...v0.14.3) (2023-01-24)
+
+
+### Bug Fixes
+
+* color parser update to allow for whitespaces ([29886c5](https://github.com/verteva/photon/commit/29886c509cb8794a04bf548bf637da94801b511a))
+
 ## [0.14.2](https://github.com/verteva/photon/compare/v0.14.1...v0.14.2) (2023-01-20)
 
 

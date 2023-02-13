@@ -18,6 +18,9 @@
       @dateDay="$emit('dateDay', $event)"
       @dateMonth="$emit('dateMonth', $event)"
       @dateYear="$emit('dateYear', $event)"
+      @dateDayBlur="$emit('dateDayBlur', $event)"
+      @dateMonthBlur="$emit('dateMonthBlur', $event)"
+      @dateYearBlur="$emit('dateYearBlur', $event)"
     />
   </P2FormControl>
 </template>

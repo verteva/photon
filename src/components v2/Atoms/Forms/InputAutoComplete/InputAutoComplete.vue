@@ -417,6 +417,8 @@ export default Vue.extend({
 .vs__selected {
   margin: 0px 2px 0;
   border-width: 0px;
+  min-width: 0;
+  max-width: 100%;
   height: var(--autocomplete-input-base-height);
   color: var(--autocomplete-input-base-text-color);
   & + .ph-autocomplete-search .ph-autocomplete-prefix-icon {
@@ -426,6 +428,7 @@ export default Vue.extend({
 
 .vs__selected-options {
   flex-wrap: nowrap;
+  min-width: 0;
 
   input {
     padding-left: 20px;
