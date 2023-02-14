@@ -4,10 +4,10 @@
       ref="input"
       :value="value"
       :style="{
-        '--countriesHeight': countries.length * 30,
+        '--countriesHeight': onlyCountries.length * 30,
       }"
       :default-country-code="defaultCountryCode"
-      :only-countries="countries"
+      :only-countries="onlyCountries"
       :translations="{
         countrySelectorLabel: '',
         phoneNumberLabel: placeholder,
@@ -65,6 +65,12 @@ export default Vue.extend({
     return {
       inFocus: false,
     } as InputPhoneData;
+  },
+
+  computed: {
+    onlyCountries(): string[] {
+      return (this as any).countries;
+    },
   },
 
   methods: {
