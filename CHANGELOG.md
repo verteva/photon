@@ -1,3 +1,10 @@
+## [0.15.2](https://github.com/verteva/photon/compare/v0.15.1...v0.15.2) (2023-02-14)
+
+
+### Bug Fixes
+
+* bind properties so we can override default country props ([16766f9](https://github.com/verteva/photon/commit/16766f9e375a608b881e9ba452f757be7e395d8e))
+
 # [0.15.0](https://github.com/verteva/photon/compare/v0.14.4...v0.15.0) (2023-02-01)
 
 
