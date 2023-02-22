@@ -1,3 +1,29 @@
+## [0.15.2](https://github.com/verteva/photon/compare/v0.15.1...v0.15.2) (2023-02-14)
+
+
+### Bug Fixes
+
+* bind properties so we can override default country props ([16766f9](https://github.com/verteva/photon/commit/16766f9e375a608b881e9ba452f757be7e395d8e))
+
+## [0.15.1](https://github.com/verteva/photon/compare/v0.15.0...v0.15.1) (2023-02-14)
+
+
+### Bug Fixes
+
+* attempted bug fix for countries not updating ([5e8c63f](https://github.com/verteva/photon/commit/5e8c63f694ef5fb36eed924a3855357b76398406))
+
+# [0.15.0](https://github.com/verteva/photon/compare/v0.14.4...v0.15.0) (2023-02-01)
+
+
+### Bug Fixes
+
+* prevent non numbers being typed inputText, inputDate ([94ab8cc](https://github.com/verteva/photon/commit/94ab8cc3d784494584a9828e5438d0d3f52326b3))
+
+
+### Features
+
+* added on blur handlers for input date ([131ccfb](https://github.com/verteva/photon/commit/131ccfbc2cd650f93cf856b5b5c26e01cd690c37))
+
 ## [0.14.4](https://github.com/verteva/photon/compare/v0.14.3...v0.14.4) (2023-01-27)
 
 

@@ -16,6 +16,8 @@
       :placeholder="placeholder"
       :disabled="disabled"
       :value="value"
+      :default-country-code="defaultCountryCode"
+      :countries="countries"
       @blur="$emit('blur', $event)"
       @focus="$emit('focus', $event)"
       @input="$emit('input', $event)"
