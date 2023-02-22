@@ -15,6 +15,7 @@
       hide-clear-btn
       :reduce-prefix-spacing="reducePrefixSpacing"
       :simple="simple"
+      :return-obj="returnObj"
       :place-holder="placeHolder"
       @input="$emit('input', selected)"
       @update:selected="selected = $event"
@@ -83,6 +84,10 @@ export const props = {
   selectedBy: {
     type: String as PropType<string>,
     default: 'label',
+  },
+  returnObj: {
+    type: Boolean as PropType<boolean>,
+    default: false,
   },
 };
 
