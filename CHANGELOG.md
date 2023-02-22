@@ -1,3 +1,10 @@
+## [0.15.3](https://github.com/verteva/photon/compare/v0.15.2...v0.15.3) (2023-02-22)
+
+
+### Bug Fixes
+
+* passthrough returnObj ([7188bec](https://github.com/verteva/photon/commit/7188becc222a49210fe6cbc93e2eb90423f1e6c4))
+
 ## [0.15.2](https://github.com/verteva/photon/compare/v0.15.1...v0.15.2) (2023-02-14)
 
 
