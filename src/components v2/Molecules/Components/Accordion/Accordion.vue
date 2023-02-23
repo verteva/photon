@@ -63,7 +63,7 @@ import AccordionContent, {
 const { light, border, shadow } = CardProps;
 const { fullWidth, complete, disabled, openArrows, openCloseIcons, section } =
   AccordionHeaderProps;
-const { noHeadingRule } = AccordionContentProps;
+const { noHeadingRule, noHorizontalPadding } = AccordionContentProps;
 
 export const props = {
   // Card Props
@@ -79,6 +79,7 @@ export const props = {
   openCloseIcons,
   // AccordionContent props
   noHeadingRule,
+  noHorizontalPadding,
   // Accordion Props
   open: {
     type: Boolean as PropType<boolean>,
@@ -97,10 +98,6 @@ export const props = {
     default: true,
   },
   value: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  noHorizontalPadding: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
