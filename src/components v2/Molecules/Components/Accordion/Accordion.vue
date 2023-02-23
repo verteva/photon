@@ -35,7 +35,10 @@
       >
         <slot name="heading" :expanded="expanded" />
       </accordion-header>
-      <accordion-content :no-heading-rule="noHeadingRule">
+      <accordion-content
+        :no-heading-rule="noHeadingRule"
+        :no-horizontal-padding="noHorizontalPadding"
+      >
         <slot name="default" />
       </accordion-content>
       <slot name="footer" />
@@ -97,7 +100,7 @@ export const props = {
     type: Boolean as PropType<boolean>,
     default: false,
   },
-  mobileNoPadding: {
+  noHorizontalPadding: {
     type: Boolean as PropType<boolean>,
     default: false,
   },

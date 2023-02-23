@@ -5,7 +5,12 @@
       class="rule"
       data-testid="accordion-header-rule"
     />
-    <div class="acc-content">
+    <div
+      class="acc-content"
+      :class="
+        (noHorizontalPadding && 'acc-content--no-horizontal-padding') || ''
+      "
+    >
       <slot name="default" />
     </div>
   </div>
@@ -18,6 +23,10 @@ export const props = {
   noHeadingRule: {
     type: Boolean as PropType<boolean>,
     default: true,
+  },
+  noHorizontalPadding: {
+    type: Boolean as PropType<boolean>,
+    default: false,
   },
 };
 
@@ -41,6 +50,11 @@ defineProps(props);
   .acc-content {
     width: 100%;
     padding: var(--accordion-content-padding);
+
+    &--no-horizontal-padding {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
 </style>
