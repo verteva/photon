@@ -385,6 +385,19 @@ export default Vue.extend({
 <style lang="scss">
 @import '~vue-select/dist/vue-select.css';
 
+@media (max-width: 767px) {
+  .ph-autocomplete-search .vs__search:focus {
+    padding-left: var(--autocomplete-input-base-padding-left-mobile) !important;
+  }
+  .ph-autocomplete-search .ph-autocomplete-search-indent[data-v-af035ba4] {
+    text-indent: 0 !important;
+  }
+  .ph-autocomplete-search .ph-autocomplete-prefix-icon[data-v-af035ba4] {
+    margin-left: 0.4rem !important;
+    margin-right: 0.4rem !important;
+  }
+}
+
 .ph-autocomplete__v-select {
   --vs-search-input-color: var(--autocomplete-input-base-text-color);
   --vs-search-input-bg: var(--autocomplete-input-base-background-color);
@@ -431,12 +444,21 @@ export default Vue.extend({
   min-width: 0;
 
   input {
-    padding-left: 20px;
-    color: currentColor;
     -webkit-appearance: none;
+    color: currentColor;
+    padding-left: var(--autocomplete-input-base-padding-left-mobile);
+
     &::placeholder {
       color: var(--autocomplete-input-base-placeholder-color);
-      text-indent: var(--autocomplete-input-base-placeholder-indent);
+      text-indent: var(--autocomplete-input-base-placeholder-indent-mobile);
+    }
+
+    @media (min-width: 768px) {
+      padding-left: var(--autocomplete-input-base-padding-left);
+
+      &::placeholder {
+        text-indent: var(--autocomplete-input-base-placeholder-indent);
+      }
     }
   }
 }
