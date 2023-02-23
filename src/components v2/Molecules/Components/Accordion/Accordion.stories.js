@@ -78,6 +78,7 @@ Simple.args = {
   openCloseIcons: ['Edit', 'MinusBordered'],
   shadow: true,
   responsivePadding: true,
+  noHorizontalPadding: false,
 };
 
 const NestedTemplate = (args, { argTypes }) => ({

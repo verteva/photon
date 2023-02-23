@@ -35,7 +35,10 @@
       >
         <slot name="heading" :expanded="expanded" />
       </accordion-header>
-      <accordion-content :no-heading-rule="noHeadingRule">
+      <accordion-content
+        :no-heading-rule="noHeadingRule"
+        :no-horizontal-padding="noHorizontalPadding"
+      >
         <slot name="default" />
       </accordion-content>
       <slot name="footer" />
@@ -60,7 +63,7 @@ import AccordionContent, {
 const { light, border, shadow } = CardProps;
 const { fullWidth, complete, disabled, openArrows, openCloseIcons, section } =
   AccordionHeaderProps;
-const { noHeadingRule } = AccordionContentProps;
+const { noHeadingRule, noHorizontalPadding } = AccordionContentProps;
 
 export const props = {
   // Card Props
@@ -76,6 +79,7 @@ export const props = {
   openCloseIcons,
   // AccordionContent props
   noHeadingRule,
+  noHorizontalPadding,
   // Accordion Props
   open: {
     type: Boolean as PropType<boolean>,
@@ -94,10 +98,6 @@ export const props = {
     default: true,
   },
   value: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  mobileNoPadding: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
