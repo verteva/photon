@@ -1,3 +1,10 @@
+## [0.15.5](https://github.com/verteva/photon/compare/v0.15.4...v0.15.5) (2023-02-23)
+
+
+### Bug Fixes
+
+* make adjustable for mobile screens ([ebd861a](https://github.com/verteva/photon/commit/ebd861ac14bb95007f5b84d89cf6c0cf2abaf005))
+
 ## [0.15.4](https://github.com/verteva/photon/compare/v0.15.3...v0.15.4) (2023-02-23)
 
 
