@@ -32,6 +32,8 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = {
   label: 'This is a autocomplete component with label',
+  prefixIcon: 'LocationSimple',
+  placeHolder: 'Search for your property',
   inlineText: 'Mr inline text',
   isRequired: true,
   extraMessage: 'This is an extra message',
