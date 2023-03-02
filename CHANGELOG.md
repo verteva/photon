@@ -1,3 +1,10 @@
+## [0.15.6](https://github.com/verteva/photon/compare/v0.15.5...v0.15.6) (2023-03-02)
+
+
+### Bug Fixes
+
+* parser fix ([6c52af0](https://github.com/verteva/photon/commit/6c52af0af4c96f48bdd35c8020bd0e15746bd793))
+
 ## [0.15.5](https://github.com/verteva/photon/compare/v0.15.4...v0.15.5) (2023-02-23)
 
 
