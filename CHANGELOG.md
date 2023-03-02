@@ -1,3 +1,25 @@
+## [0.15.5](https://github.com/verteva/photon/compare/v0.15.4...v0.15.5) (2023-02-23)
+
+
+### Bug Fixes
+
+* make adjustable for mobile screens ([ebd861a](https://github.com/verteva/photon/commit/ebd861ac14bb95007f5b84d89cf6c0cf2abaf005))
+
+## [0.15.4](https://github.com/verteva/photon/compare/v0.15.3...v0.15.4) (2023-02-23)
+
+
+### Bug Fixes
+
+* allow accordion to force no horizontal padding per instance ([ea0f5b8](https://github.com/verteva/photon/commit/ea0f5b8c7a5f752a43033f367044619bf21919d8))
+* don't duplicate prop declaration ([9d136bf](https://github.com/verteva/photon/commit/9d136bf257e3499456d14d3f9b0318ca5940dca9))
+
+## [0.15.3](https://github.com/verteva/photon/compare/v0.15.2...v0.15.3) (2023-02-22)
+
+
+### Bug Fixes
+
+* passthrough returnObj ([7188bec](https://github.com/verteva/photon/commit/7188becc222a49210fe6cbc93e2eb90423f1e6c4))
+
 ## [0.15.2](https://github.com/verteva/photon/compare/v0.15.1...v0.15.2) (2023-02-14)
 
 
