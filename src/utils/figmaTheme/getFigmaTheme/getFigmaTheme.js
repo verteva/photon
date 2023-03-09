@@ -42,7 +42,9 @@ export const getFigmaTheme = (files, theme) => {
   }
 
   const sourcePartialsToLoad = tokenSetOrder.filter(
-    (themeName) => themeData.selectedTokenSets[themeName] !== 'disabled'
+    (themeName) =>
+      Boolean(themeData.selectedTokenSets[themeName]) &&
+      themeData.selectedTokenSets[themeName] !== 'disabled'
   );
 
   const semanticPartialsToLoad = tokenSetOrder.filter(
