@@ -143,6 +143,7 @@ export default [
   'Plus',
   'PlusCircle',
   'Privacy',
+  'ProductCard',
   'Professional',
   'ProfileInactive',
   'PropertySummary',
