@@ -1,3 +1,10 @@
+# [0.16.0](https://github.com/verteva/photon/compare/v0.15.6...v0.16.0) (2023-03-10)
+
+
+### Features
+
+* new icons and bump version ([081ae89](https://github.com/verteva/photon/commit/081ae89b3ea06c4fb5da5d4020dc67e656540703))
+
 ## [0.15.6](https://github.com/verteva/photon/compare/v0.15.5...v0.15.6) (2023-03-02)
 
 
