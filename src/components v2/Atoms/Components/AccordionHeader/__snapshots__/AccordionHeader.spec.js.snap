@@ -3,7 +3,7 @@
 exports[`AccordionHeader.vue props: disabled 1`] = `
 <div>
   <div
-    class="ph-accordion-header acc-header disabled full-width interactive"
+    class="ph-accordion-header acc-header disabled full-width ph-accordion-header-empty interactive"
     tabindex="0"
   >
     
@@ -77,7 +77,7 @@ exports[`AccordionHeader.vue props: disabled 1`] = `
 exports[`AccordionHeader.vue props: expanded = true 1`] = `
 <div>
   <div
-    class="ph-accordion-header acc-header full-width interactive"
+    class="ph-accordion-header acc-header full-width ph-accordion-header-empty interactive"
     tabindex="0"
   >
     
@@ -151,7 +151,7 @@ exports[`AccordionHeader.vue props: expanded = true 1`] = `
 exports[`AccordionHeader.vue props: fullWidth 1`] = `
 <div>
   <div
-    class="ph-accordion-header acc-header full-width interactive"
+    class="ph-accordion-header acc-header full-width ph-accordion-header-empty interactive"
     tabindex="0"
   >
     
@@ -225,7 +225,7 @@ exports[`AccordionHeader.vue props: fullWidth 1`] = `
 exports[`AccordionHeader.vue props: interactive 1`] = `
 <div>
   <div
-    class="ph-accordion-header acc-header full-width interactive"
+    class="ph-accordion-header acc-header full-width ph-accordion-header-empty interactive"
     tabindex="0"
   >
     
@@ -299,7 +299,7 @@ exports[`AccordionHeader.vue props: interactive 1`] = `
 exports[`AccordionHeader.vue props: openArrows = false, expanded, openCloseIcons 1`] = `
 <div>
   <div
-    class="ph-accordion-header acc-header full-width interactive"
+    class="ph-accordion-header acc-header full-width ph-accordion-header-empty interactive"
     tabindex="0"
   >
     
@@ -371,7 +371,7 @@ exports[`AccordionHeader.vue props: openArrows = false, expanded, openCloseIcons
 exports[`AccordionHeader.vue props: openArrows = false, openCloseIcons 1`] = `
 <div>
   <div
-    class="ph-accordion-header acc-header full-width interactive"
+    class="ph-accordion-header acc-header full-width ph-accordion-header-empty interactive"
     tabindex="0"
   >
     

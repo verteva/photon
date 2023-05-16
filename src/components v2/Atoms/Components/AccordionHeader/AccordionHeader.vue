@@ -3,6 +3,8 @@
     :class="{
       disabled,
       'full-width': fullWidth,
+      'ph-accordion-header-empty': !section && !$slots.default,
+      'ph-accordion-header-has-content': section || $slots.default,
       interactive,
     }"
     :tabindex="interactive ? 0 : -1"
@@ -96,17 +98,25 @@ defineProps(props);
 <style lang="scss" scoped>
 .ph-accordion-header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   color: var(--accordion-header-color);
   font-family: var(--accordion-header-font-family) !important;
   font-weight: var(--accordion-header-font-weight);
   font-size: var(--accordion-header-font-size);
   text-transform: var(--accordion-header-text-transform);
-
   padding: var(--accordion-header-mobile-padding);
 
   @media (min-width: 768px) {
     padding: var(--accordion-header-padding);
+  }
+
+  &.ph-accordion-header-empty {
+    padding-bottom: 0 !important;
+
+    .ph-accordion-checkmark,
+    .ph-accordion-header__icon {
+      display: none;
+    }
   }
 
   &.interactive {
@@ -131,6 +141,7 @@ defineProps(props);
 
   .ph-accordion-header__icon {
     margin-left: auto;
+    margin-top: var(--accordion-icon-margin-top, 0.35em);
     color: var(--accordion-header-icon-color);
   }
 
