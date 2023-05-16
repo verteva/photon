@@ -1,3 +1,25 @@
+# [0.17.0](https://github.com/verteva/photon/compare/v0.16.0...v0.17.0) (2023-03-13)
+
+
+### Features
+
+* add new icon ([7ed8373](https://github.com/verteva/photon/commit/7ed83733c1b22f4d4f2ceaaa733931ce7194910a))
+* update svg to allow for color override ([12b45e6](https://github.com/verteva/photon/commit/12b45e6ad4f38f8fbd240fc2e6fc75ca2fa8deba))
+
+# [0.16.0](https://github.com/verteva/photon/compare/v0.15.6...v0.16.0) (2023-03-10)
+
+
+### Features
+
+* new icons and bump version ([081ae89](https://github.com/verteva/photon/commit/081ae89b3ea06c4fb5da5d4020dc67e656540703))
+
+## [0.15.6](https://github.com/verteva/photon/compare/v0.15.5...v0.15.6) (2023-03-02)
+
+
+### Bug Fixes
+
+* parser fix ([6c52af0](https://github.com/verteva/photon/commit/6c52af0af4c96f48bdd35c8020bd0e15746bd793))
+
 ## [0.15.5](https://github.com/verteva/photon/compare/v0.15.4...v0.15.5) (2023-02-23)
 
 
