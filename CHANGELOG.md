@@ -1,3 +1,10 @@
+## [0.17.2](https://github.com/verteva/photon/compare/v0.17.1...v0.17.2) (2023-06-02)
+
+
+### Bug Fixes
+
+* run lint and testing release ([a158e82](https://github.com/verteva/photon/commit/a158e828ddeacc3ae6e7a70efbf43f1fd033aefd))
+
 ## [0.17.1](https://github.com/verteva/photon/compare/v0.17.0...v0.17.1) (2023-05-17)
 
 
