@@ -114,5 +114,3 @@ To learn more about the photon v2 system check the documentation bellow
 This project uses [semantic versioning](https://semver.org/) and [semantic release](https://github.com/semantic-release/semantic-release) to automatically publish new versions to npm.
 
 When you merge a PR into `main`, semantic-release will automatically publish a new version to npm.
-
-:)
