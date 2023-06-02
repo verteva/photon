@@ -1,3 +1,10 @@
+## [0.17.1](https://github.com/verteva/photon/compare/v0.17.0...v0.17.1) (2023-05-17)
+
+
+### Bug Fixes
+
+* couple svg set to currentcolor instead of absolute hex value ([f703aec](https://github.com/verteva/photon/commit/f703aec795dd85fc16ce8c49f2f9357cf79ac52f))
+
 # [0.17.0](https://github.com/verteva/photon/compare/v0.16.0...v0.17.0) (2023-03-13)
 
 
