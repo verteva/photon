@@ -7,13 +7,6 @@ describe('Atoms/InputText.vue', () => {
     wrapper = createWrapper(InputText);
   });
 
-  it('props: centered', async () => {
-    const centered = true;
-    await wrapper.setProps({ centered });
-
-    expect(wrapper.html()).toContain('ph-input-text-icon-center');
-  });
-
   it('props: number', async () => {
     const number = true;
     await wrapper.setProps({ number });
@@ -30,21 +23,21 @@ describe('Atoms/InputText.vue', () => {
   });
 
   it('props: iconLeft', async () => {
-    const iconLeft = 'Apartment';
+    const iconLeft = 'house';
     await wrapper.setProps({ iconLeft });
-    expect(wrapper.html()).toContain('ph-input-text-icon-left');
+    expect(wrapper.html()).toContain('ph-input-text-has-icon-left');
   });
 
   it('props: iconRight', async () => {
-    const iconRight = 'Apartment';
+    const iconRight = 'house';
     await wrapper.setProps({ iconRight });
-    expect(wrapper.html()).toContain('ph-input-text-icon-right');
+    expect(wrapper.html()).toContain('ph-input-text-has-icon-right');
   });
 
   it('props: centered', async () => {
     const centered = true;
     await wrapper.setProps({ centered });
-    expect(wrapper.html()).toContain('ph-input-text-icon-center');
+    expect(wrapper.html()).toContain('ph-input-text-centered');
   });
 
   it('emit: input', async () => {

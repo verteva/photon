@@ -16,7 +16,9 @@
       :id="id"
       :placeholder="placeholder"
       :icon-left="iconLeft"
+      :icon-left-family="iconLeftFamily"
       :icon-right="iconRight"
+      :icon-right-family="iconRightFamily"
       :centered="centered"
       :error="error"
       :disabled="disabled"
@@ -42,6 +44,7 @@ import P2FormControl, {
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
 const { size, disabled } = formProps;
+
 const {
   label,
   inlineText,
@@ -51,10 +54,13 @@ const {
   error,
   hideError,
 } = FormControlProps;
+
 const {
   placeholder,
   iconLeft,
+  iconLeftFamily,
   iconRight,
+  iconRightFamily,
   centered,
   value,
   id,
@@ -67,6 +73,7 @@ export const props = {
   // General Props
   size,
   disabled,
+
   // FormControl Props
   label,
   inlineText,
@@ -75,10 +82,13 @@ export const props = {
   messageIcon,
   error,
   hideError,
+
   // InputText Props
   placeholder,
   iconLeft,
+  iconLeftFamily,
   iconRight,
+  iconRightFamily,
   centered,
   value,
   id,

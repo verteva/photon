@@ -97,7 +97,23 @@ export default {
         category: 'InputText',
       },
     },
+    iconLeftFamily: {
+      control: {
+        type: 'text',
+      },
+      table: {
+        category: 'InputText',
+      },
+    },
     iconRight: {
+      control: {
+        type: 'text',
+      },
+      table: {
+        category: 'InputText',
+      },
+    },
+    iconRightFamily: {
       control: {
         type: 'text',
       },
@@ -116,7 +132,7 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div>
-    <InputText v-bind="$props" v-model="name" /> 
+    <InputText v-bind="$props" v-model="name" />
     <div> Value: {{ name }}</div>
     </div>
   `,
@@ -133,7 +149,7 @@ Default.args = {
   inlineText: '( Please write your name, address and bank details )',
   isRequired: true,
   extraMessage: '',
-  iconLeft: 'Apartment',
+  iconLeft: 'dollar',
   size: 'md',
   messageIcon: '',
   error: '',
