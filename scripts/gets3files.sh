@@ -6,5 +6,5 @@
 
 aws s3api get-object --bucket figma-themes --key 'cx-themes/version/latest/styles/themes.json' public/cxThemes/themes.json
 aws s3api get-object --bucket figma-themes --key 'cx-themes/version/latest/styles/Nano.json' public/cxThemes/Nano.json
-aws s3api get-object --bucket figma-themes --key 'cx-themes/version/latest/styles/suncorp.json' public/cxThemes/suncorp.json
+aws s3api get-object --bucket figma-themes --key 'cx-themes/version/latest/styles/demo.json' public/cxThemes/demo.json
 aws s3api get-object --bucket figma-themes --key 'cx-themes/version/latest/styles/amp.json' public/cxThemes/amp.json
