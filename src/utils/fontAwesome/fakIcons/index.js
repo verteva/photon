@@ -1,0 +1,1 @@
+export { fakTime } from './time';

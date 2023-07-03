@@ -4,6 +4,7 @@ import {
   FORM_CONTROL_SIZE_TYPE,
 } from '@/utils/constants/FormControlConstants';
 import validators from '@/utils/validators';
+import '@/utils/fontAwesome/setup';
 
 export const formProps = {
   size: {
