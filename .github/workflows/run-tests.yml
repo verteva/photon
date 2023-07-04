@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
-          npm ci --ignore-scripts
+          npm install
 
       - run: npm run test --coverage
       - run: sed 's/\/home\/runner\/work\/photon\/photon\//\/github\/workspace\//g' ./coverage/lcov.info > updated.txt && mv updated.txt ./coverage/lcov.info
