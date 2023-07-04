@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
-          npm ci --ignore-scripts
+          npm install
 
       - name: Log into aws for themes
         uses: aws-actions/configure-aws-credentials@v1
