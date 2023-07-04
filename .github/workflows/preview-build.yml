@@ -20,6 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
+          npm config set legacy-peer-deps=true --location=project
           npm install
 
       - name: Log into aws for themes
