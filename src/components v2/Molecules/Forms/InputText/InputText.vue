@@ -26,6 +26,7 @@
       :type="type"
       :size="size"
       :is-number="isNumber"
+      :maxlength="maxlength"
       @blur="$emit('blur', $event)"
       @focus="$emit('focus', $event)"
       @input="$emit('input', $event)"
