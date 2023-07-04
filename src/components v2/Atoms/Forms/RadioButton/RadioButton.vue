@@ -213,7 +213,6 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
 }
 
 .ph-radio-button-icon {
