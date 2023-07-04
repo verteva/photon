@@ -18,7 +18,10 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+          npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
+          npm install
 
       - name: Log into aws for themes
         uses: aws-actions/configure-aws-credentials@v1

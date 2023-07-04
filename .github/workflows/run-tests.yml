@@ -36,7 +36,11 @@ jobs:
         continue-on-error: true
         run: npm list
 
-      - run: npm install
+      - name: Install dependencies
+        run: |
+          npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+          npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
+          npm install
 
       - run: npm run test --coverage
       - run: sed 's/\/home\/runner\/work\/photon\/photon\//\/github\/workspace\//g' ./coverage/lcov.info > updated.txt && mv updated.txt ./coverage/lcov.info
@@ -45,4 +49,4 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
