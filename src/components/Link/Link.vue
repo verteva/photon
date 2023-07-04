@@ -2,7 +2,6 @@
   <a
     ref="elRef"
     v-bind="$attrs"
-    :type="type"
     :class="classList"
     :style="styleList"
     :href="link"
