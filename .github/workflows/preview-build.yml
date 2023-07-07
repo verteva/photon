@@ -45,19 +45,23 @@ jobs:
 #          STORYBOOK_THEME_URL: 'figmaThemes'
           STORYBOOK_THEME_URL: 'cxThemes'
 
-      - name: Log into aws for build
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_BUILD }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_BUILD }}
-          aws-region: ap-southeast-2
 
-      - name: push to s3
-        run: aws s3 sync storybook-static/ s3://${{ secrets.BUCKET_NAME }}/${{ github.event.pull_request.number }}-${{ github.run_number }} --delete
+# Disabling AWS Storybook Instance build and deploy because we're having AWS cred issues
+# and this isn't mission critical. SF
 
-      - name: Comment on pr
-        uses: ./.github/workflows/actions/comment-action
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
-          BUILD_VERSION: ${{ github.event.pull_request.number }}-${{ github.run_number }}
+#      - name: Log into aws for build
+#        uses: aws-actions/configure-aws-credentials@v1
+#        with:
+#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_BUILD }}
+#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_BUILD }}
+#          aws-region: ap-southeast-2
+#
+#      - name: push to s3
+#        run: aws s3 sync storybook-static/ s3://${{ secrets.BUCKET_NAME }}/${{ github.event.pull_request.number }}-${{ github.run_number }} --delete
+#
+#      - name: Comment on pr
+#        uses: ./.github/workflows/actions/comment-action
+#        with:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          BUCKET_NAME: ${{ secrets.BUCKET_NAME }}
+#          BUILD_VERSION: ${{ github.event.pull_request.number }}-${{ github.run_number }}
