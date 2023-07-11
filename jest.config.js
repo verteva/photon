@@ -15,6 +15,7 @@ module.exports = {
   snapshotSerializers: ['jest-serializer-vue'],
   setupFilesAfterEnv: ['./setupTests.js'],
   testResultsProcessor: 'jest-sonar-reporter',
+  maxWorkers: 2, // Added to resolve memory issues in Github Actions
   moduleFileExtensions: ['js', 'ts', 'json', 'vue'],
   moduleNameMapper: {
     '@/(.*)$': '<rootDir>/src/$1',

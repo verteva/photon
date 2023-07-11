@@ -3,7 +3,6 @@
     ref="sideBar"
     v-bind="$attrs"
     class="side-bar"
-    :class="(defaultParentClass, conditionParentClass)"
     :style="{
       '--width': width,
       '--height': height,

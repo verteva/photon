@@ -13,6 +13,7 @@ import { injectThemeCssVariables } from '@/utils/injectThemeCssVariables';
 import { getTheme } from './utils/getTheme';
 import { getThemeNames } from './utils/getThemeNames';
 import { ThemeBar } from './themeBar';
+import '@/utils/fontAwesome/setup';
 import './theme-bar.scss';
 
 const isExternal = process.env.STORYBOOK_THEME_LOCATION === 'external';
@@ -40,7 +41,7 @@ const getThemeFiles = () => {
 Vue.use(Vuex);
 Vue.prototype.$store = isExternal ? externalStore : store;
 
-export const withTheme = story => {
+export const withTheme = (story) => {
   return {
     components: { story, ThemeBar },
     template:
