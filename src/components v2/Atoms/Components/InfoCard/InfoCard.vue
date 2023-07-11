@@ -96,10 +96,11 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ph-info-card {
+  --info-card-brand-bar-width: 10px;
   overflow: hidden;
   position: relative;
   border-radius: 8px;
-  padding-left: 16px;
+  padding-left: var(--info-card-brand-bar-width);
   border-width: var(--info-card-base-border-width);
 
   &.ph-info-card-border-primary {
@@ -127,7 +128,7 @@ export default Vue.extend({
     top: 0;
     left: 0;
     background-image: var(--info-card-style-gradient);
-    width: 16px;
+    width: var(--info-card-brand-bar-width);
     height: 100%;
   }
   .ph-info-card-inner-container {

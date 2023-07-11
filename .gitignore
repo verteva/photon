@@ -35,3 +35,6 @@ public/cxThemes
 
 
 .scannerwork
+
+# Dir Env
+.envrc

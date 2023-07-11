@@ -18,9 +18,9 @@ const Template = (args, { argTypes }) => ({
         v-bind='$props'
         :errors="errs"
         v-model="name"
-      />            
+      />
+      <br />
       <p-text xs class="ph-mb-5">Name: {{ name }}</p-text>
-      
     </div>
   `,
   data() {
@@ -44,31 +44,40 @@ export const Default = Template.bind({});
 Default.args = {
   // Props to be passed....
 };
+
 export const Placeholder = Template.bind({});
 Placeholder.args = {
   placeholder: 'Enter your name...',
 };
+
 export const Centered = Template.bind({});
 Centered.args = {
   centered: true,
   placeholder: 'Enter your name...',
 };
-export const LeftIcon = Template.bind({});
-LeftIcon.args = {
-  leftIcon: 'Dollar',
+
+export const IconLeft = Template.bind({});
+IconLeft.args = {
+  iconLeft: 'dollar',
+  iconLeftFamily: 'fal',
 };
-export const RightIcon = Template.bind({});
-RightIcon.args = {
-  rightIcon: 'Dollar',
+
+export const IconRight = Template.bind({});
+IconRight.args = {
+  iconRight: 'check',
+  iconRightFamily: 'fal',
 };
+
 export const Password = Template.bind({});
 Password.args = {
   type: 'password',
 };
+
 export const Number = Template.bind({});
 Number.args = {
   type: 'number',
 };
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
