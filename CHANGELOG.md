@@ -1,3 +1,32 @@
+# [0.18.0](https://github.com/verteva/photon/compare/v0.17.2...v0.18.0) (2023-07-12)
+
+
+### Bug Fixes
+
+* add maxlength to input text ([9070517](https://github.com/verteva/photon/commit/90705172b61c0b602487fec84311819cca49ea61))
+* add missing jest to dependencies ([287b370](https://github.com/verteva/photon/commit/287b370c7b57bb215013f584dd6d08376529c1d9))
+* attempting to fix bugs in build scripts ([f4256ec](https://github.com/verteva/photon/commit/f4256ec002772073e4baa19d30892b63015962c0))
+* disable aws storybook build steps to unblock us ([818cd17](https://github.com/verteva/photon/commit/818cd17623c671239b61932a17be04cdcfb894cf))
+* env updates ([fffdff9](https://github.com/verteva/photon/commit/fffdff962f57e94d63bd09e36982ae1d4e5c9897))
+* github action updates ([02731c9](https://github.com/verteva/photon/commit/02731c9d0d8ca15307e1006eb1455261f0d8a26a))
+* infocard padding with tokens ([6c6b2c2](https://github.com/verteva/photon/commit/6c6b2c2f02c8c604a4c60ea9d3ad6b91f4d094e8))
+* more bugfixing github actions and fixing old components with tests ([f005060](https://github.com/verteva/photon/commit/f0050604319693bfed2269259ef8f013ebe81d60))
+* npm peer dependency issue troubleshooting ([75c56f6](https://github.com/verteva/photon/commit/75c56f677e304ed49a5489c6aa59e5ef7a478467))
+* release script eresolve issue add legacy-peer-deps ([4e845b5](https://github.com/verteva/photon/commit/4e845b5da415f4fbf90f9def77ce879f8c1b89af))
+* release script update install dependencies error ([94a7114](https://github.com/verteva/photon/commit/94a711407afedfc36e4a0be6e1860f548914bbec))
+* remove duplicate position declaration ([0114a39](https://github.com/verteva/photon/commit/0114a393cbc6a6ddd38fbffbde0d7d187f0ee350))
+* testing github-action fix for fa npm ([9579020](https://github.com/verteva/photon/commit/9579020cdd5108da91237aa1ac51686d4feec63d))
+* update github action scripts for fontawesome npm registry and key ([91d0552](https://github.com/verteva/photon/commit/91d055232491c441e0e43d8a82824ccdb4e504a0))
+
+
+### Features
+
+* checkbox icon and style uplift ([2d40c83](https://github.com/verteva/photon/commit/2d40c830a5c63b8571c315f4322dd6355248b1a1))
+* environment upgrade ([4c8d277](https://github.com/verteva/photon/commit/4c8d277f27e78a02eee5a3b529c9cf9f3d31a61b))
+* fontawesome icons ([d740d51](https://github.com/verteva/photon/commit/d740d5165ae2fa6da756636a1b6db0553f196a8e))
+* input text icon and style uplift ([8972587](https://github.com/verteva/photon/commit/89725873aa27e9087e32d88d8ab1ce42c110471c))
+* radio button icon and style uplift ([b420998](https://github.com/verteva/photon/commit/b420998ac1dad4492822884b5ab0dae8aba9bcbd))
+
 ## [0.17.2](https://github.com/verteva/photon/compare/v0.17.1...v0.17.2) (2023-06-02)
 
 
