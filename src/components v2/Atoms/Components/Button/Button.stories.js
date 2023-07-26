@@ -29,7 +29,7 @@ export default {
     },
     iconLeft: {
       control: 'text',
-      defaultValue: 'house',
+      defaultValue: '',
     },
     iconLeftFamily: {
       control: 'text',
@@ -37,7 +37,7 @@ export default {
     },
     iconRight: {
       control: 'text',
-      defaultValue: 'check',
+      defaultValue: '',
     },
     iconRightFamily: {
       control: 'text',
