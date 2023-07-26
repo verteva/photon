@@ -53,46 +53,10 @@
   url('../fonts/GTWalsheimPro-Black.ttf') format('truetype'); /* chrome firefox */
 }
 
-/* open-sans-300 */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 300;
-  src:
-    local(''),
-    url('../fonts/open-sans-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/open-sans-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* open-sans-regular */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src:
-    local(''),
-    url('../fonts/open-sans-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/open-sans-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* open-sans-700 */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 700;
-  src:
-    local(''),
-    url('../fonts/open-sans-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/open-sans-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* open-sans-800 */
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 800;
-  src:
-    local(''),
-    url('../fonts/open-sans-800.woff2') format('woff2'),/* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/open-sans-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
+/* Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
 /* hurme-geometric-sans-regular */
 @font-face {
   font-family: 'Hurme Geometric Sans';

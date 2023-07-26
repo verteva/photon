@@ -284,7 +284,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'RM Neue',
+        'Open Sans',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
