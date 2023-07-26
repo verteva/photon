@@ -12,25 +12,39 @@ export default {
       control: 'text',
       defaultValue: 'Hello',
     },
-    disabled: bool,
-    submitting: bool,
-    upperCase: bool,
-    block: bool,
     buttonStyle: {
       control: 'select',
       options: Object.values(ButtonStyles),
       defaultValue: ButtonStyles.PRIMARY,
-    },
-    type: {
-      control: 'select',
-      options: Object.values(ButtonTypes),
-      defaultValue: ButtonTypes.BUTTON,
     },
     size: {
       control: 'select',
       options: Object.values(ButtonSizes),
       defaultValue: ButtonSizes.MEDIUM,
     },
+    type: {
+      control: 'select',
+      options: Object.values(ButtonTypes),
+      defaultValue: ButtonTypes.BUTTON,
+    },
+    iconLeft: {
+      control: 'text',
+      defaultValue: 'house',
+    },
+    iconLeftFamily: {
+      control: 'text',
+      defaultValue: 'fal',
+    },
+    iconRight: {
+      control: 'text',
+      defaultValue: 'check',
+    },
+    iconRightFamily: {
+      control: 'text',
+      defaultValue: 'fal',
+    },
+    disabled: bool,
+    submitting: bool,
   },
   // Set the initial values of the props
   args: {},
@@ -60,7 +74,7 @@ const DocsTemplate = (args, { argTypes }) => ({
 
 // This is how to do the submitting state in the future. Seperated from the button component.
 const SubmittingTemplate = (args, { argTypes }) => ({
-  components: { P2Button, Loader },
+  components: { P2Button },
   props: Object.keys(argTypes),
   template: `
     <div class="ph-flex">

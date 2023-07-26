@@ -14,13 +14,29 @@
     v-on="$listeners"
   >
     <div class="container">
+      <div
+        v-if="iconLeft"
+        class="button-icon-container button-icon-container-left"
+      >
+        <font-awesome-icon
+          :icon="[fontAwesomeWeightToFamily(iconLeftFamily), iconLeft]"
+          class="button-icon button-icon-left"
+        />
+      </div>
       <div class="label">
         <slot name="default">
           {{ label }}
         </slot>
       </div>
-      <div class="hover-background" />
-      <div class="disabled-background" />
+      <div
+        v-if="iconRight"
+        class="button-icon-container button-icon-container-right"
+      >
+        <font-awesome-icon
+          :icon="[fontAwesomeWeightToFamily(iconRightFamily), iconRight]"
+          class="button-icon button-icon-right"
+        />
+      </div>
     </div>
   </button>
 </template>
@@ -40,36 +56,53 @@ export const props = {
     type: String as PropType<string>,
     default: 'Button',
   },
+
   buttonStyle: {
     type: String as PropType<string>,
     default: ButtonStyles.PRIMARY,
   },
-  type: {
-    type: String as PropType<HTMLType>,
-    default: ButtonTypes.BUTTON,
-  },
-  disabled: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  submitting: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  upperCase: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  block: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+
   size: {
     type: String as PropType<ButtonSize>,
     default: ButtonSizes.MEDIUM,
     validator(value: string): boolean {
       return Object.values(ButtonSizes).indexOf(value as ButtonSize) !== -1;
     },
+  },
+
+  iconLeft: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  iconLeftFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  iconRight: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  iconRightFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  type: {
+    type: String as PropType<HTMLType>,
+    default: ButtonTypes.BUTTON,
+  },
+
+  disabled: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  submitting: {
+    type: Boolean as PropType<boolean>,
+    default: false,
   },
 };
 
@@ -167,6 +200,11 @@ export default Vue.extend({
     transform-origin: 50% 50%;
   }
 
+  // Icons
+  .button-icon {
+    font-size: 1em;
+  }
+
   // Style Variants
   $buttonStyles: 'primary' 'primary-outline' 'primary-link' 'secondary'
     'secondary-outline' 'secondary-link';
@@ -182,20 +220,6 @@ export default Vue.extend({
       color: getButtonStyleProperty('text-color', $style, $state, white);
       border-color: getButtonStyleProperty('border-color', $style, $state, red);
 
-      .disabled-background,
-      .hover-background {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        border-radius: inherit;
-        transition: $all-transitions;
-        transition-duration: 150ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
       // Outline styles
       @if (ends-with($style, '-outline')) {
         border-width: 2px;
@@ -210,6 +234,7 @@ export default Vue.extend({
           #e5e5e5
         );
       }
+      .hover,
       &:hover {
         $state: 'hover';
         color: getButtonStyleProperty('text-color', $style, $state, white);
@@ -236,6 +261,7 @@ export default Vue.extend({
           #e5e5e5
         );
       }
+      .active,
       &:active {
         $state: 'active';
         color: getButtonStyleProperty('text-color', $style, $state, white);
@@ -272,7 +298,7 @@ export default Vue.extend({
           #e5e5e5
         );
         background-color: getButtonStyleProperty(
-          'background-colorf',
+          'background-color',
           $style,
           $state,
           ''
@@ -281,6 +307,7 @@ export default Vue.extend({
       }
 
       // Focus
+      .focus,
       &:focus {
         box-shadow: getButtonStyleProperty('box-shadow', $style, 'focus', '');
 
@@ -332,6 +359,16 @@ export default Vue.extend({
       );
       padding-left: getButtonSizeProperty('padding-left', $size, '', 1.25em);
       border-radius: getButtonSizeProperty('border-radius', $size, '', 0);
+
+      // Icons
+      .button-icon-container {
+        &.button-icon-container-left {
+          margin-right: getButtonSizeProperty('gap', $size, '', 1.25em);
+        }
+        &.button-icon-container-right {
+          margin-left: getButtonSizeProperty('gap', $size, '', 1.25em);
+        }
+      }
     }
   }
 
