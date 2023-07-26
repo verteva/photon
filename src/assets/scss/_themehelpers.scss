@@ -9,3 +9,10 @@
 
 $all-transitions: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
 backdrop-filter;
+
+
+
+// Determine if string ends with another substring
+@function ends-with($string, $find) {
+  @return str-length($string) >= str-length($find) and str-slice($string, (str-length($string) - str-length($find) + 1)) == $find;
+}
