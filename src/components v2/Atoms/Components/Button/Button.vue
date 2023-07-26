@@ -88,24 +88,22 @@ export default Vue.extend({
 <style lang="scss" scoped>
 @import './src/assets/scss/_themehelpers.scss';
 
-@function getButtonStyleProperty($property, $style, $state, $fallback: '') {
-  @return getThemeProperty(
-    'button',
-    $property,
-    'styles-#{$style}',
-    $state,
-    $fallback
-  );
+@function getButtonStyleProperty(
+  $property,
+  $style,
+  $state: 'default',
+  $fallback: ''
+) {
+  @return getThemeProperty('sd-button', $property, $style, $state, $fallback);
 }
 
-@function getButtonSizeProperty($property, $style, $state, $fallback: '') {
-  @return getThemeProperty(
-    'button',
-    $property,
-    'sizes-#{$style}',
-    $state,
-    $fallback
-  );
+@function getButtonSizeProperty(
+  $property,
+  $size: 'md',
+  $state: 'default',
+  $fallback: ''
+) {
+  @return getThemeProperty('sd-button', $property, $size, $state, $fallback);
 }
 
 .button {
@@ -115,13 +113,46 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   display: flex;
+  background-size: cover;
+  background-position: center center;
   transition: $all-transitions;
   transition-duration: 150ms;
-  font-family: getButtonStyleProperty('font-family', '', '', inherit);
-  font-weight: getButtonStyleProperty('font-weight', '', '', inherit);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: getButtonStyleProperty('letter-spacing', '', '', 0.025em);
+  border: 1px solid;
 
+  // Default size styles
+  $size: 'md';
+  font-family: getButtonSizeProperty(
+    'typography-font-family',
+    $size,
+    '',
+    inherit
+  );
+  font-weight: getButtonSizeProperty(
+    'typography-font-weight',
+    $size,
+    '',
+    inherit
+  );
+  letter-spacing: getButtonSizeProperty(
+    'typography-letter-spacing',
+    $size,
+    '',
+    0
+  );
+  text-transform: getButtonSizeProperty(
+    'typography-text-case',
+    $size,
+    '',
+    inherit
+  );
+  padding-top: getButtonSizeProperty('padding-top', $size, '', 0.75rem);
+  padding-right: getButtonSizeProperty('padding-right', $size, '', 0.75rem);
+  padding-bottom: getButtonSizeProperty('padding-bottom', $size, '', 0.75rem);
+  padding-left: getButtonSizeProperty('padding-left', $size, '', 0.75rem);
+  border-radius: getButtonSizeProperty('border-radius', $size, '', 0);
+
+  // Ripple
   &:after {
     content: '';
     position: absolute;
@@ -136,30 +167,20 @@ export default Vue.extend({
     transform-origin: 50% 50%;
   }
 
-  $buttonStyles: 'primary' 'primary-outline' 'secondary' 'secondary-outline'
-    'plain' 'tertiary' 'tertiary-outline' 'tertiary-plain'
-    'tertiary-plain-outline';
+  // Style Variants
+  $buttonStyles: 'primary' 'primary-outline' 'primary-link' 'secondary'
+    'secondary-outline' 'secondary-link';
   @each $style in $buttonStyles {
     &.#{$style} {
-      background: getButtonStyleProperty('background', $style, '', red);
-      background-size: cover;
-      background-position: center center;
-      box-shadow: getButtonStyleProperty('box-shadow', $style, '', none);
-
-      color: getButtonStyleProperty('color', $style, '', white);
-
-      border: getButtonStyleProperty('border', $style, '', 1px solid #e5e5e5);
-      border-radius: getButtonStyleProperty('border-radius', $style, '', 50%);
-      border-color: getButtonStyleProperty('border-color', $style, '', red);
-
-      font-weight: getButtonStyleProperty('font-weight', $style, '', inherit);
-
-      text-transform: getButtonStyleProperty(
-        'text-transform',
+      $state: 'default';
+      background: getButtonStyleProperty(
+        'background-color',
         $style,
-        '',
-        none
+        $state,
+        red
       );
+      color: getButtonStyleProperty('text-color', $style, $state, white);
+      border-color: getButtonStyleProperty('border-color', $style, $state, red);
 
       .disabled-background,
       .hover-background {
@@ -175,77 +196,140 @@ export default Vue.extend({
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      .disabled-background {
-        background: getButtonStyleProperty(
-          'background',
-          $style,
-          'disabled',
-          #e5e5e5
-        );
-      }
-
+      // Hover
       .hover-background {
         background: getButtonStyleProperty(
-          'background',
+          'background-color',
           $style,
           'hover',
           #e5e5e5
         );
       }
-
       &:hover {
-        color: getButtonStyleProperty('color', $style, 'hover', white);
-        border: getButtonStyleProperty('border', $style, 'hover', inherit);
+        $state: 'hover';
+        color: getButtonStyleProperty('text-color', $style, $state, white);
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
+          $state,
+          red
+        );
         border-color: getButtonStyleProperty(
           'border-color',
           $style,
-          'hover',
+          $state,
           white
         );
-        .hover-background {
-          opacity: getButtonStyleProperty('opacity', $style, 'hover', white);
-        }
       }
 
-      &.disabled {
-        color: getButtonStyleProperty('color', $style, 'disabled', #e5e5e5);
-        border: getButtonStyleProperty('border', $style, 'disabled', inherit);
+      // Active
+      .active-background {
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
+          'active',
+          #e5e5e5
+        );
+      }
+      &:active {
+        $state: 'active';
+        color: getButtonStyleProperty('text-color', $style, $state, white);
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
+          $state,
+          red
+        );
         border-color: getButtonStyleProperty(
           'border-color',
           $style,
+          $state,
+          white
+        );
+      }
+
+      // Disabled
+      .disabled-background {
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
           'disabled',
+          #e5e5e5
+        );
+      }
+      &.disabled {
+        $state: 'disabled';
+        color: getButtonStyleProperty('text-color', $style, $state, #e5e5e5);
+        border-color: getButtonStyleProperty(
+          'border-color',
+          $style,
+          $state,
           #e5e5e5
         );
         background-color: getButtonStyleProperty(
-          'base-background',
+          'background-colorf',
           $style,
-          'disabled'
+          $state,
+          ''
         );
         cursor: not-allowed;
+      }
 
-        .disabled-background {
-          opacity: getButtonStyleProperty('opacity', $style, 'disabled', 1);
+      // Focus
+      &:focus {
+        box-shadow: getButtonStyleProperty('box-shadow', $style, 'focus', '');
+
+        // If it's not a link button, enable the ripple effect
+        @if not($style == 'primary-link' or $style == 'secondary-link') {
+          &:not(:active)::after {
+            animation: ripple 1s ease-out;
+          }
         }
       }
     }
-
-    &:focus.#{$style} {
-      outline: getButtonStyleProperty('outline', $style, 'focus', none);
-      box-shadow: getButtonStyleProperty('box-shadow', $style, 'focus', none);
-
-      &:not(:active)::after {
-        animation: ripple 1s ease-out;
-      }
-    }
   }
 
-  $buttonSizes: 'xs' 'small' 'medium' 'large';
+  $buttonSizes: 'xs' 'sm' 'md' 'lg';
   @each $size in $buttonSizes {
     &.#{$size} {
-      font-size: getButtonSizeProperty('font-size', $size, '', 0.75rem);
-      padding: getButtonSizeProperty('padding', $size, '', 0.75rem);
+      font-size: getButtonSizeProperty('font-size', $size, '', 1em);
+      font-family: getButtonSizeProperty(
+        'typography-font-family',
+        $size,
+        '',
+        inherit
+      );
+      font-weight: getButtonSizeProperty(
+        'typography-font-weight',
+        $size,
+        '',
+        inherit
+      );
+      letter-spacing: getButtonSizeProperty(
+        'typography-letter-spacing',
+        $size,
+        '',
+        0
+      );
+      text-transform: getButtonSizeProperty(
+        'typography-text-case',
+        $size,
+        '',
+        none
+      );
+      padding-top: getButtonSizeProperty('padding-top', $size, '', 0.625em);
+      padding-right: getButtonSizeProperty('padding-right', $size, '', 1.25em);
+      padding-bottom: getButtonSizeProperty(
+        'padding-bottom',
+        $size,
+        '',
+        0.625em
+      );
+      padding-left: getButtonSizeProperty('padding-left', $size, '', 1.25em);
+      border-radius: getButtonSizeProperty('border-radius', $size, '', 0);
     }
   }
+
   .container {
     display: flex;
 
@@ -259,7 +343,7 @@ export default Vue.extend({
       transition: $all-transitions;
       transition-duration: 150ms;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      text-transform: var(--button-base-text-transform, none);
+      text-transform: inherit;
     }
   }
 }

@@ -7,20 +7,18 @@ export interface ButtonStylelist {
 export const ButtonStyles = {
   PRIMARY: 'primary',
   PRIMARY_OUTLINE: 'primary-outline',
+  PRIMARY_LINK: 'primary-link',
   SECONDARY: 'secondary',
   SECONDARY_OUTLINE: 'secondary-outline',
-  PLAIN: 'plain',
-  TERTIARY: 'tertiary',
-  TERTIARY_OUTLINE: 'tertiary-outline',
+  SECONDARY_LINK: 'secondary-link',
 } as const;
 
 export type ButtonStyle = valueof<typeof ButtonStyles>;
 
 export const ButtonSizes = {
   EXTRA_SMALL: 'xs',
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
+  SMALL: 'sm',
+  MEDIUM: 'md',
 } as const;
 
 export type ButtonSize = valueof<typeof ButtonSizes>;
