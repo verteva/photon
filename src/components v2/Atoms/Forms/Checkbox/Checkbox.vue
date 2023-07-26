@@ -1,5 +1,5 @@
 <template>
-  <div class="ph-checkbox-item">
+  <div class="ph-checkbox-item" :class="size">
     <input
       :id="id"
       :checked="value"
@@ -22,7 +22,7 @@
           class="ph-checkbox-icon"
         />
       </div>
-      <span>
+      <span v-if="label" class="ph-checkbox-label-text">
         {{ label }}
       </span>
       <slot />
@@ -156,37 +156,37 @@ export default Vue.extend({
 
   &.sm {
     --sd-checkbox-icon-size: calc(
-      var(--sd-checkbox-sm-label-typography-fontSize, 14px) * 1.25
+      var(--sd-checkbox-sm-label-typography-font-size, 14px) * 1.25
     );
     --sd-checkbox-icon-container-size: calc(
-      var(--sd-checkbox-sm-label-typography-fontSize, 14px) * 1.5
+      var(--sd-checkbox-sm-label-typography-font-size, 14px) * 1.5
     );
     padding-left: calc(var(--sd-checkbox-icon-container-size) + 8px);
-    font-family: var(--sd-checkbox-sm-label-typography-fontFamily);
-    font-weight: var(--sd-checkbox-sm-label-typography-fontWeight);
-    font-size: var(--sd-checkbox-sm-label-typography-fontSize, 14px);
-    line-height: var(--sd-checkbox-sm-label-typography-lineHeight);
-    letter-spacing: var(--sd-checkbox-sm-label-typography-letterSpacing);
-    text-decoration: var(--sd-checkbox-sm-label-typography-textDecoration);
-    text-transform: var(--sd-checkbox-sm-label-typography-textCase);
+    font-family: var(--sd-checkbox-sm-label-typography-font-family);
+    font-weight: var(--sd-checkbox-sm-label-typography-font-weight);
+    font-size: var(--sd-checkbox-sm-label-typography-font-size, 14px);
+    line-height: var(--sd-checkbox-sm-label-typography-line-height);
+    letter-spacing: var(--sd-checkbox-sm-label-typography-letter-spacing);
+    text-decoration: var(--sd-checkbox-sm-label-typography-text-decoration);
+    text-transform: var(--sd-checkbox-sm-label-typography-text-case);
     border-radius: var(--sd-checkbox-sm-border-radius);
   }
 
   &.md {
     --sd-checkbox-icon-size: calc(
-      var(--sd-checkbox-md-label-typography-fontSize, 16px) * 1.25
+      var(--sd-checkbox-md-label-typography-font-size, 16px) * 1.25
     );
     --sd-checkbox-icon-container-size: calc(
-      var(--sd-checkbox-md-label-typography-fontSize, 16px) * 1.5
+      var(--sd-checkbox-md-label-typography-font-size, 16px) * 1.5
     );
     padding-left: calc(var(--sd-checkbox-icon-container-size) + 8px);
-    font-family: var(--sd-checkbox-md-label-typography-fontFamily);
-    font-weight: var(--sd-checkbox-md-label-typography-fontWeight);
-    font-size: var(--sd-checkbox-md-label-typography-fontSize, 16px);
-    line-height: var(--sd-checkbox-md-label-typography-lineHeight);
-    letter-spacing: var(--sd-checkbox-md-label-typography-letterSpacing);
-    text-decoration: var(--sd-checkbox-md-label-typography-textDecoration);
-    text-transform: var(--sd-checkbox-md-label-typography-textCase);
+    font-family: var(--sd-checkbox-md-label-typography-font-family);
+    font-weight: var(--sd-checkbox-md-label-typography-font-weight);
+    font-size: var(--sd-checkbox-md-label-typography-font-size, 16px);
+    line-height: var(--sd-checkbox-md-label-typography-line-height);
+    letter-spacing: var(--sd-checkbox-md-label-typography-letter-spacing);
+    text-decoration: var(--sd-checkbox-md-label-typography-text-decoration);
+    text-transform: var(--sd-checkbox-md-label-typography-text-case);
     border-radius: var(--sd-checkbox-md-border-radius);
   }
 }
