@@ -196,6 +196,11 @@ export default Vue.extend({
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       }
 
+      // Outline styles
+      @if (ends-with($style, '-outline')) {
+        border-width: 2px;
+      }
+
       // Hover
       .hover-background {
         background: getButtonStyleProperty(
@@ -280,7 +285,7 @@ export default Vue.extend({
         box-shadow: getButtonStyleProperty('box-shadow', $style, 'focus', '');
 
         // If it's not a link button, enable the ripple effect
-        @if not($style == 'primary-link' or $style == 'secondary-link') {
+        @if not(ends-with($style, '-link')) {
           &:not(:active)::after {
             animation: ripple 1s ease-out;
           }
