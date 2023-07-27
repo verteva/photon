@@ -7,7 +7,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg'],
+        options: ['md'],
       },
     },
   },
@@ -52,12 +52,4 @@ IsRequiredExtraText.args = {
   isRequired: true,
   inlineText: '(inline text)',
   size: 'md',
-};
-
-export const SizeSmall = Template.bind({});
-SizeSmall.args = {
-  label: 'Label',
-  isRequired: true,
-  inlineText: '(small)',
-  size: 'sm',
 };
