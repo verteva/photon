@@ -12,7 +12,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg'],
+        options: ['md'],
       },
     },
   },
@@ -33,10 +33,4 @@ export const Default = Template.bind({});
 Default.args = {
   error: 'This is an error message.',
   size: 'md',
-};
-
-export const SizeSmall = Template.bind({});
-SizeSmall.args = {
-  error: 'This is a small error message.',
-  size: 'sm',
 };

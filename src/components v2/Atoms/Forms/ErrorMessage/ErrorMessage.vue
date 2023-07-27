@@ -1,7 +1,7 @@
 <template>
   <div class="input-error" :class="[{ hidden: !error }, size]">
     <div class="icon-wrapper">
-      <p-icon class="icon" name="Error" :type="iconSize" />
+      <font-awesome-icon :icon="['fal', 'circle-exclamation']" class="fa-fw" />
     </div>
     <div class="text">
       {{ error }}
@@ -10,18 +10,10 @@
 </template>
 
 <script lang="ts">
-import PIcon from '@/components/Icon';
 import Vue, { PropType } from 'vue';
-import { FORM_CONTROL_SIZE } from '@/utils/constants/FormControlConstants';
-import { IconSizeSm, IconSizeXsm } from '@/components/Icon/types';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
 const { size } = formProps;
-
-const iconSizeMatrix = {
-  [FORM_CONTROL_SIZE.SMALL]: IconSizeXsm,
-  [FORM_CONTROL_SIZE.MEDIUM]: IconSizeSm,
-};
 
 export const props = {
   error: {
@@ -33,31 +25,20 @@ export const props = {
 
 export default Vue.extend({
   name: 'PInputError',
-  components: {
-    PIcon,
-  },
+  components: {},
   props,
-  computed: {
-    iconSize(): string {
-      return iconSizeMatrix[this.size];
-    },
-  },
 });
 </script>
 
 <style lang="scss" scoped>
 .input-error {
-  color: var(--form-control-items-error-default-text-color);
+  color: var(--sd-form-control-items-error-default-text-color);
   display: flex;
-  transform: translate(0, 0);
-  transition: 0.3s all;
-  opacity: 1;
-  min-height: 22px;
+  align-items: flex-start;
   margin-top: 10px;
 
   &.hidden {
-    opacity: 0;
-    transform: translate(0, -20px);
+    display: none;
   }
 
   .icon-wrapper {
@@ -68,68 +49,40 @@ export default Vue.extend({
   }
 
   .text {
-    font-family: var(--form-control-items-error-default-text-font-family);
-    font-weight: var(--form-control-items-error-default-text-font-weight);
-  }
-
-  &.sm {
-    .text {
-      font-size: calc(
-        var(--form-control-items-error-sm-text-typography-fontSize) * 1px
-      );
-      line-height: var(
-        --form-control-items-error-sm-text-typography-lineHeight
-      );
-      letter-spacing: var(
-        --form-control-items-error-sm-text-typography-letterSpacing
-      );
-      padding: var(
-        --form-control-items-error-sm-text-typography-paragraphSpacing
-      );
-      text-decoration: var(
-        --form-control-items-error-sm-text-typography-textDecoration
-      );
-      text-transform: var(
-        --form-control-items-error-sm-text-typography-textCase
-      );
-    }
-    .icon-wrapper {
-      height: calc(
-        var(--form-control-items-error-sm-text-typography-fontSize) * 1.5px
-      );
-      width: calc(
-        var(--form-control-items-error-sm-text-typography-fontSize) * 1.5px
-      );
-    }
+    font-family: var(--sd-form-control-items-error-default-text-font-family);
+    font-weight: var(--sd-form-control-items-error-default-text-font-weight);
   }
 
   &.md {
     .text {
-      font-size: calc(
-        var(--form-control-items-error-md-text-typography-fontSize) * 1px
+      font-size: var(
+        --sd-form-control-items-error-md-text-typography-font-size
       );
       line-height: var(
-        --form-control-items-error-md-text-typography-lineHeight
+        --sd-form-control-items-error-md-text-typography-line-height
       );
       letter-spacing: var(
-        --form-control-items-error-md-text-typography-letterSpacing
+        --sd-form-control-items-error-md-text-typography-letter-spacing
       );
       padding: var(
-        --form-control-items-error-md-text-typography-paragraphSpacing
+        --sd-form-control-items-error-md-text-typography-paragraph-spacing
       );
       text-decoration: var(
-        --form-control-items-error-md-text-typography-textDecoration
+        --sd-form-control-items-error-md-text-typography-text-decoration
       );
       text-transform: var(
-        --form-control-items-error-md-text-typography-textCase
+        --sd-form-control-items-error-md-text-typography-text-case
       );
     }
     .icon-wrapper {
+      font-size: var(
+        --sd-form-control-items-error-md-text-typography-font-size
+      );
       height: calc(
-        var(--form-control-items-error-md-text-typography-fontSize) * 1.5px
+        var(--sd-form-control-items-error-md-text-typography-font-size) * 1.5
       );
       width: calc(
-        var(--form-control-items-error-md-text-typography-fontSize) * 1.5px
+        var(--sd-form-control-items-error-md-text-typography-font-size) * 1.5
       );
     }
   }
