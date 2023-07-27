@@ -93,8 +93,11 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ph-checkbox-input {
-  display: none;
+  position: absolute;
+  opacity: 0;
   pointer-events: none;
+  width: 0;
+  height: 0;
 
   &:focus + label {
     box-shadow: 0 0 0 4px var(--sd-checkbox-focus-border-color);
@@ -119,6 +122,23 @@ export default Vue.extend({
   transition: all 0.3s;
 }
 
+// Focused
+input.ph-checkbox-input:focus + label,
+.ph-checkbox-label.focused {
+  box-shadow: 0 0 0 4px var(--sd-checkbox-focus-border-color);
+}
+input.ph-checkbox-input:focus:not(:focus-visible) + label {
+  box-shadow: none;
+}
+
+// Checked
+input.ph-checkbox-input:checked + label,
+.ph-checkbox-label.checked {
+  .ph-checkbox-icon {
+    color: var(--sd-checkbox-checked-icon-color);
+  }
+}
+
 .ph-checkbox-label {
   --sd-checkbox-icon-size: 20px;
   --sd-checkbox-icon-container-size: 24px;
@@ -129,13 +149,9 @@ export default Vue.extend({
   transition-property: color, border-color;
   transition-duration: 0.3s;
   color: var(--sd-checkbox-default-label-color);
+  user-select: none;
 
-  &.checked {
-    .ph-checkbox-icon {
-      color: var(--sd-checkbox-checked-icon-color);
-    }
-  }
-
+  // Disabled
   &.disabled {
     cursor: not-allowed;
     color: var(--sd-checkbox-disabled-label-color);
@@ -144,14 +160,11 @@ export default Vue.extend({
     }
   }
 
+  // Disabled checked
   &.disabled.checked {
     .ph-checkbox-icon {
       color: var(--sd-checkbox-disabled-icon-color);
     }
-  }
-
-  &.focused {
-    box-shadow: 0 0 0 4px var(--sd-checkbox-focus-border-color);
   }
 
   &.sm {
