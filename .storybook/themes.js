@@ -16,7 +16,7 @@ export const light = create({
   brandImage: '',
   // UI
   appBg: '#ffffff',
-  appContentBg: '#efefef',
+  appContentBg: '#ffffff',
   appBorderColor: '#3f3f3f',
   appBorderRadius: 4,
 });
