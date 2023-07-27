@@ -1,5 +1,5 @@
 <template>
-  <div class="radio-wrapper" :style="numRows">
+  <div class="radio-wrapper" :style="numRows" role="radiogroup">
     <P2RadioButton
       v-for="(item, index) in items"
       :id="`${item.label}-${id}`"
@@ -8,6 +8,10 @@
       :label="item.label"
       :disabled="disabled"
       :icon="item.icon"
+      :icon-classes="item.iconClasses"
+      :icon-family="item.iconFamily"
+      :centered="item.centered"
+      :bottom-bar="item.bottomBar"
       :name="name"
       :style="
         item.fullWidth
@@ -22,10 +26,9 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
-import P2RadioButton, { props as RadioButtonProps } from '../RadioButton';
+import P2RadioButton from '../RadioButton';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
-const { name } = RadioButtonProps;
 const { disabled } = formProps;
 
 export const props = {
@@ -41,8 +44,10 @@ export const props = {
     type: Number as PropType<number>,
     default: -1,
   },
-  // RadioButton props
-  name,
+  name: {
+    type: String as PropType<string>,
+    default: '',
+  },
   // Global props
   disabled,
 };
@@ -68,7 +73,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .radio-wrapper {
   display: grid;
-  gap: 1.25rem;
+  gap: 20px;
   grid-auto-columns: minmax(0, 1fr);
 }
 

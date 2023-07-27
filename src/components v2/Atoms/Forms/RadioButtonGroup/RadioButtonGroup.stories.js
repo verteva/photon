@@ -44,15 +44,16 @@ const Template = (args, { argTypes }) => ({
 
 export const Disabled = Template.bind({});
 Disabled.args = {
+  name: 'radio-button-name',
   items: [
     {
       value: 1,
       label: 'On my own ddd',
-      icon: 'Apartment',
+      icon: 'house',
     },
     {
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
     },
     {
       value: 4,
@@ -72,33 +73,34 @@ Disabled.args = {
 };
 export const Icons = Template.bind({});
 Icons.args = {
+  name: 'radio-button-name',
   items: [
     {
       value: 1,
       label: 'On my own ddd',
-      icon: 'Apartment',
+      icon: 'house',
       disabled: true,
     },
     {
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
       value: 'photon radio-checked',
       valueRadio: 'photon radio-checked',
       id: '1',
     },
     {
       value: 4,
-      icon: 'Apartment',
+      icon: 'house',
       label: 'With 4 people',
     },
     {
       value: 7,
-      icon: 'Apartment',
+      icon: 'house',
       label: 'With your plus one',
     },
     {
       value: 99,
-      icon: 'Apartment',
+      icon: 'house',
       label: 'With 9 people',
     },
   ],
@@ -106,15 +108,16 @@ Icons.args = {
 };
 export const SingleRow = Template.bind({});
 SingleRow.args = {
+  name: 'radio-button-name',
   items: [
     {
       value: 1,
       label: 'On my own ddd',
-      icon: 'Apartment',
+      icon: 'house',
     },
     {
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
       value: 'photon radio-checked',
       valueRadio: 'photon radio-checked',
       id: '1',
@@ -137,15 +140,16 @@ SingleRow.args = {
 };
 export const TwoRows = Template.bind({});
 TwoRows.args = {
+  name: 'radio-button-name',
   items: [
     {
       value: 1,
       label: 'On my own ddd',
-      icon: 'Apartment',
+      icon: 'house',
     },
     {
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
       value: 'photon radio-checked',
       valueRadio: 'photon radio-checked',
       id: '1',
@@ -160,16 +164,17 @@ TwoRows.args = {
 };
 export const ThreeRows = Template.bind({});
 ThreeRows.args = {
+  name: 'radio-button-name',
   items: [
     {
       value: 1,
       label: 'On my own ddd',
-      icon: 'Apartment',
+      icon: 'house',
       disabled: true,
     },
     {
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
       value: 'photon radio-checked',
       id: '1',
     },
@@ -192,16 +197,17 @@ ThreeRows.args = {
 
 export const FirstRadioFullWidth = Template.bind({});
 FirstRadioFullWidth.args = {
+  name: 'radio-button-name',
   items: [
     {
       value: 1,
       label: 'On my own ddd',
-      icon: 'Apartment',
+      icon: 'house',
       fullWidth: true,
     },
     {
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
       value: 'photon radio-checked',
       id: '1',
     },
@@ -216,15 +222,16 @@ FirstRadioFullWidth.args = {
 
 export const Interactive = Template.bind({});
 Interactive.args = {
+  name: 'radio-button-name',
   items: [
     {
       value: 1,
       label: 'On my own ddd',
-      icon: 'Apartment',
+      icon: 'house',
     },
     {
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
       value: 'photon radio-checked',
       id: '1',
     },
