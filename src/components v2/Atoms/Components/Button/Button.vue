@@ -152,6 +152,12 @@ export default Vue.extend({
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid;
+  outline: none;
+
+  // Disable default focus outline color
+  &:focus-visible {
+    outline: none;
+  }
 
   // Default size styles
   $size: 'md';
@@ -316,6 +322,13 @@ export default Vue.extend({
           &:not(:active)::after {
             animation: ripple 1s ease-out;
           }
+        } @else {
+          // link buttons need a dedicated box-shadow defined for focus because of how Figma handles box-shadow - uses a different token
+          box-shadow: 0
+            0
+            0
+            4px
+            getButtonStyleProperty('border-color', $style, 'focus', '');
         }
       }
     }
