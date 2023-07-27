@@ -14,6 +14,7 @@ describe('InputMessage.vue', () => {
 
     expect(wrapper.html()).toContain(message);
   });
+
   it('props: icon', async () => {
     const icon = 'Bin';
     await wrapper.setProps({ icon });
