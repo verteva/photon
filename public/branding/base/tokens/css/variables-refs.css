@@ -1,9 +1,11 @@
 /**
  * Do not edit directly
- * Generated on Sun, 16 Jul 2023 10:23:40 GMT
+ * Generated on Thu, 27 Jul 2023 06:58:22 GMT
  */
 
 :root {
+  --sd-app-applicants-secondary-firstname: Nina;
+  --sd-app-applicants-primary-firstname: Charlie;
   --sd-app-map-url: 'https://backup.nano.com.au/assets/images/map-sydney.jpg';
   --sd-app-property-address1: 8 Arcade Road, Glebe NSW 2037;
   --sd-app-footer-border-color: #ccc;
@@ -348,6 +350,12 @@
   --sd-form-control-items-label-md-required-typography-text-decoration: var(--sd-text-decoration-none);
   --sd-form-control-items-label-md-required-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-form-control-items-label-md-required-typography-letter-spacing: var(--sd-letter-spacing-body);
+  --sd-form-control-items-label-md-text-typography-copy-text-case: var(--sd-text-case-none);
+  --sd-form-control-items-label-md-text-typography-copy-text-decoration: var(--sd-text-decoration-none);
+  --sd-form-control-items-label-md-text-typography-copy-paragraph-spacing: var(--sd-paragraph-spacing-default);
+  --sd-form-control-items-label-md-text-typography-copy-letter-spacing: var(--sd-letter-spacing-body);
+  --sd-form-control-items-label-md-text-typography-copy-font-size: var(--sd-font-size-base);
+  --sd-form-control-items-label-md-text-typography-copy-line-height: 1.5;
   --sd-form-control-items-label-md-text-typography-text-case: var(--sd-text-case-none);
   --sd-form-control-items-label-md-text-typography-text-decoration: var(--sd-text-decoration-none);
   --sd-form-control-items-label-md-text-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
@@ -574,7 +582,7 @@
   --sd-heading-h6-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h6-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h6-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h6-mobile-typography-font-size: var(--sd-heading-h6-desktop-font-size);
+  --sd-heading-h6-mobile-typography-font-size: var(--sd-heading-h6-mobile-font-size);
   --sd-heading-h6-mobile-typography-line-height: 1.1;
   --sd-heading-h6-mobile-margin-bottom: 6.4px;
   --sd-heading-h6-mobile-margin-top: var(--sd-heading-h6-mobile-font-size);
@@ -582,7 +590,7 @@
   --sd-heading-h6-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h6-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h6-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h6-tablet-typography-font-size: var(--sd-heading-h6-desktop-font-size);
+  --sd-heading-h6-tablet-typography-font-size: var(--sd-heading-h6-tablet-font-size);
   --sd-heading-h6-tablet-typography-line-height: 1.1;
   --sd-heading-h6-tablet-margin-bottom: 7.2px;
   --sd-heading-h6-tablet-margin-top: var(--sd-heading-h6-tablet-font-size);
@@ -600,7 +608,7 @@
   --sd-heading-h5-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h5-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h5-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h5-mobile-typography-font-size: var(--sd-heading-h5-desktop-font-size);
+  --sd-heading-h5-mobile-typography-font-size: var(--sd-heading-h5-mobile-font-size);
   --sd-heading-h5-mobile-typography-line-height: 1.1;
   --sd-heading-h5-mobile-margin-bottom: 7.2px;
   --sd-heading-h5-mobile-margin-top: var(--sd-heading-h5-mobile-font-size);
@@ -608,7 +616,7 @@
   --sd-heading-h5-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h5-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h5-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h5-tablet-typography-font-size: var(--sd-heading-h5-desktop-font-size);
+  --sd-heading-h5-tablet-typography-font-size: var(--sd-heading-h5-tablet-font-size);
   --sd-heading-h5-tablet-typography-line-height: 1.1;
   --sd-heading-h5-tablet-margin-bottom: 8px;
   --sd-heading-h5-tablet-margin-top: var(--sd-heading-h5-tablet-font-size);
@@ -626,7 +634,7 @@
   --sd-heading-h4-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h4-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h4-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h4-mobile-typography-font-size: var(--sd-heading-h4-desktop-font-size);
+  --sd-heading-h4-mobile-typography-font-size: var(--sd-heading-h4-mobile-font-size);
   --sd-heading-h4-mobile-typography-line-height: 1.1;
   --sd-heading-h4-mobile-margin-bottom: 8px;
   --sd-heading-h4-mobile-margin-top: var(--sd-heading-h4-mobile-font-size);
@@ -634,7 +642,7 @@
   --sd-heading-h4-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h4-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h4-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h4-tablet-typography-font-size: var(--sd-heading-h4-desktop-font-size);
+  --sd-heading-h4-tablet-typography-font-size: var(--sd-heading-h4-tablet-font-size);
   --sd-heading-h4-tablet-typography-line-height: 1.1;
   --sd-heading-h4-tablet-margin-bottom: 8.8px;
   --sd-heading-h4-tablet-margin-top: var(--sd-heading-h4-tablet-font-size);
@@ -652,7 +660,7 @@
   --sd-heading-h3-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h3-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h3-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h3-mobile-typography-font-size: var(--sd-heading-h3-desktop-font-size);
+  --sd-heading-h3-mobile-typography-font-size: var(--sd-heading-h3-mobile-font-size);
   --sd-heading-h3-mobile-typography-line-height: 1.1;
   --sd-heading-h3-mobile-margin-bottom: 9.6px;
   --sd-heading-h3-mobile-margin-top: var(--sd-heading-h3-mobile-font-size);
@@ -660,7 +668,7 @@
   --sd-heading-h3-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h3-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h3-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h3-tablet-typography-font-size: var(--sd-heading-h3-desktop-font-size);
+  --sd-heading-h3-tablet-typography-font-size: var(--sd-heading-h3-tablet-font-size);
   --sd-heading-h3-tablet-typography-line-height: 1.1;
   --sd-heading-h3-tablet-margin-bottom: 11.2px;
   --sd-heading-h3-tablet-margin-top: var(--sd-heading-h3-tablet-font-size);
@@ -678,7 +686,7 @@
   --sd-heading-h2-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h2-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h2-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h2-mobile-typography-font-size: var(--sd-heading-h2-desktop-font-size);
+  --sd-heading-h2-mobile-typography-font-size: var(--sd-heading-h2-mobile-font-size);
   --sd-heading-h2-mobile-typography-line-height: 1.1;
   --sd-heading-h2-mobile-margin-bottom: 12px;
   --sd-heading-h2-mobile-margin-top: var(--sd-heading-h2-mobile-font-size);
@@ -686,7 +694,7 @@
   --sd-heading-h2-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h2-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h2-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h2-tablet-typography-font-size: var(--sd-heading-h2-desktop-font-size);
+  --sd-heading-h2-tablet-typography-font-size: var(--sd-heading-h2-tablet-font-size);
   --sd-heading-h2-tablet-typography-line-height: 1.1;
   --sd-heading-h2-tablet-margin-bottom: 12.8px;
   --sd-heading-h2-tablet-margin-top: var(--sd-heading-h2-tablet-font-size);
@@ -704,7 +712,7 @@
   --sd-heading-h1-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h1-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h1-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h1-mobile-typography-font-size: var(--sd-heading-h1-desktop-font-size);
+  --sd-heading-h1-mobile-typography-font-size: var(--sd-heading-h1-mobile-font-size);
   --sd-heading-h1-mobile-typography-line-height: 1.1;
   --sd-heading-h1-mobile-margin-bottom: 14.4px;
   --sd-heading-h1-mobile-margin-top: var(--sd-heading-h1-mobile-font-size);
@@ -712,7 +720,7 @@
   --sd-heading-h1-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h1-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h1-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h1-tablet-typography-font-size: var(--sd-heading-h1-desktop-font-size);
+  --sd-heading-h1-tablet-typography-font-size: var(--sd-heading-h1-tablet-font-size);
   --sd-heading-h1-tablet-typography-line-height: 1.1;
   --sd-heading-h1-tablet-margin-bottom: 16px;
   --sd-heading-h1-tablet-margin-top: var(--sd-heading-h1-tablet-font-size);
@@ -730,7 +738,7 @@
   --sd-heading-display2-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display2-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display2-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display2-mobile-typography-font-size: var(--sd-heading-display2-desktop-font-size);
+  --sd-heading-display2-mobile-typography-font-size: var(--sd-heading-display2-mobile-font-size);
   --sd-heading-display2-mobile-typography-line-height: 1.1;
   --sd-heading-display2-mobile-margin-bottom: 17.6px;
   --sd-heading-display2-mobile-margin-top: var(--sd-heading-display2-mobile-font-size);
@@ -738,7 +746,7 @@
   --sd-heading-display2-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display2-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display2-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display2-tablet-typography-font-size: var(--sd-heading-display2-desktop-font-size);
+  --sd-heading-display2-tablet-typography-font-size: var(--sd-heading-display2-tablet-font-size);
   --sd-heading-display2-tablet-typography-line-height: 1.1;
   --sd-heading-display2-tablet-margin-bottom: 19.2px;
   --sd-heading-display2-tablet-margin-top: var(--sd-heading-display2-tablet-font-size);
@@ -756,7 +764,7 @@
   --sd-heading-display1-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display1-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display1-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display1-mobile-typography-font-size: var(--sd-heading-display1-desktop-font-size);
+  --sd-heading-display1-mobile-typography-font-size: var(--sd-heading-display1-mobile-font-size);
   --sd-heading-display1-mobile-typography-line-height: 1.1;
   --sd-heading-display1-mobile-margin-bottom: 19.2px;
   --sd-heading-display1-mobile-margin-top: var(--sd-heading-display1-mobile-font-size);
@@ -764,7 +772,7 @@
   --sd-heading-display1-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display1-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display1-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display1-tablet-typography-font-size: var(--sd-heading-display1-desktop-font-size);
+  --sd-heading-display1-tablet-typography-font-size: var(--sd-heading-display1-tablet-font-size);
   --sd-heading-display1-tablet-typography-line-height: 1.1;
   --sd-heading-display1-tablet-margin-bottom: 21.6px;
   --sd-heading-display1-tablet-margin-top: var(--sd-heading-display1-tablet-font-size);
@@ -1008,6 +1016,8 @@
   --sd-form-control-items-label-md-required-typography-line-height: 24px;
   --sd-form-control-items-label-md-required-typography-font-weight: 700;
   --sd-form-control-items-label-md-required-typography-font-family: var(--sd-form-control-items-label-default-text-font-family);
+  --sd-form-control-items-label-md-text-typography-copy-font-weight: 700;
+  --sd-form-control-items-label-md-text-typography-copy-font-family: var(--sd-form-control-items-label-default-text-font-family);
   --sd-form-control-items-label-md-text-typography-font-weight: 700;
   --sd-form-control-items-label-md-text-typography-font-family: var(--sd-form-control-items-label-default-text-font-family);
   --sd-form-control-items-label-default-inline-message-font-family: var(--sd-form-control-items-label-default-text-font-family);

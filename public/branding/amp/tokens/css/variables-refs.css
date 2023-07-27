@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 16 Jul 2023 10:23:44 GMT
+ * Generated on Thu, 27 Jul 2023 06:58:25 GMT
  */
 
 :root {
@@ -107,6 +107,8 @@
   --sd-brand-spindle-500: #bccef0;
   --sd-brand-spindle-300: #cad8f3;
   --sd-brand-spindle-50: #f4f7fc;
+  --sd-app-applicants-secondary-firstname: Nina;
+  --sd-app-applicants-primary-firstname: Charlie;
   --sd-app-map-url: 'https://backup.nano.com.au/assets/images/map-sydney.jpg';
   --sd-app-property-address1: 8 Arcade Road, Glebe NSW 2037;
   --sd-app-footer-border-color: #ccc;
@@ -462,11 +464,16 @@
   --sd-form-control-items-label-md-required-typography-text-decoration: var(--sd-text-decoration-none);
   --sd-form-control-items-label-md-required-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-form-control-items-label-md-required-typography-letter-spacing: var(--sd-letter-spacing-body);
+  --sd-form-control-items-label-md-text-typography-copy-text-case: var(--sd-text-case-none);
+  --sd-form-control-items-label-md-text-typography-copy-text-decoration: var(--sd-text-decoration-none);
+  --sd-form-control-items-label-md-text-typography-copy-paragraph-spacing: var(--sd-paragraph-spacing-default);
+  --sd-form-control-items-label-md-text-typography-copy-letter-spacing: var(--sd-letter-spacing-body);
+  --sd-form-control-items-label-md-text-typography-copy-font-size: var(--sd-font-size-base);
+  --sd-form-control-items-label-md-text-typography-copy-line-height: 1.5;
   --sd-form-control-items-label-md-text-typography-text-case: var(--sd-text-case-none);
   --sd-form-control-items-label-md-text-typography-text-decoration: var(--sd-text-decoration-none);
   --sd-form-control-items-label-md-text-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-form-control-items-label-md-text-typography-letter-spacing: var(--sd-letter-spacing-body);
-  --sd-form-control-items-label-md-text-typography-font-size: var(--sd-font-size-base);
   --sd-form-control-items-label-md-text-typography-line-height: 1.5;
   --sd-form-control-items-label-default-inline-message-font-weight: 400;
   --sd-form-control-items-label-default-text-font-family: var(--sd-font-family-body);
@@ -692,7 +699,7 @@
   --sd-heading-h6-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h6-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h6-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h6-mobile-typography-font-size: var(--sd-heading-h6-desktop-font-size);
+  --sd-heading-h6-mobile-typography-font-size: var(--sd-heading-h6-mobile-font-size);
   --sd-heading-h6-mobile-typography-line-height: 1.1;
   --sd-heading-h6-mobile-margin-bottom: 6.4px;
   --sd-heading-h6-mobile-margin-top: var(--sd-heading-h6-mobile-font-size);
@@ -700,7 +707,7 @@
   --sd-heading-h6-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h6-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h6-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h6-tablet-typography-font-size: var(--sd-heading-h6-desktop-font-size);
+  --sd-heading-h6-tablet-typography-font-size: var(--sd-heading-h6-tablet-font-size);
   --sd-heading-h6-tablet-typography-line-height: 1.1;
   --sd-heading-h6-tablet-margin-bottom: 7.2px;
   --sd-heading-h6-tablet-margin-top: var(--sd-heading-h6-tablet-font-size);
@@ -718,7 +725,7 @@
   --sd-heading-h5-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h5-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h5-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h5-mobile-typography-font-size: var(--sd-heading-h5-desktop-font-size);
+  --sd-heading-h5-mobile-typography-font-size: var(--sd-heading-h5-mobile-font-size);
   --sd-heading-h5-mobile-typography-line-height: 1.1;
   --sd-heading-h5-mobile-margin-bottom: 7.2px;
   --sd-heading-h5-mobile-margin-top: var(--sd-heading-h5-mobile-font-size);
@@ -726,7 +733,7 @@
   --sd-heading-h5-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h5-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h5-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h5-tablet-typography-font-size: var(--sd-heading-h5-desktop-font-size);
+  --sd-heading-h5-tablet-typography-font-size: var(--sd-heading-h5-tablet-font-size);
   --sd-heading-h5-tablet-typography-line-height: 1.1;
   --sd-heading-h5-tablet-margin-bottom: 8px;
   --sd-heading-h5-tablet-margin-top: var(--sd-heading-h5-tablet-font-size);
@@ -744,7 +751,7 @@
   --sd-heading-h4-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h4-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h4-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h4-mobile-typography-font-size: var(--sd-heading-h4-desktop-font-size);
+  --sd-heading-h4-mobile-typography-font-size: var(--sd-heading-h4-mobile-font-size);
   --sd-heading-h4-mobile-typography-line-height: 1.1;
   --sd-heading-h4-mobile-margin-bottom: 8px;
   --sd-heading-h4-mobile-margin-top: var(--sd-heading-h4-mobile-font-size);
@@ -752,7 +759,7 @@
   --sd-heading-h4-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h4-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h4-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h4-tablet-typography-font-size: var(--sd-heading-h4-desktop-font-size);
+  --sd-heading-h4-tablet-typography-font-size: var(--sd-heading-h4-tablet-font-size);
   --sd-heading-h4-tablet-typography-line-height: 1.1;
   --sd-heading-h4-tablet-margin-bottom: 8.8px;
   --sd-heading-h4-tablet-margin-top: var(--sd-heading-h4-tablet-font-size);
@@ -770,7 +777,7 @@
   --sd-heading-h3-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h3-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h3-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h3-mobile-typography-font-size: var(--sd-heading-h3-desktop-font-size);
+  --sd-heading-h3-mobile-typography-font-size: var(--sd-heading-h3-mobile-font-size);
   --sd-heading-h3-mobile-typography-line-height: 1.1;
   --sd-heading-h3-mobile-margin-bottom: 9.6px;
   --sd-heading-h3-mobile-margin-top: var(--sd-heading-h3-mobile-font-size);
@@ -778,7 +785,7 @@
   --sd-heading-h3-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h3-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h3-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h3-tablet-typography-font-size: var(--sd-heading-h3-desktop-font-size);
+  --sd-heading-h3-tablet-typography-font-size: var(--sd-heading-h3-tablet-font-size);
   --sd-heading-h3-tablet-typography-line-height: 1.1;
   --sd-heading-h3-tablet-margin-bottom: 11.2px;
   --sd-heading-h3-tablet-margin-top: var(--sd-heading-h3-tablet-font-size);
@@ -796,7 +803,7 @@
   --sd-heading-h2-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h2-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h2-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h2-mobile-typography-font-size: var(--sd-heading-h2-desktop-font-size);
+  --sd-heading-h2-mobile-typography-font-size: var(--sd-heading-h2-mobile-font-size);
   --sd-heading-h2-mobile-typography-line-height: 1.1;
   --sd-heading-h2-mobile-margin-bottom: 12px;
   --sd-heading-h2-mobile-margin-top: var(--sd-heading-h2-mobile-font-size);
@@ -804,7 +811,7 @@
   --sd-heading-h2-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h2-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h2-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h2-tablet-typography-font-size: var(--sd-heading-h2-desktop-font-size);
+  --sd-heading-h2-tablet-typography-font-size: var(--sd-heading-h2-tablet-font-size);
   --sd-heading-h2-tablet-typography-line-height: 1.1;
   --sd-heading-h2-tablet-margin-bottom: 12.8px;
   --sd-heading-h2-tablet-margin-top: var(--sd-heading-h2-tablet-font-size);
@@ -822,7 +829,7 @@
   --sd-heading-h1-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h1-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h1-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h1-mobile-typography-font-size: var(--sd-heading-h1-desktop-font-size);
+  --sd-heading-h1-mobile-typography-font-size: var(--sd-heading-h1-mobile-font-size);
   --sd-heading-h1-mobile-typography-line-height: 1.1;
   --sd-heading-h1-mobile-margin-bottom: 14.4px;
   --sd-heading-h1-mobile-margin-top: var(--sd-heading-h1-mobile-font-size);
@@ -830,7 +837,7 @@
   --sd-heading-h1-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-h1-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h1-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-h1-tablet-typography-font-size: var(--sd-heading-h1-desktop-font-size);
+  --sd-heading-h1-tablet-typography-font-size: var(--sd-heading-h1-tablet-font-size);
   --sd-heading-h1-tablet-typography-line-height: 1.1;
   --sd-heading-h1-tablet-margin-bottom: 16px;
   --sd-heading-h1-tablet-margin-top: var(--sd-heading-h1-tablet-font-size);
@@ -848,7 +855,7 @@
   --sd-heading-display2-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display2-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display2-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display2-mobile-typography-font-size: var(--sd-heading-display2-desktop-font-size);
+  --sd-heading-display2-mobile-typography-font-size: var(--sd-heading-display2-mobile-font-size);
   --sd-heading-display2-mobile-typography-line-height: 1.1;
   --sd-heading-display2-mobile-margin-bottom: 17.6px;
   --sd-heading-display2-mobile-margin-top: var(--sd-heading-display2-mobile-font-size);
@@ -856,7 +863,7 @@
   --sd-heading-display2-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display2-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display2-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display2-tablet-typography-font-size: var(--sd-heading-display2-desktop-font-size);
+  --sd-heading-display2-tablet-typography-font-size: var(--sd-heading-display2-tablet-font-size);
   --sd-heading-display2-tablet-typography-line-height: 1.1;
   --sd-heading-display2-tablet-margin-bottom: 19.2px;
   --sd-heading-display2-tablet-margin-top: var(--sd-heading-display2-tablet-font-size);
@@ -874,7 +881,7 @@
   --sd-heading-display1-mobile-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display1-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display1-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display1-mobile-typography-font-size: var(--sd-heading-display1-desktop-font-size);
+  --sd-heading-display1-mobile-typography-font-size: var(--sd-heading-display1-mobile-font-size);
   --sd-heading-display1-mobile-typography-line-height: 1.1;
   --sd-heading-display1-mobile-margin-bottom: 19.2px;
   --sd-heading-display1-mobile-margin-top: var(--sd-heading-display1-mobile-font-size);
@@ -882,7 +889,7 @@
   --sd-heading-display1-tablet-typography-text-case: var(--sd-text-case-headlines);
   --sd-heading-display1-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display1-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
-  --sd-heading-display1-tablet-typography-font-size: var(--sd-heading-display1-desktop-font-size);
+  --sd-heading-display1-tablet-typography-font-size: var(--sd-heading-display1-tablet-font-size);
   --sd-heading-display1-tablet-typography-line-height: 1.1;
   --sd-heading-display1-tablet-margin-bottom: 21.6px;
   --sd-heading-display1-tablet-margin-top: var(--sd-heading-display1-tablet-font-size);
@@ -1129,10 +1136,11 @@
   --sd-form-control-items-message-default-text-color: var(--sd-theme-fg-default);
   --sd-form-control-items-label-md-inline-message-typography-font-size: var(--sd-font-size-sm);
   --sd-form-control-items-label-md-inline-message-typography-font-weight: 400;
-  --sd-form-control-items-label-md-required-typography-font-size: 8px;
-  --sd-form-control-items-label-md-required-typography-line-height: 24px;
   --sd-form-control-items-label-md-required-typography-font-weight: var(--sd-form-control-items-label-default-text-font-weight);
   --sd-form-control-items-label-md-required-typography-font-family: var(--sd-form-control-items-label-default-text-font-family);
+  --sd-form-control-items-label-md-text-typography-copy-font-weight: var(--sd-form-control-items-label-default-text-font-weight);
+  --sd-form-control-items-label-md-text-typography-copy-font-family: var(--sd-form-control-items-label-default-text-font-family);
+  --sd-form-control-items-label-md-text-typography-font-size: var(--sd-font-size-sm);
   --sd-form-control-items-label-md-text-typography-font-weight: var(--sd-form-control-items-label-default-text-font-weight);
   --sd-form-control-items-label-md-text-typography-font-family: var(--sd-form-control-items-label-default-text-font-family);
   --sd-form-control-items-label-default-inline-message-font-family: var(--sd-form-control-items-label-default-text-font-family);
@@ -1148,7 +1156,6 @@
   --sd-card-neutral-background-color: var(--sd-theme-bg-subtle);
   --sd-card-light-border-color: var(--sd-card-light-background-color);
   --sd-card-default-box-shadow: var(--sd-box-shadow-default);
-  --sd-toggle-md-handle-size: 20px;
   --sd-toggle-off-background-color: var(--sd-theme-fg-on-disabled);
   --sd-toggle-on-background-color: var(--sd-theme-primary-default);
   --sd-radio-disabled-label-color: var(--sd-theme-fg-on-disabled);
@@ -1391,11 +1398,13 @@
   --sd-radio-button-hover-text-color: var(--sd-radio-button-default-text-color);
   --sd-radio-button-hover-border-color: var(--sd-radio-button-default-border-color);
   --sd-radio-button-hover-background-color: var(--sd-radio-button-default-background-color);
+  --sd-form-control-items-label-md-required-typography-font-size: 7px;
+  --sd-form-control-items-label-md-required-typography-line-height: 21px;
   --sd-figurecard-tertiary-icon-color: var(--sd-figurecard-tertiary-text-color);
   --sd-figurecard-secondary-icon-color: var(--sd-figurecard-secondary-text-color);
   --sd-figurecard-primary-icon-color: var(--sd-figurecard-primary-text-color);
   --sd-card-neutral-border-color: var(--sd-card-neutral-background-color);
-  --sd-toggle-md-background-width: 40px;
+  --sd-toggle-md-handle-size: 17px;
   --sd-radio-focus-checked-label-color: var(--sd-radio-default-label-color);
   --sd-radio-focus-checked-icon-color: var(--sd-radio-checked-icon-color);
   --sd-radio-md-border-radius: var(--sd-input-md-border-radius);
@@ -1505,6 +1514,7 @@
   --sd-radio-button-focus-checked-box-shadow-color: var(--sd-radio-button-focus-border-color);
   --sd-radio-button-focus-checked-icon-color: var(--sd-radio-button-checked-icon-color);
   --sd-radio-button-md-gap: var(--sd-input-text-md-gap);
+  --sd-toggle-md-background-width: 34px;
   --sd-button-secondary-link-disabled-icon-color: var(--sd-button-secondary-link-disabled-text-color);
   --sd-button-primary-link-disabled-icon-color: var(--sd-button-primary-link-disabled-text-color);
   --sd-button-secondary-outline-disabled-icon-color: var(--sd-button-secondary-outline-disabled-text-color);

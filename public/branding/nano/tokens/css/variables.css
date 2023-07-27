@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Sun, 16 Jul 2023 10:23:41 GMT
+ * Generated on Thu, 27 Jul 2023 06:58:23 GMT
  */
 
 :root {
@@ -524,7 +524,7 @@
   --sd-heading-display1-tablet-typography-font-family: 'RM Neue';
   --sd-heading-display1-tablet-typography-font-weight: 700;
   --sd-heading-display1-tablet-typography-line-height: 1.1;
-  --sd-heading-display1-tablet-typography-font-size: 66px;
+  --sd-heading-display1-tablet-typography-font-size: 54px;
   --sd-heading-display1-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-display1-tablet-typography-paragraph-spacing: 0;
   --sd-heading-display1-tablet-typography-text-case: none;
@@ -535,7 +535,7 @@
   --sd-heading-display1-mobile-typography-font-family: 'RM Neue';
   --sd-heading-display1-mobile-typography-font-weight: 700;
   --sd-heading-display1-mobile-typography-line-height: 1.1;
-  --sd-heading-display1-mobile-typography-font-size: 66px;
+  --sd-heading-display1-mobile-typography-font-size: 48px;
   --sd-heading-display1-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-display1-mobile-typography-paragraph-spacing: 0;
   --sd-heading-display1-mobile-typography-text-case: none;
@@ -560,7 +560,7 @@
   --sd-heading-display2-tablet-typography-font-family: 'RM Neue';
   --sd-heading-display2-tablet-typography-font-weight: 700;
   --sd-heading-display2-tablet-typography-line-height: 1.1;
-  --sd-heading-display2-tablet-typography-font-size: 54px;
+  --sd-heading-display2-tablet-typography-font-size: 48px;
   --sd-heading-display2-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-display2-tablet-typography-paragraph-spacing: 0;
   --sd-heading-display2-tablet-typography-text-case: none;
@@ -571,7 +571,7 @@
   --sd-heading-display2-mobile-typography-font-family: 'RM Neue';
   --sd-heading-display2-mobile-typography-font-weight: 700;
   --sd-heading-display2-mobile-typography-line-height: 1.1;
-  --sd-heading-display2-mobile-typography-font-size: 54px;
+  --sd-heading-display2-mobile-typography-font-size: 44px;
   --sd-heading-display2-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-display2-mobile-typography-paragraph-spacing: 0;
   --sd-heading-display2-mobile-typography-text-case: none;
@@ -595,7 +595,7 @@
   --sd-heading-h1-tablet-typography-font-family: 'RM Neue';
   --sd-heading-h1-tablet-typography-font-weight: 700;
   --sd-heading-h1-tablet-typography-line-height: 1.1;
-  --sd-heading-h1-tablet-typography-font-size: 44px;
+  --sd-heading-h1-tablet-typography-font-size: 40px;
   --sd-heading-h1-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h1-tablet-typography-paragraph-spacing: 0;
   --sd-heading-h1-tablet-typography-text-case: none;
@@ -606,7 +606,7 @@
   --sd-heading-h1-mobile-typography-font-family: 'RM Neue';
   --sd-heading-h1-mobile-typography-font-weight: 700;
   --sd-heading-h1-mobile-typography-line-height: 1.1;
-  --sd-heading-h1-mobile-typography-font-size: 44px;
+  --sd-heading-h1-mobile-typography-font-size: 36px;
   --sd-heading-h1-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h1-mobile-typography-paragraph-spacing: 0;
   --sd-heading-h1-mobile-typography-text-case: none;
@@ -631,7 +631,7 @@
   --sd-heading-h2-tablet-typography-font-family: 'RM Neue';
   --sd-heading-h2-tablet-typography-font-weight: 700;
   --sd-heading-h2-tablet-typography-line-height: 1.1;
-  --sd-heading-h2-tablet-typography-font-size: 36px;
+  --sd-heading-h2-tablet-typography-font-size: 32px;
   --sd-heading-h2-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h2-tablet-typography-paragraph-spacing: 0;
   --sd-heading-h2-tablet-typography-text-case: none;
@@ -642,7 +642,7 @@
   --sd-heading-h2-mobile-typography-font-family: 'RM Neue';
   --sd-heading-h2-mobile-typography-font-weight: 700;
   --sd-heading-h2-mobile-typography-line-height: 1.1;
-  --sd-heading-h2-mobile-typography-font-size: 36px;
+  --sd-heading-h2-mobile-typography-font-size: 30px;
   --sd-heading-h2-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h2-mobile-typography-paragraph-spacing: 0;
   --sd-heading-h2-mobile-typography-text-case: none;
@@ -667,7 +667,7 @@
   --sd-heading-h3-tablet-typography-font-family: 'RM Neue';
   --sd-heading-h3-tablet-typography-font-weight: 700;
   --sd-heading-h3-tablet-typography-line-height: 1.1;
-  --sd-heading-h3-tablet-typography-font-size: 30px;
+  --sd-heading-h3-tablet-typography-font-size: 28px;
   --sd-heading-h3-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h3-tablet-typography-paragraph-spacing: 0;
   --sd-heading-h3-tablet-typography-text-case: none;
@@ -678,7 +678,7 @@
   --sd-heading-h3-mobile-typography-font-family: 'RM Neue';
   --sd-heading-h3-mobile-typography-font-weight: 700;
   --sd-heading-h3-mobile-typography-line-height: 1.1;
-  --sd-heading-h3-mobile-typography-font-size: 30px;
+  --sd-heading-h3-mobile-typography-font-size: 24px;
   --sd-heading-h3-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h3-mobile-typography-paragraph-spacing: 0;
   --sd-heading-h3-mobile-typography-text-case: none;
@@ -703,7 +703,7 @@
   --sd-heading-h4-tablet-typography-font-family: 'RM Neue';
   --sd-heading-h4-tablet-typography-font-weight: 700;
   --sd-heading-h4-tablet-typography-line-height: 1.1;
-  --sd-heading-h4-tablet-typography-font-size: 24px;
+  --sd-heading-h4-tablet-typography-font-size: 22px;
   --sd-heading-h4-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h4-tablet-typography-paragraph-spacing: 0;
   --sd-heading-h4-tablet-typography-text-case: none;
@@ -714,7 +714,7 @@
   --sd-heading-h4-mobile-typography-font-family: 'RM Neue';
   --sd-heading-h4-mobile-typography-font-weight: 700;
   --sd-heading-h4-mobile-typography-line-height: 1.1;
-  --sd-heading-h4-mobile-typography-font-size: 24px;
+  --sd-heading-h4-mobile-typography-font-size: 20px;
   --sd-heading-h4-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h4-mobile-typography-paragraph-spacing: 0;
   --sd-heading-h4-mobile-typography-text-case: none;
@@ -750,7 +750,7 @@
   --sd-heading-h5-mobile-typography-font-family: 'RM Neue';
   --sd-heading-h5-mobile-typography-font-weight: 700;
   --sd-heading-h5-mobile-typography-line-height: 1.1;
-  --sd-heading-h5-mobile-typography-font-size: 20px;
+  --sd-heading-h5-mobile-typography-font-size: 18px;
   --sd-heading-h5-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h5-mobile-typography-paragraph-spacing: 0;
   --sd-heading-h5-mobile-typography-text-case: none;
@@ -786,7 +786,7 @@
   --sd-heading-h6-mobile-typography-font-family: 'RM Neue';
   --sd-heading-h6-mobile-typography-font-weight: 700;
   --sd-heading-h6-mobile-typography-line-height: 1.1;
-  --sd-heading-h6-mobile-typography-font-size: 18px;
+  --sd-heading-h6-mobile-typography-font-size: 16px;
   --sd-heading-h6-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h6-mobile-typography-paragraph-spacing: 0;
   --sd-heading-h6-mobile-typography-text-case: none;
@@ -1156,6 +1156,14 @@
   --sd-form-control-items-label-md-text-typography-paragraph-spacing: 0;
   --sd-form-control-items-label-md-text-typography-text-decoration: none;
   --sd-form-control-items-label-md-text-typography-text-case: none;
+  --sd-form-control-items-label-md-text-typography-copy-font-family: 'RM Neue';
+  --sd-form-control-items-label-md-text-typography-copy-font-weight: 700;
+  --sd-form-control-items-label-md-text-typography-copy-line-height: 1.5;
+  --sd-form-control-items-label-md-text-typography-copy-font-size: 16px;
+  --sd-form-control-items-label-md-text-typography-copy-letter-spacing: 0em;
+  --sd-form-control-items-label-md-text-typography-copy-paragraph-spacing: 0;
+  --sd-form-control-items-label-md-text-typography-copy-text-decoration: none;
+  --sd-form-control-items-label-md-text-typography-copy-text-case: none;
   --sd-form-control-items-label-md-required-typography-font-family: 'RM Neue';
   --sd-form-control-items-label-md-required-typography-font-weight: 700;
   --sd-form-control-items-label-md-required-typography-line-height: 24px;
@@ -1410,6 +1418,8 @@
   --sd-app-lvr-bar-error-text-color: #630d02;
   --sd-app-lvr-bar-empty-background-color: #eeeeee;
   --sd-app-lvr-bar-empty-text-color: #323232;
+  --sd-app-applicants-primary-firstname: Charlie;
+  --sd-app-applicants-secondary-firstname: Nina;
   --sd-table-default-td-background-color: #ffffff;
   --sd-table-default-td-text-color: #323232;
   --sd-table-default-th-background-color: #eeeeee;

@@ -765,7 +765,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "66px",
+          "fontSize": "54px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -780,7 +780,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "66px",
+          "fontSize": "48px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -815,7 +815,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "54px",
+          "fontSize": "48px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -830,7 +830,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "54px",
+          "fontSize": "44px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -864,7 +864,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "44px",
+          "fontSize": "40px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -879,7 +879,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "44px",
+          "fontSize": "36px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -914,7 +914,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "36px",
+          "fontSize": "32px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -929,7 +929,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "36px",
+          "fontSize": "30px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -964,7 +964,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "30px",
+          "fontSize": "28px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -979,7 +979,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "30px",
+          "fontSize": "24px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -1014,7 +1014,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "24px",
+          "fontSize": "22px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -1029,7 +1029,7 @@
           "fontFamily": "'Hurme Geometric Sans 1'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "24px",
+          "fontSize": "20px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -1079,7 +1079,7 @@
           "fontFamily": "'Open Sans'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "20px",
+          "fontSize": "18px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -1129,7 +1129,7 @@
           "fontFamily": "'Open Sans'",
           "fontWeight": 400,
           "lineHeight": 1.1,
-          "fontSize": "18px",
+          "fontSize": "16px",
           "letterSpacing": "-0.01em",
           "paragraphSpacing": "0",
           "textCase": "none",
@@ -1611,8 +1611,8 @@
     "off-background-color": "#525252",
     "handle-background-color": "#ffffff",
     "md": {
-      "handle-size": "20px",
-      "background-width": "40px"
+      "handle-size": "17px",
+      "background-width": "34px"
     },
     "default": {
       "background-padding": "2px"
@@ -1700,6 +1700,16 @@
           "fontFamily": "'Open Sans'",
           "fontWeight": "600",
           "lineHeight": 1.5,
+          "fontSize": "14px",
+          "letterSpacing": "0em",
+          "paragraphSpacing": "0",
+          "textDecoration": "none",
+          "textCase": "none"
+        },
+        "text-typography-copy": {
+          "fontFamily": "'Open Sans'",
+          "fontWeight": "600",
+          "lineHeight": 1.5,
           "fontSize": "16px",
           "letterSpacing": "0em",
           "paragraphSpacing": "0",
@@ -1709,8 +1719,8 @@
         "required-typography": {
           "fontFamily": "'Open Sans'",
           "fontWeight": "600",
-          "lineHeight": "24px",
-          "fontSize": "8px",
+          "lineHeight": "21px",
+          "fontSize": "7px",
           "letterSpacing": "0em",
           "paragraphSpacing": "0",
           "textDecoration": "none",
@@ -2140,6 +2150,14 @@
       "empty": {
         "background-color": "#f2f4f7",
         "text-color": "#525252"
+      }
+    },
+    "applicants": {
+      "primary": {
+        "firstname": "Charlie"
+      },
+      "secondary": {
+        "firstname": "Nina"
       }
     }
   },
