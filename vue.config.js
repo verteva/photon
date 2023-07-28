@@ -25,25 +25,6 @@ module.exports = {
           ],
           include: path.resolve(__dirname, '../'),
         },
-        {
-          test: /\.scss$/,
-          use: [
-            require.resolve('style-loader'),
-            require.resolve('css-loader'),
-            require.resolve('resolve-url-loader'),
-            {
-              loader: require.resolve('sass-loader'),
-              options: {
-                sourceMap: true,
-                sassOptions: {
-                  data: '@import "./src/assets/scss/main.scss";',
-                  prependData: '@import "./src/assets/scss/main.scss";',
-                },
-              },
-            },
-          ],
-          include: path.resolve(__dirname, '../'),
-        },
       ],
     },
   },
