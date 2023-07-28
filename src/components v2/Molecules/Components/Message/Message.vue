@@ -1,15 +1,15 @@
 <template>
   <div ref="ph-message" class="photon-message list" :class="[type]">
-    <p-icon
-      ref="messageIcon"
-      :name="icon[type]"
-      type="lg"
-      class="icon"
-      color=""
-      :class="[type]"
-    />
+    <div :v-if="`icon[type]]`" class="ph-message-icon">
+      <font-awesome-icon
+        :v-if="`icon[type]]`"
+        :icon="['fal', icon[type]]"
+        class="fa-fw"
+      >
+      </font-awesome-icon>
+    </div>
     <div class="content">
-      <div class="title">
+      <div v-if="title" class="title">
         {{ title }}
       </div>
       <slot />
@@ -17,26 +17,28 @@
         <div>
           {{ description }}
         </div>
-        <p-button
+        <p2-button
           v-if="$listeners.click && callToAction"
           ref="messageButton"
-          class="button"
+          button-style="primary"
+          size="xs"
+          class="message-cta"
           @click="$emit('click')"
         >
           {{ callToAction }}
-        </p-button>
+        </p2-button>
       </div>
     </div>
-    <div v-if="!hideClose" @click="$emit('close')">
-      <p-icon name="Cross" type="lg" class="icon" color="" :class="[type]" />
+    <div v-if="!hideClose" class="ph-message-close" @click="$emit('close')">
+      <font-awesome-icon :icon="['fal', 'times']" class="fa-fw">
+      </font-awesome-icon>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '@/components/Icon';
-import PButton from '@/components v2/Atoms/Components/Button';
+import P2Button from '@/components v2/Atoms/Components/Button';
 import {
   MessageSuccess,
   MessageInfo,
@@ -83,8 +85,7 @@ export default Vue.extend({
   name: 'P2Message',
 
   components: {
-    PIcon,
-    PButton,
+    P2Button,
   },
 
   props,
@@ -92,42 +93,48 @@ export default Vue.extend({
   computed: {
     icon(): any {
       return {
-        success: 'Success',
-        info: 'Info',
-        error: 'Error',
-        warning: 'Alert',
+        success: 'circle-check',
+        info: 'circle-info',
+        error: 'circle-exclamation',
+        warning: 'triangle-exclamation',
       };
     },
   },
 });
 </script>
+
 <style lang="scss" scoped>
+@import './src/assets/scss/main.scss';
+
 $types: 'success', 'info', 'error', 'warning';
 
 .photon-message {
-  max-width: 48rem; /* 768px */
+  max-width: 768px;
   display: flex;
   align-items: flex-start;
-  color: var(--message-base-color);
-  padding: var(--message-base-padding);
-  border-radius: var(--message-base-border-radius);
-  border-width: var(--message-base-border-width);
+  padding: 0.8em 1.2em;
+  color: var(--sd-theme-fg-default);
+  border-width: 1px;
+  border-radius: var(--sd-border-radius-default);
+  transition: $all-transitions;
 
   @each $type in $types {
     &.#{$type} {
-      background: var(--message-styles-#{$type}-background);
-      border-color: var(--message-styles-#{$type}-border-color);
+      background: var(--sd-theme-#{$type}-subtle);
+      border-color: var(--sd-theme-#{$type}-muted);
+      color: var(--sd-theme-#{$type}-on-subtle);
     }
   }
-  .icon {
-    margin: var(--message-components-icon-margin);
+
+  .ph-message-icon {
+    margin-right: 0.5em;
+  }
+
+  .ph-message-close {
+    margin-left: 0.5em;
     cursor: pointer;
-    @each $type in $types {
-      &.#{$type} {
-        color: var(--message-styles-#{$type}-color);
-      }
-    }
   }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -135,18 +142,16 @@ $types: 'success', 'info', 'error', 'warning';
   }
 
   .title {
-    font-weight: var(--message-components-title-font-weight);
-    padding: var(--message-components-title-padding);
-    line-height: var(--message-components-title-line-height);
+    @include token-typography('body', 'bold');
   }
 
   .description {
-    margin: var(--message-components-description-margin);
-    line-height: var(--message-components-description-line-height);
+    @include token-typography('sm', 'regular');
+    margin-top: 0.5em;
   }
 
-  .button {
-    margin: var(--message-components-button-margin);
+  .message-cta {
+    margin-top: 1em;
   }
 }
 </style>
