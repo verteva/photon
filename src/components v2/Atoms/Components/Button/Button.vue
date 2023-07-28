@@ -119,7 +119,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import './src/assets/scss/_themehelpers.scss';
+@import './src/assets/scss/main.scss';
 
 @function getButtonStyleProperty(
   $property,
@@ -127,7 +127,7 @@ export default Vue.extend({
   $state: 'default',
   $fallback: ''
 ) {
-  @return getThemeProperty('sd-button', $property, $style, $state, $fallback);
+  @return getThemeProperty('button', $property, $style, $state, $fallback);
 }
 
 @function getButtonSizeProperty(
@@ -136,7 +136,7 @@ export default Vue.extend({
   $state: 'default',
   $fallback: ''
 ) {
-  @return getThemeProperty('sd-button', $property, $size, $state, $fallback);
+  @return getThemeProperty('button', $property, $size, $state, $fallback);
 }
 
 .button {
