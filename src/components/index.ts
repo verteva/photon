@@ -33,7 +33,8 @@ import PBadge from './Badge';
 import PSideBar from './SideBar';
 import PInputBasicSelect from './InputBasicSelect';
 import PInputSelect from './InputSelect';
-import { PText, PH1, PH2, PH3, PBlockquote } from './Typography';
+//import { PText, PH1, PH2, PH3, PBlockquote } from './Typography';
+import { PText, PH1, PH2, PH3 } from './Typography';
 
 export interface PhotonComponents {
   [key: string]: Component;
@@ -54,7 +55,7 @@ const components: PhotonComponents = {
   PH1,
   PH2,
   PH3,
-  PBlockquote,
+  //PBlockquote,
   PInputSlider,
   PCard,
   PDateInput,
