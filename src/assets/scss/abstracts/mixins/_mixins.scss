@@ -1,0 +1,15 @@
+/**
+ * Mixins
+ */
+
+
+// Token styles from a compiled typography token
+@mixin token-typography($size: "body", $weight: "regular") {
+  font-family: var(--sd-typography-#{$size}-#{$weight}-font-family);
+  font-weight: var(--sd-typography-#{$size}-#{$weight}-font-weight);
+  font-size: var(--sd-typography-#{$size}-#{$weight}-font-size);
+  letter-spacing: var(--sd-typography-#{$size}-#{$weight}-letter-spacing);
+  line-height: var(--sd-typography-#{$size}-#{$weight}-line-height);
+  text-decoration: var(--sd-typography-#{$size}-#{$weight}-text-decoration);
+  text-transform: var(--sd-typography-#{$size}-#{$weight}-text-case);
+}

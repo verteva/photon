@@ -1,15 +1,16 @@
+/**
+ * Functions
+ */
+
 @use "sass:string";
 
+// Function to retrieve a css var based on props, for use in loops with lists
 @function getThemeProperty($component, $property, $style, $state, $fallback) {
   $state-modifier: if(string.length($state) > 0, '#{$state}-', '');
   $style-modifier: if(string.length($style) > 0, '#{$style}-', '');
-  $style-var: --#{$component}-#{$style-modifier}#{$state-modifier}#{$property};
+  $style-var: --sd-#{$component}-#{$style-modifier}#{$state-modifier}#{$property};
   @return var($style-var, $fallback)
 }
-
-$all-transitions: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter,
-backdrop-filter;
-
 
 
 // Determine if string ends with another substring
@@ -33,3 +34,5 @@ backdrop-filter;
 
   @return $string;
 }
+
+

@@ -7,6 +7,7 @@ import store from '@/components/store';
 //import externalStore from '@/components v2/store';
 import { injectThemeCSSVariablesFromFile } from '@/utils/injectThemeCssVariables';
 import { ThemeBar } from './themeBar';
+import '@/assets/scss/main.scss';
 import '@/utils/fontAwesome/setup';
 import './theme-bar.scss';
 

@@ -1,3 +1,8 @@
-@import url('./_fonts.scss');
-@import url('./_gradients.scss');
-@import url('../css/main.css');
+/**
+ * Master SCSS
+ */
+
+@import 'abstracts/abstracts';
+@import 'variables/variables';
+@import 'fonts';
+//@import '../css/main.css';

@@ -1,79 +1,80 @@
-
+/*
 @font-face {
   font-family: "RM Neue";
-  src: url("../fonts/RMNeue-Regular.woff2") format("woff2"), /* chrome firefox */
-  url("../fonts/RMNeue-Regular.woff") format("woff"); /* chrome firefox */
+  src: url("../fonts/RMNeue-Regular.woff2") format("woff2"),
+  url("../fonts/RMNeue-Regular.woff") format("woff");
 }
 
 @font-face {
   font-family: "RM Neue";
   font-weight: 100;
-  src: url("../fonts/RMNeue-Light.woff2") format("woff2"), /* chrome firefox */
-  url("../fonts/RMNeue-Light.woff") format("woff"); /* chrome firefox */
+  src: url("../fonts/RMNeue-Light.woff2") format("woff2"),
+  url("../fonts/RMNeue-Light.woff") format("woff");
 }
 
 @font-face {
   font-family: "RM Neue";
   font-weight: 700;
-  src: url("../fonts/RMNeue-Bold.woff2") format("woff2"), /* chrome firefox */
-  url("../fonts/RMNeue-Bold.woff") format("woff"); /* chrome firefox */
+  src: url("../fonts/RMNeue-Bold.woff2") format("woff2"),
+  url("../fonts/RMNeue-Bold.woff") format("woff");
 }
 
 @font-face {
   font-family: "RM Neue";
   font-weight: 1000;
-  src: url("../fonts/RMNeue-Black.woff2") format("woff2"), /* chrome firefox */
-  url("../fonts/RMNeue-Black.woff") format("woff"); /* chrome firefox */
+  src: url("../fonts/RMNeue-Black.woff2") format("woff2"),
+  url("../fonts/RMNeue-Black.woff") format("woff");
 }
+*/
 
 @font-face {
   font-family: 'GT Walsheim Pro';
-  src: url('../fonts/GTWalsheimPro-Regular.ttf') format('truetype'), /* chrome firefox */
-  url('../fonts/GTWalsheimPro-Regular.ttf') format('truetype'); /* chrome firefox */
+  src: url('../fonts/GTWalsheimPro-Regular.ttf') format('truetype'),
+  url('../fonts/GTWalsheimPro-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'GT Walsheim Pro';
   font-weight: 100;
-  src: url('../fonts/GTWalsheimPro-Light.ttf') format('truetype'), /* chrome firefox */
-  url('../fonts/GTWalsheimPro-Light.ttf') format('truetype'); /* chrome firefox */
+  src: url('../fonts/GTWalsheimPro-Light.ttf') format('truetype'),
+  url('../fonts/GTWalsheimPro-Light.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'GT Walsheim Pro';
   font-weight: 700;
-  src: url('../fonts/GTWalsheimPro-Bold.ttf') format('truetype'), /* chrome firefox */
-  url('../fonts/GTWalsheimPro-Bold.ttf') format('truetype'); /* chrome firefox */
+  src: url('../fonts/GTWalsheimPro-Bold.ttf') format('truetype'),
+  url('../fonts/GTWalsheimPro-Bold.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'GT Walsheim Pro';
   font-weight: 1000;
-  src: url('../fonts/GTWalsheimPro-Black.ttf') format('truetype'), /* chrome firefox */
-  url('../fonts/GTWalsheimPro-Black.ttf') format('truetype'); /* chrome firefox */
+  src: url('../fonts/GTWalsheimPro-Black.ttf') format('truetype'),
+  url('../fonts/GTWalsheimPro-Black.ttf') format('truetype');
 }
 
-/* Open Sans */
+// Open Sans
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 
-/* hurme-geometric-sans-regular */
+// hurme-geometric-sans-regular
 @font-face {
   font-family: 'Hurme Geometric Sans';
   font-style: normal;
   font-weight: 400;
   src:
     local(''),
-    url('../fonts/hurme-geometric-sans-1-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/hurme-geometric-sans-1-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('../fonts/hurme-geometric-sans-1-regular.woff2') format('woff2'),
+    url('../fonts/hurme-geometric-sans-1-regular.woff') format('woff');
 }
-/* hurme-geometric-sans-semi-bold */
+// hurme-geometric-sans-semi-bold
 @font-face {
   font-family: 'Hurme Geometric Sans';
   font-style: normal;
   font-weight: 600;
   src:
     local(''),
-    url('../fonts/hurme-geometric-sans-1-semi-bold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('../fonts/hurme-geometric-sans-1-semi-bold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('../fonts/hurme-geometric-sans-1-semi-bold.woff2') format('woff2'),
+    url('../fonts/hurme-geometric-sans-1-semi-bold.woff') format('woff');
 }
