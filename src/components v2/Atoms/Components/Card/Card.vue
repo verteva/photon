@@ -2,23 +2,36 @@
   <div
     ref="card"
     class="card"
-    :class="{
-      light,
-      shadow,
-      border,
-      rounded,
-      'no-padding': noPadding,
-    }"
+    :class="[
+      size,
+      {
+        light,
+        shadow,
+        border,
+        rounded,
+        'no-padding': noPadding,
+      },
+    ]"
   >
     <slot />
   </div>
 </template>
 
 <script lang="ts">
+import { CardSizes, CardSize } from './types';
+
 export const props = {
+  size: {
+    type: String as PropType<CardSize>,
+    default: CardSizes.MD,
+    validator(value: string): boolean {
+      return Object.values(CardSizes).indexOf(value as CardSize) !== -1;
+    },
+  },
+
   light: {
     type: Boolean,
-    default: false,
+    default: true,
   },
 
   shadow: {
@@ -44,46 +57,44 @@ export const props = {
 
 export default {
   name: 'P2Card',
-
   props,
 };
 </script>
 
 <style lang="scss" scoped>
-@import './src/assets/scss/_themehelpers.scss';
-
-@function getCardStyleProperty($property, $style, $fallback: '') {
-  @return getThemeProperty('card', $property, $style, '', $fallback);
-}
+@import './src/assets/scss/main.scss';
 
 .card {
   position: relative;
   overflow: hidden;
-  background: getCardStyleProperty('background', 'base', #f5f5f5);
-  padding: getCardStyleProperty('padding', 'base', 30px);
+  background: var(--sd-card-light-background-color);
+  padding: var(--sd-card-default-padding);
+
+  $buttonSizes: 'xs' 'sm' 'md';
+  @each $size in $buttonSizes {
+    &.#{$size} {
+      padding: var(--sd-card-#{$size}-padding);
+    }
+  }
 
   &.light {
-    background: getCardStyleProperty('background', 'style-light', #fff);
+    background: var(--sd-card-light-background-color);
   }
 
   &.shadow {
-    box-shadow: getCardStyleProperty(
-      'box-shadow',
-      'style-shadow',
-      0 1px 2px 0 rgba(0, 0, 0, 0.05)
-    );
+    box-shadow: var(--sd-card-default-box-shadow);
   }
 
   &.border {
-    border: getCardStyleProperty('border', 'style-border', 1px solid #d7d7d7);
+    border: 1px solid var(--sd-card-light-border-color);
   }
 
   &.rounded {
-    border-radius: getCardStyleProperty('border-radius', 'style-rounded', 10px);
+    border-radius: var(--sd-card-default-border-radius);
   }
 
   &.no-padding {
-    padding: getCardStyleProperty('padding', 'style-nopadding', 0px);
+    padding: 0;
   }
 }
 </style>
