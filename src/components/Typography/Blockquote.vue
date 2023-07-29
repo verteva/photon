@@ -1,4 +1,4 @@
-/** * Migrated to OB */
+<!-- Note: Migrated to OB native! -->
 <template>
   <blockquote class="ph-blockuote">
     <slot />
