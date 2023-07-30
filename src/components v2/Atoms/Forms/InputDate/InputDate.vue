@@ -1,52 +1,65 @@
 <template>
-  <div class="ph-input-date-wrapper">
-    <p2-input-text
-      type="text"
-      name="day"
-      placeholder="DD"
-      centered
-      class="ph-input-date-field ph-input-date-field-day"
-      :maxlength="2"
-      :value="value.day"
-      :disabled="disabled"
-      is-number
-      @input="$emit('dateDay', $event)"
-      @keyup="onKeyup"
-      @blur="$emit('dateDayBlur', $event)"
-    />
-    <p2-input-text
-      type="text"
-      name="month"
-      placeholder="MM"
-      centered
-      class="ph-input-date-field ph-input-date-field-month"
-      :maxlength="2"
-      :value="value.month"
-      :disabled="disabled"
-      is-number
-      @input="$emit('dateMonth', $event)"
-      @keyup="onKeyup"
-      @blur="$emit('dateMonthBlur', $event)"
-    />
-    <p2-input-text
-      name="year"
-      placeholder="YYYY"
-      centered
-      class="ph-input-date-field ph-input-date-field-year"
-      :maxlength="4"
-      :value="value.year"
-      :disabled="disabled"
-      is-number
-      @input="$emit('dateYear', $event)"
-      @keyup="onKeyup"
-      @blur="$emit('dateYearBlur', $event)"
-    />
+  <div class="ph-input-date-wrapper" :class="`date-format-${dateFormat}`">
+    <div
+      v-for="(field, i) in dateformatfields[dateFormat]"
+      :key="i"
+      class="ph-date-format-field"
+      :class="`ph-date-format-field-${i}`"
+    >
+      <p2-input-text
+        v-if="field == 'day'"
+        type="text"
+        name="day"
+        placeholder="DD"
+        centered
+        class="ph-input-date-field ph-input-date-field-day"
+        :maxlength="2"
+        :value="value.day"
+        :disabled="disabled"
+        is-number
+        @input="$emit('dateDay', $event)"
+        @keyup="onKeyup"
+        @blur="$emit('dateDayBlur', $event)"
+      />
+
+      <p2-input-text
+        v-if="field == 'month'"
+        type="text"
+        name="month"
+        placeholder="MM"
+        centered
+        class="ph-input-date-field ph-input-date-field-month"
+        :maxlength="2"
+        :value="value.month"
+        :disabled="disabled"
+        is-number
+        @input="$emit('dateMonth', $event)"
+        @keyup="onKeyup"
+        @blur="$emit('dateMonthBlur', $event)"
+      />
+
+      <p2-input-text
+        v-if="field == 'year'"
+        name="year"
+        placeholder="YYYY"
+        centered
+        class="ph-input-date-field ph-input-date-field-year"
+        :maxlength="4"
+        :value="value.year"
+        :disabled="disabled"
+        is-number
+        @input="$emit('dateYear', $event)"
+        @keyup="onKeyup"
+        @blur="$emit('dateYearBlur', $event)"
+      />
+    </div>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue';
 import P2InputText from '@/components v2/Atoms/Forms/InputText';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
+import { DateFormats, DateFormat } from './types';
 
 const { disabled } = formProps;
 
@@ -55,6 +68,15 @@ export const props = {
     type: Object,
     default: () => ({}),
   },
+
+  dateFormat: {
+    type: String as PropType<DateFormat>,
+    default: DateFormats.DDMMYYYY,
+    validator(value: string): boolean {
+      return Object.values(DateFormats).indexOf(value as DateFormat) !== -1;
+    },
+  },
+
   disabled,
 };
 
@@ -67,6 +89,28 @@ export default Vue.extend({
 
   props,
 
+  data() {
+    return {
+      dateformatfields: {
+        DDMMYYYY: {
+          0: 'day',
+          1: 'month',
+          2: 'year',
+        },
+        YYYYMMDD: {
+          0: 'year',
+          1: 'month',
+          2: 'day',
+        },
+        MMDDYYYY: {
+          0: 'month',
+          1: 'day',
+          2: 'year',
+        },
+      },
+    };
+  },
+
   methods: {
     onKeyup: function (e: InputEvent) {
       // If key entered is a number
@@ -75,12 +119,17 @@ export default Vue.extend({
         // Check if total length in field equals maxlength
         if (e.target.value.length >= e.target.maxLength) {
           // If field has a next sibling (ie: it's not last field)
-          if (e.target.parentElement.nextElementSibling) {
+          if (e.target.parentElement.parentElement.nextElementSibling) {
             // Give focus to the next sibling's input field and select all text
-            let sibling = e.target.parentElement.nextElementSibling;
-            if (sibling.children[0]) {
-              sibling.children[0].focus();
-              sibling.children[0].select();
+            let sibling =
+              e.target.parentElement.parentElement.nextElementSibling;
+            let nextfield =
+              sibling.children[0] && sibling.children[0].children[0]
+                ? sibling.children[0].children[0]
+                : false;
+            if (nextfield && nextfield.nodeName.toLowerCase() == 'input') {
+              nextfield.focus();
+              nextfield.select();
             }
           }
         }
@@ -110,26 +159,30 @@ export default Vue.extend({
       top: 0;
       bottom: 0;
       margin: auto;
-      width: 12px;
+      width: var(--input-slash-padding);
       height: 1em;
       line-height: 1;
+      display: block;
+      text-align: center;
     }
+  }
 
+  .ph-date-format-field {
     &:last-child {
       --input-slash-padding: 0px;
-      &:after {
+
+      .ph-input-text:after {
         content: none;
       }
     }
   }
-}
 
-.ph-input-date-field {
-  width: calc(var(--input-width) + var(--input-slash-padding));
+  .ph-input-date-field {
+    width: calc(var(--input-width) + var(--input-slash-padding));
 
-  &.ph-input-date-field-year {
-    --input-width: 64px;
-    //width: 64px;
+    &.ph-input-date-field-year {
+      --input-width: 72px;
+    }
   }
 }
 </style>
