@@ -1,22 +1,23 @@
 <template>
   <div ref="ph-message" class="photon-message list" :class="[type]">
-    <div :v-if="`icon[type]]`" class="ph-message-icon">
+    <div v-if="!hideIcon && `icon[type]]`" class="ph-message-icon">
       <font-awesome-icon
-        :v-if="`icon[type]]`"
+        v-if="!hideIcon && `icon[type]]`"
         :icon="['fal', icon[type]]"
-        class="fa-fw"
+        class="fa-lg fa-fw"
       >
       </font-awesome-icon>
     </div>
     <div class="content">
-      <div v-if="title" class="title">
+      <div v-if="title || hasTitleSlot" class="title">
         {{ title }}
+        <slot name="title"></slot>
       </div>
-      <slot />
-      <div v-if="description" class="description">
-        <div>
-          {{ description }}
-        </div>
+      <div v-if="description || hasDescriptionSlot" class="description">
+        {{ description }}
+        <slot name="description"></slot>
+      </div>
+      <div v-if="$listeners.click && callToAction">
         <p2-button
           v-if="$listeners.click && callToAction"
           ref="messageButton"
@@ -30,7 +31,7 @@
       </div>
     </div>
     <div v-if="!hideClose" class="ph-message-close" @click="$emit('close')">
-      <font-awesome-icon :icon="['fal', 'times']" class="fa-fw">
+      <font-awesome-icon :icon="['fal', 'times']" class="fa-lg fa-fw">
       </font-awesome-icon>
     </div>
   </div>
@@ -75,6 +76,11 @@ export const props = {
     default: '',
   },
 
+  hideIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
   hideClose: {
     type: Boolean as PropType<boolean>,
     default: false,
@@ -99,6 +105,14 @@ export default Vue.extend({
         warning: 'triangle-exclamation',
       };
     },
+
+    hasTitleSlot() {
+      return this.$slots['title'];
+    },
+
+    hasDescriptionSlot() {
+      return this.$slots['description'];
+    },
   },
 });
 </script>
@@ -112,7 +126,7 @@ $types: 'success', 'info', 'error', 'warning';
   max-width: 768px;
   display: flex;
   align-items: flex-start;
-  padding: 0.8em 1.2em;
+  padding: 0.75em;
   color: var(--sd-theme-fg-default);
   border-width: 1px;
   border-radius: var(--sd-border-radius-default);
@@ -127,11 +141,11 @@ $types: 'success', 'info', 'error', 'warning';
   }
 
   .ph-message-icon {
-    margin-right: 0.5em;
+    margin-right: 0.75em;
   }
 
   .ph-message-close {
-    margin-left: 0.5em;
+    margin-left: 0.75em;
     cursor: pointer;
   }
 
@@ -147,6 +161,9 @@ $types: 'success', 'info', 'error', 'warning';
 
   .description {
     @include token-typography('sm', 'regular');
+  }
+
+  .title + .description {
     margin-top: 0.5em;
   }
 
