@@ -5,6 +5,7 @@
     v-bind="$attrs"
     :type="type"
     :class="[
+      (label || hasLabel) && 'has-label',
       disabled && 'disabled',
       submitting && 'loading',
       buttonStyle,
@@ -23,7 +24,7 @@
           class="button-icon button-icon-left"
         />
       </div>
-      <div class="label">
+      <div v-if="label || hasLabel" class="label">
         <slot name="default">
           {{ label }}
         </slot>
@@ -54,7 +55,7 @@ import {
 export const props = {
   label: {
     type: String as PropType<string>,
-    default: 'Button',
+    default: '',
   },
 
   buttonStyle: {
@@ -113,6 +114,10 @@ export default Vue.extend({
   computed: {
     isDisabled(): boolean {
       return this.disabled || this.submitting;
+    },
+
+    hasLabel() {
+      return this.$slots['default'];
     },
   },
 });
@@ -372,8 +377,10 @@ export default Vue.extend({
       );
       padding-left: getButtonSizeProperty('padding-left', $size, '', 1.25em);
       border-radius: getButtonSizeProperty('border-radius', $size, '', 0);
+    }
 
-      // Icons
+    // Icon margins
+    &.has-label.#{$size} {
       .button-icon-container {
         &.button-icon-container-left {
           margin-right: getButtonSizeProperty('gap', $size, '', 1.25em);
