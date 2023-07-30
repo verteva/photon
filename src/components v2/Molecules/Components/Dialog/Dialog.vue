@@ -4,27 +4,29 @@
     <p2-card
       id="photon-dialog"
       ref="dialog"
+      light
       class="dialog-viewbox"
-      :class="[viewboxAnimation, size]"
+      :size="cardSize"
+      :class="[viewboxAnimation]"
     >
       <div class="dialog-close">
         <p2-button
           ref="cancelIcon"
-          button-style="plain"
+          button-style="primary-link"
+          icon-left="times"
+          size="xs"
           @click="eventType = cancel"
-        >
-          <p-icon name="Cross" type="lg" />
-        </p2-button>
+        />
       </div>
       <p2-headline>
         {{ heading }}
       </p2-headline>
-
       <slot />
       <div class="dialog-buttons">
         <p2-button
           ref="confirm"
           class="dialog-confirm"
+          size="sm"
           @click="eventType = confirm"
         >
           {{ confirmLabel }}
@@ -32,6 +34,7 @@
         <p2-button
           v-if="!singleButton"
           ref="cancel"
+          size="sm"
           :button-style="secondaryButtonStyle"
           @click="eventType = cancel"
         >
@@ -44,7 +47,6 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '@/components/Icon';
 import P2Button from '@/components v2/Atoms/Components/Button';
 import P2Card from '@/components v2/Atoms/Components/Card';
 import P2BackDrop from '@/components v2/Atoms/Components/BackDrop';
@@ -60,6 +62,12 @@ export const props = {
     type: String as PropType<string>,
     default: '',
   },
+
+  cardSize: {
+    type: String as PropType<string>,
+    default: 'sm',
+  },
+
   confirmLabel: {
     type: String as PropType<string>,
     default: 'Yes',
@@ -69,18 +77,22 @@ export const props = {
     type: String as PropType<string>,
     default: 'Cancel',
   },
+
   singleButton: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
+
   focusIndex: {
     type: Number as PropType<number>,
     default: 1,
   },
+
   secondaryButtonStyle: {
     type: String as PropType<string>,
-    default: 'secondary',
+    default: 'primary-outline',
   },
+
   size,
 };
 
@@ -88,7 +100,6 @@ export default Vue.extend({
   name: 'Dialog',
 
   components: {
-    PIcon,
     P2Button,
     P2Card,
     P2BackDrop,
@@ -191,57 +202,51 @@ export default Vue.extend({
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: var(--dialog-viewbox-border-radius);
-    background: var(--dialog-viewbox-background);
-    width: var(--dialog-viewbox-width);
-    margin: var(--dialog-viewbox-margin);
-    padding: var(--dialog-viewbox-padding);
+    border-radius: var(--sd-card-default-border-radius);
+    background: var(--sd-card-light-background-color);
+    width: 83.333333%;
+    margin: auto;
   }
 
   .dialog-close {
     position: absolute;
-    top: 0.25rem;
-    right: 0.5rem;
+    top: 4px;
+    right: 4px;
     z-index: 1;
+    color: var(--sd-theme-fd-default) !important;
+  }
+
+  .photon-headline {
+    padding-right: 1.5em;
   }
 
   .dialog-buttons {
     display: flex;
     flex-direction: column;
-    margin: var(--dialog-buttons-margin);
+    margin: 0;
 
-    .dialog-confirm {
-      margin: var(--dialog-buttons-confirm-margin-default);
+    .button {
+      margin: 1em 0.75em 0 0;
     }
   }
 
   &.sm {
     .dialog-viewbox {
-      width: var(--dialog-viewbox-sm-width);
-      padding: var(--dialog-viewbox-sm-padding);
+      width: 80%;
     }
 
     .dialog-buttons {
       flex-direction: row;
-    }
-
-    .dialog-confirm {
-      margin: var(--dialog-buttons-confirm-margin-sm);
     }
   }
 
   &.md {
     .dialog-viewbox {
-      width: var(--dialog-viewbox-md-width);
-      padding: var(--dialog-viewbox-md-padding);
+      width: 30rem;
     }
 
     .dialog-buttons {
       flex-direction: row;
-    }
-
-    .dialog-confirm {
-      margin: var(--dialog-buttons-confirm-margin-md);
     }
   }
 
