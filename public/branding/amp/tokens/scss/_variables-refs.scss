@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Thu, 27 Jul 2023 06:58:26 GMT
+// Generated on Sun, 30 Jul 2023 07:13:19 GMT
 
 $brand-success-900: #054f31 !default;
 $brand-success-800: #05603a !default;
@@ -126,7 +126,8 @@ $figurecard-primary-background-color: #bccef0 !default;
 $card-xs-padding: 16px !default;
 $card-sm-padding: 24px !default;
 $card-md-padding: 32px !default;
-$toggle-default-background-padding: 2px !default;
+$toggle-default-background-padding: 4px !default;
+$toggle-md-handle-size: 16px !default;
 $radio-checked-icon-name: circle-dot !default;
 $radio-default-icon-name: circle !default;
 $icon-xs-font-size: 14px !default;
@@ -485,6 +486,7 @@ $card-light-divider: $color-grey-300 !default;
 $card-light-background-color: $color-white !default;
 $card-default-border-radius: $border-radius-default !default;
 $card-default-padding: $card-md-padding !default;
+$toggle-md-background-width: 40px !default;
 $toggle-handle-background-color: $color-white !default;
 $radio-focus-checked-legacy-icon-fg-color: $color-white !default;
 $radio-focus-checked-border-color: $theme-input-focus-box-shadow-color !default;
@@ -1402,7 +1404,6 @@ $figurecard-tertiary-icon-color: $figurecard-tertiary-text-color !default;
 $figurecard-secondary-icon-color: $figurecard-secondary-text-color !default;
 $figurecard-primary-icon-color: $figurecard-primary-text-color !default;
 $card-neutral-border-color: $card-neutral-background-color !default;
-$toggle-md-handle-size: 17px !default;
 $radio-focus-checked-label-color: $radio-default-label-color !default;
 $radio-focus-checked-icon-color: $radio-checked-icon-color !default;
 $radio-md-border-radius: $input-md-border-radius !default;
@@ -1512,7 +1513,6 @@ $radio-button-disabled-checked-background-color: $radio-button-disabled-backgrou
 $radio-button-focus-checked-box-shadow-color: $radio-button-focus-border-color !default;
 $radio-button-focus-checked-icon-color: $radio-button-checked-icon-color !default;
 $radio-button-md-gap: $input-text-md-gap !default;
-$toggle-md-background-width: 34px !default;
 $button-secondary-link-disabled-icon-color: $button-secondary-link-disabled-text-color !default;
 $button-primary-link-disabled-icon-color: $button-primary-link-disabled-text-color !default;
 $button-secondary-outline-disabled-icon-color: $button-secondary-outline-disabled-text-color !default;

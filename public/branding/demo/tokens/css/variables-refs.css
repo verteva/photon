@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 27 Jul 2023 06:58:27 GMT
+ * Generated on Sun, 30 Jul 2023 07:13:20 GMT
  */
 
 :root {
@@ -49,7 +49,7 @@
   --sd-brand-prussian-blue-100: #c1dceb;
   --sd-brand-prussian-blue-50: #daeaf4;
   --sd-brand-prussian-blue-25: #f4f9fc;
-  --sd-toggle-default-background-padding: 2px;
+  --sd-toggle-default-background-padding: 4px;
   --sd-skeleton-loader-default-foreground-color: #e9e9e9;
   --sd-radio-checked-icon-name: circle-dot;
   --sd-radio-default-icon-name: circle;
@@ -980,7 +980,7 @@
   --sd-label-value-savings-color: var(--sd-theme-error-emphasis);
   --sd-label-value-value-color: var(--sd-heading-default-text-color);
   --sd-label-value-label-color: var(--sd-paragraph-default-text-color);
-  --sd-toggle-md-handle-size: 20px;
+  --sd-toggle-md-handle-size: var(--sd-form-control-items-label-md-text-typography-font-size);
   --sd-toggle-off-background-color: var(--sd-theme-fg-on-disabled);
   --sd-toggle-on-background-color: var(--sd-theme-primary-default);
   --sd-table-default-border-color: var(--sd-theme-input-border-color);

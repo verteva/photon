@@ -2163,11 +2163,11 @@
     "off-background-color": "#7f7f7f",
     "handle-background-color": "#ffffff",
     "md": {
-      "handle-size": "20px",
+      "handle-size": "16px",
       "background-width": "40px"
     },
     "default": {
-      "background-padding": "2px"
+      "background-padding": "4px"
     }
   },
   "label-value": {

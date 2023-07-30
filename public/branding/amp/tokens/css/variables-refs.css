@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Thu, 27 Jul 2023 06:58:25 GMT
+ * Generated on Sun, 30 Jul 2023 07:13:18 GMT
  */
 
 :root {
@@ -128,7 +128,8 @@
   --sd-card-xs-padding: 16px;
   --sd-card-sm-padding: 24px;
   --sd-card-md-padding: 32px;
-  --sd-toggle-default-background-padding: 2px;
+  --sd-toggle-default-background-padding: 4px;
+  --sd-toggle-md-handle-size: 16px;
   --sd-radio-checked-icon-name: circle-dot;
   --sd-radio-default-icon-name: circle;
   --sd-icon-xs-font-size: 14px;
@@ -487,6 +488,7 @@
   --sd-card-light-background-color: var(--sd-color-white);
   --sd-card-default-border-radius: var(--sd-border-radius-default);
   --sd-card-default-padding: var(--sd-card-md-padding);
+  --sd-toggle-md-background-width: 40px;
   --sd-toggle-handle-background-color: var(--sd-color-white);
   --sd-radio-focus-checked-legacy-icon-fg-color: var(--sd-color-white);
   --sd-radio-focus-checked-border-color: var(--sd-theme-input-focus-box-shadow-color);
@@ -1404,7 +1406,6 @@
   --sd-figurecard-secondary-icon-color: var(--sd-figurecard-secondary-text-color);
   --sd-figurecard-primary-icon-color: var(--sd-figurecard-primary-text-color);
   --sd-card-neutral-border-color: var(--sd-card-neutral-background-color);
-  --sd-toggle-md-handle-size: 17px;
   --sd-radio-focus-checked-label-color: var(--sd-radio-default-label-color);
   --sd-radio-focus-checked-icon-color: var(--sd-radio-checked-icon-color);
   --sd-radio-md-border-radius: var(--sd-input-md-border-radius);
@@ -1514,7 +1515,6 @@
   --sd-radio-button-focus-checked-box-shadow-color: var(--sd-radio-button-focus-border-color);
   --sd-radio-button-focus-checked-icon-color: var(--sd-radio-button-checked-icon-color);
   --sd-radio-button-md-gap: var(--sd-input-text-md-gap);
-  --sd-toggle-md-background-width: 34px;
   --sd-button-secondary-link-disabled-icon-color: var(--sd-button-secondary-link-disabled-text-color);
   --sd-button-primary-link-disabled-icon-color: var(--sd-button-primary-link-disabled-text-color);
   --sd-button-secondary-outline-disabled-icon-color: var(--sd-button-secondary-outline-disabled-text-color);

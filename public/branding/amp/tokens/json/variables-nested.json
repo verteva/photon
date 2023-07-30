@@ -1611,11 +1611,11 @@
     "off-background-color": "#525252",
     "handle-background-color": "#ffffff",
     "md": {
-      "handle-size": "17px",
-      "background-width": "34px"
+      "handle-size": "16px",
+      "background-width": "40px"
     },
     "default": {
-      "background-padding": "2px"
+      "background-padding": "4px"
     }
   },
   "card": {
