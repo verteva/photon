@@ -80,7 +80,7 @@ describe('InputCheckboxGroupGroup.vue', () => {
       {
         value: '3',
         label: 'This is a photon radio icon checked',
-        icon: 'Apartment',
+        icon: 'house',
       },
     ];
     const { getByText } = render(InputRadioButtonGroup, {
@@ -105,7 +105,7 @@ describe('InputCheckboxGroupGroup.vue', () => {
       {
         value: '3',
         label: 'This is a photon radio icon checked',
-        icon: 'Apartment',
+        icon: 'house',
       },
     ];
     const { getByText, emitted } = render(InputRadioButtonGroup, {
