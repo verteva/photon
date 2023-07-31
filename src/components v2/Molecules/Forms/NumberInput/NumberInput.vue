@@ -7,6 +7,7 @@
       :class="{
         disabled: disabled || value === minVal,
       }"
+      data-testid="button-decrease"
       @click="!(disabled || value === minVal) && $emit('change:subtract')"
     />
     <p2-input-text
@@ -28,6 +29,7 @@
       :class="{
         disabled: disabled || value === maxVal,
       }"
+      data-testid="button-increase"
       @click="!(disabled || value === maxVal) && $emit('change:add')"
     />
   </div>
