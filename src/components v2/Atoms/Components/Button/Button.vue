@@ -110,7 +110,7 @@ export const props = {
 };
 
 export default Vue.extend({
-  name: 'PButton',
+  name: 'P2Button',
 
   mixins: ['fontAwesomeWeightToFamily'],
 

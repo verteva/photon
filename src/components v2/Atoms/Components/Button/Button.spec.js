@@ -1,10 +1,10 @@
 import { shallowMount } from '@vue/test-utils';
-import PButton from './Button.vue';
+import P2Button from './Button.vue';
 
 describe('Button.vue', () => {
   it('renders props.label when passed', () => {
     const msg = 'Button';
-    const wrapper = shallowMount(PButton, {
+    const wrapper = shallowMount(P2Button, {
       propsData: {
         label: msg,
       },
@@ -15,7 +15,7 @@ describe('Button.vue', () => {
 
   it('renders default slot label when passed', () => {
     const msg = 'Button';
-    const wrapper = shallowMount(PButton, {
+    const wrapper = shallowMount(P2Button, {
       slots: {
         default: msg,
       },
