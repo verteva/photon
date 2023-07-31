@@ -3,6 +3,7 @@
     <div v-if="!hideIcon && `icon[type]]`" class="ph-message-icon">
       <font-awesome-icon
         v-if="!hideIcon && `icon[type]]`"
+        ref="messageIcon"
         :icon="['fal', icon[type]]"
         class="fa-lg fa-fw"
       >
