@@ -1,7 +1,8 @@
 <template>
-  <Card
+  <p2-card
     ref="contentCard"
     class="content-card"
+    light
     no-padding
     :class="[
       {
@@ -18,7 +19,7 @@
     <div class="content-card-content">
       <slot />
     </div>
-  </Card>
+  </p2-card>
 </template>
 
 <script lang="ts">
@@ -48,29 +49,29 @@ export default {};
 </script>
 
 <script setup lang="ts">
-import Card from '@/components v2/Atoms/Components/Card';
+import P2Card from '@/components v2/Atoms/Components/Card';
 
 defineProps(props);
 </script>
 
 <style lang="scss" scoped>
 .content-card {
-  background: var(--content-card-background);
-  border-radius: var(--content-card-border-radius);
+  background: var(--sd-card-light-background-color);
+  border-radius: var(--sd-card-default-border-radius);
   transition: all ease-in-out 300ms;
   position: relative;
-  border: var(--content-card-border);
+  border: 1px solid transparent;
   overflow: hidden;
 
   &:after {
-    background: var(--content-card-active-after-background);
+    background: var(--sd-theme-primary-default);
     animation-fill-mode: both;
     transition: transform 0.35s cubic-bezier(0.3, 0.28, 0.26, 0.81);
     animation-direction: normal, reverse;
     transform-origin: 50% 100%;
     content: '';
     width: 100%;
-    height: 6px;
+    height: 3px;
     bottom: 0;
     left: 0;
     position: absolute;
@@ -78,7 +79,7 @@ defineProps(props);
   }
 
   .content-card-content {
-    padding: calc(var(--content-card-content-padding) * 1px);
+    padding: var(--sd-box-padding-default);
     position: relative;
     z-index: 1;
     transition: color ease-in-out 300ms;
@@ -86,10 +87,10 @@ defineProps(props);
   }
 
   &.active {
-    border-color: var(--content-card-active-border-color);
+    border-color: var(--sd-theme-primary-default);
 
     .content-card-content {
-      color: var(--content-card-active-color);
+      color: var(--sd-theme-primary-default);
     }
     &:after {
       transform: scaleX(1) translateY(0);
@@ -104,14 +105,15 @@ defineProps(props);
     bottom: 0;
     opacity: 0;
     transition: opacity 300ms;
-    background: var(--content-card-backdrop-background);
+    background: var(--sd-theme-bg-muted);
   }
 
   &.bordered {
-    border: var(--content-card-bordered-border);
-    background: var(--content-card-bordered-background);
+    border: 1px solid var(--sd-theme-primary-default);
+    background: white;
+
     .content-card-backdrop {
-      background: var(--content-card-bordered-hover-background);
+      background: var(--sd-theme-primary-muted);
     }
   }
 
