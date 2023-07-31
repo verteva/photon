@@ -11,14 +11,13 @@ describe('InputMessage.vue', () => {
   it('props: message', async () => {
     const message = 'This is a message';
     await wrapper.setProps({ message });
-
     expect(wrapper.html()).toContain(message);
   });
 
   it('props: icon', async () => {
-    const icon = 'Bin';
+    const icon = 'house';
     await wrapper.setProps({ icon });
-
-    expect(wrapper.find('.icon').exists()).toBe(true);
+    const messageWrapper = wrapper.getComponent({ ref: 'inputMessageIcon' });
+    expect(messageWrapper.attributes()['data-icon']).toContain(icon);
   });
 });

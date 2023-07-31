@@ -1,7 +1,11 @@
 <template>
   <div class="photon-input-message" :class="[size]">
     <div v-if="icon" class="icon-wrapper">
-      <font-awesome-icon :icon="[iconFamily, icon]" class="fa-fw" />
+      <font-awesome-icon
+        ref="inputMessageIcon"
+        :icon="[iconFamily, icon]"
+        class="fa-fw"
+      />
     </div>
     <span>{{ message }}</span>
   </div>
