@@ -221,6 +221,11 @@ export default Vue.extend({
   padding-right: var(--sd-input-text-md-padding-right);
   padding-top: var(--sd-input-text-md-padding-top);
 
+  ::placeholder {
+    color: var(--sd-input-text-default-placeholder-color);
+    opacity: 1;
+  }
+
   .ph-input-text.ph-input-text-has-icon-left & {
     padding-left: calc(var(--sd-input-text-md-padding-left) * 2 + 20px);
   }
