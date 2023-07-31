@@ -20,6 +20,7 @@
         class="button-icon-container button-icon-container-left"
       >
         <font-awesome-icon
+          ref="button-icon-left"
           :icon="[fontAwesomeWeightToFamily(iconLeftFamily), iconLeft]"
           class="button-icon button-icon-left"
         />
@@ -34,6 +35,7 @@
         class="button-icon-container button-icon-container-right"
       >
         <font-awesome-icon
+          ref="button-icon-right"
           :icon="[fontAwesomeWeightToFamily(iconRightFamily), iconRight]"
           class="button-icon button-icon-right"
         />
@@ -109,6 +111,8 @@ export const props = {
 
 export default Vue.extend({
   name: 'PButton',
+
+  mixins: ['fontAwesomeWeightToFamily'],
 
   props,
   computed: {
