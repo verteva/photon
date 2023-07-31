@@ -32,7 +32,7 @@
       </div>
     </div>
     <div v-if="!hideClose" class="ph-message-close" @click="$emit('close')">
-      <font-awesome-icon :icon="['fal', 'times']" class="fa-lg fa-fw">
+      <font-awesome-icon :icon="['fal', 'xmark']" class="fa-lg fa-fw">
       </font-awesome-icon>
     </div>
   </div>

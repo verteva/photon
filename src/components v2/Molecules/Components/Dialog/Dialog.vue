@@ -13,7 +13,7 @@
         <p2-button
           ref="cancelIcon"
           button-style="primary-link"
-          icon-left="times"
+          icon-left="xmark"
           size="xs"
           @click="eventType = cancel"
         />
