@@ -2,7 +2,7 @@
   <div
     ref="circular"
     class="p-progress-circular"
-    :class="baseClassList"
+    :class="indeterminate && 'p-progress-circular--indeterminate'"
     :style="{
       '--width': size,
       '--height': size,
@@ -64,58 +64,60 @@ export default Vue.extend({
       default: false,
     },
   },
-
-  data(): any {
-    return {
-      baseClassList: [
-        'ph-relative',
-        'ph-inline-flex',
-        'ph-justify-center',
-        'ph-align-middle',
-        'ph-items-center',
-        'ph-transition',
-        'ph-shadow-none',
-        'ph-outline-none',
-        this.indeterminate && 'p-progress-circular--indeterminate',
-      ],
-    };
-  },
 });
 </script>
 
-<style lang="postcss" scoped>
+<style lang="scss" scoped>
 .p-progress-circular {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  box-shadow: none;
   width: var(--width, 20px);
   height: var(--height, 20px);
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, -webkit-backdrop-filter !important;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter !important;
+  transition-property: background-color, border-color, color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter,
+    -webkit-backdrop-filter !important;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition-duration: 150ms !important;
+  color: var(--sd-progress-circular-default-text-color);
 }
 
 .p-progress-circular > svg {
-  @apply ph-w-full;
-  @apply ph-h-full;
-  @apply ph-m-auto;
-  @apply ph-absolute;
-  @apply ph-top-0;
-  @apply ph-bottom-0;
-  @apply ph-left-0;
-  @apply ph-right-0;
-  @apply ph-z-0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 
 .p-progress-circular--indeterminate > svg {
-  @apply ph-animate-progressCircularRotate;
+  animation: progressCircularRotate 1.4s linear infinite;
+  animation-iteration-count: infinite;
   transform-origin: center center;
   transition: all 0.2s ease-in-out;
 }
 
 .p-progress-circular--indeterminate .p-progress-circular__overlay {
-  @apply ph-animate-progressCircularDash;
+  animation: progressCircularDash 1.4s linear infinite;
   stroke-linecap: round;
   stroke-dasharray: 80, 200;
   stroke-dashoffset: 0px;
+  color: var(--sd-progress-circular-default-foreground-color);
 }
 
 .p-progress-circular__underlay {
-  stroke: rgba(0, 0, 0, 0.1);
+  stroke: var(--sd-progress-circular-default-background-color);
   z-index: 1;
 }
 
@@ -123,5 +125,26 @@ export default Vue.extend({
   stroke: currentColor;
   z-index: 2;
   transition: all 0.6s ease-in-out;
+}
+
+@keyframes progressCircularRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes progressCircularDash {
+  0% {
+    strokedasharray: '1, 200';
+    strokedashoffset: '0px';
+  }
+  50% {
+    strokedasharray: '100, 200';
+    strokedashoffset: '-15px';
+  }
+  100% {
+    strokedasharray: '100, 200';
+    strokedashoffset: '-125px';
+  }
 }
 </style>
