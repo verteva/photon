@@ -36,3 +36,13 @@
 }
 
 
+/**
+ * in_list — Checks if a value exists in a list
+ *
+ * @param  $value the needle
+ * @param  $list  the haystack
+ * @return boolen TRUE if $value is found in the $list, FALSE otherwise.
+ */
+@function in_list($value, $list) {
+    @return (false != index($list, $value));
+}
