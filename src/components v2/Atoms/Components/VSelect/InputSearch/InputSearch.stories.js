@@ -14,7 +14,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  prefixIcon: 'Apartment',
+  prefixIcon: 'location-dot',
   hideInputOnSelected: true,
   selected: 'Item1',
 };

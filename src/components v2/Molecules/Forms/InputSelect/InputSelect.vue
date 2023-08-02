@@ -24,11 +24,9 @@
         placeHolder,
         openIndicatorIcon,
         disabled,
-        reducePrefixSpacing,
-        simple,
         initInput,
         selectedBy,
-        returnObj,
+        reduceValue,
       }"
       @input="$emit('input', $event)"
     />
@@ -55,10 +53,8 @@ const {
   selectedOptionCustomLabelVar,
   placeHolder,
   openIndicatorIcon,
-  reducePrefixSpacing,
-  simple,
   initInput,
-  returnObj,
+  reduceValue,
   selectedBy,
 } = InputSelectProps;
 const { size, disabled } = formProps;
@@ -94,11 +90,9 @@ export const props = {
   selectedOptionCustomLabelVar,
   placeHolder,
   openIndicatorIcon,
-  reducePrefixSpacing,
-  simple,
   initInput,
   selectedBy,
-  returnObj,
+  reduceValue,
 };
 
 export default Vue.extend({

@@ -11,7 +11,7 @@
         :label="optionLabelVar"
         :calculate-position="withPopper"
         :reduce="
-          !simple && !returnObj
+          reduceValue
             ? (content) => content[optionLabelVar]
             : (content) => content
         "
@@ -39,7 +39,6 @@
             :input-search-attributes="attributes"
             :input-search-events="events"
             :disabled="disabled"
-            :reduce-prefix-spacing="reducePrefixSpacing"
             @focus="onFocus"
             @blur="onBlur"
           />
@@ -55,7 +54,8 @@
             :custom-label-var="selectedOptionCustomLabelVar"
             :prefix-icon="prefixIcon"
             :option="option"
-            :reduce-prefix-spacing="reducePrefixSpacing"
+            :icon-family="selectedOptionIconFamily"
+            :icon-classes="selectedOptionIconClasses"
           />
         </template>
         <template
@@ -74,6 +74,8 @@
             :option="option"
             :label-var="selectedOptionLabelVar"
             :custom-label-var="selectedOptionCustomLabelVar"
+            :icon-family="selectedOptionIconFamily"
+            :icon-classes="selectedOptionIconClasses"
           />
         </template>
         <template #open-indicator="{ attributes }">
@@ -86,14 +88,18 @@
         <template #option="option">
           <Option
             :allow-option-icon="optionAllowOptionIcon"
-            :validate-icon="validateIcon(option)"
+            :validate-icon="
+              validateIcon(option) ? validateIcon(option) : prefixIcon
+            "
             :option="option"
             :label-var="optionLabelVar"
             :custom-label-var="optionCustomLabelVar"
+            :icon-family="optionIconFamily"
+            :icon-classes="optionIconClasses"
           />
         </template>
         <template #no-options>
-          <NoOptions :text="text" />
+          <NoOptions :text="noOptionsText" />
         </template>
         <template #list-footer>
           <Footer :show-footer="showFooter" :add-footer="addFooter">
@@ -141,19 +147,22 @@ const { hideOpenIndicator, openIndicatorIcon, indicatorAttributes } =
 const { prefixIcon, inputSearchAttributes, inputSearchEvents } =
   InputSearchProps;
 
-const { text } = NoOptionsProps;
+const { noOptionsText } = NoOptionsProps;
 const {
   allowOptionIcon: optionAllowOptionIcon,
   option,
   labelVar: optionLabelVar,
   customLabelVar: optionCustomLabelVar,
+  iconFamily: optionIconFamily,
+  iconClasses: optionIconClasses,
 } = OptionProps;
 const {
   deselect,
   multiple,
   showSelectedIcon,
-  reducePrefixSpacing,
   labelVar: selectedOptionLabelVar,
+  iconFamily: selectedOptionIconFamily,
+  iconClasses: selectedOptionIconClasses,
   customLabelVar: selectedOptionCustomLabelVar,
   allowOptionIcon: selectedOptionAllowOptionIcon,
 } = SelectedOptionProps;
@@ -170,24 +179,26 @@ export const props = {
   indicatorAttributes,
   // input search props
   prefixIcon,
-
   inputSearchAttributes,
   inputSearchEvents,
   // no options props
-  text,
+  noOptionsText,
   // option props
   option,
   optionLabelVar,
   optionCustomLabelVar,
   optionAllowOptionIcon,
+  optionIconFamily,
+  optionIconClasses,
   // selected option props
   deselect,
   multiple,
   showSelectedIcon,
-  reducePrefixSpacing,
   selectedOptionLabelVar,
   selectedOptionCustomLabelVar,
   selectedOptionAllowOptionIcon,
+  selectedOptionIconFamily,
+  selectedOptionIconClasses,
   // loading bar props
   loading,
   optionItems: {
@@ -226,11 +237,7 @@ export const props = {
     type: Boolean as PropType<boolean>,
     default: false,
   },
-  simple: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  returnObj: {
+  reduceValue: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
@@ -283,7 +290,8 @@ export default Vue.extend({
     filter() {
       let props = {};
       if (!this.disableFilter) {
-        props['filter'] = () => (this as any).defaultFilter(this.optionItems);
+        // This line breaks filtering
+        // props['filter'] = () => (this as any).defaultFilter(this.optionItems);
       }
       return props;
     },
@@ -350,7 +358,10 @@ export default Vue.extend({
       this.$emit('onBlur');
     },
     onSelected(selectedOption: any) {
-      this.$emit('selectedObj', selectedOption);
+      let returnSelectedObj = this.reduce
+        ? selectedOption[this.optionLabelVar]
+        : selectedOption;
+      this.$emit('selectedObj', returnSelectedObj);
     },
     withPopper(dropdownList, component, { width }) {
       dropdownList.style.width = width;
@@ -385,6 +396,7 @@ export default Vue.extend({
 <style lang="scss">
 @import '~vue-select/dist/vue-select.css';
 
+/*
 @media (max-width: 767px) {
   .ph-autocomplete-search .vs__search:focus {
     padding-left: var(--autocomplete-input-base-padding-left-mobile) !important;
@@ -397,43 +409,60 @@ export default Vue.extend({
     margin-right: 0.4rem !important;
   }
 }
+*/
 
 .ph-autocomplete__v-select {
-  --vs-search-input-color: var(--autocomplete-input-base-text-color);
-  --vs-search-input-bg: var(--autocomplete-input-base-background-color);
-
-  --vs-border-color: var(--autocomplete-input-base-border-color);
-  --vs-border-width: var(--autocomplete-input-base-border-width);
-  --vs-border-radius: var(--autocomplete-input-base-border-radius);
+  --vs-search-input-color: var(--sd-input-text-default-text-color);
+  --vs-search-input-bg: var(--sd-input-text-default-background-color, white);
+  --vs-line-height: var(--sd-input-text-md-typography-line-height);
+  --vs-border-color: var(--sd-theme-input-border-color);
+  --vs-border-width: 1px;
+  --vs-border-radius: var(--sd-input-md-border-radius);
   --vs-search-input-placeholder-color: var(
-    --autocomplete-input-base-placeholder-color
+    --sd-input-text-default-placeholder-color
   );
+  --vs-selected-border-style: solid;
+  --vs-dropdown-option-padding: var(--sd-input-text-md-padding-top)
+    var(--sd-input-text-md-padding-right) var(--sd-input-text-md-padding-bottom)
+    var(--sd-input-text-md-padding-left);
+  --vs-actions-padding: 4px 6px 0 3px;
+  --vs-actions-padding: 0px var(--sd-input-text-md-padding-right);
+
   .vs__dropdown-toggle {
-    border-radius: var(--autocomplete-input-base-border-radius);
+    border-radius: var(--sd-input-md-border-radius);
     padding-bottom: 0;
-    border-color: var(--autocomplete-input-base-border-color);
-    background-color: var(--autocomplete-input-base-background-color);
+    border-color: var(--sd-theme-input-border-color);
+    background-color: var(--sd-input-text-default-background-color, white);
 
     &:focus-within {
+      outline: none;
+      color: var(--sd-input-text-focus-text-color);
+      background: var(--sd-input-text-focus-background-color);
+      box-shadow: var(--sd-input-text-focus-box-shadow);
+      border-color: var(--sd-input-text-focus-border-color);
+
+      /*
       border-color: var(--autocomplete-input-focus-border-color);
       border-bottom-left-radius: var(--autocomplete-input-base-border-radius);
       border-bottom-right-radius: var(--autocomplete-input-base-border-radius);
+      */
       svg {
         transition-property: background-color, border-color, color, fill, stroke,
           opacity, box-shadow, transform;
-        color: var(--autocomplete-input-focus-svg-icon-color);
+        color: var(--sd-input-text-focus-text-color);
       }
     }
   }
 }
 
 .vs__selected {
-  margin: 0px 2px 0;
+  margin: 0;
+  padding: 0;
   border-width: 0px;
   min-width: 0;
   max-width: 100%;
-  height: var(--autocomplete-input-base-height);
-  color: var(--autocomplete-input-base-text-color);
+  color: var(--sd-theme-input-text-color);
+
   & + .ph-autocomplete-search .ph-autocomplete-prefix-icon {
     display: none;
   }
@@ -442,67 +471,97 @@ export default Vue.extend({
 .vs__selected-options {
   flex-wrap: nowrap;
   min-width: 0;
+  padding: 0;
 
   input {
     -webkit-appearance: none;
     color: currentColor;
+    padding-left: var(--sd-input-text-md-padding-left);
+    padding-right: var(--sd-input-text-md-padding-right);
+    /*
     padding-left: var(--autocomplete-input-base-padding-left-mobile);
+     */
+
+    &:focus {
+      padding-left: var(--sd-input-text-md-padding-left);
+      padding-right: var(--sd-input-text-md-padding-right);
+    }
 
     &::placeholder {
-      color: var(--autocomplete-input-base-placeholder-color);
+      color: var(--sd-input-text-default-placeholder-color);
+      opacity: 1;
+      /*
       text-indent: var(--autocomplete-input-base-placeholder-indent-mobile);
+      */
     }
 
     @media (min-width: 768px) {
-      padding-left: var(--autocomplete-input-base-padding-left);
+      //padding-left: var(--autocomplete-input-base-padding-left);
 
       &::placeholder {
-        text-indent: var(--autocomplete-input-base-placeholder-indent);
+        //text-indent: var(--autocomplete-input-base-placeholder-indent);
       }
     }
   }
+}
+
+.vs__dropdown-menu {
+  padding: 0;
+  margin: 0;
+  max-height: 304px;
+  border-radius: var(--sd-input-md-border-radius);
+}
+
+.vs__dropdown-option {
+  padding: 0;
+  cursor: pointer;
+  background: var(--sd-dropdown-item-default-background-color);
+  color: var(--sd-dropdown-item-default-text-color);
+  font-family: var(--sd-input-text-md-typography-font-family);
+  font-size: var(--sd-input-text-md-typography-font-size);
+  font-weight: var(--sd-input-text-md-typography-font-weight);
+  letter-spacing: var(--sd-input-text-md-typography-letter-spacing);
+  line-height: var(--sd-input-text-md-typography-line-height);
+  text-transform: var(--sd-input-text-md-typography-text-case);
+  text-decoration: var(--sd-input-text-md-typography-text-decoration);
+}
+
+.vs__dropdown-option--highlight {
+  background-color: var(--sd-dropdown-item-hover-background-color);
+  color: var(--sd-dropdown-item-hover-text-color);
 }
 
 .vs__actions {
   color: var(--autocomplete-input-focus-text-color);
 }
 
-.vs__no-options {
-  padding-left: 16px;
-  text-align: left;
-}
-
-.vs__dropdown-menu {
-  padding: 0;
-  padding-top: 12px;
-  margin-top: 2px;
-  margin-top: 2px;
-  max-height: 304px;
+.vs__open-indicator {
+  cursor: pointer;
 }
 
 .vs__clear {
   fill: currentColor;
   position: relative;
-  width: 24px;
-  height: 24px;
-  color: var(--autocomplete-input-focus-text-color);
+  width: 20px;
+  height: 20px;
+  color: var(--sd-input-text-default-icon-color);
+  fill: var(--sd-input-text-default-icon-color);
   margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   svg {
     visibility: hidden;
   }
 
   &::after {
-    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" id="footer-sample-full" width="24px" height="24px" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" class="iconify iconify--mdi"><path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41z" fill="#009EDE"></path></svg>');
+    content: url('data:image/svg+xml,<svg data-v-51aee7a5="" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="button-icon button-icon-left svg-inline--fa fa-xmark"><path data-v-51aee7a5="" fill="currentColor" d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z" class=""></path></svg>');
     position: absolute;
-    left: 0;
+    left: 4px;
     top: 0;
-    width: 24px;
-    height: 24px;
+    width: 12px;
+    height: 12px;
   }
-}
-.vs__dropdown-option--highlight {
-  background-color: var(--vselect-option-base-highlight-background-color);
-  color: var(--autocomplete-input-base-text-color);
 }
 </style>

@@ -1,4 +1,4 @@
-import { createWrapper, assertPropsVarSetup } from '@/utils/unitTest.ts';
+import { createWrapper } from '@/utils/unitTest.ts';
 
 import InputSearch from './InputSearch.vue';
 
@@ -9,10 +9,9 @@ describe('Atoms/InputSearch.vue', () => {
   });
 
   it('props:prefixIcon is setup correctly', async () => {
-    const prefixIcon = 'LocationSimple';
+    const prefixIcon = 'house';
     await wrapper.setProps({ prefixIcon });
-    const icon = wrapper.findComponent({ ref: 'prefixIcon' });
-    assertPropsVarSetup(icon, 'name', prefixIcon);
+    expect(wrapper.html()).toContain(prefixIcon);
   });
 
   it('props:hideInputOnSelected is setup correctly', async () => {

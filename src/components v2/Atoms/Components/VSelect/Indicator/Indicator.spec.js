@@ -1,4 +1,4 @@
-import { createWrapper, assertPropsVarSetup } from '@/utils/unitTest.ts';
+import { createWrapper } from '@/utils/unitTest.ts';
 
 import Indicator from './Indicator.vue';
 
@@ -9,16 +9,16 @@ describe('Atoms/Indicator.vue', () => {
   });
 
   it('props: hideOpenIndicator', async () => {
-    const hideOpenIndicator = false;
-    await wrapper.setProps({ hideOpenIndicator });
-
-    expect(wrapper.html()).toContain('openIndicator');
+    const hideOpenIndicator = true;
+    const openIndicatorIcon = 'chevron-down';
+    await wrapper.setProps({ hideOpenIndicator, openIndicatorIcon });
+    expect(wrapper.html()).not.toContain(openIndicatorIcon);
   });
 
   it('props: openIndicatorIcon', async () => {
     const openIndicator = await wrapper.find('.openIndicator');
-    const openIndicatorIcon = 'ChevronDown';
+    const openIndicatorIcon = 'chevron-down';
     await wrapper.setProps({ openIndicatorIcon });
-    assertPropsVarSetup(openIndicator, 'name', openIndicatorIcon);
+    expect(openIndicator.html()).toContain(openIndicatorIcon);
   });
 });
