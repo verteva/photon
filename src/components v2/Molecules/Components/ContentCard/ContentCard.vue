@@ -8,6 +8,7 @@
       {
         disabled,
         active,
+        bordered,
         interactive: isInteractive && !disabled,
         'allow-overflow': allowOverflow,
       },
@@ -29,6 +30,10 @@ export const props = {
     default: false,
   },
   disabled: {
+    type: Boolean,
+    default: false,
+  },
+  bordered: {
     type: Boolean,
     default: false,
   },
@@ -86,17 +91,6 @@ defineProps(props);
     width: 100%;
   }
 
-  &.active {
-    border-color: var(--sd-theme-primary-default);
-
-    .content-card-content {
-      color: var(--sd-theme-primary-default);
-    }
-    &:after {
-      transform: scaleX(1) translateY(0);
-    }
-  }
-
   .content-card-backdrop {
     position: absolute;
     top: 0;
@@ -105,23 +99,45 @@ defineProps(props);
     bottom: 0;
     opacity: 0;
     transition: opacity 300ms;
-    background: var(--sd-theme-bg-muted);
+    background: var(--sd-theme-primary-subtle);
   }
 
   &.bordered {
-    border: 1px solid var(--sd-theme-primary-default);
-    background: white;
-
-    .content-card-backdrop {
-      background: var(--sd-theme-primary-muted);
-    }
+    border-color: var(--sd-theme-input-border-color);
   }
 
   &.interactive {
     cursor: pointer;
+
     &:hover {
       .content-card-backdrop {
-        opacity: 0.5;
+        opacity: 1;
+      }
+    }
+
+    &.bordered {
+      &:hover {
+        border: 1px solid var(--sd-theme-primary-default);
+      }
+
+      .content-card-backdrop {
+        background: var(--sd-theme-primary-subtle);
+      }
+    }
+
+    &.active {
+      border-color: var(--sd-theme-primary-default);
+
+      .content-card-backdrop {
+        background: var(--sd-theme-primary-subtle);
+        opacity: 1;
+      }
+
+      .content-card-content {
+        color: var(--sd-theme-primary-default);
+      }
+      &:after {
+        transform: scaleX(1) translateY(0);
       }
     }
   }
