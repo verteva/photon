@@ -1,4 +1,5 @@
 export const CardSizes = {
+  NONE: 'none',
   XS: 'xs',
   SM: 'sm',
   MD: 'md',

@@ -4,6 +4,7 @@
     class="card"
     :class="[
       size,
+      hasSize && 'has-size',
       {
         light,
         shadow,
@@ -58,17 +59,41 @@ export const props = {
 export default {
   name: 'P2Card',
   props,
+
+  computed: {
+    hasSize(): boolean {
+      const validSizes = ['xs', 'sm', 'md'];
+      return validSizes.includes(this.size);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import './src/assets/scss/main.scss';
-
 .card {
   position: relative;
   overflow: hidden;
-  background: var(--sd-card-light-background-color);
-  padding: var(--sd-card-default-padding);
+
+  &.has-size {
+    background: var(--sd-card-light-background-color);
+    padding: var(--sd-card-default-padding);
+
+    &.light {
+      background: var(--sd-card-light-background-color);
+    }
+
+    &.shadow {
+      box-shadow: var(--sd-card-default-box-shadow);
+    }
+
+    &.border {
+      border: 1px solid var(--sd-card-light-border-color);
+    }
+
+    &.rounded {
+      border-radius: var(--sd-card-default-border-radius);
+    }
+  }
 
   $buttonSizes: 'xs' 'sm' 'md';
   @each $size in $buttonSizes {
@@ -77,22 +102,7 @@ export default {
     }
   }
 
-  &.light {
-    background: var(--sd-card-light-background-color);
-  }
-
-  &.shadow {
-    box-shadow: var(--sd-card-default-box-shadow);
-  }
-
-  &.border {
-    border: 1px solid var(--sd-card-light-border-color);
-  }
-
-  &.rounded {
-    border-radius: var(--sd-card-default-border-radius);
-  }
-
+  &.none,
   &.no-padding {
     padding: 0;
   }
