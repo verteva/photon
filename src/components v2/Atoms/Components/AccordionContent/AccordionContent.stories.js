@@ -30,7 +30,7 @@ const Template = (args, { argTypes }) => ({
   components: { PAccordionContent, PCard },
   props: Object.keys(argTypes),
   template: `
-    <PCard no-padding>
+    <PCard size="sm">
       <PAccordionContent v-bind="$props">
           This is some content
       </PAccordionContent>

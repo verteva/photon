@@ -4,6 +4,13 @@ export default {
   title: 'V2/Molecules/Components/Accordion',
   component: PAccordion,
   argTypes: {
+    cardSize: {
+      control: {
+        type: 'select',
+        options: ['none', 'xs', 'sm', 'md'],
+      },
+      description: 'Size of the wrapper card',
+    },
     stayOpen: {
       control: {
         type: 'boolean',
@@ -15,6 +22,16 @@ export default {
       },
     },
     border: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    noPadding: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    disableCard: {
       control: {
         type: 'boolean',
       },
@@ -75,10 +92,9 @@ export const Simple = SimpleTemplate.bind({});
 Simple.args = {
   noHeadingRule: true,
   openArrows: false,
-  openCloseIcons: ['Edit', 'MinusBordered'],
+  openCloseIcons: ['pen-to-square', 'square-minus'],
   shadow: true,
   responsivePadding: true,
-  noHorizontalPadding: false,
 };
 
 const NestedTemplate = (args, { argTypes }) => ({
@@ -86,10 +102,10 @@ const NestedTemplate = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <PAccordion v-bind="$props" section="Level 1" v-model="test" stay-open>
-    <div class='ph-my-10 ph-py-5 ph-px-10'>
+    <div class=''>
       Some static HTML content...
     </div>
-    <PAccordion class="ph-mb-1" section="Level 2a" open light :border="false" shadow>
+    <PAccordion class="ph-mb-1" section="Level 2a" open light bordered shadow>
       Lorem ipsum...
     </PAccordion>
     <PAccordion section="Level 2b" light :border="false" shadow>

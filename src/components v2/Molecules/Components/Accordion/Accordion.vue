@@ -1,7 +1,9 @@
 <template>
   <card
+    v-if="!disableCard"
     class="ph-accordion-wrapper"
-    no-padding
+    :no-padding="noPadding"
+    :size="cardSize"
     :light="light"
     :border="border"
     :shadow="shadow"
@@ -33,15 +35,45 @@
       >
         <slot name="heading" :expanded="expanded" />
       </accordion-header>
-      <accordion-content
-        :no-heading-rule="noHeadingRule"
-        :no-horizontal-padding="noHorizontalPadding"
-      >
+      <accordion-content :no-heading-rule="noHeadingRule">
         <slot name="default" />
       </accordion-content>
       <slot name="footer" />
     </div>
   </card>
+  <div
+    v-else
+    :id="id"
+    class="ph-accordion"
+    data-testid="ph-accordion"
+    :class="{ collapsed: !expandComplete }"
+    :style="{ height }"
+  >
+    <accordion-header
+      v-bind="{
+        fullWidth,
+        complete,
+        disabled,
+        expanded,
+        openArrows,
+        openCloseIcons,
+        section,
+        interactive: !stayOpen,
+      }"
+      @click="toggleOpen"
+      @focus="focussed = true"
+      @blur="focussed = false"
+    >
+      <slot name="heading" :expanded="expanded" />
+    </accordion-header>
+    <accordion-content
+      :no-heading-rule="noHeadingRule"
+      :no-horizontal-padding="noHorizontalPadding"
+    >
+      <slot name="default" />
+    </accordion-content>
+    <slot name="footer" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -96,6 +128,18 @@ export const props = {
     default: true,
   },
   value: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  cardSize: {
+    type: String as PropType<CardSize>,
+    default: 'md',
+  },
+  noPadding: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  disableCard: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
@@ -270,18 +314,26 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ph-accordion-wrapper {
+  --accordion-content-padding: 1.5em;
   transition: ease-out all 300ms;
   overflow: visible;
+
   &.disabled {
     opacity: 0.5;
   }
+
   &.focussed {
     box-shadow: var(--accordion-base-focused-shadow);
   }
 }
 
+.ph-accordion-header + .ph-accordion-content {
+  padding-top: var(--accordion-content-padding);
+}
+
 .ph-accordion {
   transition: ease-out all 300ms;
+
   &.collapsed {
     overflow: hidden;
   }
