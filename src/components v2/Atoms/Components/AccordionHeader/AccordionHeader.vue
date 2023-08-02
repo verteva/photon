@@ -20,9 +20,9 @@
     </div>
     <font-awesome-icon
       v-if="complete"
+      :icon="['fal', 'check']"
       class="ph-accordion-checkmark"
       data-testid="complete-checkmark"
-      :icon="['fal', 'check']"
     />
     <div
       v-if="openArrows"
