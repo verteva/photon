@@ -1,9 +1,9 @@
 <template>
   <div class="photon-label" :class="[size]">
-    <span class="label">
+    <span v-if="label" class="label">
       {{ label }}<span v-if="isRequired" class="required-asterisks">*</span>
     </span>
-    <span class="inline-text">{{ inlineText }}</span>
+    <span v-if="inlineText" class="inline-text">{{ inlineText }}</span>
   </div>
 </template>
 
