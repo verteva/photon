@@ -1,7 +1,9 @@
 <template>
   <div class="photon-label" :class="[size]">
-    <span v-if="label" class="label">
-      {{ label }}<span v-if="isRequired" class="required-asterisks">*</span>
+    <span v-if="hasLabelContent" class="label">
+      {{ label }}<slot /><span v-if="isRequired" class="required-asterisks"
+        >*</span
+      >
     </span>
     <span v-if="inlineText" class="inline-text">{{ inlineText }}</span>
   </div>
@@ -32,6 +34,11 @@ export const props = {
 export default Vue.extend({
   name: 'P2Label',
   props,
+  computed: {
+    hasLabelContent(): boolean {
+      return this.label || this.$slots.default;
+    },
+  },
 });
 </script>
 

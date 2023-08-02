@@ -19,7 +19,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PLabel },
   props: Object.keys(argTypes),
-  template: '<PLabel v-bind="$props"/>',
+  template: '<PLabel v-bind="$props">{{slotcontent}}</PLabel>',
 });
 
 export const Default = Template.bind({});
@@ -52,4 +52,10 @@ IsRequiredExtraText.args = {
   isRequired: true,
   inlineText: '(inline text)',
   size: 'md',
+};
+
+export const SlotContent = Template.bind({});
+SlotContent.args = {
+  isRequired: true,
+  slotcontent: 'This is Label Slot text',
 };
