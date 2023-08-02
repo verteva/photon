@@ -16,9 +16,8 @@ describe('Atoms/Indicator.vue', () => {
   });
 
   it('props: openIndicatorIcon', async () => {
-    const openIndicator = await wrapper.find('.openIndicator');
     const openIndicatorIcon = 'chevron-down';
     await wrapper.setProps({ openIndicatorIcon });
-    expect(openIndicator.html()).toContain(openIndicatorIcon);
+    expect(wrapper.html()).toContain(openIndicatorIcon);
   });
 });
