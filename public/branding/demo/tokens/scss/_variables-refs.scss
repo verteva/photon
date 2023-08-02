@@ -1,6 +1,6 @@
 
 // Do not edit directly
-// Generated on Sun, 30 Jul 2023 07:13:20 GMT
+// Generated on Wed, 02 Aug 2023 03:47:06 GMT
 
 $brand-crimson-950: #0d0203 !default;
 $brand-crimson-900: #2a070b !default;
@@ -48,6 +48,7 @@ $brand-prussian-blue-100: #c1dceb !default;
 $brand-prussian-blue-50: #daeaf4 !default;
 $brand-prussian-blue-25: #f4f9fc !default;
 $toggle-default-background-padding: 4px !default;
+$progress-circular-default-background-color: rgb(0,0,0,0.1) !default;
 $skeleton-loader-default-foreground-color: #e9e9e9 !default;
 $radio-checked-icon-name: circle-dot !default;
 $radio-default-icon-name: circle !default;
@@ -335,7 +336,6 @@ $color-white: #ffffff !default;
 $color-black: #000000 !default;
 $label-value-comparison-color: $color-grey-600 !default;
 $toggle-handle-background-color: $color-white !default;
-$table-default-th-text-color: $theme-fg-default !default;
 $table-default-td-text-color: $theme-fg-default !default;
 $table-default-td-background-color: $color-white !default;
 $progress-circular-default-text-color: $theme-fg-default !default;
@@ -982,8 +982,8 @@ $toggle-md-handle-size: $form-control-items-label-md-text-typography-font-size !
 $toggle-off-background-color: $theme-fg-on-disabled !default;
 $toggle-on-background-color: $theme-primary-default !default;
 $table-default-border-color: $theme-input-border-color !default;
-$table-default-th-background-color: $theme-bg-subtle !default;
-$progress-circular-default-background-color: $theme-fg-disabled !default;
+$table-default-th-text-color: $theme-primary-on-subtle !default;
+$table-default-th-background-color: $theme-primary-subtle !default;
 $progress-circular-default-foreground-color: $theme-primary-default !default;
 $skeleton-loader-default-border-radius: $input-default-border-radius !default;
 $skeleton-loader-default-background-color: $theme-bg-muted !default;

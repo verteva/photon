@@ -2145,7 +2145,7 @@
   "progress-circular": {
     "default": {
       "foreground-color": "#0f8b8d",
-      "background-color": "#bdbdbd",
+      "background-color": "rgb(0,0,0,0.1)",
       "text-color": "#494949"
     }
   },
@@ -2153,8 +2153,8 @@
     "default": {
       "td-background-color": "#ffffff",
       "td-text-color": "#494949",
-      "th-background-color": "#eeeeee",
-      "th-text-color": "#494949",
+      "th-background-color": "#e3fcfc",
+      "th-text-color": "#003854",
       "border-color": "#e0e0e0"
     }
   },
