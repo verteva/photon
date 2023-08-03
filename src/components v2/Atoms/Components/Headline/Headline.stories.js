@@ -12,7 +12,7 @@ const Template = (args, { argTypes }) => ({
   components: { P2Headline },
   props: Object.keys(argTypes),
   template: `
-    <p2-headline v-bind='$props' >
+    <p2-headline v-bind='$props'>
       Headline
     </p2-headline>
   `,
@@ -20,3 +20,8 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = {};
+
+export const DifferentHeadingElement = Template.bind({});
+DifferentHeadingElement.args = {
+  element: 'h4',
+};
