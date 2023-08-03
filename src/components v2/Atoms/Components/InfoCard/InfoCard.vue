@@ -8,24 +8,25 @@
       'ph-info-card-border-' + border,
     ]"
   >
-    <div v-if="brandBar" ref="brandBar" class="ph-info-card-brand-bar" />
+    <div v-if="brandBar" ref="brandBar" class="ph-info-card-brand-bar"></div>
+
     <div class="ph-info-card-inner-container">
       <div v-if="heading" ref="heading" class="ph-info-card-heading">
-        <div class="ph-info-card-gradient-text-container">
-          <PBrandGradientText>
-            <span ref="headingText" class="ph-heading-text">
-              {{ heading }}
-            </span>
-          </PBrandGradientText>
-        </div>
-        <hr class="ph-info-card-hr" />
-
+        <p2-headline :element="headingElement" class="ph-heading-element">
+          <span ref="headingText" class="ph-heading-text">
+            {{ heading }}
+          </span>
+        </p2-headline>
         <div
           v-if="icon"
           class="ph-info-card-icon"
-          :class="'ph-icon-bg-' + iconBg"
+          :class="[iconBg && `ph-icon-bg-${iconBg}`]"
         >
-          <p-icon ref="iconEl" :name="icon" type="xl" />
+          <font-awesome-icon
+            :icon="[iconFamily, icon]"
+            class="fa-fw"
+            :class="iconClasses"
+          />
         </div>
       </div>
 
@@ -41,8 +42,7 @@
 </template>
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PBrandGradientText from '@/components/BrandGradientText';
-import PIcon from '@/components/Icon';
+import P2Headline from '@/components v2/Atoms/Components/Headline';
 import { ColorValues } from './types';
 
 export const props = {
@@ -51,14 +51,24 @@ export const props = {
     default: '',
   },
 
+  headingElement: {
+    type: String as PropType<string>,
+    default: 'h4',
+  },
+
   icon: {
     type: String as PropType<string>,
     default: '',
   },
 
-  contentBg: {
+  iconFamily: {
     type: String as PropType<ColorValues>,
-    default: 'primary',
+    default: 'fal',
+  },
+
+  iconClasses: {
+    type: String as PropType<ColorValues>,
+    default: 'fa-2xs',
   },
 
   iconBg: {
@@ -86,8 +96,7 @@ export default Vue.extend({
   name: 'InfoCard',
 
   components: {
-    PBrandGradientText,
-    PIcon,
+    P2Headline,
   },
 
   props,
@@ -96,30 +105,30 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ph-info-card {
-  --info-card-brand-bar-width: 10px;
+  --info-card-brand-bar-width: 8px;
   overflow: hidden;
   position: relative;
-  border-radius: 8px;
+  border-radius: var(--sd-card-default-border-radius);
   padding-left: var(--info-card-brand-bar-width);
-  border-width: var(--info-card-base-border-width);
+  border-width: 0;
 
   &.ph-info-card-border-primary {
-    border-color: var(--info-card-base-border-primary);
+    border-color: var(--sd-theme-primary-default);
   }
+
   &.ph-info-card-border-transparent {
     border-color: transparent;
   }
 
   &.ph-info-card-shadow {
-    box-shadow: var(--info-card-style-shadow);
+    box-shadow: var(--sd-card-default-box-shadow);
   }
+
   &.ph-info-card-non-branded {
     padding-left: 0px;
+
     .ph-info-card-gradient-text-container {
       padding-left: var(--info-card-style-gradient-padding);
-    }
-    .ph-info-card-slot {
-      padding-left: var(--info-card-style-slot-padding);
     }
   }
 
@@ -127,66 +136,57 @@ export default Vue.extend({
     position: absolute;
     top: 0;
     left: 0;
-    background-image: var(--info-card-style-gradient);
+    background: var(--sd-infocard-bordered-border-left-color);
     width: var(--info-card-brand-bar-width);
     height: 100%;
   }
+
   .ph-info-card-inner-container {
-    background: var(--info-card-base-background-primary);
+    background: var(--sd-infocard-default-body-background-color);
   }
 }
+
 .ph-info-card-heading {
   position: relative;
   width: 100%;
-  background: var(--info-card-style-heading-background);
+  background: var(--sd-infocard-default-header-background-color);
+  padding: calc(var(--sd-card-sm-padding) * 0.75) var(--sd-card-sm-padding);
+  display: flex;
+  align-items: center;
+}
+
+.ph-heading-element {
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .ph-info-card-icon {
   display: flex;
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  margin-top: 4px;
-  color: var(--info-card-style-icon-color);
+  color: var(--sd-infocard-default-icon-color);
   justify-content: center;
   align-items: center;
-  width: var(--info-card-style-icon-size);
-  height: var(--info-card-style-icon-size);
-  border-radius: 9999px;
+  margin: 0;
+
   &.ph-icon-bg-primary {
     background: var(--info-card-style-icon-primary);
   }
+
   &.ph-icon-bg-secondary {
     background: var(--info-card-style-icon-secondary);
   }
+
   &.ph-icon-bg-tertiary {
     background: var(--info-card-style-icon-tertiary);
   }
 }
 
-.ph-heading-text {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 700;
-}
-
 .ph-info-card-slot {
-  padding: 20px;
-  padding-right: 40px;
   width: 100%;
+  padding: var(--sd-card-sm-padding);
+}
 
-  &.ph-info-card-slot-bg-primary {
-    background: var(--info-card-style-content-primary);
-  }
-  &.ph-info-card-slot-bg-secondary {
-    background: var(--info-card-style-content-secondary);
-  }
-}
-.ph-info-card-hr {
-  border-top-width: var(--info-card-style-hr-border-width);
-  border-color: var(--info-card-style-hr-border-color);
-}
-.ph-info-card-gradient-text-container {
-  padding: 20px;
+.ph-info-card-heading + .ph-info-card-slot {
+  border-top: 1px solid var(--sd-infocard-default-header-border-color);
 }
 </style>
