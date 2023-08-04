@@ -21,17 +21,17 @@
     <font-awesome-icon
       v-if="complete"
       :icon="['fal', 'check']"
-      class="ph-accordion-checkmark"
+      class="ph-accordion-checkmark fa-fw"
       data-testid="complete-checkmark"
     />
     <div
       v-if="openArrows"
-      class="ph-accordion-header__icon"
+      class="ph-accordion-header-icon"
       data-testid="openArrow"
     >
       <font-awesome-icon
         :icon="['fal', !expanded ? 'chevron-down' : 'chevron-up']"
-        class="ph-accordion-header-chevron"
+        class="ph-accordion-header-chevron fa-fw"
         :class="{
           expanded,
         }"
@@ -39,10 +39,11 @@
     </div>
     <div
       v-if="!openArrows && openCloseIcons.length === 2"
-      class="ph-accordion-header__icon"
+      class="ph-accordion-header-icon"
     >
       <font-awesome-icon
         :icon="['fal', !expanded ? openCloseIcons[0] : openCloseIcons[1]]"
+        class="fa-fw"
       />
     </div>
   </div>
@@ -110,7 +111,7 @@ defineProps(props);
     padding-bottom: 0 !important;
 
     .ph-accordion-checkmark,
-    .ph-accordion-header__icon {
+    .ph-accordion-header-icon {
       display: none;
     }
   }
@@ -127,7 +128,10 @@ defineProps(props);
     width: 100%;
   }
 
-  .ph-accordion-header__icon {
+  .ph-accordion-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: auto;
     color: var(--sd-theme-fg-default);
   }
