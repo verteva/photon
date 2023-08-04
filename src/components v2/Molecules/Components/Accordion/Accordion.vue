@@ -33,6 +33,7 @@
           section,
           interactive: !stayOpen,
         }"
+        ref="accordionHeader"
         @click="toggleOpen"
         @focus="focussed = true"
         @blur="focussed = false"
@@ -174,6 +175,7 @@ export default Vue.extend({
       focussed: false,
       expandComplete: Boolean(this.value || this.open || this.stayOpen),
       id: this.identifier || uuidv4(),
+      observerHeader: null,
     };
   },
 
@@ -215,6 +217,22 @@ export default Vue.extend({
       this.height = `${this.minHeight}px`;
       content.style.display = 'none';
     }
+
+    // Create the observers
+    this.observerHeader = new MutationObserver(
+      function (mutations) {
+        console.log('Header content changed');
+        this.switchState();
+      }.bind(this)
+    );
+
+    // Setup the observers
+    this.observerHeader.observe(this.$refs['accordionHeader']['$el'], {
+      attributes: true,
+      childList: true,
+      characterData: true,
+      subtree: true,
+    });
   },
 
   beforeDestroy() {
@@ -222,6 +240,9 @@ export default Vue.extend({
     if (accordion) {
       accordion.removeEventListener('transitionend', this.onTransitionEnd);
     }
+
+    // Clean up observers
+    this.observerHeader.disconnect();
   },
 
   methods: {
@@ -294,6 +315,7 @@ export default Vue.extend({
       };
     },
     switchState() {
+      console.log('SwitchState running');
       // Capture the height before close if its open
       const { accordion, totalHeight, contentHeight, headerHeight } =
         this.getNode();
