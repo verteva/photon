@@ -18,7 +18,7 @@
           @click="eventType = cancel"
         />
       </div>
-      <p2-headline>
+      <p2-headline class="ph-mt-0">
         {{ heading }}
       </p2-headline>
       <slot />
@@ -214,6 +214,10 @@ export default Vue.extend({
     right: 4px;
     z-index: 1;
     color: var(--sd-theme-fd-default) !important;
+
+    button {
+      border-radius: calc(var(--sd-card-default-border-radius) * 0.6);
+    }
   }
 
   .photon-headline {
@@ -224,6 +228,7 @@ export default Vue.extend({
     display: flex;
     flex-direction: column;
     margin: 0;
+    margin-top: 0.5em;
 
     .button {
       margin: 1em 0.75em 0 0;
