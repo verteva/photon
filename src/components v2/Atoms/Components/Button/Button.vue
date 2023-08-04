@@ -150,7 +150,9 @@ export default Vue.extend({
 
 .button {
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
   overflow: hidden;
   justify-content: center;
   align-items: center;
@@ -160,7 +162,7 @@ export default Vue.extend({
   transition: $all-transitions;
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid;
+  border: var(--sd-button-default-border-width) solid;
   outline: none;
 
   // Disable default focus outline color
@@ -234,11 +236,6 @@ export default Vue.extend({
       );
       color: getButtonStyleProperty('text-color', $style, $state, white);
       border-color: getButtonStyleProperty('border-color', $style, $state, red);
-
-      // Outline styles
-      @if (ends-with($style, '-outline')) {
-        border-width: 2px;
-      }
 
       // Hover
       .hover-background {
