@@ -15,7 +15,11 @@
       :id="id"
       class="ph-accordion"
       data-testid="ph-accordion"
-      :class="{ collapsed: !expandComplete }"
+      :class="[
+        { collapsed: !expandComplete },
+        { expanding: expanded && !expandComplete },
+        { expanded },
+      ]"
       :style="{ height }"
     >
       <accordion-header
