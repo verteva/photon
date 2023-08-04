@@ -164,7 +164,7 @@ export default Vue.extend({
 
   methods: {
     validatePress(event: KeyboardEvent) {
-      /* 
+      /*
         TODO: As an enhacement, add keycode checks
         to allow for a user select all (cmd + a)
         in the text input

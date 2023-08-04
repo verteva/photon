@@ -25,3 +25,8 @@ export const DifferentHeadingElement = Template.bind({});
 DifferentHeadingElement.args = {
   element: 'h4',
 };
+
+export const HeadlineTailwindClasses = Template.bind({});
+HeadlineTailwindClasses.args = {
+  class: 'ph-mt-0',
+};
