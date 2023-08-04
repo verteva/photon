@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 02 Aug 2023 03:47:05 GMT
+ * Generated on Fri, 04 Aug 2023 02:47:05 GMT
  */
 
 :root {
@@ -119,6 +119,10 @@
   --sd-input-email-default-icon-name: 'envelope';
   --sd-input-interest-rate-default-icon-name: 'percent';
   --sd-input-currency-default-icon-name: 'dollar';
+  --sd-input-text-md-padding-left: 11px;
+  --sd-input-text-md-padding-bottom: 9px;
+  --sd-input-text-md-padding-right: 11px;
+  --sd-input-text-md-padding-top: 9px;
   --sd-infocard-bordered-border-width: 4px;
   --sd-infocard-default-header-border-color: #EFEFEF;
   --sd-infocard-default-body-background-color: #fff;
@@ -224,7 +228,7 @@
   --sd-button-icon-xl-height: 52px;
   --sd-button-icon-lg-height: 48px;
   --sd-button-icon-xs-height: 34px;
-  --sd-button-icon-sm-height: 37px;
+  --sd-button-icon-sm-height: 39px;
   --sd-button-icon-md-height: 44px;
   --sd-button-icon-only-disabled-border-color: transparent;
   --sd-button-icon-only-disabled-background-color: transparent;
@@ -235,6 +239,11 @@
   --sd-button-icon-only-hover-background-color: transparent;
   --sd-button-icon-only-default-border-color: transparent;
   --sd-button-icon-only-default-background-color: transparent;
+  --sd-button-md-gap: 9px;
+  --sd-button-md-padding-left: 18px;
+  --sd-button-md-padding-bottom: 8px;
+  --sd-button-md-padding-right: 18px;
+  --sd-button-md-padding-top: 8px;
   --sd-button-md-font-size: 16px;
   --sd-button-secondary-link-disabled-border-color: transparent;
   --sd-button-secondary-link-disabled-background-color: transparent;
@@ -265,10 +274,22 @@
   --sd-button-primary-outline-hover-background-color: transparent;
   --sd-button-primary-outline-default-background-color: transparent;
   --sd-button-sm-font-size: 14px;
+  --sd-button-sm-gap: 7px;
+  --sd-button-sm-padding-left: 14px;
+  --sd-button-sm-padding-bottom: 7px;
+  --sd-button-sm-padding-right: 14px;
+  --sd-button-sm-padding-top: 7px;
   --sd-button-xs-font-size: 12px;
+  --sd-button-xs-gap: 6px;
+  --sd-button-xs-padding-left: 12px;
+  --sd-button-xs-padding-bottom: 6px;
+  --sd-button-xs-padding-right: 12px;
+  --sd-button-xs-padding-top: 6px;
+  --sd-button-default-border-width: 2px;
   --sd-button-default-box-shadow: 0 0 0 0 transparent;
   --sd-button-default-border-radius: 8px;
   --sd-input-sibling-border-radius: 0;
+  --sd-input-default-border-width: 1px;
   --sd-input-default-sibling-border-radius: 0;
   --sd-theme-brand-brand-name: 'AMP';
   --sd-theme-brand-icon-default: 'https://backup.nano.com.au/assets/images/amp-icon.png';
@@ -281,9 +302,9 @@
   --sd-line-height-body-default: 1.5;
   --sd-line-height-body-relaxed: 1.75;
   --sd-line-height-headlines-sm: 1.3;
-  --sd-line-height-headlines-default: 1.1;
-  --sd-line-height-headlines-lg: 1.1;
-  --sd-line-height-headlines-xl: 1.1;
+  --sd-line-height-headlines-default: 1.3;
+  --sd-line-height-headlines-lg: 1.4;
+  --sd-line-height-headlines-xl: 1.5;
   --sd-letter-spacing-captions: 0em;
   --sd-letter-spacing-buttons: 0.03em;
   --sd-letter-spacing-headlines: -0.01em;
@@ -418,6 +439,7 @@
   --sd-input-email-default-icon-font-weight: 300;
   --sd-input-interest-rate-default-icon-font-weight: 300;
   --sd-input-currency-default-icon-font-weight: 300;
+  --sd-input-text-md-gap: var(--sd-input-text-md-padding-left);
   --sd-input-text-md-typography-text-case: var(--sd-text-case-none);
   --sd-input-text-md-typography-text-decoration: var(--sd-text-decoration-none);
   --sd-input-text-md-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
@@ -433,6 +455,10 @@
   --sd-radio-button-md-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-radio-button-md-typography-letter-spacing: var(--sd-letter-spacing-body);
   --sd-radio-button-md-typography-line-height: 1.5;
+  --sd-radio-button-md-padding-left: var(--sd-input-text-md-padding-left);
+  --sd-radio-button-md-padding-bottom: var(--sd-input-text-md-padding-bottom);
+  --sd-radio-button-md-padding-right: var(--sd-input-text-md-padding-right);
+  --sd-radio-button-md-padding-top: var(--sd-input-text-md-padding-top);
   --sd-radio-button-md-font-size: var(--sd-font-size-base);
   --sd-radio-button-focus-box-shadow-color: var(--sd-theme-input-focus-box-shadow-color);
   --sd-radio-button-checked-icon-name: var(--sd-radio-checked-icon-name);
@@ -703,7 +729,7 @@
   --sd-heading-h6-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h6-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h6-mobile-typography-font-size: var(--sd-heading-h6-mobile-font-size);
-  --sd-heading-h6-mobile-typography-line-height: 1.1;
+  --sd-heading-h6-mobile-typography-line-height: 1.3;
   --sd-heading-h6-mobile-margin-bottom: 6.4px;
   --sd-heading-h6-mobile-margin-top: var(--sd-heading-h6-mobile-font-size);
   --sd-heading-h6-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -711,7 +737,7 @@
   --sd-heading-h6-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h6-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h6-tablet-typography-font-size: var(--sd-heading-h6-tablet-font-size);
-  --sd-heading-h6-tablet-typography-line-height: 1.1;
+  --sd-heading-h6-tablet-typography-line-height: 1.3;
   --sd-heading-h6-tablet-margin-bottom: 7.2px;
   --sd-heading-h6-tablet-margin-top: var(--sd-heading-h6-tablet-font-size);
   --sd-heading-h6-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -719,7 +745,7 @@
   --sd-heading-h6-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h6-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h6-desktop-typography-font-size: var(--sd-heading-h6-desktop-font-size);
-  --sd-heading-h6-desktop-typography-line-height: 1.1;
+  --sd-heading-h6-desktop-typography-line-height: 1.3;
   --sd-heading-h6-desktop-margin-bottom: 7.2px;
   --sd-heading-h6-desktop-margin-top: var(--sd-heading-h6-desktop-font-size);
   --sd-heading-h5-font-weight: 400;
@@ -729,7 +755,7 @@
   --sd-heading-h5-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h5-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h5-mobile-typography-font-size: var(--sd-heading-h5-mobile-font-size);
-  --sd-heading-h5-mobile-typography-line-height: 1.1;
+  --sd-heading-h5-mobile-typography-line-height: 1.3;
   --sd-heading-h5-mobile-margin-bottom: 7.2px;
   --sd-heading-h5-mobile-margin-top: var(--sd-heading-h5-mobile-font-size);
   --sd-heading-h5-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -737,7 +763,7 @@
   --sd-heading-h5-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h5-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h5-tablet-typography-font-size: var(--sd-heading-h5-tablet-font-size);
-  --sd-heading-h5-tablet-typography-line-height: 1.1;
+  --sd-heading-h5-tablet-typography-line-height: 1.3;
   --sd-heading-h5-tablet-margin-bottom: 8px;
   --sd-heading-h5-tablet-margin-top: var(--sd-heading-h5-tablet-font-size);
   --sd-heading-h5-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -745,7 +771,7 @@
   --sd-heading-h5-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h5-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h5-desktop-typography-font-size: var(--sd-heading-h5-desktop-font-size);
-  --sd-heading-h5-desktop-typography-line-height: 1.1;
+  --sd-heading-h5-desktop-typography-line-height: 1.3;
   --sd-heading-h5-desktop-margin-bottom: 8px;
   --sd-heading-h5-desktop-margin-top: var(--sd-heading-h5-desktop-font-size);
   --sd-heading-h4-font-weight: 400;
@@ -755,7 +781,7 @@
   --sd-heading-h4-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h4-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h4-mobile-typography-font-size: var(--sd-heading-h4-mobile-font-size);
-  --sd-heading-h4-mobile-typography-line-height: 1.1;
+  --sd-heading-h4-mobile-typography-line-height: 1.3;
   --sd-heading-h4-mobile-margin-bottom: 8px;
   --sd-heading-h4-mobile-margin-top: var(--sd-heading-h4-mobile-font-size);
   --sd-heading-h4-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -763,7 +789,7 @@
   --sd-heading-h4-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h4-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h4-tablet-typography-font-size: var(--sd-heading-h4-tablet-font-size);
-  --sd-heading-h4-tablet-typography-line-height: 1.1;
+  --sd-heading-h4-tablet-typography-line-height: 1.3;
   --sd-heading-h4-tablet-margin-bottom: 8.8px;
   --sd-heading-h4-tablet-margin-top: var(--sd-heading-h4-tablet-font-size);
   --sd-heading-h4-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -771,7 +797,7 @@
   --sd-heading-h4-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h4-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h4-desktop-typography-font-size: var(--sd-heading-h4-desktop-font-size);
-  --sd-heading-h4-desktop-typography-line-height: 1.1;
+  --sd-heading-h4-desktop-typography-line-height: 1.3;
   --sd-heading-h4-desktop-margin-bottom: 9.6px;
   --sd-heading-h4-desktop-margin-top: var(--sd-heading-h4-desktop-font-size);
   --sd-heading-h3-font-weight: 400;
@@ -781,7 +807,7 @@
   --sd-heading-h3-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h3-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h3-mobile-typography-font-size: var(--sd-heading-h3-mobile-font-size);
-  --sd-heading-h3-mobile-typography-line-height: 1.1;
+  --sd-heading-h3-mobile-typography-line-height: 1.3;
   --sd-heading-h3-mobile-margin-bottom: 9.6px;
   --sd-heading-h3-mobile-margin-top: var(--sd-heading-h3-mobile-font-size);
   --sd-heading-h3-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -789,7 +815,7 @@
   --sd-heading-h3-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h3-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h3-tablet-typography-font-size: var(--sd-heading-h3-tablet-font-size);
-  --sd-heading-h3-tablet-typography-line-height: 1.1;
+  --sd-heading-h3-tablet-typography-line-height: 1.3;
   --sd-heading-h3-tablet-margin-bottom: 11.2px;
   --sd-heading-h3-tablet-margin-top: var(--sd-heading-h3-tablet-font-size);
   --sd-heading-h3-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -797,7 +823,7 @@
   --sd-heading-h3-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h3-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h3-desktop-typography-font-size: var(--sd-heading-h3-desktop-font-size);
-  --sd-heading-h3-desktop-typography-line-height: 1.1;
+  --sd-heading-h3-desktop-typography-line-height: 1.3;
   --sd-heading-h3-desktop-margin-bottom: 12px;
   --sd-heading-h3-desktop-margin-top: var(--sd-heading-h3-desktop-font-size);
   --sd-heading-h2-font-weight: 400;
@@ -807,7 +833,7 @@
   --sd-heading-h2-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h2-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h2-mobile-typography-font-size: var(--sd-heading-h2-mobile-font-size);
-  --sd-heading-h2-mobile-typography-line-height: 1.1;
+  --sd-heading-h2-mobile-typography-line-height: 1.3;
   --sd-heading-h2-mobile-margin-bottom: 12px;
   --sd-heading-h2-mobile-margin-top: var(--sd-heading-h2-mobile-font-size);
   --sd-heading-h2-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -815,7 +841,7 @@
   --sd-heading-h2-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h2-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h2-tablet-typography-font-size: var(--sd-heading-h2-tablet-font-size);
-  --sd-heading-h2-tablet-typography-line-height: 1.1;
+  --sd-heading-h2-tablet-typography-line-height: 1.3;
   --sd-heading-h2-tablet-margin-bottom: 12.8px;
   --sd-heading-h2-tablet-margin-top: var(--sd-heading-h2-tablet-font-size);
   --sd-heading-h2-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -823,7 +849,7 @@
   --sd-heading-h2-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h2-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h2-desktop-typography-font-size: var(--sd-heading-h2-desktop-font-size);
-  --sd-heading-h2-desktop-typography-line-height: 1.1;
+  --sd-heading-h2-desktop-typography-line-height: 1.3;
   --sd-heading-h2-desktop-margin-bottom: 14.4px;
   --sd-heading-h2-desktop-margin-top: var(--sd-heading-h2-desktop-font-size);
   --sd-heading-h1-font-weight: 400;
@@ -833,7 +859,7 @@
   --sd-heading-h1-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h1-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h1-mobile-typography-font-size: var(--sd-heading-h1-mobile-font-size);
-  --sd-heading-h1-mobile-typography-line-height: 1.1;
+  --sd-heading-h1-mobile-typography-line-height: 1.3;
   --sd-heading-h1-mobile-margin-bottom: 14.4px;
   --sd-heading-h1-mobile-margin-top: var(--sd-heading-h1-mobile-font-size);
   --sd-heading-h1-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -841,7 +867,7 @@
   --sd-heading-h1-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h1-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h1-tablet-typography-font-size: var(--sd-heading-h1-tablet-font-size);
-  --sd-heading-h1-tablet-typography-line-height: 1.1;
+  --sd-heading-h1-tablet-typography-line-height: 1.3;
   --sd-heading-h1-tablet-margin-bottom: 16px;
   --sd-heading-h1-tablet-margin-top: var(--sd-heading-h1-tablet-font-size);
   --sd-heading-h1-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -849,7 +875,7 @@
   --sd-heading-h1-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-h1-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-h1-desktop-typography-font-size: var(--sd-heading-h1-desktop-font-size);
-  --sd-heading-h1-desktop-typography-line-height: 1.1;
+  --sd-heading-h1-desktop-typography-line-height: 1.3;
   --sd-heading-h1-desktop-margin-bottom: 17.6px;
   --sd-heading-h1-desktop-margin-top: var(--sd-heading-h1-desktop-font-size);
   --sd-heading-display2-font-weight: 400;
@@ -859,7 +885,7 @@
   --sd-heading-display2-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display2-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-display2-mobile-typography-font-size: var(--sd-heading-display2-mobile-font-size);
-  --sd-heading-display2-mobile-typography-line-height: 1.1;
+  --sd-heading-display2-mobile-typography-line-height: 1.3;
   --sd-heading-display2-mobile-margin-bottom: 17.6px;
   --sd-heading-display2-mobile-margin-top: var(--sd-heading-display2-mobile-font-size);
   --sd-heading-display2-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -867,7 +893,7 @@
   --sd-heading-display2-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display2-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-display2-tablet-typography-font-size: var(--sd-heading-display2-tablet-font-size);
-  --sd-heading-display2-tablet-typography-line-height: 1.1;
+  --sd-heading-display2-tablet-typography-line-height: 1.3;
   --sd-heading-display2-tablet-margin-bottom: 19.2px;
   --sd-heading-display2-tablet-margin-top: var(--sd-heading-display2-tablet-font-size);
   --sd-heading-display2-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -875,7 +901,7 @@
   --sd-heading-display2-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display2-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-display2-desktop-typography-font-size: var(--sd-heading-display2-desktop-font-size);
-  --sd-heading-display2-desktop-typography-line-height: 1.1;
+  --sd-heading-display2-desktop-typography-line-height: 1.3;
   --sd-heading-display2-desktop-margin-bottom: 21.6px;
   --sd-heading-display2-desktop-margin-top: var(--sd-heading-display2-desktop-font-size);
   --sd-heading-display1-font-weight: 400;
@@ -885,7 +911,7 @@
   --sd-heading-display1-mobile-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display1-mobile-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-display1-mobile-typography-font-size: var(--sd-heading-display1-mobile-font-size);
-  --sd-heading-display1-mobile-typography-line-height: 1.1;
+  --sd-heading-display1-mobile-typography-line-height: 1.3;
   --sd-heading-display1-mobile-margin-bottom: 19.2px;
   --sd-heading-display1-mobile-margin-top: var(--sd-heading-display1-mobile-font-size);
   --sd-heading-display1-tablet-typography-text-decoration: var(--sd-text-decoration-none);
@@ -893,7 +919,7 @@
   --sd-heading-display1-tablet-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display1-tablet-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-display1-tablet-typography-font-size: var(--sd-heading-display1-tablet-font-size);
-  --sd-heading-display1-tablet-typography-line-height: 1.1;
+  --sd-heading-display1-tablet-typography-line-height: 1.3;
   --sd-heading-display1-tablet-margin-bottom: 21.6px;
   --sd-heading-display1-tablet-margin-top: var(--sd-heading-display1-tablet-font-size);
   --sd-heading-display1-desktop-typography-text-decoration: var(--sd-text-decoration-none);
@@ -901,7 +927,7 @@
   --sd-heading-display1-desktop-typography-paragraph-spacing: var(--sd-paragraph-spacing-default);
   --sd-heading-display1-desktop-typography-letter-spacing: var(--sd-letter-spacing-headlines);
   --sd-heading-display1-desktop-typography-font-size: var(--sd-heading-display1-desktop-font-size);
-  --sd-heading-display1-desktop-typography-line-height: 1.1;
+  --sd-heading-display1-desktop-typography-line-height: 1.3;
   --sd-heading-display1-desktop-margin-bottom: 26.4px;
   --sd-heading-display1-desktop-margin-top: var(--sd-heading-display1-desktop-font-size);
   --sd-heading-default-text-color: var(--sd-brand-inkblue-500);
@@ -928,11 +954,6 @@
   --sd-button-md-typography-letter-spacing: var(--sd-letter-spacing-body);
   --sd-button-md-typography-line-height: 1.5;
   --sd-button-md-typography-font-size: var(--sd-button-md-font-size);
-  --sd-button-md-gap: 10px;
-  --sd-button-md-padding-left: 20px;
-  --sd-button-md-padding-bottom: 10px;
-  --sd-button-md-padding-right: 20px;
-  --sd-button-md-padding-top: 10px;
   --sd-button-secondary-link-box-shadow: var(--sd-button-default-box-shadow);
   --sd-button-primary-link-box-shadow: var(--sd-button-default-box-shadow);
   --sd-button-secondary-outline-box-shadow: var(--sd-button-default-box-shadow);
@@ -943,11 +964,6 @@
   --sd-button-sm-typography-letter-spacing: var(--sd-letter-spacing-body);
   --sd-button-sm-typography-line-height: 1.5;
   --sd-button-sm-typography-font-size: var(--sd-button-sm-font-size);
-  --sd-button-sm-gap: 8px;
-  --sd-button-sm-padding-left: 16px;
-  --sd-button-sm-padding-bottom: 8px;
-  --sd-button-sm-padding-right: 16px;
-  --sd-button-sm-padding-top: 8px;
   --sd-button-sm-border-radius: var(--sd-button-default-border-radius);
   --sd-button-primary-focus-box-shadow-color: var(--sd-theme-input-focus-box-shadow-color);
   --sd-button-primary-box-shadow: var(--sd-button-default-box-shadow);
@@ -956,11 +972,6 @@
   --sd-button-xs-typography-letter-spacing: var(--sd-letter-spacing-body);
   --sd-button-xs-typography-line-height: 1.5;
   --sd-button-xs-typography-font-size: var(--sd-button-xs-font-size);
-  --sd-button-xs-gap: 8px;
-  --sd-button-xs-padding-left: 14px;
-  --sd-button-xs-padding-bottom: 8px;
-  --sd-button-xs-padding-right: 14px;
-  --sd-button-xs-padding-top: 8px;
   --sd-button-xs-border-radius: var(--sd-button-default-border-radius);
   --sd-button-default-font-weight: var(--sd-font-weight-body-bold);
   --sd-button-default-font-family: var(--sd-font-family-body);
@@ -1097,10 +1108,6 @@
   --sd-dropdown-item-default-prefix-color: var(--sd-theme-input-text-color);
   --sd-dropdown-item-default-text-color: var(--sd-theme-input-text-color);
   --sd-dropdown-item-default-background-color: var(--sd-theme-input-background-color);
-  --sd-input-text-md-padding-left: 12px;
-  --sd-input-text-md-padding-bottom: 10px;
-  --sd-input-text-md-padding-right: 12px;
-  --sd-input-text-md-padding-top: 10px;
   --sd-input-text-disabled-border-color: var(--sd-theme-input-disabled-border-color);
   --sd-input-text-disabled-icon-color: var(--sd-theme-input-disabled-color);
   --sd-input-text-disabled-placeholder-color: var(--sd-theme-input-disabled-color);
@@ -1118,6 +1125,7 @@
   --sd-radio-button-md-typography-font-family: var(--sd-radio-button-default-font-family);
   --sd-radio-button-md-typography-font-size: var(--sd-radio-button-md-font-size);
   --sd-radio-button-md-typography-font-weight: 400;
+  --sd-radio-button-md-gap: var(--sd-input-text-md-gap);
   --sd-radio-button-focus-box-shadow: 0 0 0 4px var(--sd-radio-button-focus-box-shadow-color);
   --sd-radio-button-checked-text-color: var(--sd-theme-input-text-color);
   --sd-radio-button-checked-border-color: var(--sd-theme-primary-default);
@@ -1375,7 +1383,6 @@
   --sd-dropdown-item-default-border-color: var(--sd-dropdown-item-default-background-color);
   --sd-input-text-button-group-md-text-border-radius: 0 var(--sd-input-md-border-radius) var(--sd-input-md-border-radius) 0;
   --sd-input-text-button-group-md-button-border-radius: var(--sd-input-md-border-radius) 0 0 var(--sd-input-md-border-radius);
-  --sd-input-text-md-gap: var(--sd-input-text-md-padding-left);
   --sd-input-text-focus-border-color: var(--sd-theme-input-focus-border-color);
   --sd-input-text-focus-icon-color: var(--sd-theme-input-icon-color);
   --sd-input-text-default-icon-color: var(--sd-theme-input-icon-color);
@@ -1387,10 +1394,6 @@
   --sd-radio-button-focus-checked-border-color: var(--sd-radio-button-checked-border-color);
   --sd-radio-button-focus-checked-background-color: var(--sd-radio-button-checked-background-color);
   --sd-radio-button-md-border-radius: var(--sd-input-md-border-radius);
-  --sd-radio-button-md-padding-left: var(--sd-input-text-md-padding-left);
-  --sd-radio-button-md-padding-bottom: var(--sd-input-text-md-padding-bottom);
-  --sd-radio-button-md-padding-right: var(--sd-input-text-md-padding-right);
-  --sd-radio-button-md-padding-top: var(--sd-input-text-md-padding-top);
   --sd-radio-button-focus-icon-color: var(--sd-radio-button-default-icon-color);
   --sd-radio-button-focus-text-color: var(--sd-radio-button-default-text-color);
   --sd-radio-button-focus-border-color: var(--sd-radio-button-default-border-color);
@@ -1514,7 +1517,6 @@
   --sd-radio-button-disabled-checked-background-color: var(--sd-radio-button-disabled-background-color);
   --sd-radio-button-focus-checked-box-shadow-color: var(--sd-radio-button-focus-border-color);
   --sd-radio-button-focus-checked-icon-color: var(--sd-radio-button-checked-icon-color);
-  --sd-radio-button-md-gap: var(--sd-input-text-md-gap);
   --sd-button-secondary-link-disabled-icon-color: var(--sd-button-secondary-link-disabled-text-color);
   --sd-button-primary-link-disabled-icon-color: var(--sd-button-primary-link-disabled-text-color);
   --sd-button-secondary-outline-disabled-icon-color: var(--sd-button-secondary-outline-disabled-text-color);

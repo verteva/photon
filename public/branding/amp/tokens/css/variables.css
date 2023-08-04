@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 02 Aug 2023 03:47:05 GMT
+ * Generated on Fri, 04 Aug 2023 02:47:05 GMT
  */
 
 :root {
@@ -120,9 +120,9 @@
   --sd-letter-spacing-headlines: -0.01em;
   --sd-letter-spacing-buttons: 0.03em;
   --sd-letter-spacing-captions: 0em;
-  --sd-line-height-headlines-xl: 1.1;
-  --sd-line-height-headlines-lg: 1.1;
-  --sd-line-height-headlines-default: 1.1;
+  --sd-line-height-headlines-xl: 1.5;
+  --sd-line-height-headlines-lg: 1.4;
+  --sd-line-height-headlines-default: 1.3;
   --sd-line-height-headlines-sm: 1.3;
   --sd-line-height-body-relaxed: 1.75;
   --sd-line-height-body-default: 1.5;
@@ -225,6 +225,7 @@
   --sd-theme-brand-brand-name: 'AMP';
   --sd-input-default-border-radius: 8px;
   --sd-input-default-sibling-border-radius: 0;
+  --sd-input-default-border-width: 1px;
   --sd-input-md-border-radius: 8px;
   --sd-input-sm-border-radius: 6px;
   --sd-input-xs-border-radius: 4px;
@@ -234,12 +235,13 @@
   --sd-button-default-text-case: none;
   --sd-button-default-font-family: 'Open Sans';
   --sd-button-default-font-weight: 600;
+  --sd-button-default-border-width: 2px;
   --sd-button-xs-border-radius: 8px;
-  --sd-button-xs-padding-top: 8px;
-  --sd-button-xs-padding-right: 14px;
-  --sd-button-xs-padding-bottom: 8px;
-  --sd-button-xs-padding-left: 14px;
-  --sd-button-xs-gap: 8px;
+  --sd-button-xs-padding-top: 6px;
+  --sd-button-xs-padding-right: 12px;
+  --sd-button-xs-padding-bottom: 6px;
+  --sd-button-xs-padding-left: 12px;
+  --sd-button-xs-gap: 6px;
   --sd-button-xs-font-size: 12px;
   --sd-button-xs-typography-font-weight: 600;
   --sd-button-xs-typography-font-size: 12px;
@@ -278,11 +280,11 @@
   --sd-button-primary-default-copy-text-color: #ffffff;
   --sd-button-primary-default-copy-icon-color: #ffffff;
   --sd-button-sm-border-radius: 8px;
-  --sd-button-sm-padding-top: 8px;
-  --sd-button-sm-padding-right: 16px;
-  --sd-button-sm-padding-bottom: 8px;
-  --sd-button-sm-padding-left: 16px;
-  --sd-button-sm-gap: 8px;
+  --sd-button-sm-padding-top: 7px;
+  --sd-button-sm-padding-right: 14px;
+  --sd-button-sm-padding-bottom: 7px;
+  --sd-button-sm-padding-left: 14px;
+  --sd-button-sm-gap: 7px;
   --sd-button-sm-font-size: 14px;
   --sd-button-sm-typography-font-weight: 600;
   --sd-button-sm-typography-font-size: 14px;
@@ -405,11 +407,11 @@
   --sd-button-secondary-link-disabled-icon-color: #525252;
   --sd-button-secondary-link-box-shadow: 0 0 0 0 transparent;
   --sd-button-md-font-size: 16px;
-  --sd-button-md-padding-top: 10px;
-  --sd-button-md-padding-right: 20px;
-  --sd-button-md-padding-bottom: 10px;
-  --sd-button-md-padding-left: 20px;
-  --sd-button-md-gap: 10px;
+  --sd-button-md-padding-top: 8px;
+  --sd-button-md-padding-right: 18px;
+  --sd-button-md-padding-bottom: 8px;
+  --sd-button-md-padding-left: 18px;
+  --sd-button-md-gap: 9px;
   --sd-button-md-typography-font-weight: 600;
   --sd-button-md-typography-font-size: 16px;
   --sd-button-md-typography-font-family: 'Open Sans';
@@ -439,7 +441,7 @@
   --sd-skiplink-default-text-color: #ffffff;
   --sd-button-icon-md-height: 44px;
   --sd-button-icon-md-border-radius: 8px;
-  --sd-button-icon-sm-height: 37px;
+  --sd-button-icon-sm-height: 39px;
   --sd-button-icon-sm-border-radius: 8px;
   --sd-button-icon-xs-height: 34px;
   --sd-button-icon-xs-border-radius: 8px;
@@ -504,7 +506,7 @@
   --sd-heading-display1-desktop-font-size: 66px;
   --sd-heading-display1-desktop-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-display1-desktop-typography-font-weight: 400;
-  --sd-heading-display1-desktop-typography-line-height: 1.1;
+  --sd-heading-display1-desktop-typography-line-height: 1.3;
   --sd-heading-display1-desktop-typography-font-size: 66px;
   --sd-heading-display1-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-display1-desktop-typography-paragraph-spacing: 0;
@@ -515,7 +517,7 @@
   --sd-heading-display1-tablet-font-size: 54px;
   --sd-heading-display1-tablet-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-display1-tablet-typography-font-weight: 400;
-  --sd-heading-display1-tablet-typography-line-height: 1.1;
+  --sd-heading-display1-tablet-typography-line-height: 1.3;
   --sd-heading-display1-tablet-typography-font-size: 54px;
   --sd-heading-display1-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-display1-tablet-typography-paragraph-spacing: 0;
@@ -526,7 +528,7 @@
   --sd-heading-display1-mobile-font-size: 48px;
   --sd-heading-display1-mobile-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-display1-mobile-typography-font-weight: 400;
-  --sd-heading-display1-mobile-typography-line-height: 1.1;
+  --sd-heading-display1-mobile-typography-line-height: 1.3;
   --sd-heading-display1-mobile-typography-font-size: 48px;
   --sd-heading-display1-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-display1-mobile-typography-paragraph-spacing: 0;
@@ -540,7 +542,7 @@
   --sd-heading-display2-desktop-font-size: 54px;
   --sd-heading-display2-desktop-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-display2-desktop-typography-font-weight: 400;
-  --sd-heading-display2-desktop-typography-line-height: 1.1;
+  --sd-heading-display2-desktop-typography-line-height: 1.3;
   --sd-heading-display2-desktop-typography-font-size: 54px;
   --sd-heading-display2-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-display2-desktop-typography-paragraph-spacing: 0;
@@ -551,7 +553,7 @@
   --sd-heading-display2-tablet-font-size: 48px;
   --sd-heading-display2-tablet-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-display2-tablet-typography-font-weight: 400;
-  --sd-heading-display2-tablet-typography-line-height: 1.1;
+  --sd-heading-display2-tablet-typography-line-height: 1.3;
   --sd-heading-display2-tablet-typography-font-size: 48px;
   --sd-heading-display2-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-display2-tablet-typography-paragraph-spacing: 0;
@@ -562,7 +564,7 @@
   --sd-heading-display2-mobile-font-size: 44px;
   --sd-heading-display2-mobile-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-display2-mobile-typography-font-weight: 400;
-  --sd-heading-display2-mobile-typography-line-height: 1.1;
+  --sd-heading-display2-mobile-typography-line-height: 1.3;
   --sd-heading-display2-mobile-typography-font-size: 44px;
   --sd-heading-display2-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-display2-mobile-typography-paragraph-spacing: 0;
@@ -575,7 +577,7 @@
   --sd-heading-h1-desktop-font-size: 44px;
   --sd-heading-h1-desktop-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h1-desktop-typography-font-weight: 400;
-  --sd-heading-h1-desktop-typography-line-height: 1.1;
+  --sd-heading-h1-desktop-typography-line-height: 1.3;
   --sd-heading-h1-desktop-typography-font-size: 44px;
   --sd-heading-h1-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-h1-desktop-typography-paragraph-spacing: 0;
@@ -586,7 +588,7 @@
   --sd-heading-h1-tablet-font-size: 40px;
   --sd-heading-h1-tablet-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h1-tablet-typography-font-weight: 400;
-  --sd-heading-h1-tablet-typography-line-height: 1.1;
+  --sd-heading-h1-tablet-typography-line-height: 1.3;
   --sd-heading-h1-tablet-typography-font-size: 40px;
   --sd-heading-h1-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h1-tablet-typography-paragraph-spacing: 0;
@@ -597,7 +599,7 @@
   --sd-heading-h1-mobile-font-size: 36px;
   --sd-heading-h1-mobile-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h1-mobile-typography-font-weight: 400;
-  --sd-heading-h1-mobile-typography-line-height: 1.1;
+  --sd-heading-h1-mobile-typography-line-height: 1.3;
   --sd-heading-h1-mobile-typography-font-size: 36px;
   --sd-heading-h1-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h1-mobile-typography-paragraph-spacing: 0;
@@ -611,7 +613,7 @@
   --sd-heading-h2-desktop-font-size: 36px;
   --sd-heading-h2-desktop-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h2-desktop-typography-font-weight: 400;
-  --sd-heading-h2-desktop-typography-line-height: 1.1;
+  --sd-heading-h2-desktop-typography-line-height: 1.3;
   --sd-heading-h2-desktop-typography-font-size: 36px;
   --sd-heading-h2-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-h2-desktop-typography-paragraph-spacing: 0;
@@ -622,7 +624,7 @@
   --sd-heading-h2-tablet-font-size: 32px;
   --sd-heading-h2-tablet-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h2-tablet-typography-font-weight: 400;
-  --sd-heading-h2-tablet-typography-line-height: 1.1;
+  --sd-heading-h2-tablet-typography-line-height: 1.3;
   --sd-heading-h2-tablet-typography-font-size: 32px;
   --sd-heading-h2-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h2-tablet-typography-paragraph-spacing: 0;
@@ -633,7 +635,7 @@
   --sd-heading-h2-mobile-font-size: 30px;
   --sd-heading-h2-mobile-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h2-mobile-typography-font-weight: 400;
-  --sd-heading-h2-mobile-typography-line-height: 1.1;
+  --sd-heading-h2-mobile-typography-line-height: 1.3;
   --sd-heading-h2-mobile-typography-font-size: 30px;
   --sd-heading-h2-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h2-mobile-typography-paragraph-spacing: 0;
@@ -647,7 +649,7 @@
   --sd-heading-h3-desktop-font-size: 30px;
   --sd-heading-h3-desktop-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h3-desktop-typography-font-weight: 400;
-  --sd-heading-h3-desktop-typography-line-height: 1.1;
+  --sd-heading-h3-desktop-typography-line-height: 1.3;
   --sd-heading-h3-desktop-typography-font-size: 30px;
   --sd-heading-h3-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-h3-desktop-typography-paragraph-spacing: 0;
@@ -658,7 +660,7 @@
   --sd-heading-h3-tablet-font-size: 28px;
   --sd-heading-h3-tablet-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h3-tablet-typography-font-weight: 400;
-  --sd-heading-h3-tablet-typography-line-height: 1.1;
+  --sd-heading-h3-tablet-typography-line-height: 1.3;
   --sd-heading-h3-tablet-typography-font-size: 28px;
   --sd-heading-h3-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h3-tablet-typography-paragraph-spacing: 0;
@@ -669,7 +671,7 @@
   --sd-heading-h3-mobile-font-size: 24px;
   --sd-heading-h3-mobile-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h3-mobile-typography-font-weight: 400;
-  --sd-heading-h3-mobile-typography-line-height: 1.1;
+  --sd-heading-h3-mobile-typography-line-height: 1.3;
   --sd-heading-h3-mobile-typography-font-size: 24px;
   --sd-heading-h3-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h3-mobile-typography-paragraph-spacing: 0;
@@ -683,7 +685,7 @@
   --sd-heading-h4-desktop-font-size: 24px;
   --sd-heading-h4-desktop-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h4-desktop-typography-font-weight: 400;
-  --sd-heading-h4-desktop-typography-line-height: 1.1;
+  --sd-heading-h4-desktop-typography-line-height: 1.3;
   --sd-heading-h4-desktop-typography-font-size: 24px;
   --sd-heading-h4-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-h4-desktop-typography-paragraph-spacing: 0;
@@ -694,7 +696,7 @@
   --sd-heading-h4-tablet-font-size: 22px;
   --sd-heading-h4-tablet-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h4-tablet-typography-font-weight: 400;
-  --sd-heading-h4-tablet-typography-line-height: 1.1;
+  --sd-heading-h4-tablet-typography-line-height: 1.3;
   --sd-heading-h4-tablet-typography-font-size: 22px;
   --sd-heading-h4-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h4-tablet-typography-paragraph-spacing: 0;
@@ -705,7 +707,7 @@
   --sd-heading-h4-mobile-font-size: 20px;
   --sd-heading-h4-mobile-typography-font-family: 'Hurme Geometric Sans 1';
   --sd-heading-h4-mobile-typography-font-weight: 400;
-  --sd-heading-h4-mobile-typography-line-height: 1.1;
+  --sd-heading-h4-mobile-typography-line-height: 1.3;
   --sd-heading-h4-mobile-typography-font-size: 20px;
   --sd-heading-h4-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h4-mobile-typography-paragraph-spacing: 0;
@@ -719,7 +721,7 @@
   --sd-heading-h5-desktop-font-size: 20px;
   --sd-heading-h5-desktop-typography-font-family: 'Open Sans';
   --sd-heading-h5-desktop-typography-font-weight: 400;
-  --sd-heading-h5-desktop-typography-line-height: 1.1;
+  --sd-heading-h5-desktop-typography-line-height: 1.3;
   --sd-heading-h5-desktop-typography-font-size: 20px;
   --sd-heading-h5-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-h5-desktop-typography-paragraph-spacing: 0;
@@ -730,7 +732,7 @@
   --sd-heading-h5-tablet-font-size: 20px;
   --sd-heading-h5-tablet-typography-font-family: 'Open Sans';
   --sd-heading-h5-tablet-typography-font-weight: 400;
-  --sd-heading-h5-tablet-typography-line-height: 1.1;
+  --sd-heading-h5-tablet-typography-line-height: 1.3;
   --sd-heading-h5-tablet-typography-font-size: 20px;
   --sd-heading-h5-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h5-tablet-typography-paragraph-spacing: 0;
@@ -741,7 +743,7 @@
   --sd-heading-h5-mobile-font-size: 18px;
   --sd-heading-h5-mobile-typography-font-family: 'Open Sans';
   --sd-heading-h5-mobile-typography-font-weight: 400;
-  --sd-heading-h5-mobile-typography-line-height: 1.1;
+  --sd-heading-h5-mobile-typography-line-height: 1.3;
   --sd-heading-h5-mobile-typography-font-size: 18px;
   --sd-heading-h5-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h5-mobile-typography-paragraph-spacing: 0;
@@ -755,7 +757,7 @@
   --sd-heading-h6-desktop-font-size: 18px;
   --sd-heading-h6-desktop-typography-font-family: 'Open Sans';
   --sd-heading-h6-desktop-typography-font-weight: 400;
-  --sd-heading-h6-desktop-typography-line-height: 1.1;
+  --sd-heading-h6-desktop-typography-line-height: 1.3;
   --sd-heading-h6-desktop-typography-font-size: 18px;
   --sd-heading-h6-desktop-typography-letter-spacing: -0.01em;
   --sd-heading-h6-desktop-typography-paragraph-spacing: 0;
@@ -766,7 +768,7 @@
   --sd-heading-h6-tablet-font-size: 18px;
   --sd-heading-h6-tablet-typography-font-family: 'Open Sans';
   --sd-heading-h6-tablet-typography-font-weight: 400;
-  --sd-heading-h6-tablet-typography-line-height: 1.1;
+  --sd-heading-h6-tablet-typography-line-height: 1.3;
   --sd-heading-h6-tablet-typography-font-size: 18px;
   --sd-heading-h6-tablet-typography-letter-spacing: -0.01em;
   --sd-heading-h6-tablet-typography-paragraph-spacing: 0;
@@ -777,7 +779,7 @@
   --sd-heading-h6-mobile-font-size: 16px;
   --sd-heading-h6-mobile-typography-font-family: 'Open Sans';
   --sd-heading-h6-mobile-typography-font-weight: 400;
-  --sd-heading-h6-mobile-typography-line-height: 1.1;
+  --sd-heading-h6-mobile-typography-line-height: 1.3;
   --sd-heading-h6-mobile-typography-font-size: 16px;
   --sd-heading-h6-mobile-typography-letter-spacing: -0.01em;
   --sd-heading-h6-mobile-typography-paragraph-spacing: 0;
@@ -1222,11 +1224,11 @@
   --sd-radio-button-focus-box-shadow-color: #f3eafe;
   --sd-radio-button-focus-box-shadow: 0 0 0 4px #f3eafe;
   --sd-radio-button-md-font-size: 16px;
-  --sd-radio-button-md-padding-top: 10px;
-  --sd-radio-button-md-padding-right: 12px;
-  --sd-radio-button-md-padding-bottom: 10px;
-  --sd-radio-button-md-padding-left: 12px;
-  --sd-radio-button-md-gap: 12px;
+  --sd-radio-button-md-padding-top: 9px;
+  --sd-radio-button-md-padding-right: 11px;
+  --sd-radio-button-md-padding-bottom: 9px;
+  --sd-radio-button-md-padding-left: 11px;
+  --sd-radio-button-md-gap: 11px;
   --sd-radio-button-md-typography-font-weight: 400;
   --sd-radio-button-md-typography-font-size: 16px;
   --sd-radio-button-md-typography-font-family: 'Open Sans';
@@ -1274,11 +1276,11 @@
   --sd-input-text-md-typography-paragraph-spacing: 0;
   --sd-input-text-md-typography-text-decoration: none;
   --sd-input-text-md-typography-text-case: none;
-  --sd-input-text-md-padding-top: 10px;
-  --sd-input-text-md-padding-right: 12px;
-  --sd-input-text-md-padding-bottom: 10px;
-  --sd-input-text-md-padding-left: 12px;
-  --sd-input-text-md-gap: 12px;
+  --sd-input-text-md-padding-top: 9px;
+  --sd-input-text-md-padding-right: 11px;
+  --sd-input-text-md-padding-bottom: 9px;
+  --sd-input-text-md-padding-left: 11px;
+  --sd-input-text-md-gap: 11px;
   --sd-input-currency-default-icon-name: 'dollar';
   --sd-input-currency-default-icon-font-weight: 300;
   --sd-input-interest-rate-default-icon-font-weight: 300;
