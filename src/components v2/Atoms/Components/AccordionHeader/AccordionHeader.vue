@@ -1,6 +1,7 @@
 <template>
   <div
     v-if="hasHeaderContent"
+    ref="accordionHeader"
     :class="{
       disabled,
       'full-width': fullWidth,
