@@ -1,5 +1,5 @@
 <template>
-  <div ref="ph-message" class="photon-message list" :class="[type]">
+  <div ref="ph-message" class="photon-message list" :class="[type, size]">
     <div v-if="!hideIcon && `icon[type]]`" class="ph-message-icon">
       <font-awesome-icon
         v-if="!hideIcon && `icon[type]]`"
@@ -16,6 +16,7 @@
       </div>
       <div v-if="description || hasDescriptionSlot" class="description">
         {{ description }}
+        <slot />
         <slot name="description"></slot>
       </div>
       <div v-if="$listeners.click && callToAction">
@@ -60,6 +61,11 @@ export const props = {
         ) !== -1
       );
     },
+  },
+
+  size: {
+    type: String as PropType<string>,
+    default: 'xs',
   },
 
   title: {
@@ -112,7 +118,7 @@ export default Vue.extend({
     },
 
     hasDescriptionSlot() {
-      return this.$slots['description'];
+      return this.$slots['description'] || this.$slots['default'];
     },
   },
 });
@@ -122,6 +128,7 @@ export default Vue.extend({
 @import './src/assets/scss/main.scss';
 
 $types: 'success', 'info', 'error', 'warning';
+$sizes: 'xs', 'sm', 'md';
 
 .photon-message {
   max-width: 768px;
@@ -138,6 +145,12 @@ $types: 'success', 'info', 'error', 'warning';
       background: var(--sd-theme-#{$type}-subtle);
       border-color: var(--sd-theme-#{$type}-muted);
       color: var(--sd-theme-#{$type}-on-subtle);
+    }
+  }
+
+  @each $size in $sizes {
+    &.#{$size} {
+      padding: var(--sd-card-#{$size}-padding);
     }
   }
 
