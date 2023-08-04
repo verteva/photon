@@ -59,9 +59,7 @@ const SimpleTemplate = (args, { argTypes }) => ({
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
       <PAccordion v-bind="$props" v-model="forceOpen">
-        <template v-slot:heading>
-          Heading
-        </template>
+        <template v-slot:heading></template>
         Some content
         <ul>
           <li v-for="thing in things" :key="thing">{{thing}}</li>
@@ -95,11 +93,13 @@ Simple.args = {
   openCloseIcons: ['pen-to-square', 'square-minus'],
   shadow: true,
   responsivePadding: true,
+  section: 'Header Text',
 };
 
 const NestedTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
   props: Object.keys(argTypes),
+  section: 'Header Text',
   template: `
   <PAccordion v-bind="$props" section="Level 1" v-model="test" stay-open>
     <div class=''>
@@ -124,7 +124,6 @@ export const Nested = NestedTemplate.bind({});
 Nested.args = {
   mobileNoPadding: true,
   border: false,
-  openCloseIcons: ['Plus', 'MinusBordered'],
 };
 
 const SingleFocusTemplate = (args, { argTypes }) => ({

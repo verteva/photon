@@ -40,7 +40,10 @@
       >
         <slot name="heading" :expanded="expanded" />
       </accordion-header>
-      <accordion-content :no-heading-rule="noHeadingRule">
+      <accordion-content
+        ref="accordionContent"
+        :no-heading-rule="noHeadingRule"
+      >
         <slot name="default" />
       </accordion-content>
       <slot name="footer" />
@@ -218,19 +221,18 @@ export default Vue.extend({
       content.style.display = 'none';
     }
 
-    // Create the observers
+    // observerHeader
     this.observerHeader = new MutationObserver(
       function (mutations) {
-        this.switchState();
+        this.updateHeight();
       }.bind(this)
     );
-
-    // Setup the observers
     this.observerHeader.observe(this.$refs['accordionHeader']['$el'], {
-      attributes: true,
       childList: true,
       characterData: true,
       subtree: true,
+      attributes: true,
+      attributeFilter: ['data-observe'],
     });
   },
 
@@ -312,6 +314,20 @@ export default Vue.extend({
         contentHeight: contentHeight as number,
         totalHeight: totalHeight as number,
       };
+    },
+    updateHeight() {
+      console.log('Trigger: update height');
+      // Capture the height before close if its open
+      const { accordion, totalHeight } = this.getNode();
+
+      if (!this.expanded) {
+        this.maxHeight = totalHeight;
+        accordion.style.height = `${this.maxHeight}px`;
+        this.$nextTick(() => {
+          const { headerHeight: updatedHeight } = this.getNode();
+          accordion.style.height = `${updatedHeight}px`;
+        });
+      }
     },
     switchState() {
       // Capture the height before close if its open

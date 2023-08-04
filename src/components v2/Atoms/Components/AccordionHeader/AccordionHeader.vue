@@ -15,7 +15,7 @@
     @focus="$emit('focus', $event)"
     @blur="$emit('blur', $event)"
   >
-    <div class="ph-accordion-header-content">
+    <div class="ph-accordion-header-content" data-observe="true">
       {{ section }}
       <slot />
     </div>
