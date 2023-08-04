@@ -18,10 +18,12 @@
           @click="eventType = cancel"
         />
       </div>
-      <p2-headline class="ph-mt-0">
+      <p2-headline class="ph-mt-0" :element="headlineElement">
         {{ heading }}
       </p2-headline>
-      <slot />
+      <div v-if="$slots.default" class="dialog-content">
+        <slot />
+      </div>
       <div class="dialog-buttons">
         <p2-button
           ref="confirm"
@@ -76,6 +78,11 @@ export const props = {
   cancelLabel: {
     type: String as PropType<string>,
     default: 'Cancel',
+  },
+
+  headlineElement: {
+    type: String as PropType<string>,
+    default: 'h3',
   },
 
   singleButton: {
@@ -224,14 +231,17 @@ export default Vue.extend({
     padding-right: 1.5em;
   }
 
+  .dialog-content {
+    margin-bottom: 0.5em;
+  }
+
   .dialog-buttons {
     display: flex;
     flex-direction: column;
     margin: 0;
-    margin-top: 0.5em;
 
     .button {
-      margin: 1em 0.75em 0 0;
+      margin: 1em 1em 0 0;
     }
   }
 
