@@ -221,7 +221,6 @@ export default Vue.extend({
     // Create the observers
     this.observerHeader = new MutationObserver(
       function (mutations) {
-        console.log('Header content changed');
         this.switchState();
       }.bind(this)
     );
@@ -315,7 +314,6 @@ export default Vue.extend({
       };
     },
     switchState() {
-      console.log('SwitchState running');
       // Capture the height before close if its open
       const { accordion, totalHeight, contentHeight, headerHeight } =
         this.getNode();
