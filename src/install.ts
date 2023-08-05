@@ -22,7 +22,10 @@ import {
   flattenObjectToCssVars,
   replaceTemplateValue,
 } from './utils/parseBrandingJson';
-import { injectThemeCssVariables } from './utils/injectThemeCssVariables';
+import {
+  injectThemeCssVariables,
+  injectThemeCSSVariablesFromFile,
+} from './utils/injectThemeCssVariables';
 import {
   getFigmaTheme,
   getFigmaThemeNames,
@@ -51,7 +54,7 @@ export default {
         >
       ) => void;
     },
-  options?: options // eslint-disable-line
+    options?: options // eslint-disable-line
   ): void {
     for (const key in components) {
       const _key: PhotonComponentKeys = key;
@@ -69,11 +72,13 @@ export default {
   },
   Components: componentsV2,
 
+  // Theme functions
   parseObject,
   parseBrandingJson,
   flattenObjectToCssVars,
   replaceTemplateValue,
   injectThemeCssVariables,
+  injectThemeCSSVariablesFromFile,
   figmaTheme: {
     getFigmaTheme,
     getFigmaThemeNames,
