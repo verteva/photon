@@ -19,7 +19,7 @@
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
-  name: 'PButton',
+  name: 'PLink',
 
   props: {
     label: {
