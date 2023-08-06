@@ -38,14 +38,11 @@
         @focus="focussed = true"
         @blur="focussed = false"
       >
-        <template name="default">
+        <template #default>
           <slot name="heading" :expanded="expanded" />
         </template>
       </accordion-header>
-      <accordion-content
-        ref="accordionContent"
-        :no-heading-rule="noHeadingRule"
-      >
+      <accordion-content ref="accordionContent" :heading-rule="headingRule">
         <slot name="default" />
       </accordion-content>
       <slot name="footer" />
@@ -75,14 +72,11 @@
       @focus="focussed = true"
       @blur="focussed = false"
     >
-      <template name="default">
+      <template #default>
         <slot name="heading" :expanded="expanded" />
       </template>
     </accordion-header>
-    <accordion-content
-      :no-heading-rule="noHeadingRule"
-      :no-horizontal-padding="noHorizontalPadding"
-    >
+    <accordion-content ref="accordionContent" :heading-rule="headingRule">
       <slot name="default" />
     </accordion-content>
     <slot name="footer" />
@@ -106,7 +100,7 @@ import AccordionContent, {
 const { light, border, shadow } = CardProps;
 const { fullWidth, complete, disabled, openArrows, openCloseIcons, section } =
   AccordionHeaderProps;
-const { noHeadingRule, noHorizontalPadding } = AccordionContentProps;
+const { headingRule } = AccordionContentProps;
 
 export const props = {
   // Card Props
@@ -121,8 +115,7 @@ export const props = {
   section,
   openCloseIcons,
   // AccordionContent props
-  noHeadingRule,
-  noHorizontalPadding,
+  headingRule,
   // Accordion Props
   open: {
     type: Boolean as PropType<boolean>,

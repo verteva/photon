@@ -1,10 +1,10 @@
 <template>
   <div class="ph-accordion-content">
     <div
-      v-if="!noHeadingRule"
+      v-if="headingRule"
       class="rule"
       data-testid="accordion-header-rule"
-    />
+    ></div>
     <div class="acc-content">
       <slot name="default" />
     </div>
@@ -15,9 +15,9 @@
 import { PropType } from 'vue';
 
 export const props = {
-  noHeadingRule: {
+  headingRule: {
     type: Boolean as PropType<boolean>,
-    default: true,
+    default: false,
   },
 };
 
