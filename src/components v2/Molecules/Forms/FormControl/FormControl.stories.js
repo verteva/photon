@@ -113,7 +113,7 @@ Default.args = {
   inlineText: '( Extra inline text )',
   isRequired: true,
   extraMessage: '',
-  messageIcon: 'Info',
+  //messageIcon: '',
   error: '',
 };
 
@@ -123,7 +123,7 @@ ExtraMessage.args = {
   inlineText: '( Extra inline text )',
   isRequired: true,
   extraMessage: 'This is the extra message',
-  messageIcon: 'Info',
+  messageIcon: 'circle-info',
   error: '',
 };
 
@@ -133,6 +133,6 @@ ErrorMessage.args = {
   inlineText: '( Extra inline text )',
   isRequired: true,
   extraMessage: '',
-  messageIcon: 'Info',
+  messageIcon: 'circle-info',
   error: 'This is an error message',
 };
