@@ -38,7 +38,9 @@
         @focus="focussed = true"
         @blur="focussed = false"
       >
-        <slot name="heading" :expanded="expanded" />
+        <template name="default">
+          <slot name="heading" :expanded="expanded" />
+        </template>
       </accordion-header>
       <accordion-content
         ref="accordionContent"
@@ -68,11 +70,14 @@
         section,
         interactive: !stayOpen,
       }"
+      ref="accordionHeader"
       @click="toggleOpen"
       @focus="focussed = true"
       @blur="focussed = false"
     >
-      <slot name="heading" :expanded="expanded" />
+      <template name="default">
+        <slot name="heading" :expanded="expanded" />
+      </template>
     </accordion-header>
     <accordion-content
       :no-heading-rule="noHeadingRule"
@@ -221,19 +226,8 @@ export default Vue.extend({
       content.style.display = 'none';
     }
 
-    // observerHeader
-    this.observerHeader = new MutationObserver(
-      function (mutations) {
-        this.updateHeight();
-      }.bind(this)
-    );
-    this.observerHeader.observe(this.$refs['accordionHeader']['$el'], {
-      childList: true,
-      characterData: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['data-observe'],
-    });
+    // Mutation observer enable
+    this.enableObservers();
   },
 
   beforeDestroy() {
@@ -243,10 +237,35 @@ export default Vue.extend({
     }
 
     // Clean up observers
-    this.observerHeader.disconnect();
+    this.disableObservers();
   },
 
   methods: {
+    enableObservers() {
+      // observerHeader
+      this.observerHeader = new MutationObserver(
+        function (mutations) {
+          this.updateHeight();
+        }.bind(this)
+      );
+      if (
+        typeof this.$refs['accordionHeader'] !== 'undefined' &&
+        typeof this.$refs['accordionHeader']['$el'] !== 'undefined'
+      ) {
+        this.observerHeader.observe(this.$refs['accordionHeader']['$el'], {
+          childList: true,
+          characterData: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['data-observe'],
+        });
+      }
+    },
+
+    disableObservers() {
+      this.observerHeader.disconnect();
+    },
+
     onTransitionEnd(e: TransitionEvent) {
       /*
         TransitionEvent fires for each property that
