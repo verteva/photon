@@ -2,8 +2,7 @@
   <p2-card
     ref="contentCard"
     class="content-card"
-    light
-    no-padding
+    :size="size"
     :class="[
       {
         disabled,
@@ -14,9 +13,11 @@
       },
       type,
     ]"
-    @click.native="$emit('click')"
+    :tabindex="tabindex || isInteractive ? 0 : ''"
+    @keyup.native.enter="isInteractive && $emit('click')"
+    @click.native="isInteractive && $emit('click')"
   >
-    <div class="content-card-backdrop" />
+    <div class="content-card-backdrop"></div>
     <div class="content-card-content">
       <slot />
     </div>
@@ -45,6 +46,14 @@ export const props = {
     type: Boolean,
     default: false,
   },
+  size: {
+    type: String,
+    default: 'sm',
+  },
+  tabindex: {
+    type: String,
+    default: '',
+  },
   type: {
     type: String,
     default: '',
@@ -66,25 +75,8 @@ defineProps(props);
   transition: all ease-in-out 300ms;
   position: relative;
   border: 1px solid transparent;
-  overflow: hidden;
-
-  &:after {
-    background: var(--sd-theme-primary-default);
-    animation-fill-mode: both;
-    transition: transform 0.35s cubic-bezier(0.3, 0.28, 0.26, 0.81);
-    animation-direction: normal, reverse;
-    transform-origin: 50% 100%;
-    content: '';
-    width: 100%;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    position: absolute;
-    transform: scaleX(0) translateY(4px);
-  }
 
   .content-card-content {
-    padding: var(--sd-box-padding-default);
     position: relative;
     z-index: 1;
     transition: color ease-in-out 300ms;
@@ -95,11 +87,31 @@ defineProps(props);
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
     transition: opacity 300ms;
     background: var(--sd-theme-primary-subtle);
+    border-radius: var(--sd-card-default-border-radius);
+    overflow: hidden;
+
+    &:after {
+      background: var(--sd-theme-primary-default);
+      animation-fill-mode: both;
+      transition: transform 0.35s cubic-bezier(0.3, 0.28, 0.26, 0.81);
+      animation-direction: normal, reverse;
+      transform-origin: 50% 100%;
+      content: '';
+      width: 100%;
+      height: 4px;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      transform: scaleX(0) translateY(4px);
+      z-index: 1;
+      border-bottom-left-radius: var(--sd-card-default-border-radius);
+      border-bottom-right-radius: var(--sd-card-default-border-radius);
+    }
   }
 
   &.bordered {
@@ -113,6 +125,16 @@ defineProps(props);
       .content-card-backdrop {
         opacity: 1;
       }
+    }
+
+    &:focus,
+    &:focus-visible,
+    &:focus-within {
+      outline: none;
+      color: var(--sd-input-text-focus-text-color);
+      background: var(--sd-input-text-focus-background-color);
+      box-shadow: var(--sd-input-text-focus-box-shadow);
+      border-color: var(--sd-input-text-focus-border-color);
     }
 
     &.bordered {
@@ -131,13 +153,13 @@ defineProps(props);
       .content-card-backdrop {
         background: var(--sd-theme-primary-subtle);
         opacity: 1;
+        &:after {
+          transform: scaleX(1) translateY(0);
+        }
       }
 
       .content-card-content {
         color: var(--sd-theme-primary-default);
-      }
-      &:after {
-        transform: scaleX(1) translateY(0);
       }
     }
   }
