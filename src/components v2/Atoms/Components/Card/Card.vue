@@ -72,7 +72,6 @@ export default {
 <style lang="scss" scoped>
 .card {
   position: relative;
-  overflow: hidden;
 
   &.has-size {
     background: var(--sd-card-light-background-color);
