@@ -93,7 +93,6 @@ export default Vue.extend({
 <style lang="scss">
 .vue-phone-number-input {
   --borderRadius: var(--sd-input-md-border-radius);
-
   position: relative;
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
@@ -134,6 +133,10 @@ export default Vue.extend({
       border-bottom-right-radius: 0 !important;
       border-right: none;
     }
+  }
+
+  .country-selector__toggle {
+    color: var(--sd-input-text-default-icon-color);
   }
 
   .country-selector__list,
