@@ -115,10 +115,10 @@
     "lg": "40px"
   },
   "box-padding": {
-    "default": "30px",
-    "xs": "10px",
-    "sm": "20px",
-    "md": "30px",
+    "default": "32px",
+    "xs": "16px",
+    "sm": "24px",
+    "md": "32px",
     "lg": "40px"
   },
   "border-radius": {

@@ -24,7 +24,7 @@ export const withTheme = (story) => {
       return {
         color: 'black',
         themeObject: {},
-        themeNames: ['amp', 'demo'],
+        themeNames: ['amp', 'demo', 'booster'],
         theme: 'amp',
       };
     },

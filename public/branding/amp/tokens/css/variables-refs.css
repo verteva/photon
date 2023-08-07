@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Fri, 04 Aug 2023 02:47:05 GMT
+ * Generated on Mon, 07 Aug 2023 01:33:58 GMT
  */
 
 :root {
@@ -325,9 +325,9 @@
   --sd-border-radius-none: 0;
   --sd-border-radius-default: 8px;
   --sd-box-padding-lg: 40px;
-  --sd-box-padding-md: 30px;
-  --sd-box-padding-sm: 20px;
-  --sd-box-padding-xs: 10px;
+  --sd-box-padding-md: 32px;
+  --sd-box-padding-sm: 24px;
+  --sd-box-padding-xs: 16px;
   --sd-spacing-lg: 40px;
   --sd-spacing-md: 30px;
   --sd-spacing-sm: 20px;
