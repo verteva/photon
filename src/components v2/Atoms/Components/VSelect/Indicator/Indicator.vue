@@ -51,6 +51,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .vs__open-indicator,
 .openIndicator {
-  color: var(--vselect-indicator-base-svg-icon-color);
+  cursor: pointer;
+  color: var(--sd-input-text-default-icon-color);
 }
 </style>

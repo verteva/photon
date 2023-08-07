@@ -396,21 +396,6 @@ export default Vue.extend({
 <style lang="scss">
 @import '~vue-select/dist/vue-select.css';
 
-/*
-@media (max-width: 767px) {
-  .ph-autocomplete-search .vs__search:focus {
-    padding-left: var(--autocomplete-input-base-padding-left-mobile) !important;
-  }
-  .ph-autocomplete-search .ph-autocomplete-search-indent[data-v-af035ba4] {
-    text-indent: 0 !important;
-  }
-  .ph-autocomplete-search .ph-autocomplete-prefix-icon[data-v-af035ba4] {
-    margin-left: 0.4rem !important;
-    margin-right: 0.4rem !important;
-  }
-}
-*/
-
 .ph-autocomplete__v-select {
   --vs-search-input-color: var(--sd-input-text-default-text-color);
   --vs-search-input-bg: var(--sd-input-text-default-background-color, white);
@@ -441,15 +426,10 @@ export default Vue.extend({
       box-shadow: var(--sd-input-text-focus-box-shadow);
       border-color: var(--sd-input-text-focus-border-color);
 
-      /*
-      border-color: var(--autocomplete-input-focus-border-color);
-      border-bottom-left-radius: var(--autocomplete-input-base-border-radius);
-      border-bottom-right-radius: var(--autocomplete-input-base-border-radius);
-      */
       svg {
         transition-property: background-color, border-color, color, fill, stroke,
           opacity, box-shadow, transform;
-        color: var(--sd-input-text-focus-text-color);
+        color: var(--sd-input-text-focus-icon-color);
       }
     }
   }
@@ -478,9 +458,6 @@ export default Vue.extend({
     color: currentColor;
     padding-left: var(--sd-input-text-md-padding-left);
     padding-right: var(--sd-input-text-md-padding-right);
-    /*
-    padding-left: var(--autocomplete-input-base-padding-left-mobile);
-     */
 
     &:focus {
       padding-left: var(--sd-input-text-md-padding-left);
@@ -490,17 +467,6 @@ export default Vue.extend({
     &::placeholder {
       color: var(--sd-input-text-default-placeholder-color);
       opacity: 1;
-      /*
-      text-indent: var(--autocomplete-input-base-placeholder-indent-mobile);
-      */
-    }
-
-    @media (min-width: 768px) {
-      //padding-left: var(--autocomplete-input-base-padding-left);
-
-      &::placeholder {
-        //text-indent: var(--autocomplete-input-base-placeholder-indent);
-      }
     }
   }
 }
@@ -532,11 +498,7 @@ export default Vue.extend({
 }
 
 .vs__actions {
-  color: var(--autocomplete-input-focus-text-color);
-}
-
-.vs__open-indicator {
-  cursor: pointer;
+  color: var(--sd-input-text-default-icon-color);
 }
 
 .vs__clear {
@@ -555,6 +517,7 @@ export default Vue.extend({
     visibility: hidden;
   }
 
+  /*
   &::after {
     content: url('data:image/svg+xml,<svg data-v-51aee7a5="" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="button-icon button-icon-left svg-inline--fa fa-xmark"><path data-v-51aee7a5="" fill="currentColor" d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z" class=""></path></svg>');
     position: absolute;
@@ -562,6 +525,24 @@ export default Vue.extend({
     top: 0;
     width: 12px;
     height: 12px;
+    color: var(--sd-input-text-default-icon-color);
+  }
+  */
+  &:after {
+    content: ' ';
+    -webkit-mask: url('data:image/svg+xml,<svg data-v-51aee7a5="" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="button-icon button-icon-left svg-inline--fa fa-xmark"><path data-v-51aee7a5="" fill="currentColor" d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z" class=""></path></svg>');
+    mask: url('data:image/svg+xml,<svg data-v-51aee7a5="" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="button-icon button-icon-left svg-inline--fa fa-xmark"><path data-v-51aee7a5="" fill="currentColor" d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z" class=""></path></svg>');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    mask-position: center;
+    position: absolute;
+    left: 4px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 12px;
+    height: 16px;
+    background: var(--sd-input-text-default-icon-color);
   }
 }
 </style>
