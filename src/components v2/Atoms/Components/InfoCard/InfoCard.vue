@@ -23,18 +23,14 @@
           :class="[iconBg && `ph-icon-bg-${iconBg}`]"
         >
           <font-awesome-icon
+            ref="iconEl"
             :icon="[iconFamily, icon]"
             class="fa-fw"
             :class="iconClasses"
           />
         </div>
       </div>
-
-      <div
-        ref="content"
-        class="ph-info-card-slot"
-        :class="'ph-info-card-slot-bg-' + contentBg"
-      >
+      <div ref="content" class="ph-info-card-slot">
         <slot />
       </div>
     </div>
