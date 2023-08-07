@@ -3,7 +3,8 @@
 exports[`ContentCard.vue renders a component 1`] = `
 <div>
   <div
-    class="card content-card md has-size light rounded no-padding"
+    class="card content-card sm has-size light rounded"
+    tabindex=""
   >
     <div
       class="content-card-backdrop"
@@ -19,7 +20,8 @@ exports[`ContentCard.vue renders a component 1`] = `
 exports[`ContentCard.vue renders a component with props: active with value true 1`] = `
 <div>
   <div
-    class="card content-card md has-size light rounded no-padding active"
+    class="card content-card sm has-size light rounded active"
+    tabindex=""
   >
     <div
       class="content-card-backdrop"
@@ -32,26 +34,11 @@ exports[`ContentCard.vue renders a component with props: active with value true 
 </div>
 `;
 
-exports[`ContentCard.vue renders a component with props: allowOverflow with value true 1`] = `
+exports[`ContentCard.vue renders a component with props: disabled with value false 1`] = `
 <div>
   <div
-    class="card content-card md has-size light rounded no-padding allow-overflow"
-  >
-    <div
-      class="content-card-backdrop"
-    />
-     
-    <div
-      class="content-card-content"
-    />
-  </div>
-</div>
-`;
-
-exports[`ContentCard.vue renders a component with props: disabled with value true 1`] = `
-<div>
-  <div
-    class="card content-card md has-size light rounded no-padding disabled"
+    class="card content-card sm has-size light rounded"
+    tabindex=""
   >
     <div
       class="content-card-backdrop"
@@ -67,7 +54,8 @@ exports[`ContentCard.vue renders a component with props: disabled with value tru
 exports[`ContentCard.vue renders a component with props: isInteractive with value true 1`] = `
 <div>
   <div
-    class="card content-card md has-size light rounded no-padding interactive"
+    class="card content-card sm has-size light rounded interactive"
+    tabindex="0"
   >
     <div
       class="content-card-backdrop"
@@ -83,7 +71,8 @@ exports[`ContentCard.vue renders a component with props: isInteractive with valu
 exports[`ContentCard.vue renders a component with props: type with value bordered 1`] = `
 <div>
   <div
-    class="card content-card md has-size light rounded no-padding bordered"
+    class="card content-card sm has-size light rounded bordered"
+    tabindex=""
   >
     <div
       class="content-card-backdrop"

@@ -9,7 +9,6 @@
         active,
         bordered,
         interactive: isInteractive && !disabled,
-        'allow-overflow': allowOverflow,
       },
       type,
     ]"
@@ -39,10 +38,6 @@ export const props = {
     default: false,
   },
   isInteractive: {
-    type: Boolean,
-    default: false,
-  },
-  allowOverflow: {
     type: Boolean,
     default: false,
   },
@@ -166,10 +161,6 @@ defineProps(props);
 
   &.disabled {
     cursor: not-allowed;
-  }
-
-  &.allow-overflow {
-    overflow: visible;
   }
 }
 
