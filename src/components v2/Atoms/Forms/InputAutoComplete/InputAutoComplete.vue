@@ -517,17 +517,6 @@ export default Vue.extend({
     visibility: hidden;
   }
 
-  /*
-  &::after {
-    content: url('data:image/svg+xml,<svg data-v-51aee7a5="" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="button-icon button-icon-left svg-inline--fa fa-xmark"><path data-v-51aee7a5="" fill="currentColor" d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z" class=""></path></svg>');
-    position: absolute;
-    left: 4px;
-    top: 0;
-    width: 12px;
-    height: 12px;
-    color: var(--sd-input-text-default-icon-color);
-  }
-  */
   &:after {
     content: ' ';
     -webkit-mask: url('data:image/svg+xml,<svg data-v-51aee7a5="" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="button-icon button-icon-left svg-inline--fa fa-xmark"><path data-v-51aee7a5="" fill="currentColor" d="M324.5 411.1c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L214.6 256 347.1 123.5c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L192 233.4 59.5 100.9c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L169.4 256 36.9 388.5c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L192 278.6 324.5 411.1z" class=""></path></svg>');
