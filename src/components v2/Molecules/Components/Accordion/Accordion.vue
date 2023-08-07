@@ -328,7 +328,6 @@ export default Vue.extend({
       };
     },
     updateHeight() {
-      console.log('Trigger: update height');
       // Capture the height before close if its open
       const { accordion, totalHeight } = this.getNode();
 
