@@ -154,6 +154,10 @@ $sizes: 'xs', 'sm', 'md';
     }
   }
 
+  a {
+    color: inherit;
+  }
+
   .ph-message-icon {
     margin-right: 0.75em;
   }
