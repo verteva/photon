@@ -12,8 +12,3 @@ export default Vue.extend({
   name: 'P2Li',
 });
 </script>
-
-<style lang="scss" scoped>
-.ph-list-item {
-}
-</style>

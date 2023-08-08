@@ -113,24 +113,20 @@ export default Vue.extend({
 
   methods: {
     onKeyup: function (e: InputEvent) {
-      // If key entered is a number
-      const isNumber = isFinite(event.key);
-      if (isNumber) {
-        // Check if total length in field equals maxlength
-        if (e.target.value.length >= e.target.maxLength) {
-          // If field has a next sibling (ie: it's not last field)
-          if (e.target.parentElement.parentElement.nextElementSibling) {
-            // Give focus to the next sibling's input field and select all text
-            let sibling =
-              e.target.parentElement.parentElement.nextElementSibling;
-            let nextfield =
-              sibling.children[0] && sibling.children[0].children[0]
-                ? sibling.children[0].children[0]
-                : false;
-            if (nextfield && nextfield.nodeName.toLowerCase() == 'input') {
-              nextfield.focus();
-              nextfield.select();
-            }
+      // If key entered is a number & total length in field equals maxlength
+      const isNumber = isFinite(e.key);
+      if (isNumber && e.target.value.length >= e.target.maxLength) {
+        // If field has a next sibling (ie: it's not last field)
+        if (e.target.parentElement.parentElement.nextElementSibling) {
+          // Give focus to the next sibling's input field and select all text
+          let sibling = e.target.parentElement.parentElement.nextElementSibling;
+          let nextfield =
+            sibling.children[0] && sibling.children[0].children[0]
+              ? sibling.children[0].children[0]
+              : false;
+          if (nextfield && nextfield.nodeName.toLowerCase() == 'input') {
+            nextfield.focus();
+            nextfield.select();
           }
         }
       }

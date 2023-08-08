@@ -324,7 +324,7 @@ export default Vue.extend({
       const option = (this as any).optionItems.filter(
         (item) => item[(this as any).selectedBy] === input
       )[0];
-      return option ? option : null;
+      return option || null;
     },
     validateIcon(option: { icon: string }) {
       return option.icon ? option.icon : null;
