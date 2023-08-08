@@ -19,7 +19,7 @@ export default Vue.extend({
   right: 0px;
   bottom: 0px;
   left: 0px;
-  background: var(--back-drop-default-background);
-  opacity: var(--back-drop-default-opacity);
+  background: #000;
+  opacity: 0.6;
 }
 </style>

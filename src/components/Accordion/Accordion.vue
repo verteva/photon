@@ -375,14 +375,4 @@ hr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
   border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
-
-.acc-header button:focus-visible {
-  outline: 4px dashed black;
-}
-
-/* Focusing the button with a mouse, touch, or stylus will show a subtle drop shadow. */
-//.acc-header button:focus:not(:focus-visible) {
-//  outline: none;
-//  box-shadow: 1px 1px 5px rgba(1, 1, 0, 0.7);
-//}
 </style>

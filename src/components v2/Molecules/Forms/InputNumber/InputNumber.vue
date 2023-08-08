@@ -14,6 +14,7 @@
   >
     <P2NumberInput
       :id="id"
+      ref="numberInput"
       :disabled="disabled"
       :value="value"
       :min-val="minVal"

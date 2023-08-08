@@ -10,6 +10,16 @@ export default {
         options: ['success', 'info', 'error', 'warning'],
       },
     },
+    hideIcon: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    hideClose: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 };
 
@@ -48,6 +58,7 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = {
   title: 'Simple one line success message',
+  hideIcon: false,
 };
 
 export const Error = Template.bind({});

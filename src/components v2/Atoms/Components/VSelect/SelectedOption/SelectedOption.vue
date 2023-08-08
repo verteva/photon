@@ -1,21 +1,13 @@
 <template>
   <div class="ph-autocomplete-selected">
-    <p-icon
-      v-if="allowOptionIcon && showSelectedIcon"
+    <font-awesome-icon
+      v-if="allowOptionIcon && showSelectedIcon && validateIcon"
+      :icon="[iconFamily, validateIcon]"
       class="ph-selected-icon"
-      :name="validateIcon"
-      type="md"
+      :class="['fa-fw', iconClasses]"
       :data-deselect="deselect"
       :data-multiple="multiple"
       :data-disabled="disabled"
-    />
-    <span
-      v-else
-      class="ph-autocomplete-spacing"
-      :class="{
-        'ph-autocomplete-extra-spacing':
-          (allowOptionIcon && showSelectedIcon) || reducePrefixSpacing,
-      }"
     />
     <label
       class="ph-autocomplete-selected-label"
@@ -28,7 +20,6 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '@/components/Icon';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
 const { disabled } = formProps;
@@ -59,6 +50,16 @@ export const props = {
     default: '',
   },
 
+  iconFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  iconClasses: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
   deselect: {
     type: Function,
     default: (select) => {
@@ -76,49 +77,60 @@ export const props = {
     default: false,
   },
 
-  reducePrefixSpacing: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-
   disabled,
 };
 
 export default Vue.extend({
   name: 'SelectedOption',
-  components: {
-    PIcon,
-  },
+  components: {},
   props,
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .ph-autocomplete-selected {
   display: flex;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  min-width: 0;
+  padding: 0;
+  //padding-top: 2px;
+  //padding-bottom: 2px;
+  //min-width: 0;
+  padding-bottom: var(--sd-input-text-md-padding-bottom);
+  padding-left: var(--sd-input-text-md-padding-left);
+  padding-right: var(--sd-input-text-md-padding-right);
+  padding-top: var(--sd-input-text-md-padding-top);
+
+  font-family: var(--sd-input-text-md-typography-font-family);
+  font-size: var(--sd-input-text-md-typography-font-size);
+  font-weight: var(--sd-input-text-md-typography-font-weight);
+  letter-spacing: var(--sd-input-text-md-typography-letter-spacing);
+  line-height: var(--sd-input-text-md-typography-line-height);
+  text-transform: var(--sd-input-text-md-typography-text-case);
+  text-decoration: var(--sd-input-text-md-typography-text-decoration);
 
   .ph-selected-icon {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 0;
+    margin-right: var(--sd-input-text-md-padding-right);
     margin-top: auto;
     margin-bottom: auto;
     color: var(--autocomplete-focus-svg-icon-color);
   }
+
+  /*
   .ph-autocomplete-spacing {
     width: 32px;
+
     &.ph-autocomplete-extra-spacing {
       width: 12px;
     }
   }
+  */
+
   .ph-autocomplete-selected-label {
     overflow: hidden;
     text-overflow: ellipsis;
-    padding-top: 2px;
+    //padding-top: 2px;
     white-space: nowrap;
-    line-height: 40px;
+    //line-height: 40px;
   }
 
   + .ph-autocomplete-search .ph-autocomplete-prefix-icon {

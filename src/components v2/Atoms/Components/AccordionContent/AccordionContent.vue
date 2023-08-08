@@ -1,16 +1,11 @@
 <template>
   <div class="ph-accordion-content">
     <div
-      v-if="!noHeadingRule"
+      v-if="headingRule"
       class="rule"
       data-testid="accordion-header-rule"
-    />
-    <div
-      class="acc-content"
-      :class="
-        (noHorizontalPadding && 'acc-content--no-horizontal-padding') || ''
-      "
-    >
+    ></div>
+    <div class="acc-content">
       <slot name="default" />
     </div>
   </div>
@@ -20,11 +15,7 @@
 import { PropType } from 'vue';
 
 export const props = {
-  noHeadingRule: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  noHorizontalPadding: {
+  headingRule: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
@@ -41,20 +32,17 @@ defineProps(props);
 .ph-accordion-content {
   display: flex;
   position: relative;
+  width: 100%;
   flex-direction: column;
 
   .rule {
-    border-bottom: var(--accordion-content-rule-border);
-    margin: var(--accordion-content-rule-margin);
+    border-top: 1px solid var(--sd-card-light-divider);
+    padding: 0 0 1em 0;
   }
+
   .acc-content {
     width: 100%;
-    padding: var(--accordion-content-padding);
-
-    &--no-horizontal-padding {
-      padding-left: 0;
-      padding-right: 0;
-    }
+    padding: 0;
   }
 }
 </style>

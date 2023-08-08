@@ -11,8 +11,7 @@ describe('Atoms/ListItem', () => {
   });
 
   it('prop: list style circle', async () => {
-    const listItemElem = wrapper.find('.ph-item-list');
-
+    const listItemElem = wrapper.find('.ph-list-item');
     expect(listItemElem.html()).toContain('Slot Content');
   });
 });

@@ -1,5 +1,4 @@
 import P2InputMessage from './InputMessage.vue';
-import Icons from '@/components/Icon/icons';
 
 export default {
   title: 'v2/Atoms/Forms/InputMessage',
@@ -12,14 +11,14 @@ export default {
     },
     icon: {
       control: {
-        type: 'select',
-        options: [...Icons, ''],
+        type: 'text',
+        default: '',
       },
     },
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg'],
+        options: ['md'],
       },
     },
   },
@@ -44,13 +43,6 @@ Default.args = {
 export const WithIcon = Template.bind({});
 WithIcon.args = {
   message: 'New phone who dis?',
-  icon: 'Telecommunications',
+  icon: 'triangle-exclamation',
   size: 'md',
-};
-
-export const SizeSmall = Template.bind({});
-SizeSmall.args = {
-  message: 'New phone who dis?',
-  icon: 'Telecommunications',
-  size: 'sm',
 };

@@ -27,14 +27,13 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  openIndicatorIcon: 'MenuDown',
+  openIndicatorIcon: 'chevron-down',
   optionLabelVar: 'label',
   optionCustomLabelVar: 'label',
   selectedOptionLabelVar: 'label',
   selectedOptionCustomLabelVar: 'label',
-  returnObj: true,
+  reduceValue: true,
   disabled: true,
-  reducePrefixSpacing: true,
   items: [
     {
       code: '000',
@@ -56,9 +55,35 @@ Default.args = {
 
 export const Interactive = Template.bind({});
 Interactive.args = {
-  openIndicatorIcon: 'MenuDown',
-  returnObj: true,
+  openIndicatorIcon: 'chevron-down',
+  reduceValue: false,
   disabled: false,
-  reducePrefixSpacing: true,
-  items: ['test1', 'test2', 'test3'],
+  optionLabelVar: 'label',
+  optionCustomLabelVar: 'label',
+  selectedOptionLabelVar: 'label',
+  selectedOptionCustomLabelVar: 'label',
+  items: [
+    { value: 'Weekly', label: 'Weekly', text: 'Weekly' },
+    { value: 'Fortnightly', label: 'Fortnightly', text: 'Fortnightly' },
+    { value: 'Monthly', label: 'Monthly', text: 'Monthly' },
+    { value: 'Quarterly', label: 'Quarterly', text: 'Quarterly' },
+    { value: 'Half-yearly', label: 'Half-yearly', text: 'Half-yearly' },
+    { value: 'Yearly', label: 'Yearly', text: 'Yearly' },
+  ],
+};
+
+export const SimpleList = Template.bind({});
+SimpleList.args = {
+  openIndicatorIcon: 'chevron-down',
+  reduceValue: false,
+  disabled: false,
+  items: [
+    'Sell property other than my home',
+    'Use super to pay the remaining balance',
+    'Sell shares or investments',
+    'Downsize my home to unlock equity',
+    'Car / inheritance / other asset sale',
+    'Value in own business',
+    'Other',
+  ],
 };

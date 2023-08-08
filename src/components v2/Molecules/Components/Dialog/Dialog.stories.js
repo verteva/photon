@@ -22,7 +22,7 @@ const Template = (args, { argTypes }) => ({
         @transitionedOut="confirmDelete = false"
         heading="Are you sure you’d like to delete that thing?"
       >
-        Hello slot!
+        <template v-if="${'default' in args}" v-slot>${args.default}</template>
       </p-dialog>
       <p2-button @click="confirmDelete = true">Delete something</p2-button>
 
@@ -41,4 +41,8 @@ const Template = (args, { argTypes }) => ({
 export const Dialog = Template.bind({});
 Dialog.args = {
   // Props to be passed....
+  default: 'This is default slot content',
 };
+
+export const DialogTitleOnly = Template.bind({});
+DialogTitleOnly.args = {};

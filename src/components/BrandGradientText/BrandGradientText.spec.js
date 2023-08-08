@@ -16,6 +16,6 @@ describe('BrandGradientText.vue', () => {
   });
 
   it('check gradient classes', () => {
-    expect(text.attributes().class).toContain('ph-bg-gradient-brand1h');
+    expect(text.attributes().class).toContain('ph-brand-gradient-text');
   });
 });

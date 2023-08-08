@@ -24,7 +24,7 @@ export const props = {
     type: String as PropType<string>,
     default: 'circle',
     validator(value: string): boolean {
-      return ['circle', 'decimal'].includes(value);
+      return ['circle', 'disc', 'decimal'].includes(value);
     },
   },
 };
@@ -37,20 +37,30 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ph-list {
-  & ul,
-  ol {
-    padding-left: var(--list-base-padding-left);
-  }
-  & li {
-    margin: var(--list-base-margin);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 0;
+
+  li {
+    position: relative;
+    margin-top: var(--sd-list-item-md-padding-top);
+    margin-bottom: var(--sd-list-item-md-padding-bottom);
+    margin-left: 2em;
+
     &::marker {
-      color: var(--list-base-color);
+      color: inherit;
     }
   }
-  .ph-list-type-circle {
+
+  &.ph-list-type-circle {
     list-style-type: circle;
   }
-  .ph-list-type-decimal {
+
+  &.ph-list-type-disc {
+    list-style-type: disc;
+  }
+
+  &.ph-list-type-decimal {
     list-style-type: decimal;
   }
 }

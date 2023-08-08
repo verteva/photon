@@ -10,6 +10,11 @@ export default {
         type: 'boolean',
       },
     },
+    bordered: {
+      control: {
+        type: 'boolean',
+      },
+    },
     isInteractive: {
       control: {
         type: 'boolean',

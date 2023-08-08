@@ -5,6 +5,12 @@ export default {
   component: P2InputDate,
   argTypes: {
     // Configurable component options in SB UI...
+    dateFormat: {
+      control: {
+        type: 'select',
+        options: ['DDMMYYYY', 'MMDDYYYY', 'YYYYMMDD'],
+      },
+    },
   },
 };
 
@@ -14,7 +20,7 @@ const Template = (args, { argTypes }) => ({
   template: `
     <div>
       <P2InputDate v-bind='$props' :value="dateObject" @dateDay="dayValue" @dateMonth="monthValue" @dateYear="yearValue" />
-      <span>Date: {{ dateObject.day }}-{{ dateObject.month }}-{{ dateObject.year }}</span>
+      <span>Date (DDMMYYYY): {{ dateObject.day }}-{{ dateObject.month }}-{{ dateObject.year }}</span>
     </div>
   `,
   data() {

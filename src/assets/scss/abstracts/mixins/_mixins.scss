@@ -1,0 +1,47 @@
+/**
+ * Mixins
+ */
+
+// Token styles from a compiled typography token
+@mixin token-typography($size: 'body', $weight: 'regular') {
+  font-family: var(--sd-typography-#{$size}-#{$weight}-font-family);
+  font-weight: var(--sd-typography-#{$size}-#{$weight}-font-weight);
+  font-size: var(--sd-typography-#{$size}-#{$weight}-font-size);
+  letter-spacing: var(--sd-typography-#{$size}-#{$weight}-letter-spacing);
+  line-height: var(--sd-typography-#{$size}-#{$weight}-line-height);
+  text-decoration: var(--sd-typography-#{$size}-#{$weight}-text-decoration);
+  text-transform: var(--sd-typography-#{$size}-#{$weight}-text-case);
+}
+
+// Token styles for headings
+@mixin token-heading($heading: 'h1') {
+  color: var(--sd-heading-#{$heading}-text-color);
+  font-family: var(--sd-heading-#{$heading}-font-family, inherit);
+  font-weight: var(--sd-heading-#{$heading}-font-weight, bold);
+  font-size: var(--sd-heading-#{$heading}-mobile-font-size);
+  margin-top: var(--sd-heading-#{$heading}-mobile-margin-top, 1em);
+  margin-bottom: var(--sd-heading-#{$heading}-mobile-margin-bottom, 0.3em);
+  line-height: var(--sd-heading-#{$heading}-mobile-typography-line-height, 1.1);
+
+  // Tablet
+  @media screen and (min-width: 768px) {
+    font-size: var(--sd-heading-#{$heading}-tablet-font-size);
+    margin-top: var(--sd-heading-#{$heading}-tablet-margin-top, 1em);
+    margin-bottom: var(--sd-heading-#{$heading}-tablet-margin-bottom, 0.3em);
+    line-height: var(
+      --sd-heading-#{$heading}-tablet-typography-line-height,
+      1.1
+    );
+  }
+
+  // Desktop
+  @media screen and (min-width: 1024px) {
+    font-size: var(--sd-heading-#{$heading}-desktop-font-size);
+    margin-top: var(--sd-heading-#{$heading}-desktop-margin-top, 1em);
+    margin-bottom: var(--sd-heading-#{$heading}-desktop-margin-bottom, 0.3em);
+    line-height: var(
+      --sd-heading-#{$heading}-desktop-typography-line-height,
+      1.1
+    );
+  }
+}

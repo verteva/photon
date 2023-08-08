@@ -66,12 +66,14 @@ H3.args = {
   copy: 'Heading 3',
 };
 
+/*
 const BlockquoteTemplate = (args, { argTypes }) => ({
   components: { PBlockquote },
   props: Object.keys(argTypes),
   template: '<p-blockquote>Lorem ipsum dolor<br />Hello world!</p-blockquote>',
 });
 export const Blockquote = BlockquoteTemplate.bind({});
+*/
 
 const AllTemplate = () => ({
   components: { PText, PH1, PH2, PH3, PBlockquote },

@@ -90,7 +90,7 @@ DisabledChecked.args = {
 export const Icon = Template.bind({});
 Icon.args = {
   label: 'This is a photon radio icon',
-  icon: 'Apartment',
+  icon: 'house',
   checked: false,
 };
 
@@ -98,14 +98,14 @@ export const IconDisabled = Template.bind({});
 IconDisabled.args = {
   disabled: true,
   label: 'This is a photon radio icon disabled',
-  icon: 'Apartment',
+  icon: 'house',
   checked: false,
 };
 
 export const IconChecked = Template.bind({});
 IconChecked.args = {
   label: 'This is a photon radio icon checked',
-  icon: 'Apartment',
+  icon: 'house',
   id: '1',
   checked: true,
 };
@@ -114,7 +114,7 @@ export const IconCheckedDisabled = Template.bind({});
 IconCheckedDisabled.args = {
   disabled: true,
   label: 'This is a photon radio icon checked disabled',
-  icon: 'Apartment',
+  icon: 'house',
   id: '1',
   checked: true,
 };

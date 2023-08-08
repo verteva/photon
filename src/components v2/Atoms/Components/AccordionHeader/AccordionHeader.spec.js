@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 import AccordionHeader from './AccordionHeader.vue';
 
 describe('AccordionHeader.vue', () => {
+  const section = 'This is Accordion Header text';
+
   it('default', async () => {
     const { container } = render(AccordionHeader);
 
@@ -12,25 +14,21 @@ describe('AccordionHeader.vue', () => {
   it('props: complete', async () => {
     const { getByTestId } = render(AccordionHeader, {
       props: {
+        section,
         complete: true,
       },
     });
-
     const check = getByTestId('complete-checkmark');
-
     expect(check).toBeTruthy();
   });
 
   it('props: section', async () => {
-    const section = 'I am the section!';
     const { getByText } = render(AccordionHeader, {
       props: {
         section,
       },
     });
-
     const item = getByText(section);
-
     expect(item).toBeTruthy();
   });
 
@@ -40,7 +38,6 @@ describe('AccordionHeader.vue', () => {
         interactive: true,
       },
     });
-
     expect(container).toMatchSnapshot();
   });
 
@@ -50,7 +47,6 @@ describe('AccordionHeader.vue', () => {
         disabled: true,
       },
     });
-
     expect(container).toMatchSnapshot();
   });
 
@@ -60,7 +56,6 @@ describe('AccordionHeader.vue', () => {
         fullWidth: true,
       },
     });
-
     expect(container).toMatchSnapshot();
   });
 
@@ -70,9 +65,7 @@ describe('AccordionHeader.vue', () => {
         openArrows: false,
       },
     });
-
     const openArrow = await queryAllByTestId('openArrow');
-
     expect(openArrow.length).toBeFalsy();
   });
 
@@ -82,7 +75,6 @@ describe('AccordionHeader.vue', () => {
         expanded: true,
       },
     });
-
     expect(container).toMatchSnapshot();
   });
 
@@ -94,7 +86,6 @@ describe('AccordionHeader.vue', () => {
         openCloseIcons: ['ChevronDown', 'ChevronUp'],
       },
     });
-
     expect(container).toMatchSnapshot();
   });
 
@@ -106,7 +97,6 @@ describe('AccordionHeader.vue', () => {
         openCloseIcons: ['ChevronDown', 'ChevronUp'],
       },
     });
-
     expect(container).toMatchSnapshot();
   });
 
@@ -118,12 +108,10 @@ describe('AccordionHeader.vue', () => {
         section,
       },
     });
-
     const item = getByText(section);
     expect(emitted().click).toBeFalsy();
 
     await userEvent.click(item);
-
     expect(emitted().click).toBeTruthy();
   });
 
@@ -140,7 +128,6 @@ describe('AccordionHeader.vue', () => {
     expect(emitted().focus).toBeFalsy();
 
     await userEvent.click(item);
-
     expect(emitted().focus).toBeTruthy();
   });
 
@@ -157,11 +144,9 @@ describe('AccordionHeader.vue', () => {
     expect(emitted().blur).toBeFalsy();
 
     await userEvent.click(item);
-
     expect(emitted().blur).toBeFalsy();
 
     await userEvent.tab();
-
     expect(emitted().blur).toBeTruthy();
   });
 });

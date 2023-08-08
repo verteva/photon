@@ -7,7 +7,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['sm', 'md', 'lg'],
+        options: ['md'],
       },
     },
   },
@@ -19,7 +19,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PLabel },
   props: Object.keys(argTypes),
-  template: '<PLabel v-bind="$props"/>',
+  template: '<PLabel v-bind="$props">{{slotcontent}}</PLabel>',
 });
 
 export const Default = Template.bind({});
@@ -54,10 +54,8 @@ IsRequiredExtraText.args = {
   size: 'md',
 };
 
-export const SizeSmall = Template.bind({});
-SizeSmall.args = {
-  label: 'Label',
+export const SlotContent = Template.bind({});
+SlotContent.args = {
   isRequired: true,
-  inlineText: '(small)',
-  size: 'sm',
+  slotcontent: 'This is Label Slot text',
 };

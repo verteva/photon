@@ -1,17 +1,18 @@
 <template>
-  <span v-bind="indicatorAttributes">
-    <p-icon
-      v-if="!hideOpenIndicator"
-      class="openIndicator"
-      :name="openIndicatorIcon"
-      type="xs"
+  <span
+    v-if="!hideOpenIndicator && openIndicatorIcon && iconFamily"
+    v-bind="indicatorAttributes"
+  >
+    <font-awesome-icon
+      :icon="[iconFamily, openIndicatorIcon]"
+      class="ph-vselect-indicator"
+      :class="['fa-fw', iconClasses]"
     />
   </span>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '@/components/Icon';
 
 export const props = {
   hideOpenIndicator: {
@@ -21,20 +22,28 @@ export const props = {
 
   openIndicatorIcon: {
     type: String as PropType<string>,
-    default: 'ChevronDown',
+    default: 'chevron-down',
   },
 
   indicatorAttributes: {
     type: Object as PropType<any>,
     default: () => ({}),
   },
+
+  iconFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  iconClasses: {
+    type: String as PropType<string>,
+    default: '',
+  },
 };
 
 export default Vue.extend({
   name: 'Indicator',
-  components: {
-    PIcon,
-  },
+  components: {},
   props,
 });
 </script>
@@ -42,6 +51,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .vs__open-indicator,
 .openIndicator {
-  color: var(--vselect-indicator-base-svg-icon-color);
+  cursor: pointer;
+  color: var(--sd-input-text-default-icon-color);
 }
 </style>

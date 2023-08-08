@@ -1,18 +1,9 @@
 import PProgressCircular from './ProgressCircular.vue';
-import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from '/tailwind.config.js';
-
-const fullConfig = resolveConfig(tailwindConfig);
 
 export default {
   title: 'Components/ProgressCircular',
   component: PProgressCircular,
-  argTypes: {
-    color: {
-      options: Object.keys(fullConfig.theme.colors),
-      control: { type: 'select' },
-    },
-  },
+  argTypes: {},
 };
 
 const Template = (args, { argTypes }) => ({
@@ -23,7 +14,7 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <div>
-      <p-progress-circular class="ph-text-brand2" v-bind="$props">  
+      <p-progress-circular class="" v-bind="$props">
         {{ value }}
       </p-progress-circular>
     </div>

@@ -13,9 +13,7 @@
       :disabled="disabled"
       :selected-by="selectedBy"
       hide-clear-btn
-      :reduce-prefix-spacing="reducePrefixSpacing"
-      :simple="simple"
-      :return-obj="returnObj"
+      :reduce-value="reduceValue"
       :place-holder="placeHolder"
       @input="$emit('input', selected)"
       @update:selected="selected = $event"
@@ -40,10 +38,6 @@ export const props = {
   value: {
     type: [Number, String, Object] as PropType<InputValueType>,
     default: null,
-  },
-  reducePrefixSpacing: {
-    type: Boolean as PropType<boolean>,
-    default: true,
   },
   showFooter: {
     type: Boolean as PropType<boolean>,
@@ -71,11 +65,7 @@ export const props = {
   },
   openIndicatorIcon: {
     type: String as PropType<string>,
-    default: 'ChevronDown',
-  },
-  simple: {
-    type: Boolean as PropType<boolean>,
-    default: true,
+    default: 'chevron-down',
   },
   initInput: {
     type: [Number, String, Object] as PropType<string | number>,
@@ -85,7 +75,7 @@ export const props = {
     type: String as PropType<string>,
     default: 'label',
   },
-  returnObj: {
+  reduceValue: {
     type: Boolean as PropType<boolean>,
     default: false,
   },

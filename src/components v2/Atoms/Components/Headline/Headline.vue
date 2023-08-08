@@ -1,7 +1,7 @@
 <template>
-  <h2 class="photon-headline" :class="[size]">
+  <component :is="element" class="photon-headline" :class="[size]">
     <slot />
-  </h2>
+  </component>
 </template>
 
 <script lang="ts">
@@ -12,6 +12,11 @@ import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 const { size } = formProps;
 export const props = {
   size,
+
+  element: {
+    type: String,
+    default: 'h2',
+  },
 };
 
 export default Vue.extend({
@@ -22,18 +27,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .photon-headline {
-  margin: var(--headline-default-margin);
-  font-size: var(--headline-default-font-size);
-  line-height: var(--headline-default-line-height);
-  letter-spacing: var(--headline-default-letter-spacing);
   word-break: break-word;
-
-  &.sm {
-    font-size: var(--headline-sm-font-size);
-  }
-
-  &.md {
-    font-size: var(--headline-md-font-size);
-  }
 }
 </style>

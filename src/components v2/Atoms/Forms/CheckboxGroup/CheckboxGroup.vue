@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="ph-checkbox-group">
     <P2Checkbox
       v-for="(checkbox, index) in items"
       :key="checkbox.label"
-      class="checkbox-group-item"
+      class="ph-checkbox-group-item"
       :size="size"
       :disabled="disabled"
       :name="`${name}-${checkbox.label}`"
@@ -52,7 +52,11 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.checkbox-group-item {
+.ph-checkbox-group {
+  margin: 1em 0;
+}
+
+.ph-checkbox-group-item {
   &:last-child {
     margin-bottom: 0;
   }

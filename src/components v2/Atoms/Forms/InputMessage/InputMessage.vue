@@ -1,25 +1,21 @@
 <template>
   <div class="photon-input-message" :class="[size]">
     <div v-if="icon" class="icon-wrapper">
-      <p-icon :name="icon" class="icon" :type="iconSize" />
+      <font-awesome-icon
+        ref="inputMessageIcon"
+        :icon="[iconFamily, icon]"
+        class="fa-fw"
+      />
     </div>
     <span>{{ message }}</span>
   </div>
 </template>
 
 <script lang="ts">
-import PIcon from '@/components/Icon';
 import Vue, { PropType } from 'vue';
-import { FORM_CONTROL_SIZE } from '@/utils/constants/FormControlConstants';
-import { IconSizeSm, IconSizeXsm } from '@/components/Icon/types';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
 const { size } = formProps;
-
-const iconSizeMatrix = {
-  [FORM_CONTROL_SIZE.SMALL]: IconSizeXsm,
-  [FORM_CONTROL_SIZE.MEDIUM]: IconSizeSm,
-};
 
 export const props = {
   message: {
@@ -30,32 +26,29 @@ export const props = {
     type: String as PropType<string>,
     default: '',
   },
+  iconFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
   size,
 };
 
 export default Vue.extend({
   name: 'P2InputMessage',
-  components: {
-    PIcon,
-  },
+  components: {},
   props,
-  computed: {
-    iconSize(): string {
-      return iconSizeMatrix[this.size];
-    },
-  },
 });
 </script>
 
 <style lang="scss" scoped>
 .photon-input-message {
   display: flex;
-  color: var(--form-control-items-message-default-text-color);
+  color: var(--sd-form-control-items-message-default-text-color);
   margin-top: -10px;
   margin-bottom: 10px;
 
   .icon {
-    color: var(--form-control-items-message-default-icon-color) !important ;
+    color: var(--sd-form-control-items-message-default-icon-color);
   }
 
   .icon-wrapper {
@@ -66,62 +59,37 @@ export default Vue.extend({
   }
 
   span {
-    font-family: var(--form-control-items-message-default-text-font-family);
-    font-weight: var(--form-control-items-message-default-text-font-weight);
-  }
-
-  &.sm {
-    span {
-      font-size: calc(
-        var(--form-control-items-message-sm-text-typography-fontSize) * 1px
-      );
-      line-height: var(
-        --form-control-items-message-sm-text-typography-lineHeight
-      );
-      text-decoration: var(
-        --form-control-items-message-sm-text-typography-textDecoration
-      );
-      text-transform: var(
-        --form-control-items-message-sm-text-typography-textCase
-      );
-      letter-spacing: var(
-        --form-control-items-message-sm-text-typography-letterSpacing
-      );
-    }
-    .icon-wrapper {
-      height: calc(
-        var(--form-control-items-message-sm-text-typography-fontSize) * 1.5px
-      );
-      width: calc(
-        var(--form-control-items-message-sm-text-typography-fontSize) * 1.5px
-      );
-    }
+    font-family: var(--sd-form-control-items-message-default-text-font-family);
+    font-weight: var(--sd-form-control-items-message-default-text-font-weight);
   }
 
   &.md {
     span {
-      font-size: calc(
-        var(--form-control-items-message-md-text-typography-fontSize) * 1px
+      font-size: var(
+        --sd-form-control-items-message-md-text-typography-font-size
       );
       line-height: var(
-        --form-control-items-message-md-text-typography-lineHeight
+        --sd-form-control-items-message-md-text-typography-line-height
       );
       text-decoration: var(
-        --form-control-items-message-md-text-typography-textDecoration
+        --sd-form-control-items-message-md-text-typography-text-decoration
       );
       text-transform: var(
-        --form-control-items-message-md-text-typography-textCase
+        --sd-form-control-items-message-md-text-typography-text-case
       );
       letter-spacing: var(
-        --form-control-items-message-md-text-typography-letterSpacing
+        --sd-form-control-items-message-md-text-typography-letter-spacing
       );
     }
     .icon-wrapper {
+      font-size: var(
+        --sd-form-control-items-message-md-text-typography-font-size
+      );
       height: calc(
-        var(--form-control-items-message-md-text-typography-fontSize) * 1.5px
+        var(--sd-form-control-items-message-md-text-typography-font-size) * 1.5
       );
       width: calc(
-        var(--form-control-items-message-md-text-typography-fontSize) * 1.5px
+        var(--sd-form-control-items-message-md-text-typography-font-size) * 1.5
       );
     }
   }

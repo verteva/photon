@@ -46,10 +46,15 @@ describe('FormControl.vue', () => {
   });
 
   it('props: messageIcon', async () => {
-    const icon = 'Bin';
-    await wrapper.setProps({ messageIcon: icon });
+    const message = 'This is a message';
+    const icon = 'house';
+    await wrapper.setProps({ extraMessage: message, messageIcon: icon });
 
-    expect(wrapper.find('.icon').exists()).toBe(true);
+    const inputMessage = wrapper.getComponent({ ref: 'inputMessage' });
+    const inputMessageIcon = inputMessage.getComponent({
+      ref: 'inputMessageIcon',
+    });
+    expect(inputMessageIcon.attributes()['data-icon']).toContain(icon);
   });
 
   it('props: error', async () => {

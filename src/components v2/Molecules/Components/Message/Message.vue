@@ -1,42 +1,47 @@
 <template>
-  <div ref="ph-message" class="photon-message list" :class="[type]">
-    <p-icon
-      ref="messageIcon"
-      :name="icon[type]"
-      type="lg"
-      class="icon"
-      color=""
-      :class="[type]"
-    />
+  <div ref="ph-message" class="photon-message list" :class="[type, size]">
+    <div v-if="!hideIcon && `icon[type]]`" class="ph-message-icon">
+      <font-awesome-icon
+        v-if="!hideIcon && `icon[type]]`"
+        ref="messageIcon"
+        :icon="['fal', icon[type]]"
+        class="fa-lg fa-fw"
+      >
+      </font-awesome-icon>
+    </div>
     <div class="content">
-      <div class="title">
+      <div v-if="title || hasTitleSlot" class="title">
         {{ title }}
+        <slot name="title"></slot>
       </div>
-      <slot />
-      <div v-if="description" class="description">
-        <div>
-          {{ description }}
-        </div>
-        <p-button
+      <div v-if="description || hasDescriptionSlot" class="description">
+        {{ description }}
+        <slot />
+        <slot name="description"></slot>
+      </div>
+      <div v-if="$listeners.click && callToAction">
+        <p2-button
           v-if="$listeners.click && callToAction"
           ref="messageButton"
-          class="button"
+          button-style="primary"
+          size="xs"
+          class="message-cta"
           @click="$emit('click')"
         >
           {{ callToAction }}
-        </p-button>
+        </p2-button>
       </div>
     </div>
-    <div v-if="!hideClose" @click="$emit('close')">
-      <p-icon name="Cross" type="lg" class="icon" color="" :class="[type]" />
+    <div v-if="!hideClose" class="ph-message-close" @click="$emit('close')">
+      <font-awesome-icon :icon="['fal', 'xmark']" class="fa-lg fa-fw">
+      </font-awesome-icon>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '@/components/Icon';
-import PButton from '@/components v2/Atoms/Components/Button';
+import P2Button from '@/components v2/Atoms/Components/Button';
 import {
   MessageSuccess,
   MessageInfo,
@@ -58,6 +63,11 @@ export const props = {
     },
   },
 
+  size: {
+    type: String as PropType<string>,
+    default: 'xs',
+  },
+
   title: {
     type: String as PropType<string>,
     default: '',
@@ -73,6 +83,11 @@ export const props = {
     default: '',
   },
 
+  hideIcon: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
   hideClose: {
     type: Boolean as PropType<boolean>,
     default: false,
@@ -83,8 +98,7 @@ export default Vue.extend({
   name: 'P2Message',
 
   components: {
-    PIcon,
-    PButton,
+    P2Button,
   },
 
   props,
@@ -92,42 +106,67 @@ export default Vue.extend({
   computed: {
     icon(): any {
       return {
-        success: 'Success',
-        info: 'Info',
-        error: 'Error',
-        warning: 'Alert',
+        success: 'circle-check',
+        info: 'circle-info',
+        error: 'circle-exclamation',
+        warning: 'triangle-exclamation',
       };
+    },
+
+    hasTitleSlot() {
+      return this.$slots['title'];
+    },
+
+    hasDescriptionSlot() {
+      return this.$slots['description'] || this.$slots['default'];
     },
   },
 });
 </script>
+
 <style lang="scss" scoped>
+@import './src/assets/scss/main.scss';
+
 $types: 'success', 'info', 'error', 'warning';
+$sizes: 'xs', 'sm', 'md';
 
 .photon-message {
-  max-width: 48rem; /* 768px */
+  max-width: 768px;
   display: flex;
   align-items: flex-start;
-  color: var(--message-base-color);
-  padding: var(--message-base-padding);
-  border-radius: var(--message-base-border-radius);
-  border-width: var(--message-base-border-width);
+  padding: 0.75em;
+  color: var(--sd-theme-fg-default);
+  border-width: 1px;
+  border-radius: var(--sd-border-radius-default);
+  transition: $all-transitions;
 
   @each $type in $types {
     &.#{$type} {
-      background: var(--message-styles-#{$type}-background);
-      border-color: var(--message-styles-#{$type}-border-color);
+      background: var(--sd-theme-#{$type}-subtle);
+      border-color: var(--sd-theme-#{$type}-muted);
+      color: var(--sd-theme-#{$type}-on-subtle);
     }
   }
-  .icon {
-    margin: var(--message-components-icon-margin);
+
+  @each $size in $sizes {
+    &.#{$size} {
+      padding: var(--sd-card-#{$size}-padding);
+    }
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .ph-message-icon {
+    margin-right: 0.75em;
+  }
+
+  .ph-message-close {
+    margin-left: 0.75em;
     cursor: pointer;
-    @each $type in $types {
-      &.#{$type} {
-        color: var(--message-styles-#{$type}-color);
-      }
-    }
   }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -135,18 +174,19 @@ $types: 'success', 'info', 'error', 'warning';
   }
 
   .title {
-    font-weight: var(--message-components-title-font-weight);
-    padding: var(--message-components-title-padding);
-    line-height: var(--message-components-title-line-height);
+    @include token-typography('body', 'bold');
   }
 
   .description {
-    margin: var(--message-components-description-margin);
-    line-height: var(--message-components-description-line-height);
+    @include token-typography('sm', 'regular');
   }
 
-  .button {
-    margin: var(--message-components-button-margin);
+  .title + .description {
+    margin-top: 0.5em;
+  }
+
+  .message-cta {
+    margin-top: 1em;
   }
 }
 </style>

@@ -24,9 +24,6 @@ export const Default = Template.bind({});
 Default.args = {
   heading: '',
   icon: '',
-  iconBg: '',
-  contentBg: 'secondary',
-  border: 'primary',
   brandBar: false,
 };
 
@@ -34,9 +31,14 @@ export const Heading = Template.bind({});
 Heading.args = {
   heading: 'Some headline',
   icon: '',
-  iconBg: '',
-  contentBg: 'secondary',
-  border: 'primary',
+  brandBar: false,
+};
+
+export const LongHeading = Template.bind({});
+LongHeading.args = {
+  heading:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respondeat totidem verbis. ',
+  icon: '',
   brandBar: false,
 };
 
@@ -44,18 +46,17 @@ export const Branded = Template.bind({});
 Branded.args = {
   heading: 'Some headline',
   icon: '',
-  iconBg: 'primary',
-  contentBg: 'secondary',
-  border: 'primary',
+  iconFamily: '',
+  iconClasses: '',
   brandBar: true,
 };
 
 export const Icon = Template.bind({});
 Icon.args = {
-  heading: 'Some headline',
-  icon: 'Medical',
-  iconBg: 'primary',
-  contentBg: 'secondary',
-  border: 'primary',
+  heading:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Respondeat totidem verbis. ',
+  icon: 'house',
+  iconFamily: 'fal',
+  iconClasses: 'fa-sm',
   brandBar: true,
 };

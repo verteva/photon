@@ -1,7 +1,9 @@
 <template>
   <card
+    v-if="!disableCard"
     class="ph-accordion-wrapper"
-    no-padding
+    :no-padding="noPadding"
+    :size="cardSize"
     :light="light"
     :border="border"
     :shadow="shadow"
@@ -13,7 +15,11 @@
       :id="id"
       class="ph-accordion"
       data-testid="ph-accordion"
-      :class="{ collapsed: !expandComplete }"
+      :class="[
+        { collapsed: !expandComplete },
+        { expanding: expanded && !expandComplete },
+        { expanded },
+      ]"
       :style="{ height }"
     >
       <accordion-header
@@ -27,21 +33,54 @@
           section,
           interactive: !stayOpen,
         }"
+        ref="accordionHeader"
         @click="toggleOpen"
         @focus="focussed = true"
         @blur="focussed = false"
       >
-        <slot name="heading" :expanded="expanded" />
+        <template #default>
+          <slot name="heading" :expanded="expanded" />
+        </template>
       </accordion-header>
-      <accordion-content
-        :no-heading-rule="noHeadingRule"
-        :no-horizontal-padding="noHorizontalPadding"
-      >
+      <accordion-content ref="accordionContent" :heading-rule="headingRule">
         <slot name="default" />
       </accordion-content>
       <slot name="footer" />
     </div>
   </card>
+  <div
+    v-else
+    :id="id"
+    class="ph-accordion"
+    data-testid="ph-accordion"
+    :class="{ collapsed: !expandComplete }"
+    :style="{ height }"
+  >
+    <accordion-header
+      v-bind="{
+        fullWidth,
+        complete,
+        disabled,
+        expanded,
+        openArrows,
+        openCloseIcons,
+        section,
+        interactive: !stayOpen,
+      }"
+      ref="accordionHeader"
+      @click="toggleOpen"
+      @focus="focussed = true"
+      @blur="focussed = false"
+    >
+      <template #default>
+        <slot name="heading" :expanded="expanded" />
+      </template>
+    </accordion-header>
+    <accordion-content ref="accordionContent" :heading-rule="headingRule">
+      <slot name="default" />
+    </accordion-content>
+    <slot name="footer" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -61,7 +100,7 @@ import AccordionContent, {
 const { light, border, shadow } = CardProps;
 const { fullWidth, complete, disabled, openArrows, openCloseIcons, section } =
   AccordionHeaderProps;
-const { noHeadingRule, noHorizontalPadding } = AccordionContentProps;
+const { headingRule } = AccordionContentProps;
 
 export const props = {
   // Card Props
@@ -76,8 +115,7 @@ export const props = {
   section,
   openCloseIcons,
   // AccordionContent props
-  noHeadingRule,
-  noHorizontalPadding,
+  headingRule,
   // Accordion Props
   open: {
     type: Boolean as PropType<boolean>,
@@ -96,6 +134,18 @@ export const props = {
     default: true,
   },
   value: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  cardSize: {
+    type: String as PropType<CardSize>,
+    default: 'md',
+  },
+  noPadding: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+  disableCard: {
     type: Boolean as PropType<boolean>,
     default: false,
   },
@@ -126,6 +176,7 @@ export default Vue.extend({
       focussed: false,
       expandComplete: Boolean(this.value || this.open || this.stayOpen),
       id: this.identifier || uuidv4(),
+      observerHeader: null,
     };
   },
 
@@ -167,6 +218,9 @@ export default Vue.extend({
       this.height = `${this.minHeight}px`;
       content.style.display = 'none';
     }
+
+    // Mutation observer enable
+    this.enableObservers();
   },
 
   beforeDestroy() {
@@ -174,9 +228,37 @@ export default Vue.extend({
     if (accordion) {
       accordion.removeEventListener('transitionend', this.onTransitionEnd);
     }
+
+    // Clean up observers
+    this.disableObservers();
   },
 
   methods: {
+    enableObservers() {
+      // observerHeader
+      this.observerHeader = new MutationObserver(
+        function (mutations) {
+          this.updateHeight();
+        }.bind(this)
+      );
+      if (
+        typeof this.$refs['accordionHeader'] !== 'undefined' &&
+        typeof this.$refs['accordionHeader']['$el'] !== 'undefined'
+      ) {
+        this.observerHeader.observe(this.$refs['accordionHeader']['$el'], {
+          childList: true,
+          characterData: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['data-observe'],
+        });
+      }
+    },
+
+    disableObservers() {
+      this.observerHeader.disconnect();
+    },
+
     onTransitionEnd(e: TransitionEvent) {
       /*
         TransitionEvent fires for each property that
@@ -245,6 +327,19 @@ export default Vue.extend({
         totalHeight: totalHeight as number,
       };
     },
+    updateHeight() {
+      // Capture the height before close if its open
+      const { accordion, totalHeight } = this.getNode();
+
+      if (!this.expanded) {
+        this.maxHeight = totalHeight;
+        accordion.style.height = `${this.maxHeight}px`;
+        this.$nextTick(() => {
+          const { headerHeight: updatedHeight } = this.getNode();
+          accordion.style.height = `${updatedHeight}px`;
+        });
+      }
+    },
     switchState() {
       // Capture the height before close if its open
       const { accordion, totalHeight, contentHeight, headerHeight } =
@@ -270,18 +365,26 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ph-accordion-wrapper {
+  --accordion-content-padding: 1.5em;
   transition: ease-out all 300ms;
   overflow: visible;
+
   &.disabled {
     opacity: 0.5;
   }
+
   &.focussed {
     box-shadow: var(--accordion-base-focused-shadow);
   }
 }
 
+.ph-accordion-header + .ph-accordion-content {
+  padding-top: var(--accordion-content-padding);
+}
+
 .ph-accordion {
   transition: ease-out all 300ms;
+
   &.collapsed {
     overflow: hidden;
   }

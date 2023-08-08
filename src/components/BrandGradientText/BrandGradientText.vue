@@ -1,7 +1,7 @@
 <template>
   <span
     ref="text"
-    class="ph-bg-gradient-brand1h ph-inline-block ph-bg-clip-text ph-text-transparent"
+    class="ph-brand-gradient-text ph-inline-block ph-bg-clip-text ph-text-transparent"
   >
     <slot />
   </span>
