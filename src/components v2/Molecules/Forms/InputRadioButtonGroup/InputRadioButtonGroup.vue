@@ -17,6 +17,7 @@
         disabled,
         selectedIndex,
         rows,
+        name,
       }"
       @click="$emit('click', $event)"
     />
@@ -60,6 +61,7 @@ export const props = {
   // RadioButtonGroup props
   items,
   rows,
+  name,
   selectedIndex,
 };
 

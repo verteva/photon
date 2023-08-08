@@ -1,6 +1,6 @@
 <template>
   <li>
-    <div class="ph-item-list">
+    <div class="ph-list-item">
       <slot />
     </div>
   </li>
@@ -12,9 +12,3 @@ export default Vue.extend({
   name: 'P2Li',
 });
 </script>
-
-<style lang="scss" scoped>
-.ph-item-list {
-  margin-left: var(--list-item-margin-left);
-}
-</style>

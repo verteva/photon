@@ -1,6 +1,8 @@
 import { Component } from 'vue';
 import P2Form from './Atoms/Forms/Form';
 import P2Button from './Atoms/Components/Button';
+import P2Label from './Atoms/Forms/Label';
+import P2InputMessage from './Atoms/Forms/InputMessage';
 import P2InputNumber from './Molecules/Forms/InputNumber';
 import P2InputText from './Molecules/Forms/InputText';
 import P2InputDate from './Molecules/Forms/InputDate';
@@ -41,6 +43,8 @@ const components: PhotonComponents = {
   P2Toast,
   P2Dialog,
   P2InputDate,
+  P2Label,
+  P2InputMessage,
   P2ContentCard,
   P2InputCheckbox,
   P2InputCheckboxGroup,

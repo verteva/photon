@@ -15,7 +15,7 @@
     >
       <font-awesome-icon
         :icon="[fontAwesomeWeightToFamily(iconLeftFamily), iconLeft]"
-        class="ph-input-icon ph-input-text-icon-left"
+        class="ph-input-text-icon ph-input-text-icon-left"
       />
     </div>
     <input
@@ -32,6 +32,7 @@
       :maxlength="maxlength"
       data-testid="input-text"
       @input="onInput($event)"
+      @keyup="onKeyup"
       @focus="onFocus"
       @blur="onBlur"
       @wheel="$event.preventDefault()"
@@ -150,6 +151,9 @@ export default Vue.extend({
       }
       this.$emit('input', target.value);
     },
+    onKeyup(e: InputEvent) {
+      this.$emit('keyup', e);
+    },
     onBlur(e: InputEvent) {
       this.inFocus = false;
       this.$emit('blur', e);
@@ -162,44 +166,71 @@ export default Vue.extend({
 .ph-input-text {
   position: relative;
 
+  // Focus
   &.ph-input-text-focus {
     .ph-input-text-input {
       outline: none;
-      border: var(--input-text-focus-border);
+      color: var(--sd-input-text-focus-text-color);
+      background: var(--sd-input-text-focus-background-color);
+      box-shadow: var(--sd-input-text-focus-box-shadow);
+      border-color: var(--sd-input-text-focus-border-color);
     }
     .ph-input-text-icon {
-      color: var(--input-text-focus-color);
+      color: var(--sd-input-text-focus-icon-color);
     }
   }
 
+  // Disabled
   &.ph-input-text-disabled {
     cursor: not-allowed;
     .ph-input-text-input {
       cursor: not-allowed;
-      color: var(--input-text-disabled-color);
-      border-color: var(--input-text-disabled-border-color);
+      color: var(--sd-input-text-disabled-text-color);
+      background: var(--sd-input-text-disabled-background-color);
+      box-shadow: var(--sd-input-text-disabled-box-shadow);
+      border-color: var(--sd-input-text-disabled-border-color);
+    }
+    .ph-input-text-icon {
+      color: var(--sd-input-text-disabled-icon-color);
     }
   }
 }
 
 .ph-input-text-input {
-  padding: var(--input-text-base-padding);
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: var(--input-text-base-font-family);
-  font-weight: var(--input-text-base-font-weight);
   width: 100%;
-  border-radius: calc(var(--input-text-base-border-radius) * 1px);
-  border: var(--input-text-base-border);
-  background: var(--input-text-base-background-color);
+
+  font-family: var(--sd-input-text-md-typography-font-family);
+  font-size: var(--sd-input-text-md-typography-font-size);
+  font-weight: var(--sd-input-text-md-typography-font-weight);
+  letter-spacing: var(--sd-input-text-md-typography-letter-spacing);
+  line-height: var(--sd-input-text-md-typography-line-height);
+  text-transform: var(--sd-input-text-md-typography-text-case);
+  text-decoration: var(--sd-input-text-md-typography-text-decoration);
+
+  color: var(--sd-input-text-default-text-color);
+  background: var(--sd-input-text-default-background-color, white);
+  border: 1px solid var(--sd-input-text-default-border-color);
+  border-radius: var(--sd-input-md-border-radius);
+
+  padding-bottom: var(--sd-input-text-md-padding-bottom);
+  padding-left: var(--sd-input-text-md-padding-left);
+  padding-right: var(--sd-input-text-md-padding-right);
+  padding-top: var(--sd-input-text-md-padding-top);
+
+  ::placeholder {
+    color: var(--sd-input-text-default-placeholder-color);
+    opacity: 1;
+  }
 
   .ph-input-text.ph-input-text-has-icon-left & {
-    padding-left: var(--input-text-icon-padding);
+    padding-left: calc(var(--sd-input-text-md-padding-left) * 2 + 20px);
   }
   .ph-input-text.ph-input-text-has-icon-right & {
-    padding-right: var(--input-text-icon-padding);
+    padding-right: calc(var(--sd-input-text-md-padding-right) * 2 + 20px);
   }
   .ph-input-text.ph-input-text-centered & {
     text-align: center;
@@ -218,15 +249,16 @@ export default Vue.extend({
   justify-content: center;
 
   &.ph-input-text-icon-container-left {
-    left: 12px;
+    left: var(--sd-input-text-md-padding-left);
   }
 
   &.ph-input-text-icon-container-right {
-    right: 12px;
+    right: var(--sd-input-text-md-padding-right);
   }
 }
 
-.ph-input-icon {
+.ph-input-text-icon {
+  color: var(--sd-input-text-default-icon-color);
   width: 1em;
   height: 1em;
   font-size: 1em;

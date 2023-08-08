@@ -20,7 +20,7 @@ describe('Atoms/Option.vue', () => {
   it('props: showSelectedIcon && allowOptionIcon', async () => {
     const showSelectedIcon = true;
     const allowOptionIcon = true;
-    const validateIcon = 'Apartment';
+    const validateIcon = 'house';
     await wrapper.setProps({ showSelectedIcon, allowOptionIcon, validateIcon });
 
     expect(wrapper.html()).toContain('ph-selected-icon');

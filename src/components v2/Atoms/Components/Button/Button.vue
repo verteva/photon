@@ -5,6 +5,7 @@
     v-bind="$attrs"
     :type="type"
     :class="[
+      (label || hasLabel) && 'has-label',
       disabled && 'disabled',
       submitting && 'loading',
       buttonStyle,
@@ -14,13 +15,31 @@
     v-on="$listeners"
   >
     <div class="container">
-      <div class="label">
+      <div
+        v-if="iconLeft"
+        class="button-icon-container button-icon-container-left"
+      >
+        <font-awesome-icon
+          ref="button-icon-left"
+          :icon="[fontAwesomeWeightToFamily(iconLeftFamily), iconLeft]"
+          class="button-icon button-icon-left"
+        />
+      </div>
+      <div v-if="label || hasLabel" class="label">
         <slot name="default">
           {{ label }}
         </slot>
       </div>
-      <div class="hover-background" />
-      <div class="disabled-background" />
+      <div
+        v-if="iconRight"
+        class="button-icon-container button-icon-container-right"
+      >
+        <font-awesome-icon
+          ref="button-icon-right"
+          :icon="[fontAwesomeWeightToFamily(iconRightFamily), iconRight]"
+          class="button-icon button-icon-right"
+        />
+      </div>
     </div>
   </button>
 </template>
@@ -38,32 +57,14 @@ import {
 export const props = {
   label: {
     type: String as PropType<string>,
-    default: 'Button',
+    default: '',
   },
+
   buttonStyle: {
     type: String as PropType<string>,
     default: ButtonStyles.PRIMARY,
   },
-  type: {
-    type: String as PropType<HTMLType>,
-    default: ButtonTypes.BUTTON,
-  },
-  disabled: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  submitting: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
-  upperCase: {
-    type: Boolean as PropType<boolean>,
-    default: true,
-  },
-  block: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
+
   size: {
     type: String as PropType<ButtonSize>,
     default: ButtonSizes.MEDIUM,
@@ -71,57 +72,137 @@ export const props = {
       return Object.values(ButtonSizes).indexOf(value as ButtonSize) !== -1;
     },
   },
+
+  iconLeft: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  iconLeftFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  iconRight: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  iconRightFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  type: {
+    type: String as PropType<HTMLType>,
+    default: ButtonTypes.BUTTON,
+  },
+
+  disabled: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
+
+  submitting: {
+    type: Boolean as PropType<boolean>,
+    default: false,
+  },
 };
 
 export default Vue.extend({
-  name: 'PButton',
+  name: 'P2Button',
+
+  mixins: ['fontAwesomeWeightToFamily'],
 
   props,
   computed: {
     isDisabled(): boolean {
       return this.disabled || this.submitting;
     },
+
+    hasLabel() {
+      return this.$slots['default'];
+    },
   },
 });
 </script>
 
 <style lang="scss" scoped>
-@import './src/assets/scss/_themehelpers.scss';
+@import './src/assets/scss/main.scss';
 
-@function getButtonStyleProperty($property, $style, $state, $fallback: '') {
-  @return getThemeProperty(
-    'button',
-    $property,
-    'styles-#{$style}',
-    $state,
-    $fallback
-  );
+@function getButtonStyleProperty(
+  $property,
+  $style,
+  $state: 'default',
+  $fallback: ''
+) {
+  @return getThemeProperty('button', $property, $style, $state, $fallback);
 }
 
-@function getButtonSizeProperty($property, $style, $state, $fallback: '') {
-  @return getThemeProperty(
-    'button',
-    $property,
-    'sizes-#{$style}',
-    $state,
-    $fallback
-  );
+@function getButtonSizeProperty(
+  $property,
+  $size: 'md',
+  $state: 'default',
+  $fallback: ''
+) {
+  @return getThemeProperty('button', $property, $size, $state, $fallback);
 }
 
 .button {
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
   overflow: hidden;
   justify-content: center;
   align-items: center;
   display: flex;
+  background-size: cover;
+  background-position: center center;
   transition: $all-transitions;
   transition-duration: 150ms;
-  font-family: getButtonStyleProperty('font-family', '', '', inherit);
-  font-weight: getButtonStyleProperty('font-weight', '', '', inherit);
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  letter-spacing: getButtonStyleProperty('letter-spacing', '', '', 0.025em);
+  border: var(--sd-button-default-border-width) solid;
+  outline: none;
 
+  // Disable default focus outline color
+  &:focus-visible {
+    outline: none;
+  }
+
+  // Default size styles
+  $size: 'md';
+  font-family: getButtonSizeProperty(
+    'typography-font-family',
+    $size,
+    '',
+    inherit
+  );
+  font-weight: getButtonSizeProperty(
+    'typography-font-weight',
+    $size,
+    '',
+    inherit
+  );
+  letter-spacing: getButtonSizeProperty(
+    'typography-letter-spacing',
+    $size,
+    '',
+    0
+  );
+  text-transform: getButtonSizeProperty(
+    'typography-text-case',
+    $size,
+    '',
+    inherit
+  );
+  padding-top: getButtonSizeProperty('padding-top', $size, '', 0.75rem);
+  padding-right: getButtonSizeProperty('padding-right', $size, '', 0.75rem);
+  padding-bottom: getButtonSizeProperty('padding-bottom', $size, '', 0.75rem);
+  padding-left: getButtonSizeProperty('padding-left', $size, '', 0.75rem);
+  border-radius: getButtonSizeProperty('border-radius', $size, '', 0);
+
+  // Ripple
   &:after {
     content: '';
     position: absolute;
@@ -136,116 +217,182 @@ export default Vue.extend({
     transform-origin: 50% 50%;
   }
 
-  $buttonStyles: 'primary' 'primary-outline' 'secondary' 'secondary-outline'
-    'plain' 'tertiary' 'tertiary-outline' 'tertiary-plain'
-    'tertiary-plain-outline';
+  // Icons
+  .button-icon {
+    font-size: 1em;
+  }
+
+  // Style Variants
+  $buttonStyles: 'primary' 'primary-outline' 'primary-link' 'secondary'
+    'secondary-outline' 'secondary-link';
   @each $style in $buttonStyles {
     &.#{$style} {
-      background: getButtonStyleProperty('background', $style, '', red);
-      background-size: cover;
-      background-position: center center;
-      box-shadow: getButtonStyleProperty('box-shadow', $style, '', none);
-
-      color: getButtonStyleProperty('color', $style, '', white);
-
-      border: getButtonStyleProperty('border', $style, '', 1px solid #e5e5e5);
-      border-radius: getButtonStyleProperty('border-radius', $style, '', 50%);
-      border-color: getButtonStyleProperty('border-color', $style, '', red);
-
-      font-weight: getButtonStyleProperty('font-weight', $style, '', inherit);
-
-      text-transform: getButtonStyleProperty(
-        'text-transform',
+      $state: 'default';
+      background: getButtonStyleProperty(
+        'background-color',
         $style,
-        '',
-        none
+        $state,
+        red
       );
+      color: getButtonStyleProperty('text-color', $style, $state, white);
+      border-color: getButtonStyleProperty('border-color', $style, $state, red);
 
-      .disabled-background,
-      .hover-background {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        border-radius: inherit;
-        transition: $all-transitions;
-        transition-duration: 150ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .disabled-background {
-        background: getButtonStyleProperty(
-          'background',
-          $style,
-          'disabled',
-          #e5e5e5
-        );
-      }
-
+      // Hover
       .hover-background {
         background: getButtonStyleProperty(
-          'background',
+          'background-color',
           $style,
           'hover',
           #e5e5e5
         );
       }
-
+      .hover,
       &:hover {
-        color: getButtonStyleProperty('color', $style, 'hover', white);
-        border: getButtonStyleProperty('border', $style, 'hover', inherit);
+        $state: 'hover';
+        color: getButtonStyleProperty('text-color', $style, $state, white);
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
+          $state,
+          red
+        );
         border-color: getButtonStyleProperty(
           'border-color',
           $style,
-          'hover',
+          $state,
           white
         );
-        .hover-background {
-          opacity: getButtonStyleProperty('opacity', $style, 'hover', white);
-        }
       }
 
-      &.disabled {
-        color: getButtonStyleProperty('color', $style, 'disabled', #e5e5e5);
-        border: getButtonStyleProperty('border', $style, 'disabled', inherit);
+      // Active
+      .active-background {
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
+          'active',
+          #e5e5e5
+        );
+      }
+      .active,
+      &:active {
+        $state: 'active';
+        color: getButtonStyleProperty('text-color', $style, $state, white);
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
+          $state,
+          red
+        );
         border-color: getButtonStyleProperty(
           'border-color',
           $style,
+          $state,
+          white
+        );
+      }
+
+      // Disabled
+      .disabled-background {
+        background: getButtonStyleProperty(
+          'background-color',
+          $style,
           'disabled',
+          #e5e5e5
+        );
+      }
+      &.disabled {
+        $state: 'disabled';
+        color: getButtonStyleProperty('text-color', $style, $state, #e5e5e5);
+        border-color: getButtonStyleProperty(
+          'border-color',
+          $style,
+          $state,
           #e5e5e5
         );
         background-color: getButtonStyleProperty(
-          'base-background',
+          'background-color',
           $style,
-          'disabled'
+          $state,
+          ''
         );
         cursor: not-allowed;
+      }
 
-        .disabled-background {
-          opacity: getButtonStyleProperty('opacity', $style, 'disabled', 1);
+      // Focus
+      .focus,
+      &:focus {
+        box-shadow: getButtonStyleProperty('box-shadow', $style, 'focus', '');
+
+        // If it's not a link button, enable the ripple effect
+        @if not(ends-with($style, '-link')) {
+          &:not(:active)::after {
+            animation: ripple 1s ease-out;
+          }
+        } @else {
+          // link buttons need a dedicated box-shadow defined for focus because of how Figma handles box-shadow - uses a different token
+          box-shadow: 0
+            0
+            0
+            4px
+            getButtonStyleProperty('border-color', $style, 'focus', '');
         }
       }
     }
+  }
 
-    &:focus.#{$style} {
-      outline: getButtonStyleProperty('outline', $style, 'focus', none);
-      box-shadow: getButtonStyleProperty('box-shadow', $style, 'focus', none);
+  $buttonSizes: 'xs' 'sm' 'md' 'lg';
+  @each $size in $buttonSizes {
+    &.#{$size} {
+      font-size: getButtonSizeProperty('font-size', $size, '', 1em);
+      font-family: getButtonSizeProperty(
+        'typography-font-family',
+        $size,
+        '',
+        inherit
+      );
+      font-weight: getButtonSizeProperty(
+        'typography-font-weight',
+        $size,
+        '',
+        inherit
+      );
+      letter-spacing: getButtonSizeProperty(
+        'typography-letter-spacing',
+        $size,
+        '',
+        0
+      );
+      text-transform: getButtonSizeProperty(
+        'typography-text-case',
+        $size,
+        '',
+        none
+      );
+      padding-top: getButtonSizeProperty('padding-top', $size, '', 0.625em);
+      padding-right: getButtonSizeProperty('padding-right', $size, '', 1.25em);
+      padding-bottom: getButtonSizeProperty(
+        'padding-bottom',
+        $size,
+        '',
+        0.625em
+      );
+      padding-left: getButtonSizeProperty('padding-left', $size, '', 1.25em);
+      border-radius: getButtonSizeProperty('border-radius', $size, '', 0);
+    }
 
-      &:not(:active)::after {
-        animation: ripple 1s ease-out;
+    // Icon margins
+    &.has-label.#{$size} {
+      .button-icon-container {
+        &.button-icon-container-left {
+          margin-right: getButtonSizeProperty('gap', $size, '', 1.25em);
+        }
+        &.button-icon-container-right {
+          margin-left: getButtonSizeProperty('gap', $size, '', 1.25em);
+        }
       }
     }
   }
 
-  $buttonSizes: 'xs' 'small' 'medium' 'large';
-  @each $size in $buttonSizes {
-    &.#{$size} {
-      font-size: getButtonSizeProperty('font-size', $size, '', 0.75rem);
-      padding: getButtonSizeProperty('padding', $size, '', 0.75rem);
-    }
-  }
   .container {
     display: flex;
 
@@ -259,7 +406,7 @@ export default Vue.extend({
       transition: $all-transitions;
       transition-duration: 150ms;
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      text-transform: var(--button-base-text-transform, none);
+      text-transform: inherit;
     }
   }
 }

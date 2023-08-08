@@ -1,11 +1,11 @@
 <template>
-  <label class="switch-label" :class="{ disabled }">
+  <label class="toggle-label" :class="{ disabled }">
     <input
       :id="id"
       :name="name"
       data-testid="toggle"
       type="checkbox"
-      class="switch-input"
+      class="toggle-input"
       :checked="value"
       :disabled="disabled"
       @change="$emit('input', $event.target.checked)"
@@ -44,24 +44,31 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.switch-label {
-  width: 51px;
-  height: 31px;
+.toggle-label {
+  --toggle-width: calc(
+    (var(--sd-toggle-md-handle-size) * 2) +
+      (var(--sd-toggle-default-background-padding) * 2)
+  );
+  --toggle-height: calc(
+    var(--sd-toggle-md-handle-size) +
+      (var(--sd-toggle-default-background-padding) * 2)
+  );
+  width: var(--toggle-width);
+  height: var(--toggle-height);
   position: relative;
   display: flex;
-  border-radius: 31px;
+  border-radius: var(--sd-toggle-md-background-width);
 
-  .switch-input {
+  .toggle-input {
     opacity: 0;
     width: 0;
     height: 0;
   }
 
   .slider {
-    border-radius: 31px;
-    border-color: rgba(0, 158, 222, 0.4);
-    width: 51px;
-    height: 31px;
+    border-radius: var(--toggle-height);
+    width: var(--toggle-width);
+    height: var(--toggle-height);
     position: absolute;
     top: 0;
     right: 0;
@@ -69,68 +76,58 @@ export default Vue.extend({
     bottom: 0;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    background: var(--toggle-active-background);
+    background: var(--sd-toggle-off-background-color);
 
+    // handle
     &:after {
-      // handle
-      border-radius: 27px;
+      border-radius: var(--sd-toggle-md-handle-size);
       position: absolute;
-      background-color: var(--toggle-handle-background);
+      background-color: var(--sd-toggle-handle-background-color);
       transition: all 0.3s ease-in-out;
       content: '';
-      height: 27px;
-      width: 27px;
-      left: 2px;
-      bottom: 2px;
-    }
-
-    &:before {
-      // background
-      border-radius: 27px;
-      position: absolute;
-      background-color: var(--toggle-base-background);
-      border: 1px solid transparent;
-      opacity: 1;
-      content: '';
-      width: 51px;
-      height: 31px;
-      box-shadow: none;
-      transition: all 0.3s ease-in-out;
+      height: var(--sd-toggle-md-handle-size);
+      width: var(--sd-toggle-md-handle-size);
+      left: var(--sd-toggle-default-background-padding);
+      bottom: var(--sd-toggle-default-background-padding);
+      top: var(--sd-toggle-default-background-padding);
     }
   }
 
   input {
     &:checked {
-      + .slider:after {
-        // handle move 20 px;
-        transform: translateX(20px);
-      }
-      + .slider:before {
-        // background fade out
-        opacity: 0;
+      + .slider {
+        background: var(--sd-toggle-on-background-color);
+
+        &:after {
+          left: calc(
+            100% - var(--sd-toggle-md-handle-size) -
+              var(--sd-toggle-default-background-padding)
+          );
+        }
       }
     }
   }
 
-  &:hover,
+  &:focus,
   &:focus-within {
     .slider {
-      box-shadow: var(--toggle-focus-box-shadow);
+      box-shadow: 0 0 0 4px var(--sd-theme-input-focus-box-shadow-color);
     }
   }
 
   &.disabled {
     cursor: not-allowed;
+
     .slider {
       box-shadow: none;
-      background: var(--toggle-disabled-active-background);
-      &:before {
-        cursor: not-allowed;
-        background-color: var(--toggle-disabled-background);
-      }
-      &:after {
-        cursor: not-allowed;
-        background-color: var(--toggle-disabled-handle-background);
+      background: var(--sd-theme-input-disabled-color);
+    }
+
+    input {
+      &:checked {
+        + .slider {
+          background: var(--sd-theme-input-disabled-color);
+        }
       }
     }
   }

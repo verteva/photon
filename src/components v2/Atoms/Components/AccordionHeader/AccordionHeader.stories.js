@@ -53,7 +53,7 @@ export default {
     disabled: false,
     interactive: false,
     openArrows: false,
-    openCloseIcons: ['ChevronDown', 'ChevronUp'],
+    openCloseIcons: ['pen-to-square', 'square-minus'],
     section: 'section',
   },
   parameters: {
@@ -71,7 +71,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { PAccordionHeader, PCard },
   props: Object.keys(argTypes),
-  template: '<PCard no-padding><PAccordionHeader v-bind="$props"/></PCard>',
+  template: '<PCard size="sm"><PAccordionHeader v-bind="$props"/></PCard>',
 });
 
 export const Default = Template.bind({});
@@ -111,4 +111,11 @@ Disabled.args = {
 export const CustomIcons = Template.bind({});
 CustomIcons.args = {
   section: 'Custom Icons',
+  openArrows: false,
+};
+
+export const EmptyHeader = Template.bind({});
+EmptyHeader.args = {
+  section: '',
+  openArrows: false,
 };

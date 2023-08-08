@@ -1,0 +1,48 @@
+/**
+ * Functions
+ */
+
+@use "sass:string";
+
+// Function to retrieve a css var based on props, for use in loops with lists
+@function getThemeProperty($component, $property, $style, $state, $fallback) {
+  $state-modifier: if(string.length($state) > 0, '#{$state}-', '');
+  $style-modifier: if(string.length($style) > 0, '#{$style}-', '');
+  $style-var: --sd-#{$component}-#{$style-modifier}#{$state-modifier}#{$property};
+  @return var($style-var, $fallback)
+}
+
+
+// Determine if string ends with another substring
+@function ends-with($string, $find) {
+  @return str-length($string) >= str-length($find) and str-slice($string, (str-length($string) - str-length($find) + 1)) == $find;
+}
+
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+
+/**
+ * in_list — Checks if a value exists in a list
+ *
+ * @param  $value the needle
+ * @param  $list  the haystack
+ * @return boolen TRUE if $value is found in the $list, FALSE otherwise.
+ */
+@function in_list($value, $list) {
+    @return (false != index($list, $value));
+}

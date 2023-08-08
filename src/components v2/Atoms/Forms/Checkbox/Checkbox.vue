@@ -1,5 +1,5 @@
 <template>
-  <div class="ph-checkbox-item">
+  <div class="ph-checkbox-item" :class="size">
     <input
       :id="id"
       :checked="value"
@@ -22,7 +22,7 @@
           class="ph-checkbox-icon"
         />
       </div>
-      <span>
+      <span v-if="label" class="ph-checkbox-label-text">
         {{ label }}
       </span>
       <slot />
@@ -93,17 +93,20 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .ph-checkbox-input {
-  display: none;
+  position: absolute;
+  opacity: 0;
   pointer-events: none;
+  width: 0;
+  height: 0;
 
   &:focus + label {
-    box-shadow: 0 0 0 4px var(--checkbox-focus-border-color);
+    box-shadow: 0 0 0 4px var(--sd-checkbox-focus-border-color);
   }
 }
 
 .ph-checkbox-icon-container {
-  width: var(--checkbox-icon-container-size);
-  height: var(--checkbox-icon-container-size);
+  width: var(--sd-checkbox-icon-container-size);
+  height: var(--sd-checkbox-icon-container-size);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -112,82 +115,92 @@ export default Vue.extend({
 }
 
 .ph-checkbox-icon {
-  color: var(--checkbox-default-icon-color);
-  font-size: var(--checkbox-icon-size);
-  width: var(--checkbox-icon-size);
-  height: var(--checkbox-icon-size);
+  color: var(--sd-checkbox-default-icon-color);
+  font-size: var(--sd-checkbox-icon-size);
+  width: var(--sd-checkbox-icon-size);
+  height: var(--sd-checkbox-icon-size);
   transition: all 0.3s;
 }
 
+// Focused
+input.ph-checkbox-input:focus + label,
+.ph-checkbox-label.focused {
+  box-shadow: 0 0 0 4px var(--sd-checkbox-focus-border-color);
+}
+input.ph-checkbox-input:focus:not(:focus-visible) + label {
+  box-shadow: none;
+}
+
+// Checked
+input.ph-checkbox-input:checked + label,
+.ph-checkbox-label.checked {
+  .ph-checkbox-icon {
+    color: var(--sd-checkbox-checked-icon-color);
+  }
+}
+
 .ph-checkbox-label {
-  --checkbox-icon-size: 20px;
-  --checkbox-icon-container-size: 24px;
+  --sd-checkbox-icon-size: 20px;
+  --sd-checkbox-icon-container-size: 24px;
   border: 1px dashed transparent;
   cursor: pointer;
   display: flex;
   position: relative;
   transition-property: color, border-color;
   transition-duration: 0.3s;
-  color: var(--checkbox-default-label-color);
+  color: var(--sd-checkbox-default-label-color);
+  user-select: none;
 
-  &.checked {
-    .ph-checkbox-icon {
-      color: var(--checkbox-checked-icon-color);
-    }
-  }
-
+  // Disabled
   &.disabled {
     cursor: not-allowed;
-    color: var(--checkbox-disabled-label-color);
+    color: var(--sd-checkbox-disabled-label-color);
     .ph-checkbox-icon {
-      color: var(--checkbox-disabled-icon-color);
+      color: var(--sd-checkbox-disabled-icon-color);
     }
   }
 
+  // Disabled checked
   &.disabled.checked {
     .ph-checkbox-icon {
-      color: var(--checkbox-disabled-icon-color);
+      color: var(--sd-checkbox-disabled-icon-color);
     }
-  }
-
-  &.focused {
-    box-shadow: 0 0 0 4px var(--checkbox-focus-border-color);
   }
 
   &.sm {
-    --checkbox-icon-size: calc(
-      var(--checkbox-sm-label-typography-fontSize, 14px) * 1.25px
+    --sd-checkbox-icon-size: calc(
+      var(--sd-checkbox-sm-label-typography-font-size, 14px) * 1.25
     );
-    --checkbox-icon-container-size: calc(
-      var(--checkbox-sm-label-typography-fontSize, 14px) * 1.5px
+    --sd-checkbox-icon-container-size: calc(
+      var(--sd-checkbox-sm-label-typography-font-size, 14px) * 1.5
     );
-    padding-left: calc(var(--checkbox-icon-container-size) + 8px);
-    font-family: var(--checkbox-sm-label-typography-fontFamily);
-    font-weight: var(--checkbox-sm-label-typography-fontWeight);
-    font-size: calc(var(--checkbox-sm-label-typography-fontSize, 14px) * 1px);
-    line-height: var(--checkbox-sm-label-typography-lineHeight);
-    letter-spacing: var(--checkbox-sm-label-typography-letterSpacing);
-    text-decoration: var(--checkbox-sm-label-typography-textDecoration);
-    text-transform: var(--checkbox-sm-label-typography-textCase);
-    border-radius: calc(var(--checkbox-sm-border-radius) * 1px);
+    padding-left: calc(var(--sd-checkbox-icon-container-size) + 8px);
+    font-family: var(--sd-checkbox-sm-label-typography-font-family);
+    font-weight: var(--sd-checkbox-sm-label-typography-font-weight);
+    font-size: var(--sd-checkbox-sm-label-typography-font-size, 14px);
+    line-height: var(--sd-checkbox-sm-label-typography-line-height);
+    letter-spacing: var(--sd-checkbox-sm-label-typography-letter-spacing);
+    text-decoration: var(--sd-checkbox-sm-label-typography-text-decoration);
+    text-transform: var(--sd-checkbox-sm-label-typography-text-case);
+    border-radius: var(--sd-checkbox-sm-border-radius);
   }
 
   &.md {
-    --checkbox-icon-size: calc(
-      var(--checkbox-md-label-typography-fontSize, 16px) * 1.25px
+    --sd-checkbox-icon-size: calc(
+      var(--sd-checkbox-md-label-typography-font-size, 16px) * 1.25
     );
-    --checkbox-icon-container-size: calc(
-      var(--checkbox-md-label-typography-fontSize, 16px) * 1.5px
+    --sd-checkbox-icon-container-size: calc(
+      var(--sd-checkbox-md-label-typography-font-size, 16px) * 1.5
     );
-    padding-left: calc(var(--checkbox-icon-container-size) + 8px);
-    font-family: var(--checkbox-md-label-typography-fontFamily);
-    font-weight: var(--checkbox-md-label-typography-fontWeight);
-    font-size: calc(var(--checkbox-md-label-typography-fontSize, 16px) * 1px);
-    line-height: var(--checkbox-md-label-typography-lineHeight);
-    letter-spacing: var(--checkbox-md-label-typography-letterSpacing);
-    text-decoration: var(--checkbox-md-label-typography-textDecoration);
-    text-transform: var(--checkbox-md-label-typography-textCase);
-    border-radius: calc(var(--checkbox-md-border-radius) * 1px);
+    padding-left: calc(var(--sd-checkbox-icon-container-size) + 8px);
+    font-family: var(--sd-checkbox-md-label-typography-font-family);
+    font-weight: var(--sd-checkbox-md-label-typography-font-weight);
+    font-size: var(--sd-checkbox-md-label-typography-font-size, 16px);
+    line-height: var(--sd-checkbox-md-label-typography-line-height);
+    letter-spacing: var(--sd-checkbox-md-label-typography-letter-spacing);
+    text-decoration: var(--sd-checkbox-md-label-typography-text-decoration);
+    text-transform: var(--sd-checkbox-md-label-typography-text-case);
+    border-radius: var(--sd-checkbox-md-border-radius);
   }
 }
 </style>

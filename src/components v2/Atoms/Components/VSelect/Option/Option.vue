@@ -1,13 +1,17 @@
 <template>
   <div class="ph-autocomplete__option">
-    <p-icon
+    <font-awesome-icon
       v-if="allowOptionIcon && validateIcon"
-      class="ph-option-icon ph-mr-4"
-      :name="validateIcon"
-      type="xs"
+      :icon="[
+        option['iconFamily'] || iconFamily,
+        option['icon'] || validateIcon,
+      ]"
+      class="ph-option-icon"
+      :class="['fa-fw', option['iconClasses'] || iconClasses]"
+      :style="option['iconColor'] && { color: option['iconColor'] }"
     />
     <label
-      class="ph-autocomplete-option"
+      class="ph-autocomplete-option-text"
       v-html="
         option[customLabelVar] ? option[customLabelVar] : option[labelVar]
       "
@@ -17,7 +21,6 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '@/components/Icon';
 
 export const props = {
   option: {
@@ -44,37 +47,54 @@ export const props = {
     type: String as PropType<string>,
     default: '',
   },
+
+  iconFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  iconClasses: {
+    type: String as PropType<string>,
+    default: '',
+  },
 };
 
 export default Vue.extend({
   name: 'Option',
-  components: {
-    PIcon,
-  },
+  components: {},
   props,
 });
 </script>
 
 <style lang="scss" scoped>
 .vs__dropdown-option--highlight {
-  background-color: var(--vselect-option-base-highlight-background-color);
+  background-color: var(--sd-dropdown-item-hover-background-color);
 }
 .ph-autocomplete__option {
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-bottom: var(--sd-input-text-md-padding-bottom);
+  padding-left: var(--sd-input-text-md-padding-left);
+  padding-right: var(--sd-input-text-md-padding-right);
+  padding-top: var(--sd-input-text-md-padding-top);
   display: flex;
   white-space: normal;
   display: flex;
+  cursor: pointer;
+
   .af_hl {
     display: inline-block;
     padding: 1px;
     margin: 0;
     border-radius: 8px;
+    /*
     background: var(--vselect-option-base-background-color);
     color: var(--vselect-option-base-text-color);
+    */
   }
 }
+.ph-autocomplete-option-text {
+  cursor: pointer;
+}
 .ph-option-icon {
-  margin: auto 8px auto 0;
+  margin: auto var(--sd-input-text-md-padding-left) auto 0;
 }
 </style>

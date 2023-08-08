@@ -1,0 +1,89 @@
+/**
+ * Typography
+ */
+
+
+// Bold
+b, strong {
+  font-weight: var(--sd-font-weight-body-bold, 700);
+}
+
+
+// Paragraph
+p {
+  font-weight: var(--sd-font-weight-body-regular, 400);
+  margin-bottom: calc(var(--sd-paragraph-margin-bottom-em, 1) * 1em);
+}
+
+// Typography utility classes
+.lead,
+.text-lg {
+  @include token-typography("lead", "regular");
+}
+.text-sm {
+  @include token-typography("sm", "regular");
+}
+.text-xs {
+  @include token-typography("xs", "regular");
+}
+
+
+// Headings
+@for $i from 1 through 6 {
+  h#{$i},
+  .h#{$i} {
+    color: var(--sd-heading-h#{$i}-text-color);
+    font-family: var(--sd-heading-h#{$i}-font-family, inherit);
+    font-weight: var(--sd-heading-h#{$i}-font-weight, bold);
+    font-size: var(--sd-heading-h#{$i}-mobile-font-size);
+    margin-top: var(--sd-heading-h#{$i}-mobile-margin-top, 1em);
+    margin-bottom: var(--sd-heading-h#{$i}-mobile-margin-bottom, 0.3em);
+    line-height: var(--sd-heading-h#{$i}-mobile-typography-line-height, 1.3);
+
+    // Tablet
+    @media screen and (min-width: 768px) {
+      font-size: var(--sd-heading-h#{$i}-tablet-font-size);
+      margin-top: var(--sd-heading-h#{$i}-tablet-margin-top, 1em);
+      margin-bottom: var(--sd-heading-h#{$i}-tablet-margin-bottom, 0.3em);
+      line-height: var(--sd-heading-h#{$i}-tablet-typography-line-height, 1.3);
+    }
+
+    // Desktop
+    @media screen and (min-width: 1024px) {
+      font-size: var(--sd-heading-h#{$i}-desktop-font-size);
+      margin-top: var(--sd-heading-h#{$i}-desktop-margin-top, 1em);
+      margin-bottom: var(--sd-heading-h#{$i}-desktop-margin-bottom, 0.3em);
+      line-height: var(--sd-heading-h#{$i}-desktop-typography-line-height, 1.3);
+    }
+  }
+}
+
+
+// Display Headings
+@for $i from 1 through 2 {
+  .display#{$i} {
+    color: var(--sd-heading-display#{$i}-text-color);
+    font-family: var(--sd-heading-display#{$i}-font-family, inherit);
+    font-weight: var(--sd-heading-display#{$i}-font-weight, bold);
+    font-size: var(--sd-heading-display#{$i}-mobile-font-size);
+    margin-top: var(--sd-heading-display#{$i}-mobile-margin-top, 1em);
+    margin-bottom: var(--sd-heading-display#{$i}-mobile-margin-bottom, 0.3em);
+    line-height: var(--sd-heading-display#{$i}-mobile-typography-line-height, 1.3);
+
+    // Tablet
+    @media screen and (min-width: 768px) {
+      font-size: var(--sd-heading-display#{$i}-tablet-font-size);
+      margin-top: var(--sd-heading-display#{$i}-tablet-margin-top, 1em);
+      margin-bottom: var(--sd-heading-display#{$i}-tablet-margin-bottom, 0.3em);
+      line-height: var(--sd-heading-display#{$i}-tablet-typography-line-height, 1.3);
+    }
+
+    // Desktop
+    @media screen and (min-width: 1024px) {
+      font-size: var(--sd-heading-display#{$i}-desktop-font-size);
+      margin-top: var(--sd-heading-display#{$i}-desktop-margin-top, 1em);
+      margin-bottom: var(--sd-heading-display#{$i}-desktop-margin-bottom, 0.3em);
+      line-height: var(--sd-heading-display#{$i}-desktop-typography-line-height, 1.3);
+    }
+  }
+}

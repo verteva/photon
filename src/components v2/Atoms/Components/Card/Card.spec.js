@@ -26,6 +26,7 @@ describe('components v2/Card', () => {
   });
 
   it('check props: light displaying class', async () => {
+    await wrapper.setProps({ light: false });
     expect(cardFindClass.classes()).not.toContain('light');
     await wrapper.setProps({ light: true });
     expect(cardFindClass.classes()).toContain('light');

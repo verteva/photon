@@ -4,6 +4,13 @@ export default {
   title: 'V2/Molecules/Components/Accordion',
   component: PAccordion,
   argTypes: {
+    cardSize: {
+      control: {
+        type: 'select',
+        options: ['none', 'xs', 'sm', 'md'],
+      },
+      description: 'Size of the wrapper card',
+    },
     stayOpen: {
       control: {
         type: 'boolean',
@@ -15,6 +22,16 @@ export default {
       },
     },
     border: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    noPadding: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    disableCard: {
       control: {
         type: 'boolean',
       },
@@ -42,9 +59,7 @@ const SimpleTemplate = (args, { argTypes }) => ({
       <button @click="openClose" class="ph-my-10">Toggle open ({{forceOpen}})</button>
 
       <PAccordion v-bind="$props" v-model="forceOpen">
-        <template v-slot:heading>
-          Heading
-        </template>
+        <template v-slot:heading></template>
         Some content
         <ul>
           <li v-for="thing in things" :key="thing">{{thing}}</li>
@@ -75,21 +90,22 @@ export const Simple = SimpleTemplate.bind({});
 Simple.args = {
   noHeadingRule: true,
   openArrows: false,
-  openCloseIcons: ['Edit', 'MinusBordered'],
+  openCloseIcons: ['pen-to-square', 'square-minus'],
   shadow: true,
   responsivePadding: true,
-  noHorizontalPadding: false,
+  section: 'Header Text',
 };
 
 const NestedTemplate = (args, { argTypes }) => ({
   components: { PAccordion },
   props: Object.keys(argTypes),
+  section: 'Header Text',
   template: `
   <PAccordion v-bind="$props" section="Level 1" v-model="test" stay-open>
-    <div class='ph-my-10 ph-py-5 ph-px-10'>
+    <div class=''>
       Some static HTML content...
     </div>
-    <PAccordion class="ph-mb-1" section="Level 2a" open light :border="false" shadow>
+    <PAccordion class="ph-mb-1" section="Level 2a" open light bordered shadow>
       Lorem ipsum...
     </PAccordion>
     <PAccordion section="Level 2b" light :border="false" shadow>
@@ -108,7 +124,6 @@ export const Nested = NestedTemplate.bind({});
 Nested.args = {
   mobileNoPadding: true,
   border: false,
-  openCloseIcons: ['Plus', 'MinusBordered'],
 };
 
 const SingleFocusTemplate = (args, { argTypes }) => ({

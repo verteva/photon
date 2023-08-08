@@ -11,7 +11,6 @@ describe('Molecules/InputNumber.vue', () => {
     });
 
     const container = getByText(label);
-
     expect(container).toBeTruthy();
   });
 
@@ -26,7 +25,6 @@ describe('Molecules/InputNumber.vue', () => {
     });
 
     const container = getByText(inlineText);
-
     expect(container).toBeTruthy();
   });
 
@@ -41,7 +39,6 @@ describe('Molecules/InputNumber.vue', () => {
     });
 
     const container = getByText('*');
-
     expect(container).toBeTruthy();
   });
 
@@ -54,7 +51,6 @@ describe('Molecules/InputNumber.vue', () => {
     });
 
     const container = getByText(extraMessage);
-
     expect(container).toBeTruthy();
   });
 
@@ -67,7 +63,6 @@ describe('Molecules/InputNumber.vue', () => {
     });
 
     const container = getByText(error);
-
     expect(container).toBeTruthy();
   });
 
@@ -84,25 +79,25 @@ describe('Molecules/InputNumber.vue', () => {
   });
 
   it('emits: change:subtract', async () => {
-    const { getByText, emitted } = render(InputNumber, {
+    const { getByTestId, emitted } = render(InputNumber, {
       props: {
         value: 2,
       },
     });
 
-    const inputElement = await getByText('-');
+    const inputElement = await getByTestId('button-decrease');
     await fireEvent.click(inputElement);
     expect(emitted()['change:subtract']).toEqual([[]]);
   });
 
   it('emits: change:add', async () => {
-    const { getByText, emitted } = render(InputNumber, {
+    const { getByTestId, emitted } = render(InputNumber, {
       props: {
         value: 0,
       },
     });
 
-    const inputElement = await getByText('+');
+    const inputElement = await getByTestId('button-increase');
     await fireEvent.click(inputElement);
     expect(emitted()['change:add']).toEqual([[]]);
   });

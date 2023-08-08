@@ -1,10 +1,16 @@
 import P2Card from './Card.vue';
+import { CardSizes } from './types';
 
 export default {
   title: 'V2/Atoms/Components/Card',
   component: P2Card,
   argTypes: {
     // Configurable component options in SB UI...
+    size: {
+      control: 'select',
+      options: Object.values(CardSizes),
+      defaultValue: CardSizes.MD,
+    },
   },
 };
 

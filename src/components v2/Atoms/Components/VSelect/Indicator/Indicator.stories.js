@@ -16,7 +16,7 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = {
   hideOpenIndicator: false,
-  openIndicatorIcon: 'Apartment',
+  openIndicatorIcon: 'chevron-down',
   attributes: {
     ref: 'openIndicator',
     role: 'presentation',

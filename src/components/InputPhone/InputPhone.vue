@@ -153,7 +153,8 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="postcss">
+<style lang="postcss" scoped>
+/*
 @import '~vue-phone-number-input/dist/vue-phone-number-input.css';
 
 .ph-input-error-content input,
@@ -229,4 +230,5 @@ input::-webkit-inner-spin-button {
 .vue-phone-number-input .country-selector.is-disabled .country-selector__input {
   background: white !important;
 }
+*/
 </style>

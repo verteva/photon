@@ -1,7 +1,15 @@
 <template>
-  <div class="ph-autocomplete-search">
+  <div
+    class="ph-autocomplete-search"
+    :class="hasPrefixIcon && 'has-prefix-icon'"
+  >
     <span v-if="prefixIcon" class="ph-icon-wrapper ph-autocomplete-prefix-icon">
-      <p-icon ref="prefixIcon" :name="prefixIcon" type="md" />
+      <font-awesome-icon
+        ref="prefixIcon"
+        :icon="[iconFamily, prefixIcon]"
+        class="ph-input-search-prefix-icon"
+        :class="['fa-fw', iconClasses]"
+      />
     </span>
     <input
       v-show="hideInputOnSelected"
@@ -9,8 +17,6 @@
       class="vs__search"
       :disabled="disabled"
       :class="{
-        'ph-autocomplete-select-indent': reducePrefixSpacing,
-        'ph-autocomplete-search-indent': prefixIcon,
         'ph-autocomplete-disabled': disabled,
       }"
       v-bind="inputSearchAttributes"
@@ -23,7 +29,6 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PIcon from '@/components/Icon';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
 const { disabled } = formProps;
@@ -31,6 +36,16 @@ const { disabled } = formProps;
 export const props = {
   disabled,
   prefixIcon: {
+    type: String as PropType<string>,
+    default: '',
+  },
+
+  iconFamily: {
+    type: String as PropType<string>,
+    default: 'fal',
+  },
+
+  iconClasses: {
     type: String as PropType<string>,
     default: '',
   },
@@ -54,18 +69,18 @@ export const props = {
     type: Object as PropType<Record<string, any>>,
     default: () => ({}),
   },
-  reducePrefixSpacing: {
-    type: Boolean as PropType<boolean>,
-    default: false,
-  },
 };
 
 export default Vue.extend({
   name: 'InputSearch',
-  components: {
-    PIcon,
-  },
+  components: {},
   props,
+
+  computed: {
+    hasPrefixIcon(): boolean {
+      return this.prefixIcon;
+    },
+  },
 
   methods: {
     onFocus() {
@@ -83,46 +98,36 @@ export default Vue.extend({
 .ph-autocomplete-search {
   display: flex;
   flex: 1 1 0%;
-  height: 40px;
+
   .ph-icon-wrapper {
-    color: var(--vselect-inputSearch-base-icon-color);
+    color: var(--sd-input-text-default-icon-color);
   }
+
   .ph-autocomplete-prefix-icon {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: var(--sd-input-text-md-padding-left);
+    margin-right: 0;
     margin-top: auto;
     margin-bottom: auto;
-
-    .vs__search {
-      &:focus {
-        padding-left: 20px;
-      }
-    }
   }
 
   .vs__search {
-    height: var(--autocomplete-input-base-height);
     flex: 1 1 0%;
     opacity: 1 !important;
-    line-height: var(--autocomplete-input-base-height);
-    padding-top: 2px;
-    padding-bottom: 2px;
     margin: 0;
     border-width: 0px;
-    text-indent: 12px;
-    &:focus {
-      padding-top: 2px;
-      padding-bottom: 2px;
-      border-width: 0px;
-      padding-left: 20px;
-    }
+    padding-bottom: var(--sd-input-text-md-padding-bottom);
+    padding-left: var(--sd-input-text-md-padding-left);
+    padding-right: var(--sd-input-text-md-padding-right);
+    padding-top: var(--sd-input-text-md-padding-top);
+    font-family: var(--sd-input-text-md-typography-font-family);
+    font-size: var(--sd-input-text-md-typography-font-size);
+    font-weight: var(--sd-input-text-md-typography-font-weight);
+    letter-spacing: var(--sd-input-text-md-typography-letter-spacing);
+    line-height: var(--sd-input-text-md-typography-line-height);
+    text-transform: var(--sd-input-text-md-typography-text-case);
+    text-decoration: var(--sd-input-text-md-typography-text-decoration);
   }
-  .ph-autocomplete-search-indent {
-    text-indent: 8px;
-  }
-  .ph-autocomplete-select-indent {
-    text-indent: 0px;
-  }
+
   &.ph-autocomplete-disabled {
     cursor: not-allowed;
   }

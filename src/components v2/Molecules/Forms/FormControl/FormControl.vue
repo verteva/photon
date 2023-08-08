@@ -8,6 +8,7 @@
         isRequired,
         size,
       }"
+      ref="label"
     />
     <P2InputMessage
       v-if="extraMessage"
@@ -16,6 +17,7 @@
         icon: messageIcon,
         size,
       }"
+      ref="inputMessage"
     />
     <div class="photon-form-control__input">
       <slot :size="size" />
@@ -26,6 +28,7 @@
         error,
         size,
       }"
+      ref="errorMessage"
     />
   </div>
 </template>

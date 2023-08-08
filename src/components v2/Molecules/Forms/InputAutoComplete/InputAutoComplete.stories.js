@@ -1,20 +1,24 @@
-import AutoComplete from './InputAutoComplete.vue';
+import InputAutoComplete from './InputAutoComplete.vue';
 
 export default {
   title: 'v2/Molecules/Forms/InputAutoComplete',
-  component: AutoComplete,
+  component: InputAutoComplete,
   argTypes: {},
+  args: {
+    reduceValue: false,
+  },
 };
 
 const Template = (args, { argTypes }) => ({
-  components: { AutoComplete },
+  components: { InputAutoComplete },
   props: Object.keys(argTypes),
   template: `
     <div>
-      <AutoComplete v-bind="$props" @selectedObj="selectedOption">
-        <template #list-footer> I am a Footer </template> 
-      </AutoComplete>
-      <div>selected option: {{selected}}</div> 
+      <InputAutoComplete v-model="selected" v-bind="$props" @selectedObj="selectedOption">
+        <template #list-footer>I am a Footer</template>
+      </InputAutoComplete>
+      <br />
+      <div>selected option: {{ selected }}</div>
     </div>
   `,
   data() {
@@ -32,18 +36,42 @@ const Template = (args, { argTypes }) => ({
 export const Default = Template.bind({});
 Default.args = {
   label: 'This is a autocomplete component with label',
-  prefixIcon: 'LocationSimple',
   placeHolder: 'Search for your property',
   inlineText: 'Mr inline text',
   isRequired: true,
+  prefixIcon: 'house',
   extraMessage: 'This is an extra message',
-  iconLeft: '',
-  size: 'md',
   messageIcon: '',
   error: '',
-  simple: true,
-  openIndicatorIcon: 'MenuDown',
-  optionItems: ['item1', 'item2'],
+  optionLabelVar: 'label',
+  optionCustomLabelVar: 'label',
+  selectedOptionLabelVar: 'label',
+  openIndicatorIcon: 'chevron-down',
+  reduceValue: false,
+  initInput: '001',
+  selectedBy: 'id',
+  optionItems: [
+    {
+      id: '001',
+      label: 'Apple',
+    },
+    {
+      id: '002',
+      label: 'Orange',
+    },
+    {
+      id: '003',
+      label: 'Eggplant',
+    },
+    {
+      id: '004',
+      label: 'Banana',
+    },
+    {
+      id: '005',
+      label: 'Watermelon',
+    },
+  ],
 };
 
 export const AutocompleteAddress = Template.bind({});

@@ -1,9 +1,11 @@
 <template>
   <div class="photon-label" :class="[size]">
-    <span class="label">
-      {{ label }}<span v-if="isRequired" class="required-asterisks">*</span>
+    <span v-if="hasLabelContent" class="label">
+      {{ label }}<slot /><span v-if="isRequired" class="required-asterisks"
+        >*</span
+      >
     </span>
-    <span class="inline-text">{{ inlineText }}</span>
+    <span v-if="inlineText" class="inline-text">{{ inlineText }}</span>
   </div>
 </template>
 
@@ -32,6 +34,11 @@ export const props = {
 export default Vue.extend({
   name: 'P2Label',
   props,
+  computed: {
+    hasLabelContent(): boolean {
+      return this.label || this.$slots.default;
+    },
+  },
 });
 </script>
 
@@ -42,121 +49,96 @@ export default Vue.extend({
   margin-bottom: 10px;
 
   .label {
-    font-family: var(--form-control-items-label-default-text-font-family);
-    font-weight: var(--form-control-items-label-default-text-font-weight);
-    color: var(--form-control-items-label-default-text-color);
+    display: flex;
+    align-items: flex-start;
+    font-family: var(--sd-form-control-items-label-default-text-font-family);
+    font-weight: var(--sd-form-control-items-label-default-text-font-weight);
+    color: var(--sd-form-control-items-label-default-text-color);
   }
 
   .required-asterisks {
     margin-left: 2px;
-    font-family: var(--form-control-items-label-default-text-font-family);
-    font-weight: var(--form-control-items-label-default-text-font-weight);
-    color: var(--form-control-items-label-default-icon-color);
+    color: var(--sd-form-control-items-label-default-text-color);
   }
 
   .inline-text {
     margin-left: 8px;
     font-family: var(
-      --form-control-items-label-default-inline-message-font-family
+      --sd-form-control-items-label-default-inline-message-font-family
     );
     font-weight: var(
-      --form-control-items-label-default-inline-message-font-weight
+      --sd-form-control-items-label-default-inline-message-font-weight
     );
-    color: var(--form-control-items-label-default-inline-message-color);
-  }
-
-  &.sm {
-    .label,
-    .required-asterisks {
-      font-size: calc(
-        var(--form-control-items-label-sm-text-typography-fontSize, 1rem) * 1px
-      );
-      line-height: var(
-        --form-control-items-label-sm-text-typography-lineHeight
-      );
-      letter-spacing: var(
-        --form-control-items-label-sm-text-typography-letterSpacing
-      );
-      padding: var(
-        --form-control-items-label-sm-text-typography-paragraphSpacing
-      );
-      text-decoration: var(
-        --form-control-items-label-sm-text-typography-textDecoration
-      );
-      text-transform: var(
-        --form-control-items-label-sm-text-typography-textCase
-      );
-    }
-
-    .inline-text {
-      font-size: calc(
-        var(
-            --form-control-items-label-sm-inline-message-typography-fontSize,
-            1rem
-          ) * 1px
-      );
-      line-height: var(
-        --form-control-items-label-sm-inline-message-typography-lineHeight
-      );
-      letter-spacing: var(
-        --form-control-items-label-sm-inline-message-typography-letterSpacing
-      );
-      padding: var(
-        --form-control-items-label-sm-inline-message-typography-paragraphSpacing
-      );
-      text-decoration: var(
-        --form-control-items-label-sm-inline-message-typography-textDecoration
-      );
-      text-transform: var(
-        --form-control-items-label-sm-inline-message-typography-textCase
-      );
-    }
+    color: var(--sd-form-control-items-label-default-inline-message-color);
   }
 
   &.md {
-    .label,
-    .required-asterisks {
-      font-size: calc(
-        var(--form-control-items-label-md-text-typography-fontSize, 1rem) * 1px
+    .label {
+      font-size: var(
+        --sd-form-control-items-label-md-text-typography-font-size
+      );
+      font-weight: var(
+        --sd-form-control-items-label-md-text-typography-font-weight
+      );
+      font-family: var(
+        --sd-form-control-items-label-md-text-typography-font-family
       );
       line-height: var(
-        --form-control-items-label-md-text-typography-lineHeight
-      );
-      letter-spacing: var(
-        --form-control-items-label-md-text-typography-letterSpacing
-      );
-      padding: var(
-        --form-control-items-label-md-text-typography-paragraphSpacing
-      );
-      text-decoration: var(
-        --form-control-items-label-md-text-typography-textDecoration
+        --sd-form-control-items-label-md-text-typography-line-height,
+        1.5
       );
       text-transform: var(
-        --form-control-items-label-md-text-typography-textCase
+        --sd-form-control-items-label-md-text-typography-text-case
+      );
+      text-decoration: var(
+        --sd-form-control-items-label-md-text-typography-text-decoration
+      );
+    }
+
+    .required-asterisks {
+      font-size: var(
+        --sd-form-control-items-label-md-required-typography-font-size
+      );
+      font-weight: var(
+        --sd-form-control-items-label-md-required-typography-font-weight
+      );
+      font-family: var(
+        --sd-form-control-items-label-md-required-typography-font-family
+      );
+      line-height: var(
+        --sd-form-control-items-label-md-required-typography-line-height,
+        1.5
+      );
+      text-transform: var(
+        --sd-form-control-items-label-md-required-typography-text-case
+      );
+      text-decoration: var(
+        --sd-form-control-items-label-md-required-typography-text-decoration
+      );
+      padding: var(
+        --sd-form-control-items-label-md-required-typography-paragraph-spacing
       );
     }
 
     .inline-text {
-      font-size: calc(
-        var(
-            --form-control-items-label-md-inline-message-typography-fontSize,
-            1rem
-          ) * 1px
+      font-size: var(
+        --sd-form-control-items-label-md-inline-message-typography-font-size,
+        1rem
       );
       line-height: var(
-        --form-control-items-label-md-inline-message-typography-lineHeight
+        --sd-form-control-items-label-md-inline-message-typography-line-height
       );
       letter-spacing: var(
-        --form-control-items-label-md-inline-message-typography-letterSpacing
+        --sd-form-control-items-label-md-inline-message-typography-letter-spacing
       );
       padding: var(
-        --form-control-items-label-md-inline-message-typography-paragraphSpacing
+        --sd-form-control-items-label-md-inline-message-typography-paragraph-spacing
       );
       text-decoration: var(
-        --form-control-items-label-md-inline-message-typography-textDecoration
+        --sd-form-control-items-label-md-inline-message-typography-text-decoration
       );
       text-transform: var(
-        --form-control-items-label-md-inline-message-typography-textCase
+        --sd-form-control-items-label-md-inline-message-typography-text-case
       );
     }
   }

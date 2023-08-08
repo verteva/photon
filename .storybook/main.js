@@ -6,7 +6,14 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-postcss',
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+      },
+    },
     'storybook-addon-designs',
   ],
   features: {
@@ -17,7 +24,6 @@ module.exports = {
       ...config.resolve.alias,
       '@': path.resolve(__dirname, '../src'),
     };
-
     return config;
   },
 };

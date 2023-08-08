@@ -1,5 +1,7 @@
 <template>
   <div
+    v-if="hasHeaderContent"
+    ref="accordionHeader"
     :class="{
       disabled,
       'full-width': fullWidth,
@@ -13,25 +15,24 @@
     @focus="$emit('focus', $event)"
     @blur="$emit('blur', $event)"
   >
-    {{ section }}
-    <slot />
-    <p-icon
+    <div class="ph-accordion-header-content" data-observe="true">
+      {{ section }}
+      <slot />
+    </div>
+    <font-awesome-icon
       v-if="complete"
-      name="Checkmark"
-      type="xs"
-      color=""
+      :icon="['fal', 'check']"
+      class="ph-accordion-checkmark fa-fw"
       data-testid="complete-checkmark"
-      class="ph-accordion-checkmark"
     />
     <div
       v-if="openArrows"
-      class="ph-accordion-header__icon"
+      class="ph-accordion-header-icon"
       data-testid="openArrow"
     >
-      <p-icon
-        name="ChevronDown"
-        type="xs"
-        class="ph-accordion-header-chevron"
+      <font-awesome-icon
+        :icon="['fal', !expanded ? 'chevron-down' : 'chevron-up']"
+        class="ph-accordion-header-chevron fa-fw"
         :class="{
           expanded,
         }"
@@ -39,11 +40,11 @@
     </div>
     <div
       v-if="!openArrows && openCloseIcons.length === 2"
-      class="ph-accordion-header__icon"
+      class="ph-accordion-header-icon"
     >
-      <p-icon
-        :name="!expanded ? openCloseIcons[0] : openCloseIcons[1]"
-        type="sm"
+      <font-awesome-icon
+        :icon="['fal', !expanded ? openCloseIcons[0] : openCloseIcons[1]]"
+        class="fa-fw"
       />
     </div>
   </div>
@@ -86,35 +87,32 @@ export const props = {
     default: false,
   },
 };
-export default {};
+export default {
+  computed: {
+    hasHeaderContent() {
+      return this.section || this.$slots.default;
+    },
+  },
+};
 </script>
 
 <script lang="ts" setup>
-import PIcon from '@/components/Icon';
-
 defineProps(props);
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import './src/assets/scss/main.scss';
+
 .ph-accordion-header {
   display: flex;
-  align-items: flex-start;
-  color: var(--accordion-header-color);
-  font-family: var(--accordion-header-font-family) !important;
-  font-weight: var(--accordion-header-font-weight);
-  font-size: var(--accordion-header-font-size);
-  text-transform: var(--accordion-header-text-transform);
-  padding: var(--accordion-header-mobile-padding);
-
-  @media (min-width: 768px) {
-    padding: var(--accordion-header-padding);
-  }
+  align-items: center;
+  width: 100%;
 
   &.ph-accordion-header-empty {
     padding-bottom: 0 !important;
 
     .ph-accordion-checkmark,
-    .ph-accordion-header__icon {
+    .ph-accordion-header-icon {
       display: none;
     }
   }
@@ -131,23 +129,24 @@ defineProps(props);
     width: 100%;
   }
 
-  .ph-accordion-header-chevron {
-    transition: transform 0.2s ease-in-out;
-    transform: rotate(-90deg);
-    &.expanded {
-      transform: rotate(0deg);
-    }
-  }
-
-  .ph-accordion-header__icon {
+  .ph-accordion-header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-left: auto;
-    margin-top: var(--accordion-icon-margin-top, 0.35em);
-    color: var(--accordion-header-icon-color);
+    color: var(--sd-theme-fg-default);
   }
 
   .ph-accordion-checkmark {
     margin-left: 8px;
-    color: var(--accordion-header-checkmark) !important;
+    color: var(--sd-theme-success-default);
   }
+}
+
+.ph-accordion-header-content {
+  @include token-heading('h5');
+  width: 100%;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 </style>

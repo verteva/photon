@@ -1,11 +1,8 @@
 const path = require('path');
 const { DefinePlugin, IgnorePlugin } = require('webpack');
 
-const {
-  STORYBOOK_THEME_LOCATION,
-  STORYBOOK_BRANDING_PATH,
-  NODE_ENV,
-} = process.env;
+const { STORYBOOK_THEME_LOCATION, STORYBOOK_BRANDING_PATH, NODE_ENV } =
+  process.env;
 
 const isBuild = NODE_ENV === 'production';
 
@@ -27,10 +24,14 @@ module.exports = ({ config }) => {
         loader: require.resolve('sass-loader'),
         options: {
           sourceMap: true,
+          sassOptions: {
+            data: '@import "./src/assets/scss/main.scss";',
+            prependData: '@import "./src/assets/scss/main.scss";',
+          },
         },
       },
     ],
-    include: path.resolve(__dirname, '../'),
+    include: [path.resolve(__dirname, '../')],
   });
 
   config.resolve.alias = {

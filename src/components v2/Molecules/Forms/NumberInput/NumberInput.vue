@@ -1,42 +1,44 @@
 <template>
   <div class="photon-input-number">
-    <div
+    <p2-button
       ref="decrease"
-      class="photon-input-number-button minus"
+      icon-left="minus"
+      class="ph-number-input-button minus"
       :class="{
         disabled: disabled || value === minVal,
       }"
+      data-testid="button-decrease"
       @click="!(disabled || value === minVal) && $emit('change:subtract')"
-    >
-      -
-    </div>
-    <p-input-text
+    />
+    <p2-input-text
       :id="id"
       ref="input"
       type="number"
       :value="value"
       :disabled="disabled"
+      class="ph-number-input-text-field"
       centered
       @focus="$emit('focus', $event)"
       @blur="$emit('blur', $event)"
       @input="$emit('input', $event)"
     />
-    <div
+    <p2-button
       ref="increase"
-      class="photon-input-number-button plus"
+      icon-left="plus"
+      class="ph-number-input-button plus"
       :class="{
         disabled: disabled || value === maxVal,
       }"
+      data-testid="button-increase"
       @click="!(disabled || value === maxVal) && $emit('change:add')"
-    >
-      +
-    </div>
+    />
   </div>
 </template>
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PInputText from '@/components v2/Atoms/Forms/InputText';
+import P2Button from '@/components v2/Atoms/Components/Button';
+import P2InputText from '@/components v2/Atoms/Forms/InputText';
 import { formProps } from '@/components v2/Atoms/Forms/globalProps';
 
 const { disabled } = formProps;
@@ -63,59 +65,33 @@ export const props = {
 
 export default Vue.extend({
   name: 'P2NumberInput',
-  components: { PInputText },
+  components: { P2Button, P2InputText },
   props,
 });
 </script>
 
-<style lang="scss" scoped>
-@import './src/assets/scss/_themehelpers.scss';
-
-@function getInputNumberThemeProperty($property, $state, $fallback: '') {
-  @return getThemeProperty(
-    'input-number',
-    $property,
-    'base',
-    $state,
-    $fallback
-  );
-}
-
-@function getInputNumberButtonThemeProperty($property, $state, $fallback: '') {
-  @return getThemeProperty(
-    'input-number-buttons',
-    $property,
-    'base',
-    $state,
-    $fallback
-  );
-}
-
+<style lang="scss">
 .photon-input-number {
   display: flex;
 
-  .photon-input-number-button {
-    font-size: getInputNumberButtonThemeProperty('font-size', '', 2.25rem);
-    line-height: getInputNumberThemeProperty('line-height', '', 2.5rem);
-    color: getInputNumberButtonThemeProperty('color', '', grey);
-    cursor: pointer;
-
-    &.plus {
-      margin-left: getInputNumberButtonThemeProperty('margin', '', 0);
-    }
+  .ph-number-input-button {
+    position: relative;
+    z-index: 1;
 
     &.minus {
-      margin-right: getInputNumberButtonThemeProperty('margin', '', 0);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
+    &.plus {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
 
-    &:hover {
-      color: getInputNumberButtonThemeProperty('color', 'hover', gray);
-    }
-
-    &.disabled {
-      cursor: not-allowed;
-      color: getInputNumberButtonThemeProperty('color', 'disabled', gray);
-    }
+  .ph-number-input-text-field input {
+    border-radius: 0 !important;
+    position: relative;
+    z-index: 0;
   }
 }
 </style>

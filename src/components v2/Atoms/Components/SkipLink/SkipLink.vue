@@ -38,28 +38,30 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
+@import '/src/assets/scss/main';
+
 .ph-skip-link {
   z-index: 50;
 
   .ph-skip-link-anchor {
-    background: var(--skip-link-base-background);
-    color: var(--skip-link-base-color);
     position: absolute;
     padding: 0;
     margin: 0;
-    font-size: var(--skip-link-base-font-size);
-    line-height: 1.5;
     width: 0;
     height: 0;
-    border-radius: var(--skip-link-base-border-radius);
     outline: 0;
     pointer-events: none;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
     opacity: 0;
+    border-radius: var(--sd-input-default-border-radius);
+    color: var(--sd-skiplink-default-text-color);
+    background: var(--sd-skiplink-default-background-color);
+    @include token-typography('sm', 'regular');
 
     &:focus {
-      padding: var(--skip-link-base-padding);
+      padding: var(--sd-button-sm-padding-top) var(--sd-button-sm-padding-right)
+        var(--sd-button-sm-padding-bottom) var(--sd-button-sm-padding-left);
       margin: 8px;
       width: auto;
       height: auto;

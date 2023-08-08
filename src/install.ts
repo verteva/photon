@@ -10,14 +10,22 @@ import {
   DefaultComputed,
   DefaultProps,
 } from 'vue/types/options';
+
+// Styles
+import './assets/css/main.css';
 import './assets/scss/main.scss';
+
+// Custom Modules
 import {
   parseBrandingJson,
   parseObject,
   flattenObjectToCssVars,
   replaceTemplateValue,
 } from './utils/parseBrandingJson';
-import { injectThemeCssVariables } from './utils/injectThemeCssVariables';
+import {
+  injectThemeCssVariables,
+  injectThemeCSSVariablesFromFile,
+} from './utils/injectThemeCssVariables';
 import {
   getFigmaTheme,
   getFigmaThemeNames,
@@ -25,6 +33,7 @@ import {
   getBuiltThemeFiles,
 } from './utils/figmaTheme';
 
+// Stores
 import * as toast from './components/Toast/store';
 import * as toastV2 from './components v2/store/toast';
 
@@ -45,7 +54,7 @@ export default {
         >
       ) => void;
     },
-  options?: options // eslint-disable-line
+    options?: options // eslint-disable-line
   ): void {
     for (const key in components) {
       const _key: PhotonComponentKeys = key;
@@ -62,11 +71,14 @@ export default {
     toastV2,
   },
   Components: componentsV2,
+
+  // Theme functions
   parseObject,
   parseBrandingJson,
   flattenObjectToCssVars,
   replaceTemplateValue,
   injectThemeCssVariables,
+  injectThemeCSSVariablesFromFile,
   figmaTheme: {
     getFigmaTheme,
     getFigmaThemeNames,

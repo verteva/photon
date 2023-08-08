@@ -131,12 +131,12 @@ Default.args = {
     {
       value: 1,
       label: 'On my own with you..',
-      icon: 'Apartment',
+      icon: 'house',
     },
     {
       value: '3',
       label: 'This is a photon radio icon checked',
-      icon: 'Apartment',
+      icon: 'house',
     },
     {
       value: 4,
@@ -170,12 +170,12 @@ const InteractiveTemplate = (args, { argTypes }) => ({
         {
           value: 'Hello world',
           label: 'On my own with you..',
-          icon: 'Telecommunications',
+          icon: 'phone',
         },
         {
           value: '3',
           label: 'This is a photon radio icon checked',
-          icon: 'Apartment',
+          icon: 'house',
         },
         {
           value: 4,

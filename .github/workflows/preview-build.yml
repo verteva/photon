@@ -33,17 +33,17 @@ jobs:
 #      - name: Create themes folder
 #        run: mkdir ./public/figmaThemes
 
-      - name: Create themes folder
-        run: mkdir ./public/cxThemes
+      #- name: Create themes folder
+        #run: mkdir ./public/cxThemes
 
-      - name: Fetch themes files.
-        run: ./scripts/gets3files.sh
+#      - name: Fetch themes files.
+        #run: ./scripts/gets3files.sh
 
       - name: Build Library
-        run: npm run build:figma
+        run: npm run build:lib
         env:
 #          STORYBOOK_THEME_URL: 'figmaThemes'
-          STORYBOOK_THEME_URL: 'cxThemes'
+          #STORYBOOK_THEME_URL: 'cxThemes'
 
 
 # Disabling AWS Storybook Instance build and deploy because we're having AWS cred issues

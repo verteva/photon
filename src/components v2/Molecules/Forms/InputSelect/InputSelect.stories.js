@@ -147,7 +147,7 @@ export const Default = Template.bind({});
 Default.args = {
   openIndicatorIcon: 'MenuDown',
   customLabelVar: 'label',
-  returnObj: true,
+  reduceValue: true,
   disabled: true,
   items: [
     {
@@ -167,12 +167,12 @@ Default.args = {
     },
   ],
 };
+
 export const Interactive = Template.bind({});
 Interactive.args = {
   openIndicatorIcon: 'MenuDown',
   customLabelVar: 'label',
-  simple: true,
-  returnObj: true,
+  reduceValue: false,
   disabled: false,
   initInput: 'test2',
   items: ['test1', 'test2', 'test3'],

@@ -10,7 +10,12 @@ describe('Headline.vue', () => {
 
   it('has photon-headline class', async () => {
     const el = wrapper.find('.photon-headline');
-
     expect(el.exists()).toBeTruthy();
+  });
+
+  it('has h4 element', async () => {
+    const element = 'h4';
+    await wrapper.setProps({ element });
+    expect(wrapper.html()).toContain('<h4');
   });
 });
