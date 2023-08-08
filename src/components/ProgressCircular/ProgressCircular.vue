@@ -135,16 +135,16 @@ export default Vue.extend({
 
 @keyframes progressCircularDash {
   0% {
-    strokedasharray: '1, 200';
-    strokedashoffset: '0px';
+    stroke-dasharray: '1, 200';
+    stroke-dashoffset: '0px';
   }
   50% {
-    strokedasharray: '100, 200';
-    strokedashoffset: '-15px';
+    stroke-dasharray: '100, 200';
+    stroke-dashoffset: '-15px';
   }
   100% {
-    strokedasharray: '100, 200';
-    strokedashoffset: '-125px';
+    stroke-dasharray: '100, 200';
+    stroke-dashoffset: '-125px';
   }
 }
 </style>

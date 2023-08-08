@@ -502,7 +502,6 @@ export default Vue.extend({
 }
 
 .vs__clear {
-  fill: currentColor;
   position: relative;
   width: 20px;
   height: 20px;

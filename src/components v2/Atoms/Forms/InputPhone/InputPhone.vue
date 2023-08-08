@@ -126,7 +126,6 @@ export default Vue.extend({
   input {
     border: none !important;
     border-radius: var(--sd-input-md-border-radius) !important;
-    border: none !important;
 
     &.input-tel__input {
       border: none !important;
