@@ -1,5 +1,10 @@
 <template>
-  <div class="radio-wrapper" :style="numRows" role="radiogroup">
+  <div
+    class="radio-wrapper"
+    :style="numRows"
+    :class="stacked && 'stacked'"
+    role="radiogroup"
+  >
     <P2RadioButton
       v-for="(item, index) in items"
       :id="`${item.label}-${id}`"
@@ -38,7 +43,7 @@ export const props = {
   },
   rows: {
     type: Number as PropType<number>,
-    default: 3,
+    default: 1,
   },
   selectedIndex: {
     type: Number as PropType<number>,
@@ -47,6 +52,10 @@ export const props = {
   name: {
     type: String as PropType<string>,
     default: '',
+  },
+  stacked: {
+    type: Boolean as PropType<boolean>,
+    default: true,
   },
   // Global props
   disabled,
@@ -75,15 +84,22 @@ export default Vue.extend({
   display: grid;
   gap: 20px;
   grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: row;
+
+  @media screen and (min-width: 640px) {
+    grid-auto-flow: column;
+  }
+
+  &.stacked {
+    grid-auto-flow: row !important;
+
+    > .ph-radio-item {
+      grid-column: inherit !important;
+    }
+  }
 }
 
 .ph-radio-button-grid-column {
   grid-column: auto / span 1;
-}
-
-@media screen and (min-width: 640px) {
-  .radio-wrapper {
-    grid-auto-flow: column;
-  }
 }
 </style>
