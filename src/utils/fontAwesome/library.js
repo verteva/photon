@@ -22,11 +22,13 @@ import {
   faLockKeyhole as fasLockKeyhole,
   faSquareCheck as fasSquareCheck,
   faThumbsUp as fasThumbsUp,
+  faHandHoldingUsd as fasHandHoldingUsd,
 } from '@fortawesome/pro-solid-svg-icons';
 
 import {
   faAngleLeft as falAngleLeft,
   faAngleRight as falAngleRight,
+  faArrowRight as falArrowRight,
   faArrowRightArrowLeft as falArrowRightArrowLeft,
   faBriefcase as falBriefcase,
   faBriefcaseMedical as falBriefcaseMedical,
@@ -44,6 +46,7 @@ import {
   faCircleExclamation as falCircleExclamation,
   faCircleInfo as falCircleInfo,
   faCirclePlus as falCirclePlus,
+  faClock as falClock,
   faClose as falClose,
   faCloudArrowUp as falCloudArrowUp,
   faCopy as falCopy,
@@ -137,11 +140,13 @@ const solidIcons = [
   fasLockKeyhole,
   fasSquareCheck,
   fasThumbsUp,
+  fasHandHoldingUsd,
 ];
 
 const lightIcons = [
   falAngleLeft,
   falAngleRight,
+  falArrowRight,
   falArrowRightArrowLeft,
   falBriefcase,
   falBriefcaseMedical,
@@ -159,6 +164,7 @@ const lightIcons = [
   falCircleExclamation,
   falCircleInfo,
   falCirclePlus,
+  falClock,
   falClose,
   falCloudArrowUp,
   falCopy,
