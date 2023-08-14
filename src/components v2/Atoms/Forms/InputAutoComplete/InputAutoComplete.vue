@@ -452,6 +452,7 @@ export default Vue.extend({
   flex-wrap: nowrap;
   min-width: 0;
   padding: 0;
+  overflow: hidden;
 
   input {
     -webkit-appearance: none;
@@ -474,7 +475,6 @@ export default Vue.extend({
 .vs__dropdown-menu {
   padding: 0;
   margin: 0;
-  max-height: 304px;
   border-radius: var(--sd-input-md-border-radius);
 }
 

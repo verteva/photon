@@ -6,6 +6,15 @@ export default {
   component: P2RadioButtonGroup,
   argTypes: {
     // Configurable component options in SB UI...
+    stacked: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
+  args: {
+    stacked: false,
+    rows: 1,
   },
 };
 
@@ -24,7 +33,7 @@ const Template = (args, { argTypes }) => ({
   `,
   data() {
     return {
-      clickedIndex: 2,
+      clickedIndex: 0,
       errs: [],
     };
   },
@@ -41,6 +50,25 @@ const Template = (args, { argTypes }) => ({
     },
   },
 });
+
+export const Default = Template.bind({});
+Default.args = {
+  name: 'radio-button-name',
+  items: [
+    {
+      value: 'Something here',
+      label: 'Something here',
+    },
+    {
+      value: 'Over there',
+      label: 'Over there',
+    },
+  ],
+  selectedIndex: 1,
+  rows: 1,
+  disabled: false,
+  stacked: false,
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -71,6 +99,7 @@ Disabled.args = {
   selectedIndex: 2,
   disabled: true,
 };
+
 export const Icons = Template.bind({});
 Icons.args = {
   name: 'radio-button-name',
@@ -206,18 +235,18 @@ FirstRadioFullWidth.args = {
       fullWidth: true,
     },
     {
+      value: 2,
       label: 'This is a photon radio icon checked',
       icon: 'house',
-      value: 'photon radio-checked',
       id: '1',
     },
     {
-      value: 4,
+      value: 3,
       label: 'With 4 people',
     },
   ],
   rows: 2,
-  selectedIndex: 2,
+  selectedIndex: 0,
 };
 
 export const Interactive = Template.bind({});
