@@ -1,3 +1,10 @@
+## [0.19.2](https://github.com/verteva/photon/compare/v0.19.1...v0.19.2) (2023-08-14)
+
+
+### Bug Fixes
+
+* radio button group stacked default false ([04292f7](https://github.com/verteva/photon/commit/04292f72f6f8f8f989f0cc243be6c23162c75fed))
+
 ## [0.17.2](https://github.com/verteva/photon/compare/v0.17.1...v0.17.2) (2023-06-02)
 
 
