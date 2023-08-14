@@ -475,7 +475,6 @@ export default Vue.extend({
 .vs__dropdown-menu {
   padding: 0;
   margin: 0;
-  max-height: 304px;
   border-radius: var(--sd-input-md-border-radius);
 }
 
