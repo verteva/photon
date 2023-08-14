@@ -452,6 +452,7 @@ export default Vue.extend({
   flex-wrap: nowrap;
   min-width: 0;
   padding: 0;
+  overflow: hidden;
 
   input {
     -webkit-appearance: none;
