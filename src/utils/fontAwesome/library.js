@@ -32,8 +32,13 @@ import {
   faArrowRightArrowLeft as falArrowRightArrowLeft,
   faBriefcase as falBriefcase,
   faBriefcaseMedical as falBriefcaseMedical,
+  faBuildingColumns as falBuildingColumns,
   faBus as falBus,
   faBusinessTime as falBusinessTime,
+  faCaretDown as falCaretDown,
+  faCaretLeft as falCaretLeft,
+  faCaretRight as falCaretRight,
+  faCaretUp as falCaretUp,
   faCheck as falCheck,
   faChevronDown as falChevronDown,
   faChevronLeft as falChevronLeft,
@@ -46,6 +51,8 @@ import {
   faCircleExclamation as falCircleExclamation,
   faCircleInfo as falCircleInfo,
   faCirclePlus as falCirclePlus,
+  faCircleQuestion as falCircleQuestion,
+  faCircleVideo as falCircleVideo,
   faClock as falClock,
   faClose as falClose,
   faCloudArrowUp as falCloudArrowUp,
@@ -89,17 +96,21 @@ import {
   faTshirt as falTshirt,
   faUniversalAccess as falUniversalAccess,
   faUpload as falUpload,
+  faVideo as falVideo,
   faWatchFitness as falWatchFitness,
   faXmark as falXmark,
 } from '@fortawesome/pro-light-svg-icons';
 
 import {
   faHouse as fatHouse,
+  faBuildingColumns as fatBuildingColumns,
   faHouseUser as fatHouseUser,
   faSackDollar as fatSackDollar,
 } from '@fortawesome/pro-thin-svg-icons';
 
 import { faCheckCircle as fadCheckCircle } from '@fortawesome/pro-duotone-svg-icons';
+
+import { faYoutube as fabYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import {
   faCircleDot as farCircleDot,
@@ -150,8 +161,13 @@ const lightIcons = [
   falArrowRightArrowLeft,
   falBriefcase,
   falBriefcaseMedical,
+  falBuildingColumns,
   falBus,
   falBusinessTime,
+  falCaretDown,
+  falCaretLeft,
+  falCaretRight,
+  falCaretUp,
   falCheck,
   falChevronDown,
   falChevronLeft,
@@ -164,6 +180,8 @@ const lightIcons = [
   falCircleExclamation,
   falCircleInfo,
   falCirclePlus,
+  falCircleQuestion,
+  falCircleVideo,
   falClock,
   falClose,
   falCloudArrowUp,
@@ -207,15 +225,18 @@ const lightIcons = [
   falTshirt,
   falUniversalAccess,
   falUpload,
+  falVideo,
   falWatchFitness,
   falXmark,
 ];
 
-const thinIcons = [fatHouse, fatHouseUser, fatSackDollar];
+const thinIcons = [fatHouse, fatHouseUser, fatSackDollar, fatBuildingColumns];
 
 const duotoneIcons = [fadCheckCircle];
 
 const customIcons = [fakTime];
+
+const brandIcons = [fabYoutube];
 
 library.add(
   ...regularIcons,
@@ -223,5 +244,6 @@ library.add(
   ...lightIcons,
   ...thinIcons,
   ...duotoneIcons,
-  ...customIcons
+  ...customIcons,
+  ...brandIcons
 );
