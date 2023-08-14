@@ -55,7 +55,7 @@ export const props = {
   },
   stacked: {
     type: Boolean as PropType<boolean>,
-    default: true,
+    default: false,
   },
   // Global props
   disabled,
