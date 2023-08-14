@@ -2,6 +2,7 @@ import { Component } from 'vue';
 import P2Form from './Atoms/Forms/Form';
 import P2Button from './Atoms/Components/Button';
 import P2Label from './Atoms/Forms/Label';
+import P2ErrorMessage from './Atoms/Forms/ErrorMessage';
 import P2InputMessage from './Atoms/Forms/InputMessage';
 import P2InputNumber from './Molecules/Forms/InputNumber';
 import P2InputText from './Molecules/Forms/InputText';
@@ -38,6 +39,7 @@ const components: PhotonComponents = {
   P2Button,
   P2InputNumber,
   P2InputText,
+  P2ErrorMessage,
   P2Card,
   P2Message,
   P2Toast,
