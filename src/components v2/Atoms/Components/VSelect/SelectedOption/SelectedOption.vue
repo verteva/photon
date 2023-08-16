@@ -91,14 +91,11 @@ export default Vue.extend({
 .ph-autocomplete-selected {
   display: flex;
   padding: 0;
-  //padding-top: 2px;
-  //padding-bottom: 2px;
-  //min-width: 0;
+  max-width: 100%;
   padding-bottom: var(--sd-input-text-md-padding-bottom);
   padding-left: var(--sd-input-text-md-padding-left);
   padding-right: var(--sd-input-text-md-padding-right);
   padding-top: var(--sd-input-text-md-padding-top);
-
   font-family: var(--sd-input-text-md-typography-font-family);
   font-size: var(--sd-input-text-md-typography-font-size);
   font-weight: var(--sd-input-text-md-typography-font-weight);
@@ -115,22 +112,10 @@ export default Vue.extend({
     color: var(--autocomplete-focus-svg-icon-color);
   }
 
-  /*
-  .ph-autocomplete-spacing {
-    width: 32px;
-
-    &.ph-autocomplete-extra-spacing {
-      width: 12px;
-    }
-  }
-  */
-
   .ph-autocomplete-selected-label {
     overflow: hidden;
     text-overflow: ellipsis;
-    //padding-top: 2px;
     white-space: nowrap;
-    //line-height: 40px;
   }
 
   + .ph-autocomplete-search .ph-autocomplete-prefix-icon {

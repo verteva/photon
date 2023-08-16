@@ -410,8 +410,7 @@ export default Vue.extend({
   --vs-dropdown-option-padding: var(--sd-input-text-md-padding-top)
     var(--sd-input-text-md-padding-right) var(--sd-input-text-md-padding-bottom)
     var(--sd-input-text-md-padding-left);
-  --vs-actions-padding: 4px 6px 0 3px;
-  --vs-actions-padding: 0px var(--sd-input-text-md-padding-right);
+  --vs-actions-padding: 0px var(--sd-input-text-md-padding-right) 0 0;
 
   .vs__dropdown-toggle {
     border-radius: var(--sd-input-md-border-radius);
@@ -432,6 +431,15 @@ export default Vue.extend({
         color: var(--sd-input-text-focus-icon-color);
       }
     }
+
+    &[aria-expanded='false'] {
+      .vs__selected + .ph-autocomplete-search {
+        .vs__search {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
   }
 }
 
@@ -442,6 +450,7 @@ export default Vue.extend({
   min-width: 0;
   max-width: 100%;
   color: var(--sd-theme-input-text-color);
+  overflow: hidden;
 
   & + .ph-autocomplete-search .ph-autocomplete-prefix-icon {
     display: none;
