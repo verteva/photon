@@ -1,3 +1,10 @@
+## [0.19.3](https://github.com/verteva/photon/compare/v0.19.2...v0.19.3) (2023-08-16)
+
+
+### Bug Fixes
+
+* autocomplete selected item ellipsis and spacing tweak ([051ffea](https://github.com/verteva/photon/commit/051ffea71e9a4ecc92ac408f2c36ff7ff7fdb418))
+
 ## [0.17.2](https://github.com/verteva/photon/compare/v0.17.1...v0.17.2) (2023-06-02)
 
 
