@@ -1,3 +1,10 @@
+## [0.19.4](https://github.com/verteva/photon/compare/v0.19.3...v0.19.4) (2023-08-23)
+
+
+### Bug Fixes
+
+* autocomplete ajax search, footer, dropdown show and props alignment ([a6c8779](https://github.com/verteva/photon/commit/a6c8779afd37b050b44802aa1c367778a3503ea7))
+
 ## [0.17.2](https://github.com/verteva/photon/compare/v0.17.1...v0.17.2) (2023-06-02)
 
 
