@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="showFooter && addFooter && hasFooterSlot"
+    v-if="showFooter && hasFooterSlot"
     class="ph-autocomplete__option--footer"
   >
     <slot />
@@ -14,10 +14,6 @@ export const props = {
   showFooter: {
     type: Boolean as PropType<boolean>,
     default: true,
-  },
-  addFooter: {
-    type: Boolean as PropType<boolean>,
-    default: false,
   },
 };
 
