@@ -37,7 +37,7 @@ export const Default = Template.bind({});
 Default.args = {
   initInput: '',
   disabled: true,
-  disableFilter: true,
+  searchable: false,
   noDropOnStart: true,
 };
 
@@ -46,7 +46,7 @@ Placeholder.args = {
   placeHolder: 'Search for your property',
   initInput: '',
   disabled: true,
-  disableFilter: true,
+  searchable: false,
   noDropOnStart: true,
 };
 
@@ -56,7 +56,7 @@ LongPlaceholder.args = {
     'Search for your property, Search for your property, Search for your property, Search for your property',
   initInput: '',
   disabled: true,
-  disableFilter: true,
+  searchable: false,
   noDropOnStart: true,
 };
 
@@ -65,7 +65,7 @@ Loading.args = {
   loading: true,
   initInput: '',
   disabled: true,
-  disableFilter: true,
+  searchable: false,
   noDropOnStart: true,
 };
 
@@ -211,7 +211,7 @@ InputPrefixIcon.args = {
   text: 'Search for your <b>property</b>',
   prefixIcon: 'house',
   footer: "Can't find your address? <a href='#'>Enter it manually</a>",
-  disableFilter: true,
+  searchable: false,
   optionItems: [
     {
       code: '001',

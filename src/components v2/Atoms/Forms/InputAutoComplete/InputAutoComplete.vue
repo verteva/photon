@@ -20,8 +20,9 @@
         :class="'ph-autocomplete-open' && toggleMenu"
         :clearable="!hideClearBtn"
         :dropdown-should-open="dropdownShouldOpen"
-        v-bind="filter"
-        :searchable="!disableFilter"
+        :filterable="filterable"
+        :searchable="searchable"
+        :loading="loading"
         @input="onInput"
         @search="onSearch"
         @search:blur="$emit('blur')"
@@ -43,7 +44,7 @@
             @blur="onBlur"
           />
         </template>
-        <template v-if="!disableFilter" #selected-option="option">
+        <template v-if="searchable" #selected-option="option">
           <SelectedOption
             :allow-option-icon="selectedOptionAllowOptionIcon"
             :show-selected-icon="showSelectedIcon"
@@ -233,9 +234,13 @@ export const props = {
     type: [Number, String, Object] as PropType<string | number>,
     default: null,
   },
-  disableFilter: {
+  searchable: {
     type: Boolean as PropType<boolean>,
-    default: false,
+    default: true,
+  },
+  filterable: {
+    type: Boolean as PropType<boolean>,
+    default: true,
   },
   reduceValue: {
     type: Boolean as PropType<boolean>,
@@ -283,19 +288,6 @@ export default Vue.extend({
       placement: 'top',
     };
   },
-  computed: {
-    addFooter() {
-      return (this as any).optionItems.length > 0;
-    },
-    filter() {
-      let props = {};
-      if (!this.disableFilter) {
-        // This line breaks filtering
-        // props['filter'] = () => (this as any).defaultFilter(this.optionItems);
-      }
-      return props;
-    },
-  },
   created() {
     const selected = (this as any).getSelected((this as any).initInput);
     this.$data.selected = selected
@@ -310,14 +302,7 @@ export default Vue.extend({
   },
   methods: {
     dropdownShouldOpen(VueSelect) {
-      if (
-        this.noDropOnStart &&
-        this.optionItems.length > 0 &&
-        this.$data.toggleMenu
-      ) {
-        return VueSelect.open;
-      }
-      return VueSelect.open && !this.disabled && this.optionItems.length > 0;
+      return VueSelect.open;
     },
 
     getSelected(input: string) {
@@ -326,43 +311,52 @@ export default Vue.extend({
       )[0];
       return option || null;
     },
+
     validateIcon(option: { icon: string }) {
       return option.icon ? option.icon : null;
     },
+
     onSearch(search: string) {
       this.$data.searchText = search;
       this.$emit('update:searchInput', search);
     },
+
     onInput(val: string) {
       this.$emit('blur');
       this.$data.toggleMenu = false;
       this.$emit('update:selected', this.$data.selected);
       this.$emit('update:value', val);
     },
+
     onFocus() {
       this.$data.focused = true;
       this.$emit('onFocus');
     },
+
     onOpen() {
       (this as any).focused = true;
       (this as any).toggleMenu = true;
       this.$emit('onFocus');
     },
+
     onBlur() {
       (this as any).focused = false;
       this.$emit('onBlur');
     },
+
     onClose() {
       (this as any).focused = false;
       (this as any).toggleMenu = false;
       this.$emit('onBlur');
     },
+
     onSelected(selectedOption: any) {
       let returnSelectedObj = this.reduce
         ? selectedOption[this.optionLabelVar]
         : selectedOption;
       this.$emit('selectedObj', returnSelectedObj);
     },
+
     withPopper(dropdownList, component, { width }) {
       dropdownList.style.width = width;
       const popper = createPopper(component.$refs.toggle, dropdownList, {
