@@ -1,4 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx commitlint --edit 
+if [[ "$OS" == "Windows_NT" ]]; then
+  npx.cmd commitlint --edit
+else
+  npx commitlint --edit
+fi

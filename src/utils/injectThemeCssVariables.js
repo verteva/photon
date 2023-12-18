@@ -30,8 +30,7 @@ export const injectThemeCSSVariablesFromFile = (css_file_href) => {
     document.getElementById('theme-css-variables') ||
     document.createElement('style');
 
-  console.log('Inserting CSS variables:', css_file_href);
-
+  //console.log('Inserting CSS variables:', css_file_href);
   const request = new XMLHttpRequest();
   request.addEventListener('load', (e) => {
     if (request.status >= 200 && request.status < 400) {
