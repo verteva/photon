@@ -75,6 +75,13 @@ export default Vue.extend({
     onlyCountries(): string[] {
       return (this as any).countries;
     },
+    isValid(): boolean {
+      return (
+        (typeof this.$refs.input !== 'undefined' ||
+          typeof this.$refs.input.isValid !== 'undefined') &&
+        this.$refs.input.isValid === true
+      );
+    },
   },
 
   methods: {

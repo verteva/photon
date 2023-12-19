@@ -13,6 +13,7 @@
     }"
   >
     <P2InputPhone
+      ref="inputPhone"
       :placeholder="placeholder"
       :disabled="disabled"
       :value="value"
@@ -75,7 +76,15 @@ export default Vue.extend({
   },
 
   props,
+
+  computed: {
+    isValid(): boolean {
+      return (
+        (typeof this.$refs.inputPhone !== 'undefined' ||
+          typeof this.$refs.inputPhone.isValid !== 'undefined') &&
+        this.$refs.inputPhone.isValid === true
+      );
+    },
+  },
 });
 </script>
-
-<style lang="scss" scoped></style>
