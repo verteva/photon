@@ -168,48 +168,50 @@
   "theme": {
     "primary": {
       "default": "#3b4e98",
-      "subtle": "#e6e8f5",
       "muted": "#406bba",
       "emphasis": "#2d296b",
       "disabled": "#e0e0e0",
       "on-primary": "#ffffff",
+      "subtle": "#e6e8f5",
       "on-subtle": "#1e1456",
       "on-disabled": "#525252"
     },
     "secondary": {
       "default": "#0086a8",
-      "subtle": "#cfecf2",
       "muted": "#00bbd1",
       "emphasis": "#005d76",
       "disabled": "#e0e0e0",
       "on-secondary": "#ffffff",
+      "subtle": "#cfecf2",
       "on-subtle": "#004f62",
       "on-disabled": "#525252"
     },
     "tertiary": {
       "default": "#938ebf",
-      "subtle": "#ecebf5",
       "muted": "#bab4da",
       "emphasis": "#625d97",
       "disabled": "#e0e0e0",
       "on-tertiary": "#ffffff",
+      "subtle": "#ecebf5",
       "on-subtle": "#514d81",
       "on-disabled": "#525252"
     },
     "info": {
       "default": "#3b4e98",
-      "subtle": "#e6e8f5",
       "muted": "#406bba",
       "emphasis": "#2d296b",
       "on-info": "#ffffff",
-      "on-subtle": "#3b3c81"
+      "subtle": "#e6e8f5",
+      "on-subtle": "#3b3c81",
+      "light": "#b1bafb",
+      "on-light": "#0c1131"
     },
     "warning": {
       "default": "#f79009",
-      "subtle": "#fffcf5",
       "muted": "#fec84b",
       "emphasis": "#dc6803",
       "on-warning": "#000000",
+      "subtle": "#fffcf5",
       "on-subtle": "#93370d",
       "light": "#fedf89",
       "on-light": "#7a2e0e",
@@ -217,10 +219,10 @@
     },
     "success": {
       "default": "#12b76a",
-      "subtle": "#f6fef9",
       "muted": "#6ce9a6",
       "emphasis": "#039855",
       "on-success": "#ffffff",
+      "subtle": "#f6fef9",
       "on-subtle": "#05603a",
       "light": "#a6f4c5",
       "on-light": "#054f31"
@@ -1456,7 +1458,7 @@
     }
   },
   "paragraph": {
-    "margin-bottom-em": "1",
+    "margin-bottom-em": "1.0",
     "lg": {
       "margin-bottom": "18px"
     },
@@ -2093,7 +2095,7 @@
       "default": {
         "text-color": "#3b4e98",
         "icon-color": "#3b4e98",
-        "divider-color": "lch(51 33.8 284)"
+        "divider-color": "#6f76b2"
       },
       "hover": {
         "text-color": "#3b4e98",
