@@ -68,8 +68,14 @@ StartingCountry.args = {
   defaultCountryCode: 'GB',
 };
 
+export const ThreeNumberCountryCodes = Template.bind({});
+ThreeNumberCountryCodes.args = {
+  countries: ['AU', 'NZ', 'PT', 'SC'],
+  defaultCountryCode: 'SC',
+};
+
 export const Interactive = Template.bind({});
 Interactive.args = {
-  countries: ['AU', 'NZ', 'US'],
+  countries: ['AU', 'NZ', 'US', 'GB'],
   defaultCountryCode: 'AU',
 };

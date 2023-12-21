@@ -7,7 +7,7 @@
       :default-country-code="defaultCountryCode"
       :only-countries="onlyCountries"
       :translations="{
-        countrySelectorLabel: 'Country code',
+        countrySelectorLabel: 'Country',
         phoneNumberLabel: placeholder,
       }"
       :disabled="disabled"
@@ -98,6 +98,24 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+.maz-phone-number-input .country-selector {
+  $country-width: 7.35rem;
+  flex: 0 0 $country-width !important;
+  width: $country-width !important;
+  min-width: $country-width !important;
+  max-width: $country-width !important;
+}
+
+.maz-input--primary.input-phone-number.has-1-right-icon {
+  .maz-input__input.has-right-icon {
+    padding-right: 0.8571rem !important;
+  }
+
+  .maz-input__toggle-btn.--clear {
+    display: none !important;
+  }
+}
+
 .maz-select--primary .maz-select__options-list__item.selected {
   background: var(--sd-theme-primary-subtle) !important;
   color: var(--maz-text-color);
