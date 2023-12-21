@@ -9,19 +9,14 @@ export default {
         type: 'text',
       },
     },
-    value: {
-      control: {
-        type: 'text',
-      },
-    },
-    borderRadius: {
-      control: {
-        type: 'number',
-      },
-    },
     countries: {
       control: {
         type: 'object',
+      },
+    },
+    defaultPhoneNumber: {
+      control: {
+        type: 'text',
       },
     },
     defaultCountryCode: {
@@ -52,30 +47,6 @@ const Template = (args, { argTypes }) => ({
   `,
 });
 
-const InteractiveTemplate = (args, { argTypes }) => ({
-  components: { PInputPhone },
-  props: Object.keys(argTypes),
-  template: `
-    <div>
-      <p-input-phone
-        v-bind='$props'
-        :value="innerValue"
-        @input="onChange"
-      />
-    </div>
-  `,
-  data() {
-    return {
-      innerValue: '',
-    };
-  },
-  methods: {
-    onChange(e) {
-      this.innerValue = e;
-    },
-  },
-});
-
 export const Default = Template.bind({});
 Default.args = {
   // Props to be passed....
@@ -97,7 +68,14 @@ StartingCountry.args = {
   defaultCountryCode: 'GB',
 };
 
-export const Interactive = InteractiveTemplate.bind({});
+export const ThreeNumberCountryCodes = Template.bind({});
+ThreeNumberCountryCodes.args = {
+  countries: ['AU', 'NZ', 'PT', 'SC'],
+  defaultCountryCode: 'SC',
+};
+
+export const Interactive = Template.bind({});
 Interactive.args = {
-  // Props to be passed....
+  countries: ['AU', 'NZ', 'US', 'GB'],
+  defaultCountryCode: 'AU',
 };

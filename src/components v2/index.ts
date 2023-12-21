@@ -1,5 +1,6 @@
 import { Component } from 'vue';
 import P2Form from './Atoms/Forms/Form';
+import P2FormControl from './Molecules/Forms/FormControl';
 import P2Button from './Atoms/Components/Button';
 import P2Label from './Atoms/Forms/Label';
 import P2ErrorMessage from './Atoms/Forms/ErrorMessage';
@@ -36,6 +37,7 @@ export interface PhotonComponents {
 
 const components: PhotonComponents = {
   P2Form,
+  P2FormControl,
   P2Button,
   P2InputNumber,
   P2InputText,

@@ -7,6 +7,10 @@ import store from '@/components/store';
 //import externalStore from '@/components v2/store';
 import { injectThemeCSSVariablesFromFile } from '@/utils/injectThemeCssVariables';
 import { ThemeBar } from './themeBar';
+// Maz-UI CSS and components
+import 'maz-ui/lib/css/base.css';
+import 'maz-ui/lib/css/maz-phone-number-input.css';
+// Styles
 import '@/assets/css/main.css';
 import '@/assets/scss/main.scss';
 import '@/utils/fontAwesome/setup';
@@ -40,7 +44,7 @@ export const withTheme = (story) => {
         async handler(val) {
           // Load theme CSS variables
           injectThemeCSSVariablesFromFile(
-            `/branding/${val}/tokens/css/variables-refs.css`
+            `/branding/${val}/tokens/css/variables.css`
           );
         },
         immediate: true,

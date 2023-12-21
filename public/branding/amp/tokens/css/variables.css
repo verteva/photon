@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 07 Aug 2023 01:33:58 GMT
+ * Generated on Mon, 18 Dec 2023 06:45:19 GMT
  */
 
 :root {
@@ -127,49 +127,51 @@
   --sd-line-height-body-relaxed: 1.75;
   --sd-line-height-body-default: 1.5;
   --sd-theme-primary-default: #3b4e98;
-  --sd-theme-primary-subtle: #e6e8f5;
   --sd-theme-primary-muted: #406bba;
   --sd-theme-primary-emphasis: #2d296b;
   --sd-theme-primary-disabled: #e0e0e0;
   --sd-theme-primary-on-primary: #ffffff;
+  --sd-theme-primary-subtle: #e6e8f5;
   --sd-theme-primary-on-subtle: #1e1456;
   --sd-theme-primary-on-disabled: #525252;
   --sd-theme-secondary-default: #0086a8;
-  --sd-theme-secondary-subtle: #cfecf2;
   --sd-theme-secondary-muted: #00bbd1;
   --sd-theme-secondary-emphasis: #005d76;
   --sd-theme-secondary-disabled: #e0e0e0;
   --sd-theme-secondary-on-secondary: #ffffff;
+  --sd-theme-secondary-subtle: #cfecf2;
   --sd-theme-secondary-on-subtle: #004f62;
   --sd-theme-secondary-on-disabled: #525252;
   --sd-theme-tertiary-default: #938ebf;
-  --sd-theme-tertiary-subtle: #ecebf5;
   --sd-theme-tertiary-muted: #bab4da;
   --sd-theme-tertiary-emphasis: #625d97;
   --sd-theme-tertiary-disabled: #e0e0e0;
   --sd-theme-tertiary-on-tertiary: #ffffff;
+  --sd-theme-tertiary-subtle: #ecebf5;
   --sd-theme-tertiary-on-subtle: #514d81;
   --sd-theme-tertiary-on-disabled: #525252;
   --sd-theme-info-default: #3b4e98;
-  --sd-theme-info-subtle: #e6e8f5;
   --sd-theme-info-muted: #406bba;
   --sd-theme-info-emphasis: #2d296b;
   --sd-theme-info-on-info: #ffffff;
+  --sd-theme-info-subtle: #e6e8f5;
   --sd-theme-info-on-subtle: #3b3c81;
+  --sd-theme-info-light: #b1bafb;
+  --sd-theme-info-on-light: #0c1131;
   --sd-theme-warning-default: #f79009;
-  --sd-theme-warning-subtle: #fffcf5;
   --sd-theme-warning-muted: #fec84b;
   --sd-theme-warning-emphasis: #dc6803;
   --sd-theme-warning-on-warning: #000000;
+  --sd-theme-warning-subtle: #fffcf5;
   --sd-theme-warning-on-subtle: #93370d;
   --sd-theme-warning-light: #fedf89;
   --sd-theme-warning-on-light: #7a2e0e;
   --sd-theme-warning-on-error: #ffffff;
   --sd-theme-success-default: #12b76a;
-  --sd-theme-success-subtle: #f6fef9;
   --sd-theme-success-muted: #6ce9a6;
   --sd-theme-success-emphasis: #039855;
   --sd-theme-success-on-success: #ffffff;
+  --sd-theme-success-subtle: #f6fef9;
   --sd-theme-success-on-subtle: #05603a;
   --sd-theme-success-light: #a6f4c5;
   --sd-theme-success-on-light: #054f31;
@@ -1020,7 +1022,7 @@
   --sd-typography-value-sm-savings-paragraph-spacing: 0;
   --sd-typography-value-sm-savings-text-case: none;
   --sd-typography-value-sm-savings-text-decoration: none;
-  --sd-paragraph-margin-bottom-em: 1;
+  --sd-paragraph-margin-bottom-em: 1.0;
   --sd-paragraph-lg-margin-bottom: 18px;
   --sd-paragraph-md-margin-bottom: 16px;
   --sd-paragraph-sm-margin-bottom: 14px;
@@ -1383,7 +1385,7 @@
   --sd-app-offcanvas-link-color: #3b4e98;
   --sd-app-offcanvas-menu-default-text-color: #3b4e98;
   --sd-app-offcanvas-menu-default-icon-color: #3b4e98;
-  --sd-app-offcanvas-menu-default-divider-color: lch(51 33.8 284);
+  --sd-app-offcanvas-menu-default-divider-color: #6f76b2;
   --sd-app-offcanvas-menu-hover-text-color: #3b4e98;
   --sd-app-offcanvas-menu-hover-icon-color: #3b4e98;
   --sd-app-offcanvas-menu-focus-text-color: #3b4e98;
