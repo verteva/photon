@@ -40,7 +40,7 @@ export const withTheme = (story) => {
         async handler(val) {
           // Load theme CSS variables
           injectThemeCSSVariablesFromFile(
-            `/branding/${val}/tokens/css/variables-refs.css`
+            `/branding/${val}/tokens/css/variables.css`
           );
         },
         immediate: true,
