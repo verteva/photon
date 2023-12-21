@@ -7,6 +7,10 @@ import store from '@/components/store';
 //import externalStore from '@/components v2/store';
 import { injectThemeCSSVariablesFromFile } from '@/utils/injectThemeCssVariables';
 import { ThemeBar } from './themeBar';
+// Maz-UI CSS and components
+import 'maz-ui/lib/css/base.css';
+import 'maz-ui/lib/css/maz-phone-number-input.css';
+// Styles
 import '@/assets/css/main.css';
 import '@/assets/scss/main.scss';
 import '@/utils/fontAwesome/setup';

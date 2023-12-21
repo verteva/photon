@@ -92,14 +92,27 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
     <div>
-    <InputPhone v-bind="$props" v-model="name" />
-    <div> Value: {{ name }}</div>
+      <InputPhone v-bind="$props" v-model="value" @update="onUpdateInside" />
+      <div style="margin-top: 20px; font-size: 12px;">
+        <div>isValid: {{ isValid }}</div>
+        <div>Value: {{ value }}</div>
+        <div>Results: {{ results }}</div>
+      </div>
     </div>
   `,
   data() {
     return {
-      name: '',
+      value: '',
+      results: {},
+      isValid: false,
     };
+  },
+  methods: {
+    onUpdateInside(e) {
+      this.isValid = e.isValid;
+      this.results = e;
+      this.value = e.isValid ? e.e164 : '';
+    },
   },
 });
 
