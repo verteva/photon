@@ -16,12 +16,13 @@
       ref="inputPhone"
       :placeholder="placeholder"
       :disabled="disabled"
-      :value="value"
+      :default-phone-number="defaultPhoneNumber"
       :default-country-code="defaultCountryCode"
       :countries="countries"
+      @input="$emit('input', $event)"
+      @update="onUpdate"
       @blur="$emit('blur', $event)"
       @focus="$emit('focus', $event)"
-      @input="$emit('input', $event)"
     />
   </P2FormControl>
 </template>
@@ -47,7 +48,8 @@ const {
   hideError,
 } = FormControlProps;
 
-const { placeholder, value, countries, defaultCountryCode } = InputPhoneProps;
+const { placeholder, countries, defaultPhoneNumber, defaultCountryCode } =
+  InputPhoneProps;
 
 export const props = {
   // General Props
@@ -61,11 +63,11 @@ export const props = {
   messageIcon,
   error,
   hideError,
-  // InputText Props
+  // InputPhone Props
   placeholder,
-  value,
   countries,
   defaultCountryCode,
+  defaultPhoneNumber,
 };
 
 export default Vue.extend({
@@ -77,13 +79,20 @@ export default Vue.extend({
 
   props,
 
-  computed: {
-    isValid(): boolean {
-      return (
-        (typeof this.$refs.inputPhone !== 'undefined' ||
-          typeof this.$refs.inputPhone.isValid !== 'undefined') &&
-        this.$refs.inputPhone.isValid === true
-      );
+  data() {
+    return {
+      value: '',
+      results: {},
+      isValid: false,
+    };
+  },
+
+  methods: {
+    onUpdate(e) {
+      this.isValid = e.isValid;
+      this.results = e;
+      this.value = e.isValid ? e.e164 : '';
+      this.$emit('update', e);
     },
   },
 });

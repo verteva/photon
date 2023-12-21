@@ -11,6 +11,9 @@ import {
   DefaultProps,
 } from 'vue/types/options';
 
+// Maz-UI CSS and components
+import 'maz-ui/lib/css/base.css';
+import 'maz-ui/lib/css/maz-phone-number-input.css';
 // Styles
 import './assets/css/main.css';
 import './assets/scss/main.scss';
