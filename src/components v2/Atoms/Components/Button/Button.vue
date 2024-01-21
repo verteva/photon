@@ -399,7 +399,6 @@ export default Vue.extend({
     .label {
       position: relative;
       display: flex;
-      z-index: 5;
       width: 100%;
       justify-content: center;
       align-items: center;
