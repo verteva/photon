@@ -12,12 +12,13 @@
       }"
       :disabled="disabled"
       no-search
+      no-example
       no-validation
       show-code-on-list
       @input="$emit('input', $event)"
       @update="onUpdate"
-      @phone-number-focused="onFocus"
-      @phone-number-blur="onBlur"
+      @focus="onFocus"
+      @blur="onBlur"
     />
   </div>
 </template>
